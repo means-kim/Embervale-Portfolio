@@ -12,5 +12,7 @@ public class TEST1 : MonoBehaviour
         Debug.Log("Hello Worl1d");
         Debug.Log("Hello Worl1d");
         Debug.Log("Hello Worl1d");
+        Debug.Log("Hello Worl1d");
+        Debug.Log("Hello Worl1d");
     }
 }
