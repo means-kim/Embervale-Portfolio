@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: b532056f9f53eb54caa43496ace12d8f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5168506495615284372
+    second: Player_DoubleJump_12f_Grid512_0
+  - first:
+      213: 2370376960586824093
+    second: Player_DoubleJump_12f_Grid512_1
+  - first:
+      213: 957618187822227347
+    second: Player_DoubleJump_12f_Grid512_2
+  - first:
+      213: 6826515103020680146
+    second: Player_DoubleJump_12f_Grid512_3
+  - first:
+      213: 2406481152283187140
+    second: Player_DoubleJump_12f_Grid512_4
+  - first:
+      213: 6140618260442201165
+    second: Player_DoubleJump_12f_Grid512_5
+  - first:
+      213: -7503584703889923415
+    second: Player_DoubleJump_12f_Grid512_6
+  - first:
+      213: 5598281297728510068
+    second: Player_DoubleJump_12f_Grid512_7
+  - first:
+      213: 5861845565260208075
+    second: Player_DoubleJump_12f_Grid512_8
+  - first:
+      213: -462297670499105114
+    second: Player_DoubleJump_12f_Grid512_9
+  - first:
+      213: 2244186173503943865
+    second: Player_DoubleJump_12f_Grid512_10
+  - first:
+      213: 8291456674541637323
+    second: Player_DoubleJump_12f_Grid512_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_0
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1122
+        width: 192
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b4d85e9b6c548b0800000000000000
+      internalID: -5168506495615284372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_1
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 1108
+        width: 194
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d993c8f694545e020800000000000000
+      internalID: 2370376960586824093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_2
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1148
+        width: 191
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39fd89b0ba42a4d00800000000000000
+      internalID: 957618187822227347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_3
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1139
+        width: 200
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d303695157acbe50800000000000000
+      internalID: 6826515103020680146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 644
+        width: 191
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c71380abd9856120800000000000000
+      internalID: 2406481152283187140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_5
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 649
+        width: 212
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c3fe206cbd73550800000000000000
+      internalID: 6140618260442201165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_6
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 637
+        width: 189
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2269ea779edd790800000000000000
+      internalID: -7503584703889923415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_7
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 634
+        width: 208
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47812d7ed2711bd40800000000000000
+      internalID: 5598281297728510068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_8
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 139
+        width: 193
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc79885fb75795150800000000000000
+      internalID: 5861845565260208075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_9
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 139
+        width: 205
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a60961d7b69599f0800000000000000
+      internalID: -462297670499105114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_10
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 99
+        width: 201
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4bb814f63f42f10800000000000000
+      internalID: 2244186173503943865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_DoubleJump_12f_Grid512_11
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 98
+        width: 211
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce889c5aeb211370800000000000000
+      internalID: 8291456674541637323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Player_DoubleJump_12f_Grid512_0: -5168506495615284372
+      Player_DoubleJump_12f_Grid512_1: 2370376960586824093
+      Player_DoubleJump_12f_Grid512_10: 2244186173503943865
+      Player_DoubleJump_12f_Grid512_11: 8291456674541637323
+      Player_DoubleJump_12f_Grid512_2: 957618187822227347
+      Player_DoubleJump_12f_Grid512_3: 6826515103020680146
+      Player_DoubleJump_12f_Grid512_4: 2406481152283187140
+      Player_DoubleJump_12f_Grid512_5: 6140618260442201165
+      Player_DoubleJump_12f_Grid512_6: -7503584703889923415
+      Player_DoubleJump_12f_Grid512_7: 5598281297728510068
+      Player_DoubleJump_12f_Grid512_8: 5861845565260208075
+      Player_DoubleJump_12f_Grid512_9: -462297670499105114
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
