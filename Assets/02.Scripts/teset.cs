@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class test : MonoBehaviour
+public class Teset : MonoBehaviour
 {
     private void Start()
     {
-        
     }
-    
-    
 
     private void Update()
     {
-        
     }
 }
