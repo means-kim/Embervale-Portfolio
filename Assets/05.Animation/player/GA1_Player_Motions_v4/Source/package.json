@@ -1,0 +1,14 @@
+{
+  "name": "ga1-player-motions-v4-source",
+  "private": true,
+  "description": "Offline sprite packing and preview scripts; not required to use this pack in Unity.",
+  "scripts": {
+    "build": "node build_motions.cjs",
+    "preview": "node build_previews.cjs",
+    "verify": "node verify.cjs"
+  },
+  "dependencies": {
+    "sharp": "0.35.4",
+    "@napi-rs/canvas": "0.1.100"
+  }
+}

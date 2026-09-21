@@ -1,0 +1,12 @@
+{
+  "name": "ga1-idle-v3-source",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node rebuild_idle.cjs"
+  },
+  "dependencies": {
+    "sharp": "0.35.4",
+    "@napi-rs/canvas": "0.1.100"
+  }
+}
