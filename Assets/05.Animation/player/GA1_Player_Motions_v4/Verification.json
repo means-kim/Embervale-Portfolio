@@ -1,0 +1,787 @@
+{
+  "passed": true,
+  "clipCount": 16,
+  "totalFrames": 101,
+  "cell": [
+    512,
+    512
+  ],
+  "pivot": [
+    0.5,
+    0.19921875
+  ],
+  "ppu": 200,
+  "atlasCellsByteIdentical": true,
+  "unusedCellsTransparent": true,
+  "minimumMeaningfulAlphaPaddingPx": 42,
+  "timingMonotonic": true,
+  "visualDirectionReview": "All selected upright action keyposes face right. Full somersault rotates the same drawing through 360 degrees. Mirrored run source poses excluded.",
+  "unityEditorExecuted": false,
+  "gameplayTransitionsExecuted": false,
+  "notes": [
+    "Sprite animation only: root motion, physical displacement, hitboxes and invulnerability are owned by the game.",
+    "Run GIF samples at 48 fps; overview and other GIFs at 20 fps. Authoritative clip timing is Motions.json.",
+    "A consistent head-area calibration corrects generated key-art scale; pose height is intentionally not normalized."
+  ],
+  "clips": [
+    {
+      "name": "Run",
+      "count": 10,
+      "uniqueRenders": 10,
+      "duration": 0.5,
+      "loop": true,
+      "bounds": [
+        [
+          138,
+          74,
+          346,
+          410
+        ],
+        [
+          144,
+          71,
+          347,
+          410
+        ],
+        [
+          149,
+          76,
+          346,
+          410
+        ],
+        [
+          126,
+          78,
+          369,
+          382
+        ],
+        [
+          107,
+          87,
+          353,
+          409
+        ],
+        [
+          137,
+          95,
+          347,
+          410
+        ],
+        [
+          129,
+          94,
+          351,
+          410
+        ],
+        [
+          122,
+          87,
+          358,
+          363
+        ],
+        [
+          110,
+          81,
+          347,
+          392
+        ],
+        [
+          128,
+          83,
+          347,
+          400
+        ]
+      ]
+    },
+    {
+      "name": "JumpStart",
+      "count": 3,
+      "uniqueRenders": 3,
+      "duration": 0.1,
+      "loop": false,
+      "bounds": [
+        [
+          168,
+          69,
+          335,
+          409
+        ],
+        [
+          142,
+          163,
+          337,
+          410
+        ],
+        [
+          144,
+          65,
+          362,
+          410
+        ]
+      ]
+    },
+    {
+      "name": "JumpRise",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.3333333333333333,
+      "loop": true,
+      "bounds": [
+        [
+          138,
+          61,
+          356,
+          433
+        ],
+        [
+          138,
+          61,
+          356,
+          433
+        ],
+        [
+          138,
+          60,
+          356,
+          433
+        ],
+        [
+          138,
+          61,
+          356,
+          433
+        ],
+        [
+          137,
+          61,
+          356,
+          433
+        ],
+        [
+          136,
+          61,
+          356,
+          433
+        ],
+        [
+          136,
+          60,
+          356,
+          433
+        ],
+        [
+          137,
+          61,
+          356,
+          433
+        ]
+      ]
+    },
+    {
+      "name": "JumpApex",
+      "count": 4,
+      "uniqueRenders": 4,
+      "duration": 0.16666666666666666,
+      "loop": false,
+      "bounds": [
+        [
+          142,
+          75,
+          367,
+          349
+        ],
+        [
+          142,
+          75,
+          367,
+          349
+        ],
+        [
+          140,
+          75,
+          367,
+          349
+        ],
+        [
+          140,
+          75,
+          367,
+          349
+        ]
+      ]
+    },
+    {
+      "name": "Fall",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.3333333333333333,
+      "loop": true,
+      "bounds": [
+        [
+          172,
+          72,
+          373,
+          402
+        ],
+        [
+          171,
+          72,
+          373,
+          402
+        ],
+        [
+          171,
+          72,
+          373,
+          402
+        ],
+        [
+          171,
+          72,
+          373,
+          402
+        ],
+        [
+          170,
+          72,
+          373,
+          402
+        ],
+        [
+          171,
+          72,
+          373,
+          402
+        ],
+        [
+          171,
+          72,
+          373,
+          402
+        ],
+        [
+          172,
+          72,
+          373,
+          402
+        ]
+      ]
+    },
+    {
+      "name": "Land",
+      "count": 4,
+      "uniqueRenders": 4,
+      "duration": 0.13333333333333333,
+      "loop": false,
+      "bounds": [
+        [
+          131,
+          165,
+          352,
+          410
+        ],
+        [
+          168,
+          91,
+          335,
+          409
+        ],
+        [
+          168,
+          69,
+          335,
+          409
+        ],
+        [
+          168,
+          57,
+          335,
+          409
+        ]
+      ]
+    },
+    {
+      "name": "DoubleJump",
+      "count": 16,
+      "uniqueRenders": 14,
+      "duration": 0.4444444444444444,
+      "loop": false,
+      "bounds": [
+        [
+          156,
+          136,
+          355,
+          435
+        ],
+        [
+          162,
+          179,
+          350,
+          393
+        ],
+        [
+          152,
+          173,
+          352,
+          392
+        ],
+        [
+          153,
+          188,
+          357,
+          387
+        ],
+        [
+          148,
+          192,
+          362,
+          380
+        ],
+        [
+          149,
+          182,
+          368,
+          382
+        ],
+        [
+          154,
+          183,
+          353,
+          387
+        ],
+        [
+          161,
+          178,
+          349,
+          392
+        ],
+        [
+          159,
+          179,
+          359,
+          398
+        ],
+        [
+          154,
+          184,
+          358,
+          383
+        ],
+        [
+          149,
+          191,
+          363,
+          379
+        ],
+        [
+          143,
+          189,
+          362,
+          389
+        ],
+        [
+          158,
+          184,
+          357,
+          388
+        ],
+        [
+          162,
+          179,
+          350,
+          393
+        ],
+        [
+          156,
+          136,
+          355,
+          435
+        ],
+        [
+          156,
+          63,
+          364,
+          391
+        ]
+      ]
+    },
+    {
+      "name": "DashStart",
+      "count": 2,
+      "uniqueRenders": 2,
+      "duration": 0.05,
+      "loop": false,
+      "bounds": [
+        [
+          106,
+          131,
+          350,
+          409
+        ],
+        [
+          67,
+          140,
+          437,
+          389
+        ]
+      ]
+    },
+    {
+      "name": "DashLoop",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.2,
+      "loop": true,
+      "bounds": [
+        [
+          61,
+          142,
+          437,
+          367
+        ],
+        [
+          60,
+          142,
+          437,
+          368
+        ],
+        [
+          58,
+          142,
+          437,
+          369
+        ],
+        [
+          57,
+          142,
+          437,
+          369
+        ],
+        [
+          56,
+          141,
+          437,
+          369
+        ],
+        [
+          57,
+          141,
+          437,
+          368
+        ],
+        [
+          59,
+          142,
+          437,
+          367
+        ],
+        [
+          60,
+          142,
+          437,
+          367
+        ]
+      ]
+    },
+    {
+      "name": "DashEnd",
+      "count": 3,
+      "uniqueRenders": 3,
+      "duration": 0.1,
+      "loop": false,
+      "bounds": [
+        [
+          148,
+          77,
+          339,
+          410
+        ],
+        [
+          168,
+          66,
+          335,
+          409
+        ],
+        [
+          168,
+          57,
+          335,
+          409
+        ]
+      ]
+    },
+    {
+      "name": "Attack",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.36,
+      "loop": false,
+      "bounds": [
+        [
+          111,
+          113,
+          341,
+          410
+        ],
+        [
+          125,
+          75,
+          363,
+          410
+        ],
+        [
+          88,
+          92,
+          358,
+          410
+        ],
+        [
+          104,
+          109,
+          446,
+          410
+        ],
+        [
+          100,
+          111,
+          457,
+          410
+        ],
+        [
+          113,
+          115,
+          412,
+          410
+        ],
+        [
+          163,
+          74,
+          346,
+          410
+        ],
+        [
+          168,
+          57,
+          335,
+          409
+        ]
+      ]
+    },
+    {
+      "name": "WallCling",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.4,
+      "loop": true,
+      "bounds": [
+        [
+          156,
+          45,
+          350,
+          440
+        ],
+        [
+          157,
+          45,
+          350,
+          440
+        ],
+        [
+          157,
+          45,
+          350,
+          440
+        ],
+        [
+          158,
+          45,
+          350,
+          440
+        ],
+        [
+          157,
+          45,
+          350,
+          440
+        ],
+        [
+          156,
+          45,
+          350,
+          440
+        ],
+        [
+          156,
+          45,
+          350,
+          440
+        ],
+        [
+          156,
+          45,
+          350,
+          440
+        ]
+      ]
+    },
+    {
+      "name": "WallClimb",
+      "count": 4,
+      "uniqueRenders": 4,
+      "duration": 0.5,
+      "loop": true,
+      "bounds": [
+        [
+          157,
+          45,
+          350,
+          440
+        ],
+        [
+          145,
+          42,
+          350,
+          462
+        ],
+        [
+          151,
+          50,
+          350,
+          451
+        ],
+        [
+          149,
+          43,
+          350,
+          450
+        ]
+      ]
+    },
+    {
+      "name": "WallSlide",
+      "count": 8,
+      "uniqueRenders": 8,
+      "duration": 0.4,
+      "loop": true,
+      "bounds": [
+        [
+          156,
+          42,
+          350,
+          432
+        ],
+        [
+          157,
+          42,
+          350,
+          432
+        ],
+        [
+          158,
+          42,
+          350,
+          432
+        ],
+        [
+          158,
+          42,
+          350,
+          432
+        ],
+        [
+          157,
+          42,
+          350,
+          432
+        ],
+        [
+          156,
+          42,
+          350,
+          432
+        ],
+        [
+          156,
+          42,
+          350,
+          432
+        ],
+        [
+          156,
+          42,
+          350,
+          432
+        ]
+      ]
+    },
+    {
+      "name": "WallJump",
+      "count": 3,
+      "uniqueRenders": 3,
+      "duration": 0.1,
+      "loop": false,
+      "bounds": [
+        [
+          163,
+          94,
+          350,
+          417
+        ],
+        [
+          87,
+          43,
+          350,
+          378
+        ],
+        [
+          87,
+          43,
+          350,
+          378
+        ]
+      ]
+    },
+    {
+      "name": "Hurt",
+      "count": 4,
+      "uniqueRenders": 4,
+      "duration": 0.16666666666666666,
+      "loop": false,
+      "bounds": [
+        [
+          148,
+          97,
+          415,
+          409
+        ],
+        [
+          111,
+          92,
+          439,
+          410
+        ],
+        [
+          102,
+          117,
+          329,
+          410
+        ],
+        [
+          168,
+          57,
+          335,
+          409
+        ]
+      ]
+    }
+  ],
+  "regression": {
+    "originalRunPngFilesPreserved": 8,
+    "originalRunFileBytesIdentical": true,
+    "otherFrameFilesChecked": 91,
+    "otherFrameFilesChanged": 0,
+    "onlyNewRunDrawings": 2,
+    "cycleDurationSeconds": 0.5,
+    "limbRigUsed": false
+  }
+}

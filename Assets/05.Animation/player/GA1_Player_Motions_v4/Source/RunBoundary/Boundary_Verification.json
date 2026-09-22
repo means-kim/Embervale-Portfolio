@@ -1,0 +1,93 @@
+{
+  "originalFramesUnchanged": true,
+  "originalCount": 8,
+  "newBridgeCount": 2,
+  "originalHashes": [
+    {
+      "frame": 0,
+      "sha256": "6382e0a8d05540ea0b54f00b815bc95a4b85f840b763b5a88fd0732ee3ad09fd"
+    },
+    {
+      "frame": 1,
+      "sha256": "69d5448dfd144faa0d3fb91c99089bd5e4a66079c41711dfdbc1f59b9587e7eb"
+    },
+    {
+      "frame": 2,
+      "sha256": "6c2dc7dc07ce9b3d7f5c5ff0ca1b745829fa80afe1fffbdeb8b39708845216dd"
+    },
+    {
+      "frame": 3,
+      "sha256": "d367addf86edfdf2be35e8ad54b0223692f0878d0d57d36724d4cbb3b768d6c4"
+    },
+    {
+      "frame": 4,
+      "sha256": "4e2da27c0ef6a59390f3f44c2c151dea49af15b962cc5c9f73e2844bda986342"
+    },
+    {
+      "frame": 5,
+      "sha256": "ebe2f6d3ef51ba277bc5e07dd6d962c78cf032e8a402f58ff347837907b08784"
+    },
+    {
+      "frame": 6,
+      "sha256": "bb22e5c8776d102262fb10e76a5e79bc25238e2d13c9406e67ef5c99f4eb840e"
+    },
+    {
+      "frame": 7,
+      "sha256": "c917160bdfc6fb853147f60533af0a1c34a11d93727fa29b1af9a1c9c713a995"
+    }
+  ],
+  "calibration": [
+    {
+      "index": 8,
+      "sourceFace": {
+        "area": 19513,
+        "x": 673.3926613027213,
+        "y": 352.75016655562956
+      },
+      "targetFace": [
+        299.8824302336246,
+        202.04077207204543
+      ],
+      "scale": 0.49376439366177455
+    },
+    {
+      "index": 9,
+      "sourceFace": {
+        "area": 19143,
+        "x": 1418.010761113723,
+        "y": 352.9550749621271
+      },
+      "targetFace": [
+        299.8792663557875,
+        204.33369976974802
+      ],
+      "scale": 0.49863558635464833
+    }
+  ],
+  "tailSequence": [
+    "original 07",
+    "bridge 08",
+    "bridge 09",
+    "original 00"
+  ],
+  "durationSeconds": 0.5,
+  "frameStartTimes": [
+    0,
+    0.0625,
+    0.125,
+    0.1875,
+    0.25,
+    0.3125,
+    0.375,
+    0.4375,
+    0.4583333333333333,
+    0.4791666666666667
+  ],
+  "pivot": [
+    0.5,
+    0.19921875
+  ],
+  "ppu": 200,
+  "usesDisjointLimbRig": false,
+  "unityEditorExecuted": false
+}

@@ -758,7 +758,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -780,11 +786,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: bc6b3b32-8458-46ff-98f8-c0a3435c39e6
+  cloudProjectId: 2a13c10b-a717-4332-85d6-8bb59accc6e4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Emberveil
-  organizationId: kms99400
+  organizationId: unity_1997hsp
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
