@@ -10,6 +10,12 @@
 
 ## 현재 맵 이미지
 
+현재 수정 검토 기준: [숲 v02](Backgrounds/StartMap/BG_Start_ForestMid_v02.png), [오른쪽 고목 v02](Backgrounds/StartMap/BG_Start_TreeRight_v02.png). [원본·수정 전후 비교와 실행 기록](../../Docs/Backgrounds/StartMap_Correction_v06.md). 원경 v02·성 v02·안개 v01을 함께 사용한다. 이전 버전은 보존했다.
+
+최신 추가: [중경 숲](Backgrounds/StartMap/BG_Start_ForestMid_v01.png), [성 명도 수정 v02](Backgrounds/StartMap/BG_Start_CastleBridge_v02.png), [독립 안개](Backgrounds/StartMap/BG_Start_Mist_v01.png), [오른쪽 고목](Backgrounds/StartMap/BG_Start_TreeRight_v01.png)을 제작하고 각각 합성 검토했다. [전체 진행·확인 상태](../../Docs/Backgrounds/StartMap_LayerReview_v05.md). 새 소재는 사용자 개별 확인 전이다.
+
+최신(2026-09-22): 어둡게 수정한 [원경 v02](Backgrounds/StartMap/BG_Start_Far_v02.png)가 사용자 확인된 기준이다. [먼 성·다리·받침 절벽 v01](Backgrounds/StartMap/BG_Start_CastleBridge_v01.png)도 제작했으며 확인 전이다. 아래 v01은 보존된 이전 원경이다. 상세 사양은 [시작맵 README](Backgrounds/StartMap/README.md)를 따른다.
+
 | 파일 | 용도 | 상태 |
 |---|---|---|
 | [Bg_Concept.png](Bg_Concept.png) | 전체 맵의 화풍·색감·위치 관계 기준 | 사용자 지정 참조 |
