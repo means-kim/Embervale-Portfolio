@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - StartMap
+  - ClimbMap
   - 
   - 
   - 
@@ -56,5 +56,25 @@ TagManager:
   - name: GA1_Foreground
     uniqueID: 1722300005
     locked: 0
+  - name: GA1_HD_Far
+    uniqueID: 1722700001
+    locked: 0
+  - name: GA1_HD_Mid
+    uniqueID: 1722700002
+    locked: 0
+  - name: GA1_HD_World
+    uniqueID: 1722700003
+    locked: 0
+  - name: GA1_HD_Actors
+    uniqueID: 1722700004
+    locked: 0
+  - name: GA1_HD_Foreground
+    uniqueID: 1722700005
+    locked: 0
+  - name: GA1_HD_FX
+    uniqueID: 1722700006
+    locked: 0
   m_RenderingLayers:
   - Default
+  - StartMap
+  - ClimbMap
