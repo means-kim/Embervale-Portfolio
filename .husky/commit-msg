@@ -7,7 +7,10 @@ COMMIT_MSG_FILE="$1"
 # 첫 번째 줄 가져오기
 COMMIT_MSG=$(head -n 1 "$COMMIT_MSG_FILE")
 
-if echo "$COMMIT_MSG" | grep -qE '^(Merge|Revert) '; then
+# merge 또는 revert 작업 중에는 훅을 실행하지 않음
+if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ] ||
+   [ -f "$(git rev-parse --git-path REVERT_HEAD)" ]; then
+    echo "merge/revert 커밋이므로 Husky 검사를 건너뜁니다."
     exit 0
 fi
 
