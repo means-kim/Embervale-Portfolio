@@ -7,6 +7,13 @@ COMMIT_MSG_FILE="$1"
 # 첫 번째 줄 가져오기
 COMMIT_MSG=$(head -n 1 "$COMMIT_MSG_FILE")
 
+# merge 또는 revert 작업 중에는 훅을 실행하지 않음
+if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ] ||
+   [ -f "$(git rev-parse --git-path REVERT_HEAD)" ]; then
+    echo "merge/revert 커밋이므로 Husky 검사를 건너뜁니다."
+    exit 0
+fi
+
 # 커밋 메시지 규칙 검사
 if ! echo "$COMMIT_MSG" | grep -qE '^(asset|build|chore|ci|design|docs|feat|fix|perf|refactor|revert|style|test)(\(.+\))?!?: .+'; then
     echo "❌ 커밋 메시지는 'type: 설명' 형식이어야 합니다."
