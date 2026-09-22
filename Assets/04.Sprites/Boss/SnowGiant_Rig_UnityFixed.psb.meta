@@ -1,0 +1,822 @@
+fileFormatVersion: 2
+guid: aa16b9b9eb0d0f44f9ca9bf95b8f3c13
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 1c8e4b2caf741394e8ae1b33807912e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: Boss_ShoulderIce_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 648
+      width: 460
+      height: 460
+    spriteID: 6e1feb78b25b02e448eb4c40991aed1c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 648}
+    spritePosition: {x: 726, y: 589}
+  - name: Boss_Hand_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1116
+      width: 464
+      height: 320
+    spriteID: b61d81bfb542b1f4b938302d796899f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1116}
+    spritePosition: {x: 870, y: 30}
+  - name: Boss_ForeArm_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1294
+      y: 4
+      width: 420
+      height: 544
+    spriteID: 20ad728ae3592b54caaa7902b76eb7ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1294, y: 4}
+    spritePosition: {x: 937, y: 153}
+  - name: Boss_UpperArm_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 648
+      width: 445
+      height: 384
+    spriteID: 428519a3f2bda364d833b36675a25edc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 648}
+    spritePosition: {x: 718, y: 427}
+  - name: Boss_Foot_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1465
+      y: 1116
+      width: 324
+      height: 238
+    spriteID: 82f387f354ce67645b359cb2605560d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1465, y: 1116}
+    spritePosition: {x: 995, y: 17}
+  - name: Boss_Shin_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1174
+      y: 1116
+      width: 283
+      height: 273
+    spriteID: da7a15b1efc49594b89577b443494974
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1174, y: 1116}
+    spritePosition: {x: 896, y: 35}
+  - name: Boss_Thigh_F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1722
+      y: 4
+      width: 244
+      height: 345
+    spriteID: 1abe08ab505c4e340bd7ef7091c22f31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1722, y: 4}
+    spritePosition: {x: 778, y: 172}
+  - name: Boss_Head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 694
+      y: 4
+      width: 592
+      height: 572
+    spriteID: 03adebe2f97fca04a899278d5a43e695
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 694, y: 4}
+    spritePosition: {x: 278, y: 556}
+  - name: Boss_Pelvis
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1444
+      width: 326
+      height: 326
+    spriteID: 766b0f62623ffd14390d58f74af3c833
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1444}
+    spritePosition: {x: 607, y: 145}
+  - name: Boss_Torso
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 682
+      height: 636
+    spriteID: bb38cd7188286f64ca53ae57b16f0e08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 354, y: 282}
+  - name: Boss_Foot_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1729
+      y: 998
+      width: 297
+      height: 99
+    spriteID: 1e9153356d480804e95ad4085572982f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1729, y: 998}
+    spritePosition: {x: 394, y: 24}
+  - name: Boss_Shin_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 821
+      y: 1116
+      width: 345
+      height: 268
+    spriteID: c0f6132f0c22b0d48acb1a55993d9da3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 821, y: 1116}
+    spritePosition: {x: 444, y: 29}
+  - name: Boss_Thigh_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 476
+      y: 1116
+      width: 337
+      height: 310
+    spriteID: 9e21d1a0a1199314b987a53a53d6adb6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 476, y: 1116}
+    spritePosition: {x: 404, y: 160}
+  - name: Boss_Hand_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1729
+      y: 648
+      width: 293
+      height: 342
+    spriteID: 47612feddc94bd84fae26f70f7a85739
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1729, y: 648}
+    spritePosition: {x: 38, y: 56}
+  - name: Boss_ForeArm_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 925
+      y: 648
+      width: 444
+      height: 374
+    spriteID: 1a60c75f7d540e3499c89d2c99272aac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 925, y: 648}
+    spritePosition: {x: 54, y: 204}
+  - name: Boss_UpperArm_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1377
+      y: 648
+      width: 344
+      height: 432
+    spriteID: 0c21d28904c2d8e4bbea5f484a45056c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1377, y: 648}
+    spritePosition: {x: 242, y: 383}
+  - name: Boss_ShoulderIce_B
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1797
+      y: 1116
+      width: 202
+      height: 202
+    spriteID: 3e10e1f9e4c35a74588eaea15b084ada
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1797, y: 1116}
+    spritePosition: {x: 369, y: 535}
+  - name: Boss_BackIce
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1722
+      y: 357
+      width: 312
+      height: 265
+    spriteID: 463372fec98a02140b7cdaef271725df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1722, y: 357}
+    spritePosition: {x: 672, y: 782}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: SnowGiant_Rig
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 89e51798776ae5c438f6e39d0770ec6a
+    layerID: 1036
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: 08_Ice_Front
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 978ba7a2308cd494aa477d0b2bda9019
+    layerID: 1035
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_ShoulderIce_F
+    spriteName: Boss_ShoulderIce_F
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 6e1feb78b25b02e448eb4c40991aed1c
+    layerID: 1034
+    mosaicPosition: {x: 4, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 07_Arm_Front
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 3ade3dd5db862a8449b0167b5f88eb69
+    layerID: 1032
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Hand_F
+    spriteName: Boss_Hand_F
+    isGroup: 0
+    parentIndex: 3
+    spriteID: b61d81bfb542b1f4b938302d796899f0
+    layerID: 1031
+    mosaicPosition: {x: 4, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_ForeArm_F
+    spriteName: Boss_ForeArm_F
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 20ad728ae3592b54caaa7902b76eb7ff
+    layerID: 1030
+    mosaicPosition: {x: 1294, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_UpperArm_F
+    spriteName: Boss_UpperArm_F
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 428519a3f2bda364d833b36675a25edc
+    layerID: 1029
+    mosaicPosition: {x: 472, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 06_Leg_Front
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: e13e54383c880c346bb96bf6a291c189
+    layerID: 1027
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Foot_F
+    spriteName: Boss_Foot_F
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 82f387f354ce67645b359cb2605560d5
+    layerID: 1026
+    mosaicPosition: {x: 1465, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_Shin_F
+    spriteName: Boss_Shin_F
+    isGroup: 0
+    parentIndex: 7
+    spriteID: da7a15b1efc49594b89577b443494974
+    layerID: 1025
+    mosaicPosition: {x: 1174, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_Thigh_F
+    spriteName: Boss_Thigh_F
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 1abe08ab505c4e340bd7ef7091c22f31
+    layerID: 1024
+    mosaicPosition: {x: 1722, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 05_Head
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: cd68b0affd500bf4ba90ee06ca511cd4
+    layerID: 1022
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Head
+    spriteName: Boss_Head
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 03adebe2f97fca04a899278d5a43e695
+    layerID: 1021
+    mosaicPosition: {x: 694, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 04_Body
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 3442daede85cd07499cfe498f22e8ca3
+    layerID: 1019
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Pelvis
+    spriteName: Boss_Pelvis
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 766b0f62623ffd14390d58f74af3c833
+    layerID: 1018
+    mosaicPosition: {x: 4, y: 1444}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_Torso
+    spriteName: Boss_Torso
+    isGroup: 0
+    parentIndex: 13
+    spriteID: bb38cd7188286f64ca53ae57b16f0e08
+    layerID: 1017
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 03_Leg_Back
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: f06dff0556e83e34d8726e2d14318965
+    layerID: 1015
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Foot_B
+    spriteName: Boss_Foot_B
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 1e9153356d480804e95ad4085572982f
+    layerID: 1014
+    mosaicPosition: {x: 1729, y: 998}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_Shin_B
+    spriteName: Boss_Shin_B
+    isGroup: 0
+    parentIndex: 16
+    spriteID: c0f6132f0c22b0d48acb1a55993d9da3
+    layerID: 1013
+    mosaicPosition: {x: 821, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_Thigh_B
+    spriteName: Boss_Thigh_B
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 9e21d1a0a1199314b987a53a53d6adb6
+    layerID: 1012
+    mosaicPosition: {x: 476, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 02_Arm_Back
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 09ff99bdcb488ba46a027d719509887b
+    layerID: 1010
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_Hand_B
+    spriteName: Boss_Hand_B
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 47612feddc94bd84fae26f70f7a85739
+    layerID: 1009
+    mosaicPosition: {x: 1729, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_ForeArm_B
+    spriteName: Boss_ForeArm_B
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 1a60c75f7d540e3499c89d2c99272aac
+    layerID: 1008
+    mosaicPosition: {x: 925, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_UpperArm_B
+    spriteName: Boss_UpperArm_B
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 0c21d28904c2d8e4bbea5f484a45056c
+    layerID: 1007
+    mosaicPosition: {x: 1377, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 01_Ice_Back
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 5058f0dba70556f4d982f9604d31e327
+    layerID: 1005
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Boss_ShoulderIce_B
+    spriteName: Boss_ShoulderIce_B
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 3e10e1f9e4c35a74588eaea15b084ada
+    layerID: 1004
+    mosaicPosition: {x: 1797, y: 1116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boss_BackIce
+    spriteName: Boss_BackIce
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 463372fec98a02140b7cdaef271725df
+    layerID: 1003
+    mosaicPosition: {x: 1722, y: 357}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
