@@ -1,0 +1,224 @@
+{
+  "sheet_size": [
+    2048,
+    1024
+  ],
+  "cell_size": [
+    512,
+    512
+  ],
+  "sprite_count": 8,
+  "pivot_normalized": [
+    0.5,
+    0
+  ],
+  "ppu": 50,
+  "clip_duration_seconds": 1.5,
+  "sweep_frames": [
+    4,
+    5
+  ],
+  "sweep_interval_seconds": [
+    0.6,
+    0.8
+  ],
+  "full_extension_time_seconds": 0.7,
+  "frame_durations_ms": [
+    100,
+    150,
+    150,
+    200,
+    100,
+    100,
+    400,
+    300
+  ],
+  "generation_source_sha256": "5e6c6e4dddc4436c25c0dfacb89fdf538d557aebc2fc6714d2d5aaef4da6ef9e",
+  "sheet_sha256": "5b6f484f2338df3b322a9e98ed51ba16b0a45d7368fe8a6d5be0a797228e48f1",
+  "frames": [
+    {
+      "index": 0,
+      "source": "Boss_Idle_0 (exact copy)",
+      "final_bbox_top_left_exclusive": [
+        35,
+        160,
+        454,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 1,
+      "source_crop": [
+        484,
+        134,
+        885,
+        449
+      ],
+      "source": "generation-source.png",
+      "uniform_scale": 1.1189710610932475,
+      "destination": [
+        53,
+        160
+      ],
+      "resized_size": [
+        449,
+        352
+      ],
+      "horizontal_fit_adjustment_px": 0,
+      "final_bbox_top_left_exclusive": [
+        53,
+        160,
+        502,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 2,
+      "source_crop": [
+        942,
+        135,
+        1340,
+        449
+      ],
+      "source": "generation-source.png",
+      "uniform_scale": 1.1189710610932475,
+      "destination": [
+        63,
+        161
+      ],
+      "resized_size": [
+        445,
+        351
+      ],
+      "horizontal_fit_adjustment_px": -17,
+      "final_bbox_top_left_exclusive": [
+        63,
+        161,
+        508,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 3,
+      "source_crop": [
+        1386,
+        134,
+        1760,
+        449
+      ],
+      "source": "generation-source.png",
+      "uniform_scale": 1.1189710610932475,
+      "destination": [
+        82,
+        160
+      ],
+      "resized_size": [
+        418,
+        352
+      ],
+      "horizontal_fit_adjustment_px": 0,
+      "final_bbox_top_left_exclusive": [
+        82,
+        160,
+        500,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 4,
+      "source_crop": [
+        55,
+        533,
+        410,
+        856
+      ],
+      "source": "generation-source.png",
+      "uniform_scale": 1.1189710610932475,
+      "destination": [
+        64,
+        151
+      ],
+      "resized_size": [
+        397,
+        361
+      ],
+      "horizontal_fit_adjustment_px": 0,
+      "final_bbox_top_left_exclusive": [
+        64,
+        151,
+        461,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 5,
+      "source_crop": [
+        83,
+        109,
+        1267,
+        1077
+      ],
+      "source": "follow-through-source.png",
+      "uniform_scale": 0.3615702479338843,
+      "destination": [
+        17,
+        162
+      ],
+      "resized_size": [
+        428,
+        350
+      ],
+      "horizontal_fit_adjustment_px": 0,
+      "final_bbox_top_left_exclusive": [
+        17,
+        162,
+        445,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 6,
+      "source_crop": [
+        965,
+        541,
+        1304,
+        855
+      ],
+      "source": "generation-source.png",
+      "uniform_scale": 1.1189710610932475,
+      "destination": [
+        70,
+        161
+      ],
+      "resized_size": [
+        379,
+        351
+      ],
+      "horizontal_fit_adjustment_px": 0,
+      "final_bbox_top_left_exclusive": [
+        70,
+        161,
+        449,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 7,
+      "source": "Boss_Idle_0 (exact copy)",
+      "final_bbox_top_left_exclusive": [
+        35,
+        160,
+        454,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    }
+  ]
+}
