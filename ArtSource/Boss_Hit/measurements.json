@@ -1,0 +1,155 @@
+{
+  "sheet_size": [
+    2048,
+    512
+  ],
+  "cell_size": [
+    512,
+    512
+  ],
+  "sprite_count": 4,
+  "pivot_normalized": [
+    0.5,
+    0
+  ],
+  "ppu": 50,
+  "uniform_generation_scale": 0.7963386727688787,
+  "clip_duration_seconds": 0.3,
+  "clip_loop": false,
+  "frame_durations_ms": [
+    50,
+    100,
+    100,
+    50
+  ],
+  "key_times_seconds": [
+    0,
+    0.05,
+    0.15,
+    0.25
+  ],
+  "preview_extra_idle_hold_ms": 800,
+  "generation_source_sha256": "88b1c93093b2a2f5c925fab5d0ee5c9ca0b8681b1f29bddb9019d639acc2d127",
+  "sheet_sha256": "f7fdb1bdaf9ca5ee393ab76ad9d25bdc8297c7d92f7eaafd2f4f3f42453a8bf7",
+  "frames": [
+    {
+      "index": 0,
+      "source": "generation-source.png",
+      "source_crop": [
+        98,
+        167,
+        576,
+        613
+      ],
+      "uniform_scale": 0.7963386727688787,
+      "destination": [
+        76,
+        157
+      ],
+      "resized_size": [
+        381,
+        355
+      ],
+      "source_front_foot_x": 266.5,
+      "aligned_front_foot_x": 210.30648535564853,
+      "final_bbox_top_left_exclusive": [
+        76,
+        157,
+        457,
+        512
+      ],
+      "solid_bbox_alpha128": [
+        77,
+        158,
+        456,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 1,
+      "source": "generation-source.png",
+      "source_crop": [
+        722,
+        158,
+        1218,
+        615
+      ],
+      "uniform_scale": 0.7963386727688787,
+      "destination": [
+        77,
+        148
+      ],
+      "resized_size": [
+        395,
+        364
+      ],
+      "source_front_foot_x": 889.5,
+      "aligned_front_foot_x": 210.3921370967742,
+      "final_bbox_top_left_exclusive": [
+        77,
+        148,
+        472,
+        512
+      ],
+      "solid_bbox_alpha128": [
+        78,
+        149,
+        471,
+        511
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 2,
+      "source": "generation-source.png",
+      "source_crop": [
+        83,
+        740,
+        604,
+        1177
+      ],
+      "uniform_scale": 0.7963386727688787,
+      "destination": [
+        40,
+        164
+      ],
+      "resized_size": [
+        415,
+        348
+      ],
+      "source_front_foot_x": 297,
+      "aligned_front_foot_x": 210.46065259117083,
+      "final_bbox_top_left_exclusive": [
+        40,
+        164,
+        455,
+        512
+      ],
+      "solid_bbox_alpha128": [
+        41,
+        165,
+        454,
+        512
+      ],
+      "bottom_transparent_margin_px": 0
+    },
+    {
+      "index": 3,
+      "source": "Boss_Idle_0 (exact copy)",
+      "final_bbox_top_left_exclusive": [
+        35,
+        160,
+        454,
+        512
+      ],
+      "solid_bbox_alpha128": [
+        37,
+        163,
+        451,
+        511
+      ],
+      "bottom_transparent_margin_px": 0
+    }
+  ]
+}

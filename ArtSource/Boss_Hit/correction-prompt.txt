@@ -1,0 +1,12 @@
+Edit the supplied FOUR-frame snow giant Hit reaction sprite sheet. It is a 2x2 grid with transparent background. Keep the identical character, scale, detailed rendering, blue crystals, original colors, two arms/two legs, fixed left-facing three-quarter camera, planted feet, and cell layout.
+
+Targeted correction: the current TOP LEFT impact pose is almost as far recoiled as the TOP RIGHT maximum pose; the current BOTTOM LEFT recovery pose is almost identical to the BOTTOM RIGHT neutral. Make a more readable progression with intermediate upper-body poses.
+
+KEEP TOP RIGHT (frame2 maximum recoil) and BOTTOM RIGHT (frame4 neutral Idle) unchanged.
+Change only TOP LEFT and BOTTOM LEFT character upper bodies, preserving each pose's current leg/foot positions and camera size.
+
+TOP LEFT / frame1 impact: use a pose about 40 percent of the way from bottom-right neutral to top-right recoil. Keep much more of the neutral hunched posture. The head is only modestly pulled back toward screen right, chin only slightly lifted, shoulders just beginning to roll back, the huge forearms still mostly hanging low and just beginning to recoil. Clearly less upright than the current top-left. Retain the neutral sharp crystal crown shape. This is onset of recoil, not peak.
+
+BOTTOM LEFT / frame3 recovery: use a pose about 25 percent of the way from neutral to peak recoil. Slight residual backward tilt of the torso, head still slightly behind neutral, shoulders lowering, forearms relaxing downward. This is returning to neutral but is not yet identical to it. Do not lunge forward or attack.
+
+Each full-body character remains isolated inside its existing cell. Same grounded feet, same physical body size, no clipping or overlap. No newly added marks or particles, no white flash, no color changes, no glow, no cast shadow, no background, labels or text. Transparent RGBA 2 columns x 2 rows square PNG.
