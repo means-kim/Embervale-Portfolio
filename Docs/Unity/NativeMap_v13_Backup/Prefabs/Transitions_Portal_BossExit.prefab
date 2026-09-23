@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6242955599789602518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3468840419289817129}
+  - component: {fileID: 4854763666185900910}
+  m_Layer: 31
+  m_Name: Transitions_Portal_BossExit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3468840419289817129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242955599789602518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4854763666185900910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242955599789602518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742e4136bb1a38048b83e423194be094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapReview.ReviewMapPiece
+  editingNotes: "X \uC704\uCE58\uAC00 \uB3D9\uAD74/\uBCF4\uC2A4 \uC678\uBD80 \uC804\uD658
+    \uAE30\uC900\uC785\uB2C8\uB2E4. \uD1B5\uB85C \uC9C0\uD615\uC744 \uC62E\uAE30\uBA74
+    \uC774 \uAE30\uC900\uC810\uB3C4 \uC62E\uAE30\uC138\uC694."

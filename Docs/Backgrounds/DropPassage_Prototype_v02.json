@@ -1,0 +1,161 @@
+{
+  "status": "5-second descent art prototype under explicit physics assumptions",
+  "source": "BossArena_Connection_v09.html",
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "x": 4010,
+    "actorHeight": 50.625,
+    "actorVisiblePercent": 9
+  },
+  "depth": {
+    "min": 0,
+    "max": 3695.172991071429,
+    "entryFootY": 439.5625,
+    "lowerFootY": 4134.735491071429,
+    "unit": "HTML layout units, not Unity world units"
+  },
+  "stops": [
+    0,
+    600,
+    1900,
+    3695.172991071429
+  ],
+  "background": {
+    "asset": "BG_Drop_InteriorBack_v01.png",
+    "actual": [
+      887,
+      1774
+    ],
+    "requested": [
+      1024,
+      2048
+    ],
+    "colorType": 2,
+    "PPU": 100,
+    "maxTextureSize": 2048,
+    "x": 3700,
+    "y": 360,
+    "width": 1900,
+    "container": {
+      "x": 3700,
+      "y": 440,
+      "width": 1900,
+      "height": 4400,
+      "topFade": 80
+    },
+    "brightness": 0.6,
+    "panels": [
+      {
+        "localY": -80,
+        "width": 1900
+      },
+      {
+        "localY": 2600,
+        "width": 1900,
+        "topFade": 0.15
+      }
+    ]
+  },
+  "walls": {
+    "asset": "../BossMap1/BG_Boss1_BreakEdge_v01.png",
+    "placements": [
+      {
+        "x": 3900,
+        "y": 350,
+        "w": 650,
+        "flip": false
+      },
+      {
+        "x": 4470,
+        "y": 365,
+        "w": 650,
+        "flip": true
+      },
+      {
+        "x": 3860,
+        "y": 1100,
+        "w": 650,
+        "flip": false
+      },
+      {
+        "x": 4510,
+        "y": 1070,
+        "w": 650,
+        "flip": true
+      },
+      {
+        "x": 3910,
+        "y": 1850,
+        "w": 650,
+        "flip": false
+      },
+      {
+        "x": 4480,
+        "y": 1870,
+        "w": 650,
+        "flip": true
+      },
+      {
+        "x": 3870,
+        "y": 2600,
+        "w": 650,
+        "flip": false
+      },
+      {
+        "x": 4520,
+        "y": 2580,
+        "w": 650,
+        "flip": true
+      },
+      {
+        "x": 3900,
+        "y": 3000,
+        "w": 650,
+        "flip": false
+      },
+      {
+        "x": 4490,
+        "y": 3010,
+        "w": 650,
+        "flip": true
+      }
+    ],
+    "brightness": 0.72,
+    "order": "deeper segments first; upper segments overlap",
+    "lowerSegmentMask": "transparent through10%, opaque at20%"
+  },
+  "landing": {
+    "asset": "../BossMap1/BG_Boss1_Ground_v01.png",
+    "x": 3700,
+    "y": 3958.031991992239,
+    "width": 1900,
+    "surfaceYApprox": 4134.735491071429,
+    "brightness": 0.68,
+    "snow": false
+  },
+  "notes": [
+    "No BossMap2 arena made; lower space is next-room interface only",
+    "Indoor camera top at depth480 is525.5625, after background becomes opaque at520; no sky in reviewed indoor views",
+    "Wall reuse and HTML masks require separate Unity assembly",
+    "Character Run_00 is scale stand-in, not falling animation",
+    "No descent physics, damage, colliders, triggers, camera or scene changes",
+    "Depth increased 2.06089x to approx73.0 character heights. User requests 5 seconds; actual Unity duration must be checked after player physics/scale are final.",
+    "Additional rear panel reuses original PNG with top fade. No new raster generation."
+  ],
+  "timing": {
+    "seconds": 5,
+    "gravity": 9.81,
+    "gravityScale": 1,
+    "initialVelocity": 0,
+    "terminalSpeed": null,
+    "characterVisibleHeightWorld": 1.68,
+    "characterScale": 1,
+    "worldDistance": 122.625,
+    "layoutDistance": 3695.172991071429,
+    "formula": "s=0.5*g*t*t; layout=s/1.68*50.625",
+    "verifiedProjectSetting": "ProjectSettings/Physics2DSettings.asset m_Gravity.y=-9.81",
+    "playerSettings": "No player gravity/fall-speed code or prefab settings found; assumptions not confirmed",
+    "previewOnly": true
+  }
+}

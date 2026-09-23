@@ -1,0 +1,56 @@
+{
+  "status": "First indoor boss approach art prototype; not user-approved or gameplay validated",
+  "world": {
+    "width": 2200,
+    "height": 562.5
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9
+  },
+  "connection": {
+    "from": "ClimbMap_Closeout_v01",
+    "x": 1000,
+    "surfaceYApprox": 371.75
+  },
+  "corridor": {
+    "back": {
+      "x": 900,
+      "y": -100,
+      "w": 1400,
+      "h": 700,
+      "brightness": 0.65
+    },
+    "floor": [
+      {
+        "x": 800,
+        "y": 285,
+        "w": 1000
+      },
+      {
+        "x": 1500,
+        "y": 300,
+        "w": 1000
+      }
+    ],
+    "ceiling": [
+      {
+        "x": 800,
+        "y": -170,
+        "w": 1000
+      },
+      {
+        "x": 1500,
+        "y": -170,
+        "w": 1000
+      }
+    ]
+  },
+  "notes": [
+    "Indoor only; no boss arena or exterior exit made",
+    "Existing ledge and ceiling reused independently",
+    "Background overlap is an art preview mask; not final Unity assembly",
+    "Next room endpoint and movement not validated"
+  ]
+}

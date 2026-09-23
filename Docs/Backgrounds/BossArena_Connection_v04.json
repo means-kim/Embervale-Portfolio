@@ -1,0 +1,152 @@
+{
+  "status": "Moon moved upward using independent sprite; ground and5-jump camera reviewed; Unity pending",
+  "world": {
+    "width": 3950,
+    "height": 1800,
+    "topOffset": 1200
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9,
+    "panX": [
+      1800,
+      2950
+    ],
+    "panY": 1200
+  },
+  "arena": {
+    "bounds": {
+      "x": 2500,
+      "y": 0,
+      "width": 1450,
+      "height": 900,
+      "note": "Cave roof ends at x2500; outdoor extent1450; provisional."
+    },
+    "background": {
+      "asset": "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+      "x": 1700,
+      "y": -40,
+      "width": 2250,
+      "brightness": 0.72,
+      "mask": "linear-gradient(to bottom,transparent,black9%)"
+    },
+    "floor": {
+      "x": 2100,
+      "y": 224.2965009208103,
+      "width": 1900,
+      "surfaceYApprox": 401
+    },
+    "ruins": [
+      {
+        "asset": "BG_Boss1_Ruins_v01.png",
+        "x": 2850,
+        "y": 10,
+        "width": 280,
+        "brightness": 0.75
+      }
+    ],
+    "snow": {
+      "asset": "BG_Boss1_GroundSnow_v01.png",
+      "x": 2380,
+      "y": 250.33701657458565,
+      "width": 1620,
+      "brightness": 0.8,
+      "previewMask": "linear-gradient(to right,transparent,black 6%)"
+    },
+    "upperSky": {
+      "asset": "BG_Boss1_UpperSky_v01.png",
+      "x": 1700,
+      "y": -600,
+      "width": 2250,
+      "height": 843.75,
+      "brightness": 0.72
+    },
+    "upperRock": {
+      "asset": "BG_Boss1_UpperRock_v01.png",
+      "x": 700,
+      "y": -1095,
+      "width": 2050,
+      "height": 1025,
+      "brightness": 0.8,
+      "mask": "linear-gradient(to bottom,black97.5%,transparent)"
+    },
+    "moon": {
+      "asset": "BG_Boss1_Moon_v01.png",
+      "x": 3167.6,
+      "y": -12,
+      "width": 124,
+      "brightness": 0.72,
+      "center": {
+        "x": 3229.6,
+        "y": 50
+      },
+      "previousApproxCenterY": 124,
+      "upwardShiftApprox": 74
+    }
+  },
+  "corridorSource": "BossCorridor_Prototype_v01.json",
+  "stops": [
+    {
+      "name": "등반 출구",
+      "x": 300
+    },
+    {
+      "name": "보스전 통로",
+      "x": 1200
+    },
+    {
+      "name": "전투 구역 진입",
+      "x": 1800
+    },
+    {
+      "name": "전투 구역 중앙",
+      "x": 2500
+    },
+    {
+      "name": "전투 구역 오른쪽",
+      "x": 2900
+    }
+  ],
+  "notes": [
+    "Explicit user correction: first boss arena outdoors after indoor corridor",
+    "Upper-right original concept reference: moon snowy peaks ruined columns and snowy floor",
+    "Interior boss backdrop rejected, preserved only as history",
+    "Camera stays1000x562.5, actor visible9%; ground and snow separate",
+    "Provisional backdrop fade at exit; no Unity gameplay validation",
+    "Upper sky localtop-600 leaves164.0625 units beyond maxreview camera top-435.9375",
+    "Sky and rock overlap use HTML masks, not baked alpha",
+    "Review scoped to outdoor boss area and cave exit; climb and fullcorridor not revalidated"
+  ],
+  "corridorOverrides": {
+    "backWidth": 1600,
+    "backMask": "linear-gradient(to right,black 90%,transparent 100%)",
+    "ceilingMasks": [
+      "linear-gradient(to bottom,transparent,black15%)",
+      "linear-gradient(to left,transparent,black4%)"
+    ],
+    "maskComposite": "intersect"
+  },
+  "assets": [
+    "BG_Boss1_Ruins_v01.png",
+    "BG_Boss1_Ground_v01.png",
+    "BG_Boss1_GroundSnow_v01.png",
+    "BG_Boss1_UpperSky_v01.png",
+    "BG_Boss1_UpperRock_v01.png",
+    "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+    "BG_Boss1_Moon_v01.png"
+  ],
+  "excludedAssets": [
+    "BG_Boss1_InteriorBack_v01.png"
+  ],
+  "jumpReview": {
+    "maxCount": 5,
+    "perJumpRise": 75.9375,
+    "totalRise": 379.6875,
+    "extraCameraRise": 56.25,
+    "maxCameraRise": 435.9375,
+    "follow": 1,
+    "physics": false,
+    "ceilingCollision": false
+  }
+}

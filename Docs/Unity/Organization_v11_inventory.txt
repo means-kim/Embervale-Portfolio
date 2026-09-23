@@ -1,0 +1,51 @@
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p1 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p2 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p3 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_rest | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p5 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p6 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_p7 | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Platform_Ledge_exit | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Platform_Boss_ledge_left | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Platform_Boss_ledge_high | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Platform_Boss_ledge_right | 이 부모를 이동하면 아트와 충돌이 같이 이동합니다. 그림만 교체하려면 RockArt 아래 Texture를 변경하세요.
+MapReview_v01 — isolated prototype/01_Start/Terrain/Ground_Start | 바위·눈·충돌을 함께 이동. 눈은 SnowArt만 끌 수 있습니다.
+MapReview_v01 — isolated prototype/02_Climb/Terrain/Ground_Entrance | 입구 바닥과 JoinGround 연결 아트. 인접 시작 바닥과 겹침을 확인하세요.
+MapReview_v01 — isolated prototype/03_Corridor/Terrain/Ground_Corridor | 통로 전체 바닥. 두 바닥 아트와 연속 충돌을 함께 이동합니다.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Ground_Arena | 양쪽 경사가 한 메시입니다. 전체 이동은 이 부모를 사용하세요. 중앙 파괴 바닥은 독립 하위 묶음입니다. 경사 일부만 이동하려면 메시 분할이 필요합니다.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Ground_Arena/BreakableFloor_Center | Intact / Cracked / Broken과 Collision을 유지하세요. 기존 테스트 플레이어 B키 참조는 유지됩니다. 새 복사본을 B키가 자동 제어하지는 않습니다.
+MapReview_v01 — isolated prototype/05_Drop/Terrain/Ground_Landing | 낙하 착지 바닥. 이동 후 착지 위치와 낙하 시간을 재확인하세요.
+MapReview_v01 — isolated prototype/04_Boss/Terrain/Wall_RightBoundary | 보스 구역 오른쪽 마감 암벽과 이탈 방지 충돌.
+MapReview_v01 — isolated prototype/01_Start/Transitions/Portal_CaveEntrance | 이동 기준점: X는 가림 전환 위치. 입구 외벽과 눈도 함께 이동. 높이·모양 변경 시 PortalMask 셰이더의 상부 높이/입구 UV도 별도 검토하세요.
+MapReview_v01 — isolated prototype/03_Corridor/Transitions/Portal_BossExit | X 위치가 동굴/보스 외부 전환 기준입니다. 통로 지형을 옮기면 이 기준점도 옮기세요.
+MapReview_v01 — isolated prototype/01_Start/Decoration/Decoration_ForestRocks | 장식과 별도 눈. 충돌이 없는 풍경 소재입니다.
+MapReview_v01 — isolated prototype/01_Start/Decoration/Decoration_Stump | 장식과 별도 눈. 충돌이 없는 풍경 소재입니다.
+MapReview_v01 — isolated prototype/01_Start/Decoration/Decoration_CaveRubble | 장식과 별도 눈. 충돌이 없는 풍경 소재입니다.
+MapReview_v01 — isolated prototype/01_Start/Background/Start upper sky_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Background/BG_Start_Far_v02_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Background/BG_Start_Mist_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Background/BG_Start_CastleBridge_v02_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Background/BG_Start_ForestMid_v03_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Background/BG_Start_Mist_v01_Piece_2 | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Decoration/BG_Start_ShrubsNear_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/01_Start/Decoration/BG_Start_TreeLeft_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/02_Climb/Decoration/BG_Climb_EntryWall_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/02_Climb/Decoration/BG_Climb_ExitUpper_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/02_Climb/Decoration/BG_Climb_Ceiling_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/03_Corridor/Background/BG_BossCorridor_InteriorBack_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Decoration/BG_Boss1_UpperRock_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/03_Corridor/Decoration/BG_Climb_Ceiling_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/02_Climb/Background/Right deep rock_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Background/BG_Boss1_UpperSky_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Background/BG_Boss1_OutdoorFar_NoMoon_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/03_Corridor/Decoration/BG_Climb_Ceiling_v01_Piece_2 | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Background/BG_Boss1_UpperSky_v01_Piece_2 | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Background/BG_Boss1_OutdoorFar_Right_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Background/BG_Boss1_Moon_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/04_Boss/Decoration/BG_Boss1_Ruins_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/05_Drop/Background/BG_Climb_InteriorBack_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/05_Drop/Background/BG_Drop_InteriorBack_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/05_Drop/Decoration/BG_Boss1_BreakEdge_v01_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/05_Drop/Background/BG_Drop_InteriorBack_v01_Piece_2 | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/05_Drop/Decoration/BG_Boss1_BreakEdge_v01_Piece_2 | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.
+MapReview_v01 — isolated prototype/02_Climb/Background/Continuous interior back_Piece | 독립 아트. Texture 교체, Order 앞뒤 순서, 체크박스로 숨김. 충돌은 없습니다.

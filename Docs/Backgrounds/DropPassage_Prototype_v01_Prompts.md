@@ -1,0 +1,5 @@
+# 실내 낙하 후면 배경 프롬프트
+
+Built-in image_gen 사용. 참조: Bg_Concept.png와 BG_Climb_InteriorBack_v01.png. 요청1024×2048, 실제887×1774 RGB.
+
+Use case: stylized-concept. Create one opaque rear-background painting for an indoor vertical descent shaft in a 2D hand-painted metroidvania. Portrait 1024x2048 requested. Image1 world concept is palette, icy blue rock brushwork and right-hand descent shaft reference. Image2 existing indoor back is style matching reference. Depict ONLY recessed far and middle cave rock strata, dark navy blue, dim cold blue reflected light from above, soft low-contrast center, subtle ice seams and small distant icicles. Completely enclosed underground at EVERY height, including top. No sky, moon, outdoor mountains, visible exit, foreground side walls, floors, platforms, characters, buildings, snow, text. Layered receding angular rock surfaces should read as distant rear wall, NOT a solid gameplay wall or a perspective tunnel with a vanishing point. Subdued painterly details, varied rock sizes, no repeating patterns. Fill all edges opaque. Designed to sit behind independently placed foreground walls.
