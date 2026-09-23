@@ -1,0 +1,2 @@
+Cave enclosure removed; original geometry restored. Pre-existing in-memory placement retained in v02. v03 file preserved as history.
+Follow-up: restored pre-v03 shader (removed _Visibility). Reopened saved v02 in Unity; Start Far / ForestMid now have one generated Render child each. v02 serialized references: cave=0, original geometry=66, boundary geometry=3. Existing hard entrance seam remains from before v03.

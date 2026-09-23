@@ -1,0 +1,26 @@
+{
+  "status": "user-selected art framing reference",
+  "sourceLayout": "StartMap_Placement_v28.html",
+  "viewportAspect": "16:9",
+  "widthPercentOfLayout": 80,
+  "heightPercentOfLayout": 60,
+  "referenceBounds": {
+    "xMin": 20,
+    "xMax": 100,
+    "yMin": 40,
+    "yMax": 100
+  },
+  "visiblePlayerHeightPercentApprox": 9.03,
+  "unityCameraApplied": false,
+  "notes": "Camera view can move for other sections; reference coordinates are not a fixed camera constraint. Player world scale and camera world dimensions remain unspecified.",
+  "additionalArt": {
+    "asset": "../../Assets/04.Sprites/Backgrounds/StartMap/BG_Start_CaveRubbleSnow_v01.png",
+    "widthPercent": 18,
+    "leftPercent": 52,
+    "topPercent": 78,
+    "previewBrightness": 0.7,
+    "drawAfter": "rubble",
+    "drawBefore": "ground",
+    "status": "static composite checked; Unity unverified"
+  }
+}

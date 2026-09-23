@@ -1,0 +1,82 @@
+{
+  "sheet": "Assets/04.Sprites/Backgrounds/ClimbMap/FX_Climb_StalactiteBreak_v01.png",
+  "actualSize": [
+    1254,
+    1254
+  ],
+  "frameSize": [
+    627,
+    627
+  ],
+  "ppu": 100,
+  "rectOrigin": "bottom-left (Unity)",
+  "anchorOrigin": "top-left within frame",
+  "frames": [
+    {
+      "name": "StalactiteBreak_00_Impact",
+      "x": 0,
+      "y": 627,
+      "anchorX": 328,
+      "anchorY": 611,
+      "ms": 80,
+      "width": 627,
+      "height": 627,
+      "pivot": {
+        "x": 0.5231259968102073,
+        "y": 0.02551834130781494
+      },
+      "internalID": 21300000,
+      "spriteID": "24e0d069fc034f0f97314eda1c966c74"
+    },
+    {
+      "name": "StalactiteBreak_01_Burst",
+      "x": 627,
+      "y": 627,
+      "anchorX": 320,
+      "anchorY": 610,
+      "ms": 100,
+      "width": 627,
+      "height": 627,
+      "pivot": {
+        "x": 0.5103668261562998,
+        "y": 0.027113237639553422
+      },
+      "internalID": 21300002,
+      "spriteID": "330e6a5a33134db18cba7cc87d9db60e"
+    },
+    {
+      "name": "StalactiteBreak_02_Settle",
+      "x": 0,
+      "y": 0,
+      "anchorX": 330,
+      "anchorY": 552,
+      "ms": 140,
+      "width": 627,
+      "height": 627,
+      "pivot": {
+        "x": 0.5263157894736842,
+        "y": 0.11961722488038273
+      },
+      "internalID": 21300004,
+      "spriteID": "9d4bdf18bff74d478ed1688167ade82b"
+    },
+    {
+      "name": "StalactiteBreak_03_Debris",
+      "x": 627,
+      "y": 0,
+      "anchorX": 310,
+      "anchorY": 555,
+      "ms": 400,
+      "width": 627,
+      "height": 627,
+      "pivot": {
+        "x": 0.4944178628389155,
+        "y": 0.11483253588516751
+      },
+      "internalID": 21300006,
+      "spriteID": "8577e700afcf4d6fbbd92bc8d5f0f1c4"
+    }
+  ],
+  "loop": false,
+  "notes": "Suggested keyframe timing only. Hide original falling sprite at impact, spawn break effect at contact point. No Unity animation/controller/gameplay files created."
+}

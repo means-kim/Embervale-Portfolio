@@ -1,0 +1,483 @@
+{
+  "status": "v09 break-hole rock edge art prototype; v08 layout retained",
+  "world": {
+    "width": 6200,
+    "height": 1800,
+    "topOffset": 1200
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9,
+    "panX": [
+      1800,
+      5200
+    ],
+    "panY": 1200,
+    "viewportLayout": {
+      "width": 1000,
+      "height": 562.5,
+      "cssWidth": 720
+    }
+  },
+  "arena": {
+    "bounds": {
+      "x": 2820,
+      "y": 0,
+      "width": 3380,
+      "height": 900
+    },
+    "background": {
+      "asset": "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+      "x": 1700,
+      "y": -40,
+      "width": 2250,
+      "brightness": 0.72,
+      "mask": "linear-gradient(to bottom,transparent,black9%)"
+    },
+    "floor": {
+      "x": 2100,
+      "y": 224.2965009208103,
+      "width": 1900,
+      "surfaceYApprox": 401
+    },
+    "ruins": [
+      {
+        "asset": "BG_Boss1_Ruins_v01.png",
+        "x": 3800,
+        "y": 55.5625,
+        "width": 280,
+        "brightness": 0.75
+      }
+    ],
+    "snow": {
+      "asset": "BG_Boss1_GroundSnow_v01.png",
+      "x": 2380,
+      "y": 250.33701657458565,
+      "width": 1620,
+      "brightness": 0.8,
+      "previewMask": "linear-gradient(to right,transparent,black 6%)"
+    },
+    "upperSky": {
+      "asset": "BG_Boss1_UpperSky_v01.png",
+      "x": 1700,
+      "y": -600,
+      "width": 2250,
+      "height": 843.75,
+      "brightness": 0.72
+    },
+    "upperRock": {
+      "asset": "BG_Boss1_UpperRock_v01.png",
+      "x": 700,
+      "y": -1095,
+      "width": 2050,
+      "height": 1025,
+      "brightness": 0.8,
+      "mask": "linear-gradient(to bottom,black97.5%,transparent)"
+    },
+    "moon": {
+      "asset": "BG_Boss1_Moon_v01.png",
+      "x": 3167.6,
+      "y": -12,
+      "width": 124,
+      "brightness": 0.72,
+      "center": {
+        "x": 3229.6,
+        "y": 50
+      },
+      "previousApproxCenterY": 124,
+      "upwardShiftApprox": 74
+    },
+    "skyExtensionDraft": {
+      "asset": "BG_Boss1_UpperSky_v01.png",
+      "x": 1700,
+      "y": -1100,
+      "width": 2250,
+      "brightness": 0.72,
+      "note": "Existing upper sky repeated for draft, lower panel top20%blend"
+    },
+    "floorModules": [
+      {
+        "x": 2100,
+        "y": 224.2965009208103,
+        "width": 1900,
+        "clipRight": 6200
+      },
+      {
+        "x": 3980,
+        "y": 224.2965009208103,
+        "width": 1900,
+        "clipRight": 6200
+      },
+      {
+        "x": 5860,
+        "y": 224.2965009208103,
+        "width": 1900,
+        "clipRight": 6200
+      }
+    ],
+    "snowModules": [
+      {
+        "x": 2380,
+        "y": 250.33701657458565,
+        "width": 1620,
+        "clipRight": 6200
+      },
+      {
+        "x": 3980,
+        "y": 250.33701657458565,
+        "width": 1620,
+        "clipRight": 6200
+      },
+      {
+        "x": 5580,
+        "y": 250.33701657458565,
+        "width": 1620,
+        "clipRight": 6200
+      }
+    ],
+    "rightBackground": {
+      "asset": "BG_Boss1_OutdoorFar_Right_v01.png",
+      "x": 3550,
+      "y": -40,
+      "width": 3100,
+      "brightness": 0.72,
+      "topFade": 0.09
+    },
+    "upperSkyPanels": [
+      {
+        "x": 1700,
+        "y": -1100,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0
+      },
+      {
+        "x": 1700,
+        "y": -600,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0.2
+      },
+      {
+        "x": 3650,
+        "y": -1100,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0
+      },
+      {
+        "x": 3650,
+        "y": -600,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0.2
+      },
+      {
+        "x": 5600,
+        "y": -1100,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0
+      },
+      {
+        "x": 5600,
+        "y": -600,
+        "width": 2250,
+        "asset": "BG_Boss1_UpperSky_v01.png",
+        "brightness": 0.72,
+        "leftFade": 0.1,
+        "topFade": 0.2
+      }
+    ]
+  },
+  "corridorSource": "BossCorridor_Prototype_v01.json",
+  "stops": [
+    {
+      "name": "입구 연결",
+      "x": 2200
+    },
+    {
+      "name": "왼쪽 능선",
+      "x": 3000
+    },
+    {
+      "name": "중앙 파괴 구간",
+      "x": 4010
+    },
+    {
+      "name": "오른쪽 능선",
+      "x": 4800
+    },
+    {
+      "name": "오른쪽 끝",
+      "x": 5200
+    }
+  ],
+  "notes": [
+    "Explicit user correction: first boss arena outdoors after indoor corridor",
+    "Upper-right original concept reference: moon snowy peaks ruined columns and snowy floor",
+    "Interior boss backdrop rejected, preserved only as history",
+    "Camera stays1000x562.5, actor visible9%; ground and snow separate",
+    "Provisional backdrop fade at exit; no Unity gameplay validation",
+    "Upper sky localtop-600 leaves164.0625 units beyond maxreview camera top-435.9375",
+    "Sky and rock overlap use HTML masks, not baked alpha",
+    "Review scoped to outdoor boss area and cave exit; climb and fullcorridor not revalidated",
+    "v08 supersedes entry placement: breakfloor must be at arena center. Entry continuous. Asymmetric slopes; new thick bedrock matching surrounding rock scale."
+  ],
+  "corridorOverrides": {
+    "backWidth": 1600,
+    "backMask": "linear-gradient(to right,black 90%,transparent 100%)",
+    "ceilingMasks": [
+      "linear-gradient(to bottom,transparent,black15%)",
+      "linear-gradient(to left,transparent,black4%)"
+    ],
+    "maskComposite": "intersect"
+  },
+  "assets": [
+    "BG_Boss1_Ruins_v01.png",
+    "BG_Boss1_Ground_v01.png",
+    "BG_Boss1_GroundSnow_v01.png",
+    "BG_Boss1_UpperSky_v01.png",
+    "BG_Boss1_UpperRock_v01.png",
+    "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+    "BG_Boss1_Moon_v01.png",
+    "BG_Boss1_BreakFloor_v02.png",
+    "BG_Boss1_BreakFloorCracked_v02.png",
+    "FX_Boss1_BreakFloorDebris_v01.png",
+    "BG_Boss1_OutdoorFar_Right_v01.png",
+    "BG_Boss1_BreakEdge_v01.png"
+  ],
+  "excludedAssets": [
+    "BG_Boss1_InteriorBack_v01.png",
+    "BG_Boss1_BreakFloor_v01.png",
+    "BG_Boss1_BreakFloorCracked_v01.png"
+  ],
+  "jumpReview": {
+    "maxCount": 5,
+    "perJumpRise": 75.9375,
+    "totalRise": 379.6875,
+    "extraCameraRise": 56.25,
+    "maxCameraRise": 435.9375,
+    "follow": 1,
+    "physics": false,
+    "ceilingCollision": false,
+    "highestPlatformSurfaceY": 80,
+    "highestPlatformCameraTop": -749.9375,
+    "highestPlatformSkyMargin": 350.0625
+  },
+  "terrainProposal": {
+    "characterHeight": 50.625,
+    "defaultReliefHeights": 3,
+    "compareReliefHeights": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "heightSpan": 151.875,
+    "shape": [
+      [
+        2100,
+        0
+      ],
+      [
+        2820,
+        0
+      ],
+      [
+        3000,
+        -0.22
+      ],
+      [
+        3210,
+        -0.55
+      ],
+      [
+        3340,
+        -0.51
+      ],
+      [
+        3520,
+        -0.24
+      ],
+      [
+        3890,
+        0.27
+      ],
+      [
+        4030,
+        0.3
+      ],
+      [
+        5070,
+        0.3
+      ],
+      [
+        5260,
+        -0.2
+      ],
+      [
+        5490,
+        -0.7
+      ],
+      [
+        5740,
+        -0.63
+      ],
+      [
+        5950,
+        -0.5
+      ],
+      [
+        6200,
+        -0.35
+      ],
+      [
+        6600,
+        -0.35
+      ]
+    ],
+    "interpolation": "65% linear +35% smoothstep; shapeY multiplied by50.625*relief",
+    "centralFlat": [
+      4030,
+      5070
+    ],
+    "leftRise": 83.53125,
+    "centralDepression": 45.5625,
+    "rightRise": 106.3125,
+    "render": "Existing PNG clipped strips; not final modular terrain assets"
+  },
+  "bossProposal": {
+    "heightMultipliers": [
+      5,
+      5.5,
+      6
+    ],
+    "default": 5.5,
+    "centerX": 4850,
+    "footY": 439.5625,
+    "visual": "SVG geometry for size comparison only, width speculative",
+    "patterns": [
+      "forward charge",
+      "ground slam",
+      "jump slam",
+      "arm swing"
+    ],
+    "bossJumpHeight": "unknown"
+  },
+  "platformProposal": [
+    {
+      "id": "left",
+      "name": "왼쪽 발판",
+      "x": 3330,
+      "w": 200,
+      "surfaceY": 160,
+      "file": "BG_Climb_LedgeSmall_v01.png",
+      "factor": 0.305
+    },
+    {
+      "id": "high",
+      "name": "높은 중앙 발판",
+      "x": 4120,
+      "w": 240,
+      "surfaceY": 80,
+      "file": "BG_Climb_LedgeMedium_v01.png",
+      "factor": 0.14
+    },
+    {
+      "id": "right",
+      "name": "오른쪽 발판",
+      "x": 5390,
+      "w": 260,
+      "surfaceY": 105,
+      "file": "BG_Climb_LedgeMedium_v01.png",
+      "factor": 0.14
+    }
+  ],
+  "breakFloor": {
+    "gap": {
+      "x": 4340,
+      "width": 340,
+      "centerX": 4510,
+      "surfaceY": 439.5625
+    },
+    "slab": {
+      "x": 4290,
+      "y": 307.9660087719,
+      "width": 440,
+      "intact": "BG_Boss1_BreakFloor_v02.png",
+      "cracked": "BG_Boss1_BreakFloorCracked_v02.png",
+      "brightness": 0.85
+    },
+    "debris": {
+      "x": 4320,
+      "y": 470.5625,
+      "width": 380,
+      "asset": "FX_Boss1_BreakFloorDebris_v01.png"
+    },
+    "shaftPreview": {
+      "x": 4290,
+      "y": 439.5625,
+      "width": 440,
+      "height": 900,
+      "background": "BG_Climb_InteriorBack_v01.png",
+      "brightness": 0.6,
+      "topFade": 0.14
+    },
+    "states": [
+      "intact",
+      "cracked",
+      "broken"
+    ],
+    "trigger": "unspecified",
+    "note": "Central floor intact/cracked stays v08. Broken edges use dedicated alpha cap, snow remains separately clipped. State buttons only; no gameplay.",
+    "edgeCaps": {
+      "asset": "BG_Boss1_BreakEdge_v01.png",
+      "visibleState": "broken",
+      "placements": [
+        {
+          "x": 4140,
+          "y": 402.1875,
+          "width": 320,
+          "flipX": false
+        },
+        {
+          "x": 4560,
+          "y": 405.1875,
+          "width": 320,
+          "flipX": true
+        }
+      ],
+      "terrainClipOnBreak": [
+        4290,
+        4730
+      ],
+      "note": "Independent alpha rock caps overlap ground under snow. Right reuses sprite mirrored; not colliders."
+    }
+  },
+  "newAssetAudit": [
+    {
+      "name": "BG_Boss1_BreakEdge_v01",
+      "width": 1024,
+      "height": 1536,
+      "colorType": 6,
+      "PPU": 100,
+      "maxTextureSize": 2048,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

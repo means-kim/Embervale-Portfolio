@@ -1,0 +1,268 @@
+{
+  "status": "Dynamic valley terrain and3platform draft; pending user feedback, noUnityimplementation",
+  "world": {
+    "width": 3950,
+    "height": 1800,
+    "topOffset": 1200
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9,
+    "panX": [
+      1800,
+      2950
+    ],
+    "panY": 1200
+  },
+  "arena": {
+    "bounds": {
+      "x": 2500,
+      "y": 0,
+      "width": 1450,
+      "height": 900,
+      "note": "Cave roof ends at x2500; outdoor extent1450; provisional."
+    },
+    "background": {
+      "asset": "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+      "x": 1700,
+      "y": -40,
+      "width": 2250,
+      "brightness": 0.72,
+      "mask": "linear-gradient(to bottom,transparent,black9%)"
+    },
+    "floor": {
+      "x": 2100,
+      "y": 224.2965009208103,
+      "width": 1900,
+      "surfaceYApprox": 401
+    },
+    "ruins": [
+      {
+        "asset": "BG_Boss1_Ruins_v01.png",
+        "x": 2850,
+        "y": 55.5625,
+        "width": 280,
+        "brightness": 0.75
+      }
+    ],
+    "snow": {
+      "asset": "BG_Boss1_GroundSnow_v01.png",
+      "x": 2380,
+      "y": 250.33701657458565,
+      "width": 1620,
+      "brightness": 0.8,
+      "previewMask": "linear-gradient(to right,transparent,black 6%)"
+    },
+    "upperSky": {
+      "asset": "BG_Boss1_UpperSky_v01.png",
+      "x": 1700,
+      "y": -600,
+      "width": 2250,
+      "height": 843.75,
+      "brightness": 0.72
+    },
+    "upperRock": {
+      "asset": "BG_Boss1_UpperRock_v01.png",
+      "x": 700,
+      "y": -1095,
+      "width": 2050,
+      "height": 1025,
+      "brightness": 0.8,
+      "mask": "linear-gradient(to bottom,black97.5%,transparent)"
+    },
+    "moon": {
+      "asset": "BG_Boss1_Moon_v01.png",
+      "x": 3167.6,
+      "y": -12,
+      "width": 124,
+      "brightness": 0.72,
+      "center": {
+        "x": 3229.6,
+        "y": 50
+      },
+      "previousApproxCenterY": 124,
+      "upwardShiftApprox": 74
+    },
+    "skyExtensionDraft": {
+      "asset": "BG_Boss1_UpperSky_v01.png",
+      "x": 1700,
+      "y": -1100,
+      "width": 2250,
+      "brightness": 0.72,
+      "note": "Existing upper sky repeated for draft, lower panel top20%blend"
+    }
+  },
+  "corridorSource": "BossCorridor_Prototype_v01.json",
+  "stops": [
+    {
+      "name": "등반 출구",
+      "x": 300
+    },
+    {
+      "name": "보스전 통로",
+      "x": 1200
+    },
+    {
+      "name": "전투 구역 진입",
+      "x": 1800
+    },
+    {
+      "name": "전투 구역 중앙",
+      "x": 2500
+    },
+    {
+      "name": "전투 구역 오른쪽",
+      "x": 2900
+    }
+  ],
+  "notes": [
+    "Explicit user correction: first boss arena outdoors after indoor corridor",
+    "Upper-right original concept reference: moon snowy peaks ruined columns and snowy floor",
+    "Interior boss backdrop rejected, preserved only as history",
+    "Camera stays1000x562.5, actor visible9%; ground and snow separate",
+    "Provisional backdrop fade at exit; no Unity gameplay validation",
+    "Upper sky localtop-600 leaves164.0625 units beyond maxreview camera top-435.9375",
+    "Sky and rock overlap use HTML masks, not baked alpha",
+    "Review scoped to outdoor boss area and cave exit; climb and fullcorridor not revalidated"
+  ],
+  "corridorOverrides": {
+    "backWidth": 1600,
+    "backMask": "linear-gradient(to right,black 90%,transparent 100%)",
+    "ceilingMasks": [
+      "linear-gradient(to bottom,transparent,black15%)",
+      "linear-gradient(to left,transparent,black4%)"
+    ],
+    "maskComposite": "intersect"
+  },
+  "assets": [
+    "BG_Boss1_Ruins_v01.png",
+    "BG_Boss1_Ground_v01.png",
+    "BG_Boss1_GroundSnow_v01.png",
+    "BG_Boss1_UpperSky_v01.png",
+    "BG_Boss1_UpperRock_v01.png",
+    "BG_Boss1_OutdoorFar_NoMoon_v01.png",
+    "BG_Boss1_Moon_v01.png"
+  ],
+  "excludedAssets": [
+    "BG_Boss1_InteriorBack_v01.png"
+  ],
+  "jumpReview": {
+    "maxCount": 5,
+    "perJumpRise": 75.9375,
+    "totalRise": 379.6875,
+    "extraCameraRise": 56.25,
+    "maxCameraRise": 435.9375,
+    "follow": 1,
+    "physics": false,
+    "ceilingCollision": false,
+    "highestPlatformSurfaceY": 80,
+    "highestPlatformCameraTop": -749.9375,
+    "highestPlatformSkyMargin": 350.0625
+  },
+  "terrainProposal": {
+    "characterHeight": 50.625,
+    "defaultReliefHeights": 3,
+    "compareReliefHeights": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "heightSpan": 151.875,
+    "shape": [
+      [
+        2100,
+        0
+      ],
+      [
+        2420,
+        0
+      ],
+      [
+        2600,
+        -0.55
+      ],
+      [
+        2690,
+        -0.55
+      ],
+      [
+        3010,
+        0.3
+      ],
+      [
+        3380,
+        0.3
+      ],
+      [
+        3680,
+        -0.7
+      ],
+      [
+        3800,
+        -0.7
+      ],
+      [
+        4000,
+        -0.35
+      ]
+    ],
+    "interpolation": "smoothstep; shapeY multiplied by50.625*relief",
+    "centralFlat": [
+      3010,
+      3380
+    ],
+    "leftRise": 83.53125,
+    "centralDepression": 45.5625,
+    "rightRise": 106.3125,
+    "render": "Existing PNG clipped strips; not final modular terrain assets"
+  },
+  "bossProposal": {
+    "heightMultipliers": [
+      5,
+      5.5,
+      6
+    ],
+    "default": 5.5,
+    "centerX": 3310,
+    "footY": 394,
+    "visual": "SVG geometry for size comparison only, width speculative",
+    "patterns": [
+      "forward charge",
+      "ground slam",
+      "jump slam",
+      "arm swing"
+    ],
+    "bossJumpHeight": "unknown"
+  },
+  "platformProposal": [
+    {
+      "id": "left",
+      "name": "왼쪽 발판",
+      "x": 2710,
+      "w": 170,
+      "surfaceY": 205,
+      "file": "BG_Climb_LedgeSmall_v01.png",
+      "factor": 0.305
+    },
+    {
+      "id": "high",
+      "name": "높은 중앙 발판",
+      "x": 2980,
+      "w": 190,
+      "surfaceY": 80,
+      "file": "BG_Climb_LedgeMedium_v01.png",
+      "factor": 0.14
+    },
+    {
+      "id": "right",
+      "name": "오른쪽 발판",
+      "x": 3530,
+      "w": 230,
+      "surfaceY": 105,
+      "file": "BG_Climb_LedgeMedium_v01.png",
+      "factor": 0.14
+    }
+  ]
+}

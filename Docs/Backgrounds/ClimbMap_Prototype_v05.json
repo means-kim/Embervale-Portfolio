@@ -1,0 +1,188 @@
+{
+  "status": "variable platform art prototype; user feedback revision; no physics validation",
+  "worldReference": {
+    "width": 1000,
+    "height": 1600,
+    "unit": "HTML layout units, not Unity units"
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "aspect": "16:9",
+    "actorVisiblePercent": 9,
+    "panRange": [
+      0,
+      1037.5
+    ]
+  },
+  "assets": [
+    "BG_Climb_InteriorBack_v01.png",
+    "BG_Climb_Ledge_v01.png",
+    "BG_Climb_LedgeSmall_v01.png",
+    "BG_Climb_LedgeMedium_v01.png",
+    "BG_Climb_Ceiling_v01.png",
+    "BG_Climb_EntryWall_v01.png",
+    "BG_Climb_ExitUpper_v01.png",
+    "BG_Climb_ExitLower_v01.png"
+  ],
+  "background": {
+    "x": 0,
+    "y": 0,
+    "width": 1000,
+    "height": 1600,
+    "fit": "cover",
+    "brightness": 0.65
+  },
+  "walls": [
+    {
+      "asset": "BG_Climb_EntryWall_v01.png",
+      "x": -450,
+      "y": 0,
+      "w": 1000,
+      "brightness": 0.8
+    },
+    {
+      "asset": "BG_Climb_ExitUpper_v01.png",
+      "x": 450,
+      "y": -130,
+      "w": 1000,
+      "brightness": 0.8
+    },
+    {
+      "asset": "BG_Climb_ExitLower_v01.png",
+      "x": 450,
+      "y": 70,
+      "w": 1000,
+      "brightness": 0.8
+    }
+  ],
+  "platforms": [
+    {
+      "id": "entry",
+      "x": -300,
+      "y": 1311.08,
+      "w": 1600,
+      "type": "wide"
+    },
+    {
+      "id": "p1",
+      "x": 190,
+      "y": 1230,
+      "w": 220,
+      "type": "small"
+    },
+    {
+      "id": "p2",
+      "x": 495,
+      "y": 1100,
+      "w": 350,
+      "type": "medium"
+    },
+    {
+      "id": "p3",
+      "x": 245,
+      "y": 960,
+      "w": 180,
+      "type": "small"
+    },
+    {
+      "id": "rest",
+      "x": 365,
+      "y": 830,
+      "w": 620,
+      "type": "wide"
+    },
+    {
+      "id": "p5",
+      "x": 170,
+      "y": 710,
+      "w": 300,
+      "type": "medium"
+    },
+    {
+      "id": "p6",
+      "x": 555,
+      "y": 560,
+      "w": 200,
+      "type": "small"
+    },
+    {
+      "id": "p7",
+      "x": 255,
+      "y": 445,
+      "w": 240,
+      "type": "small"
+    },
+    {
+      "id": "exit",
+      "x": 440,
+      "y": 310,
+      "w": 650,
+      "type": "wide"
+    }
+  ],
+  "platformBrightness": 0.85,
+  "ceiling": {
+    "asset": "BG_Climb_Ceiling_v01.png",
+    "x": -50,
+    "y": -100,
+    "width": 1100,
+    "rotationDegrees": 0,
+    "brightness": 0.8
+  },
+  "reviewStops": [
+    {
+      "name": "하단 진입",
+      "cam": 980,
+      "p": "entry",
+      "x": 310
+    },
+    {
+      "name": "첫 등반",
+      "cam": 820,
+      "p": "p2",
+      "x": 640
+    },
+    {
+      "name": "중간 쉼턱",
+      "cam": 510,
+      "p": "rest",
+      "x": 570
+    },
+    {
+      "name": "상단 등반",
+      "cam": 230,
+      "p": "p6",
+      "x": 655
+    },
+    {
+      "name": "출구 통로",
+      "cam": 0,
+      "p": "exit",
+      "x": 760
+    }
+  ],
+  "notes": [
+    "Three separate alpha PNG walls replace CSS clip-path; generated contours differ slightly, upper wall y-130, lower y70",
+    "no snow in interior",
+    "no outdoors sky or mountain asset used",
+    "each platform is independently movable; sample widths and gaps are not fixed gameplay requirements",
+    "dedicated ceiling replaces upside-down ledge; platform variants and editable layout preserved",
+    "entry floor extends offscreen at both ends; surface factor is sampled for default actor position only"
+  ],
+  "platformTypes": {
+    "small": {
+      "file": "BG_Climb_LedgeSmall_v01.png",
+      "surface": 0.305
+    },
+    "medium": {
+      "file": "BG_Climb_LedgeMedium_v01.png",
+      "surface": 0.14
+    },
+    "wide": {
+      "file": "BG_Climb_Ledge_v01.png",
+      "surface": 0.095
+    }
+  },
+  "entryPreviewSurfaceFactor": 0.10451197053406998
+}
