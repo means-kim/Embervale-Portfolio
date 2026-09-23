@@ -1,0 +1,230 @@
+{
+  "width": 2048,
+  "height": 1536,
+  "spriteCount": 12,
+  "slicesCorrect": true,
+  "maxTextureSize": 2048,
+  "mipmap": false,
+  "filterMode": "Bilinear",
+  "sprites": [
+    {
+      "name": "Boss_Charge_0",
+      "rect": "(x:0.00, y:1024.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_1",
+      "rect": "(x:512.00, y:1024.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_2",
+      "rect": "(x:1024.00, y:1024.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_3",
+      "rect": "(x:1536.00, y:1024.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_4",
+      "rect": "(x:0.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_5",
+      "rect": "(x:512.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_6",
+      "rect": "(x:1024.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_7",
+      "rect": "(x:1536.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_8",
+      "rect": "(x:0.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_9",
+      "rect": "(x:512.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_10",
+      "rect": "(x:1024.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Charge_11",
+      "rect": "(x:1536.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    }
+  ],
+  "clips": [
+    {
+      "name": "Boss_Charge",
+      "length": 2.45,
+      "frameRate": 20,
+      "loop": false,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Charge_0"
+        },
+        {
+          "time": 0.15,
+          "sprite": "Boss_Charge_1"
+        },
+        {
+          "time": 0.35,
+          "sprite": "Boss_Charge_2"
+        },
+        {
+          "time": 0.7,
+          "sprite": "Boss_Charge_3"
+        },
+        {
+          "time": 0.85,
+          "sprite": "Boss_Charge_4"
+        },
+        {
+          "time": 0.95,
+          "sprite": "Boss_Charge_5"
+        },
+        {
+          "time": 1.05,
+          "sprite": "Boss_Charge_6"
+        },
+        {
+          "time": 1.15,
+          "sprite": "Boss_Charge_7"
+        },
+        {
+          "time": 1.25,
+          "sprite": "Boss_Charge_8"
+        },
+        {
+          "time": 1.4,
+          "sprite": "Boss_Charge_9"
+        },
+        {
+          "time": 1.7,
+          "sprite": "Boss_Charge_10"
+        },
+        {
+          "time": 2.05,
+          "sprite": "Boss_Charge_11"
+        },
+        {
+          "time": 2.4,
+          "sprite": "Boss_Charge_11"
+        }
+      ]
+    },
+    {
+      "name": "Boss_Charge_Start",
+      "length": 0.85,
+      "frameRate": 20,
+      "loop": false,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Charge_0"
+        },
+        {
+          "time": 0.15,
+          "sprite": "Boss_Charge_1"
+        },
+        {
+          "time": 0.35,
+          "sprite": "Boss_Charge_2"
+        },
+        {
+          "time": 0.7,
+          "sprite": "Boss_Charge_3"
+        },
+        {
+          "time": 0.8,
+          "sprite": "Boss_Charge_3"
+        }
+      ]
+    },
+    {
+      "name": "Boss_Charge_Loop",
+      "length": 0.4,
+      "frameRate": 20,
+      "loop": true,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Charge_4"
+        },
+        {
+          "time": 0.1,
+          "sprite": "Boss_Charge_5"
+        },
+        {
+          "time": 0.2,
+          "sprite": "Boss_Charge_6"
+        },
+        {
+          "time": 0.3,
+          "sprite": "Boss_Charge_7"
+        },
+        {
+          "time": 0.35,
+          "sprite": "Boss_Charge_7"
+        }
+      ]
+    },
+    {
+      "name": "Boss_Charge_End",
+      "length": 1.2,
+      "frameRate": 20,
+      "loop": false,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Charge_8"
+        },
+        {
+          "time": 0.15,
+          "sprite": "Boss_Charge_9"
+        },
+        {
+          "time": 0.45,
+          "sprite": "Boss_Charge_10"
+        },
+        {
+          "time": 0.8,
+          "sprite": "Boss_Charge_11"
+        },
+        {
+          "time": 1.15,
+          "sprite": "Boss_Charge_11"
+        }
+      ]
+    }
+  ],
+  "missingReferences": 0
+}

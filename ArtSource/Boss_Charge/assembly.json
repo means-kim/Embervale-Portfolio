@@ -1,0 +1,21 @@
+{
+  "source_size": [1448, 1086],
+  "regions": [
+    [0, 0, 385, 390],
+    [385, 0, 735, 390],
+    [735, 0, 1080, 390],
+    [1080, 0, 1448, 390],
+    [0, 390, 390, 730],
+    [390, 390, 720, 730],
+    [720, 390, 1108, 730],
+    [1108, 390, 1448, 730],
+    [0, 730, 375, 1086],
+    [375, 730, 722, 1086],
+    [722, 730, 1082, 1086],
+    [1082, 730, 1448, 1086]
+  ],
+  "root_x_source": [188, 558, 901, 1254, 184, 555, 910, 1268, 193, 558, 910, 1270],
+  "target_root_x": 262,
+  "bottom_gap_px": [0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0],
+  "notes": "Pelvis/root X anchors are visually estimated in source pixels; foot X varies through the stride. Frame 7 is the airborne passing pose, intentionally 12px above the fixed ground line. Every grounded frame is aligned to the cell bottom. One uniform scale is derived from the generated neutral pose and original Idle alpha>=128 height. Frames 0 and 11 are exact Idle copies."
+}
