@@ -1,0 +1,17 @@
+Use case: stylized-concept.
+Asset type: production 2D game HIT / damage-reaction animation sprites for the existing Snow Giant boss.
+
+Reference images: 1 = existing Idle sprite sheet (PRIMARY identity, scale, feet placement and neutral pose reference). 2 = existing Swing sheet (same rendering/material detail). 3 = existing Charge sheet (same character across poses). These are reference images, not output frames to reproduce.
+
+Create FOUR full-body sequential HIT reaction poses of this EXACT character: massive hunched silver-white shaggy snow giant with layered fur, faceted sapphire-blue ice crown and shoulder/back crystals, pointed armored face and cyan eyes, dark slate segmented abdominal armor, long huge clawed forearms, squat strong legs. Match the reference's crisp detailed painted game rendering, colors, lighting, proportions and fixed three-quarter camera facing SCREEN LEFT. Same anatomy throughout.
+
+Composition: transparent RGBA PNG, square sheet with exactly TWO columns by TWO rows, FOUR evenly separated poses, row-major reading order. Aim for 1024x1024 overall, conceptual cells 512x512. This intermediate layout will be packed into a single row later. All four poses are the same physical size and camera zoom, around 350px tall in a 512px cell for the neutral pose. Leave generous empty upper space and side clearance. Do not enlarge smaller/crouched poses to fill cells. Fully preserve all crown tips, hands, claws and feet within their cells.
+
+HIT MOTION: a short grounded flinch from an impact coming from screen LEFT. The boss absorbs a blow with its upper body leaning briefly BACK TOWARD SCREEN RIGHT and then recovers. No fall, knockdown, jumping, step, attack, roar or death. Both feet stay firmly planted in exactly the neutral reference positions throughout; anchor the lower body and floor baseline while shoulders/head move. Keep the face pointed left; do not turn or mirror the character. Distinct but restrained heavy recoil suitable for a massive boss.
+
+Frame 1 / top left — impact: head and shoulders jerk slightly backward/right about 12px at the conceptual 512px cell size, knees soften, hands lift only slightly from their resting position. Clear first recoil, not neutral.
+Frame 2 / top right — peak recoil: clearly stronger backward/right upper-body lean around 15–20 degrees, crown/head shifted right about 30px from neutral, chin lifted slightly, shoulders drawn back, elbows flex slightly with open clawed hands below chest level. Feet remain firmly grounded and pelvis close to its neutral position. This must read as being struck, not preparing an attack. Do not raise arms overhead.
+Frame 3 / bottom left — recovery: shoulders and head come forward toward neutral, still about 8px behind neutral, knees begin straightening, long arms settle downward. A visible intermediate between maximum recoil and Idle.
+Frame 4 / bottom right — exact neutral Idle pose from the first reference: head lowered facing left, hunched broad shoulders, long arms hanging, feet in the same positions, same silhouette and size as reference Idle.
+
+All four frames have the SAME ORIGINAL COLOR PALETTE. Do not paint a hit flash into the art. No whitening, overexposure, red tint, glow outline, impact star, damage marks, blood, sparks, particles, ice debris, fog, dust, motion trails, blur or ghost limbs. No environment, ground image, cast shadow, labels, text, numbering, cell borders or watermark. Genuinely transparent background. Only the four isolated full-body character poses.

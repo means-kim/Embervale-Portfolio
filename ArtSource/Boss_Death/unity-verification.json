@@ -1,0 +1,101 @@
+{
+  "width": 2048,
+  "height": 1024,
+  "spriteCount": 8,
+  "slicesCorrect": true,
+  "maxTextureSize": 2048,
+  "mipmap": false,
+  "filterMode": "Bilinear",
+  "sprites": [
+    {
+      "name": "Boss_Death_0",
+      "rect": "(x:0.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_1",
+      "rect": "(x:512.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_2",
+      "rect": "(x:1024.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_3",
+      "rect": "(x:1536.00, y:512.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_4",
+      "rect": "(x:0.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_5",
+      "rect": "(x:512.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_6",
+      "rect": "(x:1024.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Death_7",
+      "rect": "(x:1536.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    }
+  ],
+  "clipLength": 1.4,
+  "clipFrameRate": 20,
+  "clipLoop": false,
+  "keys": [
+    {
+      "time": 0,
+      "sprite": "Boss_Death_0"
+    },
+    {
+      "time": 0.1,
+      "sprite": "Boss_Death_1"
+    },
+    {
+      "time": 0.3,
+      "sprite": "Boss_Death_2"
+    },
+    {
+      "time": 0.5,
+      "sprite": "Boss_Death_3"
+    },
+    {
+      "time": 0.7,
+      "sprite": "Boss_Death_4"
+    },
+    {
+      "time": 0.85,
+      "sprite": "Boss_Death_5"
+    },
+    {
+      "time": 0.95,
+      "sprite": "Boss_Death_6"
+    },
+    {
+      "time": 1.05,
+      "sprite": "Boss_Death_7"
+    },
+    {
+      "time": 1.35,
+      "sprite": "Boss_Death_7"
+    }
+  ],
+  "missingReferences": 0
+}
