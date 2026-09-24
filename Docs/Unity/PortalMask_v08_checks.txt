@@ -1,0 +1,8 @@
+Outside -> inside -> outside, hysteresis .25 world units
+0 x=30 inside=False
+1 x=34 inside=False
+2 x=35 inside=True
+3 x=42 inside=True
+4 x=55 inside=True
+5 x=34 inside=False
+6 x=30 inside=False

@@ -1,0 +1,161 @@
+{
+  "status": "whole climbing area art prototype; awaiting user feedback; no collision or jump validation",
+  "worldReference": {
+    "width": 1000,
+    "height": 1600,
+    "unit": "HTML layout units, not Unity units"
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "aspect": "16:9",
+    "actorVisiblePercent": 9,
+    "panRange": [
+      0,
+      1037.5
+    ]
+  },
+  "assets": [
+    "BG_Climb_InteriorBack_v01.png",
+    "BG_Climb_WallLeft_v01.png",
+    "BG_Climb_WallRight_v01.png",
+    "BG_Climb_Ledge_v01.png"
+  ],
+  "background": {
+    "x": 0,
+    "y": 0,
+    "width": 1000,
+    "height": 1600,
+    "fit": "cover",
+    "brightness": 0.65
+  },
+  "walls": [
+    {
+      "asset": "BG_Climb_WallLeft_v01.png",
+      "x": -450,
+      "y": 0,
+      "w": 1000,
+      "brightness": 0.8,
+      "cssClipPath": "inset(0 0 14% 0)"
+    },
+    {
+      "asset": "BG_Climb_WallRight_v01.png",
+      "x": 450,
+      "y": 0,
+      "w": 1000,
+      "brightness": 0.8,
+      "cssClipPath": "inset(0 0 84% 0)"
+    },
+    {
+      "asset": "BG_Climb_WallRight_v01.png",
+      "x": 450,
+      "y": 0,
+      "w": 1000,
+      "brightness": 0.8,
+      "cssClipPath": "inset(23% 0 0 0)"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "entry",
+      "x": -70,
+      "y": 1370,
+      "w": 1140
+    },
+    {
+      "id": "p1",
+      "x": 0,
+      "y": 1240,
+      "w": 540
+    },
+    {
+      "id": "p2",
+      "x": 475,
+      "y": 1110,
+      "w": 400
+    },
+    {
+      "id": "p3",
+      "x": 0,
+      "y": 980,
+      "w": 540
+    },
+    {
+      "id": "rest",
+      "x": 365,
+      "y": 850,
+      "w": 620
+    },
+    {
+      "id": "p5",
+      "x": 0,
+      "y": 715,
+      "w": 540
+    },
+    {
+      "id": "p6",
+      "x": 470,
+      "y": 585,
+      "w": 400
+    },
+    {
+      "id": "p7",
+      "x": 0,
+      "y": 455,
+      "w": 540
+    },
+    {
+      "id": "exit",
+      "x": 440,
+      "y": 310,
+      "w": 650
+    }
+  ],
+  "platformBrightness": 0.85,
+  "ceiling": {
+    "asset": "BG_Climb_Ledge_v01.png",
+    "x": -50,
+    "y": -96,
+    "width": 1100,
+    "rotationDegrees": 180,
+    "brightness": 0.55
+  },
+  "reviewStops": [
+    {
+      "name": "하단 진입",
+      "cam": 980,
+      "p": "entry",
+      "x": 310
+    },
+    {
+      "name": "첫 등반",
+      "cam": 820,
+      "p": "p2",
+      "x": 600
+    },
+    {
+      "name": "중간 쉼턱",
+      "cam": 510,
+      "p": "rest",
+      "x": 570
+    },
+    {
+      "name": "상단 등반",
+      "cam": 230,
+      "p": "p6",
+      "x": 605
+    },
+    {
+      "name": "출구 통로",
+      "cam": 0,
+      "p": "exit",
+      "x": 760
+    }
+  ],
+  "notes": [
+    "clip paths mark prototype entry/exit cutouts and are not baked sprite geometry",
+    "repeated ledge and rotated ceiling are provisional",
+    "no snow in interior",
+    "no outdoors sky or mountain asset used"
+  ]
+}

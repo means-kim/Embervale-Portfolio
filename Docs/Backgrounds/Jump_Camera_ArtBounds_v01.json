@@ -1,0 +1,20 @@
+{
+  "maxJumpCount": 5,
+  "perJumpHeightInCharacterHeights": 1.5,
+  "conservativeTotalCharacterHeights": 7.5,
+  "heightBasis": "Actual placed character body height; not transparent512px frame. Final gameplay collider/body reference remains to be aligned in Unity.",
+  "preview": {
+    "cameraHeight": 562.5,
+    "characterVisibleHeight": 50.625,
+    "perJumpRise": 75.9375,
+    "conservativeTotalRise": 379.6875
+  },
+  "cameraAssumption": "Audit only: camera follows full upward displacement1:1. Actual follow/deadzone/clamp/parallax not decided.",
+  "currentOutdoorBackground": {
+    "localTop": -40,
+    "upwardCoverage": 40,
+    "neededAtFullFollow": 379.6875,
+    "shortfall": 339.6875
+  },
+  "status": "Requirement recorded; current v02 standing-camera preview does not validate5-jump upper coverage; art extension pending"
+}

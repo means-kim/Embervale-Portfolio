@@ -1,0 +1,81 @@
+{
+  "status": "Boss corridor to indoor arena connection prototype; pending user visual feedback",
+  "world": {
+    "width": 3950,
+    "height": 900,
+    "topOffset": 300
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9,
+    "panX": [
+      300,
+      2900
+    ],
+    "panY": 300
+  },
+  "arena": {
+    "bounds": {
+      "x": 2200,
+      "y": 0,
+      "width": 1750,
+      "height": 900
+    },
+    "background": {
+      "x": 2000,
+      "y": -300,
+      "width": 1950,
+      "height": 975,
+      "brightness": 0.7
+    },
+    "floor": {
+      "x": 2100,
+      "y": 224.2965009208103,
+      "width": 1900,
+      "surfaceYApprox": 401
+    },
+    "transitionCeiling": {
+      "x": 2100,
+      "y": -330,
+      "width": 1000
+    }
+  },
+  "corridorSource": "BossCorridor_Prototype_v01.json",
+  "stops": [
+    {
+      "name": "등반 출구",
+      "x": 300
+    },
+    {
+      "name": "보스전 통로",
+      "x": 1200
+    },
+    {
+      "name": "전투 구역 진입",
+      "x": 1800
+    },
+    {
+      "name": "전투 구역 중앙",
+      "x": 2500
+    },
+    {
+      "name": "전투 구역 오른쪽",
+      "x": 2900
+    }
+  ],
+  "notes": [
+    "Indoor assumption retained until exterior exit explicitly agreed",
+    "Boss arena is larger than one camera; no zoom out to fit whole room",
+    "No enemies, boss scale, combat gates, hazards, physics or gameplay implemented",
+    "Background transitions use provisional alpha masks; native Unity assembly not validated"
+  ],
+  "corridorOverrides": {
+    "backWidth": 1600,
+    "backMask": "linear-gradient(to right,black 78%,transparent 100%)"
+  },
+  "assets": [
+    "BG_Boss1_InteriorBack_v01.png",
+    "BG_Boss1_Ground_v01.png"
+  ]
+}

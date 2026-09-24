@@ -83,3 +83,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Map author's local review scenes, backups and one-off migration tools.
+/Assets/MapReview/
+/Assets/MapReview.meta
+
+# README documentation is local-only (including Unity .meta files).
+[Rr][Ee][Aa][Dd][Mm][Ee]*

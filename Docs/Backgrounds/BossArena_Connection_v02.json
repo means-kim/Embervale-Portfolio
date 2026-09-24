@@ -1,0 +1,100 @@
+{
+  "status": "Outdoor first boss arena correction; indoor corridor retained; art preview, gameplay pending",
+  "world": {
+    "width": 3950,
+    "height": 900,
+    "topOffset": 300
+  },
+  "camera": {
+    "width": 1000,
+    "height": 562.5,
+    "actorVisiblePercent": 9,
+    "panX": [
+      300,
+      2900
+    ],
+    "panY": 300
+  },
+  "arena": {
+    "bounds": {
+      "x": 2500,
+      "y": 0,
+      "width": 1450,
+      "height": 900,
+      "note": "Cave roof ends at x2500; outdoor extent1450; provisional."
+    },
+    "background": {
+      "asset": "BG_Boss1_OutdoorFar_v01.png",
+      "x": 1700,
+      "y": -40,
+      "width": 2250,
+      "brightness": 0.72
+    },
+    "floor": {
+      "x": 2100,
+      "y": 224.2965009208103,
+      "width": 1900,
+      "surfaceYApprox": 401
+    },
+    "ruins": [
+      {
+        "asset": "BG_Boss1_Ruins_v01.png",
+        "x": 2850,
+        "y": 10,
+        "width": 280,
+        "brightness": 0.75
+      }
+    ],
+    "snow": {
+      "asset": "BG_Boss1_GroundSnow_v01.png",
+      "x": 2380,
+      "y": 250.33701657458565,
+      "width": 1620,
+      "brightness": 0.8,
+      "previewMask": "linear-gradient(to right,transparent,black 6%)"
+    }
+  },
+  "corridorSource": "BossCorridor_Prototype_v01.json",
+  "stops": [
+    {
+      "name": "등반 출구",
+      "x": 300
+    },
+    {
+      "name": "보스전 통로",
+      "x": 1200
+    },
+    {
+      "name": "전투 구역 진입",
+      "x": 1800
+    },
+    {
+      "name": "전투 구역 중앙",
+      "x": 2500
+    },
+    {
+      "name": "전투 구역 오른쪽",
+      "x": 2900
+    }
+  ],
+  "notes": [
+    "Explicit user correction: first boss arena outdoors after indoor corridor",
+    "Upper-right original concept reference: moon snowy peaks ruined columns and snowy floor",
+    "Interior boss backdrop rejected, preserved only as history",
+    "Camera stays1000x562.5, actor visible9%; ground and snow separate",
+    "Provisional backdrop fade at exit; no Unity gameplay validation"
+  ],
+  "corridorOverrides": {
+    "backWidth": 1600,
+    "backMask": "linear-gradient(to right,black 90%,transparent 100%)"
+  },
+  "assets": [
+    "BG_Boss1_OutdoorFar_v01.png",
+    "BG_Boss1_Ruins_v01.png",
+    "BG_Boss1_Ground_v01.png",
+    "BG_Boss1_GroundSnow_v01.png"
+  ],
+  "excludedAssets": [
+    "BG_Boss1_InteriorBack_v01.png"
+  ]
+}
