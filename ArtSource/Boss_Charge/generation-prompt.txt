@@ -1,0 +1,26 @@
+Create a production 2D game sprite sheet for the EXACT SAME snow giant boss in the supplied reference sprite sheets. This is a new CHARGE / rushing attack animation, 12 frames total. Reference 1 is Idle, reference 2 is Walk, reference 3 is Swing. Preserve the identity, rendering style, fur layering, blue crystal arrangement, slate armored torso, large clawed hands, proportions, colors, lighting, and fixed three-quarter camera facing SCREEN LEFT. Use the references as a model sheet; do not reproduce their attacks.
+
+DELIVERABLE: one transparent RGBA PNG sprite atlas, landscape 4:3 aspect, ideally 2048 by 1536 pixels. Exactly FOUR COLUMNS by THREE ROWS, exactly TWELVE fully separate full-body poses in row-major order. Each cell corresponds to 512 by 512 pixels. Absolutely no labels, text, numbers, borders, background, ground, cast shadows, snow/dust particles, ice trails, speed lines, motion blur, weapon, extra limbs, or duplicate ghost limbs. Preserve crisp cutout silhouette and detailed painted game art. Never allow a body part to cross into another cell. Empty space between poses is required.
+
+SCALE AND REGISTRATION: all twelve poses are the same physical giant at the same camera zoom. Idle height about 350 pixels in a 512px cell, from crown tip to sole. The idle width is about 420px. Do NOT stretch or scale crouched/running poses to fill the cell. Keep a fixed pelvis/root registration around the horizontal center of each cell. Ground contact line at the bottom of each cell, with planted feet resting exactly on this line. Allow lifted stride feet to be above it. Character runs IN PLACE; never move the whole character through the sheet. Keep all parts inside the cell with at least 12px left/right safety clearance. Crouching lowers the head, not body scale. Keep the crystal crown clear and the face looking left.
+
+ANIMATION / POSE SEQUENCE (row-major):
+ROW 1 — preparation and launch:
+Frame 01: exact neutral reference Idle-ready pose, slightly hunched, large arms hanging, claws visible. This establishes body scale.
+Frame 02: warning, sink the knees and pelvis slightly, chest begins leaning left, heavy hands draw closer to torso. Feet still planted, the same body proportions.
+Frame 03: deepest loaded crouch, head lowered and shoulder presented towards left, hind leg loaded, hands tucked low alongside torso. Readable anticipation silhouette, retain two arms and two legs.
+Frame 04: explosive launch in place, rear foot pushes firmly off the ground while forward knee drives left. Torso leans forward roughly 25 degrees, shoulders leading. This is a run, not a punching attack.
+
+ROW 2 — coherent FOUR FRAME RUN CYCLE designed to loop 05→06→07→08→05:
+Frame 05: first contact, NEAR leg extends forward towards left and lands, FAR leg extends back towards right. FAR arm swings slightly forward, NEAR huge forearm swings back, hands below chest. Deep forward lean retained.
+Frame 06: passing / compression, near leg supports bent under the body, far knee passes forward while far foot is lifted clear. Hands smoothly cross midway in their short heavy arm swing. Same leaned torso and same body scale.
+Frame 07: opposite contact, FAR leg extends forward left and lands, NEAR leg extends back right. NEAR huge arm swings forward low, far arm swings back. Exact same camera and torso lean as frame05; DO NOT mirror the drawing.
+Frame 08: opposite passing / push-off, far leg supports beneath body and near knee comes forward, near foot lifted. Return arm positions towards frame05. Clear natural alternate biped stride, small body bob only. No quadruped walking, knuckles remain off the ground.
+
+ROW 3 — braking and recovery:
+Frame 09: braking, one foot planted out in front left as a brace, other behind, torso begins rocking back from its forward lean, hands slightly out for balance, no effects.
+Frame 10: absorb the stop, both knees bend with weight low, shoulders settle, hands drop toward idle; a visibly different pose from frame09.
+Frame 11: rise part-way from the crouch, relax shoulders, begin restoring exact Idle silhouette.
+Frame 12: return to the same neutral reference Idle pose as frame01, same scale and location, ready to transition.
+
+The four middle-row poses must clearly alternate the legs and arms, and must be usable independently as a loop for variable charge distances. All frames remain facing left with no camera rotation or perspective change. Match the supplied boss, do not create a new monster or simplified cartoon.

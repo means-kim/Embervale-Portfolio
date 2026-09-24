@@ -1,0 +1,12 @@
+{
+  "source_size": [1254, 1254],
+  "regions": [
+    [0, 0, 627, 650],
+    [627, 0, 1254, 650],
+    [0, 650, 627, 1254],
+    [627, 650, 1254, 1254]
+  ],
+  "front_foot_x_source": [266.5, 889.5, 297, 908],
+  "target_front_foot_x": 210.5,
+  "notes": "Front foot X is measured from the alpha>=128 sole band (lowest five solid rows). Calibrate one scale against the generated neutral frame 3; copy original Boss_Idle_0 for final frame 3. All four final cells have zero bottom transparent margin."
+}

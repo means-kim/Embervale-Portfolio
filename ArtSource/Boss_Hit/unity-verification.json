@@ -1,0 +1,57 @@
+{
+  "width": 2048,
+  "height": 512,
+  "spriteCount": 4,
+  "slicesCorrect": true,
+  "maxTextureSize": 2048,
+  "mipmap": false,
+  "filterMode": "Bilinear",
+  "sprites": [
+    {
+      "name": "Boss_Hit_0",
+      "rect": "(x:0.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Hit_1",
+      "rect": "(x:512.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Hit_2",
+      "rect": "(x:1024.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Hit_3",
+      "rect": "(x:1536.00, y:0.00, width:512.00, height:512.00)",
+      "pivot": "(256.00, 0.00)",
+      "ppu": 50
+    }
+  ],
+  "clipLength": 0.3,
+  "clipFrameRate": 20,
+  "clipLoop": false,
+  "keys": [
+    {
+      "time": 0,
+      "sprite": "Boss_Hit_0"
+    },
+    {
+      "time": 0.05,
+      "sprite": "Boss_Hit_1"
+    },
+    {
+      "time": 0.15,
+      "sprite": "Boss_Hit_2"
+    },
+    {
+      "time": 0.25,
+      "sprite": "Boss_Hit_3"
+    }
+  ],
+  "missingReferences": 0
+}

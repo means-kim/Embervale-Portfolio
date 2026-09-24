@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "reports": [
+    {
+      "test": "Slam -> IsHit",
+      "passed": true,
+      "sprite": "Boss_Hit_0"
+    },
+    {
+      "test": "Swing -> IsDeath",
+      "passed": true,
+      "sprite": "Boss_Death_0"
+    },
+    {
+      "test": "Health.IsDead suppresses all",
+      "passed": true
+    }
+  ]
+}
