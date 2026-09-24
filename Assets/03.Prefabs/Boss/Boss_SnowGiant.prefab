@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.6, y: 5.6}
+  m_Size: {x: 5, y: 5.6}
   m_EdgeRadius: 0
 --- !u!1 &6594865407688505647
 GameObject:
@@ -279,10 +279,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1020913575131678032}
   - component: {fileID: 1405717601429288287}
+  - component: {fileID: 1731196025700362507}
   - component: {fileID: 2081650440081494536}
   - component: {fileID: 1428997075298612375}
   - component: {fileID: 5930615092485249234}
-  - component: {fileID: 1731196025700362507}
   - component: {fileID: 7419796586167053868}
   m_Layer: 10
   m_Name: Boss_SnowGiant
@@ -366,6 +366,33 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!50 &1731196025700362507
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981983542186342843}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!95 &2081650440081494536
 Animator:
   serializedVersion: 7
@@ -398,8 +425,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66ac27ea21794c640aa4658fd10a7ff0, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMovement
+  _moveSpeed: 3
+  _stopDistance: 1
 --- !u!114 &5930615092485249234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,36 +439,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 100
---- !u!50 &1731196025700362507
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981983542186342843}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &7419796586167053868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,15 +452,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93700a9425bc434796142c77d48a3ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossColliderRig
-  spriteRenderer: {fileID: 1405717601429288287}
-  facingRoot: {fileID: 817473981876062920}
-  health: {fileID: 5930615092485249234}
-  hurtbox: {fileID: 3180728724621837134}
-  slamHitbox: {fileID: 6846928513366798326}
-  swingHitbox: {fileID: 4879881117328265235}
-  chargeHitbox: {fileID: 8888713568152184442}
+  _spriteRenderer: {fileID: 1405717601429288287}
+  _facingRoot: {fileID: 817473981876062920}
+  _health: {fileID: 5930615092485249234}
+  _hurtbox: {fileID: 3180728724621837134}
+  _slamHitbox: {fileID: 6846928513366798326}
+  _swingHitbox: {fileID: 4879881117328265235}
+  _chargeHitbox: {fileID: 8888713568152184442}
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +527,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -535,5 +537,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9, y: 1.3}
+  m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
