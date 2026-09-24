@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     public int CurrentHealth => _currentHealth;
     public bool IsDead => _isDead;
 
+    public event Action OnDie;
+
     private void Awake()
     {
         _currentHealth = _maxHealth;
@@ -18,7 +20,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (_isDead) return;
+        if (_isDead || damage <= 0) return;
 
         _currentHealth -= damage;
 
@@ -26,6 +28,8 @@ public class Health : MonoBehaviour
         {
             _isDead = true;
             _currentHealth = 0;
+
+            OnDie?.Invoke();
         }
     }
 
