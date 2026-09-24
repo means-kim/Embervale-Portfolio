@@ -1,0 +1,1292 @@
+[
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Death.anim",
+    "name": "Boss_Death",
+    "length": 1.4,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Death_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.1,
+        "sprite": "Boss_Death_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.3,
+        "sprite": "Boss_Death_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5,
+        "sprite": "Boss_Death_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Death_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.85,
+        "sprite": "Boss_Death_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.95,
+        "sprite": "Boss_Death_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.05,
+        "sprite": "Boss_Death_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.35,
+        "sprite": "Boss_Death_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Death.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Hit.anim",
+    "name": "Boss_Hit",
+    "length": 0.3,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Hit_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Hit.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.05,
+        "sprite": "Boss_Hit_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Hit.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.15,
+        "sprite": "Boss_Hit_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Hit.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.25,
+        "sprite": "Boss_Hit_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Hit.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Idle.anim",
+    "name": "Boss_Idle",
+    "length": 0.6666666,
+    "loop": true,
+    "frameRate": 12,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Idle_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.0833333358,
+        "sprite": "Boss_Idle_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.166666672,
+        "sprite": "Boss_Idle_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.25,
+        "sprite": "Boss_Idle_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.333333343,
+        "sprite": "Boss_Idle_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.416666657,
+        "sprite": "Boss_Idle_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5,
+        "sprite": "Boss_Idle_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5833333,
+        "sprite": "Boss_Idle_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Idle.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Slam.anim",
+    "name": "Boss_Slam",
+    "length": 1.65,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Slam_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.1,
+        "sprite": "Boss_Slam_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.3,
+        "sprite": "Boss_Slam_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5,
+        "sprite": "Boss_Slam_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Slam_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.8,
+        "sprite": "Boss_Slam_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.85,
+        "sprite": "Boss_Slam_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.35,
+        "sprite": "Boss_Slam_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.6,
+        "sprite": "Boss_Slam_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Slam.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Swing.anim",
+    "name": "Boss_Swing",
+    "length": 1.5,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Swing_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.1,
+        "sprite": "Boss_Swing_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.25,
+        "sprite": "Boss_Swing_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.4,
+        "sprite": "Boss_Swing_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.6,
+        "sprite": "Boss_Swing_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Swing_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.8,
+        "sprite": "Boss_Swing_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.2,
+        "sprite": "Boss_Swing_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.45,
+        "sprite": "Boss_Swing_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Swing.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Boss_Walk.anim",
+    "name": "Boss_Walk",
+    "length": 0.6666666,
+    "loop": false,
+    "frameRate": 12,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Walk_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.0833333358,
+        "sprite": "Boss_Walk_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.166666672,
+        "sprite": "Boss_Walk_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.25,
+        "sprite": "Boss_Walk_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.333333343,
+        "sprite": "Boss_Walk_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.416666657,
+        "sprite": "Boss_Walk_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5,
+        "sprite": "Boss_Walk_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.5833333,
+        "sprite": "Boss_Walk_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Walk.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Charge/Boss_Charge.anim",
+    "name": "Boss_Charge",
+    "length": 2.45,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Charge_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.15,
+        "sprite": "Boss_Charge_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.35,
+        "sprite": "Boss_Charge_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Charge_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.85,
+        "sprite": "Boss_Charge_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.95,
+        "sprite": "Boss_Charge_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.05,
+        "sprite": "Boss_Charge_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.15,
+        "sprite": "Boss_Charge_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.25,
+        "sprite": "Boss_Charge_8",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.4,
+        "sprite": "Boss_Charge_9",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.7,
+        "sprite": "Boss_Charge_10",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 2.05,
+        "sprite": "Boss_Charge_11",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 2.4,
+        "sprite": "Boss_Charge_11",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Charge/Boss_Charge_End.anim",
+    "name": "Boss_Charge_End",
+    "length": 1.2,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Charge_8",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.15,
+        "sprite": "Boss_Charge_9",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.45,
+        "sprite": "Boss_Charge_10",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.8,
+        "sprite": "Boss_Charge_11",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 1.15,
+        "sprite": "Boss_Charge_11",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Charge/Boss_Charge_Loop.anim",
+    "name": "Boss_Charge_Loop",
+    "length": 0.4,
+    "loop": true,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Charge_4",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.1,
+        "sprite": "Boss_Charge_5",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.2,
+        "sprite": "Boss_Charge_6",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.3,
+        "sprite": "Boss_Charge_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.35,
+        "sprite": "Boss_Charge_7",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  },
+  {
+    "path": "Assets/05.Animation/Boss/Charge/Boss_Charge_Start.anim",
+    "name": "Boss_Charge_Start",
+    "length": 0.85,
+    "loop": false,
+    "frameRate": 20,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Charge_0",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          0,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.15,
+        "sprite": "Boss_Charge_1",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          512,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.35,
+        "sprite": "Boss_Charge_2",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1024,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Charge_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "time": 0.8,
+        "sprite": "Boss_Charge_3",
+        "texture": "Assets/04.Sprites/Boss/Boss_Charge.png",
+        "rect": [
+          1536,
+          1024,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ]
+  }
+]
