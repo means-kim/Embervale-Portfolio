@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
-    private float _horizontal;
-    private float _vertical;
-    private float _moveSpeed = 3f;
+    [SerializeField] private float _moveSpeed = 3f;
+    [SerializeField] private float _stopDistance = 1f;
 
     private GameObject _player;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+
+        if (_player == null)
+        {
+            Debug.Log($"{_player} : Palyer Tag가 붙은 오브젝트가 없습니다.");
+        }
     }
 
     private void Update()
@@ -23,8 +33,20 @@ public class BossMovement : MonoBehaviour
     private void Move()
     {
         Vector3 direction = _player.transform.position - transform.position;
-        direction.Normalize();
 
-        transform.position += direction * _moveSpeed * Time.deltaTime;
+        float distance = direction.magnitude;
+
+        if (distance > _stopDistance)
+        {
+            direction.Normalize();
+
+            _animator.SetBool("IsWalk", true);
+
+            transform.position += direction * _moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            _animator.SetBool("IsWalk", false);
+        }
     }
 }
