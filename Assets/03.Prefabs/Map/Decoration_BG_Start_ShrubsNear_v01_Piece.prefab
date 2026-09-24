@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4526086391288212281}
   - component: {fileID: 7677303567745864925}
   - component: {fileID: 5421359343925219580}
+  - component: {fileID: 8154699595890839870}
   m_Layer: 31
   m_Name: BG_Start_ShrubsNear_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 23
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8154699595890839870
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4107447471847390340}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 23
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

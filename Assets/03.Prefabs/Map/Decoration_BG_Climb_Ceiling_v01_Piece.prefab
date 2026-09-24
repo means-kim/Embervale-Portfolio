@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3397283986371295617}
   - component: {fileID: 2743190008545714933}
   - component: {fileID: 3190285665918333}
+  - component: {fileID: 493849369161822180}
   m_Layer: 31
   m_Name: BG_Climb_Ceiling_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 25
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &493849369161822180
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282348536610396563}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 25
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

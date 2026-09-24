@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3434364274704481246}
   - component: {fileID: 556145622839895562}
   - component: {fileID: 9085230404911213770}
+  - component: {fileID: 8795392964001095974}
   m_Layer: 31
   m_Name: BG_Boss1_Moon_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
   m_SortingOrder: 37
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8795392964001095974
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464364149243419767}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
+  m_SortingOrder: 37
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &4041812406019561505
 GameObject:
   m_ObjectHideFlags: 0

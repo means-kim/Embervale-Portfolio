@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8000454150843705337}
   - component: {fileID: 6366671295030193881}
   - component: {fileID: 5240942854306055266}
+  - component: {fileID: 8343356789956781850}
   m_Layer: 31
   m_Name: BG_BossCorridor_InteriorBack_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 38
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8343356789956781850
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174977406087782283}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 38
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

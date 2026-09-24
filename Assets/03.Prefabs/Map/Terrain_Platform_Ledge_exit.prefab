@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 178883355149670987}
   - component: {fileID: 1152283444466939203}
   - component: {fileID: 406149522875514310}
+  - component: {fileID: 1671937971191652893}
   m_Layer: 31
   m_Name: Ledge_exit side art
   m_TagString: Untagged
@@ -160,11 +161,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 48
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1671937971191652893
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084713099743984681}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 48
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5395524072849057127
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +190,7 @@ GameObject:
   - component: {fileID: 4971127723059438039}
   - component: {fileID: 4987201810766715620}
   - component: {fileID: 7144719688257418642}
+  - component: {fileID: 7609995021244643394}
   m_Layer: 31
   m_Name: BG_Climb_Ledge_v01
   m_TagString: Untagged
@@ -250,11 +265,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 47
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &7609995021244643394
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395524072849057127}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 47
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5668263737860308687
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +360,7 @@ GameObject:
   - component: {fileID: 4972720536714408292}
   - component: {fileID: 3959364305224740523}
   - component: {fileID: 3967302430123075040}
+  - component: {fileID: 1455556124667439763}
   m_Layer: 31
   m_Name: BG_Climb_Ledge_v01
   m_TagString: Untagged
@@ -406,11 +435,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 12
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1455556124667439763
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586992439154922444}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 12
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &9026874961411133878
 GameObject:
   m_ObjectHideFlags: 0
