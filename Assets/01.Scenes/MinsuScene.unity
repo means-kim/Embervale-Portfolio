@@ -119,6 +119,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104156482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+  m_PrefabInstance: {fileID: 3241505021115038466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &104156489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+  m_PrefabInstance: {fileID: 3241505021115038466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &104156490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104156482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eb86c7b5e0b4f2ba76ef164a4ca6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossFacing
+  _bossDirectionRoot: {fileID: 104156489}
 --- !u!1 &198088053
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 198088053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.69, y: -2.42, z: 0}
+  m_LocalPosition: {x: 7.02, y: -2.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -357,11 +380,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.94
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.34
+      value: -3.31
       objectReference: {fileID: 0}
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.z
@@ -402,7 +425,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 104156490}
   m_SourcePrefab: {fileID: 100100000, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
