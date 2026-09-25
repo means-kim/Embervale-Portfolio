@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8353285668316078567}
   - component: {fileID: 3605349939218674007}
   - component: {fileID: 5931458598885983807}
+  - component: {fileID: 2245150447971408689}
   m_Layer: 31
   m_Name: BG_Boss1_BreakEdge_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 55
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2245150447971408689
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493263123756397673}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 55
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &2392478736714439167
 GameObject:
   m_ObjectHideFlags: 0

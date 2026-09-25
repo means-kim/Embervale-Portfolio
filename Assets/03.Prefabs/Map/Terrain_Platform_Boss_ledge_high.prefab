@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8188312409905607884}
   - component: {fileID: 1979580663428311532}
   - component: {fileID: 7750074214058396474}
+  - component: {fileID: 3335665718937545172}
   m_Layer: 31
   m_Name: Boss ledge high side art
   m_TagString: Untagged
@@ -257,8 +258,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 67
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &3335665718937545172
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568485225156189790}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 67
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

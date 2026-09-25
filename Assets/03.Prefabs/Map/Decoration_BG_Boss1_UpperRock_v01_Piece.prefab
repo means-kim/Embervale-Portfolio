@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6380546974386552020}
   - component: {fileID: 6049269902868921011}
   - component: {fileID: 7955194710312416991}
+  - component: {fileID: 2968858419117005084}
   m_Layer: 31
   m_Name: BG_Boss1_UpperRock_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 48
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2968858419117005084
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330769902383374209}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 48
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

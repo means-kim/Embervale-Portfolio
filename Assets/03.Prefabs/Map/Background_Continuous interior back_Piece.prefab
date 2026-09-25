@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6696934408760116450}
   - component: {fileID: 5369791038668946326}
   - component: {fileID: 8976632446890647697}
+  - component: {fileID: 8201489385581113641}
   m_Layer: 31
   m_Name: Continuous interior back
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 18
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8201489385581113641
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933047500737042377}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 18
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5607181078392342870
 GameObject:
   m_ObjectHideFlags: 0

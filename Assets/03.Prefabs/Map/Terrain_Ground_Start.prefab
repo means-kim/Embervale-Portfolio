@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 4952862172844036292}
   - component: {fileID: 5887857821021235932}
   - component: {fileID: 8260667667932574810}
+  - component: {fileID: 4447003942221891778}
   m_Layer: 31
   m_Name: BG_Start_GroundSnow_v01
   m_TagString: Untagged
@@ -226,11 +227,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 27
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4447003942221891778
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249143159945360606}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 27
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8386901586537446321
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +256,7 @@ GameObject:
   - component: {fileID: 4383853423647604370}
   - component: {fileID: 6643962088132714259}
   - component: {fileID: 2782151591006809112}
+  - component: {fileID: 8641049146301437170}
   m_Layer: 31
   m_Name: BG_Start_GroundApproach_v01
   m_TagString: Untagged
@@ -316,11 +331,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 26
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8641049146301437170
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386901586537446321}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 26
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &9047310830960980425
 GameObject:
   m_ObjectHideFlags: 0

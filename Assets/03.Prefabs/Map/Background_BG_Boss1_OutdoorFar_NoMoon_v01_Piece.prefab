@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3547511941043809376}
   - component: {fileID: 4878776843313707864}
   - component: {fileID: 5797207360557017992}
+  - component: {fileID: 2548070327747603395}
   m_Layer: 31
   m_Name: BG_Boss1_OutdoorFar_NoMoon_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
   m_SortingOrder: 36
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2548070327747603395
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560719410646724015}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
+  m_SortingOrder: 36
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

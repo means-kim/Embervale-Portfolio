@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5172835962263754206}
   - component: {fileID: 5410138081479054321}
   - component: {fileID: 6355749006192545493}
+  - component: {fileID: 8153828091721424897}
   m_Layer: 31
   m_Name: BG_Start_Mist_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 18
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8153828091721424897
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680946666852167028}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 18
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8268081081548319870
 GameObject:
   m_ObjectHideFlags: 0

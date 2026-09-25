@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6311625546968015090}
   - component: {fileID: 1302962384838777489}
   - component: {fileID: 7812362619507523569}
+  - component: {fileID: 2527761308120315963}
   m_Layer: 31
   m_Name: BG_Start_TreeLeft_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300005
+  m_SortingLayer: 5
   m_SortingOrder: 31
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2527761308120315963
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355790022181175747}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300005
+  m_SortingLayer: 5
+  m_SortingOrder: 31
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

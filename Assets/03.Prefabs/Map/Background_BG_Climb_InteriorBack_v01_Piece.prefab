@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7075445716161592921}
   - component: {fileID: 2443722942806705336}
   - component: {fileID: 8928912246644367368}
+  - component: {fileID: 5912667094923887035}
   m_Layer: 31
   m_Name: BG_Climb_InteriorBack_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 51
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &5912667094923887035
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745796748312193550}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 51
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8543667740491574202
 GameObject:
   m_ObjectHideFlags: 0

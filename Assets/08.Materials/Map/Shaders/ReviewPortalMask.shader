@@ -1,6 +1,6 @@
 Shader "MapReview/PortalMask"
 {
-    Properties { _MainTex ("Source PNG", 2D) = "white" {} }
+    Properties { _MainTex ("Source PNG", 2D) = "white" {} _MouthRearReveal ("Reveal exterior behind mouth", Float) = 0 }
     SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" "RenderPipeline"="UniversalPipeline" }
@@ -19,6 +19,7 @@ Shader "MapReview/PortalMask"
             sampler2D _MainTex;
             float _PortalEnabled, _PortalX, _PortalInside, _PortalEntrance, _PortalRole;
             float _ExitEnabled, _ExitOutside, _ExitRole;
+            float _MouthRearReveal;
             float Mouth(float2 uv)
             {
                 float2 p=float2(uv.x,1-uv.y)*1254;
@@ -48,6 +49,11 @@ Shader "MapReview/PortalMask"
                     if(_PortalRole==4)c.a=0;
                 }
                 if(_PortalEntrance>.5)hidden=Mouth(i.uv)*(1-_PortalInside)*_PortalEnabled;
+                // Keep the original arch; reveal the separate exterior only within its opening.
+                if(_PortalEntrance>.5 && _MouthRearReveal>.5 && _PortalEnabled>.5 && _PortalInside<.5)
+                    c.a*=1-Mouth(i.uv)*smoothstep(_PortalX+2.5,_PortalX+6.5,i.world.x);
+                // Exterior cave shell is visible only from the starting area.
+                if(_PortalRole==5 && _PortalEnabled>.5){c.a*=1-_PortalInside;hidden=0;}
                 if(_ExitEnabled>.5)
                 {
                     if(_ExitRole==1 && _ExitOutside>.5)hidden=1;

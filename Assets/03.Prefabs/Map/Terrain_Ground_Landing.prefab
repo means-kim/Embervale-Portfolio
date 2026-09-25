@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8078328546205405775}
   - component: {fileID: 23694692584370012}
   - component: {fileID: 4381791222063759546}
+  - component: {fileID: 4082076223986170858}
   m_Layer: 31
   m_Name: BG_Boss1_Ground_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 56
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4082076223986170858
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919036572560100573}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 56
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &4487547281900518367
 GameObject:
   m_ObjectHideFlags: 0

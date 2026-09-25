@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 743742713039613560}
   - component: {fileID: 2172578587768212053}
   - component: {fileID: 4615697956128287615}
+  - component: {fileID: 822444024488777955}
   m_Layer: 31
   m_Name: BG_Boss1_Ruins_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 45
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &822444024488777955
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207468078951197526}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 45
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
