@@ -26,4 +26,4 @@ if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ] ||
     exit 0
 fi
 
-dotnet format 2d-team08.sln --verify-no-changes --include Assets/02.Scripts/
+dotnet format 2d-team08.slnx --verify-no-changes --include Assets/02.Scripts/
