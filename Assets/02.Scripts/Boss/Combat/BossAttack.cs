@@ -19,11 +19,6 @@ public abstract class BossAttack : MonoBehaviour
         get { return _data; }
     }
 
-    public BossAttackType Type
-    {
-        get { return _data.Type; }
-    }
-
     public void SetData(BossAttackData data)
     {
         _data = data;
@@ -35,7 +30,7 @@ public abstract class BossAttack : MonoBehaviour
     }
 
     public abstract void StartAttack();
-    public abstract void TrickAction();
-    public abstract void EndAttck();
-    public abstract void CancleAttack();
+    public abstract void AttackAction();
+    public abstract void EndAttack();
+    public abstract void CancelAttack();
 }

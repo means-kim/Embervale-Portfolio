@@ -17,14 +17,14 @@ public class BossSlamAttack : BossAttack
         _animator.SetTrigger("IsSlam");
     }
 
-    public override void TrickAction()
+    public override void AttackAction()
     {
         if (!_isAttacking) return;
 
         // Todo: 애니메이션 VFX 이벤트 함수 호출
     }
 
-    public override void EndAttck()
+    public override void EndAttack()
     {
         if (!_isAttacking) return;
 
@@ -33,7 +33,7 @@ public class BossSlamAttack : BossAttack
         NotifyAttackFinished();
     }
 
-    public override void CancleAttack()
+    public override void CancelAttack()
     {
         _isAttacking = false;
 
