@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5825329104658995272}
   - component: {fileID: 6498030042805617258}
   - component: {fileID: 1094909733945148628}
+  - component: {fileID: 950080485078692898}
   m_Layer: 31
   m_Name: BG_Start_ForestMid_v03
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 17
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &950080485078692898
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029214876704317506}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 17
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7290388815813804697}
   - component: {fileID: 6427010702472066424}
   - component: {fileID: 5269360025544175793}
+  - component: {fileID: 1478047335633699348}
   m_Layer: 31
   m_Name: BG_Start_CaveSnow_v01
   m_TagString: Untagged
@@ -118,11 +119,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 29
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1478047335633699348
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620291299780203941}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 29
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &6103046360250985990
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +213,7 @@ GameObject:
   - component: {fileID: 5990433551309333292}
   - component: {fileID: 8632202565851179929}
   - component: {fileID: 4652683462221742968}
+  - component: {fileID: 3687135105386076886}
   m_Layer: 31
   m_Name: BG_Start_CaveEntrance_v01
   m_TagString: Untagged
@@ -273,11 +288,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 28
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &3687135105386076886
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384565758174434993}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 28
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8461030481815033191
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +317,7 @@ GameObject:
   - component: {fileID: 6227165644988086278}
   - component: {fileID: 1161288791000514873}
   - component: {fileID: 6940394905848063764}
+  - component: {fileID: 4660938384060933055}
   m_Layer: 31
   m_Name: BG_Start_CaveIcicles_v01
   m_TagString: Untagged
@@ -363,8 +392,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 30
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4660938384060933055
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461030481815033191}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 30
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

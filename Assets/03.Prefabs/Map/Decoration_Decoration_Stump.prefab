@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3205525751183187873}
   - component: {fileID: 918404114252094951}
   - component: {fileID: 5258073062954280799}
+  - component: {fileID: 2420219861293489185}
   m_Layer: 31
   m_Name: BG_Start_StumpNear_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 21
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2420219861293489185
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762351579413527456}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 21
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &3971543851986002036
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +148,7 @@ GameObject:
   - component: {fileID: 8112943482969886383}
   - component: {fileID: 6496771524933876224}
   - component: {fileID: 6453976108583763745}
+  - component: {fileID: 1048321800498821940}
   m_Layer: 31
   m_Name: BG_Start_StumpSnow_v01
   m_TagString: Untagged
@@ -208,11 +223,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 22
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1048321800498821940
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753770807764912230}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 22
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &4925657509168165902
 GameObject:
   m_ObjectHideFlags: 0

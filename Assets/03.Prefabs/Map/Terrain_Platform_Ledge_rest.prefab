@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 4494983776644405421}
   - component: {fileID: 1260523997188451656}
   - component: {fileID: 2913824443096169246}
+  - component: {fileID: 1889546924956323807}
   m_Layer: 31
   m_Name: Ledge_rest side art
   m_TagString: Untagged
@@ -225,11 +226,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 46
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1889546924956323807
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524728678209184516}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 46
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8129700784210810080
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6314050166300073290}
   - component: {fileID: 8785803391073189018}
   - component: {fileID: 8746715602495360694}
+  - component: {fileID: 4257605698042731716}
   m_Layer: 31
   m_Name: BG_Start_CaveRubble_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 24
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4257605698042731716
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673338316708388271}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 24
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1337868524718333432
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +212,7 @@ GameObject:
   - component: {fileID: 9090424301049371627}
   - component: {fileID: 317606813164032909}
   - component: {fileID: 5869973746304802147}
+  - component: {fileID: 2451949416882378580}
   m_Layer: 31
   m_Name: BG_Start_CaveRubbleSnow_v01
   m_TagString: Untagged
@@ -272,8 +287,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 25
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &2451949416882378580
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8911801319315006282}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 25
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

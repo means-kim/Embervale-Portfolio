@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4496705341418741233}
   - component: {fileID: 8287390341404646081}
   - component: {fileID: 6684368971695113425}
+  - component: {fileID: 7158525864192985321}
   m_Layer: 31
   m_Name: Start upper sky
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
   m_SortingOrder: -20
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &7158525864192985321
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822501964591265078}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
+  m_SortingOrder: -20
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

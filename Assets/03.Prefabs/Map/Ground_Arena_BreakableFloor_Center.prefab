@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8339540699494349978}
   - component: {fileID: 6821968019255623787}
   - component: {fileID: 5161447947469057274}
+  - component: {fileID: 8465129362134545714}
   m_Layer: 31
   m_Name: BG_Boss1_BreakEdge_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 59
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8465129362134545714
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164544125627809554}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 59
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1209418868256561087
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +193,7 @@ GameObject:
   - component: {fileID: 5971070628764870905}
   - component: {fileID: 4769137086958854346}
   - component: {fileID: 955977554802340834}
+  - component: {fileID: 4287744409010700969}
   m_Layer: 31
   m_Name: FX_Boss1_BreakFloorDebris_v01
   m_TagString: Untagged
@@ -253,11 +268,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 57
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4287744409010700969
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881325006303197163}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 57
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &2536843851700544263
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +405,8 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
@@ -390,8 +418,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3486275206007268518}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 63
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
@@ -441,6 +469,7 @@ GameObject:
   - component: {fileID: 3687548741047828477}
   - component: {fileID: 8566846133390242032}
   - component: {fileID: 3607628645532250498}
+  - component: {fileID: 5919659374290486179}
   m_Layer: 31
   m_Name: BG_Boss1_BreakFloor_v02
   m_TagString: Untagged
@@ -516,11 +545,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 63
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &5919659374290486179
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994718677056939497}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 63
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5614347063532261447
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +639,7 @@ GameObject:
   - component: {fileID: 499119032351114464}
   - component: {fileID: 4999072482900158288}
   - component: {fileID: 1769413786155499700}
+  - component: {fileID: 7460004762944470470}
   m_Layer: 31
   m_Name: BG_Boss1_BreakFloorCracked_v02
   m_TagString: Untagged
@@ -671,11 +714,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 65
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &7460004762944470470
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447034077756051942}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 65
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &7004507287648812616
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +743,7 @@ GameObject:
   - component: {fileID: 3935690218912487324}
   - component: {fileID: 8113653864253633312}
   - component: {fileID: 3282296123052249084}
+  - component: {fileID: 3623978559138416656}
   m_Layer: 31
   m_Name: BG_Boss1_GroundSnow_v01
   m_TagString: Untagged
@@ -761,11 +818,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 64
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &3623978559138416656
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004507287648812616}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 64
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &7460273127275767095
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +847,7 @@ GameObject:
   - component: {fileID: 4461136511444500726}
   - component: {fileID: 9219472520873871072}
   - component: {fileID: 5047768801942753646}
+  - component: {fileID: 8900128674566479863}
   m_Layer: 31
   m_Name: BG_Boss1_GroundSnow_v01
   m_TagString: Untagged
@@ -851,11 +922,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 66
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &8900128674566479863
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460273127275767095}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 66
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &7986013605176427347
 GameObject:
   m_ObjectHideFlags: 0

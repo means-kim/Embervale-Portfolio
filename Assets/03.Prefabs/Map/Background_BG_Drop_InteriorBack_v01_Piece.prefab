@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3341937911087142489}
   - component: {fileID: 5647197253199665378}
   - component: {fileID: 9089343144974992186}
+  - component: {fileID: 3223852026893984253}
   m_Layer: 31
   m_Name: BG_Drop_InteriorBack_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
   m_SortingOrder: 52
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &3223852026893984253
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048153556752678415}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300002
+  m_SortingLayer: 2
+  m_SortingOrder: 52
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &2655061255086527071
 GameObject:
   m_ObjectHideFlags: 0

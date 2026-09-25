@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8950695636749245501}
   - component: {fileID: 3491334205032824103}
   - component: {fileID: 461643020412994842}
+  - component: {fileID: 1345168774018945272}
   m_Layer: 31
   m_Name: BG_Boss1_OutdoorFar_Right_v01
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
   m_SortingOrder: 35
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &1345168774018945272
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968183737145469347}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
+  m_SortingOrder: 35
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5851002816804034164
 GameObject:
   m_ObjectHideFlags: 0

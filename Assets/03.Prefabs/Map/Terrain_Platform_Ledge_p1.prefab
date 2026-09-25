@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 3776924997657257387}
   - component: {fileID: 6606388819543985175}
   - component: {fileID: 1698706507267742793}
+  - component: {fileID: 6460653543195979384}
   m_Layer: 31
   m_Name: Ledge_p1 side art
   m_TagString: Untagged
@@ -257,8 +258,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 46
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &6460653543195979384
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905895708200682196}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 46
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

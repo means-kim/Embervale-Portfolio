@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3668227721366460431}
   - component: {fileID: 3655410321328968196}
   - component: {fileID: 3728135902489327065}
+  - component: {fileID: 6141205420024352145}
   m_Layer: 31
   m_Name: BG_Boss1_UpperSky_v01
   m_TagString: Untagged
@@ -117,8 +118,21 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
   m_SortingOrder: 33
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &6141205420024352145
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026924660690281333}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300001
+  m_SortingLayer: 1
+  m_SortingOrder: 33
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 702911540043434937}
   - component: {fileID: 2455222464015113204}
   - component: {fileID: 3570085723642535767}
+  - component: {fileID: 4944280986638281092}
   m_Layer: 31
   m_Name: Right deep rock
   m_TagString: Untagged
@@ -85,11 +86,24 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 70
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!210 &4944280986638281092
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956555143029506801}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
+  m_SortingOrder: 70
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8241227050342273498
 GameObject:
   m_ObjectHideFlags: 0
