@@ -7,55 +7,76 @@ namespace MapReview
     [ExecuteAlways, DefaultExecutionOrder(200)]
     public sealed class MapPortalVisibility : MonoBehaviour
     {
-        [Serializable] public class Surface
+        [Serializable]
+        public class Surface
         {
             public Renderer renderer;
             public int entranceRole;
             public int exitRole;
             public bool entranceMouth;
         }
+
         public Transform player, entranceAnchor, bossExitAnchor;
         public float entranceX = 34.5f, bossExitX = 120f, hysteresis = .25f;
         public bool bossExitEnabled = true;
         public Surface[] surfaces = Array.Empty<Surface>();
-        bool inside, outside;
-        MaterialPropertyBlock block;
-        void OnEnable() { Refresh(true); }
-        void LateUpdate() { Refresh(false); }
+        bool _inside, _outside;
+        MaterialPropertyBlock _block;
+
+        void OnEnable()
+        {
+            Refresh(true);
+        }
+
+        void LateUpdate()
+        {
+            Refresh(false);
+        }
+
         public void Refresh(bool initialize)
         {
             if (!player) return;
             if (entranceAnchor) entranceX = entranceAnchor.position.x;
             if (bossExitAnchor) bossExitX = bossExitAnchor.position.x;
-            if (initialize) { inside = player.position.x >= entranceX; outside = player.position.x >= bossExitX; }
+            if (initialize)
+            {
+                _inside = player.position.x >= entranceX;
+                _outside = player.position.x >= bossExitX;
+            }
             else
             {
-                if (player.position.x > entranceX + hysteresis) inside = true;
-                else if (player.position.x < entranceX - hysteresis) inside = false;
-                if (player.position.x > bossExitX + hysteresis) outside = true;
-                else if (player.position.x < bossExitX - hysteresis) outside = false;
+                if (player.position.x > entranceX + hysteresis) _inside = true;
+                else if (player.position.x < entranceX - hysteresis) _inside = false;
+                if (player.position.x > bossExitX + hysteresis) _outside = true;
+                else if (player.position.x < bossExitX - hysteresis) _outside = false;
             }
+
             Apply(true);
         }
+
         void Apply(bool enabledMask)
         {
-            if (block == null) block = new MaterialPropertyBlock();
+            if (_block == null) _block = new MaterialPropertyBlock();
             foreach (var surface in surfaces)
             {
                 if (surface == null || !surface.renderer) continue;
                 var renderer = surface.renderer;
-                renderer.GetPropertyBlock(block);
-                block.SetFloat("_PortalEnabled", enabledMask ? 1 : 0);
-                block.SetFloat("_PortalInside", inside ? 1 : 0);
-                block.SetFloat("_PortalX", entranceX);
-                block.SetFloat("_PortalEntrance", surface.entranceMouth ? 1 : 0);
-                block.SetFloat("_PortalRole", surface.entranceRole);
-                block.SetFloat("_ExitEnabled", enabledMask && bossExitEnabled ? 1 : 0);
-                block.SetFloat("_ExitOutside", outside ? 1 : 0);
-                block.SetFloat("_ExitRole", surface.exitRole);
-                renderer.SetPropertyBlock(block);
+                renderer.GetPropertyBlock(_block);
+                _block.SetFloat("_PortalEnabled", enabledMask ? 1 : 0);
+                _block.SetFloat("_PortalInside", _inside ? 1 : 0);
+                _block.SetFloat("_PortalX", entranceX);
+                _block.SetFloat("_PortalEntrance", surface.entranceMouth ? 1 : 0);
+                _block.SetFloat("_PortalRole", surface.entranceRole);
+                _block.SetFloat("_ExitEnabled", enabledMask && bossExitEnabled ? 1 : 0);
+                _block.SetFloat("_ExitOutside", _outside ? 1 : 0);
+                _block.SetFloat("_ExitRole", surface.exitRole);
+                renderer.SetPropertyBlock(_block);
             }
         }
-        void OnDisable() { Apply(false); }
+
+        void OnDisable()
+        {
+            Apply(false);
+        }
     }
 }
