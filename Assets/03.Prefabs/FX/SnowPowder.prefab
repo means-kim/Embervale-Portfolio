@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 986569770754976514}
   - component: {fileID: 558985941856494015}
   - component: {fileID: 2922366889944014363}
+  - component: {fileID: 6783615072059228162}
   m_Layer: 0
   m_Name: SnowPowder
   m_TagString: Untagged
@@ -114,3 +115,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6783615072059228162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2338369222927477875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c372b94b5eba7b44a9cd9d408fd842b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SnowEffect
+  _animator: {fileID: 2922366889944014363}
+  _spriteRenderer: {fileID: 558985941856494015}
+  _particle: {fileID: 0}

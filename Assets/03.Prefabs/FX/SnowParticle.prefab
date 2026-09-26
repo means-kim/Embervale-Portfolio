@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2366947515187342971}
   - component: {fileID: 1571593764176296433}
   - component: {fileID: 4932244823083641739}
+  - component: {fileID: 3603400798034002349}
   m_Layer: 0
   m_Name: SnowParticle
   m_TagString: Untagged
@@ -4894,3 +4895,17 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &3603400798034002349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027600265062634472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c372b94b5eba7b44a9cd9d408fd842b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SnowEffect
+  _animator: {fileID: 0}
+  _particle: {fileID: 1571593764176296433}
