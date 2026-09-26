@@ -1,2 +1,9 @@
-# Auto detect text files and perform LF normalization
+# 저장소 내부에서는 LF로 정규화
 * text=auto
+
+# 게임 코드 작업 파일은 Windows·macOS 모두 CRLF
+Assets/02.Scripts/**/*.cs text eol=crlf
+
+# 셸 훅은 LF 유지
+.husky/** text eol=lf
+*.sh text eol=lf
