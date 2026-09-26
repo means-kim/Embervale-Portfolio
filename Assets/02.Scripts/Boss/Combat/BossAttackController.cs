@@ -4,6 +4,7 @@ public class BossAttackController : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private BossSlamAttack _slamAttack;
+    [SerializeField] private BossAttack _swingAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
     [SerializeField] private BossAttackSellector _bossAttackSellector;
 
@@ -16,14 +17,19 @@ public class BossAttackController : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < _attackDataSo.Attacks.Length; i++)
+        foreach (BossAttackData data in _attackDataSo.Attacks)
         {
-            BossAttackData data = _attackDataSo.Attacks[i];
+            if (data == null) return;
 
-            if (data != null && data.Type == BossAttackType.Slam)
+            switch (data.Type)
             {
-                _slamAttack.SetData(data);
-                break;
+                case BossAttackType.Slam:
+                    _slamAttack.SetData(data);
+                    break;
+
+                case BossAttackType.Swing:
+                    _swingAttack.SetData(data);
+                    break;
             }
         }
     }
