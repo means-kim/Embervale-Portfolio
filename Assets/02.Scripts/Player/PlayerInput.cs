@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
 {
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
+    public event Action OnDashInput;
 
     private float _horizontal;
     private Vector2 _moveDirection = Vector2.zero;
@@ -13,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     {
         CheckHorizontalInput();
         CheckJumpInput();
+        CheckDashInput();
     }
 
     private void CheckHorizontalInput()
@@ -28,6 +30,14 @@ public class PlayerInput : MonoBehaviour
         {
             OnJumpInput?.Invoke();
             //Debug.Log("점프 입력 감지");
+        }
+    }
+
+    private void CheckDashInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            OnDashInput?.Invoke();
         }
     }
 }

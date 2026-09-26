@@ -1,34 +1,56 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private float _jumpSpeed = 7f;
-
-    public event Action OnJumpStarted;
-    public event Action OnLanded;
+    [SerializeField, Min(0f)] private float _moveSpeed = 5f;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _moveInput;
-    private bool _isGrounded;
+    private bool _movementLocked;
+    private int _facingDirection = 1;
+
+    public int FacingDirection => _facingDirection;
+    public bool IsMoving => _rigidbody != null && Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f;
+
+    private void Reset()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+    }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        if (_playerInput == null)
+        {
+            _playerInput = GetComponent<PlayerInput>();
+        }
+
+        _facingDirection = transform.localScale.x < 0f ? -1 : 1;
+
+        if (_playerInput == null)
+        {
+            Debug.LogError("PlayerMove requires a PlayerInput component on the same GameObject.", this);
+            enabled = false;
+        }
     }
 
     private void OnEnable()
     {
-        _playerInput.OnMoveInput += HandleMove;
-        _playerInput.OnJumpInput += HandleJump;
+        if (_playerInput != null)
+        {
+            _playerInput.OnMoveInput += HandleMove;
+        }
     }
 
     private void OnDisable()
     {
-        _playerInput.OnMoveInput -= HandleMove;
-        _playerInput.OnJumpInput -= HandleJump;
+        if (_playerInput != null)
+        {
+            _playerInput.OnMoveInput -= HandleMove;
+        }
     }
 
     private void HandleMove(Vector2 direction)
@@ -36,54 +58,28 @@ public class PlayerMove : MonoBehaviour
         _moveInput = direction;
     }
 
-    private void HandleJump()
-    {
-        if (!_isGrounded)
-        {
-            return;
-        }
-        _isGrounded = false;
-        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _jumpSpeed);
-        OnJumpStarted?.Invoke();
-    }
     private void FixedUpdate()
     {
-        if (_moveInput.x != 0f)
-        {
-            transform.localScale = new Vector3(Mathf.Sign(_moveInput.x), 1f, 1f);
-        }
-        _rigidbody.linearVelocity = new Vector2(_moveInput.x * _moveSpeed, _rigidbody.linearVelocity.y);
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        TryLand(collision);
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        TryLand(collision);
-    }
-    private void TryLand(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Ground"))
+        if (_movementLocked || _rigidbody == null)
         {
             return;
         }
-        if (_rigidbody.linearVelocity.y > 0.01f)
+
+        if (Mathf.Abs(_moveInput.x) > 0.01f)
         {
-            return;
+            _facingDirection = _moveInput.x > 0f ? 1 : -1;
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * _facingDirection;
+            transform.localScale = scale;
         }
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.normal.y > 0.5f)
-            {
-                bool wasGrounded = _isGrounded;
-                _isGrounded = true;
-                if (!wasGrounded)
-                {
-                    OnLanded?.Invoke();
-                }
-                return;
-            }
-        }
+
+        Vector2 velocity = _rigidbody.linearVelocity;
+        velocity.x = _moveInput.x * _moveSpeed;
+        _rigidbody.linearVelocity = velocity;
+    }
+
+    public void SetMovementLocked(bool locked)
+    {
+        _movementLocked = locked;
     }
 }
