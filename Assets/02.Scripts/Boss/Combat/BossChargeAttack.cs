@@ -5,6 +5,8 @@ public class BossChargeAttack : BossAttack
     [SerializeField] private BossMovement _movement;
     [SerializeField] private float _moveSpeedUp;
 
+    private bool _isChargeMove;
+
     public override void StartAttack()
     {
         if (_isAttacking) return;
@@ -35,6 +37,8 @@ public class BossChargeAttack : BossAttack
         if (!_isAttacking) return;
         if (_isRecoverying) return;
 
+        StopChargeMovement();
+
         _isRecoverying = true;
         _animator.ResetTrigger("IsCharge");
         _recoveryTimer = _data.RecoveryTime;
@@ -46,6 +50,8 @@ public class BossChargeAttack : BossAttack
         _isRecoverying = false;
         _recoveryTimer = 0f;
 
+        StopChargeMovement();
+
         if (_animator != null)
         {
             _animator.ResetTrigger("IsCharge");
@@ -54,14 +60,28 @@ public class BossChargeAttack : BossAttack
 
     public void BeginChargeMovement()
     {
+        if (!_isAttacking || _isRecoverying) return;
+        if (_isChargeMove) return;
+
+        _isChargeMove = true;
+
         _movement.ChargeMovement(_moveSpeedUp);
         _movement.enabled = true;
     }
 
     public void StopChargeMovement()
     {
-        _movement.ChargeMovement(-_moveSpeedUp);
+        if (_isChargeMove)
+        {
+            _movement.ChargeMovement(-_moveSpeedUp);
+            _isChargeMove = false;
+        }
+
         _movement.enabled = false;
-        _animator.SetBool("IsWalk", false);
+
+        if (_animator != null)
+        {
+            _animator.SetBool("IsWalk", false);
+        }
     }
 }
