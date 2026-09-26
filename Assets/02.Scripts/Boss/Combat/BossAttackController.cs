@@ -4,7 +4,8 @@ public class BossAttackController : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private BossSlamAttack _slamAttack;
-    [SerializeField] private BossAttack _swingAttack;
+    [SerializeField] private BossSwingAttack _swingAttack;
+    [SerializeField] private BossChargeAttack _chargeAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
     [SerializeField] private BossAttackSellector _bossAttackSellector;
 
@@ -29,6 +30,10 @@ public class BossAttackController : MonoBehaviour
 
                 case BossAttackType.Swing:
                     _swingAttack.SetData(data);
+                    break;
+
+                case BossAttackType.Charge:
+                    _chargeAttack.SetData(data);
                     break;
             }
         }
