@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 1566832385026998306}
   - component: {fileID: 2851188379507211719}
   - component: {fileID: 949869995925369542}
+  - component: {fileID: 6676042356055988319}
   m_Layer: 10
   m_Name: Boss_SnowGiant
   m_TagString: Boss
@@ -509,6 +510,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _slamAttack: {fileID: 949869995925369542}
   _attackDataSo: {fileID: 11400000, guid: 0041758887e1e4829a95ca3ef51735e2, type: 2}
+  _bossAttackSellector: {fileID: 6676042356055988319}
   _movement: {fileID: 1428997075298612375}
   _facing: {fileID: 7873688310279483471}
   _health: {fileID: 5930615092485249234}
@@ -525,6 +527,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990af5e3a12ed4033b09435e2061be12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSlamAttack
+--- !u!114 &6676042356055988319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981983542186342843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f028d1b4566ed47a4bf87760454cbd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackSellector
+  _attacks:
+  - {fileID: 949869995925369542}
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0

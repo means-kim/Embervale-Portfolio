@@ -5,11 +5,14 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private BossSlamAttack _slamAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
+    [SerializeField] private BossAttackSellector _bossAttackSellector;
 
     [SerializeField] private BossMovement _movement;
     [SerializeField] private BossFacing _facing;
     [SerializeField] private Health _health;
     [SerializeField] private Animator _animator;
+
+    private BossAttack _currentAttack;
 
     private void Start()
     {
@@ -28,34 +31,45 @@ public class BossAttackController : MonoBehaviour
     private void Update()
     {
         if (_health.IsDead) return;
+        if (_currentAttack != null) return;
 
         float distance = Mathf.Abs(_target.position.x - transform.position.x);
-        BossAttackData data = _slamAttack.Data;
+        BossAttack sellectAttack = _bossAttackSellector.SellectAttack(distance);
 
-        if (distance <= data.MaxDistance && distance >= data.MinDistance)
-        {
-            _slamAttack.StartAttack();
+        if (sellectAttack == null) return;
 
-            if (!_slamAttack.IsAttacking) return;
+        _currentAttack = sellectAttack;
+        _currentAttack.OnAttackFinished += HandleAttackFinsed;
+        _currentAttack.StartAttack();
 
-            _movement.enabled = false;
-            _facing.enabled = false;
-            _animator.SetBool("IsWalk", false);
-        }
-    }
-
-    private void OnEnable()
-    {
-        _slamAttack.OnAttackFinished += HandleAttackFinsed;
+        _movement.enabled = false;
+        _facing.enabled = false;
+        _animator.SetBool("IsWalk", false);
     }
 
     private void OnDisable()
     {
-        _slamAttack.OnAttackFinished -= HandleAttackFinsed;
+        if (_currentAttack == null) return;
+
+        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
+        _currentAttack.CancelAttack();
+        _currentAttack = null;
+
+        if (_health != null && !_health.IsDead)
+        {
+            _movement.enabled = true;
+            _facing.enabled = true;
+        }
     }
 
     private void HandleAttackFinsed()
     {
+        if (_currentAttack == null) return;
+
+        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
+        _currentAttack.CancelAttack();
+        _currentAttack = null;
+
         if (_health.IsDead) return;
 
         _movement.enabled = true;
