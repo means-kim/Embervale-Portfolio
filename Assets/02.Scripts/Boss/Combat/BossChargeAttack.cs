@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossChargeAttack : BossAttack
 {
     [SerializeField] private BossMovement _movement;
+    [SerializeField] private float _moveSpeedUp;
 
     public override void StartAttack()
     {
@@ -53,6 +54,14 @@ public class BossChargeAttack : BossAttack
 
     public void BeginChargeMovement()
     {
+        _movement.ChargeMovement(_moveSpeedUp);
         _movement.enabled = true;
+    }
+
+    public void StopChargeMovement()
+    {
+        _movement.ChargeMovement(-_moveSpeedUp);
+        _movement.enabled = false;
+        _animator.SetBool("IsWalk", false);
     }
 }
