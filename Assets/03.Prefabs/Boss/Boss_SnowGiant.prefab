@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 6676042356055988319}
   - component: {fileID: 949869995925369542}
   - component: {fileID: 7746876174767781300}
+  - component: {fileID: 7845351025324201781}
   m_Layer: 10
   m_Name: Boss_SnowGiant
   m_TagString: Boss
@@ -511,6 +512,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _slamAttack: {fileID: 949869995925369542}
   _swingAttack: {fileID: 7746876174767781300}
+  _chargeAttack: {fileID: 7845351025324201781}
   _attackDataSo: {fileID: 11400000, guid: 0041758887e1e4829a95ca3ef51735e2, type: 2}
   _bossAttackSellector: {fileID: 6676042356055988319}
   _movement: {fileID: 1428997075298612375}
@@ -532,6 +534,7 @@ MonoBehaviour:
   _attacks:
   - {fileID: 949869995925369542}
   - {fileID: 7746876174767781300}
+  - {fileID: 7845351025324201781}
 --- !u!114 &949869995925369542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +559,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482f6f912955f4b6aac29c0cc0854c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSwingAttack
+--- !u!114 &7845351025324201781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981983542186342843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b9a5e13d33a47c1a5815e6d627c802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
+  _movement: {fileID: 1428997075298612375}
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0
