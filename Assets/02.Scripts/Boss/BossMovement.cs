@@ -49,4 +49,9 @@ public class BossMovement : MonoBehaviour
             _animator.SetBool("IsWalk", false);
         }
     }
+
+    public void ChargeMovement(float speed)
+    {
+        _moveSpeed += speed;
+    }
 }
