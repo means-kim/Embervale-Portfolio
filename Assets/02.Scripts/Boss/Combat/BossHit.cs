@@ -97,6 +97,8 @@ public class BossHit : MonoBehaviour
     [ContextMenu("Test Hit")]
     private void TestHit()
     {
+        if (!Application.isPlaying) return;
+
         HandleHit();
     }
 }
