@@ -8,6 +8,7 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private BossChargeAttack _chargeAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
     [SerializeField] private BossAttackSellector _bossAttackSellector;
+    [SerializeField] private BossHit _bossHit;
 
     [SerializeField] private BossMovement _movement;
     [SerializeField] private BossFacing _facing;
@@ -44,6 +45,7 @@ public class BossAttackController : MonoBehaviour
     {
         if (_health.IsDead) return;
         if (_currentAttack != null) return;
+        if (_bossHit.IsHit) return;
 
         float distance = Mathf.Abs(_target.position.x - transform.position.x);
         BossAttack sellectAttack = _bossAttackSellector.SellectAttack(distance);

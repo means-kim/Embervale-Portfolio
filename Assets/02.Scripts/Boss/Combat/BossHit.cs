@@ -34,4 +34,17 @@ public class BossHit : MonoBehaviour
         _animator.SetBool("IsWalk", false);
         _animator.SetTrigger("IsHit");
     }
+
+    private void EndHit()
+    {
+        if (!_isHit) return;
+
+        _isHit = false;
+
+        if (_bossHealth.IsDead) return;
+        if (_bossAttackController.IsAttacking) return;
+
+        _bossMovement.enabled = true;
+        _bossFacing.enabled = true;
+    }
 }
