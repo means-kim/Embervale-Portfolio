@@ -22,22 +22,9 @@ public abstract class BossAttack : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (_coolTimer > 0f)
-        {
-            _coolTimer -= Time.deltaTime;
-        }
+        CoolTimeCheck();
 
-        if (_isRecoverying)
-        {
-            _recoveryTimer -= Time.deltaTime;
-
-            if (_recoveryTimer <= 0f)
-            {
-                _isRecoverying = false;
-                _isAttacking = false;
-                NotifyAttackFinished();
-            }
-        }
+        RecoveryCheck();
     }
 
     public BossAttackData Data
@@ -52,6 +39,8 @@ public abstract class BossAttack : MonoBehaviour
 
     public bool CanAttack(float distance)
     {
+        if (!isActiveAndEnabled) return false;
+
         if (IsAttacking) return false;
         if (IsRecoverying) return false;
 
@@ -64,6 +53,29 @@ public abstract class BossAttack : MonoBehaviour
         if (distance < _data.MinDistance) return false;
 
         return true;
+    }
+
+    private void CoolTimeCheck()
+    {
+        if (_coolTimer > 0f)
+        {
+            _coolTimer -= Time.deltaTime;
+        }
+    }
+
+    private void RecoveryCheck()
+    {
+        if (_isRecoverying)
+        {
+            _recoveryTimer -= Time.deltaTime;
+
+            if (_recoveryTimer <= 0f)
+            {
+                _isRecoverying = false;
+                _isAttacking = false;
+                NotifyAttackFinished();
+            }
+        }
     }
 
     protected void NotifyAttackFinished()

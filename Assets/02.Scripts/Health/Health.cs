@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public bool IsDead => _isDead;
 
     public event Action OnDie;
+    public event Action OnHit;
 
     private void Awake()
     {
@@ -30,7 +31,10 @@ public class Health : MonoBehaviour
             _currentHealth = 0;
 
             OnDie?.Invoke();
+            return;
         }
+
+        OnHit?.Invoke();
     }
 
     public void Heal(int healAmount)
