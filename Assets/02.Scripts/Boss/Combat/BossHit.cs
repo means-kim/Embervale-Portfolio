@@ -25,6 +25,8 @@ public class BossHit : MonoBehaviour
     private void HandleHit()
     {
         if (_bossAttackController.IsAttacking) return;
+        if (_bossHealth.IsDead) return;
+        if (_isHit) return;
 
         _isHit = true;
 
