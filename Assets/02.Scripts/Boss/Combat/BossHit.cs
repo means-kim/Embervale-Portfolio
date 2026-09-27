@@ -93,4 +93,10 @@ public class BossHit : MonoBehaviour
         _flashTimer = 0f;
         _spriteRenderer.sharedMaterial = _originalMaterial;
     }
+
+    [ContextMenu("Test Hit")]
+    private void TestHit()
+    {
+        HandleHit();
+    }
 }
