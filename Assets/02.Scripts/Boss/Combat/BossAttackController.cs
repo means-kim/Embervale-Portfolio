@@ -60,11 +60,7 @@ public class BossAttackController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_currentAttack == null) return;
-
-        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
-        _currentAttack.CancelAttack();
-        _currentAttack = null;
+        CancelCurrentAttack();
 
         if (_health != null && !_health.IsDead)
         {
@@ -75,15 +71,21 @@ public class BossAttackController : MonoBehaviour
 
     private void HandleAttackFinsed()
     {
-        if (_currentAttack == null) return;
+        CancelCurrentAttack();
 
-        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
-        _currentAttack.CancelAttack();
-        _currentAttack = null;
 
         if (_health.IsDead) return;
 
         _movement.enabled = true;
         _facing.enabled = true;
+    }
+
+    public void CancelCurrentAttack()
+    {
+        if (_currentAttack == null) return;
+
+        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
+        _currentAttack.CancelAttack();
+        _currentAttack = null;
     }
 }
