@@ -8,6 +8,7 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private BossChargeAttack _chargeAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
     [SerializeField] private BossAttackSellector _bossAttackSellector;
+    [SerializeField] private BossHit _bossHit;
 
     [SerializeField] private BossMovement _movement;
     [SerializeField] private BossFacing _facing;
@@ -15,6 +16,7 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private BossAttack _currentAttack;
+    public bool IsAttacking => _currentAttack != null;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class BossAttackController : MonoBehaviour
     {
         if (_health.IsDead) return;
         if (_currentAttack != null) return;
+        if (_bossHit.IsHit) return;
 
         float distance = Mathf.Abs(_target.position.x - transform.position.x);
         BossAttack sellectAttack = _bossAttackSellector.SellectAttack(distance);
@@ -60,11 +63,7 @@ public class BossAttackController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_currentAttack == null) return;
-
-        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
-        _currentAttack.CancelAttack();
-        _currentAttack = null;
+        CancelCurrentAttack();
 
         if (_health != null && !_health.IsDead)
         {
@@ -75,15 +74,21 @@ public class BossAttackController : MonoBehaviour
 
     private void HandleAttackFinsed()
     {
-        if (_currentAttack == null) return;
+        CancelCurrentAttack();
 
-        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
-        _currentAttack.CancelAttack();
-        _currentAttack = null;
 
         if (_health.IsDead) return;
 
         _movement.enabled = true;
         _facing.enabled = true;
+    }
+
+    public void CancelCurrentAttack()
+    {
+        if (_currentAttack == null) return;
+
+        _currentAttack.OnAttackFinished -= HandleAttackFinsed;
+        _currentAttack.CancelAttack();
+        _currentAttack = null;
     }
 }

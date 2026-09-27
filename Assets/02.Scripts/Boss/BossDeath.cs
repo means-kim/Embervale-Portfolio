@@ -6,6 +6,7 @@ public class BossDeath : MonoBehaviour
     [SerializeField] private Health _bossHealth;
     [SerializeField] private BossFacing _bossFacing;
     [SerializeField] private Animator _animator;
+    [SerializeField] private BossAttackController _bossAttackController;
 
     private void OnEnable()
     {
@@ -19,6 +20,8 @@ public class BossDeath : MonoBehaviour
 
     private void HandleDeath()
     {
+        _bossAttackController.CancelCurrentAttack();
+
         _bossMovement.enabled = false;
         _bossFacing.enabled = false;
 
