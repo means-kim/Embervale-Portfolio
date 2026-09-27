@@ -16,6 +16,13 @@ public class EffectManager : MonoBehaviour
         _instance = this;
     }
 
+    private void Start()
+    {
+        BackgroundMusic.PlayBgm(
+        BackgroundMusic.BgmType.Snow,
+        volume: 0.08f);
+    }
+
 
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, bool flipX = false)
     {
