@@ -15,6 +15,7 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private BossAttack _currentAttack;
+    public bool IsAttacking => _currentAttack != null;
 
     private void Start()
     {
