@@ -22,7 +22,7 @@ public class BossAttackController : MonoBehaviour
     {
         foreach (BossAttackData data in _attackDataSo.Attacks)
         {
-            if (data == null) return;
+            if (data == null) continue;
 
             switch (data.Type)
             {
