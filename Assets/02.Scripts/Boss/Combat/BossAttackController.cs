@@ -20,25 +20,7 @@ public class BossAttackController : MonoBehaviour
 
     private void Start()
     {
-        foreach (BossAttackData data in _attackDataSo.Attacks)
-        {
-            if (data == null) continue;
-
-            switch (data.Type)
-            {
-                case BossAttackType.Slam:
-                    _slamAttack.SetData(data);
-                    break;
-
-                case BossAttackType.Swing:
-                    _swingAttack.SetData(data);
-                    break;
-
-                case BossAttackType.Charge:
-                    _chargeAttack.SetData(data);
-                    break;
-            }
-        }
+        AttackDataSettings();
     }
 
     private void Update()
@@ -90,5 +72,28 @@ public class BossAttackController : MonoBehaviour
         _currentAttack.OnAttackFinished -= HandleAttackFinsed;
         _currentAttack.CancelAttack();
         _currentAttack = null;
+    }
+
+    private void AttackDataSettings()
+    {
+        foreach (BossAttackData data in _attackDataSo.Attacks)
+        {
+            if (data == null) continue;
+
+            switch (data.Type)
+            {
+                case BossAttackType.Slam:
+                    _slamAttack.SetData(data);
+                    break;
+
+                case BossAttackType.Swing:
+                    _swingAttack.SetData(data);
+                    break;
+
+                case BossAttackType.Charge:
+                    _chargeAttack.SetData(data);
+                    break;
+            }
+        }
     }
 }
