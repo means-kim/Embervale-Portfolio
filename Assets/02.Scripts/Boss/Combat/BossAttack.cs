@@ -52,6 +52,8 @@ public abstract class BossAttack : MonoBehaviour
 
     public bool CanAttack(float distance)
     {
+        if (!isActiveAndEnabled) return false;
+
         if (IsAttacking) return false;
         if (IsRecoverying) return false;
 
