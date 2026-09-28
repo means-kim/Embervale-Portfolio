@@ -5,6 +5,9 @@ public class BossChargeAttack : BossAttack
     [SerializeField] private BossMovement _movement;
     [SerializeField] private float _moveSpeedUp;
 
+    [SerializeField] private BossEffect _effectPrefab;
+    [SerializeField] private Transform _effectPoint;
+
     private bool _isChargeMove;
 
     public override void StartAttack()
@@ -29,7 +32,7 @@ public class BossChargeAttack : BossAttack
     {
         if (!_isAttacking) return;
 
-        // Todo: 애니메이션 VFX 이벤트 함수 호출
+        EffectManager.Instance.PlayBossEffect(_effectPrefab, _effectPoint);
     }
 
     public override void EndAttack()
