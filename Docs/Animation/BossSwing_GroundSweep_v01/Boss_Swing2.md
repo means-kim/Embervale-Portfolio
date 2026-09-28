@@ -1,5 +1,9 @@
 # Boss_Swing2 — 낮은 쓸기 동작
 
+> 현재 적용: [털·눈·얼음 디테일 수정 v02](../BossSwing_DetailMatch_v02/Boss_Swing2_DetailMatch_v02.md). 2048×1024·512 셀·공통 피봇과 기존 클립을 유지한다.
+
+> 최신 색 보정: [Idle·Walk 얼음 색 및 복귀 자세 보정](../BossSwing_IceMatch/Boss_Swing2_IceMatch.md). 아래 생성·연결 상태는 최초 작업 이력이다.
+
 > 최신: [2048×1024 / 512 셀 정렬 수정](../BossSwing_Grid512/Boss_Swing2_Grid512.md). 아래 1774×887·PPU44는 최초 제작 이력이며 현재 PNG는 2048×1024·PPU50·공통 하단 중앙 피봇으로 변경됨.
 
 

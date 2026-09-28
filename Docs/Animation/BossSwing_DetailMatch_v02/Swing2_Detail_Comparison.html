@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Swing2 · 털과 눈 디테일 비교</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101720;color:#e1ebf4;font:15px "Malgun Gothic",sans-serif}main{max-width:1320px;margin:auto;padding:30px 24px}h1{font-size:26px;margin:0 0 10px}p{color:#9fb2c8;line-height:1.8}nav{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:16px 0}button,select{background:#25384b;border:1px solid #57738c;border-radius:6px;padding:8px 12px;color:#e1ebf4}input[type=range]{width:230px}canvas{display:block;width:100%;border:1px solid #33475a;border-radius:8px}#status{font-variant-numeric:tabular-nums}a{color:#9cd5fc}.note{font-size:13px}img{max-width:100%}
+</style>
+<main><h1>Swing2 · 털과 눈 디테일 수정</h1>
+<p>Idle의 가는 털 결, 눈의 거친 가장자리, 얼음과 발톱의 표면을 공격 중간 프레임에 맞췄습니다.<br>왼쪽은 기준 동작, 가운데와 오른쪽은 같은 시점의 수정 전·후입니다.</p>
+<nav><button id="play">일시정지</button><label>기준 <select id="reference"><option>Idle</option><option>Walk</option></select></label><label>속도 <select id="speed"><option value="1">1배속</option><option value=".35">0.35배속</option></select></label><label><input id="transition" type="checkbox" checked>기준 동작 ↔ Swing2 전환</label><label>표시 크기 <select id="size"><option value=".75">384px 셀</option><option value=".5">256px 셀</option></select></label></nav>
+<canvas id="view" width="1296" height="500" aria-label="Idle Walk 기준과 Swing2 수정 전후 재생"></canvas>
+<nav><label>시간 <input id="timeline" type="range" min="0" max="2.8" step=".001" value="0"></label><span id="status"></span><button id="strike">최대 타격 프레임</button></nav>
+<p class="note">Unity 클립에서 읽은 스프라이트 키 시간을 사용한 아트 비교입니다. Animator 전환 조건·실제 이동·피해 판정 검증은 포함하지 않습니다.<br>시트 2048×1024 · 셀 512×512 · 피봇 하단 중앙 · PPU 50. 원본 Swing과 게임 코드·판정 키는 유지했습니다.</p>
+<p><a href="Idle_Before_After_Comparison.png">확대 비교 이미지</a> · <a href="Boss_Swing2_Detail_v02.png">완성 시트</a></p>
+<script>
+const clips=[{"name":"Idle","length":0.6666666,"frameRate":12,"keys":[{"time":0,"sprite":"Boss_Idle_0"},{"time":0.0833333358,"sprite":"Boss_Idle_1"},{"time":0.166666672,"sprite":"Boss_Idle_2"},{"time":0.25,"sprite":"Boss_Idle_3"},{"time":0.333333343,"sprite":"Boss_Idle_4"},{"time":0.416666657,"sprite":"Boss_Idle_5"},{"time":0.5,"sprite":"Boss_Idle_6"},{"time":0.5833333,"sprite":"Boss_Idle_7"}]},{"name":"Walk","length":1,"frameRate":8,"keys":[{"time":0,"sprite":"Boss_Walk_0"},{"time":0.125,"sprite":"Boss_Walk_1"},{"time":0.25,"sprite":"Boss_Walk_2"},{"time":0.375,"sprite":"Boss_Walk_3"},{"time":0.5,"sprite":"Boss_Walk_4"},{"time":0.625,"sprite":"Boss_Walk_5"},{"time":0.75,"sprite":"Boss_Walk_6"},{"time":0.875,"sprite":"Boss_Walk_7"}]},{"name":"Swing2","length":1.5,"frameRate":20,"keys":[{"time":0,"sprite":"Boss_Swing2_0"},{"time":0.1,"sprite":"Boss_Swing2_1"},{"time":0.25,"sprite":"Boss_Swing2_2"},{"time":0.4,"sprite":"Boss_Swing2_3"},{"time":0.6,"sprite":"Boss_Swing2_4"},{"time":0.7,"sprite":"Boss_Swing2_5"},{"time":0.82,"sprite":"Boss_Swing2_6"},{"time":1.1,"sprite":"Boss_Swing2_7"},{"time":1.45,"sprite":"Boss_Swing2_7"}]}];
+const byName=Object.fromEntries(clips.map(c=>[c.name,c]));
+const assets={Idle:'../../../Assets/04.Sprites/Boss/Boss_Idle.png',Walk:'../../../Assets/04.Sprites/Boss/Boss_Walk.png',Before:'../../../Backups/BossSwing2_before_detail_match_v02/Boss_Swing2.png',After:'Boss_Swing2_Detail_v02.png'};
+const images={};for(const [k,path] of Object.entries(assets)){const im=new Image();im.src=path;images[k]=im;}
+const $=id=>document.getElementById(id),c=$('view'),g=c.getContext('2d');
+let t=0,playing=true,last=null;
+function index(name,time){const cl=byName[name];time%=cl.length;let frame=0;for(const k of cl.keys)if(k.time<=time+.000001)frame=+k.sprite.split('_').pop();return frame;}
+function drawFrame(key,frame,column){const dim=512*(+$('size').value),x=column*432+(432-dim)/2,y=450-dim;const im=images[key];if(im.complete&&im.naturalWidth)g.drawImage(im,frame%4*512,Math.floor(frame/4)*512,512,512,x,y,dim,dim);}
+function draw(){
+g.fillStyle='#161f2b';g.fillRect(0,0,c.width,c.height);g.font='19px sans-serif';
+['기준 · '+$('reference').value,'Swing2 · 수정 전','Swing2 · 수정 후'].forEach((s,i)=>{g.fillStyle=i===2?'#a4e1d4':'#d7e4f1';g.fillText(s,i*432+24,35);g.strokeStyle='#395365';g.beginPath();g.moveTo(i*432+10,450.5);g.lineTo((i+1)*432-10,450.5);g.stroke();});
+const ref=$('reference').value,transition=$('transition').checked;let phase='Swing2',attackTime=t;
+if(transition){if(t<.65){phase=ref;attackTime=0;}else if(t>=2.15){phase=ref;attackTime=1.49;}else attackTime=t-.65;}
+drawFrame(ref,index(ref,t),0);
+if(phase==='Swing2'){const f=index('Swing2',attackTime);drawFrame('Before',f,1);drawFrame('After',f,2);$('status').textContent=t.toFixed(2)+' s · Swing2_'+f;}
+else{drawFrame(ref,index(ref,t),1);drawFrame(ref,index(ref,t),2);$('status').textContent=t.toFixed(2)+' s · '+ref;}
+}
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'일시정지':'재생';};
+$('timeline').oninput=()=>{t=+$('timeline').value;playing=false;$('play').textContent='재생';draw();};
+$('strike').onclick=()=>{t=($('transition').checked?.65:0)+.70;playing=false;$('play').textContent='재생';$('timeline').value=t;draw();};
+$('transition').onchange=()=>{t=0;$('timeline').max=$('transition').checked?2.8:1.5;draw();};
+$('reference').onchange=draw;$('size').onchange=draw;
+function tick(now){const duration=$('transition').checked?2.8:1.5;if(last!==null&&playing){t=(t+(now-last)/1000*(+$('speed').value))%duration;$('timeline').value=t;}last=now;draw();requestAnimationFrame(tick);}requestAnimationFrame(tick);
+</script></main></html>

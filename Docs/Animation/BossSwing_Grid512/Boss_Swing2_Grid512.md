@@ -1,5 +1,7 @@
 # Boss_Swing2 — 2048×1024 / 512 셀 정렬 수정
 
+> 후속 수정: [Idle·Walk 얼음 색 및 복귀 자세 보정](../BossSwing_IceMatch/Boss_Swing2_IceMatch.md). 아래 위치 비교는 정렬 당시 이력이며, 현재 0번·7번 프레임은 Idle_0과 동일한 픽셀이다. 시트·셀·피봇 규격은 유지한다.
+
 ## 결과
 - [Boss_Swing2.png](../../../Assets/04.Sprites/Boss/Boss_Swing2.png): 실제 2048×1024 RGBA.
 - 4열 × 2행, 8개 셀 모두 512×512.
