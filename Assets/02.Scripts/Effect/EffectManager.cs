@@ -23,9 +23,7 @@ public class EffectManager : MonoBehaviour
             volume: 0.08f);
     }
 
-
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
-    public void PlaySnowEffect(SnowEffectType type, Vector3 position, bool flipX = false)
     {
         GameObject effect = SnowEffectPool.Instance.GetEffect(type);
         effect.transform.position = position;
@@ -44,5 +42,4 @@ public class EffectManager : MonoBehaviour
         bossEffect.transform.localPosition = Vector3.zero;
         bossEffect.transform.localRotation = Quaternion.identity;
     }
-}
 }
