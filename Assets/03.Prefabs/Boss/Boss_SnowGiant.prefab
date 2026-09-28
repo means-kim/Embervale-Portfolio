@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &505008792727021794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5433514003622980779}
+  m_Layer: 10
+  m_Name: IdleEffectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5433514003622980779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505008792727021794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.7, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5446899786276659735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235923189154961695
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +233,7 @@ Transform:
   m_Children:
   - {fileID: 4296080632268900524}
   - {fileID: 1874651297204595573}
+  - {fileID: 5433514003622980779}
   m_Father: {fileID: 1020913575131678032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6594865407688505647
@@ -418,6 +450,7 @@ GameObject:
   - component: {fileID: 7746876174767781300}
   - component: {fileID: 7845351025324201781}
   - component: {fileID: 2567005633489926930}
+  - component: {fileID: 6456768735056663740}
   m_Layer: 10
   m_Name: Boss_SnowGiant
   m_TagString: Boss
@@ -728,6 +761,20 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1405717601429288287}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
   _flashInterval: 0.08
+--- !u!114 &6456768735056663740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981983542186342843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f5b6aa22db24a4396271ad480777a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossIdleEffect
+  _effectPrefab: {fileID: 4056417050623881412, guid: b100de96eb7b13f489c1a7ae025e4620, type: 3}
+  _effectPoint: {fileID: 5433514003622980779}
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0
