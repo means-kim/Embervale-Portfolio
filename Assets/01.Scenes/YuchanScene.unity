@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 451198517}
   - component: {fileID: 451198518}
   - component: {fileID: 451198519}
+  - component: {fileID: 451198520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Ground
@@ -662,9 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf09f1dbd43daa4a96c72a6d56ffae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  _playerInput: {fileID: 451198509}
-  _playerMove: {fileID: 451198514}
-  _playerDash: {fileID: 451198518}
   _damage: 10
   _attackDuration: 0.38
   _attackSize: {x: 1.4, y: 1.2}
@@ -718,7 +716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d169cc87316c624b9401bad5528b4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  _playerInput: {fileID: 451198509}
   _moveSpeed: 20
 --- !u!70 &451198516
 CapsuleCollider2D:
@@ -769,8 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ef68a6b9c27b74196746d581b1c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  _playerInput: {fileID: 451198509}
-  _playerDash: {fileID: 451198518}
   _jumpSpeed: 50
 --- !u!114 &451198518
 MonoBehaviour:
@@ -784,8 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2549eb7de5d245a26ef9c8d47a77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
-  _playerInput: {fileID: 451198509}
-  _playerMove: {fileID: 451198514}
   _dashSpeed: 100
   _dashDuration: 0.1
   _dashCooldown: 0.15
@@ -801,17 +794,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa780a493bbfe6747bef6361062ca1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _animator: {fileID: 451198513}
-  _playerInput: {fileID: 451198509}
-  _playerMove: {fileID: 451198514}
-  _playerJump: {fileID: 451198517}
-  _playerDash: {fileID: 451198518}
-  _playerAttack: {fileID: 451198511}
   _jumpStartDuration: 0.13
   _apexVelocityRange: 1.5
   _dashStartDuration: 0.075
   _dashEndDuration: 0.13
   _landDuration: 0.17
+--- !u!114 &451198520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451198504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8879e11e56431684394ebc995710cd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWall
+  _climbSpeed: 25
+  _slideSpeed: 1.5
 --- !u!1 &461945465
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(Rigidbody2D), typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerAttack), typeof(PlayerWall))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _jumpStartDuration = 0.13f;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private PlayerJump _playerJump;
     private PlayerDash _playerDash;
     private PlayerAttack _playerAttack;
+    private PlayerWall _playerWall;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         _playerJump = GetComponent<PlayerJump>();
         _playerDash = GetComponent<PlayerDash>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerWall = GetComponent<PlayerWall>();
     }
     private void OnEnable()
     {
@@ -131,6 +133,12 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Death:
                 PlayStateClip("Death");
                 break;
+            case PlayerState.WallCling:
+                PlayStateClip("WallCling");
+                break;
+            case PlayerState.WallClimb:
+                PlayStateClip("WallClimb");
+                break;
         }
     }
     private void EvaluateState()
@@ -143,6 +151,16 @@ public class PlayerController : MonoBehaviour
             ChangeState(PlayerState.Dash);
             return;
         }
+        if (_playerWall.IsClimbing)
+        {
+            ChangeState(PlayerState.WallClimb);
+            return;
+        }
+        if (_playerWall.IsClinging)
+        {
+            ChangeState(PlayerState.WallCling);
+            return;
+        }
         if (_playerJump.IsJumping)
         {
             ChangeState(PlayerState.Jump);
@@ -150,7 +168,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!_playerJump.IsGrounded)
         {
-            var stateCheck = _currentState == PlayerState.Run || _currentState == PlayerState.Jump || _currentState == PlayerState.Dash || _currentState == PlayerState.Attack;
+            var stateCheck = _currentState == PlayerState.Run || _currentState == PlayerState.Jump || _currentState == PlayerState.Dash || _currentState == PlayerState.Attack || _currentState == PlayerState.WallCling || _currentState == PlayerState.WallClimb;
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }

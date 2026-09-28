@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerWall))]
 public class PlayerDash : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _dashSpeed = 10f;
@@ -12,6 +13,7 @@ public class PlayerDash : MonoBehaviour
     public float DashDuration => _dashDuration;
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
+    private PlayerWall _playerWall;
     private Rigidbody2D _rigidbody;
     private float _dashTimeRemaining;
     private float _cooldownTimeRemaining;
@@ -23,6 +25,7 @@ public class PlayerDash : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _playerMove = GetComponent<PlayerMove>();
+        _playerWall = GetComponent<PlayerWall>();
     }
     private void OnEnable()
     {
@@ -47,7 +50,7 @@ public class PlayerDash : MonoBehaviour
     }
     private void HandleDash()
     {
-        if (IsDashing || _cooldownTimeRemaining > 0f) return;
+        if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging) return;
         _dashDirection = _playerMove.FacingDirection;
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;

@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
     public event Action OnDashInput;
     public event Action OnAttackInput;
     private float _horizontal;
+    private float _vertical;
     private Vector2 _moveDirection = Vector2.zero;
     private void Update()
     {
@@ -18,7 +19,8 @@ public class PlayerInput : MonoBehaviour
     private void CheckHorizontalInput()
     {
         _horizontal = Input.GetAxis("Horizontal");
-        _moveDirection = new Vector2(_horizontal, 0f);
+        _vertical = Input.GetAxis("Vertical");
+        _moveDirection = new Vector2(_horizontal, _vertical);
         OnMoveInput?.Invoke(_moveDirection);
     }
     private void CheckJumpInput()
