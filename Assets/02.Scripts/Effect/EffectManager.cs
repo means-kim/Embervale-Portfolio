@@ -16,7 +16,6 @@ public class EffectManager : MonoBehaviour
         _instance = this;
     }
 
-
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, bool flipX = false)
     {
         GameObject effect = SnowEffectPool.Instance.GetEffect(type);
@@ -26,4 +25,15 @@ public class EffectManager : MonoBehaviour
         snowEffect.Play(type, SnowEffectPool.Instance, flipX);
     }
 
+    public void PlayBossEffect(BossEffect prefab, Transform point)
+    {
+        if (prefab == null) return;
+        if (point == null) return;
+
+        BossEffect bossEffect = Instantiate(prefab, point.position, Quaternion.identity);
+
+        bool flipX = point.lossyScale.x < 0f;
+
+        bossEffect.StartEffect(flipX);
+    }
 }
