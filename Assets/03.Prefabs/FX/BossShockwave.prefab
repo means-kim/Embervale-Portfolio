@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4482728654392549495}
   - component: {fileID: 5571660658879064210}
   - component: {fileID: 9073608272406028980}
-  - component: {fileID: 4309686578082987162}
+  - component: {fileID: -7475645399541008075}
   m_Layer: 0
   m_Name: BossShockwave
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4309686578082987162
+--- !u!114 &-7475645399541008075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,9 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5953297581516558832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c372b94b5eba7b44a9cd9d408fd842b8, type: 3}
+  m_Script: {fileID: 11500000, guid: f43407490d916f040bca47d12eebc618, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnowEffect
+  m_EditorClassIdentifier: Assembly-CSharp::BossEffect
   _animator: {fileID: 9073608272406028980}
   _spriteRenderer: {fileID: 5571660658879064210}
-  _particle: {fileID: 0}
