@@ -9,6 +9,8 @@ public class CameraRoomGate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isActiveAndEnabled) return;
+
         if (!collision.CompareTag("Player"))
         {
             return;
