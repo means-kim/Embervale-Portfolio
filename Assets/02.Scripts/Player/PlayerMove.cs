@@ -22,7 +22,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        if (_rigidbody == null)
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
         if (_playerInput == null)
         {
             _playerInput = GetComponent<PlayerInput>();
