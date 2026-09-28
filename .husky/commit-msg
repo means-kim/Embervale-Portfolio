@@ -15,7 +15,7 @@ if [ -f "$(git rev-parse --git-path MERGE_HEAD)" ] ||
 fi
 
 # 커밋 메시지 규칙 검사
-if ! echo "$COMMIT_MSG" | grep -qE '^(asset|build|chore|ci|design|docs|feat|fix|perf|refactor|revert|style|test)(\(.+\))?!?: .+'; then
+if ! echo "$COMMIT_MSG" | grep -qE '^(asset|build|chore|ci|design|docs|feat|fix|hotfix|perf|refactor|revert|style|test)(\(.+\))?!?: .+'; then
     echo "❌ 커밋 메시지는 'type: 설명' 형식이어야 합니다."
     echo ""
     echo "예시:"
@@ -67,6 +67,9 @@ case "$TYPE" in
         ;;
     fix)
         EMOJI="🐛"
+        ;;
+    hotfix)
+        EMOJI="🚑"
         ;;
     perf)
         EMOJI="⚡"
