@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 public class CameraManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private GameObject _player;
     [SerializeField] private CinemachineCamera _defaultCamera;
+    [SerializeField] private CinemachineImpulseSource _impulseSource;
 
     private CinemachineCamera _currentCamera;
 
@@ -22,6 +24,7 @@ public class CameraManager : MonoBehaviour
         }
 
         _instance = this;
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
         ChangeCamera(_defaultCamera);
     }
 
@@ -50,14 +53,9 @@ public class CameraManager : MonoBehaviour
 
     private void ChangeCamera(CinemachineCamera nextCamera)
     {
-        if (nextCamera == _currentCamera)
+        if (nextCamera == null || nextCamera == _currentCamera)
         {
             return;
-        }
-
-        if (nextCamera.Follow == null)
-        {
-            nextCamera.Follow = _player.transform;
         }
 
         nextCamera.gameObject.SetActive(true);
@@ -68,6 +66,18 @@ public class CameraManager : MonoBehaviour
         }
 
         _currentCamera = nextCamera;
+    }
+
+    public static void ShakeCamera(float strength)
+    {
+        if (_instance == null || _instance._currentCamera == null)
+            return;
+
+        Vector2 randomDirection = Random.insideUnitCircle;
+
+        _instance._impulseSource.GenerateImpulseWithVelocity(
+            new Vector3(randomDirection.x, randomDirection.y, 0f) * strength
+        );
     }
 
 }

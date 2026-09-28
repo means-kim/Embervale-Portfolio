@@ -16,13 +16,22 @@ public class EffectManager : MonoBehaviour
         _instance = this;
     }
 
+    private void Start()
+    {
+        BackgroundMusic.PlayBgm(
+            BackgroundMusic.BgmType.Snow,
+            volume: 0.08f);
+    }
+
+
+    public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, bool flipX = false)
     {
         GameObject effect = SnowEffectPool.Instance.GetEffect(type);
         effect.transform.position = position;
 
         SnowEffect snowEffect = effect.GetComponent<SnowEffect>();
-        snowEffect.Play(type, SnowEffectPool.Instance, flipX);
+        snowEffect.Play(type, SnowEffectPool.Instance, scale, flipX);
     }
 
     public void PlayBossEffect(BossEffect prefab, Transform point)
@@ -35,4 +44,5 @@ public class EffectManager : MonoBehaviour
         bossEffect.transform.localPosition = Vector3.zero;
         bossEffect.transform.localRotation = Quaternion.identity;
     }
+}
 }
