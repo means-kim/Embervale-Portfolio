@@ -6,15 +6,22 @@ public class SnowEffect : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private ParticleSystem _particle;
     private bool _animationFinish;
-
     private SnowEffectType _type;
     private SnowEffectPool _pool;
     private bool _isPlaying;
+    private Vector3 _defaultScale;
 
-    public void Play(SnowEffectType type, SnowEffectPool pool, bool flipX = false)
+    private void Awake()
+    {
+        _defaultScale = transform.localScale;
+    }
+
+    public void Play(SnowEffectType type, SnowEffectPool pool, Vector3? scale = null, bool flipX = false)
     {
         _type = type;
         _pool = pool;
+
+        transform.localScale = scale ?? _defaultScale;
 
         if (_animator != null)
         {
@@ -29,8 +36,7 @@ public class SnowEffect : MonoBehaviour
 
         if (_spriteRenderer != null)
         {
-            _spriteRenderer.flipX =
-                type == SnowEffectType.Explode && flipX;
+            _spriteRenderer.flipX = type == SnowEffectType.Explode && flipX;
         }
 
         if (_particle != null)
@@ -38,8 +44,8 @@ public class SnowEffect : MonoBehaviour
             _particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             _particle.Play(true);
         }
-        _isPlaying = true;
 
+        _isPlaying = true;
     }
 
     private void Update()
