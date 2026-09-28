@@ -1,24 +1,16 @@
 using UnityEngine;
-
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _checkPointTransform;
-
     private Rigidbody2D _rigidbody2D;
-
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Border"))
-        {
-            PlayerDeath();
-        }
+        if (other.gameObject.CompareTag("Border")) PlayerDeath();
     }
-
     private void PlayerDeath()
     {
         _rigidbody2D.linearVelocity = Vector2.zero;
