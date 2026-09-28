@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1235923189154961695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874651297204595573}
+  m_Layer: 10
+  m_Name: SwingEffectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874651297204595573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235923189154961695}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5446899786276659735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2250479099931298770
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 3620871782854802714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.58, y: 0, z: 0}
+  m_LocalPosition: {x: 3.58, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,6 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4296080632268900524}
+  - {fileID: 1874651297204595573}
   m_Father: {fileID: 1020913575131678032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6594865407688505647
@@ -658,6 +690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482f6f912955f4b6aac29c0cc0854c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSwingAttack
+  _effectPrefab: {fileID: -8655774197619875812, guid: f3545808df5b63d4dbe19b39e526d8be, type: 3}
+  _effectPoint: {fileID: 1874651297204595573}
 --- !u!114 &7845351025324201781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +707,7 @@ MonoBehaviour:
   _movement: {fileID: 1428997075298612375}
   _moveSpeedUp: 2
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
-  _effectPoint: {fileID: 4482728654392549495, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
+  _effectPoint: {fileID: 4296080632268900524}
 --- !u!114 &2567005633489926930
 MonoBehaviour:
   m_ObjectHideFlags: 0
