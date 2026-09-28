@@ -15,12 +15,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Border"))
         {
-            Debug.Log("보더 닿음");
             PlayerDeath();
-        }
-        else
-        {
-            Debug.Log(other.gameObject.name);
         }
     }
 

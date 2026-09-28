@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private PlayerJump _playerJump;
     [SerializeField] private PlayerDash _playerDash;
+    [SerializeField] private PlayerAttack _playerAttack;
 
     public PlayerState CurrentState => _currentState;
 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         _playerMove = GetComponent<PlayerMove>();
         _playerJump = GetComponent<PlayerJump>();
         _playerDash = GetComponent<PlayerDash>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Awake()
@@ -44,6 +46,10 @@ public class PlayerController : MonoBehaviour
         if (_playerDash == null)
         {
             _playerDash = GetComponent<PlayerDash>();
+        }
+        if (_playerAttack == null)
+        {
+            _playerAttack = GetComponent<PlayerAttack>();
         }
 
         if (_animator == null)
@@ -75,6 +81,11 @@ public class PlayerController : MonoBehaviour
             _playerDash.OnDashStarted += HandleDashStarted;
             _playerDash.OnDashEnded += HandleDashEnded;
         }
+        if (_playerAttack != null)
+        {
+            _playerAttack.OnAttackStarted += HandleAttackStarted;
+            _playerAttack.OnAttackEnded += HandleAttackEnded;
+        }
     }
 
     private void OnDisable()
@@ -92,6 +103,11 @@ public class PlayerController : MonoBehaviour
         {
             _playerDash.OnDashStarted -= HandleDashStarted;
             _playerDash.OnDashEnded -= HandleDashEnded;
+        }
+        if (_playerAttack != null)
+        {
+            _playerAttack.OnAttackStarted -= HandleAttackStarted;
+            _playerAttack.OnAttackEnded -= HandleAttackEnded;
         }
     }
 
@@ -142,8 +158,16 @@ public class PlayerController : MonoBehaviour
 
     private void EvaluateState()
     {
-        // Death / Attack의 종료 조건은 미정이므로 자동 전이에서 제외하고 외부 호출로만 빠져나간다.
-        if (_currentState == PlayerState.Death || _currentState == PlayerState.Attack) return;
+        // Death의 종료 조건은 미정이므로 자동 전이에서 제외하고 외부 호출로만 빠져나간다.
+        // Attack은 공격이 진행 중일 때만 유지하고, 종료된 뒤에는 일반 평가로 넘어간다.
+        if (_currentState == PlayerState.Death)
+        {
+            return;
+        }
+        if (_currentState == PlayerState.Attack && _playerAttack != null && _playerAttack.IsAttacking)
+        {
+            return;
+        }
 
         if (_playerDash != null && _playerDash.IsDashing)
         {
@@ -159,11 +183,11 @@ public class PlayerController : MonoBehaviour
 
         if (_playerJump != null && !_playerJump.IsGrounded)
         {
-            // 발판 끝에서 걸어 떨어진 경우 등: Run/Dash/Jump에서 공중으로 이어질 때만 Jump로 전환.
+            // 발판 끝에서 걸어 떨어진 경우 등: 지상 상태나 공격 종료 후 공중으로 이어질 때 Jump로 전환.
             // 시작 직후 착지 전(Idle + 미접지)에는 Idle을 유지해 깜빡임을 막는다.
-            if (_currentState == PlayerState.Run
-                || _currentState == PlayerState.Jump
-                || _currentState == PlayerState.Dash)
+            bool stateCheck = _currentState == PlayerState.Run || _currentState == PlayerState.Jump
+                              || _currentState == PlayerState.Dash || _currentState == PlayerState.Attack;
+            if (stateCheck)
             {
                 ChangeState(PlayerState.Jump);
             }
@@ -188,6 +212,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleLanded()
     {
+        // 공중 공격 중 착지하면 공격을 캔슬하고 지상 상태로 복귀한다.
+        if (_currentState == PlayerState.Attack && _playerAttack != null)
+        {
+            _playerAttack.CancelAttack();
+            return;
+        }
         EvaluateState();
     }
 
@@ -197,6 +227,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleDashEnded()
+    {
+        EvaluateState();
+    }
+
+    private void HandleAttackStarted()
+    {
+        ChangeState(PlayerState.Attack);
+    }
+
+    private void HandleAttackEnded()
     {
         EvaluateState();
     }
