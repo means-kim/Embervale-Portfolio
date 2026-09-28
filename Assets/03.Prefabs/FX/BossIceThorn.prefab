@@ -85,7 +85,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5343808898067980143, guid: 1683ea4feacd9224290d6b3591329559, type: 3}
   m_Color: {r: 0.85898006, g: 0.8782243, b: 0.9150943, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.3285713, y: 6.3285713}
@@ -127,5 +127,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43407490d916f040bca47d12eebc618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEffect
-  _animator: {fileID: 9073608272406028980}
-  _spriteRenderer: {fileID: 5571660658879064210}

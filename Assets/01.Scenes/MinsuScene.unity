@@ -215,10 +215,18 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 198088055}
-    - target: {fileID: 4879881117328265235, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 4296080632268900524, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7845351025324201781, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: _effectPoint
+      value: 
+      objectReference: {fileID: 1458606172}
+    - target: {fileID: 7845351025324201781, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: _effectPrefab
+      value: 
+      objectReference: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
       value: Boss_SnowGiant
@@ -313,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 198088053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.76, y: -2.63, z: 0}
+  m_LocalPosition: {x: 26.7, y: -2.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,6 +375,11 @@ MonoBehaviour:
   _powderPrefab: {fileID: 2338369222927477875, guid: 66f5cec6ca1285641b21595fb07cadf0, type: 3}
   _explodePrefab: {fileID: 5953297581516558832, guid: cbf567b63ac22de4ab6cd02f71c07754, type: 3}
   _poolSize: 20
+--- !u!4 &1458606172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4296080632268900524, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+  m_PrefabInstance: {fileID: 79641578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1785190366
 GameObject:
   m_ObjectHideFlags: 0

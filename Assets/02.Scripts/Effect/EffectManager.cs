@@ -30,10 +30,9 @@ public class EffectManager : MonoBehaviour
         if (prefab == null) return;
         if (point == null) return;
 
-        BossEffect bossEffect = Instantiate(prefab, point.position, Quaternion.identity);
+        BossEffect bossEffect = Instantiate(prefab, point);
 
-        bool flipX = point.lossyScale.x < 0f;
-
-        bossEffect.StartEffect(flipX);
+        bossEffect.transform.localPosition = Vector3.zero;
+        bossEffect.transform.localRotation = Quaternion.identity;
     }
 }
