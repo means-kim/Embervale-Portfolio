@@ -369,7 +369,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -447,12 +447,12 @@ TextureImporter:
       name: vfx-Sheet_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 399
-        width: 34
-        height: 18
+        x: 0
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -469,12 +469,12 @@ TextureImporter:
       name: vfx-Sheet_1
       rect:
         serializedVersion: 2
-        x: 115
-        y: 399
-        width: 60
-        height: 23
+        x: 96
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -491,12 +491,12 @@ TextureImporter:
       name: vfx-Sheet_2
       rect:
         serializedVersion: 2
-        x: 208
-        y: 399
-        width: 66
-        height: 31
+        x: 192
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -513,12 +513,12 @@ TextureImporter:
       name: vfx-Sheet_3
       rect:
         serializedVersion: 2
-        x: 311
-        y: 399
-        width: 49
-        height: 45
+        x: 288
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -535,12 +535,12 @@ TextureImporter:
       name: vfx-Sheet_4
       rect:
         serializedVersion: 2
-        x: 412
-        y: 398
-        width: 37
-        height: 63
+        x: 384
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -557,12 +557,12 @@ TextureImporter:
       name: vfx-Sheet_5
       rect:
         serializedVersion: 2
-        x: 503
-        y: 396
-        width: 46
-        height: 79
+        x: 480
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -579,12 +579,12 @@ TextureImporter:
       name: vfx-Sheet_6
       rect:
         serializedVersion: 2
-        x: 593
-        y: 395
-        width: 56
-        height: 75
+        x: 576
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -601,12 +601,12 @@ TextureImporter:
       name: vfx-Sheet_7
       rect:
         serializedVersion: 2
-        x: 690
-        y: 394
-        width: 59
-        height: 73
+        x: 672
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -623,12 +623,12 @@ TextureImporter:
       name: vfx-Sheet_8
       rect:
         serializedVersion: 2
-        x: 787
-        y: 395
-        width: 58
-        height: 72
+        x: 768
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: vfx-Sheet_9
       rect:
         serializedVersion: 2
-        x: 883
-        y: 395
-        width: 57
-        height: 72
+        x: 864
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -667,12 +667,12 @@ TextureImporter:
       name: vfx-Sheet_10
       rect:
         serializedVersion: 2
-        x: 979
-        y: 395
-        width: 57
-        height: 72
+        x: 960
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -689,12 +689,12 @@ TextureImporter:
       name: vfx-Sheet_11
       rect:
         serializedVersion: 2
-        x: 1075
-        y: 395
-        width: 57
-        height: 72
+        x: 1056
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,12 +711,12 @@ TextureImporter:
       name: vfx-Sheet_12
       rect:
         serializedVersion: 2
-        x: 1171
-        y: 395
-        width: 57
-        height: 72
+        x: 1152
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -733,12 +733,12 @@ TextureImporter:
       name: vfx-Sheet_13
       rect:
         serializedVersion: 2
-        x: 1267
-        y: 395
-        width: 57
-        height: 72
+        x: 1248
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -755,12 +755,12 @@ TextureImporter:
       name: vfx-Sheet_14
       rect:
         serializedVersion: 2
-        x: 1363
-        y: 395
-        width: 57
-        height: 72
+        x: 1344
+        y: 384
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -777,12 +777,12 @@ TextureImporter:
       name: vfx-Sheet_15
       rect:
         serializedVersion: 2
-        x: 23
-        y: 302
-        width: 17
-        height: 11
+        x: 0
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -799,12 +799,12 @@ TextureImporter:
       name: vfx-Sheet_16
       rect:
         serializedVersion: 2
-        x: 116
-        y: 302
-        width: 23
-        height: 15
+        x: 96
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -821,12 +821,12 @@ TextureImporter:
       name: vfx-Sheet_17
       rect:
         serializedVersion: 2
-        x: 207
-        y: 302
-        width: 35
-        height: 29
+        x: 192
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -843,12 +843,12 @@ TextureImporter:
       name: vfx-Sheet_18
       rect:
         serializedVersion: 2
-        x: 306
-        y: 302
-        width: 44
-        height: 47
+        x: 288
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -865,12 +865,12 @@ TextureImporter:
       name: vfx-Sheet_19
       rect:
         serializedVersion: 2
-        x: 402
-        y: 302
-        width: 58
-        height: 50
+        x: 384
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -887,12 +887,12 @@ TextureImporter:
       name: vfx-Sheet_20
       rect:
         serializedVersion: 2
-        x: 500
-        y: 302
-        width: 68
-        height: 43
+        x: 480
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -909,12 +909,12 @@ TextureImporter:
       name: vfx-Sheet_21
       rect:
         serializedVersion: 2
-        x: 598
-        y: 302
-        width: 71
-        height: 56
+        x: 576
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -931,12 +931,12 @@ TextureImporter:
       name: vfx-Sheet_22
       rect:
         serializedVersion: 2
-        x: 693
-        y: 302
-        width: 64
-        height: 63
+        x: 672
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -953,12 +953,12 @@ TextureImporter:
       name: vfx-Sheet_23
       rect:
         serializedVersion: 2
-        x: 789
-        y: 301
-        width: 69
-        height: 62
+        x: 768
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -975,12 +975,12 @@ TextureImporter:
       name: vfx-Sheet_24
       rect:
         serializedVersion: 2
-        x: 888
-        y: 302
-        width: 68
-        height: 49
+        x: 864
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -997,12 +997,12 @@ TextureImporter:
       name: vfx-Sheet_25
       rect:
         serializedVersion: 2
-        x: 981
-        y: 302
-        width: 73
-        height: 46
+        x: 960
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1019,12 +1019,12 @@ TextureImporter:
       name: vfx-Sheet_26
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 301
-        width: 74
-        height: 45
+        x: 1056
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1041,12 +1041,12 @@ TextureImporter:
       name: vfx-Sheet_27
       rect:
         serializedVersion: 2
-        x: 1174
-        y: 302
-        width: 50
-        height: 45
+        x: 1152
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1063,12 +1063,12 @@ TextureImporter:
       name: vfx-Sheet_28
       rect:
         serializedVersion: 2
-        x: 1270
-        y: 302
-        width: 47
-        height: 45
+        x: 1248
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1085,12 +1085,12 @@ TextureImporter:
       name: vfx-Sheet_29
       rect:
         serializedVersion: 2
-        x: 1366
-        y: 302
-        width: 47
-        height: 45
+        x: 1344
+        y: 288
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1107,12 +1107,12 @@ TextureImporter:
       name: vfx-Sheet_30
       rect:
         serializedVersion: 2
-        x: 301
-        y: 207
-        width: 48
-        height: 37
+        x: 0
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1129,12 +1129,12 @@ TextureImporter:
       name: vfx-Sheet_31
       rect:
         serializedVersion: 2
-        x: 399
-        y: 207
-        width: 61
-        height: 45
+        x: 96
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1151,12 +1151,12 @@ TextureImporter:
       name: vfx-Sheet_32
       rect:
         serializedVersion: 2
-        x: 501
-        y: 207
-        width: 63
-        height: 45
+        x: 192
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1173,12 +1173,12 @@ TextureImporter:
       name: vfx-Sheet_33
       rect:
         serializedVersion: 2
-        x: 614
-        y: 207
-        width: 48
-        height: 42
+        x: 288
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1195,12 +1195,12 @@ TextureImporter:
       name: vfx-Sheet_34
       rect:
         serializedVersion: 2
-        x: 702
-        y: 207
-        width: 58
-        height: 42
+        x: 384
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1217,12 +1217,12 @@ TextureImporter:
       name: vfx-Sheet_35
       rect:
         serializedVersion: 2
-        x: 713
-        y: 219
-        width: 9
-        height: 9
+        x: 480
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1239,12 +1239,12 @@ TextureImporter:
       name: vfx-Sheet_36
       rect:
         serializedVersion: 2
-        x: 822
-        y: 223
-        width: 7
-        height: 11
+        x: 576
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1261,12 +1261,12 @@ TextureImporter:
       name: vfx-Sheet_37
       rect:
         serializedVersion: 2
-        x: 827
-        y: 207
-        width: 32
-        height: 41
+        x: 672
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1283,12 +1283,12 @@ TextureImporter:
       name: vfx-Sheet_38
       rect:
         serializedVersion: 2
-        x: 908
-        y: 215
-        width: 18
-        height: 14
+        x: 768
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1305,12 +1305,12 @@ TextureImporter:
       name: vfx-Sheet_39
       rect:
         serializedVersion: 2
-        x: 928
-        y: 227
-        width: 6
-        height: 18
+        x: 864
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1327,12 +1327,12 @@ TextureImporter:
       name: vfx-Sheet_40
       rect:
         serializedVersion: 2
-        x: 931
-        y: 219
-        width: 11
-        height: 10
+        x: 960
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1349,12 +1349,12 @@ TextureImporter:
       name: vfx-Sheet_41
       rect:
         serializedVersion: 2
-        x: 943
-        y: 224
-        width: 6
-        height: 13
+        x: 1056
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1371,12 +1371,12 @@ TextureImporter:
       name: vfx-Sheet_42
       rect:
         serializedVersion: 2
-        x: 1016
-        y: 219
-        width: 14
-        height: 24
+        x: 1152
+        y: 192
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1393,12 +1393,12 @@ TextureImporter:
       name: vfx-Sheet_43
       rect:
         serializedVersion: 2
-        x: 1039
-        y: 215
-        width: 7
-        height: 18
+        x: 0
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1415,12 +1415,12 @@ TextureImporter:
       name: vfx-Sheet_44
       rect:
         serializedVersion: 2
-        x: 1114
-        y: 207
-        width: 36
-        height: 33
+        x: 96
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1437,12 +1437,12 @@ TextureImporter:
       name: vfx-Sheet_45
       rect:
         serializedVersion: 2
-        x: 107
-        y: 207
-        width: 21
-        height: 15
+        x: 192
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1459,12 +1459,12 @@ TextureImporter:
       name: vfx-Sheet_46
       rect:
         serializedVersion: 2
-        x: 208
-        y: 207
-        width: 23
-        height: 16
+        x: 288
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1481,12 +1481,12 @@ TextureImporter:
       name: vfx-Sheet_47
       rect:
         serializedVersion: 2
-        x: 811
-        y: 218
-        width: 8
-        height: 6
+        x: 384
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1503,12 +1503,12 @@ TextureImporter:
       name: vfx-Sheet_48
       rect:
         serializedVersion: 2
-        x: 819
-        y: 213
-        width: 8
-        height: 9
+        x: 480
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1525,12 +1525,12 @@ TextureImporter:
       name: vfx-Sheet_49
       rect:
         serializedVersion: 2
-        x: 901
-        y: 207
-        width: 52
-        height: 17
+        x: 576
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1547,12 +1547,12 @@ TextureImporter:
       name: vfx-Sheet_50
       rect:
         serializedVersion: 2
-        x: 947
-        y: 216
-        width: 9
-        height: 9
+        x: 672
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1569,12 +1569,12 @@ TextureImporter:
       name: vfx-Sheet_51
       rect:
         serializedVersion: 2
-        x: 1015
-        y: 207
-        width: 29
-        height: 13
+        x: 768
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1591,12 +1591,12 @@ TextureImporter:
       name: vfx-Sheet_52
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 217
-        width: 10
-        height: 9
+        x: 864
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1613,12 +1613,12 @@ TextureImporter:
       name: vfx-Sheet_53
       rect:
         serializedVersion: 2
-        x: 1043
-        y: 212
-        width: 10
-        height: 8
+        x: 960
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1635,12 +1635,12 @@ TextureImporter:
       name: vfx-Sheet_54
       rect:
         serializedVersion: 2
-        x: 1180
-        y: 109
-        width: 67
-        height: 115
+        x: 1056
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1657,12 +1657,12 @@ TextureImporter:
       name: vfx-Sheet_55
       rect:
         serializedVersion: 2
-        x: 6
-        y: 207
-        width: 14
-        height: 7
+        x: 1152
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1679,12 +1679,12 @@ TextureImporter:
       name: vfx-Sheet_56
       rect:
         serializedVersion: 2
-        x: 602
-        y: 207
-        width: 20
-        height: 6
+        x: 1248
+        y: 96
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1701,12 +1701,12 @@ TextureImporter:
       name: vfx-Sheet_57
       rect:
         serializedVersion: 2
-        x: 799
-        y: 207
-        width: 28
-        height: 6
+        x: 0
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1723,12 +1723,12 @@ TextureImporter:
       name: vfx-Sheet_58
       rect:
         serializedVersion: 2
-        x: 417
-        y: 111
-        width: 40
-        height: 53
+        x: 96
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1745,12 +1745,12 @@ TextureImporter:
       name: vfx-Sheet_59
       rect:
         serializedVersion: 2
-        x: 511
-        y: 110
-        width: 46
-        height: 64
+        x: 192
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1767,12 +1767,12 @@ TextureImporter:
       name: vfx-Sheet_60
       rect:
         serializedVersion: 2
-        x: 511
-        y: 152
-        width: 9
-        height: 8
+        x: 288
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1789,12 +1789,12 @@ TextureImporter:
       name: vfx-Sheet_61
       rect:
         serializedVersion: 2
-        x: 602
-        y: 154
-        width: 7
-        height: 6
+        x: 384
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1811,12 +1811,12 @@ TextureImporter:
       name: vfx-Sheet_62
       rect:
         serializedVersion: 2
-        x: 603
-        y: 109
-        width: 52
-        height: 73
+        x: 480
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1833,12 +1833,12 @@ TextureImporter:
       name: vfx-Sheet_63
       rect:
         serializedVersion: 2
-        x: 695
-        y: 109
-        width: 58
-        height: 73
+        x: 576
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1855,12 +1855,12 @@ TextureImporter:
       name: vfx-Sheet_64
       rect:
         serializedVersion: 2
-        x: 788
-        y: 108
-        width: 63
-        height: 73
+        x: 672
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1877,12 +1877,12 @@ TextureImporter:
       name: vfx-Sheet_65
       rect:
         serializedVersion: 2
-        x: 882
-        y: 110
-        width: 67
-        height: 73
+        x: 768
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1899,12 +1899,12 @@ TextureImporter:
       name: vfx-Sheet_66
       rect:
         serializedVersion: 2
-        x: 977
-        y: 110
-        width: 49
-        height: 73
+        x: 864
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1921,12 +1921,12 @@ TextureImporter:
       name: vfx-Sheet_67
       rect:
         serializedVersion: 2
-        x: 1084
-        y: 109
-        width: 39
-        height: 73
+        x: 960
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1943,12 +1943,12 @@ TextureImporter:
       name: vfx-Sheet_68
       rect:
         serializedVersion: 2
-        x: 1276
-        y: 109
-        width: 39
-        height: 73
+        x: 1056
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1965,12 +1965,12 @@ TextureImporter:
       name: vfx-Sheet_69
       rect:
         serializedVersion: 2
-        x: 230
-        y: 111
-        width: 19
-        height: 26
+        x: 1152
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1987,12 +1987,12 @@ TextureImporter:
       name: vfx-Sheet_70
       rect:
         serializedVersion: 2
-        x: 324
-        y: 111
-        width: 24
-        height: 41
+        x: 1248
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2009,12 +2009,12 @@ TextureImporter:
       name: vfx-Sheet_71
       rect:
         serializedVersion: 2
-        x: 341
-        y: 133
-        width: 7
-        height: 6
+        x: 1344
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2031,12 +2031,12 @@ TextureImporter:
       name: vfx-Sheet_72
       rect:
         serializedVersion: 2
-        x: 136
-        y: 111
-        width: 17
-        height: 18
+        x: 1440
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2053,12 +2053,12 @@ TextureImporter:
       name: vfx-Sheet_73
       rect:
         serializedVersion: 2
-        x: 244
-        y: 119
-        width: 7
-        height: 7
+        x: 1536
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2075,12 +2075,12 @@ TextureImporter:
       name: vfx-Sheet_74
       rect:
         serializedVersion: 2
-        x: 348
-        y: 124
-        width: 6
-        height: 6
+        x: 1632
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2093,715 +2093,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_75
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 111
-        width: 12
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9ae5a4797f746690800000000000000
-      internalID: -7609817310724494689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_76
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 22
-        width: 57
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aab642f1c4f44a220800000000000000
-      internalID: 2496207281828686762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_77
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 70
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f468d2845995c760800000000000000
-      internalID: 7477551344570098932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_78
-      rect:
-        serializedVersion: 2
-        x: 411
-        y: 69
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7dc0138ac4b76e1e0800000000000000
-      internalID: -2168910601362797353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_79
-      rect:
-        serializedVersion: 2
-        x: 509
-        y: 70
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62e372c7425a5c0a0800000000000000
-      internalID: -6861896881108730330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_80
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 76
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fef4c40d248d0e000800000000000000
-      internalID: 63288176257290223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_81
-      rect:
-        serializedVersion: 2
-        x: 690
-        y: 22
-        width: 63
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad090b5044d761900800000000000000
-      internalID: 654848526935691482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_82
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 22
-        width: 56
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b622f9e7d989a5c90800000000000000
-      internalID: -7180258853687188885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_83
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 22
-        width: 57
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ef5de66731245260800000000000000
-      internalID: 7085324635594383335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_84
-      rect:
-        serializedVersion: 2
-        x: 1362
-        y: 22
-        width: 54
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a86213709bd28490800000000000000
-      internalID: -7745386995671471961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_85
-      rect:
-        serializedVersion: 2
-        x: 1472
-        y: 81
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 99904d6d64420d7e0800000000000000
-      internalID: -1742853169121850983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_86
-      rect:
-        serializedVersion: 2
-        x: 1554
-        y: 22
-        width: 54
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50cf7a10b84f8d210800000000000000
-      internalID: 1358104165517622277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_87
-      rect:
-        serializedVersion: 2
-        x: 1648
-        y: 22
-        width: 56
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b3757953a66048740800000000000000
-      internalID: 5153250926854100795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_88
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 22
-        width: 62
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9e8462661915c98b0800000000000000
-      internalID: -5144146989438056215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_89
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 23
-        width: 57
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eff4c770a4b901c30800000000000000
-      internalID: 4328129984158519294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_90
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 21
-        width: 66
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68cd005158e02c920800000000000000
-      internalID: 3008983465782729862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_91
-      rect:
-        serializedVersion: 2
-        x: 402
-        y: 21
-        width: 65
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb1e483a370beded0800000000000000
-      internalID: -2387276741748661825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_92
-      rect:
-        serializedVersion: 2
-        x: 499
-        y: 22
-        width: 65
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09eaff7d36480df50800000000000000
-      internalID: 6904163793119456912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_93
-      rect:
-        serializedVersion: 2
-        x: 594
-        y: 18
-        width: 62
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6cd08137ca96c6e0800000000000000
-      internalID: -1817595219277718419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_94
-      rect:
-        serializedVersion: 2
-        x: 975
-        y: 22
-        width: 58
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b43490b89e55e8ec0800000000000000
-      internalID: -3562815793655102645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_95
-      rect:
-        serializedVersion: 2
-        x: 1071
-        y: 22
-        width: 57
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a6df68c40130d870800000000000000
-      internalID: 8705511976319571623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_96
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 61
-        width: 18
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a7aea647dab5f950800000000000000
-      internalID: 6482292672436283304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_97
-      rect:
-        serializedVersion: 2
-        x: 1170
-        y: 19
-        width: 55
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4286f13aea461d1d0800000000000000
-      internalID: -3327767948426254300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_98
-      rect:
-        serializedVersion: 2
-        x: 1182
-        y: 64
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 546a7af79e16bc590800000000000000
-      internalID: -7652915486289058235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_99
-      rect:
-        serializedVersion: 2
-        x: 1266
-        y: 22
-        width: 57
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa3368dff47228f70800000000000000
-      internalID: 9187949414298563498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_100
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 69
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49821c39b8d507710800000000000000
-      internalID: 1688952714324682900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_101
-      rect:
-        serializedVersion: 2
-        x: 1412
-        y: 63
-        width: 12
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d24c5aa31a2155e0800000000000000
-      internalID: -1922709301959572783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_102
-      rect:
-        serializedVersion: 2
-        x: 1458
-        y: 22
-        width: 54
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 013d8b5ed8b1876c0800000000000000
-      internalID: -4145533160736107760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_103
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 33
-        width: 14
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 082edd68960561610800000000000000
-      internalID: 1591547932486525568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_104
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 20
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbc4d86f2498548b0800000000000000
-      internalID: -5168574076640473921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_105
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 18
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ee3dcf1911c51a3f0800000000000000
-      internalID: -891330020709182482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vfx-Sheet_106
-      rect:
-        serializedVersion: 2
-        x: 1096
-        y: 19
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc4c8494c1a7f88d0800000000000000
-      internalID: -2841918577940314931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0b1e6e72e7e0fc8409e661cc221bd421
     internalID: 0
     vertices: []
     indices: 
@@ -2809,18 +2105,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":18.0,"y":5.0},"gridSpriteSize":{"x":96.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       vfx-Sheet_0: -3732577096805487512
       vfx-Sheet_1: 6104298212281704547
       vfx-Sheet_10: 6937046970437173393
-      vfx-Sheet_100: 1688952714324682900
-      vfx-Sheet_101: -1922709301959572783
-      vfx-Sheet_102: -4145533160736107760
-      vfx-Sheet_103: 1591547932486525568
-      vfx-Sheet_104: -5168574076640473921
-      vfx-Sheet_105: -891330020709182482
-      vfx-Sheet_106: -2841918577940314931
       vfx-Sheet_11: 6687366959749537321
       vfx-Sheet_12: 7702965520754904129
       vfx-Sheet_13: -6841174430714434693
@@ -2891,33 +2182,8 @@ TextureImporter:
       vfx-Sheet_72: 3926455085277381946
       vfx-Sheet_73: -2814322895932133681
       vfx-Sheet_74: 7282737018509517762
-      vfx-Sheet_75: -7609817310724494689
-      vfx-Sheet_76: 2496207281828686762
-      vfx-Sheet_77: 7477551344570098932
-      vfx-Sheet_78: -2168910601362797353
-      vfx-Sheet_79: -6861896881108730330
       vfx-Sheet_8: 4338116523070093943
-      vfx-Sheet_80: 63288176257290223
-      vfx-Sheet_81: 654848526935691482
-      vfx-Sheet_82: -7180258853687188885
-      vfx-Sheet_83: 7085324635594383335
-      vfx-Sheet_84: -7745386995671471961
-      vfx-Sheet_85: -1742853169121850983
-      vfx-Sheet_86: 1358104165517622277
-      vfx-Sheet_87: 5153250926854100795
-      vfx-Sheet_88: -5144146989438056215
-      vfx-Sheet_89: 4328129984158519294
       vfx-Sheet_9: -4347430581333345887
-      vfx-Sheet_90: 3008983465782729862
-      vfx-Sheet_91: -2387276741748661825
-      vfx-Sheet_92: 6904163793119456912
-      vfx-Sheet_93: -1817595219277718419
-      vfx-Sheet_94: -3562815793655102645
-      vfx-Sheet_95: 8705511976319571623
-      vfx-Sheet_96: 6482292672436283304
-      vfx-Sheet_97: -3327767948426254300
-      vfx-Sheet_98: -7652915486289058235
-      vfx-Sheet_99: 9187949414298563498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
