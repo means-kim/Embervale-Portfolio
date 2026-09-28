@@ -19,18 +19,17 @@ public class EffectManager : MonoBehaviour
     private void Start()
     {
         BackgroundMusic.PlayBgm(
-        BackgroundMusic.BgmType.Snow,
-        volume: 0.08f);
+            BackgroundMusic.BgmType.Snow,
+            volume: 0.08f);
     }
 
 
-    public void PlaySnowEffect(SnowEffectType type, Vector3 position, bool flipX = false)
+    public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
     {
         GameObject effect = SnowEffectPool.Instance.GetEffect(type);
         effect.transform.position = position;
 
         SnowEffect snowEffect = effect.GetComponent<SnowEffect>();
-        snowEffect.Play(type, SnowEffectPool.Instance, flipX);
+        snowEffect.Play(type, SnowEffectPool.Instance, scale, flipX);
     }
-
 }
