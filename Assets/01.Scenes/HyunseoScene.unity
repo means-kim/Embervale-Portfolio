@@ -7442,6 +7442,7 @@ Transform:
   m_Children:
   - {fileID: 754247704}
   - {fileID: 765166243}
+  - {fileID: 1099053352}
   m_Father: {fileID: 453319562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302473492
@@ -7655,7 +7656,7 @@ Transform:
   m_GameObject: {fileID: 352178934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 129.65237, y: 20.845955, z: -10}
+  m_LocalPosition: {x: 10.113576, y: -19.06572, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7915,7 +7916,7 @@ Transform:
   m_GameObject: {fileID: 375355128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151, y: 48.1, z: 0}
+  m_LocalPosition: {x: 22.1, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8298,7 +8299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
   _player: {fileID: 375355128}
-  _defaultCamera: {fileID: 0}
+  _defaultCamera: {fileID: 2136918780}
   _impulseSource: {fileID: 453319564}
 --- !u!114 &453319564
 MonoBehaviour:
@@ -15004,6 +15005,7 @@ GameObject:
   - component: {fileID: 754247704}
   - component: {fileID: 754247705}
   - component: {fileID: 754247706}
+  - component: {fileID: 754247707}
   m_Layer: 0
   m_Name: Gate_Secret
   m_TagString: Untagged
@@ -15060,7 +15062,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0714221, y: 7.4552774}
+  m_Offset: {x: 0.98133135, y: 7.262948}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15070,7 +15072,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.8011427, y: 15.910557}
+  m_Size: {x: 3.680684, y: 16.295216}
   m_EdgeRadius: 0
 --- !u!114 &754247706
 MonoBehaviour:
@@ -15079,13 +15081,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754247703}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5675c1abf3af384292b641b4f3946e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraRoomGate
   _leftCamera: {fileID: 1286883766}
   _rightCamera: {fileID: 2136918780}
+--- !u!114 &754247707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754247703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241af2704eed11e4fa9b97cdb41077ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GateSwitch
+  _left:
+    Camera: {fileID: 1286883766}
+    Inside: 0
+    Outside: 0
+  _right:
+    Camera: {fileID: 2136918780}
+    Inside: 0
+    Outside: 0
+  _playerTag: Player
+  _mapVisibility: {fileID: 1376007187}
+  _boxCollider: {fileID: 754247705}
 --- !u!1 &754845277
 GameObject:
   m_ObjectHideFlags: 0
@@ -15201,6 +15226,7 @@ GameObject:
   - component: {fileID: 765166243}
   - component: {fileID: 765166245}
   - component: {fileID: 765166244}
+  - component: {fileID: 765166246}
   m_Layer: 0
   m_Name: Gate_Boss
   m_TagString: Untagged
@@ -15217,7 +15243,7 @@ Transform:
   m_GameObject: {fileID: 765166242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 211.3, y: 105.8, z: 0}
+  m_LocalPosition: {x: 209.79633, y: 105.79655, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15230,7 +15256,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765166242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5675c1abf3af384292b641b4f3946e6, type: 3}
   m_Name: 
@@ -15271,7 +15297,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.13152695, y: 10.744364}
+  m_Offset: {x: -0.6167679, y: 10.744364}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15281,8 +15307,31 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.649086, y: 22.488728}
+  m_Size: {x: 4.446335, y: 22.488728}
   m_EdgeRadius: 0
+--- !u!114 &765166246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765166242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241af2704eed11e4fa9b97cdb41077ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GateSwitch
+  _left:
+    Camera: {fileID: 2136918780}
+    Inside: 1
+    Outside: 0
+  _right:
+    Camera: {fileID: 600454960}
+    Inside: 1
+    Outside: 1
+  _playerTag: Player
+  _mapVisibility: {fileID: 1376007187}
+  _boxCollider: {fileID: 765166245}
 --- !u!1 &778327419
 GameObject:
   m_ObjectHideFlags: 0
@@ -15901,11 +15950,6 @@ PrefabInstance:
 --- !u!4 &865925602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2806114233176978789, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
-  m_PrefabInstance: {fileID: 865925601}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &865925603 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3348988491560950270, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
   m_PrefabInstance: {fileID: 865925601}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &927460016
@@ -17465,6 +17509,108 @@ Transform:
   - {fileID: 1756184399}
   m_Father: {fileID: 1023155887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1099053351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099053352}
+  - component: {fileID: 1099053354}
+  - component: {fileID: 1099053353}
+  m_Layer: 0
+  m_Name: Gate_Cave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1099053352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099053351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.7, y: -27.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 292675278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099053353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099053351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241af2704eed11e4fa9b97cdb41077ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GateSwitch
+  _left:
+    Camera: {fileID: 0}
+    Inside: 0
+    Outside: 0
+  _right:
+    Camera: {fileID: 0}
+    Inside: 1
+    Outside: 0
+  _playerTag: Player
+  _mapVisibility: {fileID: 1376007187}
+  _boxCollider: {fileID: 1099053354}
+--- !u!61 &1099053354
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099053351}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.7888222, y: 2.8975897}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.3032837, y: 6.7951794}
+  m_EdgeRadius: 0
 --- !u!1 &1138591375
 GameObject:
   m_ObjectHideFlags: 0
@@ -17679,9 +17825,15 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 109.54551, y: 8.206988}
-      - {x: 148.99046, y: 7.979845}
-      - {x: 149.65218, y: 109.31265}
-      - {x: 212.74991, y: 108.6273}
+      - {x: 149.35, y: 7.979845}
+      - {x: 149.39719, y: 105.47894}
+      - {x: 149.99095, y: 106.6809}
+      - {x: 151.72461, y: 108.182915}
+      - {x: 153.13483, y: 108.91678}
+      - {x: 155.45592, y: 109.0735}
+      - {x: 158.48686, y: 108.98673}
+      - {x: 160.08377, y: 108.96846}
+      - {x: 212.74991, y: 108.71689}
       - {x: 212.44019, y: 138.26279}
       - {x: 109.47927, y: 138.46065}
       - {x: 109.77412, y: 68.75723}
@@ -18406,11 +18558,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2806114233176978789, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
   m_PrefabInstance: {fileID: 1305533349}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1305533351 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3348988491560950270, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
-  m_PrefabInstance: {fileID: 1305533349}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316308783
 GameObject:
   m_ObjectHideFlags: 0
@@ -18679,19 +18826,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a61a7cb96b7554e8ca2201c5ef21f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapReview.MapPortalVisibility
-  player: {fileID: 375355130}
-  entranceAnchor: {fileID: 5869297162675947929}
-  bossExitAnchor: {fileID: 173670142}
-  entranceX: 34.5
-  bossExitX: 220
-  hysteresis: 0.25
-  bossExitEnabled: 1
-  surfaces:
+  _entranceAnchor: {fileID: 5869297162675947929}
+  _entranceX: 34.5
+  _bossExitEnabled: 1
+  _initialState:
+    Inside: 0
+    Outside: 0
+  _surfaces:
   - renderer: {fileID: 4566030801737113584}
-    entranceRole: 1
-    exitRole: 0
-    entranceMouth: 0
-  - renderer: {fileID: 5985369623151826893}
     entranceRole: 1
     exitRole: 0
     entranceMouth: 0
@@ -18991,10 +19133,6 @@ MonoBehaviour:
     entranceRole: 0
     exitRole: 1
     entranceMouth: 0
-  - renderer: {fileID: 1305533351}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
   - renderer: {fileID: 1585497267}
     entranceRole: 0
     exitRole: 1
@@ -19003,39 +19141,11 @@ MonoBehaviour:
     entranceRole: 0
     exitRole: 1
     entranceMouth: 0
-  - renderer: {fileID: 1872464106}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
   - renderer: {fileID: 1832898453}
     entranceRole: 0
     exitRole: 1
     entranceMouth: 0
-  - renderer: {fileID: 2081631574}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
-  - renderer: {fileID: 865925603}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
   - renderer: {fileID: 432241826}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
-  - renderer: {fileID: 0}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
-  - renderer: {fileID: 0}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
-  - renderer: {fileID: 0}
-    entranceRole: 0
-    exitRole: 1
-    entranceMouth: 0
-  - renderer: {fileID: 0}
     entranceRole: 0
     exitRole: 1
     entranceMouth: 0
@@ -25993,11 +26103,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2806114233176978789, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
   m_PrefabInstance: {fileID: 1872464104}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1872464106 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3348988491560950270, guid: 447ee7a3927ce7c49ac4d9691fb99ef4, type: 3}
-  m_PrefabInstance: {fileID: 1872464104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883537872
 GameObject:
   m_ObjectHideFlags: 0
@@ -32025,11 +32130,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7628328823982838927, guid: eafe7d955c6de4547a588d4a2843ce2b, type: 3}
   m_PrefabInstance: {fileID: 2081631572}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &2081631574 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 377997566678494032, guid: eafe7d955c6de4547a588d4a2843ce2b, type: 3}
-  m_PrefabInstance: {fileID: 2081631572}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2084339705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32437,7 +32537,7 @@ Transform:
   m_GameObject: {fileID: 2136918776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 139.04633, y: 20.826538, z: -10}
+  m_LocalPosition: {x: 10.146331, y: -24.87346, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
