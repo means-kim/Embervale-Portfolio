@@ -1,0 +1,261 @@
+{
+  "size": [
+    2048,
+    1024
+  ],
+  "metaUnchanged": true,
+  "sprites": [
+    {
+      "name": "Boss_Swing2_0",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "3786474947128053411",
+      "rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_1",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "4560710513603817",
+      "rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_2",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "-1267119470565171622",
+      "rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_3",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "-1900961514732467496",
+      "rect": [
+        1536,
+        512,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_4",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "-7113417154169312759",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_5",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "6869104047405096236",
+      "rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_6",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "6086012429068680250",
+      "rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    },
+    {
+      "name": "Boss_Swing2_7",
+      "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+      "localId": "3033841318881347231",
+      "rect": [
+        1536,
+        0,
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        0
+      ],
+      "ppu": 50
+    }
+  ],
+  "clips": [
+    {
+      "name": "Idle",
+      "length": 0.6666666,
+      "frameRate": 12,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Idle_0"
+        },
+        {
+          "time": 0.0833333358,
+          "sprite": "Boss_Idle_1"
+        },
+        {
+          "time": 0.166666672,
+          "sprite": "Boss_Idle_2"
+        },
+        {
+          "time": 0.25,
+          "sprite": "Boss_Idle_3"
+        },
+        {
+          "time": 0.333333343,
+          "sprite": "Boss_Idle_4"
+        },
+        {
+          "time": 0.416666657,
+          "sprite": "Boss_Idle_5"
+        },
+        {
+          "time": 0.5,
+          "sprite": "Boss_Idle_6"
+        },
+        {
+          "time": 0.5833333,
+          "sprite": "Boss_Idle_7"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "length": 1,
+      "frameRate": 8,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Walk_0"
+        },
+        {
+          "time": 0.125,
+          "sprite": "Boss_Walk_1"
+        },
+        {
+          "time": 0.25,
+          "sprite": "Boss_Walk_2"
+        },
+        {
+          "time": 0.375,
+          "sprite": "Boss_Walk_3"
+        },
+        {
+          "time": 0.5,
+          "sprite": "Boss_Walk_4"
+        },
+        {
+          "time": 0.625,
+          "sprite": "Boss_Walk_5"
+        },
+        {
+          "time": 0.75,
+          "sprite": "Boss_Walk_6"
+        },
+        {
+          "time": 0.875,
+          "sprite": "Boss_Walk_7"
+        }
+      ]
+    },
+    {
+      "name": "Swing2",
+      "length": 1.5,
+      "frameRate": 20,
+      "keys": [
+        {
+          "time": 0,
+          "sprite": "Boss_Swing2_0"
+        },
+        {
+          "time": 0.1,
+          "sprite": "Boss_Swing2_1"
+        },
+        {
+          "time": 0.25,
+          "sprite": "Boss_Swing2_2"
+        },
+        {
+          "time": 0.4,
+          "sprite": "Boss_Swing2_3"
+        },
+        {
+          "time": 0.6,
+          "sprite": "Boss_Swing2_4"
+        },
+        {
+          "time": 0.7,
+          "sprite": "Boss_Swing2_5"
+        },
+        {
+          "time": 0.82,
+          "sprite": "Boss_Swing2_6"
+        },
+        {
+          "time": 1.1,
+          "sprite": "Boss_Swing2_7"
+        },
+        {
+          "time": 1.45,
+          "sprite": "Boss_Swing2_7"
+        }
+      ]
+    }
+  ],
+  "sceneDirty": false
+}

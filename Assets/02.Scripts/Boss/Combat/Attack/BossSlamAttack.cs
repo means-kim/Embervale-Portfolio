@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BossSlamAttack : BossAttack
 {
+    [SerializeField] private Transform _slamEffectTransform;
+
     public override void StartAttack()
     {
         if (_isAttacking) return;
@@ -25,6 +27,8 @@ public class BossSlamAttack : BossAttack
         if (!_isAttacking) return;
 
         // Todo: 애니메이션 VFX 이벤트 함수 호출
+
+        EffectManager.Instance.PlaySnowEffect(SnowEffectType.Explode, _slamEffectTransform.position);
     }
 
     public override void EndAttack()

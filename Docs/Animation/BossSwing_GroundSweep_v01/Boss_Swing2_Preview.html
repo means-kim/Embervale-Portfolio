@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Boss Swing2 검토</title>
+<style>body{margin:0;background:#10151e;color:#dce6f4;font:16px system-ui,sans-serif}main{max-width:1100px;margin:32px auto;padding:0 24px}h1{font-size:26px}p{color:#aebed1;line-height:1.7}canvas{width:100%;background:#151e2b;border:1px solid #35465b;border-radius:10px}nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:20px 0}button,select{background:#26394e;color:white;border:1px solid #56718b;border-radius:6px;padding:8px 14px}input[type=range]{flex:1;min-width:220px}label{white-space:nowrap}small{color:#9eb0c6}.active{color:#ff746b}a{color:#96c8ff}</style>
+<main><h1>Boss_Swing2 · 바닥 가까이 쓸기</h1><p>기존 Swing과 별도로 만든 8프레임 클립. 4×2 균등 분할 · 모든 피봇 Bottom Center (0.5, 0). Unity에서 읽은 Sprite Rect·Pivot·판정 키를 재생합니다.<br>빨강은 활성 공격 판정, 청록은 몸 피격 판정입니다. 실제 플레이·지형 충돌 검증 화면은 아닙니다.</p>
+<canvas id="view" width="1280" height="720"></canvas>
+<nav><button id="play">일시정지</button><input id="time" type="range" min="0" max="1.499" step="0.001" value="0"><span id="readout"></span>
+<select id="speed"><option value=".35">0.35배속</option><option value="1" selected>1배속</option></select><label><input id="flip" type="checkbox">오른쪽 보기</label><label><input id="boxes" type="checkbox" checked>판정 표시</label></nav>
+<p id="phase"></p><small>전체 1.5초 · 공격 활성 0.60–0.82초 · EndAttack 1.45초 · 2048×1024 PNG / 512×512 셀 / PPU 50<br>원본 Swing, Animator Controller, 프리팹, 공격 코드·데이터를 유지했습니다. 이 페이지는 클립 내 동작만 재생하며 기존 코드의 후딜레이는 포함하지 않습니다.</small></main>
+<script>
+const data={"length":1.5,"samples":[{"time":0,"sprite":"Boss_Swing2_0","rect":[0,0,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.6,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.95,"w":5.6,"h":5.6}},{"time":0.1,"sprite":"Boss_Swing2_1","rect":[512,0,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.62272727,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.9727273,"w":5.6,"h":5.6}},{"time":0.25,"sprite":"Boss_Swing2_2","rect":[1024,0,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-3.0559094,"y":1.62272727,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":-0.405909419,"y":2.67272735,"w":5.6,"h":5}},{"time":0.4,"sprite":"Boss_Swing2_3","rect":[1536,0,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.62272727,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":-0.15,"y":2.67272735,"w":5.6,"h":5}},{"time":0.599,"sprite":"Boss_Swing2_3","rect":[1536,0,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.62272727,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":-0.15,"y":2.67272735,"w":5.6,"h":5}},{"time":0.6,"sprite":"Boss_Swing2_4","rect":[0,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":true,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":-0.15,"y":2.6954546,"w":5.6,"h":5}},{"time":0.699,"sprite":"Boss_Swing2_4","rect":[0,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":true,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":-0.15,"y":2.6954546,"w":5.6,"h":5}},{"time":0.7,"sprite":"Boss_Swing2_5","rect":[512,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":true,"x":-2.89090967,"y":1.49545455,"angle":23.9999981,"w":3.8,"h":1.15},"hurt":{"x":-0.04090981,"y":2.59545445,"w":5.6,"h":4.8}},{"time":0.819,"sprite":"Boss_Swing2_5","rect":[512,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":true,"x":-2.89090967,"y":1.49545455,"angle":23.9999981,"w":3.8,"h":1.15},"hurt":{"x":-0.04090981,"y":2.59545445,"w":5.6,"h":4.8}},{"time":0.82,"sprite":"Boss_Swing2_6","rect":[1024,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.89545441,"w":5.6,"h":5.4}},{"time":1.1,"sprite":"Boss_Swing2_7","rect":[1536,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.99545455,"w":5.6,"h":5.6}},{"time":1.45,"sprite":"Boss_Swing2_7","rect":[1536,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.99545455,"w":5.6,"h":5.6}},{"time":1.499,"sprite":"Boss_Swing2_7","rect":[1536,512,512,512],"pivot":[256,0],"ppu":50,"hit":{"enabled":false,"x":-2.8,"y":1.64545453,"angle":30.0000076,"w":3.6,"h":1.2},"hurt":{"x":0,"y":2.99545455,"w":5.6,"h":5.6}}]};
+const canvas=document.getElementById('view'),ctx=canvas.getContext('2d'),timeline=document.getElementById('time'),flip=document.getElementById('flip'),boxes=document.getElementById('boxes'),speed=document.getElementById('speed'),play=document.getElementById('play');
+const sheet=new Image();sheet.src='../../../Assets/04.Sprites/Boss/Boss_Swing2.png';
+let playing=true,t=0,prev=null;
+play.onclick=()=>{playing=!playing;play.textContent=playing?'일시정지':'재생'};
+timeline.oninput=()=>{t=+timeline.value;playing=false;play.textContent='재생';draw()};
+function box(b,color,angle=0){ctx.save();ctx.translate(b.x,-b.y);ctx.rotate(-angle*Math.PI/180);ctx.lineWidth=.025;ctx.strokeStyle=color;ctx.fillStyle=color+'18';ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h);ctx.strokeRect(-b.w/2,-b.h/2,b.w,b.h);ctx.restore()}
+function draw(){
+let s=data.samples[0];for(const q of data.samples)if(q.time<=t+.000001)s=q;
+ctx.clearRect(0,0,1280,720);ctx.fillStyle='#131c28';ctx.fillRect(0,0,1280,720);
+const scale=82,originX=640,groundY=655;
+ctx.strokeStyle='#243749';ctx.lineWidth=1;
+for(let x=originX%scale;x<1280;x+=scale){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,720);ctx.stroke()}
+for(let y=groundY%scale;y<720;y+=scale){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1280,y);ctx.stroke()}
+ctx.strokeStyle='#88b9c7';ctx.beginPath();ctx.moveTo(0,groundY);ctx.lineTo(1280,groundY);ctx.stroke();
+ctx.save();ctx.translate(originX,groundY);ctx.scale(scale*(flip.checked?-1:1),scale);
+const [x,y,w,h]=s.rect,[px,py]=s.pivot;
+if(sheet.complete&&sheet.naturalWidth)ctx.drawImage(sheet,x,y,w,h,-px/s.ppu,-(h-py)/s.ppu,w/s.ppu,h/s.ppu);
+if(boxes.checked){box(s.hurt,'#63c4c9');if(s.hit.enabled)box(s.hit,'#ff7067',s.hit.angle)}
+ctx.restore();
+document.getElementById('readout').textContent=t.toFixed(2)+' s';
+document.getElementById('phase').textContent=s.sprite+' · '+(s.hit.enabled?'타격 구간':t<.6?'준비 동작':'회수 동작');
+document.getElementById('phase').className=s.hit.enabled?'active':'';
+}
+function tick(now){if(prev!==null&&playing){t=(t+(now-prev)/1000*(+speed.value))%1.5;timeline.value=t}prev=now;draw();requestAnimationFrame(tick)}requestAnimationFrame(tick);
+</script></html>

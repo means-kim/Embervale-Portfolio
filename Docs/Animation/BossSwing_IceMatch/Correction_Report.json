@@ -1,0 +1,474 @@
+{
+  "date": "2026-09-28",
+  "request": "Swing2의 등 얼음 디자인·색을 Idle/Walk와 맞추기",
+  "method": {
+    "path": "Docs/Animation/BossSwing_IceMatch/Boss_Swing2_IceMatch_v01.png",
+    "targetHue": 212.727264,
+    "targetSaturation": 0.736559153,
+    "targetValue": [
+      0,
+      0.294117659,
+      0.56078434,
+      0.8627451,
+      1
+    ],
+    "report": [
+      {
+        "frame": 1,
+        "sourceMedianS": 0.847715735,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.868875146,
+        "hueDeltaDegrees": -0.3761959,
+        "sourceValue": [
+          0,
+          0.3019608,
+          0.533333361,
+          0.772549033,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 52461
+      },
+      {
+        "frame": 2,
+        "sourceMedianS": 0.902439058,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.816187143,
+        "hueDeltaDegrees": 0.282812119,
+        "sourceValue": [
+          0,
+          0.329411775,
+          0.5529412,
+          0.7882353,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 38685
+      },
+      {
+        "frame": 3,
+        "sourceMedianS": 0.9109589,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.8085537,
+        "hueDeltaDegrees": 0.155825615,
+        "sourceValue": [
+          0,
+          0.3254902,
+          0.5411765,
+          0.784313738,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 37217
+      },
+      {
+        "frame": 4,
+        "sourceMedianS": 0.912,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.807630658,
+        "hueDeltaDegrees": -0.4958868,
+        "sourceValue": [
+          0,
+          0.3254902,
+          0.5294118,
+          0.768627465,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 35503
+      },
+      {
+        "frame": 5,
+        "sourceMedianS": 0.904347837,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.81446445,
+        "hueDeltaDegrees": -0.606071949,
+        "sourceValue": [
+          0,
+          0.3254902,
+          0.5372549,
+          0.7882353,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 30751
+      },
+      {
+        "frame": 6,
+        "sourceMedianS": 0.8909091,
+        "targetMedianS": 0.736559153,
+        "satScale": 0.8267501,
+        "hueDeltaDegrees": -0.249831676,
+        "sourceValue": [
+          0,
+          0.305882365,
+          0.521568656,
+          0.78039217,
+          1
+        ],
+        "targetValue": [
+          0,
+          0.294117659,
+          0.56078434,
+          0.8627451,
+          1
+        ],
+        "changed": 46332
+      }
+    ],
+    "canonicalFrames": [
+      0,
+      7
+    ]
+  },
+  "validation": {
+    "width": 2048,
+    "height": 1024,
+    "metaSame": true,
+    "sprites": [
+      {
+        "name": "Boss_Swing2_0",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "3786474947128053411",
+        "rect": [
+          0,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_1",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "4560710513603817",
+        "rect": [
+          512,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_2",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "-1267119470565171622",
+        "rect": [
+          1024,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_3",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "-1900961514732467496",
+        "rect": [
+          1536,
+          512,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_4",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "-7113417154169312759",
+        "rect": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_5",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "6869104047405096236",
+        "rect": [
+          512,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_6",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "6086012429068680250",
+        "rect": [
+          1024,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      },
+      {
+        "name": "Boss_Swing2_7",
+        "guid": "1d2b601c151b3d14494d41c5a986c9cd",
+        "localId": "3033841318881347231",
+        "rect": [
+          1536,
+          0,
+          512,
+          512
+        ],
+        "pivot": [
+          256,
+          0
+        ],
+        "ppu": 50
+      }
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "alphaChanges": 91464,
+        "rgbChanges": 100888,
+        "idle0PixelDifferences": 0,
+        "boundsTopDown": [
+          35,
+          160,
+          454,
+          512
+        ],
+        "medianHue": 212.542389,
+        "medianSaturation": 0.7338709,
+        "value10": 0.2901961,
+        "value50": 0.545098066,
+        "value90": 0.858823538
+      },
+      {
+        "frame": 1,
+        "alphaChanges": 0,
+        "rgbChanges": 41128,
+        "idle0PixelDifferences": 114093,
+        "boundsTopDown": [
+          44,
+          160,
+          507,
+          512
+        ],
+        "medianHue": 212.307678,
+        "medianSaturation": 0.752066135,
+        "value10": 0.305882365,
+        "value50": 0.5647059,
+        "value90": 0.8627451
+      },
+      {
+        "frame": 2,
+        "alphaChanges": 0,
+        "rgbChanges": 31278,
+        "idle0PixelDifferences": 110757,
+        "boundsTopDown": [
+          39,
+          203,
+          511,
+          512
+        ],
+        "medianHue": 212.432434,
+        "medianSaturation": 0.7468355,
+        "value10": 0.3019608,
+        "value50": 0.56078434,
+        "value90": 0.854901969
+      },
+      {
+        "frame": 3,
+        "alphaChanges": 0,
+        "rgbChanges": 30190,
+        "idle0PixelDifferences": 107809,
+        "boundsTopDown": [
+          48,
+          201,
+          488,
+          512
+        ],
+        "medianHue": 212.4,
+        "medianSaturation": 0.747368455,
+        "value10": 0.3019608,
+        "value50": 0.56078434,
+        "value90": 0.854901969
+      },
+      {
+        "frame": 4,
+        "alphaChanges": 0,
+        "rgbChanges": 29315,
+        "idle0PixelDifferences": 102998,
+        "boundsTopDown": [
+          27,
+          174,
+          460,
+          512
+        ],
+        "medianHue": 212.307678,
+        "medianSaturation": 0.7515528,
+        "value10": 0.298039228,
+        "value50": 0.56078434,
+        "value90": 0.858823538
+      },
+      {
+        "frame": 5,
+        "alphaChanges": 0,
+        "rgbChanges": 27317,
+        "idle0PixelDifferences": 106491,
+        "boundsTopDown": [
+          1,
+          193,
+          473,
+          512
+        ],
+        "medianHue": 212.307678,
+        "medianSaturation": 0.751131237,
+        "value10": 0.298039228,
+        "value50": 0.56078434,
+        "value90": 0.858823538
+      },
+      {
+        "frame": 6,
+        "alphaChanges": 0,
+        "rgbChanges": 35523,
+        "idle0PixelDifferences": 107382,
+        "boundsTopDown": [
+          61,
+          167,
+          483,
+          512
+        ],
+        "medianHue": 212.413788,
+        "medianSaturation": 0.7516779,
+        "value10": 0.305882365,
+        "value50": 0.56078434,
+        "value90": 0.854901969
+      },
+      {
+        "frame": 7,
+        "alphaChanges": 93275,
+        "rgbChanges": 102403,
+        "idle0PixelDifferences": 0,
+        "boundsTopDown": [
+          35,
+          160,
+          454,
+          512
+        ],
+        "medianHue": 212.542389,
+        "medianSaturation": 0.7338709,
+        "value10": 0.2901961,
+        "value50": 0.545098066,
+        "value90": 0.858823538
+      }
+    ],
+    "clipLength": 1.5,
+    "keys": [
+      {
+        "time": 0,
+        "sprite": "Boss_Swing2_0"
+      },
+      {
+        "time": 0.1,
+        "sprite": "Boss_Swing2_1"
+      },
+      {
+        "time": 0.25,
+        "sprite": "Boss_Swing2_2"
+      },
+      {
+        "time": 0.4,
+        "sprite": "Boss_Swing2_3"
+      },
+      {
+        "time": 0.6,
+        "sprite": "Boss_Swing2_4"
+      },
+      {
+        "time": 0.7,
+        "sprite": "Boss_Swing2_5"
+      },
+      {
+        "time": 0.82,
+        "sprite": "Boss_Swing2_6"
+      },
+      {
+        "time": 1.1,
+        "sprite": "Boss_Swing2_7"
+      },
+      {
+        "time": 1.45,
+        "sprite": "Boss_Swing2_7"
+      }
+    ],
+    "sceneDirty": false
+  },
+  "render": {
+    "paths": [
+      "Docs/Animation/BossSwing_IceMatch/Unity_Swing2_Left.png",
+      "Docs/Animation/BossSwing_IceMatch/Unity_Swing2_Right.png"
+    ],
+    "sceneDirty": false
+  }
+}

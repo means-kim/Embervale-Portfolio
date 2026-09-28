@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BossSwingAttack : BossAttack
 {
+    [SerializeField] private BossEffect _effectPrefab;
+    [SerializeField] private Transform _effectPoint;
+
     public override void StartAttack()
     {
         if (_isAttacking) return;
@@ -24,7 +27,7 @@ public class BossSwingAttack : BossAttack
     {
         if (!_isAttacking) return;
 
-        // Todo: 애니메이션 VFX 이벤트 함수 호출
+        EffectManager.Instance.PlayBossEffect(_effectPrefab, _effectPoint);
     }
 
     public override void EndAttack()
