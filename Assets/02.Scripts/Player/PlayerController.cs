@@ -1,33 +1,24 @@
 using UnityEngine;
-[RequireComponent(typeof(Animator), typeof(Rigidbody2D), typeof(PlayerInput))]
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerAnimator))]
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerDash))]
 [RequireComponent(typeof(PlayerAttack), typeof(PlayerWall))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _jumpStartDuration = 0.13f;
-    [SerializeField, Min(0f)] private float _apexVelocityRange = 1.5f;
-    [SerializeField, Min(0f)] private float _dashStartDuration = 0.075f;
-    [SerializeField, Min(0f)] private float _dashEndDuration = 0.13f;
     [SerializeField, Min(0f)] private float _landDuration = 0.17f;
     public PlayerState CurrentState => _currentState;
     private PlayerState _currentState = PlayerState.Idle;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody;
-    private int _jumpPhase = 2;
-    private float _jumpStartTime;
-    private float _dashStartTime;
     private float _landUntil;
-    private string _currentClip;
-    private Animator _animator;
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerJump _playerJump;
     private PlayerDash _playerDash;
     private PlayerAttack _playerAttack;
     private PlayerWall _playerWall;
+    private PlayerAnimator _playerAnimator;
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _playerMove = GetComponent<PlayerMove>();
@@ -35,6 +26,8 @@ public class PlayerController : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerWall = GetComponent<PlayerWall>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
+        if (_playerAnimator == null) _playerAnimator = gameObject.AddComponent<PlayerAnimator>();
     }
     private void OnEnable()
     {
@@ -58,90 +51,22 @@ public class PlayerController : MonoBehaviour
         _playerAttack.OnAttackStarted -= HandleAttackStarted;
         _playerAttack.OnAttackEnded -= HandleAttackEnded;
     }
-    private void Start() => PlayCurrent();
+    private bool IsDoubleJump => _playerJump != null && _playerJump.CurrentJumpCount > 1;
+    private void Start() => _playerAnimator.PlayState(_currentState, IsDoubleJump);
     private void Update()
     {
         EvaluateState();
         var landing = Time.time < _landUntil;
-        if (_currentState == PlayerState.Jump && !landing) UpdateJumpPhase();
-        if (_currentState == PlayerState.Dash && !landing) UpdateDashPhase();
+        var verticalVelocity = _rigidbody != null ? _rigidbody.linearVelocity.y : 0f;
+        var dashDuration = _playerDash != null ? _playerDash.DashDuration : 0f;
+        _playerAnimator.Tick(_currentState, landing, verticalVelocity, dashDuration);
     }
     public void ChangeState(PlayerState newState)
     {
         if (_currentState == newState) return;
-        if (_currentState == PlayerState.Jump) _jumpPhase = 2;
+        if (_currentState == PlayerState.Jump) _playerAnimator.ResetJumpPhase();
         _currentState = newState;
-        PlayCurrent();
-    }
-    private void PlayStateClip(string clipName)
-    {
-        _currentClip = clipName;
-        _animator.Play(clipName);
-    }
-    private void PlayPhaseClip(string clipName)
-    {
-        if (_currentClip == clipName) return;
-        _currentClip = clipName;
-        _animator.Play(clipName);
-    }
-    private void UpdateDashPhase()
-    {
-        var dashDuration = _playerDash.DashDuration;
-        var elapsed = Time.time - _dashStartTime;
-        if (elapsed < _dashStartDuration) PlayPhaseClip("DashStart");
-        else if (elapsed >= Mathf.Max(_dashStartDuration, dashDuration - _dashEndDuration)) PlayPhaseClip("DashEnd");
-        else PlayPhaseClip("DashLoop");
-    }
-    private void UpdateJumpPhase()
-    {
-        if (_rigidbody == null) return;
-        if (_jumpPhase == 0)
-        {
-            PlayPhaseClip("JumpStart");
-            _jumpStartTime = Time.time;
-            _jumpPhase = 1;
-            return;
-        }
-        if (_jumpPhase == 1)
-        {
-            if (Time.time - _jumpStartTime < _jumpStartDuration) return;
-            _jumpPhase = 2;
-        }
-        var verticalVelocity = _rigidbody.linearVelocity.y;
-        if (verticalVelocity > _apexVelocityRange) PlayPhaseClip("JumpRise");
-        else if (verticalVelocity < -_apexVelocityRange) PlayPhaseClip("Fall");
-        else PlayPhaseClip("JumpApex");
-    }
-
-    private void PlayCurrent()
-    {
-        switch (_currentState)
-        {
-            case PlayerState.Idle:
-                PlayStateClip("Idle");
-                break;
-            case PlayerState.Run:
-                PlayStateClip("Run");
-                break;
-            case PlayerState.Jump:
-                PlayStateClip("JumpStart");
-                break;
-            case PlayerState.Dash:
-                PlayStateClip("DashStart");
-                break;
-            case PlayerState.Attack:
-                PlayStateClip("Attack");
-                break;
-            case PlayerState.Death:
-                PlayStateClip("Death");
-                break;
-            case PlayerState.WallCling:
-                PlayStateClip("WallCling");
-                break;
-            case PlayerState.WallClimb:
-                PlayStateClip("WallClimb");
-                break;
-        }
+        _playerAnimator.PlayState(_currentState, IsDoubleJump);
     }
     private void EvaluateState()
     {
@@ -182,7 +107,7 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Jump);
-        _jumpPhase = 0;
+        _playerAnimator.BeginJump(IsDoubleJump);
     }
     private void HandleLanded()
     {
@@ -193,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
         _landUntil = Time.time + _landDuration;
         if (_currentState == PlayerState.Attack) _playerAttack.CancelAttack();
-        PlayPhaseClip("Land");
+        _playerAnimator.PlayLand();
         EvaluateState();
     }
     private void HandleGroundLost()
@@ -205,7 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Dash);
-        _dashStartTime = Time.time;
+        _playerAnimator.BeginDash();
     }
     private void HandleDashEnded() => EvaluateState();
     private void HandleAttackStarted()

@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerDash))]
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _jumpSpeed = 7f;
+    [SerializeField, Min(0)] private int _maxJumpCount = 2;
+    [SerializeField] private List<int> _jumpPowers = new() { 7, 7, 7, 7, 7 };
     [SerializeField, Min(0f)] private float _dropThroughDuration = 0.4f;
     [SerializeField, Min(0f)] private float _platformLandTolerance = 0.1f;
     public event Action OnJumpStarted;
@@ -20,9 +21,13 @@ public class PlayerJump : MonoBehaviour
     private float _dropTimer;
     private bool _isGrounded;
     private bool _isJumping;
+    private int _jumpCount;
     public bool IsGrounded => _isGrounded;
     public bool IsJumping => _isJumping;
-    public float JumpSpeed => _jumpSpeed;
+    public int MaxJumpCount => _maxJumpCount;
+    public IReadOnlyList<int> JumpPowers => _jumpPowers;
+    public int CurrentJumpCount => _jumpCount;
+    public float JumpSpeed => GetJumpPower(0);
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -50,13 +55,23 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleJump()
     {
-        if (!_isGrounded || _playerDash.IsDashing) return;
-        _groundContacts.Clear();
-        _platformContacts.Clear();
-        _isGrounded = false;
+        if (_playerDash.IsDashing) return;
+        if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return;
+        if (_isGrounded)
+        {
+            _groundContacts.Clear();
+            _platformContacts.Clear();
+            _isGrounded = false;
+        }
         _isJumping = true;
-        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _jumpSpeed);
+        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, GetJumpPower(_jumpCount));
+        _jumpCount++;
         OnJumpStarted?.Invoke();
+    }
+    private int GetJumpPower(int index)
+    {
+        if (_jumpPowers == null || _jumpPowers.Count == 0) return 0;
+        return _jumpPowers[Mathf.Clamp(index, 0, _jumpPowers.Count - 1)];
     }
     private void HandleDrop()
     {
@@ -128,6 +143,7 @@ public class PlayerJump : MonoBehaviour
             OnGroundLost?.Invoke();
             return;
         }
+        _jumpCount = 0;
         _isJumping = false;
         OnLanded?.Invoke();
     }
