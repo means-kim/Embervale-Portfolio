@@ -6,6 +6,7 @@ public class BossAttackController : MonoBehaviour
     [SerializeField] private BossSlamAttack _slamAttack;
     [SerializeField] private BossSwingAttack _swingAttack;
     [SerializeField] private BossChargeAttack _chargeAttack;
+    [SerializeField] private BossIceThornAttack _iceThornAttack;
     [SerializeField] private BossAttackDataSO _attackDataSo;
     [SerializeField] private BossAttackSellector _bossAttackSellector;
     [SerializeField] private BossHit _bossHit;
@@ -92,6 +93,10 @@ public class BossAttackController : MonoBehaviour
 
                 case BossAttackType.Charge:
                     _chargeAttack.SetData(data);
+                    break;
+
+                case BossAttackType.IceThorn:
+                    _iceThornAttack.SetData(data);
                     break;
             }
         }
