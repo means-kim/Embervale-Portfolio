@@ -963,6 +963,7 @@ GameObject:
   - component: {fileID: 422001942}
   - component: {fileID: 422001944}
   - component: {fileID: 422001943}
+  - component: {fileID: 422001945}
   m_Layer: 0
   m_Name: CheckPoint 1
   m_TagString: CheckPoint
@@ -1090,6 +1091,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9934928, y: 1.32}
   m_EdgeRadius: 0
+--- !u!114 &422001945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422001941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d307e04eee6762d4fa4fc31c8588850d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckPoint
 --- !u!1 &451198504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,8 +1388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2549eb7de5d245a26ef9c8d47a77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
-  _dashSpeed: 100
-  _dashDuration: 0.1
+  _dashSpeed: 50
+  _dashDuration: 0.2
   _dashCooldown: 0.15
 --- !u!114 &451198519
 MonoBehaviour:
@@ -2736,6 +2749,7 @@ GameObject:
   - component: {fileID: 1706201133}
   - component: {fileID: 1706201132}
   - component: {fileID: 1706201131}
+  - component: {fileID: 1706201134}
   m_Layer: 0
   m_Name: CheckPoint 2
   m_TagString: CheckPoint
@@ -2863,6 +2877,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 288328494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1706201134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706201130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d307e04eee6762d4fa4fc31c8588850d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckPoint
 --- !u!1 &1935272031
 GameObject:
   m_ObjectHideFlags: 0
