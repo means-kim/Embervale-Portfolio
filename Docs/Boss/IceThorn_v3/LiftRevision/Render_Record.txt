@@ -1,0 +1,31 @@
+var boss=PrefabUtility.LoadPrefabContents("Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab");
+GameObject cameraObject=null;RenderTexture rt=null;Texture2D tex=null;Material lineMaterial=null;var oldRT=RenderTexture.active;
+var lines=new System.Collections.Generic.List<GameObject>();
+try{
+ boss.transform.position=Vector3.zero;boss.transform.localScale=Vector3.one;
+ foreach(var m in boss.GetComponentsInChildren<MonoBehaviour>(true))if(m!=null)m.enabled=false;
+ foreach(var a in boss.GetComponentsInChildren<Animator>(true))a.enabled=false;
+ var sr=boss.GetComponent<SpriteRenderer>();var rig=boss.GetComponent<BossColliderRig>();
+ var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/Boss/Boss_IceThorn_v3.anim");
+ var arm=boss.transform.Find("Colliders/IceThornArmHitbox").GetComponent<BoxCollider2D>();
+ var fx=boss.transform.Find("Colliders/IceThornEffectPoint/BossIceThorn");var ice=fx.GetComponent<BoxCollider2D>();
+ cameraObject=new GameObject("IceThornLiftTemporaryCamera");UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cameraObject,boss.scene);
+ var cam=cameraObject.AddComponent<Camera>();cam.scene=boss.scene;cam.orthographic=true;cam.orthographicSize=5.6f;cam.transform.position=new Vector3(-1.8f,4.7f,-20);cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.045f,.07f,.105f,1);cam.enabled=false;
+ rt=new RenderTexture(1100,650,24,RenderTextureFormat.ARGB32);rt.Create();cam.targetTexture=rt;tex=new Texture2D(1100,650,TextureFormat.RGBA32,false);
+ var shader=Shader.Find("Sprites/Default");if(shader==null)throw new System.Exception("Debug line shader unavailable.");lineMaterial=new Material(shader);
+ var lr=new LineRenderer[2];var colliders=new[]{arm,ice};
+ for(int j=0;j<2;j++){var go=new GameObject("TemporaryHitboxOutline");lines.Add(go);UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,boss.scene);lr[j]=go.AddComponent<LineRenderer>();lr[j].sharedMaterial=lineMaterial;lr[j].positionCount=4;lr[j].loop=true;lr[j].useWorldSpace=true;lr[j].widthMultiplier=.035f;lr[j].sortingLayerID=sr.sortingLayerID;lr[j].sortingOrder=1000;lr[j].startColor=lr[j].endColor=j==0?new Color(.2f,1,.5f):new Color(1,.65f,.18f);}
+ var times=new[]{0f,.96f,1.16f,1.26f,1.36f,1.46f,1.52f,1.7f,2.31f,1.36f};
+ var names=new[]{"Idle","Telegraph","Rise01","Rise02","Rise03","Apex","FollowThrough","IceBreak","Recovery","Mirrored"};
+ var log=new System.Text.StringBuilder();
+ for(int i=0;i<times.Length;i++){
+  sr.flipX=i==9;clip.SampleAnimation(boss,times[i]);rig.SyncFacing();Physics2D.SyncTransforms();
+  if(i==9)cam.transform.position=new Vector3(1.8f,4.7f,-20);
+  log.AppendLine(names[i]+" t="+times[i]+" body="+sr.sprite.name+" arm="+arm.enabled+" ice="+ice.enabled+" fxVisible="+fx.GetComponent<SpriteRenderer>().enabled+" fxSprite="+fx.GetComponent<SpriteRenderer>().sprite.name);
+  foreach(var line in lr)line.enabled=false;
+  cam.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,1100,650),0,0);tex.Apply();System.IO.File.WriteAllBytes("Docs/Boss/IceThorn_v3/LiftRevision/Unity_"+names[i]+".png",tex.EncodeToPNG());
+  for(int j=0;j<2;j++){var c=colliders[j];var half=c.size*.5f;var off=c.offset;var points=new[]{off+new Vector2(-half.x,-half.y),off+new Vector2(half.x,-half.y),off+new Vector2(half.x,half.y),off+new Vector2(-half.x,half.y)};for(int p=0;p<4;p++)lr[j].SetPosition(p,c.transform.TransformPoint(new Vector3(points[p].x,points[p].y,-.2f)));lr[j].enabled=c.enabled;}
+  cam.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,1100,650),0,0);tex.Apply();System.IO.File.WriteAllBytes("Docs/Boss/IceThorn_v3/LiftRevision/Hitboxes_"+names[i]+".png",tex.EncodeToPNG());
+ }
+ System.IO.File.WriteAllText("Docs/Boss/IceThorn_v3/LiftRevision/Unity_Samples.txt",log.ToString());return log.ToString();
+}finally{RenderTexture.active=oldRT;foreach(var go in lines)UnityEngine.Object.DestroyImmediate(go);if(lineMaterial!=null)UnityEngine.Object.DestroyImmediate(lineMaterial);if(cameraObject!=null)UnityEngine.Object.DestroyImmediate(cameraObject);if(tex!=null)UnityEngine.Object.DestroyImmediate(tex);if(rt!=null){rt.Release();UnityEngine.Object.DestroyImmediate(rt);}PrefabUtility.UnloadPrefabContents(boss);}

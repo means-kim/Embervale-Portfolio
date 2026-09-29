@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
+
+public sealed class IceThornRuntimeValidation : MonoBehaviour
+{
+    public GameObject bossPrefab;
+    private readonly List<string> lines = new List<string>();
+    private void Check(bool pass, string label) { lines.Add((pass ? "PASS " : "FAIL ") + label); }
+    private void Set(object owner, string name, object value) { owner.GetType().GetField(name, BindingFlags.Instance|BindingFlags.NonPublic).SetValue(owner,value); }
+
+    private IEnumerator Start()
+    {
+        var player=new GameObject("ValidationTarget");player.tag="Player";player.transform.position=new Vector3(-6,0,0);
+        var boss=Instantiate(bossPrefab,Vector3.zero,Quaternion.identity);boss.transform.localScale=Vector3.one;
+        var movement=boss.GetComponent<BossMovement>();movement.enabled=false;Set(movement,"_moveSpeed",0f);
+        boss.GetComponent<BossFacing>().enabled=false;
+        var controller=boss.GetComponent<BossAttackController>();Set(controller,"_target",player.transform);
+        Set(boss.GetComponent<BossAttackSellector>(),"_attacks",new BossAttack[0]);
+        var animator=boss.GetComponent<Animator>();
+        var arm=boss.GetComponent<BossColliderRig>().IceThornArmHitbox;
+        yield return null;yield return null;
+        Check(controller.TryStartIceThornAttack(),"start through controller");
+        bool armSeen=false,fxSeen=false,armOverlap=false,fxOverlap=false;
+        bool preparationSafe=true,recoverySafe=true;
+        var seen=new HashSet<string>();
+        float end=Time.time+2.6f;
+        while(Time.time<end) {
+            var state=animator.GetCurrentAnimatorStateInfo(0);
+            if(state.IsName("Boss_IceThorn")) {
+                float t=state.normalizedTime*1.8f;
+                if(t<.8f && arm.enabled) preparationSafe=false;
+                if(t>1.15f && arm.enabled) recoverySafe=false;
+                seen.Add(boss.GetComponent<SpriteRenderer>().sprite.name);
+            }
+            if(arm.enabled) {armSeen=true; Physics2D.SyncTransforms();armOverlap|=arm.OverlapPoint(arm.bounds.center);}
+            foreach(var fx in FindObjectsByType<BossIceThornLifetime>(FindObjectsSortMode.None)) {
+                fxSeen=true;var col=fx.GetComponent<Collider2D>();
+                if(col.enabled) {Physics2D.SyncTransforms();fxOverlap|=col.OverlapPoint(col.bounds.center);}
+            }
+            yield return null;
+        }
+        Check(seen.Count==8,"all eight sprite frames ("+seen.Count+")");
+        Check(armSeen&&armOverlap,"arm trigger active and queryable");
+        Check(fxSeen&&fxOverlap,"VFX event spawns queryable ice trigger");
+        Check(preparationSafe&&recoverySafe,"arm off during anticipation/recovery");
+        Check(!arm.enabled&&!controller.IsAttacking,"normal completion clears attack and arm");
+        Check(FindObjectsByType<BossIceThornLifetime>(FindObjectsSortMode.None).Length==0,"effect cleaned up");
+        var attack=boss.GetComponent<BossIceThornAttack>();
+        typeof(BossAttack).GetField("_coolTimer",BindingFlags.Instance|BindingFlags.NonPublic).SetValue(attack,0f);
+        movement.enabled=false;boss.GetComponent<BossFacing>().enabled=false;
+        boss.transform.localScale=new Vector3(-1,1,1);player.transform.position=new Vector3(6,0,0);
+        animator.Play("Boss_Idle",0,0);yield return null;
+        Check(controller.TryStartIceThornAttack(),"mirrored attack starts");
+        yield return new WaitForSeconds(1.02f);
+        var effects=FindObjectsByType<BossIceThornLifetime>(FindObjectsSortMode.None);
+        Check(effects.Length==1&&effects[0].transform.position.x>0,"mirrored spawn uses forward side");
+        boss.GetComponent<Health>().TakeDamage(100000);
+        yield return null;yield return null;
+        Check(!arm.enabled&&!controller.IsAttacking,"death cancels arm and attack");
+        Check(FindObjectsByType<BossIceThornLifetime>(FindObjectsSortMode.None).Length==0,"death cancels existing thorn");
+        string result=string.Join("\n",lines);
+        System.IO.File.WriteAllText("Docs/Boss/IceThorn_v01/PlayValidation.txt",result);
+        Debug.Log("ICE_THORN_VALIDATION\n"+result);
+    }
+}
+

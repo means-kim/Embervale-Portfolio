@@ -1,0 +1,25 @@
+var boss=PrefabUtility.LoadPrefabContents("Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab");
+var clones=new System.Collections.Generic.List<AnimationClip>();AnimatorOverrideController overrides=null;
+try{
+ foreach(var m in boss.GetComponentsInChildren<MonoBehaviour>(true))if(m!=null)m.enabled=false;
+ var animator=boss.GetComponent<Animator>();animator.enabled=true;animator.cullingMode=AnimatorCullingMode.AlwaysAnimate;
+ overrides=new AnimatorOverrideController(animator.runtimeAnimatorController);
+ var replacements=new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<AnimationClip,AnimationClip>>();
+ foreach(var clip in overrides.animationClips.Distinct()){var c=UnityEngine.Object.Instantiate(clip);AnimationUtility.SetAnimationEvents(c,new AnimationEvent[0]);clones.Add(c);replacements.Add(new System.Collections.Generic.KeyValuePair<AnimationClip,AnimationClip>(clip,c));}
+ overrides.ApplyOverrides(replacements);animator.runtimeAnimatorController=overrides;animator.Rebind();animator.Update(0);
+ var arm=boss.transform.Find("Colliders/IceThornArmHitbox").GetComponent<BoxCollider2D>();
+ var fx=boss.transform.Find("Colliders/IceThornEffectPoint/BossIceThorn");
+ var hit=fx.GetComponent<BoxCollider2D>();var sr=fx.GetComponent<SpriteRenderer>();
+ var log=new System.Text.StringBuilder();
+ System.Action<string,bool> check=(n,ok)=>{log.AppendLine((ok?"PASS ":"FAIL ")+n);if(!ok)throw new System.Exception(log.ToString());};
+ foreach(var start in new[]{"Boss_Idle","Boss_Walk"}){animator.Play(start,0,0);animator.Update(0);animator.SetTrigger("IsIceThorn");animator.Update(.01f);animator.Update(0);check("Trigger entry from "+start,animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_IceThorn"));}
+ animator.Play("Boss_IceThorn",0,.7f/3f);animator.Update(0);check("Preparation off",!arm.enabled&&!hit.enabled&&!sr.enabled);
+ animator.Play("Boss_IceThorn",0,1f/3f);animator.Update(0);check("Ground warning visible, no hitbox",!arm.enabled&&!hit.enabled&&sr.enabled);
+ animator.Play("Boss_IceThorn",0,1.36f/3f);animator.Update(0);check("Arm and ice active during rise",arm.enabled&&hit.enabled&&sr.enabled);
+ animator.Play("Boss_IceThorn",0,1.52f/3f);animator.Update(0);check("Arm off after swing, ice briefly active",!arm.enabled&&hit.enabled&&sr.enabled);
+ animator.Play("Boss_IceThorn",0,2.31f/3f);animator.Update(0);check("Recovery off",!arm.enabled&&!hit.enabled&&!sr.enabled);
+ animator.Play("Boss_IceThorn",0,.99f);animator.Update(0);animator.Update(.1f);animator.Update(.01f);check("Natural return to Idle",animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Idle"));check("No lingering collider or FX after return",!arm.enabled&&!hit.enabled&&!sr.enabled);
+ foreach(var trigger in new[]{"IsHit","IsDeath"}){animator.Play("Boss_IceThorn",0,1.36f/3f);animator.Update(0);check("Active before "+trigger,arm.enabled&&hit.enabled);if(trigger=="IsHit"){animator.Play("Boss_Hit",0,0);animator.Update(0);}else{animator.SetTrigger(trigger);animator.Update(.01f);animator.Update(0);}check((trigger=="IsHit"?"Explicit state switch to Boss_Hit":"Interrupted by IsDeath"),animator.GetCurrentAnimatorStateInfo(0).IsName(trigger=="IsHit"?"Boss_Hit":"Boss_Death"));check("Interrupt resets new hitboxes and effect "+trigger,!arm.enabled&&!hit.enabled&&!sr.enabled);}
+ log.AppendLine("Controlled Editor Animator evaluation with cloned event-free motions. Hit cleanup used explicit Animator.Play; the existing attack hit-immunity policy was not changed. Original motion assets/events unchanged by verification; no AI/damage gameplay test.");
+ System.IO.File.WriteAllText("Docs/Boss/IceThorn_v3/LiftRevision/Animator_Verification.txt",log.ToString());return log.ToString();
+}finally{PrefabUtility.UnloadPrefabContents(boss);if(overrides!=null)UnityEngine.Object.DestroyImmediate(overrides);foreach(var clip in clones)UnityEngine.Object.DestroyImmediate(clip);}

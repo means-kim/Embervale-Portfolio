@@ -1,0 +1,22 @@
+Use case: stylized-concept.
+Create a production 2D game animation sprite sheet, transparent RGBA, of the EXACT SAME snow giant from the reference images. Image 1 is the unchanged Idle identity and shading reference; image 2 is the old low palm-up windup; image 3 is the old upward casting gesture. The request is a new, far more emphatic full-body 16-pose animation of that UPWARD SUMMONING motion, NOT a slam. Keep the same head/face, white shaggy fur, long heavy gorilla arms, claw sizes, dark rock chest, cyan chest seam, ice blue eyes, cobalt crystal crown and shoulder/back crystal clusters. Face LEFT in a consistent three-quarter view, same camera and body proportions throughout.
+Work atlas: 2048x2048, EXACTLY 4 columns x 4 rows, 16 isolated whole-body poses, read row-major. Each 512 square has transparent empty space around the silhouette. Invisible equal grid, no borders/labels/text. ALL feet baseline at local y=490, same horizontal root at x=256, identical anatomical scale across ALL cells. Default standing head crown around y=150 (body ~340px tall). Highest raised casting hand can reach y=25, but must never touch cell edges. Keep complete feet/claws/ice inside each cell; no neighboring overlap. Do not shrink standing or raised poses to fit; use the overhead empty space. Each cell is a distinct NEW drawing, no literal Idle copies.
+Motion: one huge casting arm (the arm on SCREEN LEFT) scoops upward with open PALM FACING UP to summon an ice thorn ahead. The other arm balances the whole body, moving naturally. The effort must visibly travel from planted foot through bent knees, hips, twisting torso, shoulder and elbow into the lifting palm. Emphasize deep crouch, large twist, and a VERY LARGE sweep from ankle level up ABOVE the horned head. Do NOT punch down, do NOT put both hands on ground as a slam, do NOT merely waggle forearm.
+POSES:
+01: coming out of Idle, widen stance and soften knees, torso starts leaning forward, casting arm reaches down.
+02: hips sink further, weight transfers to rear leg, chest rotates away from casting direction.
+03: deep squat, back strongly folds, shoulder drops forward, open casting claw near ankle height.
+04: windup low palm-up in front, casting hand well ahead of the knee, head/shoulders clearly lower than Idle.
+05: windup deepens into extremely loaded knees and coiled hips/waist, supporting arm extends back as counterweight.
+06: MAXIMUM ANTICIPATION, very deep crouch, casting palm low and spread wide facing upward, strong twisted silhouette; this pose will HOLD before release.
+07: rapid UPWARD release begins: planted rear leg extends, hips uncoil, shoulder drives open claw from ground past waist.
+08: powerful rising sweep, chest turns forward and opens, claw passes face toward upper-left, knees straighten.
+09: hand fully ABOVE the head, arm almost extended diagonally upward-left, torso uncoils and arches back, weight has moved forward.
+10: peak upward cast, open palm high at cell y~25, biggest stretched whole-body silhouette, feet remain grounded with a natural heel lift, low fur/other arm follows the lift.
+11: follow-through overshoot, chest/shoulder still high, casting arm and fur continue upward then slightly back, visible body inertia.
+12: start settling from the apex, elbow softens, wrist still high at forehead height, knees absorb rebound.
+13: lowering casting arm to chest height, weight and torso recover.
+14: hand lowers past waist, knees settle, supporting arm returns.
+15: small full-body settling, nearly Idle but still distinct gesture.
+16: final new relaxed recovery pose that connects naturally to the supplied Idle without horizontal root drift.
+Painterly crisp game sprite shading matching reference, no new jewelry, no redesign, no red eyes. No drawn ice thorn, magic ribbons, glowing fog, shadows, floor, landscape, VFX, text, or animation smear. The ice VFX is a separate Unity prefab. Preserve real transparent alpha.

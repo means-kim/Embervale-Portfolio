@@ -1,0 +1,73 @@
+using UnityEngine;
+
+// Animation/VFX entry point. Phase logic can call BossAttackController.TryStartIceThornAttack.
+public sealed class BossIceThornAttack : BossAttack
+{
+    [SerializeField] private BossEffect _effectPrefab;
+    [SerializeField] private Transform _effectPoint;
+    [SerializeField] private BoxCollider2D _armHitbox;
+    private BossEffect _spawnedEffect;
+    private bool _effectSpawned;
+
+    public override void StartAttack()
+    {
+        if (_isAttacking || _coolTimer > 0f || _data == null || _animator == null) return;
+        _isAttacking = true;
+        _isRecoverying = false;
+        _effectSpawned = false;
+        _coolTimer = _data.CoolTime;
+        SetArmOff();
+        _animator.SetTrigger("IsIceThorn");
+    }
+
+    // Unique event names avoid broadcasting the existing AttackAction/EndAttack events.
+    public void SpawnIceThorn()
+    {
+        if (!_isAttacking || _isRecoverying || _effectSpawned || _effectPrefab == null || _effectPoint == null) return;
+        _effectSpawned = true;
+        _spawnedEffect = Instantiate(_effectPrefab, _effectPoint.position, _effectPoint.rotation);
+        // Freeze the effect in world space: recovery/facing must not drag the ground attack.
+        Vector3 scale = _effectPoint.lossyScale;
+        _spawnedEffect.transform.localScale = Vector3.Scale(_effectPrefab.transform.localScale, scale);
+    }
+
+    public void FinishIceThorn() => EndAttack();
+
+    public override void AttackAction() { }
+
+    public override void EndAttack()
+    {
+        if (!_isAttacking || _isRecoverying) return;
+        SetArmOff();
+        _isRecoverying = true;
+        _recoveryTimer = _data.RecoveryTime;
+        _animator.ResetTrigger("IsIceThorn");
+    }
+
+    public override void CancelAttack()
+    {
+        _isAttacking = false;
+        _isRecoverying = false;
+        _recoveryTimer = 0f;
+        SetArmOff();
+        if (_animator != null) _animator.ResetTrigger("IsIceThorn");
+        if (_spawnedEffect != null) Destroy(_spawnedEffect.gameObject);
+        _spawnedEffect = null;
+    }
+
+    private void OnDisable() => CancelAttack();
+
+    private void SetArmOff()
+    {
+        if (_armHitbox != null) _armHitbox.enabled = false;
+    }
+
+    [ContextMenu("Play Ice Thorn (Play Mode)")]
+    private void PlayIceThorn()
+    {
+        if (!Application.isPlaying) return;
+        var controller = GetComponent<BossAttackController>();
+        if (controller == null || !controller.TryStartIceThornAttack())
+            Debug.Log("Ice Thorn is waiting for idle/walk, a valid target, range and cooldown.", this);
+    }
+}

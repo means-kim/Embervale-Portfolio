@@ -1,0 +1,82 @@
+var bodyPath="Assets/04.Sprites/Boss/Boss_IceThorn_v3.png";
+AssetDatabase.ImportAsset(bodyPath,ImportAssetOptions.ForceUpdate);
+var sprites=AssetDatabase.LoadAllAssetsAtPath(bodyPath).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if(sprites.Length!=16)throw new System.Exception("Expected existing 16 sprite IDs.");
+var idle=AssetDatabase.LoadAllAssetsAtPath("Assets/04.Sprites/Boss/Boss_Idle.png").OfType<Sprite>().OrderBy(s=>s.name).First();
+var fxPath="Assets/03.Prefabs/FX/BossIceThorn.prefab";
+var fxClip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/Boss/VFX/Boss_IceThorn.anim");
+var fxBinding=AnimationUtility.GetObjectReferenceCurveBindings(fxClip).Single(b=>b.type==typeof(SpriteRenderer)&&b.propertyName=="m_Sprite");
+var fxKeys=AnimationUtility.GetObjectReferenceCurve(fxClip,fxBinding);
+System.Action<AnimationClip,string,System.Type,string,float[],float[]> curve=(clip,path,type,property,times,values)=>{
+ var c=new AnimationCurve(times.Select((t,i)=>new Keyframe(t,values[i],float.PositiveInfinity,float.PositiveInfinity)).ToArray());
+ AnimationUtility.SetEditorCurve(clip,EditorCurveBinding.FloatCurve(path,type,property),c);
+};
+var fx=PrefabUtility.LoadPrefabContents(fxPath);
+try{
+ var sr=fx.GetComponent<SpriteRenderer>();sr.sprite=(Sprite)fxKeys[0].value;
+ var col=fx.GetComponent<BoxCollider2D>();if(col==null)col=fx.AddComponent<BoxCollider2D>();
+ col.enabled=false;col.isTrigger=true;col.offset=new Vector2(0,-1.26f);col.size=new Vector2(.3f,.15f);
+ var rb=fx.GetComponent<Rigidbody2D>();if(rb==null)rb=fx.AddComponent<Rigidbody2D>();
+ rb.bodyType=RigidbodyType2D.Kinematic;rb.gravityScale=0;rb.constraints=RigidbodyConstraints2D.FreezeAll;rb.useFullKinematicContacts=true;
+ PrefabUtility.SaveAsPrefabAsset(fx,fxPath);
+}finally{PrefabUtility.UnloadPrefabContents(fx);}
+curve(fxClip,"",typeof(BoxCollider2D),"m_Enabled",new[]{0f,.25f,.6666667f,1.0833333f},new[]{0f,1,0,0});
+curve(fxClip,"",typeof(BoxCollider2D),"m_Size.x",new[]{0f,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new[]{.3f,1.05f,1.8f,1.8f,1.8f,1.5f,1f});
+curve(fxClip,"",typeof(BoxCollider2D),"m_Size.y",new[]{0f,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new[]{.15f,.9f,1.5f,1.5f,1.15f,.8f,.4f});
+curve(fxClip,"",typeof(BoxCollider2D),"m_Offset.y",new[]{0f,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new[]{-1.26f,-.9f,-.6f,-.6f,-.775f,-.95f,-1.15f});
+AnimationUtility.SetAnimationEvents(fxClip,new[]{new AnimationEvent{time=1.0833333f,functionName="StopEffect"}});
+var fs=AnimationUtility.GetAnimationClipSettings(fxClip);fs.loopTime=false;fs.stopTime=1.0833333f;AnimationUtility.SetAnimationClipSettings(fxClip,fs);AssetDatabase.SaveAssetIfDirty(fxClip);
+var bossPath="Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab";
+var boss=PrefabUtility.LoadPrefabContents(bossPath);
+string armPath="Colliders/IceThornArmHitbox", nestedPath="Colliders/IceThornEffectPoint/BossIceThorn";
+try {
+ var parent=boss.transform.Find("Colliders");
+ if(boss.transform.Find(armPath)!=null||parent.Find("IceThornEffectPoint")!=null)throw new System.Exception("IceThorn objects already exist.");
+ var arm=new GameObject("IceThornArmHitbox");arm.transform.SetParent(parent,false);arm.layer=parent.Find("SlamHitbox").gameObject.layer;
+ arm.transform.localPosition=new Vector3(-2.6f,1.5f,0);
+ var hit=arm.AddComponent<BoxCollider2D>();hit.isTrigger=true;hit.enabled=false;hit.size=new Vector2(2.1f,2.6f);
+ var point=new GameObject("IceThornEffectPoint");point.transform.SetParent(parent,false);point.transform.localPosition=new Vector3(-5.8f,2.025f,0);
+ var nested=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(fxPath),boss.scene);
+ nested.name="BossIceThorn";nested.transform.SetParent(point.transform,false);nested.transform.localPosition=Vector3.zero;nested.transform.localRotation=Quaternion.identity;
+ nested.GetComponent<Animator>().enabled=false;nested.GetComponent<SpriteRenderer>().enabled=false;nested.GetComponent<BossEffect>().enabled=false;nested.GetComponent<BoxCollider2D>().enabled=false;
+ PrefabUtility.SaveAsPrefabAsset(boss,bossPath);
+}finally{PrefabUtility.UnloadPrefabContents(boss);}
+var body=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/Boss/Boss_IceThorn_v3.anim");
+foreach(var b in AnimationUtility.GetCurveBindings(body))AnimationUtility.SetEditorCurve(body,b,null);
+foreach(var b in AnimationUtility.GetObjectReferenceCurveBindings(body))AnimationUtility.SetObjectReferenceCurve(body,b,null);
+body.frameRate=60;
+var ts=new float[]{.25f,.4f,.55f,.7f,.85f,.95f,1.15f,1.25f,1.35f,1.45f,1.5f,1.65f,1.8f,1.95f,2.1f,2.2f};
+var keys=new System.Collections.Generic.List<ObjectReferenceKeyframe>{new ObjectReferenceKeyframe{time=0,value=idle}};
+for(int i=0;i<16;i++)keys.Add(new ObjectReferenceKeyframe{time=ts[i],value=sprites[i]});
+keys.Add(new ObjectReferenceKeyframe{time=2.3f,value=idle});keys.Add(new ObjectReferenceKeyframe{time=179f/60f,value=idle});
+AnimationUtility.SetObjectReferenceCurve(body,EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite"),keys.ToArray());
+curve(body,armPath,typeof(BoxCollider2D),"m_Enabled",new[]{0f,1.15f,1.5f,179f/60f},new[]{0f,1,0,0});
+var ats=new[]{0f,1.15f,1.25f,1.35f,1.45f,1.5f,2.3f,179f/60f};
+curve(body,armPath,typeof(Transform),"m_LocalPosition.x",ats,new[]{-2.6f,-2.6f,-2.28f,-1.62f,-1.82f,-1.82f,-2.6f,-2.6f});
+curve(body,armPath,typeof(Transform),"m_LocalPosition.y",ats,new[]{1.5f,2.84f,5.5f,6.14f,6.54f,6.54f,1.5f,1.5f});
+curve(body,armPath,typeof(Transform),"localEulerAnglesRaw.z",ats,new[]{0f,0,22,28,28,28,0,0});
+curve(body,armPath,typeof(BoxCollider2D),"m_Size.x",ats,new[]{2.1f,2.1f,1.9f,2.04f,2.04f,2.04f,2.1f,2.1f});
+curve(body,armPath,typeof(BoxCollider2D),"m_Size.y",ats,new[]{2.6f,2.6f,3.9f,3.88f,4.4f,4.4f,2.6f,2.6f});
+foreach(var other in new[]{"SlamHitbox","SwingHitbox","ChargeHitbox"})curve(body,"Colliders/"+other,typeof(BoxCollider2D),"m_Enabled",new[]{0f,179f/60f},new[]{0f,0});
+const float fxStart=.9f,fxEnd=1.9833333f;
+var nestedKeys=new System.Collections.Generic.List<ObjectReferenceKeyframe>{new ObjectReferenceKeyframe{time=0,value=fxKeys[0].value}};
+nestedKeys.AddRange(fxKeys.Select(k=>new ObjectReferenceKeyframe{time=k.time+fxStart,value=k.value}));
+AnimationUtility.SetObjectReferenceCurve(body,EditorCurveBinding.PPtrCurve(nestedPath,typeof(SpriteRenderer),"m_Sprite"),nestedKeys.ToArray());
+curve(body,nestedPath,typeof(SpriteRenderer),"m_Enabled",new[]{0f,fxStart,fxEnd,179f/60f},new[]{0f,1,0,0});
+foreach(var b in AnimationUtility.GetCurveBindings(fxClip).Where(b=>b.type==typeof(BoxCollider2D))){
+ var source=AnimationUtility.GetEditorCurve(fxClip,b).keys;
+ var shifted=new System.Collections.Generic.List<Keyframe>{new Keyframe(0,source[0].value,float.PositiveInfinity,float.PositiveInfinity)};
+ shifted.AddRange(source.Select(k=>new Keyframe(k.time+fxStart,k.value,float.PositiveInfinity,float.PositiveInfinity)));
+ if(b.propertyName=="m_Enabled")shifted.Add(new Keyframe(179f/60f,0,float.PositiveInfinity,float.PositiveInfinity));
+ AnimationUtility.SetEditorCurve(body,EditorCurveBinding.FloatCurve(nestedPath,b.type,b.propertyName),new AnimationCurve(shifted.ToArray()));
+}
+AnimationUtility.SetAnimationEvents(body,new AnimationEvent[0]);
+var bs=AnimationUtility.GetAnimationClipSettings(body);bs.loopTime=false;bs.startTime=0;bs.stopTime=3;AnimationUtility.SetAnimationClipSettings(body,bs);AssetDatabase.SaveAssetIfDirty(body);
+var ac=AssetDatabase.LoadAssetAtPath<UnityEditor.Animations.AnimatorController>("Assets/05.Animation/Boss/Boss_SnowGiantAC.controller");
+if(ac.parameters.Any(p=>p.name=="IsIceThorn"))throw new System.Exception("Trigger exists.");
+ac.AddParameter("IsIceThorn",AnimatorControllerParameterType.Trigger);var sm=ac.layers[0].stateMachine;
+var state=sm.AddState("Boss_IceThorn",new Vector3(610,420,0));state.motion=body;state.writeDefaultValues=true;
+foreach(var from in sm.states.Where(s=>s.state.name=="Boss_Idle"||s.state.name=="Boss_Walk")){var tr=from.state.AddTransition(state);tr.hasExitTime=false;tr.duration=0;tr.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If,0,"IsIceThorn");}
+var back=state.AddTransition(sm.states.Single(s=>s.state.name=="Boss_Idle").state);back.hasExitTime=true;back.exitTime=1;back.duration=0;
+AssetDatabase.SaveAssetIfDirty(ac);
+return "Updated v3 upward-cast body, existing VFX prefab/clip, nested effect + animated arm hitbox, controller IsIceThorn. Body length="+body.length+"; events="+AnimationUtility.GetAnimationEvents(body).Length+". No .cs changes. Scene dirty="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty;
