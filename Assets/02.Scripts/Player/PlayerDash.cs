@@ -1,120 +1,72 @@
 using System;
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerWall))]
 public class PlayerDash : MonoBehaviour
 {
-    [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private PlayerMove _playerMove;
     [SerializeField, Min(0f)] private float _dashSpeed = 10f;
     [SerializeField, Min(0.05f)] private float _dashDuration = 0.3f;
     [SerializeField, Min(0f)] private float _dashCooldown = 0.15f;
-
     public event Action OnDashStarted;
     public event Action OnDashEnded;
     public bool IsDashing { get; private set; }
-
+    public float DashDuration => _dashDuration;
+    private PlayerInput _playerInput;
+    private PlayerMove _playerMove;
+    private PlayerWall _playerWall;
     private Rigidbody2D _rigidbody;
     private float _dashTimeRemaining;
     private float _cooldownTimeRemaining;
     private float _originalGravityScale;
     private int _dashDirection = 1;
 
-    private void Reset()
-    {
-        _playerInput = GetComponent<PlayerInput>();
-        _playerMove = GetComponent<PlayerMove>();
-    }
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        if (_playerInput == null)
-        {
-            _playerInput = GetComponent<PlayerInput>();
-        }
-        if (_playerMove == null)
-        {
-            _playerMove = GetComponent<PlayerMove>();
-        }
+        _playerInput = GetComponent<PlayerInput>();
+        _playerMove = GetComponent<PlayerMove>();
+        _playerWall = GetComponent<PlayerWall>();
     }
-
     private void OnEnable()
     {
-        if (_playerInput != null)
-        {
-            _playerInput.OnDashInput += HandleDash;
-        }
+        _playerInput.OnDashInput += HandleDash;
     }
-
     private void OnDisable()
     {
-        if (_playerInput != null)
-        {
-            _playerInput.OnDashInput -= HandleDash;
-        }
+        _playerInput.OnDashInput -= HandleDash;
         EndDash();
     }
-
     private void Update()
     {
-        if (_cooldownTimeRemaining > 0f)
-        {
-            _cooldownTimeRemaining = Mathf.Max(0f, _cooldownTimeRemaining - Time.deltaTime);
-        }
-
-        if (IsDashing)
-        {
-            _dashTimeRemaining -= Time.deltaTime;
-            if (_dashTimeRemaining <= 0f)
-            {
-                EndDash();
-            }
-        }
+        if (_cooldownTimeRemaining > 0f) _cooldownTimeRemaining = Mathf.Max(0f, _cooldownTimeRemaining - Time.deltaTime);
+        if (!IsDashing) return;
+        _dashTimeRemaining -= Time.deltaTime;
+        if (_dashTimeRemaining <= 0f) EndDash();
     }
-
     private void FixedUpdate()
     {
-        if (IsDashing && _rigidbody != null)
-        {
-            _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
-        }
+        if (!IsDashing) return;
+        _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
     }
-
     private void HandleDash()
     {
-        if (IsDashing || _cooldownTimeRemaining > 0f || _rigidbody == null)
-        {
-            return;
-        }
-
-        _dashDirection = _playerMove != null
-            ? _playerMove.FacingDirection
-            : (transform.localScale.x < 0f ? -1 : 1);
+        if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging) return;
+        _dashDirection = _playerMove.FacingDirection;
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
         _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
         _playerMove?.SetMovementLocked(true);
-
         IsDashing = true;
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
         OnDashStarted?.Invoke();
     }
-
     private void EndDash()
     {
-        if (!IsDashing)
-        {
-            return;
-        }
-
+        if (!IsDashing) return;
         IsDashing = false;
-        if (_rigidbody != null)
-        {
-            _rigidbody.gravityScale = _originalGravityScale;
-            _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
-        }
+        _rigidbody.gravityScale = _originalGravityScale;
+        _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         _playerMove?.SetMovementLocked(false);
         OnDashEnded?.Invoke();
     }

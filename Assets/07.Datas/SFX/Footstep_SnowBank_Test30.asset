@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f98eb91de2b22cc12073b8bfd1018c8, type: 3}
+  m_Name: Footstep_SnowBank_Test30
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSFXBank
+  Clips:
+  - {fileID: 8300000, guid: 599bc94c1b0318b428f664208bb388e7, type: 3}
+  - {fileID: 8300000, guid: 23a9d17fc8fac0a4f8ff25931393f866, type: 3}
+  - {fileID: 8300000, guid: b6e0a8525422994479f5cbb35463c8ab, type: 3}
+  - {fileID: 8300000, guid: 45b64b007087f3a4495350a3a795775a, type: 3}
+  - {fileID: 8300000, guid: b3ddeacbad14515428e5e7a6787fe659, type: 3}
+  - {fileID: 8300000, guid: b099484208e882a48abfe67ff4f9472c, type: 3}
+  - {fileID: 8300000, guid: ce7ec5da55118de419b92a612753015c, type: 3}
+  - {fileID: 8300000, guid: 715cb4b3a06017f45948765ad6dc9786, type: 3}
+  - {fileID: 8300000, guid: 08293a085856e5649b57af79a20fce87, type: 3}
+  - {fileID: 8300000, guid: 0bb27976deba40c458efc8d8843d50d1, type: 3}
+  - {fileID: 8300000, guid: 79326b020df7f7e42a3f1c9418142598, type: 3}
+  - {fileID: 8300000, guid: a32c5e9e46e1b064a8169c25fa661f3f, type: 3}
+  - {fileID: 8300000, guid: a84e46959d367a24f8559b3a0487bfee, type: 3}
+  - {fileID: 8300000, guid: 370670f5df88dc640bfd8aa43e32d0ca, type: 3}
+  - {fileID: 8300000, guid: b99a793b7f028cf48a8d956101c40bfe, type: 3}
+  - {fileID: 8300000, guid: 156244b74f2740240936dec839a93fe9, type: 3}
+  - {fileID: 8300000, guid: 9ec7592ff9e67b04bb36489893ac1c9d, type: 3}
+  - {fileID: 8300000, guid: 7e7d394f63d30154e883c1a962a427a3, type: 3}
+  - {fileID: 8300000, guid: e806d52a716a1f943bf36ce0078b0532, type: 3}
+  - {fileID: 8300000, guid: 9722258b32b5d194a8c47232d4761cf6, type: 3}
+  - {fileID: 8300000, guid: 66b385929984aaa4682101051262bda6, type: 3}
+  - {fileID: 8300000, guid: a6c534fffd65a094b8b4ffd41eb91d7e, type: 3}
+  - {fileID: 8300000, guid: df36fbdce941a6645b50238223760b88, type: 3}
+  - {fileID: 8300000, guid: 34e51375f558e6949a832b6e1ac1132b, type: 3}
+  - {fileID: 8300000, guid: 6fc4bc2639b8db8438c478890b6f4ebb, type: 3}
+  - {fileID: 8300000, guid: e8f9e2617b60f5a40bfdf1f39c2a8672, type: 3}
+  - {fileID: 8300000, guid: 92f5a0da11767f840883ed02973e176a, type: 3}
+  - {fileID: 8300000, guid: 93d91cfc69baa2b4daf8e1214364ec35, type: 3}
+  - {fileID: 8300000, guid: 11923a00cc222ef42be970b43d94f731, type: 3}
+  - {fileID: 8300000, guid: 9a655e23969f9984981f25daeb3ba5da, type: 3}
+  SourceFolder: Assets/Footsteps Pack Expanded/SingleSteps/IceAndSnowSteps
+  AutoFillCount: 30
+  Volume: 0.9
+  MinPitch: 0.95
+  MaxPitch: 1.05
+  AvoidRepeat: 1
