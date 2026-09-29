@@ -45,7 +45,6 @@ public class PlayerInput : MonoBehaviour
     }
     private void CheckWallJumpInput()
     {
-        // 벽점프는 스페이스바 전용. W·↑는 등반 입력으로만 쓴다.
         if (Input.GetKeyDown(KeyCode.Space)) OnWallJumpInput?.Invoke();
     }
 }

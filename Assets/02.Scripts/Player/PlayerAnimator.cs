@@ -1,5 +1,4 @@
 using UnityEngine;
-
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
@@ -12,10 +11,7 @@ public class PlayerAnimator : MonoBehaviour
     private int _jumpPhase = 2;
     private float _jumpStartTime;
     private float _dashStartTime;
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
+    private void Awake() => _animator = GetComponent<Animator>();
     public void PlayState(PlayerState state, bool isDoubleJump)
     {
         switch (state)
@@ -44,6 +40,8 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.WallClimb:
                 PlayClip("WallClimb");
                 break;
+            default:
+                throw new System.ArgumentOutOfRangeException(nameof(state));
         }
     }
     public void BeginJump(bool isDoubleJump)
@@ -57,22 +55,28 @@ public class PlayerAnimator : MonoBehaviour
     public void Tick(PlayerState state, bool landingLocked, float verticalVelocity, float dashDuration)
     {
         if (landingLocked) return;
-        if (state == PlayerState.Jump) UpdateJumpPhase(verticalVelocity);
-        else if (state == PlayerState.Dash) UpdateDashPhase(dashDuration);
+        switch (state)
+        {
+            case PlayerState.Jump:
+                UpdateJumpPhase(verticalVelocity);
+                break;
+            case PlayerState.Dash:
+                UpdateDashPhase(dashDuration);
+                break;
+        }
     }
     private void UpdateJumpPhase(float verticalVelocity)
     {
-        if (_jumpPhase == 0)
+        switch (_jumpPhase)
         {
-            // 시작 클립은 BeginJump에서 이미 재생했으므로 유지 시간만 기록한다.
-            _jumpStartTime = Time.time;
-            _jumpPhase = 1;
-            return;
-        }
-        if (_jumpPhase == 1)
-        {
-            if (Time.time - _jumpStartTime < _jumpStartDuration) return;
-            _jumpPhase = 2;
+            case 0:
+                _jumpStartTime = Time.time;
+                _jumpPhase = 1;
+                return;
+            case 1:
+                if (Time.time - _jumpStartTime < _jumpStartDuration) return;
+                _jumpPhase = 2;
+                break;
         }
         if (verticalVelocity > _apexVelocityRange) PlayPhaseClip("JumpRise");
         else if (verticalVelocity < -_apexVelocityRange) PlayPhaseClip("Fall");

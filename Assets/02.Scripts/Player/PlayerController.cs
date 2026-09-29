@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _landDuration = 0.17f;
-    public PlayerState CurrentState => _currentState;
-    private PlayerState _currentState = PlayerState.Idle;
+    public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody;
     private float _landUntil;
@@ -52,26 +51,26 @@ public class PlayerController : MonoBehaviour
         _playerAttack.OnAttackEnded -= HandleAttackEnded;
     }
     private bool IsDoubleJump => _playerJump != null && _playerJump.CurrentJumpCount > 1;
-    private void Start() => _playerAnimator.PlayState(_currentState, IsDoubleJump);
+    private void Start() => _playerAnimator.PlayState(CurrentState, IsDoubleJump);
     private void Update()
     {
         EvaluateState();
         var landing = Time.time < _landUntil;
-        var verticalVelocity = _rigidbody != null ? _rigidbody.linearVelocity.y : 0f;
-        var dashDuration = _playerDash != null ? _playerDash.DashDuration : 0f;
-        _playerAnimator.Tick(_currentState, landing, verticalVelocity, dashDuration);
+        var verticalVelocity = _rigidbody.linearVelocity.y;
+        var dashDuration = _playerDash.DashDuration;
+        _playerAnimator.Tick(CurrentState, landing, verticalVelocity, dashDuration);
     }
     public void ChangeState(PlayerState newState)
     {
-        if (_currentState == newState) return;
-        if (_currentState == PlayerState.Jump) _playerAnimator.ResetJumpPhase();
-        _currentState = newState;
-        _playerAnimator.PlayState(_currentState, IsDoubleJump);
+        if (CurrentState == newState) return;
+        if (CurrentState == PlayerState.Jump) _playerAnimator.ResetJumpPhase();
+        CurrentState = newState;
+        _playerAnimator.PlayState(CurrentState, IsDoubleJump);
     }
     private void EvaluateState()
     {
-        if (_currentState == PlayerState.Death) return;
-        if (_currentState == PlayerState.Attack && _playerAttack.IsAttacking) return;
+        if (CurrentState == PlayerState.Death) return;
+        if (CurrentState == PlayerState.Attack && _playerAttack.IsAttacking) return;
         if (Time.time < _landUntil) return;
         if (_playerDash.IsDashing)
         {
@@ -95,11 +94,11 @@ public class PlayerController : MonoBehaviour
         }
         if (!_playerJump.IsGrounded)
         {
-            var stateCheck = _currentState == PlayerState.Run || _currentState == PlayerState.Jump || _currentState == PlayerState.Dash || _currentState == PlayerState.Attack || _currentState == PlayerState.WallCling || _currentState == PlayerState.WallClimb;
+            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling || CurrentState == PlayerState.WallClimb;
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }
-        var moving = _playerMove != null ? _playerMove.IsMoving : Mathf.Abs(_moveInput.x) > 0.01f;
+        var moving = _playerMove.IsMoving || Mathf.Abs(_moveInput.x) > 0.01f;
         ChangeState(moving ? PlayerState.Run : PlayerState.Idle);
     }
     private void HandleMoveInput(Vector2 direction) => _moveInput = direction;
@@ -117,14 +116,14 @@ public class PlayerController : MonoBehaviour
             return;
         }
         _landUntil = Time.time + _landDuration;
-        if (_currentState == PlayerState.Attack) _playerAttack.CancelAttack();
+        if (CurrentState == PlayerState.Attack) _playerAttack.CancelAttack();
         _playerAnimator.PlayLand();
         EvaluateState();
     }
     private void HandleGroundLost()
     {
         // 드롭스루 등으로 가만히 서 있다가 공중이 되면 Jump로 전환한다.
-        if (_currentState == PlayerState.Idle || _currentState == PlayerState.Run) ChangeState(PlayerState.Jump);
+        if (CurrentState == PlayerState.Idle || CurrentState == PlayerState.Run) ChangeState(PlayerState.Jump);
     }
     private void HandleDashStarted()
     {

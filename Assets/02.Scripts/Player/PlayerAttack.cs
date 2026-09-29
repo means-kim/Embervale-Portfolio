@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Min(0f)] private float _attackForwardOffset = 0.8f;
     [SerializeField, Min(0f)] private float _attackUpwardOffset = 0.8f;
     [SerializeField] private GameObject _effectPrefab;
+    private readonly Collider2D[] _hitBuffer = new Collider2D[16];
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerDash _playerDash;
@@ -49,14 +50,16 @@ public class PlayerAttack : MonoBehaviour
     }
     private void DoHit(int direction)
     {
-        Vector2 center = (Vector2)transform.position + new Vector2(direction * _attackForwardOffset, _attackUpwardOffset);
-        Collider2D[] hits = Physics2D.OverlapBoxAll(center, _attackSize, 0f);
-        foreach (Collider2D hit in hits)
+        var center = (Vector2)transform.position + new Vector2(direction * _attackForwardOffset, _attackUpwardOffset);
+        var count = Physics2D.OverlapBox(center, _attackSize, 0f, ContactFilter2D.noFilter, _hitBuffer);
+        for (var i = 0; i < count; i++)
         {
+            var hit = _hitBuffer[i];
             if (hit == null || !hit.CompareTag("Enemy")) continue;
-            Health health = hit.GetComponent<Health>();
+            var health = hit.GetComponent<Health>();
             if (health != null) health.TakeDamage(_damage);
             Debug.Log($"Attack hit {hit.name} for {_damage} damage.", hit);
+            _hitBuffer[i] = null;
         }
     }
     public void CancelAttack() => EndAttack();
@@ -66,7 +69,6 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = false;
         OnAttackEnded?.Invoke();
     }
-
     private void OnDrawGizmosSelected()
     {
         var direction = transform.localScale.x < 0f ? -1 : 1;

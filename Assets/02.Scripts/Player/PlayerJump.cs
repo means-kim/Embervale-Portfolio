@@ -117,7 +117,6 @@ public class PlayerJump : MonoBehaviour
         var platform = collision.collider.CompareTag("Platform");
         if (!platform && !collision.collider.CompareTag("Ground")) return;
         if (_rigidbody.linearVelocity.y > 0.01f) return;
-        // 원웨이 플랫폼은 발이 윗면 위에 있을 때만 착지한다. 아래에서 통과 중이면 무시한다.
         if (platform && (_playerCollider == null || _playerCollider.bounds.min.y < collision.collider.bounds.max.y - _platformLandTolerance)) return;
         int contactCount = collision.contactCount;
         for (int i = 0; i < contactCount; i++)
