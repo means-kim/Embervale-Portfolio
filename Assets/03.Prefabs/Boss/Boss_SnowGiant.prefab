@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382678353188290222
 Transform:
   m_ObjectHideFlags: 0
@@ -820,6 +820,7 @@ MonoBehaviour:
   _slamAttack: {fileID: 949869995925369542}
   _swingAttack: {fileID: 7746876174767781300}
   _chargeAttack: {fileID: 7845351025324201781}
+  _iceThornAttack: {fileID: 8224518611717997992}
   _attackDataSo: {fileID: 11400000, guid: 0041758887e1e4829a95ca3ef51735e2, type: 2}
   _bossAttackSellector: {fileID: 6676042356055988319}
   _bossHit: {fileID: 2567005633489926930}
@@ -843,6 +844,7 @@ MonoBehaviour:
   - {fileID: 949869995925369542}
   - {fileID: 7746876174767781300}
   - {fileID: 7845351025324201781}
+  - {fileID: 8224518611717997992}
 --- !u!114 &949869995925369542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
   _movement: {fileID: 1428997075298612375}
-  _moveSpeedUp: 2
+  _moveSpeedUp: 4
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
   _effectPoint: {fileID: 4296080632268900524}
 --- !u!114 &2567005633489926930
