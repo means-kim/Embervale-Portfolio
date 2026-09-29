@@ -32,14 +32,14 @@ public class EffectManager : MonoBehaviour
         snowEffect.Play(type, SnowEffectPool.Instance, scale, flipX);
     }
 
-    public void PlayBossEffect(BossEffect prefab, Transform point)
+    public void PlayBossEffect(EliteMonsterEffect prefab, Transform point)
     {
         if (prefab == null) return;
         if (point == null) return;
 
-        BossEffect bossEffect = Instantiate(prefab, point);
+        EliteMonsterEffect eliteMonsterEffect = Instantiate(prefab, point);
 
-        bossEffect.transform.localPosition = Vector3.zero;
-        bossEffect.transform.localRotation = Quaternion.identity;
+        eliteMonsterEffect.transform.localPosition = Vector3.zero;
+        eliteMonsterEffect.transform.localRotation = Quaternion.identity;
     }
 }

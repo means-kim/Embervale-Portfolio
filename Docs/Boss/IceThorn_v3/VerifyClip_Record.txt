@@ -1,0 +1,26 @@
+var path="Assets/05.Animation/Boss/Boss_IceThorn_v3.anim";
+var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
+var binding=AnimationUtility.GetObjectReferenceCurveBindings(clip).Single();
+var keys=AnimationUtility.GetObjectReferenceCurve(clip,binding);
+var root=PrefabUtility.LoadPrefabContents("Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab");
+GameObject cameraObject=null;RenderTexture rt=null;Texture2D captured=null;var oldRT=RenderTexture.active;
+var report=new System.Text.StringBuilder();
+try {
+ root.transform.position=Vector3.zero;root.transform.localScale=Vector3.one;
+ foreach(var m in root.GetComponentsInChildren<MonoBehaviour>(true))if(m!=null)m.enabled=false;
+ foreach(var a in root.GetComponentsInChildren<Animator>(true))a.enabled=false;
+ var sr=root.GetComponent<SpriteRenderer>();if(sr==null)throw new System.Exception("Root renderer missing.");
+ report.AppendLine("Unity "+Application.unityVersion+"; clip="+clip.name+" length="+clip.length+"; sprite curves="+AnimationUtility.GetObjectReferenceCurveBindings(clip).Length+"; float curves="+AnimationUtility.GetCurveBindings(clip).Length+"; events="+AnimationUtility.GetAnimationEvents(clip).Length+"; loop="+AnimationUtility.GetAnimationClipSettings(clip).loopTime);
+ foreach(var k in keys){clip.SampleAnimation(root,k.time+.0001f);if(sr.sprite!=k.value)throw new System.Exception("Wrong sprite at "+k.time);report.AppendLine(k.time.ToString("F6")+" "+sr.sprite.name+" pivot="+sr.sprite.pivot+" PPU="+sr.sprite.pixelsPerUnit+" root="+root.transform.position+" scale="+root.transform.localScale);}
+ cameraObject=new GameObject("IceThorn_v3_TemporaryPreviewCamera");
+ UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cameraObject,root.scene);
+ var cam=cameraObject.AddComponent<Camera>();cam.scene=root.scene;cam.orthographic=true;cam.orthographicSize=5.1f;cam.transform.position=new Vector3(0,4.4f,-20);cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.045f,.07f,.105f,1);cam.enabled=false;
+ rt=new RenderTexture(960,600,24,RenderTextureFormat.ARGB32);rt.Create();cam.targetTexture=rt;
+ captured=new Texture2D(960,600,TextureFormat.RGBA32,false);
+ var ts=new float[]{0,.96f,1.26f,1.46f,1.66f,2.21f,2.31f,1.46f};
+ var names=new[]{"Ready","Hold","Impact","Compression","Rebound","Frame16","Recovery","Mirrored"};
+ for(int i=0;i<ts.Length;i++){sr.flipX=(i==7);clip.SampleAnimation(root,ts[i]);cam.Render();RenderTexture.active=rt;captured.ReadPixels(new Rect(0,0,960,600),0,0);captured.Apply();System.IO.File.WriteAllBytes("Docs/Boss/IceThorn_v3/Unity_"+names[i]+".png",captured.EncodeToPNG());}
+ report.AppendLine("Rendered 8 samples in prefab preview scene; no Play-mode combat/VFX/collider test; no controller connection.");
+ System.IO.File.WriteAllText("Docs/Boss/IceThorn_v3/Unity_Verification.txt",report.ToString());
+ return report.ToString();
+} finally {RenderTexture.active=oldRT;if(cameraObject!=null)UnityEngine.Object.DestroyImmediate(cameraObject);if(captured!=null)UnityEngine.Object.DestroyImmediate(captured);if(rt!=null){rt.Release();UnityEngine.Object.DestroyImmediate(rt);}PrefabUtility.UnloadPrefabContents(root);}

@@ -1,0 +1,33 @@
+AssetDatabase.ImportAsset("Assets/04.Sprites/Boss/Boss_IceThorn_v3.png",ImportAssetOptions.ForceUpdate);
+var boss=PrefabUtility.LoadPrefabContents("Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab");
+GameObject cameraObject=null;RenderTexture rt=null;Texture2D tex=null;Texture2D beforeTex=null;Sprite beforeSprite=null;var previousRT=RenderTexture.active;
+try{
+ boss.transform.position=Vector3.zero;boss.transform.localScale=Vector3.one;
+ foreach(var m in boss.GetComponentsInChildren<MonoBehaviour>(true))if(m!=null)m.enabled=false;
+ foreach(var a in boss.GetComponentsInChildren<Animator>(true))a.enabled=false;
+ var sr=boss.GetComponent<SpriteRenderer>();
+ var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/Boss/Boss_IceThorn_v3.anim");
+ var arm=boss.transform.Find("Colliders/IceThornArmHitbox").GetComponent<BoxCollider2D>();
+ var fx=boss.transform.Find("Colliders/IceThornEffectPoint/BossIceThorn");
+ var ice=fx.GetComponent<BoxCollider2D>();var fxSR=fx.GetComponent<SpriteRenderer>();
+ cameraObject=new GameObject("IceThornRecoveryTemporaryCamera");UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cameraObject,boss.scene);
+ var cam=cameraObject.AddComponent<Camera>();cam.scene=boss.scene;cam.orthographic=true;cam.orthographicSize=5.1f;cam.transform.position=new Vector3(0,4.4f,-20);cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.045f,.07f,.105f,1);cam.enabled=false;
+ rt=new RenderTexture(700,700,24,RenderTextureFormat.ARGB32);rt.Create();cam.targetTexture=rt;tex=new Texture2D(700,700,TextureFormat.RGBA32,false);
+ beforeTex=new Texture2D(2,2,TextureFormat.RGBA32,false);beforeTex.LoadImage(System.IO.File.ReadAllBytes("Docs/Boss/IceThorn_v3/RecoveryFix/Before/Boss_IceThorn_v3.png"));beforeTex.filterMode=FilterMode.Bilinear;
+ beforeSprite=Sprite.Create(beforeTex,new Rect(3584,0,512,512),new Vector2(.5f,0),50);
+ var times=new[]{1.66f,1.81f,1.96f,2.11f,2.21f,2.31f,2.21f};
+ var names=new[]{"Frame12","Frame13","Frame14","Frame15","Frame16","Idle","BeforeFrame16"};
+ var log=new System.Text.StringBuilder("Unity Editor clip sampling; temporary prefab; shared camera/scale/ground. Body-only captures (nested VFX temporarily hidden for comparison).\n");
+ for(int i=0;i<times.Length;i++){
+  clip.SampleAnimation(boss,times[i]);
+  log.AppendLine(names[i]+" t="+times[i]+" sprite="+sr.sprite.name+" pivot="+sr.sprite.pivot+" PPU="+sr.sprite.pixelsPerUnit+" scale="+boss.transform.localScale+" arm="+arm.enabled+" ice="+ice.enabled+" fx="+fxSR.enabled);
+  if(sr.sprite.pivot!=new Vector2(256,0)||sr.sprite.pixelsPerUnit!=50||boss.transform.localScale!=Vector3.one)throw new System.Exception("Unexpected registration/scale.");
+  if(i>=3 && (arm.enabled||ice.enabled||fxSR.enabled))throw new System.Exception("Recovery should have no active effect or attack collider.");
+  if(i==6)sr.sprite=beforeSprite;
+  fxSR.enabled=false;
+  cam.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,700,700),0,0);tex.Apply();System.IO.File.WriteAllBytes("Docs/Boss/IceThorn_v3/RecoveryFix/Unity_"+names[i]+".png",tex.EncodeToPNG());
+ }
+ log.AppendLine("Clip length="+clip.length+"s; active scene dirty="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty);
+ System.IO.File.WriteAllText("Docs/Boss/IceThorn_v3/RecoveryFix/Unity_Verification.txt",log.ToString());return log.ToString();
+}finally{RenderTexture.active=previousRT;if(cameraObject!=null)UnityEngine.Object.DestroyImmediate(cameraObject);if(tex!=null)UnityEngine.Object.DestroyImmediate(tex);if(beforeSprite!=null)UnityEngine.Object.DestroyImmediate(beforeSprite);if(beforeTex!=null)UnityEngine.Object.DestroyImmediate(beforeTex);if(rt!=null){rt.Release();UnityEngine.Object.DestroyImmediate(rt);}PrefabUtility.UnloadPrefabContents(boss);}
+

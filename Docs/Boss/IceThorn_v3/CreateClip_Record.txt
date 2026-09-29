@@ -1,0 +1,18 @@
+var sprites=AssetDatabase.LoadAllAssetsAtPath("Assets/04.Sprites/Boss/Boss_IceThorn_v3.png").OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+var idle=AssetDatabase.LoadAllAssetsAtPath("Assets/04.Sprites/Boss/Boss_Idle.png").OfType<Sprite>().OrderBy(s=>s.name).First();
+if(sprites.Length!=16) throw new System.Exception("Expected 16 sprites.");
+var path="Assets/05.Animation/Boss/Boss_IceThorn_v3.anim";
+if(AssetDatabase.LoadAssetAtPath<AnimationClip>(path)!=null) throw new System.Exception("Clip exists; do not overwrite.");
+var clip=new AnimationClip{name="Boss_IceThorn_v3",frameRate=60};
+var times=new float[]{.25f,.4f,.55f,.7f,.85f,.95f,1.15f,1.25f,1.35f,1.45f,1.5f,1.65f,1.8f,1.95f,2.1f,2.2f};
+var keys=new System.Collections.Generic.List<ObjectReferenceKeyframe>();
+keys.Add(new ObjectReferenceKeyframe{time=0,value=idle});
+for(int i=0;i<16;i++)keys.Add(new ObjectReferenceKeyframe{time=times[i],value=sprites[i]});
+keys.Add(new ObjectReferenceKeyframe{time=2.3f,value=idle});
+keys.Add(new ObjectReferenceKeyframe{time=179f/60f,value=idle});
+AnimationUtility.SetObjectReferenceCurve(clip,EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite"),keys.ToArray());
+var settings=AnimationUtility.GetAnimationClipSettings(clip);settings.loopTime=false;settings.startTime=0;settings.stopTime=3;AnimationUtility.SetAnimationClipSettings(clip,settings);
+AssetDatabase.CreateAsset(clip,path);AssetDatabase.SaveAssetIfDirty(clip);
+var importer=(TextureImporter)AssetImporter.GetAtPath("Assets/04.Sprites/Boss/Boss_IceThorn_v3.png");
+var textureSettings=new TextureImporterSettings();importer.ReadTextureSettings(textureSettings);textureSettings.spriteAlignment=(int)SpriteAlignment.BottomCenter;textureSettings.spritePivot=new Vector2(.5f,0);importer.SetTextureSettings(textureSettings);importer.SaveAndReimport();
+return "Created "+path+" length="+clip.length+" events="+AnimationUtility.GetAnimationEvents(clip).Length+" floatCurves="+AnimationUtility.GetCurveBindings(clip).Length+" spriteCurves="+AnimationUtility.GetObjectReferenceCurveBindings(clip).Length+" idle="+idle.name+" loop="+AnimationUtility.GetAnimationClipSettings(clip).loopTime;

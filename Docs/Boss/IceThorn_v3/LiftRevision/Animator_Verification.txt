@@ -1,0 +1,16 @@
+PASS Trigger entry from Boss_Idle
+PASS Trigger entry from Boss_Walk
+PASS Preparation off
+PASS Ground warning visible, no hitbox
+PASS Arm and ice active during rise
+PASS Arm off after swing, ice briefly active
+PASS Recovery off
+PASS Natural return to Idle
+PASS No lingering collider or FX after return
+PASS Active before IsHit
+PASS Explicit state switch to Boss_Hit
+PASS Interrupt resets new hitboxes and effect IsHit
+PASS Active before IsDeath
+PASS Interrupted by IsDeath
+PASS Interrupt resets new hitboxes and effect IsDeath
+Controlled Editor Animator evaluation with cloned event-free motions. Hit cleanup used explicit Animator.Play; the existing attack hit-immunity policy was not changed. Original motion assets/events unchanged by verification; no AI/damage gameplay test.

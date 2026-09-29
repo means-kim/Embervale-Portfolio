@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emberveil · Ice Thorn v3</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,'Malgun Gothic',sans-serif;background:#0b121c;color:#e3edf9}*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:auto;padding:32px 24px 64px}h1{font-size:30px;letter-spacing:-.03em;margin:8px 0 14px}h2{font-size:20px;margin:30px 0 14px}p{color:#9caec4;line-height:1.65}.tag{font-size:12px;letter-spacing:.15em;color:#78c5f9}.stage{position:relative;border:1px solid #283b53;border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#253b51,#0d1723 75%)}canvas{display:block;width:100%;height:auto}.readout{position:absolute;top:20px;left:22px;display:grid;gap:6px;pointer-events:none}.readout strong{font-size:20px}.readout span{font-size:13px;color:#9ebbd5}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:18px 0}button,select{font:inherit;border:1px solid #3b536b;border-radius:8px;background:#182839;color:#e7f2ff;padding:9px 15px;cursor:pointer}button:hover{background:#263e55}label{font-size:14px;color:#becbdd}input{accent-color:#8acffb}#seek{width:100%;margin:4px 0 14px}.ruler{display:flex;font-size:12px;color:#a8bfd4}.ruler span{padding:10px 4px;border-top:3px solid #426782}.ruler span:nth-child(2){border-color:#88b5f0}.ruler span:nth-child(3){border-color:#f0b881}.ruler span:nth-child(4){border-color:#88d3cf}.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}.cell{padding:0;overflow:hidden;border-radius:9px}.cell img{width:100%;display:block;background:#182433}.cell span{display:block;font-size:12px;color:#acc4dc;padding:8px}.cell.active{border-color:#80ccff;background:#29435c}a{color:#8acffb;text-decoration:none}a:hover{text-decoration:underline}.links{display:flex;flex-wrap:wrap;gap:18px;font-size:14px}.note{font-size:13px}#error{color:#f8b2a4}@media(max-width:700px){main{padding:20px 14px}.grid{grid-template-columns:repeat(4,1fr)}h1{font-size:25px}.readout{top:12px;left:12px}.readout strong{font-size:15px}.ruler{font-size:10px}}
+</style>
+<main>
+<div class="tag">EMBERVEIL / SNOW GIANT</div>
+<h1>얼음가시 · v3.0</h1>
+<p>깊게 웅크려 힘을 모은 뒤, 손바닥을 위로 향해 팔을 머리 위까지 끌어올리는 동작.<br>고유 동작 16장 · 4096 × 1024 · 512 × 512 셀 · 3초 · 팔 상승 개정본</p>
+<section class="stage"><canvas id="view" width="1024" height="620" aria-label="얼음가시 애니메이션 미리보기"></canvas><div class="readout"><strong id="pose">Ready · Idle</strong><span id="stamp">0.00 / 3.00 s</span></div></section>
+<div class="controls"><button id="play">일시 정지</button><button id="restart">처음부터</button><label>속도 <select id="rate"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label><input type="checkbox" id="flip"> 좌우 반전</label><label><input type="checkbox" id="ghost"> Idle 겹쳐 보기</label><label><input type="checkbox" id="showfx" checked> 가시 이펙트</label><label><input type="checkbox" id="hitboxes"> 콜라이더</label><label><input type="checkbox" id="guides" checked> 셀·피봇 표시</label></div>
+<input id="seek" type="range" min="0" max="3" step="0.001" value="0" aria-label="재생 시간">
+<div class="ruler"><span style="flex:.25">Ready</span><span style="flex:.9">전조 / 0.2초 Hold</span><span style="flex:.35">Attack</span><span style="flex:.8">Follow Through</span><span style="flex:.7">Recovery / Idle</span></div>
+<p class="note">파란 점: 셀 중심 (256, 256) / 하단 Unity 피봇 (256, 0). 초록: 팔, 주황: 가시 Trigger. 판정 영역의 시각 검토이며 피해 적용 코드는 별도입니다. VFX는 기존 프리팹의 원본 프레임으로 표시합니다.</p>
+<p class="note">복귀 크기 보정: 13~16번을 Idle 체격과 접지선에 맞췄습니다. 16번 높이 349px = Idle 349px. 2.20~2.30초에서 비교할 수 있습니다. <a href="RecoveryFix/Size_Comparison.png">수정 전후 보기</a></p>
+<h2>고유 동작 16장</h2><div class="grid" id="frames"></div>
+<p id="error" role="alert"></p>
+<h2>파일과 확인 기록</h2><div class="links"><a href="../../../Assets/04.Sprites/Boss/Boss_IceThorn_v3.png">전체 시트</a><a href="../../../Assets/05.Animation/Boss/Boss_IceThorn_v3.anim">Unity 클립</a><a href="Implementation.md">제작 기록</a><a href="LiftRevision/Hitboxes_Apex.png">Unity 콜라이더 렌더</a><a href="LiftRevision/Animator_Verification.txt">Animator 검증 기록</a></div>
+</main>
+<script>
+const sheet=new Image(),idle=new Image();
+sheet.src='../../../Assets/04.Sprites/Boss/Boss_IceThorn_v3.png';
+idle.src='../../../Assets/04.Sprites/Boss/Boss_Idle.png';
+const effects=Array.from({length:13},(_,i)=>{const image=new Image();image.src=`LiftRevision/FX_${String(i).padStart(2,'0')}.png`;return image});
+const showfx=document.querySelector('#showfx'),hitboxes=document.querySelector('#hitboxes');
+const iceLeft=[7,12,17,14,16,22,27,31,32,38,56,59,60],iceRight=[18,30,37,59,74,82,84,86,89,90,91,92,93],iceTop=[20,28,29,50,58,58,55,55,54,51,49,46,30];
+const canvas=document.querySelector('#view'),ctx=canvas.getContext('2d');
+const seek=document.querySelector('#seek'),play=document.querySelector('#play'),rate=document.querySelector('#rate'),flip=document.querySelector('#flip'),ghost=document.querySelector('#ghost'),guides=document.querySelector('#guides');
+const times=[.25,.4,.55,.7,.85,.95,1.15,1.25,1.35,1.45,1.5,1.65,1.8,1.95,2.1,2.2];
+let t=0,playing=true,last=performance.now(),loaded=false;
+const buttons=times.map((time,i)=>{const b=document.createElement('button');b.className='cell';b.setAttribute('aria-label',`동작 ${i+1} 보기`);b.innerHTML=`<img src="LiftRevision/Frame_${String(i+1).padStart(2,'0')}.png" alt="동작 ${i+1}"><span>${String(i+1).padStart(2,'0')} · ${time.toFixed(2)}s</span>`;b.onclick=()=>{t=time+.001;playing=false;play.textContent='재생';draw()};document.querySelector('#frames').append(b);return b});
+function spriteIndex(){if(t<.25||t>=2.3)return -1;let i=0;while(i<15&&t>=times[i+1])i++;return i}
+function draw(){if(!loaded)return;const i=spriteIndex(),x=256,y=62;ctx.clearRect(0,0,1024,620);
+ctx.save();if(flip.checked){ctx.translate(1024,0);ctx.scale(-1,1)}
+if(ghost.checked){ctx.globalAlpha=.2;ctx.drawImage(idle,0,0,512,512,x,y,512,512);ctx.globalAlpha=1}
+if(i<0)ctx.drawImage(idle,0,0,512,512,x,y,512,512);else ctx.drawImage(sheet,(i%8)*512,Math.floor(i/8)*512,512,512,x,y,512,512);
+const fi=t>=.9&&t<1.9833333?Math.min(12,Math.floor((t-.9)*12+1e-6)):-1;
+if(fi>=0&&showfx.checked)ctx.drawImage(effects[fi],72,324,300,300);
+if(hitboxes.checked){ctx.lineWidth=2;if(t>=1.15&&t<1.5){const n=t<1.25?0:t<1.35?1:t<1.45?2:3,ax=[-2.6,-2.28,-1.62,-1.82][n],ay=[2.84,5.5,6.14,6.54][n],aw=[2.1,1.9,2.04,2.04][n],ah=[2.6,3.9,3.88,4.4][n],angle=[0,22,28,28][n];ctx.save();ctx.translate(512+ax*50,574-ay*50);ctx.rotate(-angle*Math.PI/180);ctx.strokeStyle='#33ff80';ctx.strokeRect(-aw*25,-ah*25,aw*50,ah*50);ctx.restore()}
+if(t>=1.15&&t<1.5666667&&fi>=0&&showfx.checked){ctx.strokeStyle='#ffa629';const left=iceLeft[fi]+2,right=iceRight[fi]-1;ctx.strokeRect(72+left*3.125,324+(96-iceTop[fi])*3.125,(right-left)*3.125,(iceTop[fi]-17)*3.125)}}ctx.restore();
+if(guides.checked){ctx.strokeStyle='#80b8e24d';ctx.setLineDash([4,5]);ctx.strokeRect(x,y,512,512);ctx.beginPath();ctx.moveTo(x+256,y);ctx.lineTo(x+256,y+512);ctx.moveTo(64,y+512);ctx.lineTo(960,y+512);ctx.stroke();ctx.setLineDash([]);for(const py of [y+256,y+512]){ctx.fillStyle='#86d0ff';ctx.beginPath();ctx.arc(x+256,py,3,0,Math.PI*2);ctx.fill()}}
+const phase=t<.25?'Ready · Idle':t<1.15?(t>=.95?'Anticipation · Hold':'Anticipation'):t<1.5?'Attack':t<2.3?'Follow Through':'Recovery · Idle';
+document.querySelector('#pose').textContent=phase;document.querySelector('#stamp').textContent=`${t.toFixed(2)} / 3.00 s${i>=0?' · Frame '+String(i+1).padStart(2,'0'):''}`;seek.value=t;buttons.forEach((b,k)=>b.classList.toggle('active',k===i))}
+play.onclick=()=>{playing=!playing;play.textContent=playing?'일시 정지':'재생';last=performance.now()};document.querySelector('#restart').onclick=()=>{t=0;draw()};seek.oninput=()=>{t=Number(seek.value);playing=false;play.textContent='재생';draw()};for(const c of [flip,ghost,guides,showfx,hitboxes])c.onchange=draw;
+Promise.all([sheet.decode(),idle.decode(),...effects.map(image=>image.decode())]).then(()=>{loaded=true;draw()}).catch(()=>{document.querySelector('#error').textContent='프로젝트 폴더 안에서 이 파일을 열어 주세요. 참조 이미지를 읽지 못했습니다.'});
+function tick(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing&&loaded)t=(t+dt*Number(rate.value))%3;draw();requestAnimationFrame(tick)}requestAnimationFrame(tick);
+</script></html>

@@ -1,0 +1,19 @@
+using UnityEngine;
+
+// The animation controls the trigger window; lifetime also guarantees cleanup if interrupted.
+public sealed class BossIceThornLifetime : MonoBehaviour
+{
+    [SerializeField] private Collider2D _hitbox;
+    [SerializeField, Min(0.1f)] private float _fallbackLifetime = 1.2f;
+
+    private void OnEnable()
+    {
+        if (_hitbox != null) _hitbox.enabled = false;
+        if (Application.isPlaying) Destroy(gameObject, _fallbackLifetime);
+    }
+
+    private void OnDisable()
+    {
+        if (_hitbox != null) _hitbox.enabled = false;
+    }
+}
