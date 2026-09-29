@@ -62,6 +62,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5446899786276659735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1603715847876840445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2394664394161340326}
+  m_Layer: 10
+  m_Name: IceThornEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2394664394161340326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603715847876840445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.95, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5446899786276659735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1674532977037777774
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +297,7 @@ Transform:
   - {fileID: 4296080632268900524}
   - {fileID: 1874651297204595573}
   - {fileID: 5433514003622980779}
+  - {fileID: 2394664394161340326}
   m_Father: {fileID: 1020913575131678032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6594865407688505647
@@ -563,6 +595,7 @@ GameObject:
   - component: {fileID: 7845351025324201781}
   - component: {fileID: 2567005633489926930}
   - component: {fileID: 6456768735056663740}
+  - component: {fileID: 8224518611717997992}
   m_Layer: 10
   m_Name: Boss_SnowGiant
   m_TagString: Boss
@@ -887,6 +920,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossIdleEffect
   _effectPrefab: {fileID: 4056417050623881412, guid: b100de96eb7b13f489c1a7ae025e4620, type: 3}
   _effectPoint: {fileID: 5433514003622980779}
+--- !u!114 &8224518611717997992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981983542186342843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edaec7298879d340b1abbb23af28b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossIceThornAttack
+  _effectPrefab: {fileID: 8425433907468996792, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
+  _effectPoint: {fileID: 2394664394161340326}
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0
