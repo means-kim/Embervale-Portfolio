@@ -2,6 +2,8 @@
 
 2026-09-29 최신 사용자 지시: v01의 아래에서 위로 팔을 끌어올리는 느낌을 사용하고, v3.0처럼 전조·체중 이동·전신 동작을 크게 만든다. 기존 가시 이펙트와 팔·가시 콜라이더도 함께 구성한다. 전투 스크립트는 사용자가 작성한다.
 
+후속 수정: **13~16번 복귀 그림의 체격과 접지선을 Idle 기준으로 보정했다.** 수정 전 16번의 보이는 높이는 309px, Idle은 349px였다. 수정 후 16번은 349px, 바닥은 Idle과 같은 셀 Y=511이다. 1~12번 그림은 픽셀 단위로 유지하고 클립·피봇·PPU·이펙트·콜라이더는 변경하지 않았다. [수정 전후 비교](RecoveryFix/Size_Comparison.png), [복귀 검증·제작 기록](RecoveryFix/Review.md).
+
 ## 결과물
 
 - [Body 시트](../../../Assets/04.Sprites/Boss/Boss_IceThorn_v3.png): **4096×1024 RGBA / 8열×2행 / 고유 16프레임**.
@@ -94,6 +96,7 @@ Animator의 `IsIceThorn`은 현재 시각 재생 진입점이다. 자동 공격 
 - 기존 이벤트의 게임 코드 호출을 분리하기 위해 검증용 복제 클립에서만 이벤트를 제거하고 Editor Animator를 평가했다. 원본 이벤트나 게임 코드는 검증 때문에 변경하지 않았다.
 - [Unity 샘플 기록](LiftRevision/Unity_Samples.txt): 10개 시간·방향 샘플. 각각 실제 렌더와 팔/가시 판정 영역 렌더를 저장했다.
 - [정렬 기록](LiftRevision/Alignment.txt), [VFX 픽셀 범위](LiftRevision/FX_AlphaBounds.txt).
+- 후속 복귀 수정: [픽셀 비교](RecoveryFix/Pixel_Verification.txt), [Unity 12~16번/Idle 샘플 검증](RecoveryFix/Unity_Verification.txt). 기존 정렬 기록은 최초 팔 상승 시트의 조립 기록이며, 최신 13~16번은 [RecoveryFix 정렬](RecoveryFix/Alignment.txt)을 따른다.
 - 기존 BossColliderRig의 좌우 반전에 새 팔·가시가 함께 따라가는 것을 렌더로 확인.
 - Play 모드의 실제 플레이어 피해·회피, Phase 2 선택, 지형 탐색·월드 고정 생성은 검증 범위가 아니다.
 - HTML 자동 브라우저 검수는 로컬 파일 URL 제한으로 수행하지 않았으며, 실제 이미지 검수는 Unity 렌더로 수행했다.
@@ -102,6 +105,6 @@ Animator의 `IsIceThorn`은 현재 시각 재생 진입점이다. 자동 공격 
 
 **내장 image_gen**으로 생성했다. [최종 프롬프트](LiftRevision/Prompt.txt), [생성 원본](../../../ArtSource/Boss_IceThorn_v3/LiftRevision/Generated_4x4.png), [조립 작업 파일](../../../ArtSource/Boss_IceThorn_v3/LiftRevision/PackSheet.ps1)을 프로젝트에 보관한다.
 
-요청한 작업용 4×4 이미지의 실제 생성 결과는 **1254×1254 RGBA**였다. 모든 동작에 동일한 **1.375배** 등비 리샘플링을 적용하고 공통 행 접지선·열 기준을 사용해 최종 4096×1024 시트로 재배열했다. 네이티브 4096 그림을 생성한 것으로 설명하지 않으며 확대가 세부 묘사를 추가하지 않는다. 알파 8/255 미만 노이즈와 이웃 그림이 섞이지 않도록 분리 경계를 정리했다.
+요청한 작업용 4×4 이미지의 실제 생성 결과는 **1254×1254 RGBA**였다. 최초 조립에서는 모든 동작에 동일한 **1.375배** 등비 리샘플링을 적용했다. **현재 1~12번은 이 결과를 유지하며, 13~16번은 후속 복귀 수정 원본(1254×1254, 2×2)에 공통 0.724배와 공통 접지 기준을 적용한 그림으로 교체했다.** 프레임마다 별도 배율을 쓰거나 런타임 Scale을 애니메이션하지 않는다. [현재 조립 파일](../../../ArtSource/Boss_IceThorn_v3/LiftRevision/PackSheet.ps1)은 기본 시트 조립 후 복귀 보정 파일도 실행한다. 최종 시트는 4096×1024이며 네이티브 4096 그림을 생성한 것으로 설명하지 않는다. 알파 8/255 미만 노이즈와 이웃 그림이 섞이지 않도록 분리 경계를 정리했다.
 
 직전의 아래로 지면을 누르는 v3 시트·클립·문서와 연동 대상의 변경 전 파일은 [Before](LiftRevision/Before/)에 참고용으로 보관한다. 기존 v01 자료도 참고용으로 유지한다. v01 공격·수명 스크립트를 복원하지 않았고 **Assets의 .cs 파일과 공격 DATA, 사용자 씬, AGENTS.md는 변경하지 않았다.**

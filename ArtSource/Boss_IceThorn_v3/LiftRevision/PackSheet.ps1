@@ -31,3 +31,6 @@ public static class IceLiftAtlas {
 }
 '@
 [IceLiftAtlas]::Run((Resolve-Path "$PSScriptRoot/../../..").Path)
+
+# Apply the user-requested recovery size correction after packing the base motion.
+& "$PSScriptRoot/../RecoveryFix/PackRecovery.ps1"

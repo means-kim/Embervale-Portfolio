@@ -13,6 +13,7 @@
 <input id="seek" type="range" min="0" max="3" step="0.001" value="0" aria-label="재생 시간">
 <div class="ruler"><span style="flex:.25">Ready</span><span style="flex:.9">전조 / 0.2초 Hold</span><span style="flex:.35">Attack</span><span style="flex:.8">Follow Through</span><span style="flex:.7">Recovery / Idle</span></div>
 <p class="note">파란 점: 셀 중심 (256, 256) / 하단 Unity 피봇 (256, 0). 초록: 팔, 주황: 가시 Trigger. 판정 영역의 시각 검토이며 피해 적용 코드는 별도입니다. VFX는 기존 프리팹의 원본 프레임으로 표시합니다.</p>
+<p class="note">복귀 크기 보정: 13~16번을 Idle 체격과 접지선에 맞췄습니다. 16번 높이 349px = Idle 349px. 2.20~2.30초에서 비교할 수 있습니다. <a href="RecoveryFix/Size_Comparison.png">수정 전후 보기</a></p>
 <h2>고유 동작 16장</h2><div class="grid" id="frames"></div>
 <p id="error" role="alert"></p>
 <h2>파일과 확인 기록</h2><div class="links"><a href="../../../Assets/04.Sprites/Boss/Boss_IceThorn_v3.png">전체 시트</a><a href="../../../Assets/05.Animation/Boss/Boss_IceThorn_v3.anim">Unity 클립</a><a href="Implementation.md">제작 기록</a><a href="LiftRevision/Hitboxes_Apex.png">Unity 콜라이더 렌더</a><a href="LiftRevision/Animator_Verification.txt">Animator 검증 기록</a></div>
