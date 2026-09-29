@@ -15,6 +15,7 @@ public class PlayerJump : MonoBehaviour
     private bool _isJumping;
     public bool IsGrounded => _isGrounded;
     public bool IsJumping => _isJumping;
+    public float JumpSpeed => _jumpSpeed;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
