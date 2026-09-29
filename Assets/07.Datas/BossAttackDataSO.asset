@@ -15,22 +15,29 @@ MonoBehaviour:
   _attacks:
   - _type: 0
     _weight: 10
-    _minDistance: 0
-    _maxDistance: 5
-    _damage: 1
+    _minDistance: 5
+    _maxDistance: 10
+    _damage: 10
     _recoveryTime: 2
     _coolTime: 10
   - _type: 1
     _weight: 10
-    _minDistance: 0
-    _maxDistance: 5
-    _damage: 1
+    _minDistance: 5
+    _maxDistance: 10
+    _damage: 10
     _recoveryTime: 2
     _coolTime: 10
   - _type: 2
     _weight: 30
-    _minDistance: 5
-    _maxDistance: 10
-    _damage: 1
+    _minDistance: 10
+    _maxDistance: 15
+    _damage: 10
+    _recoveryTime: 2
+    _coolTime: 10
+  - _type: 3
+    _weight: 30
+    _minDistance: 17
+    _maxDistance: 22
+    _damage: 20
     _recoveryTime: 2
     _coolTime: 10
