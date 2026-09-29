@@ -1361,6 +1361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
   _jumpSpeed: 50
+  _dropThroughDuration: 0.4
+  _platformLandTolerance: 0.1
 --- !u!114 &451198518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,7 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8879e11e56431684394ebc995710cd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWall
-  _climbSpeed: 10
+  _climbSpeed: 20
   _slideSpeed: 1.5
   _wallJumpAwaySpeed: 8
   _wallJumpLockDuration: 0.2
@@ -1420,6 +1422,7 @@ GameObject:
   - component: {fileID: 461945468}
   - component: {fileID: 461945467}
   - component: {fileID: 461945466}
+  - component: {fileID: 461945469}
   m_Layer: 6
   m_Name: Platform 1
   m_TagString: Platform
@@ -1458,7 +1461,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -1547,6 +1550,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 288328494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &461945469
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461945465}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &747444319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +1994,7 @@ GameObject:
   - component: {fileID: 1021998476}
   - component: {fileID: 1021998478}
   - component: {fileID: 1021998477}
+  - component: {fileID: 1021998479}
   m_Layer: 6
   m_Name: Platform 2
   m_TagString: Platform
@@ -2025,7 +2048,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -2099,6 +2122,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!251 &1021998479
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021998475}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1138512020
 GameObject:
   m_ObjectHideFlags: 0

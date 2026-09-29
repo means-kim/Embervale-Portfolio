@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.OnMoveInput += HandleMoveInput;
         _playerJump.OnJumpStarted += HandleJumpStarted;
         _playerJump.OnLanded += HandleLanded;
+        _playerJump.OnGroundLost += HandleGroundLost;
         _playerDash.OnDashStarted += HandleDashStarted;
         _playerDash.OnDashEnded += HandleDashEnded;
         _playerAttack.OnAttackStarted += HandleAttackStarted;
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.OnMoveInput -= HandleMoveInput;
         _playerJump.OnJumpStarted -= HandleJumpStarted;
         _playerJump.OnLanded -= HandleLanded;
+        _playerJump.OnGroundLost -= HandleGroundLost;
         _playerDash.OnDashStarted -= HandleDashStarted;
         _playerDash.OnDashEnded -= HandleDashEnded;
         _playerAttack.OnAttackStarted -= HandleAttackStarted;
@@ -193,6 +195,11 @@ public class PlayerController : MonoBehaviour
         if (_currentState == PlayerState.Attack) _playerAttack.CancelAttack();
         PlayPhaseClip("Land");
         EvaluateState();
+    }
+    private void HandleGroundLost()
+    {
+        // 드롭스루 등으로 가만히 서 있다가 공중이 되면 Jump로 전환한다.
+        if (_currentState == PlayerState.Idle || _currentState == PlayerState.Run) ChangeState(PlayerState.Jump);
     }
     private void HandleDashStarted()
     {

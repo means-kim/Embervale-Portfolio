@@ -43,13 +43,13 @@ public class PlayerWall : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.OnMoveInput += HandleMove;
-        _playerInput.OnJumpInput += HandleWallJump;
+        _playerInput.OnWallJumpInput += HandleWallJump;
         _playerJump.OnLanded += HandleLanded;
     }
     private void OnDisable()
     {
         _playerInput.OnMoveInput -= HandleMove;
-        _playerInput.OnJumpInput -= HandleWallJump;
+        _playerInput.OnWallJumpInput -= HandleWallJump;
         _playerJump.OnLanded -= HandleLanded;
         if (_moveLocked)
         {

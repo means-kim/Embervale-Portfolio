@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        int direction = transform.localScale.x < 0f ? -1 : 1;
+        var direction = transform.localScale.x < 0f ? -1 : 1;
         Vector2 center = (Vector2)transform.position + new Vector2(direction * _attackForwardOffset, _attackUpwardOffset);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(center, _attackSize);
