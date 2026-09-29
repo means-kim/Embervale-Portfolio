@@ -1275,7 +1275,7 @@ MonoBehaviour:
   _attackSize: {x: 1.4, y: 1.2}
   _attackForwardOffset: 1.42
   _attackUpwardOffset: 0.8
-  _effectPrefab: {fileID: 0}
+  _effectPrefab: {fileID: 5492466121849724953, guid: 1d442f086b5a075438ac17fb16698f09, type: 3}
 --- !u!114 &451198512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,7 +1373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ef68a6b9c27b74196746d581b1c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  _jumpSpeed: 50
+  _maxJumpCount: 3
+  _jumpPowers: 32000000280000001e000000140000000a000000
   _dropThroughDuration: 0.4
   _platformLandTolerance: 0.1
 --- !u!114 &451198518
