@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
+    [Header("Footsteps (비워 두면 SFX Source로 대체)")]
+    [SerializeField] private AudioSource _footstepSource;
     [Header("BGM - Title (OutGameScene 전용)")]
     [SerializeField] private AudioClip _titleBgm;
     [Header("BGM - InGame 1~3 (플레이 중에만, 진입 시 랜덤 1곡)")]
@@ -97,5 +99,16 @@ public class AudioManager : MonoBehaviour
         if (sfxData == null || sfxData.Clip == null || _sfxSource == null) return;
         _sfxSource.pitch = sfxData.Pitch;
         _sfxSource.PlayOneShot(sfxData.Clip, sfxData.Volume);
+    }
+
+    public void PlayFootstep(FootstepSFXBank bank)
+    {
+        if (bank == null || !bank.HasClips) return;
+        AudioClip clip = bank.PickRandom();
+        if (clip == null) return;
+        AudioSource source = _footstepSource != null ? _footstepSource : _sfxSource;
+        if (source == null) return;
+        source.pitch = bank.RollPitch();
+        source.PlayOneShot(clip, bank.Volume);
     }
 }

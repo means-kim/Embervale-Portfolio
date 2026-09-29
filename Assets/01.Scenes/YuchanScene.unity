@@ -622,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   _bgmSource: {fileID: 212557611}
   _sfxSource: {fileID: 212557610}
+  _footstepSource: {fileID: 0}
   _titleBgm: {fileID: 0}
   _inGameBgm1: {fileID: 0}
   _inGameBgm2: {fileID: 0}
@@ -1125,6 +1126,8 @@ GameObject:
   - component: {fileID: 451198518}
   - component: {fileID: 451198519}
   - component: {fileID: 451198520}
+  - component: {fileID: 451198522}
+  - component: {fileID: 451198521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Ground
@@ -1373,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ef68a6b9c27b74196746d581b1c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  _maxJumpCount: 3
+  _maxJumpCount: 2
   _jumpPowers: 32000000280000001e000000140000000a000000
   _dropThroughDuration: 0.4
   _platformLandTolerance: 0.1
@@ -1404,10 +1407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa780a493bbfe6747bef6361062ca1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _jumpStartDuration: 0.13
-  _apexVelocityRange: 1.5
-  _dashStartDuration: 0.075
-  _dashEndDuration: 0.13
   _landDuration: 0.17
 --- !u!114 &451198520
 MonoBehaviour:
@@ -1425,6 +1424,37 @@ MonoBehaviour:
   _slideSpeed: 1.5
   _wallJumpAwaySpeed: 8
   _wallJumpLockDuration: 0.2
+--- !u!114 &451198521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451198504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299407394102b11724add95d76802ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
+  _bank: {fileID: 11400000, guid: 99a10d8f2d02ec63003e135260fd1a29, type: 2}
+  _stepInterval: 0.35
+  _playOnLand: 0
+--- !u!114 &451198522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451198504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c9f5727ddde56478d59baf0d6497d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  _jumpStartDuration: 0.13
+  _apexVelocityRange: 1.5
+  _dashStartDuration: 0.075
+  _dashEndDuration: 0.13
 --- !u!1 &461945465
 GameObject:
   m_ObjectHideFlags: 0
