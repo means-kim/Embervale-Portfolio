@@ -32,6 +32,8 @@ public class PlayerWall : MonoBehaviour
     private float _moveLockUntil;
     private bool _exhausted;
     private bool _moveLocked;
+    // 착지 후 벽 점프를 한 번이라도 썼는지. 첫 벽 점프만 스태미나를 소모한다.
+    private bool _wallJumpUsed;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -39,6 +41,7 @@ public class PlayerWall : MonoBehaviour
         _playerJump = GetComponent<PlayerJump>();
         _playerMove = GetComponent<PlayerMove>();
         _playerDash = GetComponent<PlayerDash>();
+        EnsureFrictionlessCollider();
     }
     private void OnEnable()
     {
@@ -56,6 +59,20 @@ public class PlayerWall : MonoBehaviour
             _moveLocked = false;
             _playerMove.SetMovementLocked(false);
         }
+    }
+    private void EnsureFrictionlessCollider()
+    {
+        // 기본 마찰(0.4)이 있으면 탈진 후에도 A/D로 벽을 누르는 동안 마찰력이 몸을 붙잡는다.
+        // 런타임 전용 마찰 0 소재로 교체해 탈진 시 자유 낙하가 되게 한다. 에셋 파일은 건드리지 않는다.
+        var playerCollider = GetComponent<Collider2D>();
+        if (playerCollider == null) return;
+        var material = playerCollider.sharedMaterial;
+        if (material != null && material.friction <= 0f && material.bounciness <= 0f) return;
+        playerCollider.sharedMaterial = new PhysicsMaterial2D("PlayerWallFrictionless")
+        {
+            friction = 0f,
+            bounciness = 0f
+        };
     }
     private void HandleMove(Vector2 direction) => _moveInput = direction;
     private void Update()
@@ -96,9 +113,19 @@ public class PlayerWall : MonoBehaviour
     }
     private void HandleWallJump()
     {
-        if (!IsClinging || _stamina < WallJumpCost) return;
-        _stamina -= WallJumpCost;
-        if (_stamina <= 0) _exhausted = true;
+        if (!IsClinging) return;
+        // 벽 점프도 최대 점프 횟수를 공유한다. 일반 점프와 합쳐 최대 횟수까지만 가능하다.
+        if (_playerJump.CurrentJumpCount >= _playerJump.MaxJumpCount) return;
+        bool freeJump = _wallJumpUsed;
+        if (!freeJump && _stamina < WallJumpCost) return;
+        if (!_playerJump.TryConsumeJump()) return;
+        // 첫 번째 벽 점프만 벽 체력을 소모하고, 이후부터는 소모하지 않는다.
+        if (!freeJump)
+        {
+            _stamina -= WallJumpCost;
+            if (_stamina <= 0) _exhausted = true;
+            _wallJumpUsed = true;
+        }
         _regrabUntil = Time.time + _wallJumpLockDuration;
         _moveLockUntil = Time.time + _wallJumpLockDuration;
         _moveLocked = true;
@@ -112,6 +139,7 @@ public class PlayerWall : MonoBehaviour
         _stamina = MaxStamina;
         _staminaTimer = 0f;
         _exhausted = false;
+        _wallJumpUsed = false;
     }
     private void FixedUpdate()
     {
@@ -121,9 +149,10 @@ public class PlayerWall : MonoBehaviour
             velocity.y = _moveInput.y * _climbSpeed;
             _rigidbody.linearVelocity = velocity;
         }
-        else if (_touchingWall && _rigidbody.linearVelocity.y < 0f)
+        else if (!_exhausted && _touchingWall && _rigidbody.linearVelocity.y < 0f)
         {
-            // 매달림·탈진·재접착 대기 구분 없이 접촉 중 낙하는 코드가 강제한다.
+            // 스태미나가 남아 있을 때만 접촉 중 낙하를 코드가 강제한다.
+            // 탈진 상태에서는 붙잡지 않고 자유 낙하시킨다.
             // 상승 중(벽점프 직후 등)은 건드리지 않는다.
             var velocity = _rigidbody.linearVelocity;
             velocity.y = -_slideSpeed;

@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void CheckJumpInput()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) OnJumpInput?.Invoke();
+        if (Input.GetKeyDown(KeyCode.Space)) OnJumpInput?.Invoke();
     }
     private void CheckDashInput()
     {
