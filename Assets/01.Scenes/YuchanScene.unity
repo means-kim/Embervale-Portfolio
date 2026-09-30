@@ -434,9 +434,9 @@ MonoBehaviour:
   _enemyDeathVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
   _attackBasicVfx: {fileID: 0}
   _attackStabVfx: {fileID: 0}
-  _attackHorizontalVfx: {fileID: 0}
-  _attackDownVfx: {fileID: 0}
-  _attackUpVfx: {fileID: 0}
+  _attackHorizontalVfx: {fileID: 295151123095771115, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
+  _attackDownVfx: {fileID: 4465590687819272544, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+  _attackUpVfx: {fileID: 6914652183001740788, guid: 85e87edd6b1d24343bf99e728eba4ae9, type: 3}
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
   _wallSlideVfx: {fileID: 0}
@@ -1134,10 +1134,10 @@ MonoBehaviour:
   _downOffset: {x: 0.2, y: -1}
   _upSize: {x: 1.2, y: 1.8}
   _upOffset: {x: 0.2, y: 1.2}
-  _stabDuration: 0.67
-  _horizontalDuration: 1.17
-  _downDuration: 1.17
-  _upDuration: 1.17
+  _stabDuration: 0.22
+  _horizontalDuration: 0.23
+  _downDuration: 0.23
+  _upDuration: 0.23
   _effectPrefab: {fileID: 5492466121849724953, guid: 1d442f086b5a075438ac17fb16698f09, type: 3}
 --- !u!114 &451198512
 MonoBehaviour:
@@ -4539,6 +4539,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+--- !u!1001 &9098221808737714427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4465590687819272544, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_Name
+      value: DownAttackVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071205768309820200, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4554,3 +4611,4 @@ SceneRoots:
   - {fileID: 1396411640}
   - {fileID: 2063275400}
   - {fileID: 225376280}
+  - {fileID: 9098221808737714427}
