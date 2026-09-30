@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Attack);
+        _playerAnimator.PlayAttackClip(_playerAttack.CurrentAttackClip);
     }
     private void HandleAttackEnded() => EvaluateState();
 }

@@ -55,6 +55,7 @@ public class PlayerAnimator : MonoBehaviour
     public void ResetJumpPhase() => _jumpPhase = 2;
     public void BeginDash() => _dashStartTime = Time.time;
     public void PlayLand() => PlayPhaseClip("Land");
+    public void PlayAttackClip(string clipName) => PlayPhaseClip(clipName);
     public void Tick(PlayerState state, bool landingLocked, float verticalVelocity, float dashDuration)
     {
         if (landingLocked) return;

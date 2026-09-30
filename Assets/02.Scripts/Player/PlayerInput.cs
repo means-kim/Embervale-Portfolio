@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     public event Action OnAttackInput;
     public event Action OnDropInput;
     public event Action OnWallJumpInput;
+    public event Action<PlayerAttackType> OnAttackTypeInput;
     private float _horizontal;
     private float _vertical;
     private Vector2 _moveDirection = Vector2.zero;
@@ -20,6 +21,7 @@ public class PlayerInput : MonoBehaviour
         CheckDropInput();
         CheckWallJumpInput();
         CheckClickVfx();
+        CheckAttackTypeInput();
     }
     private void CheckHorizontalInput()
     {
@@ -56,5 +58,12 @@ public class PlayerInput : MonoBehaviour
         Vector3 worldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition.z = 0f;
         EffectManager.Instance?.PlayClick(worldPosition);
+    }
+    private void CheckAttackTypeInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) OnAttackTypeInput?.Invoke(PlayerAttackType.Stab);
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) OnAttackTypeInput?.Invoke(PlayerAttackType.Horizontal);
+        else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) OnAttackTypeInput?.Invoke(PlayerAttackType.Down);
+        else if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4)) OnAttackTypeInput?.Invoke(PlayerAttackType.Up);
     }
 }
