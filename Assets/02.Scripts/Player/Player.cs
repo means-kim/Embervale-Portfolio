@@ -1,5 +1,5 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Health), typeof(PlayerLevel))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _checkPointTransform;
