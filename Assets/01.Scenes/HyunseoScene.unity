@@ -15163,7 +15163,7 @@ Transform:
   m_GameObject: {fileID: 669252639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.02, y: 29.33, z: 0}
+  m_LocalPosition: {x: 81.3, y: 30.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15184,9 +15184,9 @@ MonoBehaviour:
   m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.25
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 000000006136a8666236a8666336a8666436a8666536a866e150ae66e250ae66e350ae66e450ae66e550ae66e650ae66
@@ -15199,7 +15199,7 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 0.7
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
@@ -15210,7 +15210,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 100
+  m_PointLightOuterRadius: 85
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -18555,7 +18555,7 @@ Transform:
   m_GameObject: {fileID: 1084307161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 275, y: 152, z: 0}
+  m_LocalPosition: {x: 340, y: 152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20384,7 +20384,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368165825}
-  m_Mesh: {fileID: 4300000, guid: 3377d4f5cff4e09409431f88a776e505, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 198af066725e3c547acfe80607c1f2c8, type: 2}
 --- !u!23 &1368165828
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38172,7 +38172,7 @@ Transform:
   m_GameObject: {fileID: 8309726066154971756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.1, y: 42.7, z: 0}
+  m_LocalPosition: {x: 99.5, y: 42.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
