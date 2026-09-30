@@ -6,6 +6,7 @@ public enum PlayerState
     Dash,
     Attack,
     Death,
+    Hit,
     WallCling,
     WallClimb
 }
