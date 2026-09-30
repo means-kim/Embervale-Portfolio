@@ -32,6 +32,10 @@ public class PlayerWall : MonoBehaviour
     private float _moveLockUntil;
     private bool _exhausted;
     private bool _moveLocked;
+    // 벽 상태 진입 edge 검출용. 미끄러짐·오르기·내리기 VFX는 진입 시 1회만 재생한다.
+    private bool _wasSliding;
+    private bool _wasClimbingUp;
+    private bool _wasClimbingDown;
     // 착지 후 벽 점프를 한 번이라도 썼는지. 첫 벽 점프만 스태미나를 소모한다.
     private bool _wallJumpUsed;
     private void Awake()
@@ -91,6 +95,16 @@ public class PlayerWall : MonoBehaviour
         IsClinging = _touchingWall && canGrab;
         IsClimbing = IsClinging && Mathf.Abs(_moveInput.y) > 0.01f;
         if (IsClinging) _clingDirection = pressingToward;
+        // 지속 상태라 매 프레임 소환하면 도배되므로 진입 시점에 1회만 재생한다.
+        bool sliding = !_exhausted && _touchingWall && !IsClimbing && _rigidbody.linearVelocity.y < 0f;
+        bool climbingUp = IsClimbing && _moveInput.y > 0.01f;
+        bool climbingDown = IsClimbing && _moveInput.y < -0.01f;
+        if (sliding && !_wasSliding) EffectManager.Instance?.PlayWallSlide(transform.position);
+        if (climbingUp && !_wasClimbingUp) EffectManager.Instance?.PlayWallClimbUp(transform.position);
+        if (climbingDown && !_wasClimbingDown) EffectManager.Instance?.PlayWallClimbDown(transform.position);
+        _wasSliding = sliding;
+        _wasClimbingUp = climbingUp;
+        _wasClimbingDown = climbingDown;
         if (IsClinging)
         {
             _staminaTimer += Time.deltaTime;

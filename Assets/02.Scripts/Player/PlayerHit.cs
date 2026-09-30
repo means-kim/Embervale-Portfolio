@@ -49,12 +49,14 @@ public class PlayerHit : MonoBehaviour
         _flashTimer = 0f;
         _flashOn = false;
         if (_dash != null) _dash.CancelDash();
+        EffectManager.Instance?.PlayPlayerHit(transform.position);
     }
 
     private void HandleDie()
     {
         _hitUntil = 0f;
         RestoreColors();
+        EffectManager.Instance?.PlayPlayerDeath(transform.position);
         if (_controller != null) _controller.ChangeState(PlayerState.Death);
     }
 
