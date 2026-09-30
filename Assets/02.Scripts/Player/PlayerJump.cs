@@ -15,6 +15,8 @@ public class PlayerJump : MonoBehaviour
     private Collider2D _playerCollider;
     private PlayerInput _playerInput;
     private PlayerDash _playerDash;
+    private PlayerWall _playerWall;
+    private PlayerHit _playerHit;
     private readonly HashSet<Collider2D> _groundContacts = new();
     private readonly HashSet<Collider2D> _platformContacts = new();
     private readonly List<Collider2D> _ignoredPlatforms = new();
@@ -34,6 +36,8 @@ public class PlayerJump : MonoBehaviour
         _playerCollider = GetComponent<Collider2D>();
         _playerInput = GetComponent<PlayerInput>();
         _playerDash = GetComponent<PlayerDash>();
+        _playerWall = GetComponent<PlayerWall>();
+        _playerHit = GetComponent<PlayerHit>();
     }
     private void OnEnable()
     {
@@ -55,8 +59,17 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleJump()
     {
-        if (_playerDash.IsDashing) return;
-        if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return;
+        // 벽에 붙어 있을 때는 일반 점프가 아니라 벽 점프가 처리한다. 횟수 중복 소모 방지.
+        if (_playerWall != null && _playerWall.IsClinging) return;
+        if (!TryConsumeJump()) return;
+        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, GetJumpPower(_jumpCount - 1));
+    }
+    // 점프 횟수를 하나 소모한다. 벽 점프도 이 횟수를 공유한다. 소모 성공 시 true.
+    public bool TryConsumeJump()
+    {
+        if (_playerDash.IsDashing) return false;
+        if (_playerHit != null && _playerHit.IsHit) return false;
+        if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return false;
         if (_isGrounded)
         {
             _groundContacts.Clear();
@@ -64,9 +77,9 @@ public class PlayerJump : MonoBehaviour
             _isGrounded = false;
         }
         _isJumping = true;
-        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, GetJumpPower(_jumpCount));
         _jumpCount++;
         OnJumpStarted?.Invoke();
+        return true;
     }
     private int GetJumpPower(int index)
     {

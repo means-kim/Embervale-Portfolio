@@ -14,6 +14,7 @@ public class PlayerDash : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerWall _playerWall;
+    private PlayerHit _playerHit;
     private Rigidbody2D _rigidbody;
     private float _dashTimeRemaining;
     private float _cooldownTimeRemaining;
@@ -26,6 +27,7 @@ public class PlayerDash : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerMove = GetComponent<PlayerMove>();
         _playerWall = GetComponent<PlayerWall>();
+        _playerHit = GetComponent<PlayerHit>();
     }
     private void OnEnable()
     {
@@ -51,6 +53,7 @@ public class PlayerDash : MonoBehaviour
     private void HandleDash()
     {
         if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging) return;
+        if (_playerHit != null && _playerHit.IsHit) return;
         _dashDirection = _playerMove.FacingDirection;
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
@@ -61,6 +64,7 @@ public class PlayerDash : MonoBehaviour
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
         OnDashStarted?.Invoke();
     }
+    public void CancelDash() => EndDash();
     private void EndDash()
     {
         if (!IsDashing) return;

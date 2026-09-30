@@ -34,6 +34,9 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Death:
                 PlayClip("Death");
                 break;
+            case PlayerState.Hit:
+                PlayClip("Hit");
+                break;
             case PlayerState.WallCling:
                 PlayClip("WallCling");
                 break;
