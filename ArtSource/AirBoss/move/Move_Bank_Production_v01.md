@@ -25,4 +25,6 @@
 
 ## 제작 결과
 
+후속 사용자 요청으로 직접 만든 Move_Bank 클립의 노출 시간을 조정했다. 16장 순서·Loop Off를 유지하며 총 1.6초다. [최신 클립 타이밍](../../../Docs/Boss/AirBoss/AirBoss_Move_Bank_timing_v01.md)을 따른다. 아래는 멀티스프라이트 제작 당시 기록이다.
+
 16장 시트와 Unity Multiple 등록을 완료했다. 셀·시트 픽셀 일치, 사방 64px 투명 여백, PPU 24와 Center 분할을 확인했다. [제작·검증 기록](../../../Docs/Boss/AirBoss/AirBoss_Move_Bank_v01.md), [전체 비교](../../../Docs/Boss/AirBoss/AirBoss_Move_Bank_v01_contact_dark.png)를 따른다. 현재는 정적 스프라이트 검토 단계이며 클립과 실제 재생 검증은 진행하지 않았다.
