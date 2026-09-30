@@ -1,0 +1,38 @@
+var sprites=UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/04.Sprites/Boss/Boss_IceThorn_v01.png").OfType<UnityEngine.Sprite>().OrderBy(s=>s.name).ToArray();
+var clipPath="Assets/05.Animation/Boss/Boss_IceThorn_v01.anim";
+if(UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>(clipPath)!=null) throw new System.Exception("Clip already exists; do not overwrite.");
+var clip=new UnityEngine.AnimationClip{name="Boss_IceThorn_v01",frameRate=20};
+var times=new float[]{0,.08f,.25f,.45f,.85f,.95f,1.3f,1.65f};
+var keys=times.Select((t,i)=>new UnityEditor.ObjectReferenceKeyframe{time=t,value=sprites[i]}).ToList();
+keys.Add(new UnityEditor.ObjectReferenceKeyframe{time=1.75f,value=sprites[7]});
+UnityEditor.AnimationUtility.SetObjectReferenceCurve(clip,UnityEditor.EditorCurveBinding.PPtrCurve("",typeof(UnityEngine.SpriteRenderer),"m_Sprite"),keys.ToArray());
+System.Action<UnityEngine.AnimationClip,string,System.Type,string,float[],float[]> stepped=(c,path,type,prop,ts,vs)=>{
+var curve=new UnityEngine.AnimationCurve(ts.Select((t,i)=>new UnityEngine.Keyframe(t,vs[i],float.PositiveInfinity,float.PositiveInfinity)).ToArray());
+UnityEditor.AnimationUtility.SetEditorCurve(c,UnityEditor.EditorCurveBinding.FloatCurve(path,type,prop),curve); };
+string arm="Colliders/IceThornArmHitbox";
+stepped(clip,arm,typeof(UnityEngine.BoxCollider2D),"m_Enabled",new float[]{0,.85f,1.1f,1.75f},new float[]{0,1,0,0});
+stepped(clip,arm,typeof(UnityEngine.Transform),"m_LocalPosition.x",times,new float[]{-2.8f,-3.3f,-3.0f,-3.2f,-2.9f,-2.85f,-3.0f,-2.8f});
+stepped(clip,arm,typeof(UnityEngine.Transform),"m_LocalPosition.y",times,new float[]{1.75f,.85f,.9f,.9f,5.05f,6.2f,3.55f,1.75f});
+stepped(clip,arm,typeof(UnityEngine.BoxCollider2D),"m_Size.x",times,new float[]{2.5f,2.5f,2.45f,2.6f,2.65f,2.65f,2.6f,2.5f});
+stepped(clip,arm,typeof(UnityEngine.BoxCollider2D),"m_Size.y",times,new float[]{2.5f,1.7f,1.65f,1.7f,2.7f,3.2f,2.45f,2.5f});
+foreach(var name in new[]{"SlamHitbox","SwingHitbox","ChargeHitbox"}) stepped(clip,"Colliders/"+name,typeof(UnityEngine.BoxCollider2D),"m_Enabled",new float[]{0,1.75f},new float[]{0,0});
+stepped(clip,"Colliders/Hurtbox",typeof(UnityEngine.BoxCollider2D),"m_Enabled",new float[]{0,1.75f},new float[]{1,1});
+stepped(clip,"Colliders/Hurtbox",typeof(UnityEngine.Transform),"m_LocalPosition.y",times,new float[]{2.95f,2.65f,2.65f,2.65f,3.15f,3.4f,3.0f,2.95f});
+stepped(clip,"Colliders/Hurtbox",typeof(UnityEngine.BoxCollider2D),"m_Size.y",times,new float[]{5.9f,5.3f,5.3f,5.3f,6.3f,6.8f,6f,5.9f});
+UnityEditor.AnimationUtility.SetAnimationEvents(clip,new[]{new UnityEngine.AnimationEvent{time=.6f,functionName="SpawnIceThorn"},new UnityEngine.AnimationEvent{time=1.7f,functionName="FinishIceThorn"}});
+var settings=UnityEditor.AnimationUtility.GetAnimationClipSettings(clip); settings.loopTime=false; UnityEditor.AnimationUtility.SetAnimationClipSettings(clip,settings);
+UnityEditor.AssetDatabase.CreateAsset(clip,clipPath);
+var ac=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEditor.Animations.AnimatorController>("Assets/05.Animation/Boss/Boss_SnowGiantAC.controller");
+ac.AddParameter("IsIceThorn",UnityEngine.AnimatorControllerParameterType.Trigger);
+var sm=ac.layers[0].stateMachine;
+var state=sm.AddState("Boss_IceThorn",new UnityEngine.Vector3(600,420,0)); state.motion=clip; state.writeDefaultValues=true;
+foreach(var source in sm.states.Where(s=>s.state.name=="Boss_Idle" || s.state.name=="Boss_Walk")) {
+var transition=source.state.AddTransition(state);transition.hasExitTime=false;transition.duration=0;
+transition.AddCondition(UnityEditor.Animations.AnimatorConditionMode.If,0,"IsIceThorn");
+}
+var idle=sm.states.First(s=>s.state.name=="Boss_Idle").state;
+var back=state.AddTransition(idle);back.hasExitTime=true;back.exitTime=1;back.duration=0;
+UnityEditor.EditorUtility.SetDirty(ac);UnityEditor.AssetDatabase.SaveAssetIfDirty(ac);
+UnityEditor.AssetDatabase.SaveAssetIfDirty(clip);
+return "Body clip "+clip.length+"s, eight frames; IsIceThorn from Idle/Walk, returns Idle.";
+

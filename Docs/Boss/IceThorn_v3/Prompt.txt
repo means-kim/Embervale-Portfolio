@@ -1,0 +1,25 @@
+Use case: identity-preserve. Create a production 2D game full-body animation WORK ATLAS for the exact snow giant in reference image 1. Reference 1 is the authoritative 512x512 Idle pose with transparent padding; reference 2 is Walk for body proportions, texture and foot registration. Output one square 2048x2048 RGBA transparent PNG in a STRICT FOUR COLUMNS by FOUR ROWS grid, exactly 16 complete full-body poses, each in its own 512x512 cell. This is an intermediate atlas that will be rearranged without changing cell contents into the final 4096x1024 eight-by-two sprite sheet. No drawn lines or labels.
+
+Character identity immutable: shaggy white/silver fur; charcoal rock chest and hands; small cyan chest crack; narrow BLUE eye; identical jagged blue crystalline crown, shoulder/back crystals; broad gorilla-like body, thick arms, long curved stone claws, heavy short legs; faces screen LEFT in the same three-quarter game view. Match reference sharp painterly detail, fur lengths, crystal colors, face and anatomy. Do not invent armor, chains, accessories, red eyes, extra limbs, ice weapons, magic or scenery.
+
+ANIMATION: ICE THORN GROUND CAST. Completely different from a one-arm overhead Slam. No overhead arm wind-up, no upward summoning gesture. It is a deeply braced, whole-body, two-arm ground strike: widen footing, sink pelvis, rotate and coil the torso while pulling both arms strongly CLOSE TO CHEST, then explosively drive body and both hands DOWN toward ground in front to summon ice. Only boss body art; existing separate IceThorn VFX will show the ice. Feet/legs/pelvis/spine/shoulders all MOVE meaningfully; do NOT keep identical lower bodies while merely moving arms. Large visibly different silhouettes, progressive coherent poses, clear follow-through. TWO arms, TWO legs in every frame. Natural joint foreshortening rather than shrunken body.
+
+Exactly sixteen UNIQUE non-idle attack poses, left-to-right then next row:
+01 begins leaving Idle: leading foot steps slightly outward, knees begin bending, torso rotates subtly.
+02 widened two-foot stance, weight shifts back, pelvis starts dropping, elbows begin retracting.
+03 pronounced squat, pelvis lower, chest twisted back, both claws draw toward torso.
+04 deeper crouch, shoulders pulled back strongly, forearms gathered close to abdomen/chest.
+05 maximal coiled pose, low pelvis, forward lean, elbows well behind ribs, open claws gathered close in front of chest.
+06 final anticipation: visibly tense and lowest coiled pose, chest expanded then pitched forward, heels braced, hands pointed diagonally down in front, hold pose.
+07 EXPLOSIVE RELEASE: rear leg extends and hips drive forward, shoulders and both arms thrust down-left, torso accelerates downward.
+08 hands near ground in front, torso pitches steeply down, front knee compresses, hips follow.
+09 GROUND IMPACT: both hands/claws hit ground in front, shoulders low, face angled down-left, legs bend deeply.
+10 deepest compression just after impact: elbows flex, chest sinks between shoulders, knees/hips absorb force, fur trails forward.
+11 heavy overshoot follow-through: mass moves further toward planted front hand, rear heel slightly unloads, shoulders and fur trail.
+12 rebound begins: chest lifts a little, one claw still planted, weight shifts back through pelvis.
+13 both hands lift slightly from ground, knees still deeply bent, shoulder fur recoils.
+14 pelvis and chest rise, arms descend beside torso, feet start settling into original neutral footprint.
+15 almost upright hunched recovery, shoulders relax, arms still forward of Idle, weight returns to middle.
+16 last recovery transition: near Idle but STILL A UNIQUE settling pose, head and shoulder fur settling, not a copy of Idle.
+
+REGISTRATION: each cell is512square. Idle-sized standing visible body is approx350px tall; reference crown top y160, feet at bottom y510, body root axis x256. All poses same inherent scale. Leave generous transparent space ABOVE the body, as in reference. Feet are on the common cell bottom ground plane (y510), except intentionally lifted foot. Body compresses DOWN when squatting; do NOT move the whole crouching pose up or resize it to match standing height. Lower head/crown during crouch. Fix cell horizontal ROOT baseline x256, allow real body weight shift in cell; no per-pose auto-centering. Keep hands, fur, crystals fully INSIDE cell. Leave tiny empty gutters at left and right; no clipping into neighbors. Consistent camera, lighting, material colors. Background genuinely alpha transparent, no painted checkerboard, no shadows on floor, no particles, no text. Exactly FOUR rows and FOUR columns with sixteen different poses, all the same boss.

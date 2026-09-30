@@ -1,0 +1,40 @@
+System.Action<UnityEngine.Object,string,UnityEngine.Object> setRef=(o,n,v)=>{var so=new UnityEditor.SerializedObject(o);so.FindProperty(n).objectReferenceValue=v;so.ApplyModifiedPropertiesWithoutUndo();};
+var fxPath="Assets/03.Prefabs/FX/BossIceThorn.prefab";
+var fxClip=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/Boss/VFX/Boss_IceThorn.anim");
+var fxSpriteKeys=UnityEditor.AnimationUtility.GetObjectReferenceCurve(fxClip,UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(fxClip)[0]);
+var fx=UnityEditor.PrefabUtility.LoadPrefabContents(fxPath);
+try {
+ fx.GetComponent<UnityEngine.SpriteRenderer>().sprite=(UnityEngine.Sprite)fxSpriteKeys[0].value;
+ var col=fx.GetComponent<UnityEngine.BoxCollider2D>(); if(col==null) col=fx.AddComponent<UnityEngine.BoxCollider2D>();
+ col.isTrigger=true;col.enabled=false;col.offset=new UnityEngine.Vector2(0,-1f);col.size=new UnityEngine.Vector2(1.5f,.8f);
+ var body=fx.GetComponent<UnityEngine.Rigidbody2D>(); if(body==null) body=fx.AddComponent<UnityEngine.Rigidbody2D>();
+ body.bodyType=UnityEngine.RigidbodyType2D.Kinematic;body.gravityScale=0;body.constraints=UnityEngine.RigidbodyConstraints2D.FreezeAll;body.useFullKinematicContacts=true;
+ var life=fx.GetComponent<BossIceThornLifetime>(); if(life==null) life=fx.AddComponent<BossIceThornLifetime>();setRef(life,"_hitbox",col);
+ UnityEditor.PrefabUtility.SaveAsPrefabAsset(fx,fxPath);
+} finally {UnityEditor.PrefabUtility.UnloadPrefabContents(fx);}
+System.Action<string,float[],float[]> fxCurve=(prop,ts,vs)=>UnityEditor.AnimationUtility.SetEditorCurve(fxClip,UnityEditor.EditorCurveBinding.FloatCurve("",typeof(UnityEngine.BoxCollider2D),prop),new UnityEngine.AnimationCurve(ts.Select((t,i)=>new UnityEngine.Keyframe(t,vs[i],float.PositiveInfinity,float.PositiveInfinity)).ToArray()));
+fxCurve("m_Enabled",new float[]{0,.25f,.6666667f,1f},new float[]{0,1,0,0});
+fxCurve("m_Size.x",new float[]{0,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new float[]{.3f,1.05f,1.8f,1.8f,1.8f,1.5f,1f});
+fxCurve("m_Size.y",new float[]{0,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new float[]{.15f,.9f,1.5f,1.5f,1.15f,.8f,.4f});
+fxCurve("m_Offset.y",new float[]{0,.25f,.33333334f,.41666666f,.5f,.5833333f,.6666667f},new float[]{-1.26f,-.9f,-.6f,-.6f,-.775f,-.95f,-1.15f});
+UnityEditor.AnimationUtility.SetAnimationEvents(fxClip,new[]{new UnityEngine.AnimationEvent{time=1.0833333f,functionName="StopEffect"}});
+UnityEditor.EditorUtility.SetDirty(fxClip);UnityEditor.AssetDatabase.SaveAssetIfDirty(fxClip);
+var bossPath="Assets/03.Prefabs/Boss/Boss_SnowGiant.prefab";
+var boss=UnityEditor.PrefabUtility.LoadPrefabContents(bossPath);
+try {
+ var arm=new UnityEngine.GameObject("IceThornArmHitbox"); arm.transform.SetParent(boss.transform.Find("Colliders"),false);arm.layer=boss.transform.Find("Colliders/SlamHitbox").gameObject.layer;
+ arm.transform.localPosition=new UnityEngine.Vector3(-2.8f,1.75f,0);var col=arm.AddComponent<UnityEngine.BoxCollider2D>();col.isTrigger=true;col.enabled=false;col.size=new UnityEngine.Vector2(2.5f,2.5f);
+ var point=new UnityEngine.GameObject("IceThornEffectPoint");point.transform.SetParent(boss.transform.Find("Colliders"),false);point.transform.localPosition=new UnityEngine.Vector3(-5.8f,2.025f,0);
+ var attack=boss.AddComponent<BossIceThornAttack>();setRef(attack,"_effectPrefab",UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(fxPath).GetComponent<BossEffect>());
+ setRef(attack,"_effectPoint",point.transform);setRef(attack,"_armHitbox",col);
+ setRef(boss.GetComponent<BossColliderRig>(),"_iceThornArmHitbox",col);
+ setRef(boss.GetComponent<BossAttackController>(),"_iceThornAttack",attack);
+ UnityEditor.PrefabUtility.SaveAsPrefabAsset(boss,bossPath);
+} finally {UnityEditor.PrefabUtility.UnloadPrefabContents(boss);}
+var data=UnityEditor.AssetDatabase.LoadAssetAtPath<BossAttackDataSO>("Assets/07.Datas/BossAttackDataSO.asset");
+var dataSo=new UnityEditor.SerializedObject(data);var arr=dataSo.FindProperty("_attacks");int idx=arr.arraySize;arr.InsertArrayElementAtIndex(idx);var row=arr.GetArrayElementAtIndex(idx);
+row.FindPropertyRelative("_type").enumValueIndex=(int)BossAttackType.IceThorn;row.FindPropertyRelative("_weight").intValue=10;
+row.FindPropertyRelative("_minDistance").floatValue=0;row.FindPropertyRelative("_maxDistance").floatValue=30;
+row.FindPropertyRelative("_damage").intValue=1;row.FindPropertyRelative("_recoveryTime").floatValue=.5f;row.FindPropertyRelative("_coolTime").floatValue=6;
+dataSo.ApplyModifiedPropertiesWithoutUndo();UnityEditor.AssetDatabase.SaveAssetIfDirty(data);
+return "Prefabs linked. Arm trigger .85-1.10s; VFX trigger .25-.667s; no random-selector registration. Scene dirty="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty;
