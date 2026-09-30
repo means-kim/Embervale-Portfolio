@@ -1,0 +1,522 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "date": "2026-09-30",
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "frame00": "Exact master copy; no generation",
+  "records": [
+    {
+      "frame": 5,
+      "attempt": 1,
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nFRAME05 MAXIMUM RAISED KEY before the brief hold06 and downstroke07. SCREEN-LEFT right shoulder lifts and turns forward about10degrees, chest opens subtly and leans toward screen-right by5degrees, rigid mask angles mildly toward lifted arm while face remains readable at roughly(518,255). ONLY screen-left elbow bent at(365,305), forearm points upward, wrist(315,238), open claw palm(305,205), fingers spread upward/inward, highest fingertips abouty148. One compact blue orb above inner palm at(349,159), bright core radius16 and total glow radius38, all glow belowy110; clearly off-center toward upper LEFT, not above central face. Screen-right arm remains down: elbow(655,415), relaxed claw hand(733,510), fingers pointing down, original wrist seams only, NO casting glow. Upper-left attached cloth fan follows active shoulder up and back in a curled arc, not a new cape. Lower-right cloth still trails right/down with tips curling aroundy895. A poised asymmetrical one-handed summoning key, not two-handed Raise.",
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 5,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_attempt01_1024.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use image1 as edit target, image2 only original identity reference. Preserve image1 character body, asymmetrical one-arm pose, head and torso angle, hands, fabric and exact canvas registration unchanged. REPLACE ONLY magic effects surrounding the raised SCREEN-LEFT hand. Remove the giant overhead globe/cloud and the spiral around the forearm. Draw ONE SMALL restrained blue orb centered at x362,y165 on the1024canvas, core radius12px and total outer glow radius28px. It should fit into an approximately56x56px square above-right of raised fingertips, not behind whole hand. Absolute topmost effect pixel at y125 or below, so entire top100pixel band completely transparent. No faint fog outside orb's tiny halo. Add only a fine short curve connecting orb to active palm, keep fingers unobscured. Passive screen-right hand remains down with original natural seams only. Keep lower cloth and all body exactly as image1. Do not scale, move, crop or fit figure. One1024x1024 true transparentRGBA sprite, no background ortext.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_attempt02.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 5,
+      "attempt": 3,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_attempt02_1024.png"
+      ],
+      "prompt": "Create single1024x1024 transparentRGBA animation keyframe. Image1 is authoritative master body scale AND location. Image2 is only a gesture and small orb reference, its entire body is TOO LOW; DO NOT copy that low registration. The pose: only screen-left arm raised high, screen-right claw hanging low, slight head/torso tilt. Use ORIGINALMASTER crown of mask at y215, chin at y315, chest center y399, hipsy540. Do not lower character from these anchors or enlargeit. Face same length and width asmaster. Raised leftscreen palm around(308,205), fingersy145..220, elbow(365,312); tiny blue orb withtotalglowdiameter60 centered(371,144), topglowpixel above110 prohibited. Original lower cloth silhouette ends abouty900; reform its ends as natural upwardcurled icy shreds ending y878..899 with full100pxclear bottomspace. Entirecanvas transparent and 100pixel perimeter completely empty except original existingmasterfaintalpha. Preserve master dark cracked silver mask, high collar, dark platedtorso and five finger claws, icy pale tattered cloth, original asymmetric left-high fan and rightlowribbons. Originalface/torso predominantlyfront, rigid undistorted. No new ornaments, no mirroring, no background/ground/text. Keep orb tiny, forearm thin original blue seams only, no thick lightningor fog. This is maximum onehandup beforedownstroke, bodymustNOTdrift down to fiteffect. Do not fit wholefiguretocell or shrink.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_attempt03.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 5,
+      "attempt": 4,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit this exact master sprite to create one high one-arm spellcast pose. Requested1024x1024 true transparentRGBA.\nKeep the mask, collar, chest, pelvis and screen-right arm IN THEIR EXACT ORIGINAL POSITIONS and SIZES. Keep front-facing head, no head tilt. Do NOT move torso down. Maskcrown remains y215 and chin y315; retain original long narrow shape, dark cracked metal with blue fissures. Keep screen-right claw LOW just as in reference, not casting.\nChange ONLY the arm on SCREEN LEFT (character right arm) to a raised bent-elbow pose: elbow near(370,340), wrist(322,250), open claw hand centered(314,215), fingertips near y155. Match original hand anatomy and size. Place one SMALL blue orb just above/right of this hand at(371,168), outerglow diameter60px, tiny core. No giant orb/fog or forearm spirals. Screen-left shoulder may lift locally about5px; torso staysregistered.\nCloth may articulate to follow the arm: preserve high asymmetrical left rear clothloop and long rightlow icyshreds, original attachmentpoints, with lower tips gently curled inwards to end no lower than originaly903. All alpha including faintglow stays inside x90..930,y100..920. Top100px and bottom100px completelytransparent. Same original painterly icy cloth texture, armor detail, palette and lighting. No bodyfit/shrinking/cropping/recentering/flipping, no background/floor/text. One frame, notsheet. This is a singlehandup key, never raise bothhands.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame05_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 9,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nFRAME09 MAXIMUM DOWNWARD RELEASE KEY. Single active screen-left right arm lowered forcefully diagonally: shoulder(427,354), elbow(363,445), wrist(319,523), open claw hand(311,565) with fingers pointing down toward y627. Chest and mask lean around8degrees toward SCREENLEFT, mask center roughly(496,282), hips stay near(518,545), original anatomy and scale. Passive screen-right arm remains down around(703,499) and slightly drawn inward, no orb/glow except original blue seams. ONE narrow cyan curved aftertrail behind the active arm from(238,365) to(252,482) to(313,530), thins/fades upward. No sphere anywhere now. Cape left shoulder cloth is still lifted from prior upstroke, whereas low streamers begin following down and right with curled tips beforey900. Same character, asymmetric one-arm release, no two-arm slam, no groundstrike.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame09_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 15,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nFRAME15 final settling to Idle00. Use reference1 original pose closely: both hands LOW and facing forward/down, original head/collar/chest scale and canvas registration. Active leftscreen wrist only2..5px away from original, shoulders almostresting, no orbs/trails/residualcastinglight. Original left-high cloth arch and right-low asymmetric streamers, preserve pointed icy tattered ends, a small residual rightward cloth curl endingaroundy898. Fresh transition drawing, not identicalmaster. Next frame would be original Idle00.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame15_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 2,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nSupporting references are neighboring keyposes of THIS one-arm action; adapt articulated joints to specified intermediate, do not duplicate supplied pose. Frame02 reference2=high05; frame07 refs2/3=high05/low09; frame12 refs2/3=low09/settled15.\nFRAME02 draw active hand near LEFT chest, palm near(389,374), elbow bent(364,420). Fingers cup upward, tiny dim blue pearl no larger than10px forming near(377,338). Do NOT place hand on center mask. Passive screen-right claw remains low around(737,510). Screen-left shoulder lifts8px, chest rotates subtly with it, headstillfrontal. Left attached fabric begins rising, lower right streamers still lag toward original low flow. This is compact preparatory cocking before lifting03.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame02_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 7,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nSupporting references are neighboring keyposes of THIS one-arm action; adapt articulated joints to specified intermediate, do not duplicate supplied pose. Frame02 reference2=high05; frame07 refs2/3=high05/low09; frame12 refs2/3=low09/settled15.\nFRAME07 downward release begins after peak06. ONLY SCREEN-LEFT arm sweeps outward/down: elbow(346,340), wrist(286,314), active palm(269,328), fingers now point down/out, clearly LOWER than highkey05. Screen-left shoulder starts dropping, chest rotates/leans about6degrees LEFT, mask near(508,272), still same head size. Orb unravels into a short blue crescent trailing behind hand from former(315,198) around(228,251) into currentwrist(282,312). NO floating orb remains at the top, no shot/beam, no duplication of hand. Screen-right arm low and passive(734,510). Cloth near left shoulder still lifted in delayed response, lower-right fabric follows shoulder with a soft rightward counterflow, endsbefore910.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame07_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 12,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nSupporting references are neighboring keyposes of THIS one-arm action; adapt articulated joints to specified intermediate, do not duplicate supplied pose. Frame02 reference2=high05; frame07 refs2/3=high05/low09; frame12 refs2/3=low09/settled15.\nFRAME12 recovering lower arm toward Idle. Active screen-left claw around(355,523), elbow(388,415), wrist(373,483), fingers downward and relaxing. Torso nearly upright, mask(515,267); screen-right hand(732,514) passive. All special casting effects gone, preserve natural armor blue seams. Left upper fan reshapes toward master arch, lower-right cloth continues soft delayed curl and begins restoring original hanging branches. Same body scale.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame12_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 1,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 fixes body identity and registration. Other images show neighboring poses; draw the specified new pose in that sequence. Match face/collar scale of MASTER, adapt only joints and cloth.\nFRAME01 starts preparation after Idle00. Pull ONLY screen-left forearm slightly inward/back, hand shifts from original(330,500) toward(365,463), elbow flexes, fingers gently curl, palm turns inward/up. Screen-right hand stays low at(736,512), passive. Right shoulder on screen-left begins to lift3px; chest twists only3degrees. No orb yet, only original natural seams. High left cloth fan starts small lift while long lower right streamers follow original direction, almostIdle.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame01_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 4,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 fixes body identity and registration. Other images show neighboring poses; draw the specified new pose in that sequence. Match face/collar scale of MASTER, adapt only joints and cloth.\nFRAME04 nearly full upward pose, before image2 highkey05. Active SCREEN-LEFT hand is about25px lower than05: elbow(361,329), wrist(315,263), palm(305,231), tipsy174. Orb centered(349,187), tight haloradius32, gradually stronger. Face/collar scale constant, screen-left shoulder leads; torso leans4degrees right. Screen-right claw hand hangs low passive(733,513). Left cloth loop lifts, lower ribbons naturally curve behind toward right, endsy895.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame04_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 7,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 fixes body identity and registration. Other images show neighboring poses; draw the specified new pose in that sequence. Match face/collar scale of MASTER, adapt only joints and cloth.\nFRAME07 early downward motion. Image2 is maximum UP pose05. Start lowering SCREEN-LEFT arm only ONE STEP from image2: bend elbow outward, bring active palm to(305,330), which is beside the mask's CHIN at y320. Hand MUST be at FACE/UPPER-COLLAR HEIGHT, not waist/hipheight. Upperarm lifts out toward LEFT and forearm nearlyhorizontal; active fingertips turn diagonallydown and outward to(247,377), elbow(371,381), wrist(332,346). The active hand is clearly MUCH HIGHER than the passive screenright hand restingat(735,510). Keep mask/chest/hips at originalmaster location, no wholebodylowering. Original rightscreen arm staysLOW passive. Replace highorb with ONLY short faint tapered curvedtrail from previoushighwrist(360,224) around(285,254) to currentactivewrist(332,346), no detachedorb. Crown/topofmask y220. Upper leftcloth still lifts behind arm, lower right cloth trails gentlycurlingwithtipy890. This frame does NOT yet reach the bottom of stroke. Front-facing same character, retain original head and claw size.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame07_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 3,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_04.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is fixed master. Reference2/3 where present are earlier/later keyposes. Draw the requested intermediary pose at the matching arm height, do not copy or mirror them. Frame03 lies between02and04; frame06 is highhold just after05; frame08 is halfway between shoulder-height07andlow09.\nFRAME03 half-raised active arm, between chest preparation02 and high raise04. SCREEN-LEFT elbow(350,346), wrist(327,303), palm(321,269), fingertips near y222. Small forming orb near(349,218), total glowradius26, never covers mask. Only screen-left shoulder lifted, torso subtly rotated and leans5degrees right. Screen-right hand low and passive(732,510). Left cape fan rising behind active upperarm, long right lower ribbons trail gently down/right with curling ends before910.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_02.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_04.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame03_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 6,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is fixed master. Reference2/3 where present are earlier/later keyposes. Draw the requested intermediary pose at the matching arm height, do not copy or mirror them. Frame03 lies between02and04; frame06 is highhold just after05; frame08 is halfway between shoulder-height07andlow09.\nFRAME06 brief peak hold, immediately after frame05. Keep active SCREEN-LEFT arm high in the same bent raised silhouette. Palm about(305,208), fingers curl slightly more toward compact orb at(349,160), glowradius38/core16 as05, no brighter flash. Shoulder draws back a fraction ready to move down, chest subtly rotates back toward frontal without moving wholebody. Screen-right hand remains low passive(733,512). Left cloth fan still lifts in delayed wave, long right cloth begins to curl inward at ends, all before910. Fresh hand articulation and cloth folds, not duplicate05. Next07 begins clear downward arc.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_05.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame06_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 8,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_07.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is fixed master. Reference2/3 where present are earlier/later keyposes. Draw the requested intermediary pose at the matching arm height, do not copy or mirror them. Frame03 lies between02and04; frame06 is highhold just after05; frame08 is halfway between shoulder-height07andlow09.\nFRAME08 core downstroke mid-motion, before lowkey09. Active screen-left hand descends to(271,455), wrist(307,426), fingers sharply directed down, elbow(364,376). Screen-left shoulder drops and torso turns/leans about8degrees left, mask(500,281), keep skull/collar rigid not shrunken. One thin luminous blue arc traces BEHIND active hand from(244,276) through(219,360) into wrist(299,420), brighter near hand and fading at previous top. No central orb, no ground effect, no horizontalbeam. Passive screen-right hand remains low around(714,507), follows torso only a little and emits no new glow. Upper-left cloth is still partly raised from previous motion; lower-right ribbons swing later, curling within y910.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_07.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame08_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 10,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is master. References2and3 bracket the recovery phase; retain original crown y215 and face size. Keep all cloth naturally curled before y910; draw this in-between freshly, do not simply copy neighbor. No orb, no large arctrail.\nFRAME10 arm overshoot/follow-through just after lowkey09. Active SCREEN-LEFT hand reaches slightly farther down/inward(344,594), wrist(354,546), fingertips down toy661. Right shoulder on screen-left at(431,369), torso leans9degrees left, face(500,290), keep body/face proportions. Passive screen-right hand stays low(708,509). Previous blue arc fades into a short dim tail along left forearm only, no top orb or wide attack crescent. Left cape begins following down while right trailing cloth still fans right, then curls above900. Distinct follow-through, no duplicate or overall translation.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame10_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 11,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is master. References2and3 bracket the recovery phase; retain original crown y215 and face size. Keep all cloth naturally curled before y910; draw this in-between freshly, do not simply copy neighbor. No orb, no large arctrail.\nFRAME11 rebound starts. Active screen-left hand returns upward slightly to(366,554) from overshoot, elbow relaxed at(385,435), wrist(372,515), fingers loosen. Chest begins to stand back up, leans5degrees left, mask near(509,275). Passive rightscreen hand remains low(720,511). Only very faint short blue residue by active wrist, no orb or large trail. Upper-left cape folds settle while long right lower streamers continue delayed sweep, naturally curled before900. Recovery after release, never raising another cast.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_09.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame11_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 13,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is master. References2and3 bracket the recovery phase; retain original crown y215 and face size. Keep all cloth naturally curled before y910; draw this in-between freshly, do not simply copy neighbor. No orb, no large arctrail.\nFRAME13 late settle, active screen-left claw hand around(345,510), wrist(374,464), elbow near master but still a little inward. Screen-right hand nearly original at(737,512). Original frontal face/body alignment, shoulders relaxed. No orb/trails/residual cast sparks. Left high cloth fan almost restored; right lower streamers extend more downward with mild rightward bends, tips near890. New recovery drawing, not mirrored or reversecopied.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame13_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 14,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nReference1 is master. References2and3 bracket the recovery phase; retain original crown y215 and face size. Keep all cloth naturally curled before y910; draw this in-between freshly, do not simply copy neighbor. No orb, no large arctrail.\nFRAME14 nearlyIdle, SCREEN-LEFT active hand only8px inward and5px lower than original, both arms at low resting levels with claw tips pointing down. Mask, collar and chest match original reference1 size and position. No casting effects at all; natural blue seams only. Left high cloth loop nearoriginal, long right strips have subtle lingering outward wave endingbefore910. New intermediary between13 and15, very small wrist relaxation and cloth settling.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_15.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame14_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 1,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nEDIT ORIGINAL MASTER into earliest slight preparation. Keep BOTH HANDS LOW, SCREEN-LEFT palm approximately(358,464), below bottom of ribcage and far BELOW CHIN, only40px higher than original. Active leftscreen upperarm stays slanted downwards, elbow bends veryslightly, forearm stillpoints DOWNandLEFT, fingers begin slightlycurling inward but NEVER pointUP. Do NOT lift the palm to chest, shoulder or face yet. Passive rightscreen arm is exactly original lowpose. No orb,no castingglow,no aftertrail. Face,chest,hips originalposition, clothalmostoriginalwithsmallwave. Single transparent sprite. Aim tiny change from master, not maincast.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame01_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 11,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_10.png",
+        "ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "prompt": "Use case: identity-preserve. Make ONE animation sprite, not a spritesheet. Transparent RGBA, requested1024x1024. Image1 is the locked Idle master for EXACT character identity, anatomy, body scale, palette and canvas registration; other supplied images, if any, are neighboring poses for continuity. Preserve the narrow pointed cracked silver mask and blue seams, high segmented collar, layered dark chest armor, original articulated claw hands, shredded icy pale cloth, left-high cloth loop and long right-low streamers. No legs, no new ornaments, no mirroring. The existing 1024 master is already correctly scaled: do not enlarge, shrink, fit-to-cell, recenter, trim or translate the whole figure.\nOriginal mask is about x520,y265, crowny215 and tipy320; hips(520,540), shoulder joints(438,335),(613,335). Retain proportions and head size while allowing articulated shoulder lift/twist, gentle head tilt and small torso lean specified below. Camera frontal fixed orthographic; no side view or exaggerated perspective. Paint original crystalline texture and cold blue-white light, same detail/contrast.\nACTION Cast_OneArm_UpDown: ONLY CHARACTER'S RIGHT ARM, the arm on VIEWER'S LEFT, performs the cast. Active hand ALWAYS remains on SCREEN LEFT. The screen-right arm remains low, passive, slightly bent, uncharged. NEVER raise both arms. No overhead center orb between hands. Single small blue casting orb near the raised SCREEN-LEFT palm when specified, and short curved blue forearm/hand aftertrail during downward release. No independent projectile, ground ice, floor, shadow, background, guide, border, checkerboard or text. Actual transparency.\nSAFETY: all cloth, fingertips and all faint glow must remain within x90..934,y90..929 of1024canvas, with at least64transparent pixels on EVERY side. Top100pixels ideally empty. Aim lower cloth ends at y880..900 using natural curls/folds, no cropping or scaling the body. Preserve asymmetry and original hand proportions/five articulated digits; effects do not conceal mask or fingers.\nMatch ORIGINAL reference1 face/collar registration closely, do not drift entire body downward. Crown remains aroundy215..225, chin around315..325. Key reference5 frontal mask is accepted. Orb near hand must stay small like supplied peak reference, roughly60..80px diameter including glow, no giant sphere orforearmspiral.\nDraw early RECOVERY after DOWNSTROKE, between references2and3. BOTH HANDS REMAIN DOWN. Use image2 low activeleft handpose, move it only20px UP fromimage2, palmstillLOWnear(350,554), fingersdownwardtoy620. Leftscreen activepalm MUST be BELOW the pelvis pointedarmor endingy530. Passive rightscreen hand remainsabouty510. At NO POINT should thisframe lift a hand above the waist. No palmup gesture, no shoulderlevel hand,no raisedhand. Originalfrontalmaskandchestposition. Remove image2 swirling castinglight, leaving ONLY veryfaint shortresidue hugging activewrist. Clothlowerendscurlwithdelayedsettling above910, upperleftfan mostlyoriginal. Itis a lowarm recovery, not anothercast. Transparent.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_10.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_onearm_updown/frames/v01/AirBoss_Cast_OneArm_UpDown_v01_12.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_onearm_updown/source/v01/frame11_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    }
+  ]
+}
