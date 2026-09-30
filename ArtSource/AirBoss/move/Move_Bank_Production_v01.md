@@ -5,7 +5,7 @@
 ## 제작 구성
 
 - [공통 규칙](../AirBoss_Multisprite_Production_Rules_v1.md), [보스 기획서](../Aerial%20Boss%20Design%20Document%20v1.md), [콘티](../references/AirBoss_Storyboard_v01.png)를 따른다.
-- 오른쪽 이동을 기준으로 16장, 4×4 시트. 왼쪽은 향후 좌우 반전해 재사용한다.
+- 오른쪽 이동을 기준으로 16장, 4×4 시트. 후속 사용자 정정으로 좌우 반전 재사용을 철회했으며, 왼쪽은 [Move_Bank_Left](../move_left/Move_Bank_Left_Production_v01.md)로 별도 제작한다.
 - 00~03: Idle에서 진입. 00은 현재 Idle 마스터 원본 픽셀을 그대로 보존한다.
 - 04~11: 오른쪽으로 기울어진 이동 유지 구간. 이 구간만 반복할 수 있도록 11→04를 연결한다. 반복마다 정면 직립으로 돌아오지 않는다.
 - 12~15: 감속·복귀. 몸을 먼저 세우고 팔·천은 뒤늦게 정리한다. 15 다음은 Idle로 이어진다.
