@@ -1,7 +1,7 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerAnimator))]
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack), typeof(PlayerWall))]
+[RequireComponent(typeof(PlayerAttack), typeof(PlayerWall), typeof(PlayerHit))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _landDuration = 0.17f;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private PlayerDash _playerDash;
     private PlayerAttack _playerAttack;
     private PlayerWall _playerWall;
+    private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerWall = GetComponent<PlayerWall>();
+        _playerHit = GetComponent<PlayerHit>();
         _playerAnimator = GetComponent<PlayerAnimator>();
         if (_playerAnimator == null) _playerAnimator = gameObject.AddComponent<PlayerAnimator>();
     }
@@ -70,6 +72,12 @@ public class PlayerController : MonoBehaviour
     private void EvaluateState()
     {
         if (CurrentState == PlayerState.Death) return;
+        // 피격 모션을 다른 상태보다 우선 재생한다.
+        if (_playerHit != null && _playerHit.IsHit)
+        {
+            ChangeState(PlayerState.Hit);
+            return;
+        }
         if (CurrentState == PlayerState.Attack && _playerAttack.IsAttacking) return;
         if (Time.time < _landUntil) return;
         if (_playerDash.IsDashing)

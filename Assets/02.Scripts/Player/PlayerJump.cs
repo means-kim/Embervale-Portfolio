@@ -16,6 +16,7 @@ public class PlayerJump : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerDash _playerDash;
     private PlayerWall _playerWall;
+    private PlayerHit _playerHit;
     private readonly HashSet<Collider2D> _groundContacts = new();
     private readonly HashSet<Collider2D> _platformContacts = new();
     private readonly List<Collider2D> _ignoredPlatforms = new();
@@ -36,6 +37,7 @@ public class PlayerJump : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerDash = GetComponent<PlayerDash>();
         _playerWall = GetComponent<PlayerWall>();
+        _playerHit = GetComponent<PlayerHit>();
     }
     private void OnEnable()
     {
@@ -66,6 +68,7 @@ public class PlayerJump : MonoBehaviour
     public bool TryConsumeJump()
     {
         if (_playerDash.IsDashing) return false;
+        if (_playerHit != null && _playerHit.IsHit) return false;
         if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return false;
         if (_isGrounded)
         {
