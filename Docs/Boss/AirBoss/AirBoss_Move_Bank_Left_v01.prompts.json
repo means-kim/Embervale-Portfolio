@@ -1,0 +1,237 @@
+{
+  "mode": "built-in image_gen",
+  "asset": "AirBoss_Move_Bank_Left_v01",
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "date": "2026-09-30",
+  "direction": "left, unmirrored anatomy and lighting",
+  "prompts": [
+    {
+      "frame": "04",
+      "attempt": 1,
+      "role": "left cruise anchor",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame04, the first stable left movement bank. Lean the entire articulated torso toward screen left by about22 degrees around its natural body center: mask center approximately(378,270), collar center(395,330), lower torso around(510,610). Hands follow with mild inertial spread, still hanging lower than shoulders. Most long cloth tails trail to the right in curved ribbons; retain a small arch of the original rear cloth near the left shoulder before it streams across behind the head to the right. No flip of the master! Reference1 is the authoritative original Idle master. Reference2 is a RIGHT MOVING pose for the amount of bank and physical scale ONLY, never flip it or copy its direction. The resulting body must bank LEFT with the original unflipped face, original left/right arms and cloth roots.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png"
+      ]
+    },
+    {
+      "frame": "02",
+      "attempt": 1,
+      "role": "entry midpoint",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame02, halfway from unmirrored Idle to a leftward bank. This is only a mild LEFT tilt, approximately10 degrees. Head center around(452,266), chest around(480,410). Do not start at full cruise lean. The original left high rear cloth loop remains recognizable on screen left, its free tips begin bending RIGHT across behind the shoulders. Original lower right cloth tails begin gathering more rightward. Hands softly follow the tilt with about half the full gesture. Preserve exactly the master’s unflipped mask and original light. Same body scale and fixed canvas. Single new transition pose, not a copy of master.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "15",
+      "attempt": 1,
+      "role": "final unmirrored idle return",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame15, final settling from LEFT movement to the original UNMIRRORED Idle. Body almost exactly upright like the master, head center around(526,264), both hands nearly the same placement as master. Rear high cloth arches are on SCREEN LEFT as in master; lower long trailing ribbons settle on SCREEN RIGHT, where they are in the original design. Residual cloth lag subtly curls loose ends a little farther right/up than the master, so frame15 can lead back to original Idle smoothly. Crucially do not mirror anything and do not remain in cruise lean. This frame is nearly Idle, with only small original cloth/hand continuation. Body scale identical, all margins≥90px.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "08",
+      "attempt": 1,
+      "role": "cruise opposite ripple phase",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame08, halfway through the steady left cruise loop starting at image1/frame04. Keep exactly that bank angle, mask/collar/torso position and body size. No vertical body bobbing. Redraw subtle wrist/cloth progression only: wrists relaxed inward about8px; the long RIGHT-trailing upper wave settles20px, outer right cloth tips curl inward and up20px; lowest ribbons lift12px. Original left rear arch stays rooted at same original shoulder, not moved to the opposite shoulder. Image2 original Idle is the identity reference. A gentle neighboring-phase motion, not a different pose. Make all rightmost feathering stay before x=915, no tip lower than925.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "12",
+      "attempt": 1,
+      "role": "start of deceleration",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame12, deceleration from left bank. Reference1/frame04 is full left cruise, reference2 original Idle is unmirrored destination. The body now begins standing up: reduce lean from frame04 to approximately14degrees LEFT; head center around(375,265), chest around(420,410), lower armored torso around(485,610). Do not keep frame04's full lean/head position. Arms move a little toward Idle positions. Long loose cloth still travels RIGHT with momentum, slightly curling and falling closer to the body. Preserve original left rear cloth arch root and original face/hand sides. This is a visibly less leaned recovery posture, not a new attack. Same body scale, same light. Keep all endpoints withinx100..915 y100..925.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "01",
+      "attempt": 1,
+      "role": "early entry",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame01 is exactly the intermediate step between original Idle image1 and early LEFT bank frame02 image2. Very small left tilt only, head around(490,264) and hands halfway between references. Body leads, fabric tips lag behind; original upper LEFT rear arch still like Idle but beginning to bend rightward; lower right tails subtly begin streaming. Preserve original asymmetry and exact master scale. Do not jump directly to frame02 pose. One 1024frame.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_02.png"
+      ]
+    },
+    {
+      "frame": "03",
+      "attempt": 1,
+      "role": "late entry",
+      "prompt": "Use case: stylized-concept. Single 2D game sprite of the existing AirBoss. Transparent RGBA, one square 1024x1024 canvas, no text or background. Preserve exactly the unmirrored Idle master's asymmetrical identity: the same mask crack topology/blue slit side, each original hand and armor plate on its original anatomical side, original upper-left rear cloth bundle attachment and original lower-right long cloth attachment, cold silver icy cloth, dark faceted armor, original light from upper-left. The rear bundle can bend across behind the head with wind but MUST stay rooted to its original screen-left shoulder, never change anatomical sides. Draw actual articulated LEFTWARD MOVEMENT while the creature still faces the viewer. Do NOT horizontally flip a right-moving picture, do not mirror the mask, armor, hands, cloth attachment points or lighting. Body leans toward SCREEN LEFT, trailing loose cloth streams SCREEN RIGHT. No added ornaments, eyes, limbs, extra fingers, attack orb, slashing effects, floor shadow, fog, detached sparks. Existing wrist and mask blue light only. Identical physical scale to master: narrow mask about95px tall on1024 canvas, same collar, torso, arm lengths. All cloth and faint alpha must lie within x=105..915, y=100..925, leaving safety padding. Do not crop or shrink the body to fit; curl cloth tips within bounds. Output a single full-body sprite with crisp painted icy fabric and high fidelity to the supplied approved master. Frame03 is the intermediate step between early left tilt frame02 image1 and full left cruise frame04 image2. Lean farther LEFT to around17degrees. Head center about(390,267), arms approximately between reference positions. Original upper-left rear cloth attachment remains on the same left shoulder; arch bends back across behind head and long lower ribbons stream RIGHT, midway between references. Same scale and mask asymmetry. This is left movement, no image flip. Preserve some lag in cloth instead of reaching full extension yet.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_02.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "01",
+      "attempt": 2,
+      "role": "early entry corrected",
+      "prompt": "Edit the original unmirrored Idle master (image1) into ONLY a tiny initial leftward lean. Transparent one full-body sprite1024x1024. Keep nearly all original composition: face center x500 instead of original529, same y264, same mask size. Chest and arms shift by articulation just15-20px toward screen left, NOT the full-body silhouette translating. The rear upper LEFT cloth arch and lower RIGHT long cloth remain almost exactly as in the master, only loose tips drift RIGHT by10-15px. Do NOT expand ribbons into a large rightward fan. This is the FIRST small movement from Idle, much gentler than image2/frame02. Original dark plate armor, claw hands, asymmetric face crack, light direction and original anatomical cloth roots remain unchanged. All edges and glow inside x130..900,y105..920 with completely transparent margins. Do not shrink or horizontally flip anything. Single subtle early transition pose.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_02.png"
+      ]
+    },
+    {
+      "frame": "03",
+      "attempt": 2,
+      "role": "late entry margin correction",
+      "prompt": "Precise edit of first attached left-moving AirBoss frame03. Keep mask, head, torso lean, armor, original asymmetric face and all body scale exactly fixed. Change only two peripheral poses: bend the screen-left elbow a little more so the leftmost claw comes INWARD/right by35px on1024 canvas; curl the two outermost RIGHT trailing cloth ribbons inward/left by70px, forming rounder hooks instead of wide outward arcs. Keep lowest cloth above y915. Do not move whole body, do not scale/crop, do not mirror. A sharp ice-cloth sprite on clean RGBA transparency. The second image is original Idle identity; retain that unmirrored asymmetry. All physical content including faint glow must have generous90px empty border, while main torso stays exactly where it is.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_03.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "08",
+      "attempt": 2,
+      "role": "cruise opposite phase margin correction",
+      "prompt": "Precisely edit ONLY the free cloth tips at the far RIGHT of the attached AirBoss left cruise frame08. Fixed entire head/torso/hands/left arch/light/scale exactly. The large lower-right curl currently reaches near right edge: redraw it curling BACK LEFT with its outermost edge70px farther inward. Upper right wisp likewise bends left40px. Preserve cloth lengths by folding/curving inward, not cutting ends. The lowest flowing tip stays above y915. Do not translate or shrink character. This small inward flutter should make the rightward fan slightly narrower than the second reference frame04, not wider. Original unmirrored mask crack and armor sides remain fixed. Transparent single1024x1024 sprite, full soft edges, no added effects. Every alpha edge must be at least90px from canvas borders.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "12",
+      "attempt": 2,
+      "role": "deceleration margin correction",
+      "prompt": "Edit first reference frame12 of AirBoss left movement recovery. Make the torso slightly more upright so mask center around(375,265) on1024canvas, without changing body scale. BOTH far right cloth curls currently project too far: fold/curl their loose ends BACK TOWARD THE BODY, bringing outermost contours inward by90px. Lower dangling cloth tips curl upward45px. Left hand moves inward25px through elbow bend. This is visible deceleration from image2/frame04: head/body start to stand up while right-trailing cloth gathers. Keep original unmirrored mask fissures and asymmetric original cloth attachment roots as in image3/master. Same silver-blue ice cloth, dark metallic plates, no new shape/ornament/particle. Do not mirror, crop, globally translate or scale. 1024x1024RGBA transparent; long cloth length expressed through tighter inward curls. All alpha edges withinx100..910,y105..910.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_12.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "05",
+      "attempt": 1,
+      "role": "left cruise inbetween",
+      "prompt": "Precisely create ONE subtle following animation pose of image1, the approved LEFTWARD AirBoss cruise. Image2 original unmirrored Idle only confirms design and same rigid body scale. Frame05 of a steady loop. Freeze head, mask, collar and rigid torso at the exact position/scale/lean of image1. Original face asymmetry and lighting remain the same, NEVER mirror. Make only these gentle moving changes: both wrists relax inward by2px on1024 canvas; the upper rear left arch's loose end lowers by4px; RIGHT trailing cloth tips roll inward toward the torso by18px, with a small traveling ripple progressing from attachments to tips. The lower-right long ribbon curls more upward rather than hanging farther down. Follow the existing cloth paths and original anatomical roots; don't add or remove strands. The total fan becomes a little NARROWER than image1, never wider. Especially keep left claws farther than80px fromleft border, far right cloth inside x925, lowest tip above y920 and highest above y100. Do not scale/crop/recenter the whole body. Crisp cold ice fabric, dark faceted armor, existing wrist blue cracks only, clean transparentRGBA background, single square1024 sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "06",
+      "attempt": 1,
+      "role": "left cruise inbetween",
+      "prompt": "Precisely create ONE subtle following animation pose of image1, the approved LEFTWARD AirBoss cruise. Image2 original unmirrored Idle only confirms design and same rigid body scale. Frame06 of a steady loop. Freeze head, mask, collar and rigid torso at the exact position/scale/lean of image1. Original face asymmetry and lighting remain the same, NEVER mirror. Make only these gentle moving changes: both wrists relax inward by4px on1024 canvas; the upper rear left arch's loose end lowers by9px; RIGHT trailing cloth tips roll inward toward the torso by35px, with a small traveling ripple progressing from attachments to tips. The lower-right long ribbon curls more upward rather than hanging farther down. Follow the existing cloth paths and original anatomical roots; don't add or remove strands. The total fan becomes a little NARROWER than image1, never wider. Especially keep left claws farther than80px fromleft border, far right cloth inside x925, lowest tip above y920 and highest above y100. Do not scale/crop/recenter the whole body. Crisp cold ice fabric, dark faceted armor, existing wrist blue cracks only, clean transparentRGBA background, single square1024 sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "07",
+      "attempt": 1,
+      "role": "left cruise inbetween",
+      "prompt": "Precisely create ONE subtle following animation pose of image1, the approved LEFTWARD AirBoss cruise. Image2 original unmirrored Idle only confirms design and same rigid body scale. Frame07 of a steady loop. Freeze head, mask, collar and rigid torso at the exact position/scale/lean of image1. Original face asymmetry and lighting remain the same, NEVER mirror. Make only these gentle moving changes: both wrists relax inward by6px on1024 canvas; the upper rear left arch's loose end lowers by14px; RIGHT trailing cloth tips roll inward toward the torso by50px, with a small traveling ripple progressing from attachments to tips. The lower-right long ribbon curls more upward rather than hanging farther down. Follow the existing cloth paths and original anatomical roots; don't add or remove strands. The total fan becomes a little NARROWER than image1, never wider. Especially keep left claws farther than80px fromleft border, far right cloth inside x925, lowest tip above y920 and highest above y100. Do not scale/crop/recenter the whole body. Crisp cold ice fabric, dark faceted armor, existing wrist blue cracks only, clean transparentRGBA background, single square1024 sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "09",
+      "attempt": 1,
+      "role": "return half of left cruise loop",
+      "prompt": "Generate one subtle animation inbetween, frame09, along the forward cloth motion from left-cruise pose08 (image1) to left-cruise pose04 (image2). It is 25 percent of the progression08→04; the next frame after11 will be04. Keep mask/collar/chest at the identical bank angle, size and position of these two references. Keep original unmirrored asymmetry, same light, original silver-white ice textile. Only wrists and loose cloth advance along natural paths: the tighter inward-curled RIGHT tails begin unfurling toward image2, with the travel wave proceeding from roots to tips; left rear arch stays on its original shoulder. Do not exceed the outermost endpoints in image2. Lower tips curl up to stay above y925 on1024canvas, RIGHT free ends withinx930, left claws atx85or greater, topcloth y100or lower ontheimage. Never shrink/recenter/crop, never mirror. Image3/master is for original identity and cool SILVER color, avoid increasing vivid blue saturation. Exact one square1024RGBA sprite, clean transparent background, no particles, no labels, no new effects. Pose stays a maintained LEFT bank, not standing up.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "10",
+      "attempt": 1,
+      "role": "return half of left cruise loop",
+      "prompt": "Generate one subtle animation inbetween, frame10, along the forward cloth motion from left-cruise pose08 (image1) to left-cruise pose04 (image2). It is 50 percent of the progression08→04; the next frame after11 will be04. Keep mask/collar/chest at the identical bank angle, size and position of these two references. Keep original unmirrored asymmetry, same light, original silver-white ice textile. Only wrists and loose cloth advance along natural paths: the tighter inward-curled RIGHT tails begin unfurling toward image2, with the travel wave proceeding from roots to tips; left rear arch stays on its original shoulder. Do not exceed the outermost endpoints in image2. Lower tips curl up to stay above y925 on1024canvas, RIGHT free ends withinx930, left claws atx85or greater, topcloth y100or lower ontheimage. Never shrink/recenter/crop, never mirror. Image3/master is for original identity and cool SILVER color, avoid increasing vivid blue saturation. Exact one square1024RGBA sprite, clean transparent background, no particles, no labels, no new effects. Pose stays a maintained LEFT bank, not standing up.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "11",
+      "attempt": 1,
+      "role": "return half of left cruise loop",
+      "prompt": "Generate one subtle animation inbetween, frame11, along the forward cloth motion from left-cruise pose08 (image1) to left-cruise pose04 (image2). It is 75 percent of the progression08→04; the next frame after11 will be04. Keep mask/collar/chest at the identical bank angle, size and position of these two references. Keep original unmirrored asymmetry, same light, original silver-white ice textile. Only wrists and loose cloth advance along natural paths: the tighter inward-curled RIGHT tails begin unfurling toward image2, with the travel wave proceeding from roots to tips; left rear arch stays on its original shoulder. Do not exceed the outermost endpoints in image2. Lower tips curl up to stay above y925 on1024canvas, RIGHT free ends withinx930, left claws atx85or greater, topcloth y100or lower ontheimage. Never shrink/recenter/crop, never mirror. Image3/master is for original identity and cool SILVER color, avoid increasing vivid blue saturation. Exact one square1024RGBA sprite, clean transparent background, no particles, no labels, no new effects. Pose stays a maintained LEFT bank, not standing up.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "13",
+      "attempt": 1,
+      "role": "left bank exit toward unmirrored Idle",
+      "prompt": "Create one transition pose, AirBoss frame13, 33 percent from left-movement recovery12(image1) to near-original Idle15(image2). Head gradually shifts through articulation to x418,y265 on a1024canvas. Original face orientation stays toward viewer and its asymmetric bright crack stays on SAME anatomical side. Keep original scale: mask about95px high; no body size changes. Torso becomes more upright, hands smoothly take intermediate positions between references. Cloth attached to original left shoulder begins gathering into original LEFT upper arches; original long lower RIGHT cloth tails slow with lag and settle, not instantly reappear on the other side. Intermediate cloth shapes with loose tips between referenceextents, do not expand silhouette past references. Image3 is original unmirrored Idle/master for accurate rigid armor, claw shape, cold silver material and same upper-left light. No mirror, no rigid full-image rotation/translation, no crop or scale. Entirealpha inside x120..910,y105..920 with clean transparent background. Single square1024RGBA sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_12.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_15.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "14",
+      "attempt": 1,
+      "role": "left bank exit toward unmirrored Idle",
+      "prompt": "Create one transition pose, AirBoss frame14, 67 percent from left-movement recovery12(image1) to near-original Idle15(image2). Head gradually shifts through articulation to x469,y265 on a1024canvas. Original face orientation stays toward viewer and its asymmetric bright crack stays on SAME anatomical side. Keep original scale: mask about95px high; no body size changes. Torso becomes more upright, hands smoothly take intermediate positions between references. Cloth attached to original left shoulder begins gathering into original LEFT upper arches; original long lower RIGHT cloth tails slow with lag and settle, not instantly reappear on the other side. Intermediate cloth shapes with loose tips between referenceextents, do not expand silhouette past references. Image3 is original unmirrored Idle/master for accurate rigid armor, claw shape, cold silver material and same upper-left light. No mirror, no rigid full-image rotation/translation, no crop or scale. Entirealpha inside x120..910,y105..920 with clean transparent background. Single square1024RGBA sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_12.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_15.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    }
+    ,
+{
+    "frame": "03",
+    "attempt": 3,
+    "role": "entry spacing correction",
+    "prompt": "Edit ONLY the pose of the first reference, AirBoss LEFT entry frame02. Produce frame03: add a modest additional LEFT torso lean, moving the head center approximately60px LEFT from its current location while the lower armored torso stays nearly fixed. This should be around15degrees left, NOT the deep bank in image2/fullcruise04. Head center MUST be near(405,265) in a1024canvas, not near320or350. Preserve exact head size, original mask crack orientation, silver-blue color, upper-left light, original same anatomical sides. Forearms articulate halfway toward image2's relaxed reach, not already at full cruise. Keep screen-left claw safely insidex110. The high rear arch is still rooted on original LEFT shoulder. Right trailing cloth lightly opens from image1 toward image2, but curls stay inside x900 and bottomy920. Do not copy frame04's body position. Single intermediate full-body sprite, 1024RGBA transparent, same original body scale, no whole-image transform, no mirror, no text. Image1 controls most of the pose, image2 only shows the direction it is approaching; image3is original master identity.",
+    "referenced_image_paths": [
+      "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_02.png",
+      "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_04.png",
+      "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ]
+  },
+  {
+    "frame": "13",
+    "attempt": 2,
+    "role": "exit spacing correction",
+    "prompt": "Edit ONLY the first attached AirBoss recovery12 into one slightly more upright recovery pose13. Keep most of its LEFT bank: stand the rigid torso up just halfway from its current angle toward original Idle, not completely upright. Move head from x367 toward x430, y265 on1024canvas through torso articulation. Head center MUST remain visibly LEFT of canvas center, near430, not near520. Same mask95px tall, no scale change. Arms and hands open a little toward Idle but remain near image1. Keep the high original LEFT rear cloth arch still trailing toward the RIGHT above the head, only its ends start to gather left. Lower cloth continues trailing RIGHT; it must not yet become an upright Idle skirt. Bring outermost cloth back inward atx880, bottom ends above915. Image2 original Idle is identity/material reference and eventual destination only; do not copy its finished upright pose. Preserve unmirrored mask crack, cold silver-blue fabric, dark armor, original asymmetric roots and light. One square1024 transparentRGBA sprite, no additional effects and no crop/global rotation/translation/scale.",
+    "referenced_image_paths": [
+      "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_12.png",
+      "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ]
+  }
+    ,
+{
+  "frame": "03",
+  "attempt": 4,
+  "role": "incremental entry from02 with relative coordinates",
+  "prompt": "Make a very small incremental pose edit to this exact unmirrored AirBoss frame02. Keep composition, camera, same physical body size, original silver-white cloth, original face crack and original left/right anatomy. The character already moves LEFT. Increase its LEFT lean only a little by bending its torso: move the head and collar LEFT by six percent of the IMAGE WIDTH relative to their present location, keeping the lower torso near its present location. The resulting head should be about40% of total image width from left; NOT at one-third. Keep mask height unchanged relative to the canvas. Hands follow only halfway as much as the head, through shoulder/elbow articulation; keep left claw INSIDE the leftmost12% of thecanvas. Cloth tips still stream right; their existing outer edges must not extend farther out. The two widest right cloth curls tighten inward, leaving the rightmost12% fully empty, and lowest tips curl upward to leave bottom10% empty. Keep the original upper-left rear cloth arch attachment on the same shoulder. Do not mirror. Do not translate/rotate/scale the whole cutout; make a true mild articulated pose change. No new objects, symbols, orb or attack. One full-body1024 squareRGBA sprite with transparent background.",
+  "referenced_image_paths": [
+    "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move_left/frames/v01/AirBoss_Move_Bank_Left_v01_02.png"
+  ]
+}
+  ]
+}
