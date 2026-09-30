@@ -1,0 +1,462 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "date": "2026-09-30",
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "frame00": "Exact original master copy; no image generation",
+  "records": [
+    {
+      "frame": 3,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME03 drawn-back preparation KEY. Start from master, bend ONLY screenLEFT elbow so active claw palm is near(415,405), tucked close to LEFT LOWER CHEST, fingers curled inward/up aroundtiny faintblue seed near(422,386), no large sphere. Palm original size about110pxwide, NOT foreshortened yet. Left shoulder pullsback/up slightly, chest rotates5degrees towardscreenRIGHT to wind up. Mask remainsfrontal withcrown215. Passive screenRIGHT hand remains low near(735,512). Left uppercloth begins to fold inward, longlower rightcloth still flowsoriginaldownright. This is compact anticipation, hand stays belowmasktip and doesnotraiseabovehead.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame03_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 7,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME07 maximum forward reach KEY. Extend character RIGHT arm from viewerLEFT shoulder toward CAMERA/VIEWER, strongly foreshortened. Shoulder stays around(438,345), short projected upperarm/forearm leads to wrist(409,423). LARGE NEARER OPEN CLAW PALM centered(395,431), frontal palm facing viewer, about160pxwide; fullhand withfivearticulateddigits occupiesroughlyx286..477,y348..565. It is around1.4times idlehand apparent size because perspective, not bigger anatomy. Spread the four fingers andthumb with pointed tips curving towardviewer; shortforeshortenedforearm, not a flat sidewise arm. Palm BELOWandLEFT ofmask so facefullyclear, no raised arm. Passive screenRIGHT handlow/slightlybehind at(729,510), smalleroriginalsize. Upper torso leansforward subtly, active shoulderforward, hipsremain520540, crown215. A small concentratedblue castingglow centeredwithinactivepalm, radius18core/45halo, withthin partial wristarc huggingpalm, no beam, no detachedprojectile. Leftattachedcape trails behind shoulder, longright ribbons lag andcurl naturallybefore900. Assertive openhand commanding a targeted area, clear out-of-screen reach.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame07_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 15,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME15 lastsettling before originalIdle00. Originalmaster pose veryclose, bothhands LOW with fingersdown. Active screenLEFThand only2..5pixelsinward oforiginal and forearm relaxed. No castglow, noorb, notrails, onlyoriginal armorblue seams. Mask/collar/chest same master scale/location. Clothoriginal highleft arch and longright lowerflow withverysmallresidualcurl naturally before900. Fresh drawing not duplicate00. This is resting recovery, no casting gesture.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame15_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 3,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME03 drawn-back preparation KEY. Start from master, bend ONLY screenLEFT elbow so active claw palm is near(415,405), tucked close to LEFT LOWER CHEST, fingers curled inward/up aroundtiny faintblue seed near(422,386), no large sphere. Palm original size about110pxwide, NOT foreshortened yet. Left shoulder pullsback/up slightly, chest rotates5degrees towardscreenRIGHT to wind up. Mask remainsfrontal withcrown215. Passive screenRIGHT hand remains low near(735,512). Left uppercloth begins to fold inward, longlower rightcloth still flowsoriginaldownright. This is compact anticipation, hand stays belowmasktip and doesnotraiseabovehead.\nSTRICT EDIT FROM ORIGINAL MASTER: maintain original crown at y215 and original torso width. Retain original cloth arrangement and extent almost exactly; highest cloth aroundy125, bottomtips900, do NOT expandfan upward orlower. Changeonly LEFTscreen arm bent to chest and subtle shoulder/chestturn. DoNOT make an enlarged standingfigure fillingthecanvas. Thereis100pxemptytopandbottom. Compactpreparation withtinyblue pearl, notlargeorb.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame03_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 5,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME05 launch halfway from compact windup to maxreach reference2. Active SCREENLEFT hand centered(398,405), palm turning from inward to FRONT towardviewer; fingersbeginopen, handabout160px totalwidth, clearly SMALLER than reference2maxhandabout250px. Elbow no longer sticks outside, forearm projectsforward visiblyshortened. Hand stays below chin, nooverheadpose. Active shoulderstarts pushingforward, slightupperbodylean, faceoriginalsize/crowny215, hips520540. Tinyblue light withinpalm radius12core/25glow; NOT a beam. Passive screenrightarm staysloworiginalmaster. Cloth follows earlypush, longrightbranchesendnaturallybefore910, highleftfan staysbelowy100. Freshintermediate, not same maxpose.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame05_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 11,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "ArtSource/AirBoss/cast_forwardreach/source/v01/frame15_attempt01_1024.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFRAME11 hand retraction/recovery key AFTER full frontalreach. Active SCREENLEFT claw has been withdrawn close to lowerleft chest around(406,455), fingers relaxing pointing diagonallydown,leftwrist(420,414), elbow(424,395). Hand apparentwidthnowabout145px nearly original scale, no bigforegroundhand. Palm no longer facesflatviewer, angle diagonallyinward/down. Onlyfaint small blue residue withinpalm, noorb, nocircularcastingdisk. ScreenRIGHT hand mustbe EXACToriginalmasterrest at(735,512). Originalface/collarregistrationcrown215, hips520540. Leftupperclothbeginssettle, lowerlongribbonsstilldelayed flowingright then curlingwith tipsy890. Bothhands belowchest andnot raised towardface, thisis recovery, not recasting.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_15.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame11_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 1,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nOriginal master fixes anatomy. Neighborreference2/3show motiononly; draw intermediary freshly. Keep highclothbelow y100andlowclothabove910toavoidedgeproblems.\nFRAME01 very earlyanticipation just after originalIdle. Active SCREENLEFT hand stillLOW near(357,475), onlyslightlycloser tobodyand25pixelsup frommaster, fingerscurl inward a little. Upperarm still pointsdown, elbowflexesgently. Passive screenRIGHT hand originalrest(735,512). No castglow,norb. Bodyalmostmaster, littlemovementatleftshoulder only. Clothalmostoriginalextent, ends890..900, notmoreelongated.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame01_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 2,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_03.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nOriginal master fixes anatomy. Neighborreference2/3show motiononly; draw intermediary freshly. Keep highclothbelow y100andlowclothabove910toavoidedgeproblems.\nFRAME02 approachingcompactprep03(reference2). ActiveSCREENLEFT hand at(391,430), betweenIdle and03, palm turnsinwardup, fingerscup, elbowbentbutnotliftedabovechest. Handoriginalwidth~135. A VERYtiny dimblue seed insidepalm radius5/glow12. Shoulderstarts pullingback, samefaceoriginaly215. Rightarm originalLOW. Clothleftarchdrawsinwardslightly; lowerstreamersstillmasterflow curledat900.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_03.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame02_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 4,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_03.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_05.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nOriginal master fixes anatomy. Neighborreference2/3show motiononly; draw intermediary freshly. Keep highclothbelow y100andlowclothabove910toavoidedgeproblems.\nFRAME04 deepest windup just after03(reference2), before05(reference3). ActiveSCREENLEFT palm at(427,402), tuckedcloseLEFT chest, fingerscurlaroundsmallbluecore radius10/glow25. Elbowback, shoulderpulledback, chesttwists5degreesright. Hand almostoriginalsize and mostlysideangled, NOTbigmaxreach, notabovehead. Passive screenRIGHT handlow. Clothattachmentfollowsbackwardmotion, leftfan curled, rightlongstripsnaturallycurlat900. Distinct03foldsandhandarticulation without changing body scale.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_03.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_05.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame04_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 6,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_05.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nOriginal master fixes anatomy. Neighborreference2/3show motiononly; draw intermediary freshly. Keep highclothbelow y100andlowclothabove910toavoidedgeproblems.\nFRAME06 nearlyfull forwardreach, between05(reference2)and07(reference3). Active SCREENLEFT palm frontsviewer centered(373,447), fiveclawdigits opening. Handtotalwidthabout215pixels, medium apparentperspective between05and07. Upperarm andforearmforeshortenedtowardcamera. Facefullyclear, palm belowleftmask. Active shoulderpushesforwardwithslighttorsolean, hipsoriginal. Bluecorewithinpalm moderatelybright radius13core/38halo, subtlewristarc, nogiantorb. Passive screenRIGHT arm staysLOW. Clothtrailsbehind, lowerstreamersflowrightthenCurlbefore915, topfan below100.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_05.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame06_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 8,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nKeep allfabric inside x100..934y100..915, originalheadregistration. References showbracketingposes; drawfresh intermediates, notcopy. Reference2 is07maximumreach for8/9/10; Reference3 is11recovery. For12 reference2is11recovery and3is15ending.\nFRAME08 immediate release after07(reference2). Keep same frontalforeshortenedreach, activeSCREENLEFTpalm near(357,461), FIVE fingers extended towardviewer then curljustslightly, apparent totalwidth~245pixels like07. A shorthandattachedbluepulse expands a little beyondpalm but halo radius55max, corebright, NO beam/projectile orspikes. Mask/torsoidenticalscale07andoriginalmaster, no movingwholefigure. ScreenRIGHT handlow. Shoulders followreachsmallamount, capeattachmentfollows, longclothendsnaturallycurlbefore915andhighestfanbelowy100. Not identical07; articulate fingertipsandclothfollowthrough.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame08_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 9,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nKeep allfabric inside x100..934y100..915, originalheadregistration. References showbracketingposes; drawfresh intermediates, notcopy. Reference2 is07maximumreach for8/9/10; Reference3 is11recovery. For12 reference2is11recovery and3is15ending.\nFRAME09 post-release hold/followthrough after08. ActiveSCREENLEFT palm still towardviewer near(367,448), apparenttotalwidth~220, fingersstartrelaxing, shortforeshortenedarm beginswithdrawal. Castinglight fades tocore10/halo25, veryshortwristresidue only, nooffbodylight. Faceclear, oppositeSCREENRIGHThandlow. Torsoleanstartstorecover, hipsfixed, crown~215. Clothstillfollowsthrough withlaggingcurled rightstreamers tipsaround905, highleftfan~110. Thiscontinuesreach then beginsrecovery, notnewcast.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png"
+      ],
+      "accepted": false,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame09_attempt01.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 10,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nKeep allfabric inside x100..934y100..915, originalheadregistration. References showbracketingposes; drawfresh intermediates, notcopy. Reference2 is07maximumreach for8/9/10; Reference3 is11recovery. For12 reference2is11recovery and3is15ending.\nFRAME10 retract from09 toward11(reference3). ActiveSCREENLEFT hand movescloser tolowerleftchest near(391,449), apparentwidth~175pixels, lessforegoundthan09butbiggerthan11. Palm rotates45degreestoinward/down, elbowbendsback, fingersslightlycurl. Only dimsmall residualblueinpalmandwrist, noorb or brightdisk. OppositearmmasterLOW. Originalcrown~215andbody, shoulderpullsback. Longclothfollowslate,middlefoldssettleendsbefore910.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_07.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame10_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 12,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png",
+        "ArtSource/AirBoss/cast_forwardreach/source/v01/frame15_attempt01_1024.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nKeep allfabric inside x100..934y100..915, originalheadregistration. References showbracketingposes; drawfresh intermediates, notcopy. Reference2 is07maximumreach for8/9/10; Reference3 is11recovery. For12 reference2is11recovery and3is15ending.\nFRAME12 lowerarmreturntowardrest. ActiveSCREENLEFT palmnear(385,490), fingersdown, forearmangleddiagonallyDOWNoutward, originalhandwidth~135. No magicglowexceptnaturalarmorblue seams, notrailnorb. OppositearmLOW originalmaster. Face/collar/chestoriginalscaleandposition, shoulderalmostrelaxed. Leftupperarchsettles, longrightstreamerssmalllingeringflow ends890..900.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_11.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_15.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame12_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 8,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_forwardreach/source/v01/frame08_attempt01_1024.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image1 is EDIT TARGET, accepted Cast_ForwardReach frame8. Image2 is locked original character identity reference. Preserve image1 exactly in body scale, canvas coordinates, mask/collar/chest/hips, both arms, FIVE-finger foreshortened frontal hand, castinglight intensity/shape and original blue-whitepaint style.\nONLY alter the two LOWEST cloth streamer tips in image1. They currently reach too far DOWN (near y965 of1024). Curl their last80..100pixels naturally SIDEWAYS and slightly UP into hooked wispy tattered ends so all cloth and allfaintalpha end above y915. Preserve continuous fabric texture and distinct thinbranch tips, do not blunt cut or clip edges. Keep longclothroots and upperbody exactly still; no resizing, no automaticfit, no recenter, no shiftingwholefigure upward. Highestclothsame target. No addedvisuals,no text,nofloor. Transparent1024square withoriginalcomposition. All visiblepixels inside64..959. ONLY end-tips bend, nothingelse.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_08.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame08_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 9,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_forwardreach/source/v01/frame09_attempt01_1024.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image1 is EDIT TARGET, accepted Cast_ForwardReach frame9. Image2 is locked original character identity reference. Preserve image1 exactly in body scale, canvas coordinates, mask/collar/chest/hips, both arms, FIVE-finger foreshortened frontal hand, castinglight intensity/shape and original blue-whitepaint style.\nONLY alter the two LOWEST cloth streamer tips in image1. They currently reach too far DOWN (near y965 of1024). Curl their last80..100pixels naturally SIDEWAYS and slightly UP into hooked wispy tattered ends so all cloth and allfaintalpha end above y915. Preserve continuous fabric texture and distinct thinbranch tips, do not blunt cut or clip edges. Keep longclothroots and upperbody exactly still; no resizing, no automaticfit, no recenter, no shiftingwholefigure upward. Highestclothsame target. No addedvisuals,no text,nofloor. Transparent1024square withoriginalcomposition. All visiblepixels inside64..959. ONLY end-tips bend, nothingelse.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_09.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame09_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 13,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_12.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFOR THIS RECOVERY FRAME THERE IS NO FORWARD REACH. Bothhands nearlyexactmasterrest. ForegroundhandperspectiveisGONE, shouldersrelaxed. Preserve masterrightscreenhand y510, its originalfront-facingangle, don'tdroptoy560.\nFRAME13 late recovery, activeSCREENLEFT handnear(360,503), fingerspointdown, originalhandwidth~135, elbowloweringtoriginal. ScreenRIGHTarm originalrestpalm(735,510). BothhandsLOW, nomagic, naturalblueseamsonly. Mask/torso masterregistration. Leftclotharchandlongrightstreamersapproachoriginal withsmallresidualsweep, endsbefore910. Freshframe not copyotherrecovery.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/cast_forwardreach/frames/v01/AirBoss_Cast_ForwardReach_v01_12.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame13_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 14,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. ONE transparent animation sprite, requested1024x1024 RGBA, not a sheet. Image1 is the locked original Idle master: preserve EXACT character identity, face size, dark segmented armor, long pointed silver mask with blue cracks, articulated FIVE-digit claw hands, asymmetric pale icy tattered cloth. The high looping fan belongs on viewerLEFT and long streamers on lowerRIGHT. Same cold bluewhite lighting and detail, no new ornaments or legs, no mirroring.\nKeep original master BODY SCALE and CANVAS REGISTRATION: crown y215, chin y320, mask center(520,265), chest(520,385), hips(520,540). Allow small torso lean/twist and shoulder articulation, NOT wholefigure translation, resizing, automatic fit/recentering. Hand perspective may vary smoothly due to reach; torso/skull maintain physical proportions.\nACTION Cast_ForwardReach: CHARACTER RIGHT HAND, which starts SCREEN LEFT, draws close to chest, then reaches straight OUT OF THE SCREEN TOWARD VIEWER below and slightly LEFT of face. Show foreshortened forearm and front of palm with slightly larger nearer hand. NOT arm lifting abovehead, NOT vertical downslash, NOT sideways beam. Opposite screenRIGHT arm stays low/passive around(730,510). Face remains visible, don't put hand over mask. This is location-command magic, no actual projectile.\nHand-attached tight blue light allowed as specified. No separate flyingorb, groundspikes, floor, castshadow, guides, text, watermark or background. Actual alpha transparency.\nAll visible cloth, fingertips and even faint glow must stay inside x90..934,y90..929 of1024canvas, at least64 fullytransparent pixels atEVERY edge. Aim cloth lowest tips y880..900 using natural curling/folds, never crop, scale torso or fittoframe. Preserve long distinct fabricbranches. Original bright palecloth material, no overexposure/black fringe.\nFOR THIS RECOVERY FRAME THERE IS NO FORWARD REACH. Bothhands nearlyexactmasterrest. ForegroundhandperspectiveisGONE, shouldersrelaxed. Preserve masterrightscreenhand y510, its originalfront-facingangle, don'tdroptoy560.\nFRAME14 almostIdle, activeSCREENLEFThandnear(341,504), only~10pxinwardoforiginal, rightarmmustmatchoriginalrestat(735,512), bothclawhandsrelaxedpointingDOWN. Noorb/trail/magic. Originalfaceat520265crown215andhips520540, exactsize. Highleftloopandlongrightstreamersalmostmaster, smallwaveswithtipend890..905. New subtle settle, not stillcasting.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame14_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    },
+    {
+      "frame": 15,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit this EXACT reference sprite into its next very subtle idle settling frame. ONE 1024x1024 transparent sprite. Lock the original mask/collar/torso/hips and BOTH ARMS almost exactly in size, pose and canvascoordinates. The LEFTscreen clawpalm near(330,500) and RIGHTscreenpalm near(735,510) both facefront/down, both originalsize. Do not move the left hand inward30px or lower the right hand. NO foregroundperspective, no reaching, no raisedhands, no castinglight, no orb, onlyexistingblueseams.\nChange only slightly relaxed leftscreen fingertip articulation by2..5pixels and a subtle natural wind ripple in the longlower cloth. Preserve masterasymmetry highleftclothfan and lowerlongrightstrips; lowestendsnaturally aroundy900, highestclotharoundy125. Crownfacey215, chin320, originalscale. Do not add parts, do notcrop, trim, fit, scale, ortranslatewholefigure. Original intricate paleicycloth and darkarmorpaintingexactly. Thisis final resting frame15 before sameoriginalIdle. Allalpha inside64..959, transparent.",
+      "invocationReferencedImagePaths": [
+        "/Users/kimminsu/Desktop/GA1_2DProject/2d-team08/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "accepted": true,
+      "output": "ArtSource/AirBoss/cast_forwardreach/source/v01/frame15_generated.png",
+      "requestedCanvas": [
+        1024,
+        1024
+      ],
+      "actualGeneratedCanvas": [
+        1254,
+        1254
+      ],
+      "transparentBackground": true
+    }
+  ]
+}
