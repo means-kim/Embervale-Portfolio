@@ -14,6 +14,15 @@ public class GateSwitch : MonoBehaviour
         public bool Outside;
     }
 
+    private enum GateType
+    {
+        Secret,
+        Cave,
+        IntoBoss,
+        Boss
+    }
+
+    [SerializeField] private GateType _gateType;
     [SerializeField] private Destination _left = new Destination();
     [SerializeField] private Destination _right = new Destination();
     [SerializeField] private string _playerTag = "Player";
@@ -34,7 +43,7 @@ public class GateSwitch : MonoBehaviour
             return;
         }
 
-        _enterFromRight = IsRight(other.GetComponent<Transform>().position);
+        _enterFromRight = IsRight(other.transform.position);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -44,9 +53,51 @@ public class GateSwitch : MonoBehaviour
             return;
         }
 
-        bool exitFromRight = IsRight(other.GetComponent<Transform>().position);
+        bool exitFromRight = IsRight(other.transform.position);
         if (_enterFromRight == exitFromRight) return;
         ApplyDestination(exitFromRight ? _right : _left);
+
+        AudioManager audio = AudioManager.Instance;
+        if (audio == null) return;
+
+        switch (_gateType)
+        {
+            case GateType.Cave:
+                if (exitFromRight)
+                {
+                    audio.PlayBgm(BgmType.Cave);
+                }
+                else
+                {
+                    audio.StopBgm(BgmType.Cave);
+                }
+
+                break;
+
+            case GateType.IntoBoss:
+                if (exitFromRight)
+                {
+                    audio.PlayBgm(BgmType.IntoBoss);
+                }
+                else
+                {
+                    audio.StopBgm(BgmType.IntoBoss);
+                }
+
+                break;
+
+            case GateType.Boss:
+                if (exitFromRight)
+                {
+                    audio.PlayBgm(BgmType.Boss);
+                }
+                else
+                {
+                    audio.StopBgm(BgmType.Boss);
+                }
+
+                break;
+        }
     }
 
     private bool IsRight(Vector3 position)
