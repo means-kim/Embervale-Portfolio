@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AirBoss Idle · 8장 / 16장 비교</title>
+<style>
+body{background:#111823;color:#e5ecf6;font:15px/1.6 system-ui;margin:0;padding:28px;max-width:1300px;margin:auto}h1{font-size:25px;margin:0}p{color:#aebed3}main{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#232a36;border:1px solid #364358;border-radius:12px;padding:16px}.card h2{font-size:17px;margin:0}canvas{display:block;width:100%;aspect-ratio:1;max-height:560px;object-fit:contain}nav{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:20px 0}button,select{background:#2c405b;color:white;border:1px solid #5c7595;border-radius:6px;padding:8px 14px;font:inherit}input[type=range]{width:210px}output{font-variant-numeric:tabular-nums;color:#9ed9ee}a{color:#9ed9ee}small{color:#acbad0}@media(max-width:700px){main{grid-template-columns:1fr}}
+</style>
+<h1>AirBoss Idle — 중간 동작 8장 추가</h1>
+<p>같은 1.2초 루프로 비교합니다. 새 16장은 기존 8장과 새 중간 동작을 번갈아 표시합니다.</p>
+<nav><button id="play">일시정지</button><label>속도 <select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label>프레임 <input id="scrub" type="range" min="0" max="15" value="0"></label><output id="frame">00 / 16</output><button id="bg">밝은 배경</button></nav>
+<main><section class="card"><h2>기존 8장 · 장당 0.15초</h2><canvas id="before" width="1024" height="1024"></canvas><output id="oldLabel"></output></section><section class="card"><h2>새 16장 · 장당 0.075초</h2><canvas id="after" width="1024" height="1024"></canvas><output id="newLabel"></output></section></main>
+<p><a href="../../../Assets/04.Sprites/AirBoss/AirBoss_Idle_Float_4x4_1024_v02.png">16장 시트 PNG</a> · <a href="AirBoss_Idle_Float_v02_contact_dark.png">전체 프레임 비교</a> · <a href="AirBoss_Idle_Float_v02.md">제작 기록</a></p>
+<small>1024×1024 셀 · Center · PPU 24 · 짝수: 기존 원본 / 홀수: 새 중간 동작. 이 화면은 그림과 타이밍 비교용이며 실제 게임의 카메라·Scale을 재현하지 않습니다.</small>
+<script>
+const a=new Image(),b=new Image();a.src='../../../ArtSource/AirBoss/idle/sheets/AirBoss_Idle_Float_4x2_1024_v01.png';b.src='../../../ArtSource/AirBoss/idle/sheets/AirBoss_Idle_Float_4x4_1024_v02.png';
+const ca=document.querySelector('#before').getContext('2d'),cb=document.querySelector('#after').getContext('2d'),play=document.querySelector('#play'),scrub=document.querySelector('#scrub'),speed=document.querySelector('#speed');
+let playing=true,phase=0,last=performance.now(),light=false,ready=false;
+const pad=n=>String(n).padStart(2,'0');
+function render(){if(!ready)return;const idx=Math.min(15,Math.floor(phase/.075)),old=Math.floor(idx/2);for(const [ctx,img,n] of [[ca,a,old],[cb,b,idx]]){ctx.clearRect(0,0,1024,1024);ctx.drawImage(img,(n%4)*1024,Math.floor(n/4)*1024,1024,1024,0,0,1024,1024)}scrub.value=idx;document.querySelector('#frame').textContent=pad(idx)+' / 16';document.querySelector('#oldLabel').textContent='v01 · '+pad(old);document.querySelector('#newLabel').textContent='v02 · '+pad(idx)+(idx%2?' — 새 중간 동작':' — 기존 '+pad(old));}
+function tick(now){if(playing&&ready)phase=(phase+(now-last)/1000*Number(speed.value))%1.2;last=now;render();requestAnimationFrame(tick)}
+play.onclick=()=>{playing=!playing;play.textContent=playing?'일시정지':'재생'};scrub.oninput=()=>{playing=false;play.textContent='재생';phase=Number(scrub.value)*.075;render()};document.querySelector('#bg').onclick=()=>{light=!light;document.querySelectorAll('canvas').forEach(c=>c.style.background=light?'#e1e5ec':'transparent');document.querySelector('#bg').textContent=light?'어두운 배경':'밝은 배경'};
+Promise.all([a.decode(),b.decode()]).then(()=>{ready=true;last=performance.now();requestAnimationFrame(tick)}).catch(()=>document.querySelector('#frame').textContent='이미지 로드 실패 — 프로젝트 상대 경로 확인');
+</script></html>
