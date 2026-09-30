@@ -3,6 +3,7 @@ using UnityEngine;
 
 public enum PlayerAttackType
 {
+    Basic,
     Stab,
     Horizontal,
     Down,
@@ -73,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = true;
         CurrentAttackClip = "Attack";
         _attackTimeRemaining = _attackDuration;
-        DoHit(direction, _attackSize, new Vector2(_attackForwardOffset, _attackUpwardOffset));
+        DoHit(direction, _attackSize, new Vector2(_attackForwardOffset, _attackUpwardOffset), PlayerAttackType.Basic);
         OnAttackStarted?.Invoke();
     }
     private void HandleTypeAttack(PlayerAttackType type)
@@ -84,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = true;
         CurrentAttackClip = type + "Attack";
         _attackTimeRemaining = GetAttackDuration(type);
-        DoHit(direction, GetAttackSize(type), GetAttackOffset(type));
+        DoHit(direction, GetAttackSize(type), GetAttackOffset(type), type);
         OnAttackStarted?.Invoke();
     }
     private Vector2 GetAttackSize(PlayerAttackType type)
@@ -117,9 +118,10 @@ public class PlayerAttack : MonoBehaviour
             default: return _horizontalDuration;
         }
     }
-    private void DoHit(int direction, Vector2 size, Vector2 offset)
+    private void DoHit(int direction, Vector2 size, Vector2 offset, PlayerAttackType type)
     {
         var center = (Vector2)transform.position + new Vector2(direction * offset.x, offset.y);
+        PlayAttackVfx(type, center);
         var count = Physics2D.OverlapBox(center, size, 0f, ContactFilter2D.noFilter, _hitBuffer);
         for (var i = 0; i < count; i++)
         {
@@ -134,6 +136,19 @@ public class PlayerAttack : MonoBehaviour
             }
             Debug.Log($"Attack hit {hit.name} for {_damage} damage.", hit);
             _hitBuffer[i] = null;
+        }
+    }
+    private void PlayAttackVfx(PlayerAttackType type, Vector3 position)
+    {
+        var instance = EffectManager.Instance;
+        if (instance == null) return;
+        switch (type)
+        {
+            case PlayerAttackType.Basic: instance.PlayAttackBasic(position); break;
+            case PlayerAttackType.Stab: instance.PlayAttackStab(position); break;
+            case PlayerAttackType.Horizontal: instance.PlayAttackHorizontal(position); break;
+            case PlayerAttackType.Down: instance.PlayAttackDown(position); break;
+            case PlayerAttackType.Up: instance.PlayAttackUp(position); break;
         }
     }
     public void CancelAttack() => EndAttack();

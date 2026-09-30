@@ -432,6 +432,11 @@ MonoBehaviour:
   _footstepVfx: {fileID: 0}
   _enemyHitVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
   _enemyDeathVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
+  _attackBasicVfx: {fileID: 0}
+  _attackStabVfx: {fileID: 0}
+  _attackHorizontalVfx: {fileID: 0}
+  _attackDownVfx: {fileID: 0}
+  _attackUpVfx: {fileID: 0}
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
   _wallSlideVfx: {fileID: 0}
@@ -1121,6 +1126,16 @@ MonoBehaviour:
   _attackSize: {x: 1.4, y: 1.2}
   _attackForwardOffset: 1.42
   _attackUpwardOffset: 0.8
+  _stabSize: {x: 2.2, y: 0.8}
+  _stabOffset: {x: 1.1, y: 0.8}
+  _downSize: {x: 1.2, y: 1.6}
+  _downOffset: {x: 0.2, y: -1}
+  _upSize: {x: 1.2, y: 1.8}
+  _upOffset: {x: 0.2, y: 1.2}
+  _stabDuration: 0.67
+  _horizontalDuration: 1.17
+  _downDuration: 1.17
+  _upDuration: 1.17
   _effectPrefab: {fileID: 5492466121849724953, guid: 1d442f086b5a075438ac17fb16698f09, type: 3}
 --- !u!114 &451198512
 MonoBehaviour:

@@ -25,6 +25,13 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _enemyHitVfx;
     [SerializeField] private GameObject _enemyDeathVfx;
 
+    [Header("VFX 프리팹 (플레이어 공격 5종)")]
+    [SerializeField] private GameObject _attackBasicVfx;
+    [SerializeField] private GameObject _attackStabVfx;
+    [SerializeField] private GameObject _attackHorizontalVfx;
+    [SerializeField] private GameObject _attackDownVfx;
+    [SerializeField] private GameObject _attackUpVfx;
+
     [Header("VFX 프리팹 (맵)")]
     [SerializeField] private GameObject _checkpointVfx;
 
@@ -93,6 +100,11 @@ public class EffectManager : MonoBehaviour
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
     public void PlayEnemyHit(Vector3 position) => Spawn(_enemyHitVfx, position);
     public void PlayEnemyDeath(Vector3 position) => Spawn(_enemyDeathVfx, position);
+    public void PlayAttackBasic(Vector3 position) => Spawn(_attackBasicVfx, position);
+    public void PlayAttackStab(Vector3 position) => Spawn(_attackStabVfx, position);
+    public void PlayAttackHorizontal(Vector3 position) => Spawn(_attackHorizontalVfx, position);
+    public void PlayAttackDown(Vector3 position) => Spawn(_attackDownVfx, position);
+    public void PlayAttackUp(Vector3 position) => Spawn(_attackUpVfx, position);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);

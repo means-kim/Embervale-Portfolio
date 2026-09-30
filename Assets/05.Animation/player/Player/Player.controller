@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_DownAttack
+  m_Name: DownAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -233,16 +233,16 @@ AnimatorStateMachine:
     m_Position: {x: 120, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1345978544147590774}
-    m_Position: {x: 155, y: 485, z: 0}
+    m_Position: {x: -20, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 711924278851068311}
-    m_Position: {x: 190, y: 550, z: 0}
+    m_Position: {x: 200, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8670000965778661958}
-    m_Position: {x: 225, y: 615, z: 0}
+    m_Position: {x: -20, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2897970785305342368}
-    m_Position: {x: 260, y: 680, z: 0}
+    m_Position: {x: 200, y: 590, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -286,7 +286,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_UpAttack
+  m_Name: UpAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -409,7 +409,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_HorizontalAttack
+  m_Name: HorizontalAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -483,7 +483,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_StabAttack
+  m_Name: StabAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
