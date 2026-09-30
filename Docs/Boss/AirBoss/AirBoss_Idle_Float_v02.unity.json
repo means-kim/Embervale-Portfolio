@@ -1,0 +1,376 @@
+{
+  "success": true,
+  "message": "Code executed successfully.",
+  "data": {
+    "result": {
+      "clip": {
+        "path": "Assets/05.Animation/AirBoss/AirBoss_Idle.anim",
+        "guid": "e4f303def1b4e8b499900ad08009f649",
+        "length": 1.2,
+        "sampleRate": 120,
+        "loop": true
+      },
+      "texture": {
+        "width": 4096,
+        "height": 4096
+      },
+      "sprites": [
+        {
+          "name": "AirBoss_Idle_Float_v02_00",
+          "rect": [
+            0,
+            3072,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_01",
+          "rect": [
+            1024,
+            3072,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_02",
+          "rect": [
+            2048,
+            3072,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_03",
+          "rect": [
+            3072,
+            3072,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_04",
+          "rect": [
+            0,
+            2048,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_05",
+          "rect": [
+            1024,
+            2048,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_06",
+          "rect": [
+            2048,
+            2048,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_07",
+          "rect": [
+            3072,
+            2048,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_08",
+          "rect": [
+            0,
+            1024,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_09",
+          "rect": [
+            1024,
+            1024,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_10",
+          "rect": [
+            2048,
+            1024,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_11",
+          "rect": [
+            3072,
+            1024,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_12",
+          "rect": [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_13",
+          "rect": [
+            1024,
+            0,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_14",
+          "rect": [
+            2048,
+            0,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        },
+        {
+          "name": "AirBoss_Idle_Float_v02_15",
+          "rect": [
+            3072,
+            0,
+            1024,
+            1024
+          ],
+          "pivot": [
+            512,
+            512
+          ],
+          "ppu": 24
+        }
+      ],
+      "verifiedTwoLoops": [
+        {
+          "time": 0.0375,
+          "sprite": "AirBoss_Idle_Float_v02_00"
+        },
+        {
+          "time": 0.11249999999999999,
+          "sprite": "AirBoss_Idle_Float_v02_01"
+        },
+        {
+          "time": 0.1875,
+          "sprite": "AirBoss_Idle_Float_v02_02"
+        },
+        {
+          "time": 0.26249999999999996,
+          "sprite": "AirBoss_Idle_Float_v02_03"
+        },
+        {
+          "time": 0.33749999999999997,
+          "sprite": "AirBoss_Idle_Float_v02_04"
+        },
+        {
+          "time": 0.4125,
+          "sprite": "AirBoss_Idle_Float_v02_05"
+        },
+        {
+          "time": 0.48749999999999993,
+          "sprite": "AirBoss_Idle_Float_v02_06"
+        },
+        {
+          "time": 0.5625,
+          "sprite": "AirBoss_Idle_Float_v02_07"
+        },
+        {
+          "time": 0.6375,
+          "sprite": "AirBoss_Idle_Float_v02_08"
+        },
+        {
+          "time": 0.7124999999999999,
+          "sprite": "AirBoss_Idle_Float_v02_09"
+        },
+        {
+          "time": 0.7875,
+          "sprite": "AirBoss_Idle_Float_v02_10"
+        },
+        {
+          "time": 0.8624999999999999,
+          "sprite": "AirBoss_Idle_Float_v02_11"
+        },
+        {
+          "time": 0.9374999999999999,
+          "sprite": "AirBoss_Idle_Float_v02_12"
+        },
+        {
+          "time": 1.0125,
+          "sprite": "AirBoss_Idle_Float_v02_13"
+        },
+        {
+          "time": 1.0875000000000001,
+          "sprite": "AirBoss_Idle_Float_v02_14"
+        },
+        {
+          "time": 1.1625,
+          "sprite": "AirBoss_Idle_Float_v02_15"
+        },
+        {
+          "time": 1.2375,
+          "sprite": "AirBoss_Idle_Float_v02_00"
+        },
+        {
+          "time": 1.3125,
+          "sprite": "AirBoss_Idle_Float_v02_01"
+        },
+        {
+          "time": 1.3875,
+          "sprite": "AirBoss_Idle_Float_v02_02"
+        },
+        {
+          "time": 1.4625,
+          "sprite": "AirBoss_Idle_Float_v02_03"
+        },
+        {
+          "time": 1.5375,
+          "sprite": "AirBoss_Idle_Float_v02_04"
+        },
+        {
+          "time": 1.6125,
+          "sprite": "AirBoss_Idle_Float_v02_05"
+        },
+        {
+          "time": 1.6875,
+          "sprite": "AirBoss_Idle_Float_v02_06"
+        },
+        {
+          "time": 1.7625000000000002,
+          "sprite": "AirBoss_Idle_Float_v02_07"
+        },
+        {
+          "time": 1.8375,
+          "sprite": "AirBoss_Idle_Float_v02_08"
+        },
+        {
+          "time": 1.9125,
+          "sprite": "AirBoss_Idle_Float_v02_09"
+        },
+        {
+          "time": 1.9875,
+          "sprite": "AirBoss_Idle_Float_v02_10"
+        },
+        {
+          "time": 2.0625,
+          "sprite": "AirBoss_Idle_Float_v02_11"
+        },
+        {
+          "time": 2.1374999999999997,
+          "sprite": "AirBoss_Idle_Float_v02_12"
+        },
+        {
+          "time": 2.2125,
+          "sprite": "AirBoss_Idle_Float_v02_13"
+        },
+        {
+          "time": 2.2875,
+          "sprite": "AirBoss_Idle_Float_v02_14"
+        },
+        {
+          "time": 2.3625000000000003,
+          "sprite": "AirBoss_Idle_Float_v02_15"
+        }
+      ]
+    },
+    "compiler": "roslyn"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "frame": "01",
+      "from": 0,
+      "to": 1,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old00 to old01: hands extend outward slightly; cloth subtly opens. The output must be the very small halfway opening, still extremely close to old00.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_00.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_01.png"
+      ]
+    },
+    {
+      "frame": "03",
+      "from": 1,
+      "to": 2,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old01 to old02: nearly stationary open upper-body pose; interpolate the small cloth settling and wrists without inventing new motion.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_01.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_02.png"
+      ]
+    },
+    {
+      "frame": "05",
+      "from": 2,
+      "to": 3,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old02 to old03: hands begin inward/downward return; long lower-right streamers broaden and curve further right. Place each between the two inputs.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_02.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_03.png"
+      ]
+    },
+    {
+      "frame": "07",
+      "from": 3,
+      "to": 4,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old03 to old04: subtle continuation of the broad lower-right cloth crest, hands settle inward. Tiny transition; keep upper armor fixed.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_03.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_04.png"
+      ]
+    },
+    {
+      "frame": "09",
+      "from": 4,
+      "to": 5,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old04 to old05: fingers and wrists relax inward; low streamers develop slightly fuller rightward arcs. Small halfway change.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_05.png"
+      ]
+    },
+    {
+      "frame": "11",
+      "from": 5,
+      "to": 6,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old05 to old06: rightward cloth sweep starts settling, wrists prepare return. Subtle half-motion without new folds.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_05.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_06.png"
+      ]
+    },
+    {
+      "frame": "13",
+      "from": 6,
+      "to": 7,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nSegment old06 to old07: contract the broad trailing cloth toward the more compact second reference; midway contours for every tip and hands, no abrupt collapse.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_06.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_07.png"
+      ]
+    },
+    {
+      "frame": "15",
+      "from": 7,
+      "to": 0,
+      "prompt": "Use case: identity-preserve, precise-object-edit. Production animation in-between for a 2D game sprite. The FIRST input is the exact preceding key pose A, and SECOND input is the exact following key pose B, both already on the same 1024x1024 transparent canvas. Produce ONE newly drawn halfway pose at temporal t=0.5 between A and B. This is frame interpolation by drawing, NOT a new character design, NOT a crossfade, NOT a double exposure. Keep every hard armor detail, helmet shape, face crack, shading, icy blue palette, rendering texture, finger/claw anatomy, attachment points and strip count as unchanged as possible. The rigid helmet and chest must remain at exactly their existing canvas location and size (helmet centered near x=522,y=270, tip near y=321). No camera shift, no recentering, no zoom, no global floating offset. Only hands/forearms and the flowing cloth move to positions halfway between corresponding positions in the two references; neither overshoot nor extrapolate. Carefully match each existing cloth loop, fold and tip between both images; preserve connectivity and clean singly defined contours. Frozen highlights must remain stable to prevent flicker. Maintain all existing transparent space, full body, safe margin at least 64px each side. Do not broaden the silhouette beyond the two references. Output exactly one 1024x1024 RGBA transparent PNG with no background, ground shadow, lettering, grid, VFX, or added particles. Preserve transparent holes in the cloth.\nLOOP SEAM old07 to old00: return gently toward the exact master second image. Important: interpolate the left hand from inward old07 to slightly outward old00 and each lower cloth loop from old07 toward old00. Halfway width, length, curvature. Stable head and chest so next frame can be master without a pop.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_07.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/frames/v01/AirBoss_Idle_Float_v01_00.png"
+      ]
+    }
+  ]
+}
