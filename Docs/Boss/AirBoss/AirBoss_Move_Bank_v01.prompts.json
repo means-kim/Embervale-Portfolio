@@ -1,0 +1,196 @@
+{
+  "mode": "built-in image_gen",
+  "asset": "AirBoss_Move_Bank_v01",
+  "date": "2026-09-30",
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "requestedCanvas": [
+    1024,
+    1024
+  ],
+  "prompts": [
+    {
+      "frame": "04",
+      "role": "first maintained right bank; loop entry",
+      "prompt": "Use case: identity-preserve / 2D game animation sprite. Draw ONE full-body AirBoss Move_Bank pose on a 1024x1024 true transparent RGBA canvas. Input 1 is the authoritative existing Idle master: preserve its exact identity, rigid narrow pointed metal mask with blue fissures, layered collar and chest plates, two armored arms and original claw count, icy flowing asymmetric cloth, precise blue-gray palette, detailed painted-metal texture and lighting. Preserve the master's PHYSICAL body scale: mask length about 100px, collar width about 170px, forearm and hand size unchanged. Do not enlarge, shrink, fit-to-frame, crop, or change costume. Camera faces the FRONT of the boss, even while the body banks sideways IN THE IMAGE PLANE. Movement direction is SCREEN RIGHT; cloth trails toward SCREEN LEFT, opposite the motion. This is a gentle hovering travel BANK, not a horizontal dash, not an attack. Body/core anchor stays near (512,512). Pose should show articulated lean and arm inertia, NOT a rigid rotation of an unchanged cutout. Match the original strands' number, attachment topology and icy painted texture as the cloth flows. Existing blue wrist/face glow only, no casting orb, no slash arc, no new magic ring or attack effect for ordinary movement. Transparent background and cloth holes; no scene, ground, text, diagram arrows, duplicate exposure. All visible body/cloth/glow stays inside x=72..950,y=72..950 with at least64px fully transparent on every side. Fixed canvas, no camera movement. Output one frame only at 1024x1024.\nPose 04: the torso and rigid helmet bank clockwise 24 degrees toward SCREEN RIGHT around the core anchor. Helmet center approximately (621,294), same size as in master. Leading screen-right shoulder/hand move slightly forward/right; screen-left hand hangs back with inertia. Long cloth has now swept LEFT and down-left, occupying a smooth broad fan from (120,450) toward (520,850); the high shoulder cloth also streams left. Keep the head and arms clear and the hands fully visible. This is the stable RIGHTWARD cruising pose; no attack anticipation. Important: do not keep the master's long lower cloth streaming RIGHT: redirect it to the LEFT as specified.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "02",
+      "role": "midway entry",
+      "prompt": "Use case: identity-preserve / 2D game animation sprite. Draw ONE full-body AirBoss Move_Bank pose on a 1024x1024 true transparent RGBA canvas. Input 1 is the authoritative existing Idle master: preserve its exact identity, rigid narrow pointed metal mask with blue fissures, layered collar and chest plates, two armored arms and original claw count, icy flowing asymmetric cloth, precise blue-gray palette, detailed painted-metal texture and lighting. Preserve the master's PHYSICAL body scale: mask length about 100px, collar width about 170px, forearm and hand size unchanged. Do not enlarge, shrink, fit-to-frame, crop, or change costume. Camera faces the FRONT of the boss, even while the body banks sideways IN THE IMAGE PLANE. Movement direction is SCREEN RIGHT; cloth trails toward SCREEN LEFT, opposite the motion. This is a gentle hovering travel BANK, not a horizontal dash, not an attack. Body/core anchor stays near (512,512). Pose should show articulated lean and arm inertia, NOT a rigid rotation of an unchanged cutout. Match the original strands' number, attachment topology and icy painted texture as the cloth flows. Existing blue wrist/face glow only, no casting orb, no slash arc, no new magic ring or attack effect for ordinary movement. Transparent background and cloth holes; no scene, ground, text, diagram arrows, duplicate exposure. All visible body/cloth/glow stays inside x=72..950,y=72..950 with at least64px fully transparent on every side. Fixed canvas, no camera movement. Output one frame only at 1024x1024.\nInput2 is the rightward cruise anchor. Pose02 is halfway in GEOMETRY between input1 Idle and input2 rightward cruise. Torso tilts about12 degrees to screen-right, helmet center roughly (602,270). Both hands move halfway toward cruise positions. The long LOWER cloth is in a transition through the central lower canvas: it is no longer strongly rightward as Idle, but NOT fully swept left as cruise. Keep inertia: lower tips trail behind the upper-body change; gently curl toward left below the torso. High back cloth begins pulling left. Preserve head's physical size.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png"
+      ]
+    },
+    {
+      "frame": "08",
+      "role": "cruise loop opposite phase",
+      "prompt": "Use case: identity-preserve / 2D game animation sprite. Draw ONE full-body AirBoss Move_Bank pose on a 1024x1024 true transparent RGBA canvas. Input 1 is the authoritative existing Idle master: preserve its exact identity, rigid narrow pointed metal mask with blue fissures, layered collar and chest plates, two armored arms and original claw count, icy flowing asymmetric cloth, precise blue-gray palette, detailed painted-metal texture and lighting. Preserve the master's PHYSICAL body scale: mask length about 100px, collar width about 170px, forearm and hand size unchanged. Do not enlarge, shrink, fit-to-frame, crop, or change costume. Camera faces the FRONT of the boss, even while the body banks sideways IN THE IMAGE PLANE. Movement direction is SCREEN RIGHT; cloth trails toward SCREEN LEFT, opposite the motion. This is a gentle hovering travel BANK, not a horizontal dash, not an attack. Body/core anchor stays near (512,512). Pose should show articulated lean and arm inertia, NOT a rigid rotation of an unchanged cutout. Match the original strands' number, attachment topology and icy painted texture as the cloth flows. Existing blue wrist/face glow only, no casting orb, no slash arc, no new magic ring or attack effect for ordinary movement. Transparent background and cloth holes; no scene, ground, text, diagram arrows, duplicate exposure. All visible body/cloth/glow stays inside x=72..950,y=72..950 with at least64px fully transparent on every side. Fixed canvas, no camera movement. Output one frame only at 1024x1024.\nInput2 is the rightward cruise anchor. Pose08 is a tiny maintained-cruise variation of input2. Keep EXACT input2 helmet/collar/body lean and canvas location, arm lengths, and body size. Do not move the head toward the master position. Change only a subtle cycle of cloth ripple and wrist flex: lower LEFT flowing cloth tips lift upward by about18 pixels, high rear loops ease downward by8px, wrists flex inward by5px. All cloth remains LEFT trailing. Keep right hand within x950 and lower tips within y950. Keep colors identical to input2, avoid adding loops or making the costume fuller. Tiny subtle change, no overshoot.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png"
+      ]
+    },
+    {
+      "frame": "12",
+      "role": "deceleration start",
+      "prompt": "Use case: identity-preserve / 2D game animation sprite. Draw ONE full-body AirBoss Move_Bank pose on a 1024x1024 true transparent RGBA canvas. Input 1 is the authoritative existing Idle master: preserve its exact identity, rigid narrow pointed metal mask with blue fissures, layered collar and chest plates, two armored arms and original claw count, icy flowing asymmetric cloth, precise blue-gray palette, detailed painted-metal texture and lighting. Preserve the master's PHYSICAL body scale: mask length about 100px, collar width about 170px, forearm and hand size unchanged. Do not enlarge, shrink, fit-to-frame, crop, or change costume. Camera faces the FRONT of the boss, even while the body banks sideways IN THE IMAGE PLANE. Movement direction is SCREEN RIGHT; cloth trails toward SCREEN LEFT, opposite the motion. This is a gentle hovering travel BANK, not a horizontal dash, not an attack. Body/core anchor stays near (512,512). Pose should show articulated lean and arm inertia, NOT a rigid rotation of an unchanged cutout. Match the original strands' number, attachment topology and icy painted texture as the cloth flows. Existing blue wrist/face glow only, no casting orb, no slash arc, no new magic ring or attack effect for ordinary movement. Transparent background and cloth holes; no scene, ground, text, diagram arrows, duplicate exposure. All visible body/cloth/glow stays inside x=72..950,y=72..950 with at least64px fully transparent on every side. Fixed canvas, no camera movement. Output one frame only at 1024x1024.\nInput2 is the rightward cruise anchor. Pose12 begins DECELERATION after input2 cruise: torso has partly straightened to about18 degrees rightward, helmet center around (635,270), anchored core unchanged. Hands relax a little back toward Idle. LEFT trailing cloth still has forward momentum and continues left, its tips just start drooping downward, not yet back to the right. Keep cloth compact inside margin; same full-body physical scale. This is a recovery pose, not a new attack.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png"
+      ]
+    },
+    {
+      "frame": "02",
+      "attempt": 2,
+      "role": "corrected early entry",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit this exact 1024x1024 transparent Idle sprite into one EARLY rightward-movement transition pose. Maintain its exact current physical scale, identity, mask design, claw anatomy, palette, canvas registration and transparent margin. Torso leans modestly to SCREEN RIGHT by only12 degrees. Helmet center should move from about(522,270) to about(600,280), NOT farther right. Lower chest/core remains near(520,500). Both hands drift a little right with shoulders, NOT extended into a wide cruise pose. The long cloth that currently flows down-right is beginning to trail left: most lower strands hang DOWN near the center of the canvas, with their tips curling gently toward LEFT; do not fully sweep them sideways. Back shoulder loops on screen-left stay fairly close to current shape. This is halfway between stationary Idle and full rightward bank, with a visible more-upright body and drooping central cloth. Keep the same narrow mask at same size (~100px long), original collar and armor silhouette. ONE clear single body, not crossfaded. 1024x1024 RGBA transparent, all pixels within x72..950 and y72..950. No orb, attack effect, shadow, text, background, zoom, or costume redesign."
+    },
+    {
+      "frame": "15",
+      "role": "final near-idle settle",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Create ONE last settling frame of a rightward-movement animation, immediately BEFORE returning to this attached Idle master. Use this exact master sprite as the edit target and preserve design, scale, camera, mask, rigid armor, finger count, attachment topology, blue-white palette and lighting. Output one1024x1024 transparent fullbody sprite. Body is almost identical to Idle, only a tiny 2-degree residual lean toward SCREEN RIGHT, mask center near(530,270) rather than522,270. Hands and wrists are within about8pixels of the original positions. Long lower cloth has swung back to the original DOWN-RIGHT flow, but its tips are about12pixels LEFT of their original Idle positions and a few folds lag slightly, ready to settle into this exact master next. This is a distinct recovery pose, not the exact same picture and not a large new sweep. Keep the high left shoulder loops nearly unchanged. Outer64px fully transparent. No added attack orb, slash, glow ring, floor, text, background, or wholecanvas translation."
+    },
+    {
+      "frame": "12",
+      "attempt": 2,
+      "role": "deceleration, more upright and safe margin",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit this exact Idle master into one DECELERATING RIGHTWARD TRAVEL pose of the same hovering boss, beginning to stand upright after a rightward bank. Exactly1024x1024 transparent RGBA. Keep physical proportions, original mask100px long, collar170px wide, both arms and claw sizes, armor pattern, blue-gray palette, lighting and cloth attachments. The torso leans 18degrees clockwise toward screenRIGHT, with mask center near(620,280), chest core near(560,450), lower core near(510,550). DO NOT move head beyondx640. Arms relaxed and close enough that rightmost fingertip remains atx850 orless, not extended horizontally. LONG LOWER CLOTH now trails SCREEN LEFT from the lower torso, flowing down-left and curling inward; its outline is constrained betweenx170and700,y500and900, NOTdownright like the master. High left back cloth also flows left, withinx150..570,y120..470. This gives a visible rightward-body / leftward-cloth deceleration silhouette. Preserve natural flowing bends, no straight rigid triangles. There must be generous clear space around the full body: all pixels inside x100..920,y100..920. Do NOT resize the whole character to fit, solve by cloth bends and arm articulation. No background, orb, attack ring, grid, text, shadow or double exposure. Single hand-painted sharp pose only."
+    },
+    {
+      "frame": "05",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.25 from A toward B: The upper-left cloth starts to settle; the lower-left tips lag behind.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "06",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.5 from A toward B: The upper-left cloth has a modest rising ripple while lower tips are between the endpoints, moving upward.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "07",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.75 from A toward B: Approach B's cloth crest and relaxed wrists. Keep head registration halfway without jitter.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "09",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.25 from A toward B: Return half-cycle: upper-left cloth begins curling back upward while low cloth tips start drifting down. Do not reverse-copy a frame; draw the delayed wave.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "10",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.5 from A toward B: Return half-cycle middle: lower cloth continues downward with inertia, upper loops recover towardB. Keep folds distinct from the outward halfway pose.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "11",
+      "role": "cruise loop inbetween",
+      "prompt": "Create ONE in-between game animation sprite. Input1=A and input2=B are two phases of the SAME rightward-banked cruising pose. Input3 is only the Idle identity/design reference; do not return to its upright pose. Output a precisely registered 1024x1024 RGBA transparent cell. Maintain the head, collar and chest physical scale, rigid armor design, finger/claw anatomy, painted icy texture, existing light/color and body lean of A/B. Torso stays banked to screenRIGHT throughout. Cloth keeps flowing LEFT. Do NOT straighten the torso or shift/zoom the whole body. This is one distinct flowing intermediate DRAWING, not opacity mixing, not duplicated outlines, not a pasted rotated cutout. No spell orb, attack slash, ground, new VFX, new cloth branches or costume. All pixels must remain INSIDE BOTH reference envelopes, with at least64px transparent margin, especially the right hand and bottommost tips. Never extend any tip farther toward the canvas edge than the reference with the larger margin. Output one full-body frame only, no text/grid/background.\nAt temporal fraction 0.75 from A toward B: Final loop bridge approaching B (pose04). Almost match its body and hands, with a small trailing cloth difference so the next frame can be04 smoothly. Do not return to uprightIdle.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "01",
+      "role": "entry transition",
+      "prompt": "Draw ONE animation in-between with precise character consistency. Input1 is preceding pose A, input2 is following pose B, input3 is the original identity master. Interpolate physical pose/shape by DRAWING, no crossfade, no double outline. Output1024x1024 transparent RGBA. Keep the same mask dimensions, collar size, layered armor, claw count, blue-gray painted textures and lighting. No camera change, no resize, no fit to silhouette. Interpolate head/torso POSITION as well as inclination, so it is visibly partway between A and B; do not simply clone the more dramatic pose. Arms/hands and every cloth attachment, bend, tip also move partway. Preserve the original number of main strands. Outer64px absolutely transparent, all parts safely inside x80..944 andy80..944. No orbs, attack arcs, particles, background, text, floor, or grid.\nTemporal fraction0.5 from A toward B. First small acceleration into SCREEN RIGHT travel. Helmet halfway aroundx560,y270; long lower cloth still mostly down-right but starts to curl towardcenter. Tiny lean6degrees; not yet the big left-streaming cruise.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_00.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_02.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "03",
+      "role": "entry transition",
+      "prompt": "Draw ONE animation in-between with precise character consistency. Input1 is preceding pose A, input2 is following pose B, input3 is the original identity master. Interpolate physical pose/shape by DRAWING, no crossfade, no double outline. Output1024x1024 transparent RGBA. Keep the same mask dimensions, collar size, layered armor, claw count, blue-gray painted textures and lighting. No camera change, no resize, no fit to silhouette. Interpolate head/torso POSITION as well as inclination, so it is visibly partway between A and B; do not simply clone the more dramatic pose. Arms/hands and every cloth attachment, bend, tip also move partway. Preserve the original number of main strands. Outer64px absolutely transparent, all parts safely inside x80..944 andy80..944. No orbs, attack arcs, particles, background, text, floor, or grid.\nTemporal fraction0.5 from A toward B. Further acceleration: head midway nearx643,y275. Long lower cloth now halfway sweeping downLEFT from near-center. Intermediate body lean betweenA andB. Clear full-body silhouette.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_02.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_04.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "13",
+      "role": "exit transition",
+      "prompt": "Draw ONE animation in-between with precise character consistency. Input1 is preceding pose A, input2 is following pose B, input3 is the original identity master. Interpolate physical pose/shape by DRAWING, no crossfade, no double outline. Output1024x1024 transparent RGBA. Keep the same mask dimensions, collar size, layered armor, claw count, blue-gray painted textures and lighting. No camera change, no resize, no fit to silhouette. Interpolate head/torso POSITION as well as inclination, so it is visibly partway between A and B; do not simply clone the more dramatic pose. Arms/hands and every cloth attachment, bend, tip also move partway. Preserve the original number of main strands. Outer64px absolutely transparent, all parts safely inside x80..944 andy80..944. No orbs, attack arcs, particles, background, text, floor, or grid.\nTemporal fraction0.333 from A toward B. Deceleration: straighten body one third of the way towardB; helmet center approximatelyx650,270. Lower cloth still streams LEFT but trails downward more. Wrists start settling inward. Do not stay atA's head position.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_12.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_15.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "14",
+      "role": "exit transition",
+      "prompt": "Draw ONE animation in-between with precise character consistency. Input1 is preceding pose A, input2 is following pose B, input3 is the original identity master. Interpolate physical pose/shape by DRAWING, no crossfade, no double outline. Output1024x1024 transparent RGBA. Keep the same mask dimensions, collar size, layered armor, claw count, blue-gray painted textures and lighting. No camera change, no resize, no fit to silhouette. Interpolate head/torso POSITION as well as inclination, so it is visibly partway between A and B; do not simply clone the more dramatic pose. Arms/hands and every cloth attachment, bend, tip also move partway. Preserve the original number of main strands. Outer64px absolutely transparent, all parts safely inside x80..944 andy80..944. No orbs, attack arcs, particles, background, text, floor, or grid.\nTemporal fraction0.667 from A toward B. Late recovery: body two thirds of the way upright, helmet center approximatelyx590,270. Most lower cloth has swung down through the CENTER, gently curling towardRIGHT to approachB next. Do not remain swept fullyleft or suddenly cloneB.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_12.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_15.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    },
+    {
+      "frame": "09",
+      "attempt": 2,
+      "role": "cruise safety correction",
+      "prompt": "Edit ONLY the first attached AirBoss Move_Bank frame 09, not a new design. Transparent RGBA background. Keep exact canvas composition, character size, mask/head position, rigid armor, wrist glow, hands and all lower flowing cloth exactly as they are. Only redraw the very top upper-left rear cloth crest: bend its free tip down and slightly left, bringing its topmost edge inward by approximately 35 pixels on a 1024 canvas, so ALL glow, faint edge alpha and fabric lie within x=80..944,y=90..935. This is frame09 of a rightward floating bank loop; head stays right, cloth streams left, front-facing mask. Preserve the long shape of the crest and continuous cloth attachment. No cropping, whole-character scaling, whole-image translation, background, text, added particles, attack effects or duplicated outlines. The second reference is neighboring frame08 and the third is the original master for the same material/design/body scale. First reference pose must remain the controlling pose. Deliver a single square 1024x1024 transparent sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_09.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    }
+    ,
+    {
+      "frame": "09",
+      "attempt": 3,
+      "role": "cruise intermediate between08and10, safe cloth turn",
+      "prompt": "Create exactly ONE new transparent AirBoss sprite, intermediate frame 09 between attached frame08 (image1) and frame10 (image2). Image3 is the approved Idle master for identity/material/physical scale. Maintain the precise same rightward-leaning cruise body, rigid mask position, body proportions, claws, armor, bright wrist cracks as images1 and2. Interpolate only the soft cloth ripple and slightly the wrists. The upper-left rear cloth curl is modestly lifted from image1 toward image2; the lower-left tail tips curl upward, NEVER reaching down below the lower tips in image1. Keep all soft glow and tiny edges well inside a 1024x1024 canvas rectangle x=100..940,y=105..915. In particular the lowest dangling tip must curve upward and remain above y=915. Full character at the same scale with the same diagonal cruise axis. Camera stays still. Real clean alpha background, no text, no background, no guides, no duplicated limbs, no added attack magic. Do not scale down the character or translate the whole character. Preserve the master’s crisp fine silver-white ice textile and dark metallic armor, do not thicken the strands. This is a subtle intervening pose in an 8frame continuous movement loop, not a different action. Output one square 1024x1024 RGBA sprite.",
+      "referenced_image_paths": [
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_08.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/move/frames/v01/AirBoss_Move_Bank_v01_10.png",
+        "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ]
+    }
+  ]
+}
