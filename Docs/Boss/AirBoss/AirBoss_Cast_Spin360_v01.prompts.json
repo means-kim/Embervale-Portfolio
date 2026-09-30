@@ -1,0 +1,310 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "requestedSize": [
+    1024,
+    1024
+  ],
+  "transparentBackground": true,
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "note": "Reference paths record the paths supplied at each call. Frame paths were rebuilt during QA; historical generated versions are preserved in source/v01 as attemptNN and can be normalized with the recorded build method. 00 is the unchanged master; other frames are individually generated.",
+  "records": [
+    {
+      "frame": 5,
+      "attempt": 1,
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. FRAME05, exact 90-degree YAW PROFILE, face points to SCREEN RIGHT. We see the character's anatomical RIGHT side. Absolutely NOT front view or a small three-quarter turn. Narrow edge-on torso, one visible side of the long downward-pointing mask, only near cyan slit visible. Mask projects toward screen right; its top stays at original y220. Collar seen from side as a layered thick rim, torso plates are foreshortened naturally, not scaled. Near RIGHT arm elbow is flexed, large claw hand down/forward near (585,475); far LEFT arm partially occluded, no extra hand in middle. Strong asymmetric main fabric loop from near right shoulder streams behind the turn toward SCREEN LEFT around y150..400; lower ribbons sweep horizontally LEFT then curl down within x120..870, bottom y900. Fabric motion follows torso late. One subtle narrow cyan glint behind moving wrist, no broad ring. New drawing of exact side anatomy at master scale.",
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt01.png"
+    },
+    {
+      "frame": 8,
+      "attempt": 1,
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. FRAME08, exact 180-degree YAW, FULL REAR VIEW, boss back facing camera. No face, NO glowing eyes, NO silver pointed front mask painted onto back, NO front breastplate design visible. Back of head is a modest dark-silver armored hood/crown matching material, partly nested in continuous tall segmented collar. Show back of the circular collar and understated dark overlapping back plates continuing known armor; do not invent a new spinal crystal, emblem, spikes or glowing core. Maintain head top y220 and same scale as master. Both elbows slightly away from waist; see backs/side planes of the large claws at y490. Two same original arms only. Rear shoulder fabric attachments read clearly, major upper loop now on SCREEN RIGHT (because rear view reverses visible sides naturally), not duplicated symmetrically. Long tattered fabric sweeps around waist to SCREEN RIGHT with rotation then trails in curved lower ribbons, all inside x100..924 and y110..925. Let center upper back/collar be visible through parted cloth so rear-facing posture is unmistakable. Tiny soft cyan curved glint near outer trailing fabric, no orb or blast.",
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame08_attempt01.png"
+    },
+    {
+      "frame": 11,
+      "attempt": 1,
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. FRAME11, exact 270-degree YAW PROFILE, face points to SCREEN LEFT. We see anatomical LEFT side, having passed through back view and still turning the same direction. This must be drawn as the opposite side of the same asymmetrical character, NOT a horizontal mirror of profile05. Narrow side silhouette with single near cyan face slit, downward-pointing silver mask projecting left, top around y220. Near LEFT arm flexed and sweeps out slightly, claw hand near (450,485); far RIGHT arm partly hidden behind torso. Tall right-shoulder fabric loop is on the FAR SIDE, partially occluded by collar/torso; trailing fabric flows toward SCREEN RIGHT and wraps around back, then curls downward with original long thin ends. Do not paste a giant high left loop as in front view; respect depth and occlusion. Same head/torso scale and height, clear side view, no front-facing chest. A short fading cyan curve follows moving hand and adjacent cloth, body stays upright. All edges inside safe border.",
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame11_generated.png"
+    },
+    {
+      "frame": 5,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_05.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "EDIT FIRST image, the existing RIGHT-FACING SIDE profile. Second image is original front master for armor size/anchor. Keep exact side view and materials, DO NOT return to front. Critical correction: rebuild position of head/collar/torso 95 pixels LEFT on a 1024 canvas, at same body size. Collar center must sit x520 y285, not x615. Upright torso axis x520, mask profile tip can project to x590. Body height and headtop y220 unchanged. Preserve the original master scale and near/right elbow bend and giant claws. Rear flowing fabric stays loosely leftward, compressing/wrapping itself naturally, no cropping. Curl lowest pointed ribbon UP into y880..910 instead of y970. All cloth/glow safely inside x90..920,y90..920, transparent around. NO global resize, no whole canvas reframe. Single full-body sprite1024square true RGBA. Keep other details, side slit, irregular asymmetric fabric and tiny wrist glint.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt02.png"
+    },
+    {
+      "frame": 8,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame08_generated.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "EDIT FIRST image, rear view of this boss, second is identity/scale master. Preserve unmistakable REAR posture, no eyes, no pointed frontmask, no chest gem. Keep head/collar/torso/arms at EXACT SAME SIZE and same canvas position. Only repair the far SCREEN RIGHT cloth outer loop and trailing ribbon ends: bend outer fabric loops inward so all content is inside x100..915 and y105..910 on1024canvas. The rightmost wisps currently too near boundary; curve them leftward locally, do NOT scale entire boss, do NOT crop, do NOT translate entire drawing. Preserve high loop on screenright, irregular holes, flowing bluewhite torn fabric, same hands/backplates and detailed style. No new effects. Single1024square true transparent RGBA with90px emptyborder.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame08_generated.png"
+    },
+    {
+      "frame": 1,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME01, first anticipation just after Idle. Almost FRONT FACING, just 5degrees tiny yaw so nose faces slightly SCREEN LEFT preparing clockwise-to-right spin. Body remains centered upright at master position and scale. Both elbows begin bending slightly inward, hands move only 20pixels toward waist from master, same spread crooked claws. Cloth high loop still upperLEFT like master but tips pull slightly toward right in anticipation, lower ribbons remain hanging lowerRIGHT. Make a subtle coherent new drawing, not dramatic pose. Head/collar size and location exactly same as master. No added glow trails.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame01_generated.png"
+    },
+    {
+      "frame": 2,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME02, maximum SMALL counterwindup before spin. Mostly FRONT with mask angled 12degrees to SCREEN LEFT, shoulders twisted slightly opposite upcoming right-facingturn. Both elbows bend toward waist, claw hands nearer x390 and660 at y470. Chest still visibly same original center plates. Body stays centered upright, masterheadtop220. Tall upperLEFT cloth loops draw nearer to back; lowercloth stretches to SCREEN RIGHT with curvedtips ending y890. Fabric gathers for twist without becoming tube, retains holes and thinraggedstrands. Keep large originalclaws/armorscale. No effect arc yet.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame02_attempt01.png"
+    },
+    {
+      "frame": 15,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME15 final very-near-IDLE recovery at FRONT facing, full360yaw complete. Match master mask, collar, armoredtorso and arms positions almost exactly. Both hands relaxed back into masteropenclawpose. Only residual small cloth movement: high LEFT loops mildly settle 10px lower, lowerRIGHT thinribbons curl tips 10px left, preserve originalbody scale and center. Clearly recognizable originalIdle not alternativecharacter. No effect arc, no glow burst. New subtle settlingdrawing, transparent canvas and safe borders.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame15_generated.png"
+    },
+    {
+      "frame": 12,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_11.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME12, returning from LEFT-FACING SIDE toward front, about300degrees yaw. Draw a FRONT THREE-QUARTER view face angled SCREEN LEFT about60degrees awayfromfront; one cyan slit stronger and far slit only barely visible. Second image is preceding profile11, continue SAME rotation toward FRONT now. Chestplates begin visible, far RIGHT arm becomes visible to screenright of torso. NearLEFT claw sweeps outward/down near x390y495, otherclaw near x655y500. Collar centerx520y285 and headtop220. Upper RIGHT-shoulder fabric loop rotates from behindtoward SCREEN LEFT but is presently mostly behind head with topnearx590 y145; long lower cloth trails SCREEN RIGHT curvingdowninward. Exactmaster armorscale andpointedmaskdesign. Slim fading cyan wristglint.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame12_generated.png"
+    },
+    {
+      "frame": 13,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_11.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME13, near-front THREE-QUARTER return, about330degreesyaw: face angles slightly SCREEN LEFT only30degreesawayfromfront. Same spin progressed beyondleftprofile reference2, not samepose. Most originalfrontchestvisible, both original cyan slits reappear with properforeshortening. Headtop220, collarcenter520,285; uprighttorso. Both hands unfolding outward toward masterIdle positions, nearhandx340 y490 farhandx710 y490. High fabricloop now emerging upperLEFT ofhead again, lowerfabriccontinues trailing SCREEN RIGHT due toinertia. Trailingclothretainsholesandoriginalraggedthinends, tips endnear890. Very faint short wristmotionstreak dying out. Frontviewbodyidentity mustclearlymatchmaster.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame13_attempt01.png"
+    },
+    {
+      "frame": 9,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_11.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME09, yaw210degrees, rearTHREE-QUARTER after fullrear reference2 toward leftprofile reference3. Still mostly seeing BACK armor, with character's LEFT shoulder now nearer viewer and mask facing AWAYtoward SCREEN LEFT, no frontalface and noeyes. Partial side edge ofsilvermask onlybeyondfarleftcollar ifvisible. Asymmetric tallfabricloop stays SCREEN RIGHT behind far shoulder, longends streamingright buttwistingaroundlowerback. Collarcenterx520 y285, headtop220. NearLEFT claw moves tox405y500, farRIGHTclaw partiallyhidden nearx680y475. Preserve rearheadroundedarmoredshellandbackplatesfromreference2, neither frontchestgem nornewbackjewels. Small cyanmotioncurve by movingarm, not fullring. Body same sizeas master; clothbottomcurlabove910.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame09_generated.png"
+    },
+    {
+      "frame": 10,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_11.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME10, yaw240degrees, REAR-SIDE THREE-QUARTER approaching leftprofile. Facepoints SCREEN LEFT but turned30degreesAWAYfromcamera, thus mostly back andnearLEFTshoulder. NO visible frontchest, front eye shouldbehidden by mask side plane. One silver side edge ofpointedmaskpeeksbeyondcollaronleft. NearLEFTarm flexed, claw nearx390y495, farRIGHTarmmostlyoccluded. Continuetransition between rear reference2 and leftprofile reference3. Upperfabricloop onfar RIGHT behindshoulder, openraggedcurvesstreamscreenright; thinlowerendscurvebackleftundercenterandendabove910. Keep headtop220, collarcenter520y285 andtrueverticalaxis, no bodytilt/shrink. Thin cyan glint trailing nearwrist as reference3.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame10_generated.png"
+    },
+    {
+      "frame": 5,
+      "attempt": 3,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt02.png"
+      ],
+      "prompt": "Make ONE transparent sprite matching this boss. FIRST reference establishes exact scale and body anchor. SECOND reference establishes right-facing side appearance and cloth inertia, but its TORSO IS TOO FAR TO THE RIGHT: correct that. Design a fresh right-facing90degree vertical-axis profile, standing upright hovering with NO sideways translation. On1024canvas, circular COLLAR CENTER mustbe(520,285), shoulder centered(520,335), hipaxis(520,565), headtop(550,220), masktip(590,330); headshouldnotbe at x650. At1254outputmultiplythese positionsby1.225. Near bigclawfrontofbody at(570,495), elbow(520,430). Keep EXACTmaster armor/head/hand SIZE (head~100pxtall), DO NOT shrinkbody. Place this rigidbody onverticalcentralaxis. Rebuild flowing asymmetricclotharoundit: highest loopbehindshoulderLEFT atx330y145, broadwispstoLEFT assecondref, lowest longendscurl atx585..720 y875..910. Allalpha/glowinside90pxborder. Onlyonevisiblecyaneyeslit, elongated originalpointedmask projectsright, sidecollar layeredrim, farhandoccluded, nofront-facingchest. This is a sprite of the same boss in true side view with bodyoncanvascenter, not anillustrationbalancedbycloth. Retaincrispiceclothtextureand originaldarkplatedarmor. Tiny wristglint. NOmirror, nocanvasroll,nobackground,text orshadow. True1024squaretransparentRGBA.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt03.png"
+    },
+    {
+      "frame": 6,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt02.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME06, yaw120degrees REAR-SIDE THREE-QUARTER. Rotate past RIGHT-FACING profile reference2 toward REAR reference3, back facing viewer more than front. Face pointsSCREEN RIGHT and30degreesAWAYfromviewer. No visiblecyaneye orfrontchestgem; maskonlyonesilverouteredgeatright. Show anatomicalRIGHT shoulder nearest, darkSIDE-BACK platesandrear collar continuingreference3. One dominantnearclaw atx595y500, farLEFTarm largelyoccluded. CRITICALCOLLARCENTER(520,285), armoredtorsocenterx520, headtop220, doNOTcopy lateralrightshift ofref2. Samebody SIZEasmaster. Fabric flowingLEFT fromrightshoulder wrapsaround behind as turn proceeds, mainupperloopvisible behindnearshoulder towardupperLEFT, lowerfabriccurlsacross lowerbodytowardRIGHT endinginsidey900. Tiny wristglint. Depth/occlusionmustclearlyshowpastsideintoREAR.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame06_generated.png"
+    },
+    {
+      "frame": 7,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt02.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME07, yaw150degrees mostly REAR THREE-QUARTER just before fullback ref3. BosslookingAWAY towardSCREEN RIGHT only30degreesoffpureback. Show BACKOFHEADas modestdarkarmoredhood, noeyesorfrontmask, nofrontchest. Clearly rearsegmentedcollarandbackplatesasreference3 foreshortened. NearRIGHT shoulder isscreenRIGHT, farLEFT shoulderleftslightlynarrower. Same originalbigclaws nowseenfrombehindand sides, nearclawx655y510, farclawx390y485. Collarcenter520y285 headtop220, masterbodySIZE. Highrightshoulderfabricloop movingtoUPPERRIGHT behindboss, lowerfabricwrapsacrossbackwithtornlongendsflowingRIGHT endingy890..910. Create transitionofasymmetricclothfromleft trailingprofiletofullbackrightflow, notfrontalmasterpose. Shortsmallcyanstreakalongmovingcloth only.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame07_attempt01.png"
+    },
+    {
+      "frame": 5,
+      "attempt": 4,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt03.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit ONLY the CLOTH of FIRST image. Keep all existing armor, head, collar, arm and hand pixel position and scale. Keep exact RIGHT-facing side view. Second image is identity master. Upper tall fabric loop: fold its top inward/down about60px, so highest edge is at least120px below canvas top. Bottommost trailing fabric: curl its entire final pointed end UP about120px to finish at least130px above canvas bottom. Do NOT cut cloth or fade it to hide edges; redraw natural folded ribbon ends. Do not zoom, shrink boss, crop, recenter or change the pose. Retain cloth texture, colors, pointed silver mask, cyan slit and tiny wrist glint. True transparent square RGBA, one sprite.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame05_generated.png"
+    },
+    {
+      "frame": 13,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame13_attempt01.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit FIRST image returning toward front during vertical-axis spin. Second image is original design/scale. Preserve head, collar, torso, arms and hands at exact same size and position. Keep face mildly angled toward screen LEFT. ONLY correct rightmost and bottommost fabric loops: bring the outer right edge80px inward and curl bottom tips80px upward, leaving a full120px clear border on1254canvas. Do not shrink body or entire image, no crop. Upper left tall loop retains original design but its top can fold25px down for extra clearance. Preserve original holes, fine ragged flowing cloth and subtle cyan wrist trail, no new ornament. One transparent square RGBA sprite.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame13_generated.png"
+    },
+    {
+      "frame": 3,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt03.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME03: Rotation START, yaw30degrees from FRONT toward SCREEN RIGHT. Still mostly frontal with both cyan mask slits visible, right-pointing mask slight foreshortening, front chest plates visible. It is between reference1 front and reference2 right side, substantially MORE FRONT than reference2. Both hands drawn closer to waist, claws near (400,475) and(670,490). Upright body and collarcenter remain near(520,285); master same armor size. Shoulder cloth starts spiraling to LEFT, high loop upperLEFT, lower ribbons curve right then back under torso. Tiny cyan motion glint starting at near wrist only. Keep fabric ends at least110px from canvas edges, end belowbody aroundy880. Do not inherit tallcloth too near edges in secondreference.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame03_attempt01.png"
+    },
+    {
+      "frame": 4,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame05_attempt03.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME04: yaw60degrees from FRONT toward SCREEN RIGHT, clearly a FRONT-SIDE THREE-QUARTER, halfway between frontal chest and side reference2. One near cyan eye bright, far eye mostlyhidden; silver pointed mask projects right. Near anatomical RIGHT shoulder/arm in front, far LEFT shoulder and hand partially occluded; visible narrow strip of original frontchest, NOT rear. Keep collarcenter(520,285), headtop220, original armor size and upright body. Near bent claw at(585,490), far claw at(660,460) partly hidden. Asymmetrical upper cloth loops strongly trail LEFT but lower ribbons continue swinging right with inertia. All cloth ends curl well inside110px border, bottomtip y895. Small curved cyan wristglint, no broad halo. New intermediate pose, not copy.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame04_attempt01.png"
+    },
+    {
+      "frame": 14,
+      "attempt": 1,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame13_attempt01.png"
+      ],
+      "prompt": "Use-case: identity-preserve. Make ONE full-body game sprite frame for Cast_Spin360. FIRST reference is locked front Idle master, identity/scale/material authority. Other references are neighboring poses if supplied. Rotate character in 3D around its UPRIGHT VERTICAL BODY AXIS, not roll in image plane; same fixed camera, no orbiting camera or tilt. Preserve original long pointed silver cracked mask, cyan slits where visible, circular high segmented collar, dark layered ice armor, exact large claw-hand construction, asymmetric torn icy fabric and attachment topology. Detailed crisp painterly rendering matches master. No new ornament, no legs, no horns, no weapons. Keep original HEAD HEIGHT and body size: in a 1024 canvas mask/head top around y=220, head height around100, collar center x=520 y=285, armored torso ends around y=630. Fixed center axis x=520, upright; no flying sideways, no rising/dropping, no body shrinking. Cloth can swirl and wrap with spin inertia but all tips curl inside x=90..934, y=90..934 with at least 80px fully transparent border including glow. 1024x1024 true transparent RGBA. No background, ground shadow, text, labels, grid, arrows, frame, vignette, mirror copy or extra boss. Master's high loop is attached to character's anatomical RIGHT shoulder (screen LEFT in front, screen RIGHT in rear), and the long trailing fabric follows rotation, not screen-fixed. No solid circular spell disk, no orb, no explosion. Only a small thin cyan curved motion glint along the moving forearm/cloth if requested. \nFRAME14: FULL FRONT, completed one vertical-axis360turn, beginning final settling to Idle. Match master HEAD, COLLAR and TORSO exactly at original location and scale. Both arms open almost to Idle, hands slightly inward and wrists turning to relax. Upperleft asymmetrical fabric loop has reached original side and still sways20px wider left from rotation; lower right fabric streams only slightly farther right than master but twists inward at tips. This is AFTER reference2's near-front return, no threequarter face any more. Short wristtrail nearly vanished, just faint residual blue at wrist, noarc spanningtorso. Preserve originaldesign and tightmasterbodygeometry, nozoom. Tips all inside x100..915 y100..910.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame14_generated.png"
+    },
+    {
+      "frame": 2,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame02_attempt01.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_01.png"
+      ],
+      "prompt": "Edit the FIRST image, the anticipation pose. Preserve armor, pointed mask, collar, bent arms, claw hands and their exact positions and size. Second is master and third preceding frame. ONLY reshape the bottommost long cloth tips: curl their last80pixels upward so all bottom fabric ends at least130pixels above canvas bottom on1254square. Preserve flowing rightward gesture and ragged holes, no cut or fade to hide edges. Keep uppercloth and body intact. Keep entire boss original scale, no crop, no recenter, no zoom. Same detailed painterly style, original iceblue texture, transparent square RGBA.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame02_attempt02.png"
+    },
+    {
+      "frame": 7,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/source/v01/frame07_attempt01.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png"
+      ],
+      "prompt": "Edit FIRST image only in CLOTH outer ends. Preserve its rear threequarter view before pure rear thirdimage, exact same head, collar, torso, armor and both hands. No eyes or front mask. Same body pixel size and anchor, don't shrink or recenter. Curl rightmost upper fabric edge about70pixels LEFT. Curl long bottom-right trails about130pixels UP and70pixels LEFT, inward toward body, leaving at least120pixels clear edge on a1254canvas. Keep ragged holes and several separated flowing ribbon tips, no cropping/fading. Center back remains clear and rear silhouette unmistakable. Keep small cyan wristglint and bluewhitecloth. Transparent square RGBA.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame07_attempt02.png"
+    },
+    {
+      "frame": 3,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_03.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit FIRST sprite on exactly same square canvas. Second is originalmaster. ONLY tuck highest cloth loop DOWN 40pixels and inward toward shoulder, with locally curled tip. Keep rest of body, face, collar, arms, claws, cloth and their position and SIZE exactly as first image. Preserve front-right threequarter yaw. Do not zoom or reframe. Leave100pixels minimum empty transparent space above top cloth and below bottom tips on1024canvas; slightly curl lower pointed tip upward if needed. True transparent square sprite, no text, no new effect.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame03_generated.png"
+    },
+    {
+      "frame": 4,
+      "attempt": 2,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_04.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Edit FIRST right-facing threequarter sprite, second is master. Preserve ALL armor/head/arms/hands and body pixel scale and position. Only fold uppermost pointed cloth strand DOWN80pixels, and curl the bottom trailing tips UP120pixels. Shorten their vertical reach by BENDING cloth locally, never cropping or scaling entire image. Keep clear110pixels transparent border on1024canvas, includingglow. Preserve exact pose, original mask and cyaneyeslit, tinywristglint, flowing torn cloth extended to left, same texture and folds. The torso must not enlarge, shift or shrink. Transparent square RGBA.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame04_generated.png"
+    },
+    {
+      "frame": 7,
+      "attempt": 3,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_07.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_08.png"
+      ],
+      "prompt": "Edit FIRST rear-threequarter sprite. Second is master identity and third next fullrear. Preserve all body anatomy, positions and size, rear head and no face. The upper RIGHT cloth loop currently reaches too far right. Fold whole outermost edge of this loop LEFT80pixels, inward toward shoulder, keep its holes and ragged edge. Curl bottom tip UP45pixels. Target all wisps and glow inside x100..910 andy105..910 of1024canvas. No zoom, shrinking, recentering or cropping. Keep right hand and both arms unchanged. Same original detailed iceblue ragged cloth, tiny cyanwristglint, one transparent sprite.",
+      "selected": false,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame07_attempt03.png"
+    },
+    {
+      "frame": 2,
+      "attempt": 3,
+      "refs": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_01.png"
+      ],
+      "prompt": "Create ONE transparent game sprite, small anticipation movement between attached original Idle and a vertical-axis spin. Use first image's exact body size and coordinates. Second is preceding frame01. Make frame02: same nearly FRONTAL upright body and same head/collar position, elbows a little more bent inward than second image, large claw hands gathering near waist at x400 and660,y475 on1024canvas. Silver pointed mask, two cyan slits, high stone collar, long segmented chest armor identical to master. Do not enlarge chest or head. Asymmetrical high LEFT rear cloth loops stay at almost master position with topy140. Main lower RIGHT cloth curls gently inward toward x720 and ends aroundy870; no long outward horizontal wind. Keep existing long thin ragged tips and holes, not rounded balls. All drawing includingglow mustremaininside x120..900 y120..900, leaving ampletransparentborder. Headtop220 andcollarcenter520,285. No new effect or burst. Exact originalpaintedicesprite style; no background, ground, text, frames, labels, mirror or duplicate. Requested1024x1024trueRGBA.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame02_generated.png"
+    },
+    {
+      "frame": 7,
+      "attempt": 4,
+      "refs": [
+        "ArtSource/AirBoss/cast_spin360/frames/v01/AirBoss_Cast_Spin360_v01_07.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "prompt": "Precise local edit to FIRST image, preserve everything except the lowest cloth tip. Secondimageoriginalbossmaster. Keep exact same body/head/arms pixel positions and size, same rear threequarter. The bottommost curled ribbon beneath body is too low. Bend ONLY that lowest curled end upward by70pixels on1024canvas, ending no lower than y890. Remove any detached speckles underneath this bottomtip; bottom110pixels must be perfectly empty transparent. Do not change any other part of sprite. Do not shorten by cutting or fading; preserve a crisp natural ragged upward-curled tip. No globalresize, zoom, recenter or new designs. Transparent square RGBA.",
+      "selected": true,
+      "outputSource": "ArtSource/AirBoss/cast_spin360/source/v01/frame07_generated.png"
+    }
+  ]
+}
