@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &555667872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3259513043659435426, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.06685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.65843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
 --- !u!1 &972237325
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,19 +530,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1548012598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548012593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec98ca257922fe14183ad258e814db1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutGameUI
-  _gameSceneName: YuchanScene
 --- !u!114 &1548012595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +599,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1548012598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548012593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec98ca257922fe14183ad258e814db1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutGameUI
+  _gameSceneName: YuchanScene
 --- !u!1 &1806416990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,3 +1238,4 @@ SceneRoots:
   - {fileID: 1310167841}
   - {fileID: 1548012597}
   - {fileID: 1944882835}
+  - {fileID: 555667872}
