@@ -57,7 +57,12 @@ public class PlayerAttack : MonoBehaviour
             var hit = _hitBuffer[i];
             if (hit == null || !hit.CompareTag("Enemy")) continue;
             var health = hit.GetComponent<Health>();
-            if (health != null) health.TakeDamage(_damage);
+            if (health != null)
+            {
+                health.TakeDamage(_damage);
+                EffectManager.Instance?.PlayEnemyHit(hit.transform.position);
+                if (health.IsDead) EffectManager.Instance?.PlayEnemyDeath(hit.transform.position);
+            }
             Debug.Log($"Attack hit {hit.name} for {_damage} damage.", hit);
             _hitBuffer[i] = null;
         }

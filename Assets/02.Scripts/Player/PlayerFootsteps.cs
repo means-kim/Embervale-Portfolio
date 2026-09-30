@@ -31,12 +31,12 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void Update()
     {
-        if (!_hasBank) return;
         if (_controller.CurrentState != PlayerState.Run) return;
         if (!_jump.IsGrounded || !_move.IsMoving) return;
         if (Time.time < _nextStepTime) return;
         _nextStepTime = Time.time + _stepInterval;
-        _bank.Play();
+        if (_hasBank) _bank.Play();
+        EffectManager.Instance?.PlayFootstep(transform.position);
     }
     private void HandleLanded()
     {

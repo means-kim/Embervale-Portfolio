@@ -62,7 +62,10 @@ public class PlayerJump : MonoBehaviour
         // 벽에 붙어 있을 때는 일반 점프가 아니라 벽 점프가 처리한다. 횟수 중복 소모 방지.
         if (_playerWall != null && _playerWall.IsClinging) return;
         if (!TryConsumeJump()) return;
+        bool isDoubleJump = _jumpCount > 1;
         _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, GetJumpPower(_jumpCount - 1));
+        if (isDoubleJump) EffectManager.Instance?.PlayDoubleJump(transform.position);
+        else EffectManager.Instance?.PlayJump(transform.position);
     }
     // 점프 횟수를 하나 소모한다. 벽 점프도 이 횟수를 공유한다. 소모 성공 시 true.
     public bool TryConsumeJump()

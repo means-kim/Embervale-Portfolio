@@ -19,6 +19,7 @@ public class PlayerInput : MonoBehaviour
         CheckAttackInput();
         CheckDropInput();
         CheckWallJumpInput();
+        CheckClickVfx();
     }
     private void CheckHorizontalInput()
     {
@@ -46,5 +47,14 @@ public class PlayerInput : MonoBehaviour
     private void CheckWallJumpInput()
     {
         if (Input.GetKeyDown(KeyCode.Space)) OnWallJumpInput?.Invoke();
+    }
+    private void CheckClickVfx()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+        var camera = Camera.main;
+        if (camera == null) return;
+        Vector3 worldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        worldPosition.z = 0f;
+        EffectManager.Instance?.PlayClick(worldPosition);
     }
 }
