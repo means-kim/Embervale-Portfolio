@@ -23,7 +23,7 @@
 | Pivot | 각 셀 Center, 픽셀 (512,512) |
 | Max Size / 실제 임포트 | 4096 / 4096×2048 |
 | 검토용 표시 설정 | Bilinear, Uncompressed, Mipmap Off, Clamp, Full Rect |
-| PPU | 새 텍스처의 기본값 100을 유지. 최종 게임 크기 확정이 아님 |
+| PPU | **현재 24** — 2026-09-30 사용자 확정 및 현재 meta 확인. 최초 임포트 검증 당시에는 기본값 100이었음 |
 | 자동 Physics Shape | 생성하지 않음, 각 Sprite 0개 |
 | 에셋 GUID | f85b02a1c2b49214dbda6b1f9f52f983 |
 | 애니메이션 클립 / Animator | 생성하지 않음 |
@@ -71,3 +71,5 @@ Unity MCP로 실제 8개 Sprite의 이름·Rect·Pivot·해상도를 다시 조�
 
 ![Idle 8장 정적 비교](AirBoss_Idle_Float_v01_contact_dark.png)
 
+
+2026-09-30 PPU 후속 갱신: 최초 Unity 검증 JSON의 PPU 100은 당시 측정 이력으로 보존한다. 현재 meta는 PPU 24다. 이번 작업은 지침만 갱신했으며 사용자가 변경한 씬·meta·애니메이션은 수정하지 않았다. 본문의 클립 미생성은 최초 멀티스프라이트 제작 작업의 범위 기록이다.
