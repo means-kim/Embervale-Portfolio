@@ -25,6 +25,8 @@ public class PlayerJump : MonoBehaviour
     private bool _isJumping;
     private int _jumpCount;
     public bool IsGrounded => _isGrounded;
+    /// <summary>현재 Ground가 아닌 Platform 태그 발판 위에 서 있는지. 발자국 표면 판별용.</summary>
+    public bool IsOnPlatform => _isGrounded && _platformContacts.Count > 0;
     public bool IsJumping => _isJumping;
     public int MaxJumpCount => _maxJumpCount;
     public IReadOnlyList<int> JumpPowers => _jumpPowers;
