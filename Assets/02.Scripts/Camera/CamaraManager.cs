@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class CameraManager : MonoBehaviour
 {
     private static CameraManager _instance = null;
-    public static CameraManager instance => _instance;
+    public static CameraManager Instance => _instance;
 
     [SerializeField] private GameObject _player;
     [SerializeField] private CinemachineCamera _defaultCamera;
