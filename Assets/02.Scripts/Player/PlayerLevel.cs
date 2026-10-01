@@ -24,6 +24,7 @@ public class PlayerLevel : MonoBehaviour
         _level = next;
         // 오른 레벨 1당 랜덤 버프 1개를 적용한다.
         ApplyLevelUpBuffs(gained);
+        EffectManager.Instance?.PlayLevelUp(transform.position);
         OnLevelChanged?.Invoke(_level);
     }
 
