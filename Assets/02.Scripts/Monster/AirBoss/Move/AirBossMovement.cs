@@ -12,6 +12,8 @@ public class AirBossMovement : MonoBehaviour
     private Vector2 _direction;
     private int _number = 0;
 
+    public Vector2 Direction => _direction;
+
     public void StartMove()
     {
         RandomSelect();
@@ -33,6 +35,11 @@ public class AirBossMovement : MonoBehaviour
         nextPosition.y = Mathf.Clamp(nextPosition.y, _minPosition.y, _maxPosition.y);
 
         transform.position = nextPosition;
+    }
+
+    public void StopMove()
+    {
+        _direction = Vector2.zero;
     }
 
     private void LeftMove()
