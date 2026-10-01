@@ -27,6 +27,8 @@ public class EliteMonsterIceThornAttack : EliteMonsterAttack
     {
         if (!_isAttacking) return;
 
+        if (_effectPrefab == null || _effectPoint == null) return;
+
         EffectManager.Instance.PlayBossEffect(_effectPrefab, _effectPoint);
     }
 
