@@ -1,5 +1,7 @@
 # AirBoss Cast_Spin360 v01
 
+> 과거 세로축 회전 제작 기록. 2026-10-01 후속 요청의 최신 규격은 [v02 정면 유지 평면 회전 24장](../../../ArtSource/AirBoss/cast_spin360/Cast_Spin360_Production_v02.md)이다. 이 기록과 v01 PNG·meta·기존 연결은 보존한다.
+
 2026-09-30 착수, 2026-10-01 완료. 사용자 요청에 따라 세로축 회전 멀티 스프라이트 제작과 Unity 16분할 임포트 확인을 완료했다. Animation Clip·Animator·씬·프리팹·게임 코드는 만들거나 변경하지 않았다.
 
 [제작 기준](../../../ArtSource/AirBoss/cast_spin360/Cast_Spin360_Production_v01.md) · [공통 규칙](../../../ArtSource/AirBoss/AirBoss_Multisprite_Production_Rules_v1.md) · [기획서 ANIM-07](../../../ArtSource/AirBoss/Aerial%20Boss%20Design%20Document%20v1.md)
