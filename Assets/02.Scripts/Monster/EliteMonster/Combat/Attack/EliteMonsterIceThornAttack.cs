@@ -29,14 +29,7 @@ public class EliteMonsterIceThornAttack : EliteMonsterAttack
 
         if (_effectPrefab == null || _effectPoint == null) return;
 
-        EliteMonsterEffect effect = Instantiate(_effectPrefab, _effectPoint);
-        effect.transform.localPosition = Vector3.zero;
-        effect.transform.localRotation = Quaternion.identity;
-
-        foreach (EliteMonsterAttackHitbox hitbox in effect.GetComponentsInChildren<EliteMonsterAttackHitbox>(true))
-        {
-            hitbox.Initialize(this);
-        }
+        EffectManager.Instance.PlayBossEffect(_effectPrefab, _effectPoint);
     }
 
     public override void EndAttack()
