@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 537748765}
   - component: {fileID: 537748768}
   - component: {fileID: 537748769}
+  - component: {fileID: 537748771}
   - component: {fileID: 537748770}
   m_Layer: 0
   m_Name: AirBoss_Idle_Float_v01_00
@@ -526,8 +527,20 @@ MonoBehaviour:
   _maxPosition: {x: 30, y: 10}
   _minPosition: {x: -30, y: -5}
   _speed: 5
-  _moveDuration: 1
-  _moveInterval: 3
+--- !u!114 &537748771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537748764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossController
+  _idleTimer: 3
+  _moveTimer: 1
 --- !u!1 &1437128787
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,8 +731,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1785190369}
+  - {fileID: 131758580}
   - {fileID: 198088055}
   - {fileID: 16861965}
   - {fileID: 1437128788}
   - {fileID: 537748767}
-  - {fileID: 131758580}

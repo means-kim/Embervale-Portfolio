@@ -3,45 +3,21 @@ using UnityEngine;
 public class AirBossMovement : MonoBehaviour
 {
     [Header("월드 좌표 범위(씬 별 설정 필요)")]
-    [SerializeField] private Vector2 _maxPosition = new Vector2(-10f, -5f);
+    [SerializeField] private Vector2 _maxPosition = new Vector2(30f, 10f);
 
-    [SerializeField] private Vector2 _minPosition = new Vector2(10f, 10f);
+    [SerializeField] private Vector2 _minPosition = new Vector2(30f, -5f);
 
     [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _moveDuration = 1f;
-    [SerializeField] private float _moveInterval = 3f;
 
     private Vector2 _direction;
-    private float _timer;
-    private bool _isMoving = false;
     private int _number = 0;
 
-    private void Update()
+    public void StartMove()
     {
-        _timer += Time.deltaTime;
-
-        if (!_isMoving)
-        {
-            if (_timer >= _moveInterval)
-            {
-                RandomSelect();
-                _isMoving = true;
-            }
-
-            return;
-        }
-
-        if (_timer >= _moveDuration)
-        {
-            _isMoving = false;
-            _timer = 0f;
-            return;
-        }
-
-        Move();
+        RandomSelect();
     }
 
-    private void Move()
+    public void Move()
     {
         Vector3 nextPosition = transform.position + (Vector3)(_direction * _speed * Time.deltaTime);
 
@@ -99,7 +75,5 @@ public class AirBossMovement : MonoBehaviour
         {
             DownMove();
         }
-
-        _timer = 0f;
     }
 }
