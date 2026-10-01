@@ -28,4 +28,13 @@ public class AirBossAction : MonoBehaviour
                 break;
         }
     }
+
+    public void ExecuteRandom()
+    {
+        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+
+        AirBossActionType actionType = (AirBossActionType)randomIndex;
+
+        Execute(actionType);
+    }
 }

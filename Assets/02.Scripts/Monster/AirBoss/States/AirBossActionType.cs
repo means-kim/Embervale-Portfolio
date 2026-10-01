@@ -9,4 +9,6 @@ public enum AirBossActionType
     RaiseDropShadow,
     SpinRoll360,
     SpinYaw360,
+
+    Count
 }
