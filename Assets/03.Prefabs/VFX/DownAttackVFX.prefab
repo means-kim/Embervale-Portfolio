@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3185366919589683571}
   - component: {fileID: 557772782273689500}
   - component: {fileID: 7053286626705792103}
+  - component: {fileID: 3057207075128610414}
+  - component: {fileID: 8342173069320538774}
   m_Layer: 0
   m_Name: DownAttackVFX
   m_TagString: Untagged
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4465590687819272544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.5, y: -8.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -226,3 +228,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
   _lifeTime: 0
+  _playReversed: 0
+--- !u!114 &3057207075128610414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 1
+--- !u!114 &8342173069320538774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a06b423b0615f643aa80b47f510e000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXOffset
+  _offset: {x: 0, y: -2, z: 0}

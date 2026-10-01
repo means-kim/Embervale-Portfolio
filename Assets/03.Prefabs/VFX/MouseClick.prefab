@@ -14903,6 +14903,7 @@ GameObject:
   - component: {fileID: 8771972552311404798}
   - component: {fileID: 8771972552311404739}
   - component: {fileID: 2411548843753722338}
+  - component: {fileID: -5569158357627247758}
   m_Layer: 0
   m_Name: MouseClick
   m_TagString: Untagged
@@ -20094,3 +20095,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5569158357627247758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771972552311404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 0.1

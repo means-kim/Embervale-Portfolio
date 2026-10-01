@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum PlayerAttackType
 {
-    Basic,
+    SideAttack,
     Stab,
     Horizontal,
     Down,
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Min(0f)] private Vector2 _attackSize = new Vector2(1.4f, 1.2f);
     [SerializeField, Min(0f)] private float _attackForwardOffset = 0.8f;
     [SerializeField, Min(0f)] private float _attackUpwardOffset = 0.8f;
-    [Header("타입별 판정 (1: 찌르기, 3: 내리치기, 4: 올려치기. 2는 위 기본값 사용)")]
+    [Header("타입별 판정 (1: 찌르기, 3: 내리치기, 4: 올려치기. 2·5는 위 기본값 사용)")]
     [SerializeField] private Vector2 _stabSize = new Vector2(2.2f, 0.8f);
     [SerializeField] private Vector2 _stabOffset = new Vector2(1.1f, 0.8f);
     [SerializeField] private Vector2 _downSize = new Vector2(1.2f, 1.6f);
@@ -31,7 +31,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Min(0.05f)] private float _horizontalDuration = 1.17f;
     [SerializeField, Min(0.05f)] private float _downDuration = 1.17f;
     [SerializeField, Min(0.05f)] private float _upDuration = 1.17f;
-    [SerializeField] private GameObject _effectPrefab;
     private readonly Collider2D[] _hitBuffer = new Collider2D[16];
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
@@ -39,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip { get; private set; } = "Attack";
+    public string CurrentAttackClip { get; private set; } = "SideAttack";
     private Rigidbody2D _rigidbody;
     private float _attackTimeRemaining;
     private void Awake()
@@ -72,9 +71,9 @@ public class PlayerAttack : MonoBehaviour
         var direction = _playerMove.FacingDirection;
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         IsAttacking = true;
-        CurrentAttackClip = "Attack";
+        CurrentAttackClip = "SideAttack";
         _attackTimeRemaining = _attackDuration;
-        DoHit(direction, _attackSize, new Vector2(_attackForwardOffset, _attackUpwardOffset), PlayerAttackType.Basic);
+        DoHit(direction, _attackSize, new Vector2(_attackForwardOffset, _attackUpwardOffset), PlayerAttackType.SideAttack);
         OnAttackStarted?.Invoke();
     }
     private void HandleTypeAttack(PlayerAttackType type)
@@ -83,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
         var direction = _playerMove.FacingDirection;
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         IsAttacking = true;
-        CurrentAttackClip = type + "Attack";
+        CurrentAttackClip = type == PlayerAttackType.SideAttack ? "SideAttack" : type + "Attack";
         _attackTimeRemaining = GetAttackDuration(type);
         DoHit(direction, GetAttackSize(type), GetAttackOffset(type), type);
         OnAttackStarted?.Invoke();
@@ -121,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
     private void DoHit(int direction, Vector2 size, Vector2 offset, PlayerAttackType type)
     {
         var center = (Vector2)transform.position + new Vector2(direction * offset.x, offset.y);
-        PlayAttackVfx(type, center);
+        PlayAttackVfx(type, center, direction);
         var count = Physics2D.OverlapBox(center, size, 0f, ContactFilter2D.noFilter, _hitBuffer);
         for (var i = 0; i < count; i++)
         {
@@ -138,18 +137,33 @@ public class PlayerAttack : MonoBehaviour
             _hitBuffer[i] = null;
         }
     }
-    private void PlayAttackVfx(PlayerAttackType type, Vector3 position)
+    private void PlayAttackVfx(PlayerAttackType type, Vector3 position, int direction)
     {
         var instance = EffectManager.Instance;
         if (instance == null) return;
+        GameObject spawned = null;
         switch (type)
         {
-            case PlayerAttackType.Basic: instance.PlayAttackBasic(position); break;
-            case PlayerAttackType.Stab: instance.PlayAttackStab(position); break;
-            case PlayerAttackType.Horizontal: instance.PlayAttackHorizontal(position); break;
-            case PlayerAttackType.Down: instance.PlayAttackDown(position); break;
-            case PlayerAttackType.Up: instance.PlayAttackUp(position); break;
+            case PlayerAttackType.SideAttack: spawned = instance.PlayAttackSideAttack(position); break;
+            case PlayerAttackType.Stab: spawned = instance.PlayAttackStab(position); break;
+            case PlayerAttackType.Horizontal: spawned = instance.PlayAttackHorizontal(position); break;
+            case PlayerAttackType.Down: spawned = instance.PlayAttackDown(position); break;
+            case PlayerAttackType.Up: spawned = instance.PlayAttackUp(position); break;
         }
+        FlipSpawnedVfx(spawned, direction);
+    }
+
+    /// <summary>
+    /// 공격 VFX의 스프라이트만 좌우 반전한다. 위치는 호출 쪽 오프셋으로 이미 반영됨.
+    /// 아트는 오른쪽을 기준으로 그렸다고 가정 (왼쪽을 볼 때 flip).
+    /// </summary>
+    private static void FlipSpawnedVfx(GameObject spawned, int direction)
+    {
+        if (spawned == null) return;
+        bool flip = direction < 0;
+        var renderers = spawned.GetComponentsInChildren<SpriteRenderer>(true);
+        for (int i = 0; i < renderers.Length; i++)
+            renderers[i].flipX = flip;
     }
     public void CancelAttack() => EndAttack();
     private void EndAttack()

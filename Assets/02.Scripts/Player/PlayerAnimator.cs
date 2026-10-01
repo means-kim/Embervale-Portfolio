@@ -29,7 +29,7 @@ public class PlayerAnimator : MonoBehaviour
                 PlayClip("DashStart");
                 break;
             case PlayerState.Attack:
-                PlayClip("Attack");
+                PlayClip("SideAttack");
                 break;
             case PlayerState.Death:
                 PlayClip("Death");

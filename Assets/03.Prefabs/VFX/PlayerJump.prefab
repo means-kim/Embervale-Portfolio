@@ -5017,6 +5017,7 @@ GameObject:
   - component: {fileID: 2708598583397607910}
   - component: {fileID: 2708598583397607899}
   - component: {fileID: -1882367145734890551}
+  - component: {fileID: -6296303483267379876}
   m_Layer: 0
   m_Name: PlayerJump
   m_TagString: Untagged
@@ -10033,6 +10034,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6296303483267379876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708598583397607911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 1
 --- !u!1 &2708598584241629776
 GameObject:
   m_ObjectHideFlags: 0

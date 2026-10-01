@@ -26,7 +26,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _enemyDeathVfx;
 
     [Header("VFX 프리팹 (플레이어 공격 5종)")]
-    [SerializeField] private GameObject _attackBasicVfx;
+    [SerializeField, UnityEngine.Serialization.FormerlySerializedAs("_attackBasicVfx")] private GameObject _attackSideAttackVfx;
     [SerializeField] private GameObject _attackStabVfx;
     [SerializeField] private GameObject _attackHorizontalVfx;
     [SerializeField] private GameObject _attackDownVfx;
@@ -93,11 +93,11 @@ public class EffectManager : MonoBehaviour
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
     public void PlayEnemyHit(Vector3 position) => Spawn(_enemyHitVfx, position);
     public void PlayEnemyDeath(Vector3 position) => Spawn(_enemyDeathVfx, position);
-    public void PlayAttackBasic(Vector3 position) => Spawn(_attackBasicVfx, position);
-    public void PlayAttackStab(Vector3 position) => Spawn(_attackStabVfx, position);
-    public void PlayAttackHorizontal(Vector3 position) => Spawn(_attackHorizontalVfx, position);
-    public void PlayAttackDown(Vector3 position) => Spawn(_attackDownVfx, position);
-    public void PlayAttackUp(Vector3 position) => Spawn(_attackUpVfx, position);
+    public GameObject PlayAttackSideAttack(Vector3 position) => Spawn(_attackSideAttackVfx, position);
+    public GameObject PlayAttackStab(Vector3 position) => Spawn(_attackStabVfx, position);
+    public GameObject PlayAttackHorizontal(Vector3 position) => Spawn(_attackHorizontalVfx, position);
+    public GameObject PlayAttackDown(Vector3 position) => Spawn(_attackDownVfx, position);
+    public GameObject PlayAttackUp(Vector3 position) => Spawn(_attackUpVfx, position);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);
@@ -106,9 +106,9 @@ public class EffectManager : MonoBehaviour
     public void PlayRespawn(Vector3 position) => Spawn(_respawnVfx, position);
     public void PlayClick(Vector3 position) => Spawn(_clickVfx, position);
 
-    private void Spawn(GameObject prefab, Vector3 position)
+    private GameObject Spawn(GameObject prefab, Vector3 position)
     {
-        if (prefab == null) return;
-        Instantiate(prefab, position, Quaternion.identity);
+        if (prefab == null) return null;
+        return Instantiate(prefab, position, Quaternion.identity);
     }
 }

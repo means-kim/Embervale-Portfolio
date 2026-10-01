@@ -40,7 +40,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void CheckAttackInput()
     {
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0)) OnAttackInput?.Invoke();
+        if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5)) OnAttackInput?.Invoke();
     }
     private void CheckDropInput()
     {
