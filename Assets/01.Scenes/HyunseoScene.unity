@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 66030298}
   m_Layer: 31
   m_Name: Exit_Floor_Collision
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1163,7 +1163,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 3.0051062}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1173,7 +1173,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 16, y: 6.71}
+  m_Size: {x: 16, y: 0.6997876}
   m_EdgeRadius: 0
 --- !u!1 &69522488
 GameObject:
@@ -8810,8 +8810,8 @@ Transform:
   m_GameObject: {fileID: 470609873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57, y: -74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 57, y: -103, z: 0}
+  m_LocalScale: {x: 1, y: 1.2619739, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1294209520}
@@ -9083,9 +9083,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 109.54551, y: 8.206988}
-      - {x: 149.35, y: 7.979845}
-      - {x: 165.0727, y: 7.7673492}
+    - - {x: 165.5455, y: -21.79301}
+      - {x: 165.0727, y: -0.23265076}
       - {x: 165.48859, y: 84.27076}
       - {x: 165.53972, y: 107.93347}
       - {x: 165.46303, y: 117.875534}
@@ -15204,9 +15203,9 @@ MonoBehaviour:
   m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.25
+  m_FalloffIntensity: 0.2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 2.3
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 000000006136a8666236a8666336a8666436a8666536a866e150ae66e250ae66e350ae66e450ae66e550ae66e650ae66
@@ -15230,7 +15229,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 85
+  m_PointLightOuterRadius: 70
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -16686,8 +16685,8 @@ Transform:
   m_GameObject: {fileID: 847370123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.824997, y: -74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 62.824997, y: -103, z: 0}
+  m_LocalScale: {x: 1, y: 1.2618421, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1294209520}
@@ -21016,7 +21015,7 @@ GameObject:
   - component: {fileID: 1403825364}
   m_Layer: 31
   m_Name: Collision_Right_Lower
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21070,7 +21069,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -14.788879}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -21080,7 +21079,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 14, y: 110.71001}
+  m_Size: {x: 14, y: 138.96483}
   m_EdgeRadius: 0
 --- !u!1 &1421663923
 GameObject:
@@ -22497,7 +22496,7 @@ GameObject:
   - component: {fileID: 1637842147}
   m_Layer: 31
   m_Name: Collision_Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
