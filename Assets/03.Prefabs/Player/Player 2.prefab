@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 4146579483708080785}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Ground
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &6328847879225741176
 Animator:
@@ -198,7 +198,6 @@ MonoBehaviour:
   _horizontalDuration: 0.23
   _downDuration: 0.23
   _upDuration: 0.23
-  _effectPrefab: {fileID: 5492466121849724953, guid: 1d442f086b5a075438ac17fb16698f09, type: 3}
 --- !u!114 &7533624692983177567
 MonoBehaviour:
   m_ObjectHideFlags: 0
