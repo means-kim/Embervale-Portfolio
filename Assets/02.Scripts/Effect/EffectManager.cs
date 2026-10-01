@@ -62,13 +62,6 @@ public class EffectManager : MonoBehaviour
             _instance = null;
     }
 
-    private void Start()
-    {
-        BackgroundMusic.PlayBgm(
-            BackgroundMusic.BgmType.Snow,
-            volume: 0.08f);
-    }
-
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
     {
         GameObject effect = SnowEffectPool.Instance.GetEffect(type);
