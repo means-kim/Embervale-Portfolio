@@ -18,11 +18,13 @@ public class AirBossController : MonoBehaviour
 
     private AirBossMovement _movement;
     private AirBossAnimation _animation;
+    private AirBossAction _action;
 
     private void Awake()
     {
         _movement = GetComponent<AirBossMovement>();
         _animation = GetComponent<AirBossAnimation>();
+        _action = GetComponent<AirBossAction>();
     }
 
     private void Update()
@@ -110,6 +112,11 @@ public class AirBossController : MonoBehaviour
         {
             _movement.StopMove();
             _animation.PlayIdleAnimation();
+        }
+        else if (_currentstate == AirBossState.Action)
+        {
+            _movement.StopMove();
+            _action.ExecuteRandom();
         }
     }
 
