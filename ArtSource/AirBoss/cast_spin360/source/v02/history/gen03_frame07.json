@@ -1,0 +1,10 @@
+{
+  "generation": 3,
+  "frame": 7,
+  "prompt": "Correct the image2 drawing using image1 as exact body-size reference. Image2 has the correct front-facing horizontal90degree clockwise roll but is TOO LARGE and LOW on canvas. Keep square transparent canvas unchanged. REDRAW image2 character at 80 percent of its currently drawn linear size, with its pose center raised by40 pixels in1024 coordinates. This is to restore the same actual anatomy size as image1, not change the boss's scale. The mask long dimension must match the100pixel length of image1 on1024canvas; its front-facing mask center should be at75% canvas width and51%canvas height. Crown of mask points right, beak points left. Head/collar must be at THREE QUARTERS width, not85%. Put ALL visible content approximately x170..875,y195..775 on1024canvas, wide empty margins. Redraw soft cloth bends and wrist follow-through naturally, leave all other design, colors, armor arrangement, detailed texture, asymmetric cloth and face visibility intact. No text, background, frame, profile, backside, new appendages. Deliver exactly one corrected90degree sideways FRONT VIEW sprite.",
+  "refs": [
+    "C:/Users/k_ms9/Emberveil/ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+    "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-f15d788c-8a5a-40b8-8fcc-14c71b49cf11.png"
+  ],
+  "origin": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-795844f5-2bb4-4f4a-94ab-c4a3920ba88d.png"
+}

@@ -1,0 +1,584 @@
+{
+  "tool": "built-in image_gen",
+  "requestedCanvas": [
+    1024,
+    1024
+  ],
+  "master": "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+  "note": "requestedFrame is prompt intent; selectedFrame is final order after visual review. null = superseded/unselected. generatedOriginPath is provenance only; all images are also archived in project.",
+  "generations": [
+    {
+      "generation": 1,
+      "requestedFrame": 8,
+      "selectedFrame": 6,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME08 KEY POSE: the boss has lost its strength but is still fully intact. Joint-posed slump leaning about 15 degrees toward SCREEN RIGHT, bowed mask near x570,y300; the left shoulder higher, right shoulder lower. Both elbows and wrists hang loosely down, claws half-unfurled. Chest buckles forward slightly. No detached pieces yet, eyes somewhat weaker. The high screen-left cloth loop droops and trails left, bottom long cloth curls inward before y910, leaving original full anatomical size. This is a heavy dying collapse, not a confident attack or mirrored idle.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-dd3cbbf5-91f1-4e9c-9df0-4d44753bcf9b.png"
+    },
+    {
+      "generation": 2,
+      "requestedFrame": 1,
+      "selectedFrame": 2,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME01, FIRST SMALL STEP from master toward image2 (later slumped keyframe08). Very close to MASTER pose and scale: head bows a little, shoulders relax 4 pixels, wrists soften and hands sink 8 pixels. Body only 1 degree right lean. Cloth begins slightly lagging, retain same slender strips and thickness of master. Fully intact, no broken pieces or extra cracks yet. Do NOT jump directly to the deep slump of image2.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen02_requested01.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-d029eb77-5812-474a-a3af-bc34f595dda3.png"
+    },
+    {
+      "generation": 3,
+      "requestedFrame": 15,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME15, first sheet final cel. Continue the slumped body in image2 at its EXACT size and coordinates, but about a quarter of it has begun breaking apart. The narrow mask is now cracked into 3 still-nearby fitted angular plates with tiny air gaps, collar split at screen-left and right shoulder, chest plates peeling apart from their ORIGINAL locations, wrists sagging with some broken finger armor. Major pieces displaced only 10-25px, still a recognizable dying boss, not a random explosion. Cloth strips tearing at shoulders and middle lengths, a handful of short separated cloth scraps lag behind. Thin cold cyan fracture light only in opened seams; NO bright sphere, flames or huge aura. Preserve the bowed screen-right lean, same cloth composition, keep all fragments comfortably within original safe border. This follows frame14 slightly opening seams and precedes frame16 wider separation.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen03_requested15.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-89f31eef-1167-4bbb-8ee5-ed66e5678975.png"
+    },
+    {
+      "generation": 4,
+      "requestedFrame": 1,
+      "selectedFrame": 1,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME01, extremely small first step from the given image, this image is also the precise EDIT TARGET. Keep current mask position and almost all body placement. Change only: the shoulders relax slightly, elbow bend softens, the outstretched palms turn down just 8 degrees and sink about10 pixels, mask tip lowers5 pixels as head bows very slightly. Keep original hand openness, NEVER drop the hands to sides already. The high left cloth loop subtly sags, lower right cloth ends shift a little under inertia. Entire body intact, no cracks added or particles. The master is frame00 and this must be an adjacent subtle but physically drawn pose. Preserve the master's slim cloth, head size, chest width and silhouette scale precisely.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen04_requested01.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-4f92850d-934e-4de5-b366-55bac9347ce9.png"
+    },
+    {
+      "generation": 5,
+      "requestedFrame": 19,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME19 KEY POSE, late in the fast breakup. Image2 is prior broken pose15. SAME absolute piece scale and source placement. Now the body is about 75% disassembled: separate silver mask plates around x620,y290; collar chunks separating at x570..720,y250..400; chest plate shards around x510..650,y390..570; claw/forearm pieces splitting near x365,y580 and x800,y620. No intact face, torso or hands remain as a connected anatomy. The pieces have moved outward only 30-55 pixels from their source and rotated individually, leaving clear transparent gaps and a hollow center. The formerly high left loop is torn into a few broad curved strips around x260..470,y170..480. Long lower-right cloth tears into separate curved strips x530..820,y630..870. About 18 recognizable rigid armor shards and 9 wispy cloth scraps plus a few small ice chips. Pieces still solid and readable with subtle blue edges. Scatter is asymmetric, no circle or radial symmetric fireworks. No new intact body behind the debris, no bright central explosion. All tips end inside x110..915,y105..910.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen03_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen05_requested19.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b8a4c522-eadf-4218-811f-3acb5f28f037.png"
+    },
+    {
+      "generation": 6,
+      "requestedFrame": 21,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Edit IMAGE1, a death breakup animation cel. IMAGE2 is original design reference only. Produce ONE new later cel, transparent square RGBA. Keep fixed full canvas and each piece's original scale, do not enlarge or fit the debris. DISASSEMBLE the remaining body completely. The mask, collar, chest, arms and hands must ALL become separate SMALL broken chunks, with NO intact body part left. Break every long cloth ribbon into 3 to 5 short torn pieces. About 30 armor shards and 18 short cloth scraps now occupy the same asymmetric area as image1 but with much more empty transparent space between pieces. Scatter pieces slightly outward 10-30px and rotate individually; the center x500..650,y420..550 has large empty holes. The three mask remnants near x650,y270 drift upper right; claw shards drift outward/down; pale cloth fragments curl in the original left-upper and right-lower flows. No new particles outside x105..915,y100..905 of a1024canvas, shorten/fold the LOWER cloth curls naturally above y900. Still dark silver solid shards and pale blue translucent cloth with original painterly detail. NO intact ghost silhouette, no complete face, no complete hands, no unbroken chest, no ring, floor, explosion glow, text, montage, border. This is frame21 after rapid disintegration, before pieces dissolve.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen05_requested19.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen06_requested21.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-79618bb1-e0bc-4c78-b73f-72bdcab72362.png"
+    },
+    {
+      "generation": 7,
+      "requestedFrame": 24,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "One new transparent DEATH animation cel, frame24. Image1 is the earlier disassembled pose21 to advance; image2 is original material reference only. KEEP THE SAME FIXED SQUARE CANVAS AND ABSOLUTE FRAGMENT SIZES, no zoom. Make the same fragments drift and rotate a little, but dissolve about 65% of their material: most large armor pieces erode into a few smaller slivers; most cloth curls become short thin tatters. Show about 14 small dark silver-blue shards, 9 wispy curved pale cloth remnants and a scattering of small icy flecks. Original face, chest and hands no longer recognizable. Keep the asymmetric upper-left cloth flow and lower-right trailing cloud, hollow center, huge transparent spaces between remnants. At least 12% of canvas width must remain entirely transparent at EVERY edge; pieces near edges fade away before reaching this band. No continuous cloth ribbon longer than 15% canvas height. Render the changed positions and shapes, do not merely lower opacity of image1. Detailed same painting, restrained blue luminance, no smoke cloud, explosion, aura, rings, ground, text. Fully transparent RGBA background.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen06_requested21.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen07_requested24.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-3f9b0418-2b7a-4f59-94a2-26b639e3648d.png"
+    },
+    {
+      "generation": 8,
+      "requestedFrame": 15,
+      "selectedFrame": 13,
+      "repair": true,
+      "prompt": "Precise local edit IMAGE1 only, IMAGE2 is design reference. Keep the broken boss mask, torso, armor, hands, all poses, all scale and all canvas placement exactly as image1. Change ONLY the lowest trailing pale cloth tips: curl them upward/inward to end above the bottom 10% of the square canvas. The rightmost loose tatter also curls a little left to stay inside the right 10% margin. No cropping, no shrinking or translating the body. Preserve genuine alpha, original cloth thickness and painterly icy texture. Remove tiny accidental specks at canvas boundary. One transparent square sprite, no text or background. Frame15 repair of safe canvas margins only.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen03_requested15.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-63a34508-406d-4761-b9ac-1450c4da2236.png"
+    },
+    {
+      "generation": 9,
+      "requestedFrame": 17,
+      "selectedFrame": 17,
+      "repair": true,
+      "prompt": "Edit only the outer cloth tips of IMAGE1. Keep ALL central armor, mask, torso fragments, hands and fragment positions exactly unchanged. Keep the SAME square canvas and scale, no zoom or resize. At top-left, bend the highest loose cloth tips slightly downward so a clean empty transparent band of at least 10% canvas height remains above them. At bottom, curl the last long cloth strips upward so a clean transparent band of at least 12% canvas height remains below them. Preserve their lengths by curling sideways within the existing silhouette. Every visible pixel must be at least 9% of canvas away from all edges. Do not crop off anything. Transparent RGBA, one sprite; no text.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen05_requested19.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen09_requested17.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-7766472e-e689-431b-affb-aa401fcf112a.png"
+    },
+    {
+      "generation": 10,
+      "requestedFrame": 21,
+      "selectedFrame": 21,
+      "repair": true,
+      "prompt": "Edit ONLY the outermost drifting pieces in IMAGE1 to keep them within safe canvas margins. Same square transparent canvas, SAME piece scale and original central positions; no zoom, no shrinking. The far right forearm and claw fragments drift inward slightly and rotate left, and the lowest cloth scraps curl upward. Topmost cloth curls fold slightly downward. The INNER armor pieces and hollow center stay unchanged. Require an entirely empty transparent outer band of at least 12% on all FOUR sides. Achieve this by local poses of outer fragments and curls, never by scaling whole image. Preserve original painterly textures, no new pieces, no background or text. One animation cel.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen06_requested21.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen10_requested21.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-918983e7-8c8e-486e-9f36-939ef2188e46.png"
+    },
+    {
+      "generation": 11,
+      "requestedFrame": 2,
+      "selectedFrame": 3,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME2. Image2 is preceding pose1; image3 is later pose4. Draw a unique physical IN-BETWEEN pose, one-third of way from pose1 to pose4. Head slightly more bowed, body2degree right tilt, palms about20degrees more downward than pose1, hands lower20px. Original neck/chest size fixed. Cloth has a small lag. Match each reference on the same fixed canvas, especially mask and chest dimensions. Keep at least 9% transparent band on every canvas edge. Do not copy either endpoint, blend opacity or add fracture effects.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen04_requested01.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen02_requested01.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen11_requested02.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-8d4c243b-ca1d-4694-b70b-1d16dcb02146.png"
+    },
+    {
+      "generation": 12,
+      "requestedFrame": 3,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME3. Image2 is preceding pose2; image3 is later pose4. Draw a unique physical IN-BETWEEN pose, halfway from pose2 to pose4. Shoulders further lower, head starting to turn into the rightward slump, hands midway between those two references with soft wrists. Fully intact. Same scale and anchored torso. Retain slender separate cloth strips. Match each reference on the same fixed canvas, especially mask and chest dimensions. Keep at least 9% transparent band on every canvas edge. Do not copy either endpoint, blend opacity or add fracture effects.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen11_requested02.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen02_requested01.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen12_requested03.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-beaf4336-d7fe-40b7-948e-3976b30a6251.png"
+    },
+    {
+      "generation": 13,
+      "requestedFrame": 5,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME5. Image2 is preceding pose4; image3 is later pose8. Draw a unique physical IN-BETWEEN pose, one-quarter of way from pose4 to pose8, gradual rightward lean. Mask shifts slightly right and tilts, shoulders slant a little more. Hands sink and wrists hang, cloth follows later. Fully intact no fragments. Match each reference on the same fixed canvas, especially mask and chest dimensions. Keep at least 9% transparent band on every canvas edge. Do not copy either endpoint, blend opacity or add fracture effects.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen02_requested01.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen13_requested05.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-a96c1caa-b4c1-41ee-bd16-fc4c85ab22bc.png"
+    },
+    {
+      "generation": 14,
+      "requestedFrame": 6,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME6. Image2 is preceding pose5; image3 is later pose8. Draw a unique physical IN-BETWEEN pose, halfway from pose5 to pose8. Rightward collapsing lean increases, left shoulder higher and right lower, chest bent with lax arms. Palms face inward/down. Cloth curls lag upper-left and lower-right without lengthening. Match each reference on the same fixed canvas, especially mask and chest dimensions. Keep at least 9% transparent band on every canvas edge. Do not copy either endpoint, blend opacity or add fracture effects.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen13_requested05.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen14_requested06.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b689010a-cc19-4a73-931e-ca998996b35c.png"
+    },
+    {
+      "generation": 15,
+      "requestedFrame": 7,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME7. Image2 is preceding pose6; image3 is later pose8. Draw a unique physical IN-BETWEEN pose, halfway from pose6 to later pose8. Nearly fully slumped, bowed mask turns right, loose claws and shoulders descend to near pose8 positions. Cloth is between the two references, never merely a rotated whole image. Match each reference on the same fixed canvas, especially mask and chest dimensions. Keep at least 9% transparent band on every canvas edge. Do not copy either endpoint, blend opacity or add fracture effects.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen14_requested06.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen01_requested08.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen15_requested07.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-8c352ff5-d86e-45e0-97e1-eac967aee9fe.png"
+    },
+    {
+      "generation": 16,
+      "requestedFrame": 9,
+      "selectedFrame": 9,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME9. Image2 is preceding pose8, image3 is later broken keypose15. The slumped body stays at preceding pose with a slight helpless shoulder recoil. Hairline cyan fractures first open along existing mask cracks, one chest seam and upper arms. No detached armor yet. Cloth now begins pulling taut at attachment points and lower curls fold inward above the bottom10% margin. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen15_requested07.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen16_requested09.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-05b93b66-f536-44b1-80a0-52add16e461e.png"
+    },
+    {
+      "generation": 17,
+      "requestedFrame": 10,
+      "selectedFrame": 10,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME10. Image2 is preceding pose9, image3 is later broken keypose15. Continue from preceding pose with bowed head and helpless hands. Existing cracks grow a little brighter/wider on chest and collar, but all plates remain touching. One outer cloth strip begins a small tear at its middle. Almost no detached matter. Do not snap the head upright; keep mask and chest size and leaning placement. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen16_requested09.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen17_requested10.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-8ffc8213-af38-4c08-918b-2783dfc15e40.png"
+    },
+    {
+      "generation": 18,
+      "requestedFrame": 11,
+      "selectedFrame": 11,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME11. Image2 is preceding pose10, image3 is later broken keypose15. Last slow anticipation pose. Slumped body trembles through small joint changes: fingers loosen, mask tips down. Fine fractures now visible across collar and chest, two tiny ice chips lift away. Small tears in cloth at shoulders, remaining main body intact, not yet the broad broken gaps of image3. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen17_requested10.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen18_requested11.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-3f80d61a-feb3-415e-8ea5-65d5ad24812e.png"
+    },
+    {
+      "generation": 19,
+      "requestedFrame": 12,
+      "selectedFrame": 12,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME12. Image2 is preceding pose11, image3 is later broken keypose15. First fast fracture step, about10% disassembly. One collar plate and two lower chest plates pull apart by5px, one outer claw shell loosens. A few cloth filaments rip into short nearby scraps. Mostly intact slumped body. Tiny cyan seams, no blast or orb. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen18_requested11.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen19_requested12.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-63aa59e8-af9c-4487-b00c-83a4a5932e0f.png"
+    },
+    {
+      "generation": 20,
+      "requestedFrame": 13,
+      "selectedFrame": 14,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME13. Image2 is preceding pose12, image3 is later broken keypose15. Second fast fracture step, about15% disassembly. Collar gaps widen about10px and chest plates lift from both sides; mask develops a narrow first seam but remains together. Forearm plates crack, a couple of claw tips loosen. Original cloth begins tearing through short spans, preserving same body placement. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen19_requested12.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen20_requested13.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-69751599-2937-4b60-b5bd-41397ff0b55c.png"
+    },
+    {
+      "generation": 21,
+      "requestedFrame": 14,
+      "selectedFrame": 15,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. One animation cel for the user's AirBoss DEATH sequence, NOT a sprite sheet. Transparent RGBA background. Square 1024x1024 canvas.\nImage 1 is the fixed IDLE MASTER, the ONLY reference for design, material, anatomical scale and original asymmetry. Additional references if present are neighboring death poses for motion continuity, never new design standards.\nKeep exactly the same long narrow cracked silver beak mask, segmented high dark collar, layered tapered charcoal chest armor, claw hands, icy pale blue-white translucent tattered cloth. No legs, no new decorations, horns, faces, weapons, ground or scene. Detailed 2D game sprite painting matching the master, same lighting and original asymmetry. No text, guides, border, shadow, streak outside the character, aura disk, or duplicate ghost body.\nMaintain master anatomical scale and fixed canvas coordinates: pivot512,512. Master mask near x520,y267; torso spans roughly x420..630,y320..560. The original body has about780px visible height. Death tilts and slumps by joint posing, then breaks that same body into pieces. DO NOT shrink, zoom, fit-to-frame or recenter the body/debris cloud. No whole-image rotation substitute. Keep all visible cloth, fragments and faint glow inside x90..934,y90..934 (safe transparent border), curl cloth naturally before edges. Every fragment must originate from the original armor/cloth, retain cold blue-gray colors; no blood or flesh. Rigid shards and flexible cloth pieces move differently. Render exactly ONE clean unique pose; no superimposed adjacent poses. Request real transparency.\nFRAME14. Image2 is preceding pose13, image3 is later broken keypose15. Inbetween just before image3 frame15. About20% disassembly, mask splits into fitted plates separated by3-5px, shoulders and chest pieces move out about10-15px. The two wrists start separating while fingers still read as claws. Cloth develops clear tears and small suspended tatters, but most long strips still attached. All pieces near their original source; match pose15 coordinates closely. The bottom cloth curls must now be bent UPWARD like image3, fully above the bottom12% of the canvas. Original scale, SAME fixed canvas. The highest left loop droops inside a clean top10% margin. Draw actual changed joints/tears/cloth curves for this new cel, not a blend or copied endpoint.",
+      "referenceImages": [
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen20_requested13.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen08_requested15.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen21_requested14.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-f48c55f3-7d5c-4fdc-b63e-5d57c1bbdf1f.png"
+    },
+    {
+      "generation": 22,
+      "requestedFrame": 16,
+      "selectedFrame": 16,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME16: ONE physically drawn intermediate pose halfway between image1(previous15) and image2(later17). Mask plates and collar pieces open farther, chest plates loosen with small 10-20px gaps, shoulders/forearms detach partly, not yet full disassembly. The largest cloth curls tear but remain mostly connected. Match the two poses' absolute scale and common fixed canvas. Preserve same piece origin, add small rotations. This is the first cel on the second sheet, directly continuing15.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen21_requested14.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen09_requested17.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen22_requested16.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b9da7e79-87d8-4dea-b9a9-4b8fb484cb7e.png"
+    },
+    {
+      "generation": 23,
+      "requestedFrame": 18,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME18: One-third of the way from preceding17 to later21: split the chest into 5 large disconnected chevrons, upper arms and forearms separate, hands now break across knuckles with distinct claw pieces, the collar opens into multiple disconnected arcs. Mask plates drift only slightly up-right. Tear top-left loops and lower-right cloth into several long isolated strips, much empty space between all sections. Preserve original piece scale and same canvas.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen09_requested17.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen10_requested21.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen23_requested18.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b4c144d2-c019-48fc-ae79-8c0b99b4b6cd.png"
+    },
+    {
+      "generation": 24,
+      "requestedFrame": 19,
+      "selectedFrame": 19,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME19: Halfway from preceding18 to later21: further fragment the chest chevrons and forearms, turn the now loose claw pieces individually, the collar arcs separate and drift up/out. Cloth strips split across the middle and curl. Clear transparent gaps in center. No part reattaches; increasingly disassembled but not as spread as image2.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen23_requested18.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen10_requested21.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen24_requested19.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-5c5ac23e-de16-445c-aaa8-e2daee499ce7.png"
+    },
+    {
+      "generation": 25,
+      "requestedFrame": 20,
+      "selectedFrame": 20,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME20: One new unique cel just before later21. The same mask fragments, collar chunks and forearm shards approach image2 positions with slight rotations. Last long cloth links rip free into isolated curls. Almost fully disassembled; hollow center, pieces separately suspended, source identity maintained. Keep same absolute piece scale.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen24_requested19.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen10_requested21.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen25_requested20.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-80870188-39c1-4a5c-8b97-04069c540d6b.png"
+    },
+    {
+      "generation": 26,
+      "requestedFrame": 22,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME22: One-third from earlier21 toward later24: all body now fully disconnected. Original chunks rotate another 8-12degrees, drift 5-10px on same outward paths, some edges erode. Cloth curls twist and thin, about20% less visible material than earlier21, but still larger than later24. Do not merely fade a static image.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen10_requested21.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen07_requested24.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen26_requested22.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-df2d83d4-5f8c-4a38-b0e0-fb721f8b976c.png"
+    },
+    {
+      "generation": 27,
+      "requestedFrame": 23,
+      "selectedFrame": null,
+      "repair": false,
+      "prompt": "Use case: stylized-concept. Create one clean new DEATH animation sprite, transparent RGBA square canvas. Image1 is preceding death cel; image2 is later cel when supplied; final image is original master MATERIAL AND DESIGN REFERENCE ONLY, NEVER reassemble its body. SAME fixed canvas coordinates and absolute fragment scale. Preserve charcoal segmented metal, silver mask material and icy blue-white translucent cloth texture. Actual physically changed poses and fragments, no opacity-blended duplicate bodies, no frame interpolation, no montage. No new body parts, extra armor, background, floor, smoke, explosion, bright central orb, text or guides. All fragments and glow must have an entirely TRANSPARENT OUTER BAND of at least 12% of canvas height/width on each side. Outer cloth pieces curl inward, outermost small debris disappears before reaching this band; do not shrink or crop the whole composition. Original asymmetric upper-left and lower-right flows, no symmetric ring of particles.\nFRAME23: Halfway from preceding22 to later24: further edge erosion into smaller chips, cloth strips break into shorter curling pieces. Reduce visible solid material another15%, move and rotate remnants along previous paths. The center is mostly empty. Same fragment absolute scale with eroded surfaces, do not zoom.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen26_requested22.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen07_requested24.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen27_requested23.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-c655710f-6663-438b-894f-04d8970c8b38.png"
+    },
+    {
+      "generation": 28,
+      "requestedFrame": 25,
+      "selectedFrame": 25,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel25; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Remove all remaining recognizable mask/hand/collar structures by breaking them into smaller eroded shards. Dissolve about40% of remaining matter. The broad top-left loop breaks into three thin SHORT wisps, lower-right curls split and unravel. Empty center, no long ribbons.\nREMAINING CONTENT: about 20 armor chips and 10 SHORT thin cloth wisps. Every fragment must be SMALLER than 9% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen27_requested23.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen28_requested25.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-097d4d52-1ba6-4823-ab5c-8ef731710685.png"
+    },
+    {
+      "generation": 29,
+      "requestedFrame": 26,
+      "selectedFrame": 26,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel26; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Dissolve another35% of the previous cel's material. Pieces drift5-12px along existing paths and rotate, edges crumble. Shorten the cloth remnants with ragged translucent ends. The broad former top-left loop is completely gone, only detached wisps remain.\nREMAINING CONTENT: about 14 small armor chips and 7 wispy cloth remnants. Every fragment must be SMALLER than 7% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen28_requested25.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen29_requested26.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-31b40cfa-380b-4913-ae87-06437175f2af.png"
+    },
+    {
+      "generation": 30,
+      "requestedFrame": 27,
+      "selectedFrame": 27,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel27; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Dissolve another40% of remaining material, leave widely separated small remnants at their existing areas. Broad open center with only a few small fragments around it; cloth curls unwind into thin fading short threads. No recognizable character anatomy.\nREMAINING CONTENT: about 9 small metal/ice chips and 5 delicate cloth threads. Every fragment must be SMALLER than 5% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen29_requested26.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen30_requested27.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-896e3dd8-fab5-4f3e-badc-37fb15278ddb.png"
+    },
+    {
+      "generation": 31,
+      "requestedFrame": 28,
+      "selectedFrame": 28,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel28; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Almost gone. Remove most remaining pieces; only these tiny fragments persist at existing coordinates, turning and gently drifting, translucency increases. Keep large empty spaces. Do NOT turn them into large bright glowing stars.\nREMAINING CONTENT: 6 tiny blue-silver flecks and 3 very thin SHORT cloth threads. Every fragment must be SMALLER than 3% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen30_requested27.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen31_requested28.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b0ca2679-8060-45c0-b7d1-dff3591241e4.png"
+    },
+    {
+      "generation": 32,
+      "requestedFrame": 29,
+      "selectedFrame": 29,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel29; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Last lingering debris. Most previous fragments have dissolved. The remaining ones move a few pixels down/out and rotate, only small light edges remain. At least98% of canvas is empty alpha; no large shapes.\nREMAINING CONTENT: 4 tiny pale blue ice flecks and 2 short delicate thread wisps. Every fragment must be SMALLER than 2% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen31_requested28.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen32_requested29.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-83ad7ec9-5b27-4a2f-a74f-fa44470c584e.png"
+    },
+    {
+      "generation": 33,
+      "requestedFrame": 30,
+      "selectedFrame": 30,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel30; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Penultimate frame. Remove all other pieces. Keep these remnants near their previous positions, mildly rotated and more translucent. Nearly empty canvas, no larger glitter or newly created particles. Do not enlarge sparse content.\nREMAINING CONTENT: 3 very tiny dull-blue flecks and one hair-thin little thread. Every fragment must be SMALLER than 1% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen32_requested29.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen33_requested30.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-f89fa990-a1c5-4c7e-b77a-8e8a2ea1625b.png"
+    },
+    {
+      "generation": 34,
+      "requestedFrame": 31,
+      "selectedFrame": 31,
+      "repair": false,
+      "prompt": "Edit image1 into the NEXT sparse death cel31; image2 is only palette/material reference, NEVER draw the original boss. One square transparent RGBA sprite. Fixed camera, fixed canvas, SAME absolute coordinates and scale as image1. Primary change: Final frame. The prior few flecks have nearly all dissolved; only tiny dim remnants remain, near the previous lower-right/upper-left paths. No body and no solid debris. More than99.5% canvas empty transparent. This is NOT a fade of the entire preceding image: two small remnants have drifted a few pixels and changed shape. Do not zoom or recenter sparse content.\nREMAINING CONTENT: only 2 minuscule fading blue-gray specks and a 5-pixel thin thread tip. Every fragment must be SMALLER than 0.6% of canvas width. ERASE the now-dissolved material leaving real alpha transparency; do not refill its empty space. Each surviving piece has a newly painted rotation, changed ragged outline and small positional drift. Preserve dark icy silver armor and icy blue-white ethereal cloth texture, now less solid. Do not generate any new chunks. Do not enlarge or move everything to center because the image is sparse. Preserve asymmetric broad distribution, no ring. Keep ALL visible pixels within central76% of the canvas, leaving the outer12% on every side totally transparent. No large cloth arcs, unbroken strips, face, body, hands, smoke, cloud, explosion, beam, orb, stars, text or background. Keep genuine partial alpha on remnants.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen33_requested30.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen34_requested31.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-64fb8081-db18-4d7d-9029-9b8724fe332b.png"
+    },
+    {
+      "generation": 35,
+      "requestedFrame": 4,
+      "selectedFrame": 4,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the lowest pale cloth tips: curl their last short length UPWARD into small hooks so they end above the bottom12% band. Preserve all body anatomy and scale, mask, chest, hands, original slumped pose and every upper cloth loop exactly. The body is INTACT, do not add cracks or fragments.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame4 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen12_requested03.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen35_requested04.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-88fe7515-820a-4527-82e7-ff02ce6b6c89.png"
+    },
+    {
+      "generation": 36,
+      "requestedFrame": 5,
+      "selectedFrame": 5,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the lowest pale cloth tips: curl their last short length UPWARD into small hooks so they end above the bottom12% band. Preserve all body anatomy and scale, mask, chest, hands, original slumped pose and every upper cloth loop exactly. The body is INTACT, do not add cracks or fragments.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame5 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen13_requested05.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen36_requested05.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-d63aa71b-158f-43d9-8f00-b61d449b7d92.png"
+    },
+    {
+      "generation": 37,
+      "requestedFrame": 7,
+      "selectedFrame": 7,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the lowest pale cloth tips: curl their last short length UPWARD into small hooks so they end above the bottom12% band. Preserve all body anatomy and scale, mask, chest, hands, original slumped pose and every upper cloth loop exactly. The body is INTACT, do not add cracks or fragments.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame7 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen14_requested06.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen37_requested07.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-45c55dcd-34c0-4bde-b3a3-835eef882259.png"
+    },
+    {
+      "generation": 38,
+      "requestedFrame": 8,
+      "selectedFrame": 8,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the lowest pale cloth tips: curl their last short length UPWARD into small hooks so they end above the bottom12% band. Preserve all body anatomy and scale, mask, chest, hands, original slumped pose and every upper cloth loop exactly. The body is INTACT, do not add cracks or fragments.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame8 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen15_requested07.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen38_requested08.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-aaae1816-0cb3-4ac7-a644-2a1533a387b4.png"
+    },
+    {
+      "generation": 39,
+      "requestedFrame": 18,
+      "selectedFrame": 18,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the lowest long cloth tips by curling them up into small hooks above the bottom12% band. Keep mask/armor/hand fragments and all other cloth at exactly the same coordinates and scale.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame18 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen23_requested18.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen39_requested18.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-d327a069-b746-4568-a247-df0bf5460178.png"
+    },
+    {
+      "generation": 40,
+      "requestedFrame": 22,
+      "selectedFrame": 22,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the few outermost cloth scraps: curl the bottom scraps UPWARD to end above the bottom13% band; the highest upper-left tips bend downward to stay below the top11% band; the far right small cloth/armor flecks drift inward just enough for a right11% empty band. Keep all interior pieces at the same coordinates and scale, preserve the current degree of disintegration and translucency.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame22 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen26_requested22.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen40_requested22.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-5ecc0a61-ce4a-4a90-8814-6cf08dfd9faf.png"
+    },
+    {
+      "generation": 41,
+      "requestedFrame": 23,
+      "selectedFrame": null,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the few outermost cloth scraps: curl the bottom scraps UPWARD to end above the bottom13% band; the highest upper-left tips bend downward to stay below the top11% band; the far right small cloth/armor flecks drift inward just enough for a right11% empty band. Keep all interior pieces at the same coordinates and scale, preserve the current degree of disintegration and translucency.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame23 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen27_requested23.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen41_requested23.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-294cedf3-9f44-40bd-a405-51f322aa41cf.png"
+    },
+    {
+      "generation": 42,
+      "requestedFrame": 24,
+      "selectedFrame": 24,
+      "repair": true,
+      "prompt": "Precise LOCAL margin repair of IMAGE1, ONE transparent square game sprite. IMAGE2 original master is only a style/design reference and must not change the pose or restore any broken parts.\nChange ONLY the few outermost cloth scraps: curl the bottom scraps UPWARD to end above the bottom13% band; the highest upper-left tips bend downward to stay below the top11% band; the far right small cloth/armor flecks drift inward just enough for a right11% empty band. Keep all interior pieces at the same coordinates and scale, preserve the current degree of disintegration and translucency.\nThe entire source image must stay at IDENTICAL canvas position and scale. Absolutely NO zoom-out, rescale, global reposition, crop or new pose. The transparent border is formed only by bending these few cloth tips, not by erasing their lengths. Retain the original fine icy texture and genuine alpha edges. Remove isolated accidental almost-transparent dust specks at the canvas boundary. No new objects, glow, text or background. Render otherwise the exact same cel. This is final frame24 safety repair.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen07_requested24.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen42_requested24.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-b0b66b8a-beb0-49a9-a876-8e6e65cd6f14.png"
+    },
+    {
+      "generation": 43,
+      "requestedFrame": 23,
+      "selectedFrame": 23,
+      "repair": true,
+      "prompt": "LOCAL EDIT of IMAGE1 only. Keep ALL armor fragments, upper-left cloth scraps, center pieces, their exact positions, scale, texture and translucency unchanged. Fix just the bottom-right trailing cloth group. The TWO LOWEST long cloth curls in image1 currently hang too far down. Redraw those two curls as SHORT HORIZONTAL S-SHAPED tatters turning back toward the left, located beside their own upper portions around 80%-85% of canvas height. They must NOT have any downward hanging hook. Use the safer upward-curled lower cloth in IMAGE2 as motion guidance, but keep image1's remaining pieces. The bottommost visible point MUST be ABOVE 87% of canvas height, leaving bottom13% completely empty transparent. Do not put tiny sparkles below. Do not zoom, scale or move the whole debris field; only bend these two cloth pieces and preserve their material. Image3 original master is material reference only. One transparent RGBA square death cel, no background/text.",
+      "referenceImages": [
+        "ArtSource/AirBoss/death/source/v01/history/gen41_requested23.png",
+        "ArtSource/AirBoss/death/source/v01/history/gen42_requested24.png",
+        "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+      ],
+      "projectSource": "ArtSource/AirBoss/death/source/v01/history/gen43_requested23.png",
+      "generatedOriginPath": "C:\\Users\\k_ms9\\.codex\\generated_images\\01a0f4d6-3b43-7b20-8c91-1be821347e23\\exec-a65f5406-e2a7-4960-9336-ee9074f89e9b.png"
+    }
+  ]
+}
