@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4645156272036487136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3357450130241722124}
+  - component: {fileID: 3129011378867070807}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3357450130241722124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645156272036487136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3129011378867070807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645156272036487136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e338ac50cc984a3418ab0012da025f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectManager
+  _playerHitVfx: {fileID: 4021103657954561961, guid: 275785150a53a4b4989309a6b663eb12, type: 3}
+  _playerDeathVfx: {fileID: 5985634496115995773, guid: ec3da48247b33f84b8012c97e39a3dee, type: 3}
+  _jumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
+  _doubleJumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
+  _dashVfx: {fileID: 0}
+  _footstepVfx: {fileID: 0}
+  _enemyHitVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
+  _enemyDeathVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
+  _attackBasicVfx: {fileID: 0}
+  _attackStabVfx: {fileID: 0}
+  _attackHorizontalVfx: {fileID: 295151123095771115, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
+  _attackDownVfx: {fileID: 4465590687819272544, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+  _attackUpVfx: {fileID: 6914652183001740788, guid: 85e87edd6b1d24343bf99e728eba4ae9, type: 3}
+  _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
+  _levelUpVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
+  _wallSlideVfx: {fileID: 0}
+  _wallClimbUpVfx: {fileID: 0}
+  _wallClimbDownVfx: {fileID: 0}
+  _respawnVfx: {fileID: 0}
+  _clickVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
