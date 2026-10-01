@@ -163,6 +163,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e338ac50cc984a3418ab0012da025f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectManager
+  _playerHitVfx: {fileID: 0}
+  _playerDeathVfx: {fileID: 0}
+  _jumpVfx: {fileID: 0}
+  _doubleJumpVfx: {fileID: 0}
+  _dashVfx: {fileID: 0}
+  _footstepVfx: {fileID: 0}
+  _enemyHitVfx: {fileID: 0}
+  _enemyDeathVfx: {fileID: 0}
+  _attackBasicVfx: {fileID: 0}
+  _attackStabVfx: {fileID: 0}
+  _attackHorizontalVfx: {fileID: 0}
+  _attackDownVfx: {fileID: 0}
+  _attackUpVfx: {fileID: 0}
+  _checkpointVfx: {fileID: 0}
+  _levelUpVfx: {fileID: 0}
+  _wallSlideVfx: {fileID: 0}
+  _wallClimbUpVfx: {fileID: 0}
+  _wallClimbDownVfx: {fileID: 0}
+  _respawnVfx: {fileID: 0}
+  _clickVfx: {fileID: 0}
 --- !u!1001 &79641578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,6 +360,7 @@ GameObject:
   - component: {fileID: 537748765}
   - component: {fileID: 537748768}
   - component: {fileID: 537748769}
+  - component: {fileID: 537748770}
   m_Layer: 0
   m_Name: AirBoss_Idle_Float_v01_00
   m_TagString: Untagged
@@ -442,7 +463,7 @@ Transform:
   m_GameObject: {fileID: 537748764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,6 +527,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &537748770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537748764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8361091d400c04640846f3e1b2a610cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossMovement
+  _maxPosition: {x: 30, y: 10}
+  _minPosition: {x: -30, y: -5}
+  _speed: 5
+  _moveDuration: 1
+  _moveInterval: 3
 --- !u!1 &1437128787
 GameObject:
   m_ObjectHideFlags: 0
