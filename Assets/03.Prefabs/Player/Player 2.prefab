@@ -183,21 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf09f1dbd43daa4a96c72a6d56ffae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  _damage: 10
-  _attackDuration: 0.38
-  _attackSize: {x: 1.4, y: 1.2}
-  _attackForwardOffset: 1.42
-  _attackUpwardOffset: 0.8
-  _stabSize: {x: 2.2, y: 0.8}
-  _stabOffset: {x: 1.1, y: 0.8}
-  _downSize: {x: 1.2, y: 1.6}
-  _downOffset: {x: 0.2, y: -1}
-  _upSize: {x: 1.2, y: 1.8}
-  _upOffset: {x: 0.2, y: 1.2}
-  _stabDuration: 0.22
-  _horizontalDuration: 0.23
-  _downDuration: 0.23
-  _upDuration: 0.23
+  _attacks:
+  - {fileID: 11400000, guid: c0355d26aa2bf5140bdb0f50b9a02c1c, type: 2}
+  - {fileID: 11400000, guid: 5bd6d3c8cd0e8674686605f53200f3ac, type: 2}
+  - {fileID: 11400000, guid: 272894b29ceac9e4cb8ffcfac79021fe, type: 2}
+  - {fileID: 11400000, guid: 6b7eb69b3247b3949ab83ff93e70cae4, type: 2}
+  - {fileID: 11400000, guid: 73fa6af4c8602f9468eff07352a20698, type: 2}
+  _showHitboxes: 0
 --- !u!114 &7533624692983177567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c9f5727ddde56478d59baf0d6497d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
-  _jumpStartDuration: 0.13
+  _jumpStartDuration: 0.2
   _apexVelocityRange: 1.5
   _dashStartDuration: 0.075
   _dashEndDuration: 0.13

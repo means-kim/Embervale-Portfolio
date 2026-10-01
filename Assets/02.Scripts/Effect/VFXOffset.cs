@@ -10,6 +10,9 @@ public class VFXOffset : MonoBehaviour
     [Tooltip("생성 위치에 더할 오프셋. 좌우 반전이 필요하면 호출 쪽에서 처리한다.")]
     [SerializeField] private Vector3 _offset;
 
+    /// <summary>오프셋의 x를 반전한다. VFXFlip이 왼쪽 스폰 시 Spawn 직후(Start 전)에 호출.</summary>
+    public void MirrorX() => _offset.x = -_offset.x;
+
     private void Start()
     {
         transform.position += _offset;
