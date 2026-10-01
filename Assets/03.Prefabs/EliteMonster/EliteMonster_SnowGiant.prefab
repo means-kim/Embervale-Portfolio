@@ -93,38 +93,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5446899786276659735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1674532977037777774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5382678353188290222}
-  m_Layer: 0
-  m_Name: IceThornEffectPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &5382678353188290222
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674532977037777774}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.8, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7198791258127504823}
-  m_Father: {fileID: 817473981876062920}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2250479099931298770
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +302,6 @@ Transform:
   - {fileID: 8571084877684890239}
   - {fileID: 1097070340072482325}
   - {fileID: 1153776579689352984}
-  - {fileID: 5382678353188290222}
   m_Father: {fileID: 1020913575131678032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7065598643815071764
@@ -347,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1097070340072482325}
   - component: {fileID: 8888713568152184442}
+  - component: {fileID: 3238077877130732414}
   m_Layer: 10
   m_Name: ChargeHitbox
   m_TagString: Boss
@@ -415,6 +383,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.7, y: 4.8}
   m_EdgeRadius: 0
+--- !u!114 &3238077877130732414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065598643815071764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b45094632c0d847b27348a12838e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterAttackHitbox
+  _attack: {fileID: 7845351025324201781}
 --- !u!1 &7230735987245612540
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8571084877684890239}
   - component: {fileID: 4879881117328265235}
+  - component: {fileID: 7275228567513500430}
   m_Layer: 10
   m_Name: SwingHitbox
   m_TagString: Boss
@@ -493,6 +475,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.45, y: 1.55}
   m_EdgeRadius: 0
+--- !u!114 &7275228567513500430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230735987245612540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b45094632c0d847b27348a12838e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterAttackHitbox
+  _attack: {fileID: 7746876174767781300}
 --- !u!1 &7966135992412740077
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153776579689352984}
   - component: {fileID: 3150147015069605615}
+  - component: {fileID: 1190905079866674153}
   m_Layer: 10
   m_Name: IceThornArmHitbox
   m_TagString: Untagged
@@ -571,6 +567,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.1, y: 2.6}
   m_EdgeRadius: 0
+--- !u!114 &1190905079866674153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966135992412740077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b45094632c0d847b27348a12838e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterAttackHitbox
+  _attack: {fileID: 8224518611717997992}
 --- !u!1 &7981983542186342843
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798524011066386796}
   - component: {fileID: 6846928513366798326}
+  - component: {fileID: 5795523279720528101}
   m_Layer: 10
   m_Name: SlamHitbox
   m_TagString: Boss
@@ -1015,77 +1025,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
---- !u!1001 &6760720492235650496
-PrefabInstance:
+--- !u!114 &5795523279720528101
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5382678353188290222}
-    m_Modifications:
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571660658879064210, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953297581516558832, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_Name
-      value: BossIceThorn
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425433907468996792, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073608272406028980, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
---- !u!4 &7198791258127504823 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4482728654392549495, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
-  m_PrefabInstance: {fileID: 6760720492235650496}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022871376022956552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b45094632c0d847b27348a12838e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterAttackHitbox
+  _attack: {fileID: 949869995925369542}

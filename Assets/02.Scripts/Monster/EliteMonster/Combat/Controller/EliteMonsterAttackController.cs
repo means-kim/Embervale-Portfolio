@@ -22,11 +22,14 @@ public class EliteMonsterAttackController : MonoBehaviour
     private void Start()
     {
         AttackDataSettings();
+        FindTarget();
     }
 
     private void Update()
     {
         if (_health.IsDead) return;
+        if (_target == null) FindTarget();
+        if (_target == null) return;
         if (_currentAttack != null) return;
         if (_eliteMonsterHit.IsHit) return;
 
@@ -37,6 +40,10 @@ public class EliteMonsterAttackController : MonoBehaviour
 
         _currentAttack = sellectAttack;
         _currentAttack.OnAttackFinished += HandleAttackFinsed;
+        foreach (EliteMonsterAttackHitbox hitbox in GetComponentsInChildren<EliteMonsterAttackHitbox>(true))
+        {
+            hitbox.ResetHits();
+        }
         _currentAttack.StartAttack();
 
         _movement.enabled = false;
@@ -73,6 +80,13 @@ public class EliteMonsterAttackController : MonoBehaviour
         _currentAttack.OnAttackFinished -= HandleAttackFinsed;
         _currentAttack.CancelAttack();
         _currentAttack = null;
+    }
+
+    private void FindTarget()
+    {
+        if (_target != null) return;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) _target = player.transform;
     }
 
     private void AttackDataSettings()
