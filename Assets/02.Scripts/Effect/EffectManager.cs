@@ -26,7 +26,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _enemyDeathVfx;
 
     [Header("VFX 프리팹 (플레이어 공격 5종)")]
-    [SerializeField] private GameObject _attackBasicVfx;
+    [SerializeField, UnityEngine.Serialization.FormerlySerializedAs("_attackBasicVfx")] private GameObject _attackSideAttackVfx;
     [SerializeField] private GameObject _attackStabVfx;
     [SerializeField] private GameObject _attackHorizontalVfx;
     [SerializeField] private GameObject _attackDownVfx;
@@ -84,20 +84,22 @@ public class EffectManager : MonoBehaviour
 
     // 아래 단발 VFX는 인스펙터에 프리팹을 넣으면 해당 타이밍에 자동 소환된다.
     // 비어 있는 칸은 무시된다. 사운드는 프리팹에 직접 달아 두고,
-    // 소환된 프리팹의 수명(재생 후 삭제)은 프리팹 쪽에서 관리한다.
+    // 소환된 프리팹의 수명(재생 후 삭제)은 프리팹 쪽 OneShotVFX가 관리한다.
+    // OneShotVFX._lifeTime이 0이면 애니/사운드/파티클 중 가장 긴 것 + _extraDelay 후 파괴된다.
+    // CFXR_Effect 프리팹은 clearBehavior=None으로 두고 OneShotVFX에 수명을 맡긴다.
     public void PlayPlayerHit(Vector3 position) => Spawn(_playerHitVfx, position);
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
     public void PlayJump(Vector3 position) => Spawn(_jumpVfx, position);
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
-    public void PlayDash(Vector3 position) => Spawn(_dashVfx, position);
+    public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
     public void PlayEnemyHit(Vector3 position) => Spawn(_enemyHitVfx, position);
     public void PlayEnemyDeath(Vector3 position) => Spawn(_enemyDeathVfx, position);
-    public void PlayAttackBasic(Vector3 position) => Spawn(_attackBasicVfx, position);
-    public void PlayAttackStab(Vector3 position) => Spawn(_attackStabVfx, position);
-    public void PlayAttackHorizontal(Vector3 position) => Spawn(_attackHorizontalVfx, position);
-    public void PlayAttackDown(Vector3 position) => Spawn(_attackDownVfx, position);
-    public void PlayAttackUp(Vector3 position) => Spawn(_attackUpVfx, position);
+    public GameObject PlayAttackSideAttack(Vector3 position, int direction = 1) => Spawn(_attackSideAttackVfx, position, direction);
+    public GameObject PlayAttackStab(Vector3 position, int direction = 1) => Spawn(_attackStabVfx, position, direction);
+    public GameObject PlayAttackHorizontal(Vector3 position, int direction = 1) => Spawn(_attackHorizontalVfx, position, direction);
+    public GameObject PlayAttackDown(Vector3 position, int direction = 1) => Spawn(_attackDownVfx, position, direction);
+    public GameObject PlayAttackUp(Vector3 position, int direction = 1) => Spawn(_attackUpVfx, position, direction);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);
@@ -106,9 +108,13 @@ public class EffectManager : MonoBehaviour
     public void PlayRespawn(Vector3 position) => Spawn(_respawnVfx, position);
     public void PlayClick(Vector3 position) => Spawn(_clickVfx, position);
 
-    private void Spawn(GameObject prefab, Vector3 position)
+    private GameObject Spawn(GameObject prefab, Vector3 position, int direction = 1)
     {
-        if (prefab == null) return;
-        Instantiate(prefab, position, Quaternion.identity);
+        if (prefab == null) return null;
+        GameObject spawned = Instantiate(prefab, position, Quaternion.identity);
+        // VFXFlip이 붙은 프리팹만 왼쪽 스폰 시 뒤집는다. 없으면 기존처럼 그대로.
+        if (direction < 0)
+            spawned.GetComponent<VFXFlip>()?.Apply(direction);
+        return spawned;
     }
 }

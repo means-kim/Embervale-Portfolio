@@ -4872,9 +4872,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
@@ -9837,9 +9837,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
@@ -14758,9 +14758,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
@@ -14903,6 +14903,8 @@ GameObject:
   - component: {fileID: 8771972552311404798}
   - component: {fileID: 8771972552311404739}
   - component: {fileID: 2411548843753722338}
+  - component: {fileID: -3675599516673272530}
+  - component: {fileID: 8956594345514879904}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Untagged
@@ -14920,8 +14922,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1800347497806655306}
   - {fileID: 2832608919354171473}
@@ -14975,9 +14977,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
@@ -19837,7 +19839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 0
     useMainCamera: 1
@@ -20094,3 +20096,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3675599516673272530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771972552311404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 0.1
+--- !u!114 &8956594345514879904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771972552311404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
+  _lifeTime: 0
+  _extraDelay: 0.1
+  _playReversed: 0

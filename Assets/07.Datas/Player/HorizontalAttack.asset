@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59869d35d43963b4e91cb2da7d8afe86, type: 3}
+  m_Name: HorizontalAttack
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
+  attackType: 2
+  triggerKey: 101
+  altTriggerKey: 0
+  hitbox:
+    Size: {x: 1.4, y: 1.2}
+    Offset: {x: 0.8, y: 0.8}
+    VfxOffset: {x: 0.8, y: 0.8}
+    Duration: 0.22
+  animClipName: HorizontalAttack
+  vfxPrefab: {fileID: 295151123095771115, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
+  projectilePrefab: {fileID: 0}
+  damage: 10

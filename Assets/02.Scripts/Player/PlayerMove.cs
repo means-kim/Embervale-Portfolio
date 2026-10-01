@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
     private PlayerInput _playerInput;
     public int FacingDirection => _facingDirection;
     public bool IsMoving => Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f;
+    /// <summary>실제 입력 의도(키 누름). 발소리처럼 즉시 끊겨야 하는 판정에 사용. 물리 속도 기반 IsMoving과 달리 FixedUpdate 지연이 없다.</summary>
+    public bool HasMoveInput => Mathf.Abs(_moveInput.x) > 0.01f;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();

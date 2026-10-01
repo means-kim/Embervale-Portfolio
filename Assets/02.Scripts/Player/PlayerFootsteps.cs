@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerController))]
+[RequireComponent(typeof(PlayerWall))]
 public class PlayerFootsteps : MonoBehaviour
 {
     [Header("Surface Banks (AudioManager를 거치지 않음)")]
@@ -20,12 +21,17 @@ public class PlayerFootsteps : MonoBehaviour
     private PlayerMove _move;
     private PlayerJump _jump;
     private PlayerController _controller;
+    private PlayerWall _wall;
+    private Rigidbody2D _rigidbody;
     private float _nextStepTime;
+    private bool _wasStepping;
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
         _jump = GetComponent<PlayerJump>();
         _controller = GetComponent<PlayerController>();
+        _wall = GetComponent<PlayerWall>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         EnsureSources();
     }
     private void OnValidate()
@@ -49,19 +55,52 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_jump != null) _jump.OnLanded += HandleLanded;
+        if (_jump != null)
+        {
+            _jump.OnLanded += HandleLanded;
+            // 이륙 순간 즉시 발소리 예약/잔향을 끊는다. 상태·속도 신호가 한 프레임 늦게 바뀌는 동안 새 스텝이 잡히는 것을 방지.
+            _jump.OnJumpStarted += HandleSteppingStopped;
+            _jump.OnGroundLost += HandleSteppingStopped;
+        }
     }
     private void OnDisable()
     {
-        if (_jump != null) _jump.OnLanded -= HandleLanded;
+        if (_jump != null)
+        {
+            _jump.OnLanded -= HandleLanded;
+            _jump.OnJumpStarted -= HandleSteppingStopped;
+            _jump.OnGroundLost -= HandleSteppingStopped;
+        }
+        StopFootstepSounds();
     }
     private void Update()
     {
-        if (_controller.CurrentState != PlayerState.Run) return;
-        if (!_jump.IsGrounded || !_move.IsMoving) return;
+        // 입력 의도(HasMoveInput)를 함께 본다. 정지 입력 후 물리 속도가 1~2프레임 늦게 0이 되거나,
+        // 컨트롤러 상태가 한 프레임 늦게 Idle로 바뀌는 동안 예약된 스텝이 새로 잡히는 것이 밀림 체감의 원인.
+        bool runStep = _controller.CurrentState == PlayerState.Run
+            && _jump.IsGrounded
+            && _move.IsMoving
+            && _move.HasMoveInput;
+        // 벽 타기 중 상하 이동(IsClimbing은 Y 입력 포함)은 Platform 발소리로 재생한다. 수동 슬라이딩(입력 없음)은 제외.
+        bool wallStep = _wall != null && _wall.IsClimbing
+            && _rigidbody != null && Mathf.Abs(_rigidbody.linearVelocity.y) > 0.01f;
+        bool shouldStep = runStep || wallStep;
+        if (!shouldStep)
+        {
+            if (_wasStepping)
+            {
+                _wasStepping = false;
+                // 이미 깔린 PlayOneShot 잔향을 끊고 타이머를 리셋한다. 재개 시 묵은 타이머가 즉시 발화하지 않게.
+                StopFootstepSounds();
+                _nextStepTime = Time.time + _stepInterval;
+            }
+            return;
+        }
+        _wasStepping = true;
         if (Time.time < _nextStepTime) return;
         _nextStepTime = Time.time + _stepInterval;
-        PlayCurrentSurface();
+        if (wallStep) PlayPlatformStepOnce();
+        else PlayCurrentSurface();
         EffectManager.Instance?.PlayFootstep(transform.position);
     }
     private void HandleLanded()
@@ -69,6 +108,19 @@ public class PlayerFootsteps : MonoBehaviour
         if (!_playOnLand) return;
         PlayCurrentSurface();
         _nextStepTime = Time.time + _stepInterval;
+    }
+    /// <summary>점프 이륙·낙하 등으로 스테핑 조건이 깨지면 잔향과 예약을 즉시 정리.</summary>
+    private void HandleSteppingStopped()
+    {
+        _wasStepping = false;
+        StopFootstepSounds();
+        _nextStepTime = Time.time + _stepInterval;
+    }
+    /// <summary>이미 재생 중인 발소리(PlayOneShot 잔향 포함)를 끊는다. 같은 소스 공유 시 중복 Stop 방지.</summary>
+    private void StopFootstepSounds()
+    {
+        if (_groundSource != null) _groundSource.Stop();
+        if (_platformSource != null && _platformSource != _groundSource) _platformSource.Stop();
     }
     /// <summary>현재 서 있는 표면(Ground/Platform)에 맞는 뱅크+소스로 한 발짝 재생.</summary>
     private void PlayCurrentSurface()
