@@ -250,3 +250,7 @@ PPU 24는 모든 AirBoss 시트에 동일하게 적용하며 동작별로 바꾸
 v1.2 / 2026-09-30: 사용자 요청에 따라 기존 8장 + 중간 동작 8장의 Idle v02, 4×4·4096×4096·1.2초 루프를 최신 규격으로 반영했다. 기존 Idle 클립 GUID를 유지하며 16장으로 연결했다.
 
 2026-09-30 후속 제작: 사용자 요청으로 `Cast_RiseDrop_ShadowSplit` v01 16장·4×4·4096×4096·PPU 24를 제작하고 Unity Multiple 16개를 확인했다. 위 ANIM-08 문서 수정 단계의 이미지 제작 보류는 이번 요청으로 해소했으며 클립·Animator·씬·코드는 변경하지 않았다. [개별 제작 기준](cast_risedrop_shadowsplit/Cast_RiseDrop_ShadowSplit_Production_v01.md)과 [제작·검증 기록](../../Docs/Boss/AirBoss/AirBoss_Cast_RiseDrop_ShadowSplit_v01.md)을 따른다.
+
+### Encounter_Start 제작 — 2026-10-01
+
+사용자가 추천한 공중 각성 동작의 멀티 스프라이트 제작을 승인했다. 몸을 숙이고 팔을 모음 → 어깨 높이에서 양옆으로 넓게 펼침 → 천의 후행과 Idle 복귀로 구성했다. 16장·1024 셀·4×4·4096×4096·Center·PPU 24와 전 셀 64px alpha 여백 및 Unity 16분할을 확인했다. [개별 기준](encounter_start/Encounter_Start_Production_v01.md)과 [결과 기록](../../Docs/Boss/AirBoss/AirBoss_Encounter_Start_v01.md)을 따른다. 3.6초는 기획 참고이며 클립·Animator·씬·게임 코드는 만들거나 변경하지 않았다. 실제 재생·최종 아트 승인은 별도다.
