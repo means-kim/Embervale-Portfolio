@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3845d9a3eb1ab9e4c99f61e29de6e4e4
+guid: d4b3ed2ba14722a4bba67f8427c98c5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2664688649564298200
-    second: Flame_Glow_0
+      213: 6362202391145538205
+    second: Flame_A_Soft_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.05}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flame_Glow_0
+      name: Flame_A_Soft_02_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 33
+        y: 4
+        width: 98
+        height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82464b59acf150bd0800000000000000
-      internalID: -2664688649564298200
+      spriteID: d92ee59cd551b4850800000000000000
+      internalID: 6362202391145538205
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flame_Glow_0: -2664688649564298200
+      Flame_A_Soft_02_0: 6362202391145538205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
