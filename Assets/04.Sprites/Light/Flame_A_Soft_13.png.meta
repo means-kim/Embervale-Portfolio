@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c1d590b3c8216644eb17bc8091a0e126
+guid: 4119a71200b7cea47b265bfe7f24a00a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -848716264679245674
-    second: Torch_Stand_0
+      213: 7375709791127226498
+    second: Flame_A_Soft_13_0
+  - first:
+      213: -5687653170529621247
+    second: Flame_A_Soft_13_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +49,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.05}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torch_Stand_0
+      name: Flame_A_Soft_13_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 25
-        height: 58
+        x: 31
+        y: 4
+        width: 99
+        height: 182
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69872b0dd01c834f0800000000000000
-      internalID: -848716264679245674
+      spriteID: 28842821af8cb5660800000000000000
+      internalID: 7375709791127226498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flame_A_Soft_13_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 183
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b25fc63956111b0800000000000000
+      internalID: -5687653170529621247
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Torch_Stand_0: -848716264679245674
+      Flame_A_Soft_13_0: 7375709791127226498
+      Flame_A_Soft_13_1: -5687653170529621247
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
