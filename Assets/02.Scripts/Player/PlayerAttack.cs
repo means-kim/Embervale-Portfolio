@@ -15,22 +15,18 @@ public enum PlayerAttackType
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage = 10;
-    [SerializeField, Min(0.05f)] private float _attackDuration = 0.38f;
-    [SerializeField, Min(0f)] private Vector2 _attackSize = new Vector2(1.4f, 1.2f);
-    [SerializeField, Min(0f)] private float _attackForwardOffset = 0.8f;
-    [SerializeField, Min(0f)] private float _attackUpwardOffset = 0.8f;
-    [Header("타입별 판정 (1: 찌르기, 3: 내리치기, 4: 올려치기. 2·5는 위 기본값 사용)")]
-    [SerializeField] private Vector2 _stabSize = new Vector2(2.2f, 0.8f);
-    [SerializeField] private Vector2 _stabOffset = new Vector2(1.1f, 0.8f);
-    [SerializeField] private Vector2 _downSize = new Vector2(1.2f, 1.6f);
-    [SerializeField] private Vector2 _downOffset = new Vector2(0.2f, -1.0f);
-    [SerializeField] private Vector2 _upSize = new Vector2(1.2f, 1.8f);
-    [SerializeField] private Vector2 _upOffset = new Vector2(0.2f, 1.2f);
-    [Header("타입별 지속시간 (클립 길이에 맞춤)")]
-    [SerializeField, Min(0.05f)] private float _stabDuration = 0.67f;
-    [SerializeField, Min(0.05f)] private float _horizontalDuration = 1.17f;
-    [SerializeField, Min(0.05f)] private float _downDuration = 1.17f;
-    [SerializeField, Min(0.05f)] private float _upDuration = 1.17f;
+    [Header("타입별 판정 (씬뷰에서 5개 박스로 확인, 좌우 반전 포함)")]
+    [SerializeField] private PlayerAttackHitbox _side = new() { Size = new Vector2(1.4f, 1.2f), Offset = new Vector2(0.8f, 0.8f), VfxOffset = new Vector2(0.8f, 0.8f), Duration = 0.38f };
+    [SerializeField] private PlayerAttackHitbox _stab = new() { Size = new Vector2(2.2f, 0.8f), Offset = new Vector2(1.1f, 0.8f), VfxOffset = new Vector2(1.1f, 0.8f), Duration = 0.67f };
+    [SerializeField] private PlayerAttackHitbox _horizontal = new() { Size = new Vector2(1.4f, 1.2f), Offset = new Vector2(0.8f, 0.8f), VfxOffset = new Vector2(0.8f, 0.8f), Duration = 1.17f };
+    [SerializeField] private PlayerAttackHitbox _down = new() { Size = new Vector2(1.2f, 1.6f), Offset = new Vector2(0.2f, -1.0f), VfxOffset = new Vector2(0.2f, -1.0f), Duration = 1.17f };
+    [SerializeField] private PlayerAttackHitbox _up = new() { Size = new Vector2(1.2f, 1.8f), Offset = new Vector2(0.2f, 1.2f), VfxOffset = new Vector2(0.2f, 1.2f), Duration = 1.17f };
+    [Header("디버그 (플레이 중 발동 판정 표시)")]
+    [SerializeField] private bool _showHitboxes;
+    private PlayerAttackType _debugLastType;
+    private Vector2 _debugLastCenter;
+    private Vector2 _debugLastSize;
+    private float _debugBoxUntil;
     private readonly Collider2D[] _hitBuffer = new Collider2D[16];
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
@@ -72,8 +68,8 @@ public class PlayerAttack : MonoBehaviour
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         IsAttacking = true;
         CurrentAttackClip = "SideAttack";
-        _attackTimeRemaining = _attackDuration;
-        DoHit(direction, _attackSize, new Vector2(_attackForwardOffset, _attackUpwardOffset), PlayerAttackType.SideAttack);
+        _attackTimeRemaining = _side.Duration;
+        DoHit(direction, _side, PlayerAttackType.SideAttack);
         OnAttackStarted?.Invoke();
     }
     private void HandleTypeAttack(PlayerAttackType type)
@@ -83,45 +79,46 @@ public class PlayerAttack : MonoBehaviour
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         IsAttacking = true;
         CurrentAttackClip = type == PlayerAttackType.SideAttack ? "SideAttack" : type + "Attack";
-        _attackTimeRemaining = GetAttackDuration(type);
-        DoHit(direction, GetAttackSize(type), GetAttackOffset(type), type);
+        PlayerAttackHitbox box = GetHitbox(type);
+        _attackTimeRemaining = box.Duration;
+        DoHit(direction, box, type);
         OnAttackStarted?.Invoke();
     }
-    private Vector2 GetAttackSize(PlayerAttackType type)
+    /// <summary>씬뷰 에디터와 런타임이 함께 쓰는 타입별 판정 조회.</summary>
+    public PlayerAttackHitbox GetHitbox(PlayerAttackType type)
     {
         switch (type)
         {
-            case PlayerAttackType.Stab: return _stabSize;
-            case PlayerAttackType.Down: return _downSize;
-            case PlayerAttackType.Up: return _upSize;
-            default: return _attackSize;
+            case PlayerAttackType.Stab: return _stab;
+            case PlayerAttackType.Horizontal: return _horizontal;
+            case PlayerAttackType.Down: return _down;
+            case PlayerAttackType.Up: return _up;
+            default: return _side;
         }
     }
-    private Vector2 GetAttackOffset(PlayerAttackType type)
+    public bool DebugDrawEnabled => _showHitboxes;
+    /// <summary>플레이 중 마지막 발동 판정. _showHitboxes가 켜져 있을 때만 유효.</summary>
+    public bool TryGetDebugBox(out PlayerAttackType type, out Vector2 center, out Vector2 size)
     {
-        switch (type)
+        type = _debugLastType;
+        center = _debugLastCenter;
+        size = _debugLastSize;
+        return _showHitboxes && Time.time < _debugBoxUntil;
+    }
+    private void DoHit(int direction, PlayerAttackHitbox box, PlayerAttackType type)
+    {
+        var center = (Vector2)transform.position + new Vector2(direction * box.Offset.x, box.Offset.y);
+        if (_showHitboxes)
         {
-            case PlayerAttackType.Stab: return _stabOffset;
-            case PlayerAttackType.Down: return _downOffset;
-            case PlayerAttackType.Up: return _upOffset;
-            default: return new Vector2(_attackForwardOffset, _attackUpwardOffset);
+            _debugLastType = type;
+            _debugLastCenter = center;
+            _debugLastSize = box.Size;
+            _debugBoxUntil = Time.time + Mathf.Max(box.Duration, 0.05f);
         }
-    }
-    private float GetAttackDuration(PlayerAttackType type)
-    {
-        switch (type)
-        {
-            case PlayerAttackType.Stab: return _stabDuration;
-            case PlayerAttackType.Down: return _downDuration;
-            case PlayerAttackType.Up: return _upDuration;
-            default: return _horizontalDuration;
-        }
-    }
-    private void DoHit(int direction, Vector2 size, Vector2 offset, PlayerAttackType type)
-    {
-        var center = (Vector2)transform.position + new Vector2(direction * offset.x, offset.y);
-        PlayAttackVfx(type, center, direction);
-        var count = Physics2D.OverlapBox(center, size, 0f, ContactFilter2D.noFilter, _hitBuffer);
+        // VFX는 판정 중심이 아니라 전용 오프셋에서 소환한다. 판정을 옮겨도 이펙트 위치는 유지.
+        var vfxPos = (Vector2)transform.position + new Vector2(direction * box.VfxOffset.x, box.VfxOffset.y);
+        PlayAttackVfx(type, vfxPos, direction);
+        var count = Physics2D.OverlapBox(center, box.Size, 0f, ContactFilter2D.noFilter, _hitBuffer);
         for (var i = 0; i < count; i++)
         {
             var hit = _hitBuffer[i];
@@ -157,12 +154,5 @@ public class PlayerAttack : MonoBehaviour
         if (!IsAttacking) return;
         IsAttacking = false;
         OnAttackEnded?.Invoke();
-    }
-    private void OnDrawGizmosSelected()
-    {
-        var direction = transform.localScale.x < 0f ? -1 : 1;
-        Vector2 center = (Vector2)transform.position + new Vector2(direction * _attackForwardOffset, _attackUpwardOffset);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(center, _attackSize);
     }
 }
