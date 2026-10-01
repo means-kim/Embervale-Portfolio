@@ -20,6 +20,8 @@ public class EliteMonsterDeath : MonoBehaviour
 
     private void HandleDeath()
     {
+        EffectManager.Instance?.PlayEnemyDeath(transform.position);
+
         _eliteMonsterAttackController.CancelCurrentAttack();
 
         _eliteMonsterMovement.enabled = false;

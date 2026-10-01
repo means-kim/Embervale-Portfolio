@@ -89,15 +89,15 @@ public class EffectManager : MonoBehaviour
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
     public void PlayJump(Vector3 position) => Spawn(_jumpVfx, position);
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
-    public void PlayDash(Vector3 position) => Spawn(_dashVfx, position);
+    public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
     public void PlayEnemyHit(Vector3 position) => Spawn(_enemyHitVfx, position);
     public void PlayEnemyDeath(Vector3 position) => Spawn(_enemyDeathVfx, position);
-    public GameObject PlayAttackSideAttack(Vector3 position) => Spawn(_attackSideAttackVfx, position);
-    public GameObject PlayAttackStab(Vector3 position) => Spawn(_attackStabVfx, position);
-    public GameObject PlayAttackHorizontal(Vector3 position) => Spawn(_attackHorizontalVfx, position);
-    public GameObject PlayAttackDown(Vector3 position) => Spawn(_attackDownVfx, position);
-    public GameObject PlayAttackUp(Vector3 position) => Spawn(_attackUpVfx, position);
+    public GameObject PlayAttackSideAttack(Vector3 position, int direction = 1) => Spawn(_attackSideAttackVfx, position, direction);
+    public GameObject PlayAttackStab(Vector3 position, int direction = 1) => Spawn(_attackStabVfx, position, direction);
+    public GameObject PlayAttackHorizontal(Vector3 position, int direction = 1) => Spawn(_attackHorizontalVfx, position, direction);
+    public GameObject PlayAttackDown(Vector3 position, int direction = 1) => Spawn(_attackDownVfx, position, direction);
+    public GameObject PlayAttackUp(Vector3 position, int direction = 1) => Spawn(_attackUpVfx, position, direction);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);
@@ -106,9 +106,13 @@ public class EffectManager : MonoBehaviour
     public void PlayRespawn(Vector3 position) => Spawn(_respawnVfx, position);
     public void PlayClick(Vector3 position) => Spawn(_clickVfx, position);
 
-    private GameObject Spawn(GameObject prefab, Vector3 position)
+    private GameObject Spawn(GameObject prefab, Vector3 position, int direction = 1)
     {
         if (prefab == null) return null;
-        return Instantiate(prefab, position, Quaternion.identity);
+        GameObject spawned = Instantiate(prefab, position, Quaternion.identity);
+        // VFXFlip이 붙은 프리팹만 왼쪽 스폰 시 뒤집는다. 없으면 기존처럼 그대로.
+        if (direction < 0)
+            spawned.GetComponent<VFXFlip>()?.Apply(direction);
+        return spawned;
     }
 }

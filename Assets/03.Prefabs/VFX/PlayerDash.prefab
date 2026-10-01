@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3503719189766534396}
   - component: {fileID: 5358029442148221782}
   - component: {fileID: 8554198060324151534}
+  - component: {fileID: -3395914145208119559}
+  - component: {fileID: 6100000000000000001}
   m_Layer: 0
   m_Name: PlayerDash
   m_TagString: Untagged
@@ -155,7 +157,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: aa7b82710d197e847b2c32c5249c166e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -241,3 +243,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3395914145208119559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53164937478022786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a06b423b0615f643aa80b47f510e000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXOffset
+  _offset: {x: 0, y: -1.7, z: 0}
+--- !u!114 &6100000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53164937478022786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbd83b41c534fb89f822ef779691f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXFlip
+  _flipSprites: 1
+  _mirrorOffset: 1

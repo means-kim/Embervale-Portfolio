@@ -131,7 +131,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 health.TakeDamage(_damage);
                 EffectManager.Instance?.PlayEnemyHit(hit.transform.position);
-                if (health.IsDead) EffectManager.Instance?.PlayEnemyDeath(hit.transform.position);
+                // 사망 이펙트는 각 적의 사망 처리(Dummy/EliteMonsterDeath)가 담당한다. 여기서 중복 재생하지 않는다.
             }
             Debug.Log($"Attack hit {hit.name} for {_damage} damage.", hit);
             _hitBuffer[i] = null;
@@ -141,29 +141,15 @@ public class PlayerAttack : MonoBehaviour
     {
         var instance = EffectManager.Instance;
         if (instance == null) return;
-        GameObject spawned = null;
+        // 뒤집기는 프리팹의 VFXFlip이 있으면 Spawn 안에서 자동 처리된다.
         switch (type)
         {
-            case PlayerAttackType.SideAttack: spawned = instance.PlayAttackSideAttack(position); break;
-            case PlayerAttackType.Stab: spawned = instance.PlayAttackStab(position); break;
-            case PlayerAttackType.Horizontal: spawned = instance.PlayAttackHorizontal(position); break;
-            case PlayerAttackType.Down: spawned = instance.PlayAttackDown(position); break;
-            case PlayerAttackType.Up: spawned = instance.PlayAttackUp(position); break;
+            case PlayerAttackType.SideAttack: instance.PlayAttackSideAttack(position, direction); break;
+            case PlayerAttackType.Stab: instance.PlayAttackStab(position, direction); break;
+            case PlayerAttackType.Horizontal: instance.PlayAttackHorizontal(position, direction); break;
+            case PlayerAttackType.Down: instance.PlayAttackDown(position, direction); break;
+            case PlayerAttackType.Up: instance.PlayAttackUp(position, direction); break;
         }
-        FlipSpawnedVfx(spawned, direction);
-    }
-
-    /// <summary>
-    /// 공격 VFX의 스프라이트만 좌우 반전한다. 위치는 호출 쪽 오프셋으로 이미 반영됨.
-    /// 아트는 오른쪽을 기준으로 그렸다고 가정 (왼쪽을 볼 때 flip).
-    /// </summary>
-    private static void FlipSpawnedVfx(GameObject spawned, int direction)
-    {
-        if (spawned == null) return;
-        bool flip = direction < 0;
-        var renderers = spawned.GetComponentsInChildren<SpriteRenderer>(true);
-        for (int i = 0; i < renderers.Length; i++)
-            renderers[i].flipX = flip;
     }
     public void CancelAttack() => EndAttack();
     private void EndAttack()
