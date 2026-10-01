@@ -1,0 +1,694 @@
+[
+  {
+    "generation": 1,
+    "requestedFrame": 7,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME07 OF24, cardinal key pose at90 degrees CLOCKWISE. The long front-facing mask's TOP points directly SCREEN RIGHT, its beak tip points SCREEN LEFT toward the chest. It is NOT a profile looking right! Rotate the bilateral FRONT mask and eyes sideways as a unit. Head center(757,520), collar(719,530), chest(599,535), waist(474,525). Shoulder line becomes vertical. Entire main body axis horizontal, head at right and trailing skirt at left. Both claw hands visible above/below chest with slightly bent elbows; cloth streams to left with soft curved lag below, retaining shoulder attachment. Same anatomy, same scale. Redraw cloth's flowing folds for the turn.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen01_frame07.png"
+  },
+  {
+    "generation": 2,
+    "requestedFrame": 7,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nImage2 is the EDIT TARGET: its 90-degree planar-roll direction is correct, but it wrongly enlarged and shifted the character. Correct only drawing scale/placement and flowing cloth to exactly match image1's body scale on the same full square canvas. In output 1024 coordinates: mask center MUST be (757,520), NOT (840,530). Mask total LONG dimension is100px, not150; collar's outside diameter190px not240. Chest center(599,535). Render entire body proportionately at image1's exact scale. The face stays front-facing but sideways, crown points right, beaktip left. Horizontal body axis. Preserve relative hand and cloth pose from image2, but pull trailing-left cloth tips inside x110, fold outer right shoulder loop inside x920. All content should occupy approximately x110..920 and y190..810, not fill the canvas. Do not add padding outside the canvas or crop afterward. Generate the accurately placed corrected90degree pose itself on transparent1024 square. No effects ring.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen01_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen02_frame07.png"
+  },
+  {
+    "generation": 3,
+    "requestedFrame": 7,
+    "selectedFrame": 7,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Correct the image2 drawing using image1 as exact body-size reference. Image2 has the correct front-facing horizontal90degree clockwise roll but is TOO LARGE and LOW on canvas. Keep square transparent canvas unchanged. REDRAW image2 character at 80 percent of its currently drawn linear size, with its pose center raised by40 pixels in1024 coordinates. This is to restore the same actual anatomy size as image1, not change the boss's scale. The mask long dimension must match the100pixel length of image1 on1024canvas; its front-facing mask center should be at75% canvas width and51%canvas height. Crown of mask points right, beak points left. Head/collar must be at THREE QUARTERS width, not85%. Put ALL visible content approximately x170..875,y195..775 on1024canvas, wide empty margins. Redraw soft cloth bends and wrist follow-through naturally, leave all other design, colors, armor arrangement, detailed texture, asymmetric cloth and face visibility intact. No text, background, frame, profile, backside, new appendages. Deliver exactly one corrected90degree sideways FRONT VIEW sprite.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen02_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+  },
+  {
+    "generation": 4,
+    "requestedFrame": 12,
+    "selectedFrame": 12,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME12 OF24 at180degrees clockwise: completely UPSIDE DOWN FRONT VIEW. Crown of the long mask points straight DOWN; pointed beak points UP toward the chest. Two blue eyes and front chest armor remain visible, inverted, never back. Exact original body scale. Head center at(504,757) =49%width74%height, chest(489,599), collar(494,719), waist(499,474). Upper edge of mask should be near y710 and lower crown near805. Shoulder line horizontal. Skirt streams upward; original screen-left high shoulder loop now attaches at screen-right below the shoulder and curves clockwise around the side with counterclockwise lag. Hands above the head on left and right, wrists reacting softly. Composition approx x190..835,y115..920. Image2 is the neighboring90degree pose for material and cloth flow, not the target angle. Keep all original cloth attachments; no horns. NO scaling up.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png"
+  },
+  {
+    "generation": 5,
+    "requestedFrame": 17,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME17 OF24 at270degrees clockwise (three-quarter complete roll). HEAD AT SCREEN LEFT, FRONT VIEW SIDEWAYS. The rounded crown of the mask points directly LEFT, pointed beak points RIGHT toward chest. Both eyes, symmetric front chest remain visible, not a left-facing profile. Mask center(267,504)=26%width49%height; collar(305,494); chest(425,489), waist(550,499). EXACT original mask100px and collar190px scale, do not enlarge. Main axis horizontal. Long skirt flows RIGHT with a restrained clockwise swept curve, cloth tip inertia behind rotation. The high shoulder loop is now attached toward lower-left, curves below head but stays within y900. Both claw hands extend above/below chest, slightly bent elbows. Body and cloth fit comfortably approximately x110..925,y185..825. Image2 is the existing90degree pose for scale/style ONLY; independently redraw this opposite orientation, do not mirror it: keep original anatomical right shoulder cloth attachment.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen05_frame17.png"
+  },
+  {
+    "generation": 6,
+    "requestedFrame": 17,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nImage2 is the EDIT TARGET at270degrees clockwise. Keep its head, mask, collar, chest, arms, hands, overall scale, placement and orientation EXACTLY unchanged. Only fix the long trailing cloth at SCREEN RIGHT: it is too extended and nearly touches the canvas edge. Redraw the distal rightmost200px of cloth so it curls upward and back LEFT into elegant hook-shaped tips. Keep every cloth tip inside x900 on1024canvas (at least12%empty border on RIGHT). Preserve translucent ragged cloth texture and existing main strands, no clipping, no overall scaling, no camera/framing change, no recenter. Do not rotate the whole character again. All remaining art unchanged.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen05_frame17.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png"
+  },
+  {
+    "generation": 7,
+    "requestedFrame": 4,
+    "selectedFrame": 4,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 04/24, CLOCKWISE PLANAR ROLL 45degrees from upright. Neighbor refs after master are frames 7 with angles 90degrees, for interpolation. Draw an intermediate pose, NOT a duplicate of any reference. Head upper-right of cell: front mask center[691,344], chest center[590,467] in1024coordinates. Head-to-waist axis slants 45degrees clockwise; the face is frontal and tilted the same angle, both eye slits visible. Maintain master100px mask length and190px collar size. Body leads clockwise; hands follow gently with bent elbows, long cloth follows in an elegant curve behind. Head and chest must not become a profile. Avoid extra new folds that change cloth anatomy. Large transparent margins, all content within x/y90..934.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen07_frame04.png"
+  },
+  {
+    "generation": 8,
+    "requestedFrame": 2,
+    "selectedFrame": 2,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 02/24, CLOCKWISE PLANAR ROLL 15degrees from upright. Neighbor refs after master are frames 4 with angles 45degrees, for interpolation. Draw an intermediate pose, NOT a duplicate of any reference. Head upper-right of cell: front mask center[583,277], chest center[557,434] in1024coordinates. Head-to-waist axis slants 15degrees clockwise; the face is frontal and tilted the same angle, both eye slits visible. Maintain master100px mask length and190px collar size. Slow beginning: elbows draw slightly inward and wrists begin to curl, no large gesture; preserve most upright cloth lengths and loop, only moderate counterclockwise lag. Avoid extra new folds that change cloth anatomy. Large transparent margins, all content within x/y90..934.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen07_frame04.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen08_frame02.png"
+  },
+  {
+    "generation": 9,
+    "requestedFrame": 1,
+    "selectedFrame": 1,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 01/24, CLOCKWISE PLANAR ROLL 6degrees from upright. Neighbor refs after master are frames 2 with angles 15degrees, for interpolation. Draw an intermediate pose, NOT a duplicate of any reference. Head upper-right of cell: front mask center[546,269], chest center[544,428] in1024coordinates. Head-to-waist axis slants 6degrees clockwise; the face is frontal and tilted the same angle, both eye slits visible. Maintain master100px mask length and190px collar size. Slow beginning: elbows draw slightly inward and wrists begin to curl, no large gesture; preserve most upright cloth lengths and loop, only moderate counterclockwise lag. Avoid extra new folds that change cloth anatomy. Large transparent margins, all content within x/y90..934.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen08_frame02.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen09_frame01.png"
+  },
+  {
+    "generation": 10,
+    "requestedFrame": 3,
+    "selectedFrame": 3,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 03/24, CLOCKWISE PLANAR ROLL 30degrees from upright. Neighbor refs after master are frames 2,4 with angles 15,45degrees, for interpolation. Draw an intermediate pose, NOT a duplicate of any reference. Head upper-right of cell: front mask center[641,304], chest center[575,448] in1024coordinates. Head-to-waist axis slants 30degrees clockwise; the face is frontal and tilted the same angle, both eye slits visible. Maintain master100px mask length and190px collar size. Slow beginning: elbows draw slightly inward and wrists begin to curl, no large gesture; preserve most upright cloth lengths and loop, only moderate counterclockwise lag. Avoid extra new folds that change cloth anatomy. Large transparent margins, all content within x/y90..934.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen08_frame02.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen07_frame04.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen10_frame03.png"
+  },
+  {
+    "generation": 11,
+    "requestedFrame": 5,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 05/24, CLOCKWISE PLANAR ROLL 60degrees from upright. Other references are frames 4,7 at target angles 45,90degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [728,396]; chest center [599,488] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Head lies upper-right, body lower-left diagonal. Whole mask's crown tilts60degrees clockwise, not20degrees. Cloth bends towards lower-left with trailing soft loops. Head and chest stay same frontal plane.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen07_frame04.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen11_frame05.png"
+  },
+  {
+    "generation": 12,
+    "requestedFrame": 6,
+    "selectedFrame": 5,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 06/24, CLOCKWISE PLANAR ROLL 75degrees from upright. Other references are frames 5,7 at target angles 60,90degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [751,456]; chest center [602,512] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Nearly horizontal: head right and slightly ABOVE chest. Crown75degreesclockwise, beakpointsleft/down. Take one small step fromframe5 towardframe7.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen11_frame05.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen12_frame06.png"
+  },
+  {
+    "generation": 13,
+    "requestedFrame": 9,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 09/24, CLOCKWISE PLANAR ROLL 126degrees from upright. Other references are frames 7,12 at target angles 90,180degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [706,662]; chest center [569,582] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 135 is halfway between rightside horizontal and upside down; TARGET126degrees, closer to horizontal. Head LOWER RIGHT, tail UPPER LEFT. Rounded crown points lower-right, pointed beak upper-left toward chest. Shoulder diagonal. Hold same frontal mask topology.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen13_frame09.png"
+  },
+  {
+    "generation": 14,
+    "requestedFrame": 8,
+    "selectedFrame": 8,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 08/24, CLOCKWISE PLANAR ROLL 108degrees from upright. Other references are frames 7,9 at target angles 90,126degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [743,595]; chest center [588,561] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Just past horizontal. Head atRIGHT slightlyBELOW chest. Tilt108degreesclockwise, only18degrees beyond horizontal. Crown pointsright/down, beakleft/up. Cloth continues broad clockwise sweep.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen13_frame09.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen14_frame08.png"
+  },
+  {
+    "generation": 15,
+    "requestedFrame": 10,
+    "selectedFrame": 10,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 10/24, CLOCKWISE PLANAR ROLL 144degrees from upright. Other references are frames 9,12 at target angles 126,180degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [650,715]; chest center [545,596] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Approaching upside down. Crown pointsDOWN-RIGHT, beakUP-LEFT. Head LOWER RIGHT, chest ABOVE LEFT. Face is180minus36degrees; do not leave it upright.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen13_frame09.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen15_frame10.png"
+  },
+  {
+    "generation": 16,
+    "requestedFrame": 11,
+    "selectedFrame": 11,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 11/24, CLOCKWISE PLANAR ROLL 162degrees from upright. Other references are frames 10,12 at target angles 144,180degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [580,747]; chest center [517,602] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Almost upside down. Head BELOW and slightly RIGHT ofchest. Mask's rounded FOREHEAD atlower-right, pointed BEAK atupper-left towardneck. Match frame12 anatomy, rotate by18degrees less.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen15_frame10.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen16_frame11.png"
+  },
+  {
+    "generation": 17,
+    "requestedFrame": 14,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 14/24, CLOCKWISE PLANAR ROLL 216degrees from upright. Other references are frames 12,17 at target angles 180,270degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [362,706]; chest center [442,569] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Now rotating from upside down TOWARD HEAD-LEFT. Head LOWER LEFT; tail UPPER RIGHT. At216degrees clockwise: mask rounded crown points lower-left, beak points upper-right to chest. This is36degrees beyond inverted, not before inverted. Left side of canvas contains head, rightupper side containscloth.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen17_frame14.png"
+  },
+  {
+    "generation": 18,
+    "requestedFrame": 13,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 13/24, CLOCKWISE PLANAR ROLL 198degrees from upright. Other references are frames 12,14 at target angles 180,216degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [429,743]; chest center [463,588] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Just18degrees past upside down. Head BELOW slightlyLEFT ofchest, notRIGHT. Target198degrees. Forehead/crownpointsdown-left; beakup-right. Cloth continues sweeping above and to the right.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen04_frame12.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen17_frame14.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen18_frame13.png"
+  },
+  {
+    "generation": 19,
+    "requestedFrame": 15,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 15/24, CLOCKWISE PLANAR ROLL 234degrees from upright. Other references are frames 14,17 at target angles 216,270degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [309,650]; chest center [428,545] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Head LOWER LEFT, body axis approaches horizontal left. Target234degrees: head-to-waist axis runs lowerleft to upperright, maskcrownlowerleft and beakupperright. Preserve same frontal mask and armor.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen17_frame14.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen19_frame15.png"
+  },
+  {
+    "generation": 20,
+    "requestedFrame": 16,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 16/24, CLOCKWISE PLANAR ROLL 252degrees from upright. Other references are frames 15,17 at target angles 234,270degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [277,580]; chest center [422,517] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Nearly horizontal HEAD LEFT and slightly BELOW chest. Target252degreesclockwise,18degreesbeforeleft-horizontal. Upper longcloth goesRIGHT and slightlyUP, highshoulderloop sweeps below-left. This pose must connect continuously to frame17.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen19_frame15.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen20_frame16.png"
+  },
+  {
+    "generation": 21,
+    "requestedFrame": 20,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 20/24, CLOCKWISE PLANAR ROLL 324degrees from upright. Other references are frames 17 at target angles 270degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [374,309]; chest center [479,428] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. Returning upright at324degrees clockwise, equivalently a36degreeLEFT tilt fromupright. HEAD UPPER LEFT, WAIST LOWER RIGHT. Head atapprox(375,309) chest(480,430). Mask's roundedcrownpointsupperleft, beakpointsDOWNRIGHTtowardchest, and both eyes faceviewer. Same masterbody proportions. Original highshouldercloth now curls aroundleftside, longskirt flowsdownright. This is a fresh nearupright drawing, not horizontal like image2.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen21_frame20.png"
+  },
+  {
+    "generation": 22,
+    "requestedFrame": 18,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 18/24, CLOCKWISE PLANAR ROLL 288degrees from upright. Other references are frames 17,20 at target angles 270,324degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [281,429]; chest center [436,463] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 288degrees clockwise =72degreesLEFTtilt fromupright. Head LEFT and slightlyABOVEchest. MaskroundedcrownUPLEFT; pointedbeakRIGHTDOWN. Nearlyhorizontal body must liftheadslightly; longskirt torightandlower-right. Samecollar/hand size.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen21_frame20.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen22_frame18.png"
+  },
+  {
+    "generation": 23,
+    "requestedFrame": 19,
+    "selectedFrame": 19,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 19/24, CLOCKWISE PLANAR ROLL 306degrees from upright. Other references are frames 18,20 at target angles 288,324degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [318,362]; chest center [455,442] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 306degreesclockwise =54degreesLEFTtilt fromupright. Head UPPER LEFT, tailLOWERRIGHT. Intermediateanglebetweenimages2and3. RoundforeheadUPLEFT, pointedbeakDOWNRIGHTtowardchest. Cloth beginslosingspeed buttips stillsweepdownright.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen22_frame18.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen21_frame20.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen23_frame19.png"
+  },
+  {
+    "generation": 24,
+    "requestedFrame": 21,
+    "selectedFrame": 21,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 21/24, CLOCKWISE PLANAR ROLL 342degrees from upright. Other references are frames 20 at target angles 324degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [444,277]; chest center [507,422] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 342degreesclockwise =18degreesLEFTtilt fromupright. Head slightlyUPPERLEFT ofchest; mainbodyalmostvertical. Natural deceleration, elbows open towards originalIdle, hands relax. RoundedforeheadUPLEFT andpointedbeakDOWNRIGHT. Reduce remainingclothswirl and approachmasterattachmentsandlengths.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen21_frame20.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen24_frame21.png"
+  },
+  {
+    "generation": 25,
+    "requestedFrame": 22,
+    "selectedFrame": 22,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 22/24, CLOCKWISE PLANAR ROLL 355degrees from upright. Other references are frames 21 at target angles 342degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [499,267]; chest center [527,423] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 355degreesclockwise =5degreesLEFTtilt fromupright, almost exactlyupright. Verysmalltilt, originalmastermaskpositionnear(500,267), originalbody/arms openpose. Clothreturning towardsmasterhighleftloopandlowrightskirt, onlyslight residualmotion. Keep originalmaster100percent scale andplacement; do notuse neighbor enlargedbody.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen24_frame21.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen25_frame22.png"
+  },
+  {
+    "generation": 26,
+    "requestedFrame": 23,
+    "selectedFrame": 23,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Edit the provided character into ONE new full-body 2D game sprite pose, use-case character-sprite edit. Image 1 is the immutable design, current 100% body-scale and canvas reference: AirBoss_Idle_Master_image2.png. Any extra image is a neighboring pose or cardinal pose for motion continuity only. Precisely preserve the long silver cracked beak mask, blue eye slits, tall segmented collar, narrow layered pointed chest armor, two articulated claw hands, translucent icy pale blue-white shredded cloth, asymmetric high looping cloth attached to the character's right shoulder (screen-left when upright), and long lower cloth flowing from screen-right. No legs, horns, new ornaments, wing anatomy, duplicate hands. Keep original render detail, lighting, palette, material, scale. Make a PLANAR CLOCKWISE ROLL about fixed canvas point (512,512) in a 1024x1024 coordinate system with origin TOP LEFT. This is an in-screen cartwheel-like roll while the FRONT mask and FRONT chest always face the viewer; NEVER turn the body in depth, NEVER show side profile or back. Anatomical right/left attachments rotate with the body. Redraw the pose: wrists, elbows and flowing cloth must articulate naturally, with cloth tips lagging the rotation counterclockwise; do not rigidly rotate a flat pasted cutout. Rigid mask/collar/chest keep shape and same lengths. No mirroring, no per-pose shrink, no silhouette fit or recenter. Original upright mask center approx(520,267), collar center(530,305), chest center(535,425), torso base(525,550); these positions rotate about(512,512). Original mask length100px, collar outer width190px, shoulder span220px. Keep this size. All visible cloth, hands and faint glow entirely inside x/y90..934 with a fully transparent outer border at least64px. Fold tips naturally inward if needed. Transparent alpha PNG, requested1024x1024 square canvas. No background, floor, shadow, labels, text, arrows, grid, border, extra character, whole-body ghost copies. A subtle short blue trailing light may accompany fast motion but must not hide the pose. Retain plenty of transparent space exactly as the reference canvas. Produce only this single pose.\nFRAME 23/24, CLOCKWISE PLANAR ROLL 360degrees from upright. Other references are frames 22 at target angles 355degrees. Use them to draw a smooth intermediate pose, not a duplicate. Mask center target [520,267]; chest center [535,425] in1024coordinates. Tilt the full FRONT mask and collar WITH the body. Neck must not counter-rotate the head upright. No profile or backside. Precisely same100px mask length,190px collar and body size as MASTER. Body is NOT a larger character. Keep all content within x/y100..924 with generous transparent outer margins. Natural wrist and cloth lag in the direction behind the roll; do not create extra new anatomy or ribbons. 360degreesclockwise COMPLETE: exactlyUPRIGHT originalfrontview again. Match MASTER mask, collar, chest positions andbody scale precisely, armsreturntotheoriginalopenIdleposture. ThislastframeconnectsbacktoMASTER00: keep originalhighscreenleftclothloop andlongscreenrightskirt placement nearlyidentical, butredraw subtlesoftfoldsandtipfollow-through tosettle theturn. No newgesture, no glowsphere, no bigstreamers. Do NOT duplicateframe00pixels, justdraw thesubtlesettlingpose.",
+    "referenceImages": [
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen25_frame22.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen26_frame23.png"
+  },
+  {
+    "generation": 27,
+    "requestedFrame": 17,
+    "selectedFrame": 17,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. FIX ONLY CLOTH TIPS at right edge of image1. Keep mask, collar, chest, hands, shoulders, scale, placement, orientation pixel-position unchanged. The far right of the flowing skirt currently comes too close to the border. CURL all rightmost skirt tips back LEFT so their maximum extent is at most85percent canvas width (x870of1024). Increase transparent RIGHT margin to15percent. Do not shift or scale the boss. Only redraw the far right180px of loose cloth, folding back elegant ragged hooks. Body remains exactly horizontal headLEFT, roundedmaskcrownLEFT, pointedbeakRIGHT.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen06_frame17.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen27_frame17.png"
+  },
+  {
+    "generation": 28,
+    "requestedFrame": 6,
+    "selectedFrame": 6,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. New immediately PRECEDING pose to image1: take its horizontal headRIGHT frontal pose and ROLL the body15degrees COUNTERCLOCKWISE in the screen about canvascenter. Final angle75degreesCLOCKWISE fromupright. HeadRIGHT andslightlyABOVEcenter, notdiagonal45. Shoulderaxis only15degreesfromvertical. Maskfront rotatesWITHcollar; roundedcrownpointsRIGHT/slightlyUP, beakLEFT/slightlyDOWN. Preserveexactimage1body size, fingers andarmor. Redraw longcloth slightlybehindthebodyrotationalchange, a bitbroader butnoextensionbeyond90..934. Do not leave torsoangleunchanged.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen03_frame07.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen28_frame06.png"
+  },
+  {
+    "generation": 29,
+    "requestedFrame": 9,
+    "selectedFrame": 9,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. New NEXT pose: ROLL image1 body another18degrees CLOCKWISE aboutfixedcanvascenter so headmovesLOWER onRIGHT andtailliftsUPonLEFT. Target126degreesCLOCKWISE fromupright. The head-to-waist axis should be36degrees DOWN fromright-horizontal. RoundedmaskcrownlowerRIGHT, pointedbeakupperLEFTtowardchest. Preservebody size. Redrawhandsandclothslightlyfollowingtheturn. Do not jump alltheway to150degrees.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen14_frame08.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen29_frame09.png"
+  },
+  {
+    "generation": 30,
+    "requestedFrame": 13,
+    "selectedFrame": 13,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Keep the nearly upside-down body pose, faceangle, position, hands andscale EXACTLY unchanged. ONLY fix the LOWEST CLOTH LOOP below/rightofhead: itcurrentlyhangs too low. Redraw its bottomcurve andraggedtips curlingUPWARD, raising lowest clothpixels by80px on1024canvas. Leave bottom12percent ofcanvas completelytransparent (allcontent y<=900). Preserve rest ofimage1. No newpose, no globalresizeormovement.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen18_frame13.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen30_frame13.png"
+  },
+  {
+    "generation": 31,
+    "requestedFrame": 14,
+    "selectedFrame": 14,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Keep this lower-left-head diagonal body pose, faceangle, position, hands andscale EXACTLY unchanged. ONLYfix theLOWEST CLOTH TIPS belowhead. Curl their lastends backUP so lowestpixel isatmost y900 on1024canvas, generous12percentbottomtransparentmargin. Do notmovehead, recenter, shrinkbodyorchangeotherclothstrands.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen17_frame14.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen31_frame14.png"
+  },
+  {
+    "generation": 32,
+    "requestedFrame": 15,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Draw the NEXT planar-roll pose18degrees CLOCKWISE beyondimage1, headmovesfromlowerlefttowardhorizontalLEFT. Final approximately234degrees clockwise. Head centeraround(310,650), chestaround(425,545) in1024canvas. Roundedmaskforehead isLOWERLEFT outerend, pointedBEAK isUPPERRIGHT innerend towardneck/chest. DO NOT turnfaceupright. Keep samefrontfacebothblueeyes, armor, bodyscale, fingers. Hands andclothfollowturn. Tailsabove/rightmustcurlwithtipsremaininginside x/y900. Leave outer100pxtransparent.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen31_frame14.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen32_frame15.png"
+  },
+  {
+    "generation": 33,
+    "requestedFrame": 16,
+    "selectedFrame": 18,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Draw immediately PRECEDING pose18degrees COUNTERCLOCKWISE fromimage1's horizontalheadLEFTpose. Final252degreesclockwisefromupright. Head slightlyLOWERthanwaist, approx(280,580), chest(430,520) in1024canvas. MaskroundedcrownLEFT/DOWN, pointedbeakRIGHT/UP towardneck. Bodyaxis only18degreesbelowleft-horizontal, shoulders nearlyvertical. Keep samefacefront,size, armor andclothattachment. Redrawwristandclothfollowthrough, bounded x/y100..920.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen27_frame17.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen33_frame16.png"
+  },
+  {
+    "generation": 34,
+    "requestedFrame": 15,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. ONLYfix the farRIGHT cloth tips of image1. Keep bodypose maskangle hands scaleandposition unchanged. Rightmost longskirt almosttouchescanvas. Curlthefar-right tips sharplyUPANDLEFT, making allcloth endbyx865 on1024canvas (15percenttransparentrightborder). Do notcutoff,fadeaway,scaleorremovemainstrands. Redrawclothlast200pxintosmallerhookswithsameicytexture. Keep roundedmaskcrownDOWNLEFT andbeakUPRIGHT exactlyasimage1.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen32_frame15.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen34_frame15.png"
+  },
+  {
+    "generation": 35,
+    "requestedFrame": 16,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Draw an intermediate pose between image1 and HORIZONTAL HEADLEFT. The head MUST be LOWERthan thechest: maskcenter(280,610), chestcenter(425,525), tailtorightandABOVEchest. HeadouterforeheadLOWERLEFT; maskpointedbeakUPPERRIGHTtowardchest. Nearlyhorizontal body leaning DOWNLEFT about20degrees, notUPLEFT. Faceandchestremainfrontview. Keep exactlysamebodyscale anddesign. Loosenwristsandredrawclothslightlyfollowingrotation. Curlfar-rightclothinside x900; bottomclothinside y900. Nootherchanges.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen34_frame15.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen35_frame16.png"
+  },
+  {
+    "generation": 36,
+    "requestedFrame": 20,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. ONLYremove the unwanted detachedroundgray-blue light spot floating in upper-right emptyspace atapprox x685,y205 in1024coordinates (about67percentwidth,20percentheight). Make that region completelytransparent. Keep allcharacterpixels, position, pose,mask,armor,hands,clothsizeandshape unchanged. No other changes, no additionalparticlesorlights.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen21_frame20.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen36_frame20.png"
+  },
+  {
+    "generation": 37,
+    "requestedFrame": 15,
+    "selectedFrame": 15,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. ONLY change the LOWEST HAND at bottom ofimage1. Flex itsELBOW andWRIST inward/upward so the wholebottomhand sits80pixelsHIGHER on1024canvas and everyclawtip isabove y890. Keep samehandsize,fingercount,armor. Keep face,collar,torso,otherhand,cloth andentirecanvas framing unchanged. The bottom12percent mustbeemptytransparent. Do NOT move thewholecharacter down. This is an elbow/wrist articulation, not shrinking.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen34_frame15.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen37_frame15.png"
+  },
+  {
+    "generation": 38,
+    "requestedFrame": 16,
+    "selectedFrame": null,
+    "selected": false,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. Draw the same face/collar/chest/arms aligned as ONE rigid front-view body, with its HEAD pointing to the 8 O'CLOCK direction and its SKIRT pointing to the 2 O'CLOCK direction. Currently image1 head points9o'clock andskirt3o'clock. Change to8o'clock/2o'clock. The head,including forehead,eye slits andbeaktip MUST rotate WITH thecollar, neverholdtheface upright. Head BELOWleft ofchest. Keepbodysize. Redrawcloth gentlylaggingthispose; ALLcloth mustcurlinside x/y900. No bendingatneck orwaist. One flat planar-roll drawing.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen27_frame17.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen38_frame16.png"
+  },
+  {
+    "generation": 39,
+    "requestedFrame": 20,
+    "selectedFrame": 20,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. ONLY change the LOWEST CLOTH TIPS at bottom-right. Keep body,mask,hands,uppercloth,scale,position EXACTLY unchanged. Curl last100pixels ofthelongbottomcloth UPANDLEFT so everyclothpixelisabove y890in1024canvas. Leave12percentemptytransparentbottommargin. Preserve the ragged icytexture. Do notmoveorscaleallart, donotextendanytipdownward. No detachedlightspots.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen36_frame20.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen39_frame20.png"
+  },
+  {
+    "generation": 40,
+    "requestedFrame": 16,
+    "selectedFrame": 16,
+    "selected": true,
+    "tool": "built-in image_gen.imagegen",
+    "requestedSize": [
+      1024,
+      1024
+    ],
+    "prompt": "Image1 is the EDIT TARGET posed game sprite. Image2 is the immutable upright MASTER for design/anatomy scale only, NOT the desired angle. Make ONE edited sprite on the SAME square transparent full canvas. Preserve exact character anatomy, beak mask, blue eyes, armor, collar, hands, asymmetric shoulder cloth attachments and original master body scale. Keep the FRONT face and chest facing the viewer at all times during a flat in-screen roll; never show profile or back. Render a new pose with natural wrist and cloth follow-through rather than a rigid pasted cutout. No added lights, dots, particles, ornaments, hands, text or background. Never enlarge/recenter/fit/crop the subject; keep fixed canvas pivot (512,512). All content inside x/y90..934 in1024coordinates, fullytransparent outer64px. Requested1024x1024 transparentPNG. ONLY shorten the farRIGHT reach ofthe loosecloth by curling its tips backLEFT. Preserve image1's exact horizontal front-view pose: headLEFT, frontmaskbeakRIGHT towardchest, samecollar, exactlyTWOarmsandTWOclawhands, no addedlimbs. The rightmost clothcurrently extends too close toedge. Redrawlast180pxofcloth into smaller upward/leftwardcurledhooks endingatx850 on1024canvas. Keep everyotherpart the same includingbodyposition,sizeandangle. DoNOTrotate thehead orbody, doNOTattemptnewtilt, donotmakecharacterupright, donotchangefingercount. Bottom/leftmarginsmuststayatleast80px. Fullytransparentcanvas1024square.",
+    "referenceImages": [
+      "ArtSource/AirBoss/cast_spin360/source/v02/history/gen20_frame16.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "source": "ArtSource/AirBoss/cast_spin360/source/v02/history/gen40_frame16.png"
+  }
+]
