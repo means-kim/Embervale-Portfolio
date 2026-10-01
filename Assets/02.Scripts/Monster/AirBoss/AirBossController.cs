@@ -7,6 +7,12 @@ public class AirBossController : MonoBehaviour
 
     [SerializeField] private float _moveTimer = 1f;
 
+    [Header("Random 가중치")]
+    [SerializeField] private int _idleWeight = 20;
+
+    [SerializeField] private int _moveWeight = 30;
+    [SerializeField] private int _actionWeight = 50;
+
     private AirBossState _currentstate = AirBossState.Idle;
     private float _stateTimer = 0f;
 
@@ -63,7 +69,7 @@ public class AirBossController : MonoBehaviour
     {
         if (_stateTimer >= _idleTimer)
         {
-            ChangeState(AirBossState.Move);
+            ChangeRandomState();
         }
     }
 
@@ -104,6 +110,26 @@ public class AirBossController : MonoBehaviour
         {
             _movement.StopMove();
             _animation.PlayIdleAnimation();
+        }
+    }
+
+    private void ChangeRandomState()
+    {
+        int totalWeight = _idleWeight + _moveWeight + _actionWeight;
+
+        int randomWeight = Random.Range(0, totalWeight);
+
+        if (randomWeight < _idleWeight)
+        {
+            ChangeState(AirBossState.Idle);
+        }
+        else if (randomWeight < _idleWeight + _moveWeight)
+        {
+            ChangeState(AirBossState.Move);
+        }
+        else
+        {
+            ChangeState(AirBossState.Action);
         }
     }
 }
