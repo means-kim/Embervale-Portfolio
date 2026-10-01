@@ -14904,6 +14904,7 @@ GameObject:
   - component: {fileID: 8771972552311404739}
   - component: {fileID: 2411548843753722338}
   - component: {fileID: 6907160394130401787}
+  - component: {fileID: 2372173312088653864}
   m_Layer: 0
   m_Name: LevelUp
   m_TagString: Untagged
@@ -19838,7 +19839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 0
     useMainCamera: 1
@@ -20108,3 +20109,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
   _strength: 1
+--- !u!114 &2372173312088653864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771972552311404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
+  _lifeTime: 3
+  _extraDelay: 0.1
+  _playReversed: 0

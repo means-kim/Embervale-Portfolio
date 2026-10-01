@@ -84,7 +84,9 @@ public class EffectManager : MonoBehaviour
 
     // 아래 단발 VFX는 인스펙터에 프리팹을 넣으면 해당 타이밍에 자동 소환된다.
     // 비어 있는 칸은 무시된다. 사운드는 프리팹에 직접 달아 두고,
-    // 소환된 프리팹의 수명(재생 후 삭제)은 프리팹 쪽에서 관리한다.
+    // 소환된 프리팹의 수명(재생 후 삭제)은 프리팹 쪽 OneShotVFX가 관리한다.
+    // OneShotVFX._lifeTime이 0이면 애니/사운드/파티클 중 가장 긴 것 + _extraDelay 후 파괴된다.
+    // CFXR_Effect 프리팹은 clearBehavior=None으로 두고 OneShotVFX에 수명을 맡긴다.
     public void PlayPlayerHit(Vector3 position) => Spawn(_playerHitVfx, position);
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
     public void PlayJump(Vector3 position) => Spawn(_jumpVfx, position);

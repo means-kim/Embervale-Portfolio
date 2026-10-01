@@ -21,6 +21,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerAttackHitbox _horizontal = new() { Size = new Vector2(1.4f, 1.2f), Offset = new Vector2(0.8f, 0.8f), VfxOffset = new Vector2(0.8f, 0.8f), Duration = 1.17f };
     [SerializeField] private PlayerAttackHitbox _down = new() { Size = new Vector2(1.2f, 1.6f), Offset = new Vector2(0.2f, -1.0f), VfxOffset = new Vector2(0.2f, -1.0f), Duration = 1.17f };
     [SerializeField] private PlayerAttackHitbox _up = new() { Size = new Vector2(1.2f, 1.8f), Offset = new Vector2(0.2f, 1.2f), VfxOffset = new Vector2(0.2f, 1.2f), Duration = 1.17f };
+    [Header("Stab 투사체 (지정 시 Stab 데미지는 투사체가 전담. 비어 있으면 즉발 판정)")]
+    [SerializeField] private GameObject _stabProjectilePrefab;
     [Header("디버그 (플레이 중 발동 판정 표시)")]
     [SerializeField] private bool _showHitboxes;
     private PlayerAttackType _debugLastType;
@@ -81,8 +83,44 @@ public class PlayerAttack : MonoBehaviour
         CurrentAttackClip = type == PlayerAttackType.SideAttack ? "SideAttack" : type + "Attack";
         PlayerAttackHitbox box = GetHitbox(type);
         _attackTimeRemaining = box.Duration;
-        DoHit(direction, box, type);
+        if (type == PlayerAttackType.Stab && _stabProjectilePrefab != null)
+        {
+            FireStab(direction, box);
+        }
+        else
+        {
+            if (type == PlayerAttackType.Stab)
+                Debug.LogWarning("Stab 투사체 프리팹 미지정: 즉발 판정으로 대체한다.", this);
+            DoHit(direction, box, type);
+        }
         OnAttackStarted?.Invoke();
+    }
+    /// <summary>
+    /// Stab 전용. 즉발 박스 대신 투사체를 날린다. 애니·발동락·머즐 VFX 흐름은 그대로 쓴다.
+    /// _stab의 Duration(공격 경직)과 VfxOffset(발사 위치)은 그대로 사용하고 Size/Offset 판정은 쓰지 않는다.
+    /// </summary>
+    private void FireStab(int direction, PlayerAttackHitbox box)
+    {
+        var spawnPos = (Vector2)transform.position + new Vector2(direction * box.VfxOffset.x, box.VfxOffset.y);
+        PlayAttackVfx(PlayerAttackType.Stab, spawnPos, direction);
+        var spawned = Instantiate(_stabProjectilePrefab, spawnPos, Quaternion.identity);
+        var projectile = spawned.GetComponent<StabProjectile>();
+        if (projectile == null)
+        {
+            Debug.LogError("Stab 투사체 프리팹에 StabProjectile이 없음. 즉발 판정으로 대체한다.", spawned);
+            Destroy(spawned);
+            DoHit(direction, box, PlayerAttackType.Stab);
+            return;
+        }
+        projectile.Launch(_damage, direction);
+        if (_showHitboxes)
+        {
+            // 디버그는 박스 대신 투사체 비행 경로로 표시한다.
+            _debugLastType = PlayerAttackType.Stab;
+            _debugLastCenter = spawnPos + new Vector2(direction * projectile.MaxDistance * 0.5f, 0f);
+            _debugLastSize = new Vector2(projectile.MaxDistance, box.Size.y);
+            _debugBoxUntil = Time.time + Mathf.Max(box.Duration, 0.05f);
+        }
     }
     /// <summary>씬뷰 에디터와 런타임이 함께 쓰는 타입별 판정 조회.</summary>
     public PlayerAttackHitbox GetHitbox(PlayerAttackType type)
