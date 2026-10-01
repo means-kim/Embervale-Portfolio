@@ -62,6 +62,7 @@ public class PlayerDash : MonoBehaviour
         IsDashing = true;
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
+        EffectManager.Instance?.PlayDash(transform.position);
         OnDashStarted?.Invoke();
     }
     public void CancelDash() => EndDash();

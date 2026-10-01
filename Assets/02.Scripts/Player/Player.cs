@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         _rigidbody2D.linearVelocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0f;
         transform.position = _respawnPosition;
+        EffectManager.Instance?.PlayRespawn(transform.position);
     }
     public void SetRespawnPoint(Vector3 position) => _respawnPosition = position;
 }

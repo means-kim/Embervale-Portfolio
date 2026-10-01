@@ -91,10 +91,23 @@ public class FootstepSFXBank : ScriptableObject
         return Random.Range(lo, hi);
     }
 
-    /// <summary>AudioManager를 통해 랜덤 1개를 재생한다.</summary>
+    /// <summary>AudioManager를 통해 랜덤 1개를 재생한다. (Ground 등 공용 경로용, 레거시)</summary>
     public void Play()
     {
         if (AudioManager.Instance != null) AudioManager.Instance.PlayFootstep(this);
+    }
+
+    /// <summary>
+    /// AudioManager를 거치지 않고 지정한 전용 AudioSource로 직접 재생한다.
+    /// Platform 발소리처럼 별도 관리가 필요할 때 사용한다.
+    /// </summary>
+    public void PlayOn(AudioSource source)
+    {
+        if (source == null || !HasClips) return;
+        AudioClip clip = PickRandom();
+        if (clip == null) return;
+        source.pitch = RollPitch();
+        source.PlayOneShot(clip, Volume);
     }
 
 #if UNITY_EDITOR

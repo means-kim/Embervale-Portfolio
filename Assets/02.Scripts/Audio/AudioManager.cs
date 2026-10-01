@@ -1,27 +1,51 @@
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+
+public enum BgmType
+{
+    Title,
+    Snow,
+    Cave,
+    IntoBoss,
+    Boss
+}
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
+
+    [Serializable]
+    private struct BgmTrack
+    {
+        public BgmType Type;
+        public AudioSource Source;
+        [Tooltip("켜질 때 처음부터 재생")] public bool RestartOnPlay;
+    }
+
+    [Header("BGM")]
+    [SerializeField] private BgmTrack[] _bgmTracks;
+    [Tooltip("위에 다른 곡이 얹혔을 때 아래 곡의 볼륨 배율")]
+    [SerializeField, Range(0f, 1f)] private float _layerVolume = 0.3f;
+    [SerializeField, Min(0.01f)] private float _fadeTime = 1f;
+
     [Header("Audio Sources")]
-    [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
     [Header("Footsteps (비워 두면 SFX Source로 대체)")]
     [SerializeField] private AudioSource _footstepSource;
-    [Header("BGM - Title (OutGameScene 전용)")]
-    [SerializeField] private AudioClip _titleBgm;
-    [Header("BGM - InGame 1~3 (플레이 중에만, 진입 시 랜덤 1곡)")]
-    [SerializeField] private AudioClip _inGameBgm1;
-    [SerializeField] private AudioClip _inGameBgm2;
-    [SerializeField] private AudioClip _inGameBgm3;
-    [Header("BGM - Default (그 외 상황)")]
-    [SerializeField] private AudioClip _defaultBgm;
+
     [Header("Scene Names")]
     [SerializeField] private string _outGameSceneName = "OutGameScene";
     [SerializeField] private string _inGameSceneName = "InGameScene";
+
+    private AudioSource[] _bgmSources;
+    private bool[] _bgmOn;
+    private bool[] _bgmRestartOnPlay;
+    private float[] _bgmTargetVolumes;
+
     private string _currentSceneName;
-    private AudioClip _pickedInGameBgm;
-    private bool _wasPlaying;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,71 +53,116 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        _currentSceneName = SceneManager.GetActiveScene().name;
+
+        InitBgmSources();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    private void OnDestroy()
+    {
+        if (Instance != this) return;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        Instance = null;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (mode == LoadSceneMode.Additive) return;
+
+        StopAllBgm();
+
+        if (scene.name == _outGameSceneName) PlayBgm(BgmType.Title);
+        else if (scene.name == _inGameSceneName) PlayBgm(BgmType.Snow);
+
         _currentSceneName = scene.name;
-        _wasPlaying = IsPlayingNow();
-        if (_wasPlaying)
-        {
-            _pickedInGameBgm = PickRandomInGameBgm();
-        }
-        RefreshBGM();
     }
+
     private void Update()
     {
-        bool isPlaying = IsPlayingNow();
-        if (isPlaying && !_wasPlaying) _pickedInGameBgm = PickRandomInGameBgm();
-        _wasPlaying = isPlaying;
-        RefreshBGM();
-    }
-    private bool IsPlayingNow()
-    {
-        if (_currentSceneName != _inGameSceneName) return false;
-        return true;
-    }
-    public void UpdateAndPlayBGM() => RefreshBGM();
-    private void RefreshBGM()
-    {
-        if (_bgmSource == null) return;
-        AudioClip targetClip = ResolveTargetClip();
-        _bgmSource.pitch = 1f;
-        if (_bgmSource.clip == targetClip) return;
-        _bgmSource.clip = targetClip;
-        _bgmSource.loop = true;
-        if (targetClip != null) _bgmSource.Play();
-        else _bgmSource.Stop();
-    }
-    private AudioClip ResolveTargetClip()
-    {
-        if (_currentSceneName == _outGameSceneName) return _titleBgm;
-        if (IsPlayingNow()) return _pickedInGameBgm != null ? _pickedInGameBgm : _defaultBgm;
-        return _defaultBgm;
-    }
-    private AudioClip PickRandomInGameBgm()
-    {
-        AudioClip[] candidates = { _inGameBgm1, _inGameBgm2, _inGameBgm3 };
-        int validCount = 0;
-        for (int i = 0; i < candidates.Length; i++)
+        for (int i = 0; i < _bgmSources.Length; i++)
         {
-            if (candidates[i] != null) validCount++;
+            AudioSource source = _bgmSources[i];
+            if (source == null) continue;
+            source.volume = Mathf.MoveTowards(source.volume, _bgmTargetVolumes[i], Time.unscaledDeltaTime / _fadeTime);
         }
-        if (validCount == 0) return null;
+    }
 
-        int pick = Random.Range(0, validCount);
-        for (int i = 0; i < candidates.Length; i++)
+    private void InitBgmSources()
+    {
+        int count = Enum.GetValues(typeof(BgmType)).Length;
+        _bgmSources = new AudioSource[count];
+        _bgmOn = new bool[count];
+        _bgmRestartOnPlay = new bool[count];
+        _bgmTargetVolumes = new float[count];
+
+        double startDsp = AudioSettings.dspTime + 0.1;
+
+        foreach (BgmTrack track in _bgmTracks)
         {
-            if (candidates[i] == null) continue;
-            if (pick == 0) return candidates[i];
-            pick--;
+            AudioSource source = track.Source;
+            if (source == null || source.clip == null) continue;
+
+            int index = (int)track.Type;
+            if (_bgmSources[index] != null)
+            {
+                continue;
+            }
+
+            source.loop = true;
+            source.volume = 0f;
+            source.PlayScheduled(startDsp);
+
+            _bgmSources[index] = source;
+            _bgmRestartOnPlay[index] = track.RestartOnPlay;
         }
-        return null;
     }
+
+    public void PlayBgm(BgmType type) => SetBgm(type, true);
+    public void StopBgm(BgmType type) => SetBgm(type, false);
+
+    public void StopAllBgm()
+    {
+        Array.Clear(_bgmOn, 0, _bgmOn.Length);
+        ReCalculateBgmVolumes();
+    }
+
+    private void SetBgm(BgmType type, bool on)
+    {
+        int index = (int)type;
+        if (_bgmOn[index] == on) return;
+
+        _bgmOn[index] = on;
+
+        AudioSource source = _bgmSources[index];
+        if (on && _bgmRestartOnPlay[index] && source != null)
+        {
+            source.time = 0f;
+        }
+
+        ReCalculateBgmVolumes();
+    }
+
+    private void ReCalculateBgmVolumes()
+    {
+        float volume = 1f;
+
+        for (int i = _bgmOn.Length - 1; i >= 0; i--)
+        {
+            if (!_bgmOn[i])
+            {
+                _bgmTargetVolumes[i] = 0f;
+                continue;
+            }
+
+            _bgmTargetVolumes[i] = volume;
+            volume *= _layerVolume;
+        }
+    }
+
     public void PlaySFX(SFXData sfxData)
     {
         if (sfxData == null || sfxData.Clip == null || _sfxSource == null) return;

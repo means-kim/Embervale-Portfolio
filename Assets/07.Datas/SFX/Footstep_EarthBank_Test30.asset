@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f98eb91de2b22cc12073b8bfd1018c8, type: 3}
+  m_Name: Footstep_EarthBank_Test30
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSFXBank
+  Clips:
+  - {fileID: 8300000, guid: d4bd5d534336847409f6971341ef8550, type: 3}
+  - {fileID: 8300000, guid: 729a3b7915bbb52409e49ec970990c84, type: 3}
+  - {fileID: 8300000, guid: 0c21fbbdeb92c7a42bcdebb03e1ed5df, type: 3}
+  - {fileID: 8300000, guid: f9236df3bd41ded428323ea0d287a7f1, type: 3}
+  - {fileID: 8300000, guid: 8302579021d573e42a69725a9474f2e7, type: 3}
+  - {fileID: 8300000, guid: f37d0ff9137e1c942bb4e7de89b17c73, type: 3}
+  - {fileID: 8300000, guid: db8b9aa3a7b35894095d89903bc30f63, type: 3}
+  - {fileID: 8300000, guid: b5c348ea4c1ac254885d05533495c5b6, type: 3}
+  - {fileID: 8300000, guid: 9860e9e951340fe4290f2dcbf17ca1b2, type: 3}
+  - {fileID: 8300000, guid: 5e04024c9ae1b204da45a1e2b4492676, type: 3}
+  - {fileID: 8300000, guid: 6e1b775d6e982fd4ab02c9ec1f9b8504, type: 3}
+  - {fileID: 8300000, guid: a0249ee57d0158f478d4c7c3f2094928, type: 3}
+  - {fileID: 8300000, guid: c0f3a3415d32a09468f693f15b14bbd9, type: 3}
+  - {fileID: 8300000, guid: baa05dc493c4c514fae4a0bb2164f2b1, type: 3}
+  - {fileID: 8300000, guid: 87f5e504851b96748b9233fed491be36, type: 3}
+  - {fileID: 8300000, guid: 5821698bfc878cb40acfbf41d654bae7, type: 3}
+  - {fileID: 8300000, guid: 2682bd0c0a0bee649800a93e5a2b0e58, type: 3}
+  - {fileID: 8300000, guid: 35644dd52d092fe41bfb2e7e4e2a813c, type: 3}
+  - {fileID: 8300000, guid: bf6b6c7e13cc6d24d91a053d005e387f, type: 3}
+  - {fileID: 8300000, guid: b5f2d02f9bfa00e4a9afed59c964e8ad, type: 3}
+  - {fileID: 8300000, guid: c5827973b2efa994c9f59ef1ad05a020, type: 3}
+  - {fileID: 8300000, guid: 1e5c62c634d28a941ae1dd1a11356e8a, type: 3}
+  - {fileID: 8300000, guid: 4f87385de5389c84c9e3682e2c140e6b, type: 3}
+  - {fileID: 8300000, guid: d5e898fc4c3eeeb4d99b0446551ab22e, type: 3}
+  - {fileID: 8300000, guid: 11ff5057ea1be5c42b8f1d1fc916a4fe, type: 3}
+  - {fileID: 8300000, guid: 89536a55e1e0d0a4290f841a9f367920, type: 3}
+  - {fileID: 8300000, guid: 0b18e56293d83194984ada6f80b62084, type: 3}
+  - {fileID: 8300000, guid: 492b28daa3cb48b439eb84c2e7734729, type: 3}
+  - {fileID: 8300000, guid: 4b3f67dc27319c04cae30f8f2927870b, type: 3}
+  - {fileID: 8300000, guid: 7caa32525098ef646a4f7e78c50d7d3c, type: 3}
+  SourceFolder: Assets/Footsteps Pack Expanded/SingleSteps/EarthgroundSteps
+  AutoFillCount: 30
+  Volume: 0.9
+  MinPitch: 0.95
+  MaxPitch: 1.05
+  AvoidRepeat: 1
