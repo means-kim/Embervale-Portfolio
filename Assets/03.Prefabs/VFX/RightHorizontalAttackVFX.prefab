@@ -215,9 +215,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
-  _strength: 1
+  _strength: 0
 --- !u!114 &7061993625519856332
 MonoBehaviour:
   m_ObjectHideFlags: 0
