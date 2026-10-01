@@ -11,10 +11,12 @@ public class AirBossController : MonoBehaviour
     private float _stateTimer = 0f;
 
     private AirBossMovement _movement;
+    private AirBossAnimation _animation;
 
     private void Awake()
     {
         _movement = GetComponent<AirBossMovement>();
+        _animation = GetComponent<AirBossAnimation>();
     }
 
     private void Update()
@@ -88,9 +90,20 @@ public class AirBossController : MonoBehaviour
         _currentstate = newstate;
         _stateTimer = 0f;
 
+        EnterState();
+    }
+
+    private void EnterState()
+    {
         if (_currentstate == AirBossState.Move)
         {
             _movement.StartMove();
+            _animation.PlayMoveAnimation(_movement.Direction);
+        }
+        else if (_currentstate == AirBossState.Idle)
+        {
+            _movement.StopMove();
+            _animation.PlayIdleAnimation();
         }
     }
 }
