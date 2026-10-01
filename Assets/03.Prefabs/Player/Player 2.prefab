@@ -192,7 +192,7 @@ MonoBehaviour:
   _stab:
     Size: {x: 2.2, y: 0.8}
     Offset: {x: 1.1, y: 0.8}
-    VfxOffset: {x: 1.1, y: 0.8}
+    VfxOffset: {x: 0, y: -1.5}
     Duration: 0.22
   _horizontal:
     Size: {x: 1.4, y: 1.2}
@@ -209,6 +209,7 @@ MonoBehaviour:
     Offset: {x: 3.15, y: 3.27}
     VfxOffset: {x: -1.5, y: 1.2}
     Duration: 0.23
+  _stabProjectilePrefab: {fileID: 827350273694473572, guid: 54a4f1f209140d440ad6c34ff8c6c59d, type: 3}
   _showHitboxes: 0
 --- !u!114 &7533624692983177567
 MonoBehaviour:
