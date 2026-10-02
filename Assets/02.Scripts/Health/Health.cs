@@ -1,16 +1,13 @@
 using System;
 using UnityEngine;
-
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
     private int _currentHealth;
     private bool _isDead = false;
-
     public int MaxHealth => _maxHealth;
     public int CurrentHealth => _currentHealth;
     public bool IsDead => _isDead;
-
     public event Action OnDie;
     public event Action OnHit;
 

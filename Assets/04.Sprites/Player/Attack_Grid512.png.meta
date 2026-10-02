@@ -91,8 +91,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.19921875}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -171,10 +171,10 @@ TextureImporter:
       name: Attack_Grid512_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 512
-        height: 512
+        x: 110
+        y: 1122
+        width: 235
+        height: 303
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Attack_Grid512_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
+        x: 603
+        y: 1123
+        width: 260
+        height: 296
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: Attack_Grid512_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 512
-        height: 512
+        x: 1148
+        y: 1122
+        width: 243
+        height: 341
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: Attack_Grid512_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 512
-        height: 512
+        x: 1608
+        y: 1123
+        width: 285
+        height: 315
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: Attack_Grid512_4
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 1024
-        width: 512
-        height: 512
+        x: 2134
+        y: 1122
+        width: 275
+        height: 325
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: Attack_Grid512_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
+        x: 117
+        y: 611
+        width: 349
+        height: 331
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: Attack_Grid512_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
+        x: 602
+        y: 611
+        width: 352
+        height: 310
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,10 +325,10 @@ TextureImporter:
       name: Attack_Grid512_7
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 512
-        height: 512
+        x: 1127
+        y: 610
+        width: 346
+        height: 307
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,10 +347,10 @@ TextureImporter:
       name: Attack_Grid512_8
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 512
-        height: 512
+        x: 1634
+        y: 610
+        width: 363
+        height: 304
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +369,10 @@ TextureImporter:
       name: Attack_Grid512_9
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 512
-        width: 512
-        height: 512
+        x: 2145
+        y: 611
+        width: 346
+        height: 313
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,10 +391,10 @@ TextureImporter:
       name: Attack_Grid512_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 111
+        y: 98
+        width: 304
+        height: 301
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,10 +413,10 @@ TextureImporter:
       name: Attack_Grid512_11
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 512
+        x: 629
+        y: 99
+        width: 274
+        height: 327
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,10 +435,10 @@ TextureImporter:
       name: Attack_Grid512_12
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 512
-        height: 512
+        x: 1185
+        y: 99
+        width: 189
+        height: 341
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -457,10 +457,10 @@ TextureImporter:
       name: Attack_Grid512_13
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 512
-        height: 512
+        x: 1701
+        y: 99
+        width: 177
+        height: 337
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,10 +479,10 @@ TextureImporter:
       name: Attack_Grid512_14
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 512
-        height: 512
+        x: 2213
+        y: 99
+        width: 259
+        height: 359
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -501,7 +501,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0b3bab8ba5bdc9b478a0f004a6b4828b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -509,9 +509,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":3.0},"gridSpriteSize":{"x":512.0,"y":416.0},"gridSpriteOffset":{"x":0.0,"y":96.0},"gridSpritePadding":{"x":0.0,"y":96.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Attack_Grid512_0: -1140988413506918445
       Attack_Grid512_1: -9059678614303946104
