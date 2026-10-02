@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 557772782273689500}
   - component: {fileID: 7053286626705792103}
   - component: {fileID: 3057207075128610414}
-  - component: {fileID: 8342173069320538774}
-  - component: {fileID: 6100000000000000003}
   - component: {fileID: 5854216694340481690}
+  - component: {fileID: 7046350278451958722}
+  - component: {fileID: 2633939715033518453}
+  - component: {fileID: 2191306174086185430}
   m_Layer: 0
   m_Name: DownAttack
   m_TagString: FireObject
@@ -34,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -245,33 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
   _strength: 1
---- !u!114 &8342173069320538774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465590687819272544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a06b423b0615f643aa80b47f510e000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXOffset
-  _offset: {x: 0, y: 0, z: 0}
---- !u!114 &6100000000000000003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465590687819272544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abbd83b41c534fb89f822ef779691f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXFlip
-  _flipSprites: 1
-  _mirrorOffset: 1
 --- !u!60 &5854216694340481690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -334,3 +308,59 @@ PolygonCollider2D:
       - {x: 0.37, y: 0.58}
       - {x: 0.32999998, y: 0.74}
   m_UseDelaunayMesh: 1
+--- !u!114 &7046350278451958722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0522d99e1909754488b5ac13450699d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageHitbox
+  _colliders:
+  - {fileID: 5854216694340481690}
+--- !u!50 &2633939715033518453
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2191306174086185430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0daa092068437438c91fd735ddad4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackInstance
+  _hitDelay: 0
+  _hitDuration: 0.22
+  _independent: 0

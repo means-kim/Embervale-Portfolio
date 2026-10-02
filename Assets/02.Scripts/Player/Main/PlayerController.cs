@@ -17,9 +17,14 @@ public class PlayerController : MonoBehaviour
     private PlayerWall _playerWall;
     private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
+    private Health _health;
+    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death &&
+        (_health == null || !_health.IsDead) && !_playerHit.IsHit &&
+        !_playerDash.IsDashing && !_playerAttack.IsAttacking;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _health = GetComponent<Health>();
         _playerInput = GetComponent<PlayerInput>();
         _playerMove = GetComponent<PlayerMove>();
         _playerJump = GetComponent<PlayerJump>();
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.OnMoveInput += HandleMoveInput;
+        _playerInput.OnAttackInput += HandleAttackInput;
         _playerJump.OnJumpStarted += HandleJumpStarted;
         _playerJump.OnLanded += HandleLanded;
         _playerJump.OnGroundLost += HandleGroundLost;
@@ -44,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         _playerInput.OnMoveInput -= HandleMoveInput;
+        _playerInput.OnAttackInput -= HandleAttackInput;
         _playerJump.OnJumpStarted -= HandleJumpStarted;
         _playerJump.OnLanded -= HandleLanded;
         _playerJump.OnGroundLost -= HandleGroundLost;
@@ -64,6 +71,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ChangeState(PlayerState newState)
     {
+        if (CurrentState == PlayerState.Death && newState != PlayerState.Death) return;
         if (CurrentState == newState) return;
         if (CurrentState == PlayerState.Jump) _playerAnimator.ResetJumpPhase();
         CurrentState = newState;
@@ -77,7 +85,7 @@ public class PlayerController : MonoBehaviour
             ChangeState(PlayerState.Hit);
             return;
         }
-        if (CurrentState == PlayerState.Attack && _playerAttack.IsAttacking) return;
+        if (_playerAttack.IsAttacking) { ChangeState(PlayerState.Attack); return; }
         if (Time.time < _landUntil) return;
         if (_playerDash.IsDashing)
         {
@@ -109,21 +117,27 @@ public class PlayerController : MonoBehaviour
         ChangeState(moving ? PlayerState.Run : PlayerState.Idle);
     }
     private void HandleMoveInput(Vector2 direction) => _moveInput = direction;
+    private void HandleAttackInput(PlayerAttackDataSO definition)
+    {
+        if (CanAttack) _playerAttack.TryStartAttack(definition);
+    }
     private void HandleJumpStarted()
     {
+        _playerAttack.CancelAttack();
         _landUntil = 0f;
         ChangeState(PlayerState.Jump);
         _playerAnimator.BeginJump(IsDoubleJump);
     }
     private void HandleLanded()
     {
+        if (CurrentState == PlayerState.Death || _playerHit.IsHit) return;
         if (_playerDash.IsDashing)
         {
             EvaluateState();
             return;
         }
         _landUntil = Time.time + _landDuration;
-        if (CurrentState == PlayerState.Attack) _playerAttack.CancelAttack();
+        _playerAttack.CancelAttack();
         _playerAnimator.PlayLand();
         EvaluateState();
     }
@@ -142,7 +156,6 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Attack);
-        _playerAnimator.PlayAttackClip(_playerAttack.CurrentAttackClip);
     }
     private void HandleAttackEnded() => EvaluateState();
 }

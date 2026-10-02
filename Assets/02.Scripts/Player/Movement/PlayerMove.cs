@@ -1,11 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody2D), (typeof(PlayerInput)))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _moveSpeed = 5f;
     private Rigidbody2D _rigidbody;
     private Vector2 _moveInput;
-    private bool _movementLocked;
+    private readonly HashSet<Object> _movementLocks = new();
+    public bool MovementLocked => _movementLocks.Count > 0;
     private int _facingDirection = 1;
     private PlayerInput _playerInput;
     public int FacingDirection => _facingDirection;
@@ -21,13 +23,13 @@ public class PlayerMove : MonoBehaviour
     private void OnDisable() => _playerInput.OnMoveInput -= HandleMove;
     private void HandleMove(Vector2 direction)
     {
-        if (_movementLocked)
+        if (MovementLocked)
         {
             _moveInput = Vector2.zero;
             return;
         }
         _moveInput = direction;
-        if (!_movementLocked && Mathf.Abs(_moveInput.x) > 0.01f)
+        if (!MovementLocked && Mathf.Abs(_moveInput.x) > 0.01f)
         {
             _facingDirection = _moveInput.x > 0f ? 1 : -1;
             Vector3 scale = transform.localScale;
@@ -37,14 +39,16 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_movementLocked) return;
+        if (MovementLocked) return;
         Vector2 velocity = _rigidbody.linearVelocity;
         velocity.x = _moveInput.x * _moveSpeed;
         _rigidbody.linearVelocity = velocity;
     }
-    public void SetMovementLocked(bool locked)
+    public void SetMovementLocked(Object source, bool locked)
     {
-        _movementLocked = locked;
+        if (source == null) return;
+        if (locked) _movementLocks.Add(source);
+        else _movementLocks.Remove(source);
         if (locked)
         {
             _moveInput = Vector2.zero;

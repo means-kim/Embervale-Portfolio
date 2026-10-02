@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: FireBallAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
   attackType: 1
-  triggerKey: 114
-  altTriggerKey: 0
-  hitbox:
-    Size: {x: 2.2, y: 0.8}
-    Offset: {x: 1.1, y: 0.8}
-    Duration: 0.22
+  attackPrefab: {fileID: 802468350584377373, guid: 54a4f1f209140d440ad6c34ff8c6c59d, type: 3}
+  spawnOffset: {x: 1.1, y: -1.6}
   animClipName: FireBallAttack
-  vfxPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 827350273694473572, guid: 54a4f1f209140d440ad6c34ff8c6c59d, type: 3}
   damage: 10
+  windupDuration: 0
+  recoveryDuration: 0.25

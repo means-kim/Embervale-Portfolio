@@ -91,6 +91,8 @@ public class PlayerJump : MonoBehaviour
     }
     public bool TryConsumeJump()
     {
+        var health = GetComponent<Health>();
+        if (health != null && health.IsDead) return false;
         if (_playerDash.IsDashing) return false;
         if (_playerHit != null && _playerHit.IsHit) return false;
         if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return false;

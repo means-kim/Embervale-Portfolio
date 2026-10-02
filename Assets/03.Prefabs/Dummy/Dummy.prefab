@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5048589764230761948}
   - component: {fileID: 6323946719278942338}
   - component: {fileID: 5964110146131470909}
+  - component: {fileID: 577506134616539155}
   m_Layer: 0
   m_Name: Dummy
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 50
+  _autoRecover: 0
+  _secondsPerSlot: 1.2
 --- !u!114 &5964110146131470909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +187,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e741a3be56c3d409bea2039a779262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
+--- !u!114 &577506134616539155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541624878663312200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89f277c8810c7d47a96485e11abc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  _health: {fileID: 6323946719278942338}

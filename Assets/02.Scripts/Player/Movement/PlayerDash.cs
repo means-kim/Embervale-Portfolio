@@ -51,13 +51,15 @@ public class PlayerDash : MonoBehaviour
     private void HandleDash()
     {
         if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging) return;
+        var health = GetComponent<Health>();
+        if (health != null && health.IsDead) return;
         if (_playerHit != null && _playerHit.IsHit) return;
         if (_playerAttack != null && _playerAttack.IsAttacking) return;
         _dashDirection = _playerMove.FacingDirection;
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
         _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
-        _playerMove?.SetMovementLocked(true);
+        _playerMove?.SetMovementLocked(this, true);
         IsDashing = true;
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
@@ -71,7 +73,7 @@ public class PlayerDash : MonoBehaviour
         IsDashing = false;
         _rigidbody.gravityScale = _originalGravityScale;
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
-        _playerMove?.SetMovementLocked(false);
+        _playerMove?.SetMovementLocked(this, false);
         OnDashEnded?.Invoke();
     }
 }
