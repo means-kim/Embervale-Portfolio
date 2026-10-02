@@ -23,6 +23,12 @@ public class AirBossBothArmsLiftDrop : AirBossAttackBase
     {
         Cancel();
 
+        if (_controller == null)
+        {
+            Debug.LogError("보스 컨트롤러를 연결하세요.", this);
+            return;
+        }
+
         if (_animation == null || _player == null || _telegraphPrefab == null)
         {
             Debug.Log("공격에 필요한 참조를 연결하세요.", this);
