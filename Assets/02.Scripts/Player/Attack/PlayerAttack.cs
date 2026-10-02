@@ -69,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
     {
         var direction = _playerMove.FacingDirection;
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
+        _playerMove?.SetMovementLocked(true);
         IsAttacking = true;
         CurrentAttackClip = string.IsNullOrEmpty(so.animClipName) ? "LeftHorizontalAttack" : so.animClipName;
         _attackTimeRemaining = so.hitbox.Duration;
@@ -104,6 +105,12 @@ public class PlayerAttack : MonoBehaviour
     {
         var box = so.hitbox;
         var center = (Vector2)transform.position + new Vector2(direction * box.Offset.x, box.Offset.y);
+        var spawnedVfx = SpawnVfx(so.vfxPrefab, center, direction);
+        if (spawnedVfx != null && TryAttachPrefabHitbox(spawnedVfx, so))
+        {
+            if (_showHitboxes) CapturePrefabDebugBox(spawnedVfx, so);
+            return;
+        }
         if (_showHitboxes)
         {
             _debugLastType = so.attackType;
@@ -111,11 +118,37 @@ public class PlayerAttack : MonoBehaviour
             _debugLastSize = box.Size;
             _debugBoxUntil = Time.time + Mathf.Max(box.Duration, 0.05f);
         }
-        SpawnVfx(so.vfxPrefab, center, direction);
         var hitboxObject = new GameObject($"MeleeHitbox_{so.attackType}");
         hitboxObject.transform.position = center;
         var melee = hitboxObject.AddComponent<PlayerMeleeHitbox>();
         melee.Setup(so.damage, box.Size, box.Duration);
+    }
+    private void CapturePrefabDebugBox(GameObject vfx, PlayerAttackDataSO so)
+    {
+        var first = true;
+        var bounds = new Bounds(vfx.transform.position, Vector3.zero);
+        foreach (var collider in vfx.GetComponentsInChildren<Collider2D>())
+        {
+            if (collider == null || !collider.enabled) continue;
+            if (first) { bounds = collider.bounds; first = false; }
+            else
+            {
+                bounds.Encapsulate(collider.bounds);
+            }
+        }
+        if (first) return;
+        _debugLastType = so.attackType;
+        _debugLastCenter = bounds.center;
+        _debugLastSize = bounds.size;
+        _debugBoxUntil = Time.time + Mathf.Max(so.hitbox.Duration, 0.05f);
+    }
+    private static bool TryAttachPrefabHitbox(GameObject vfx, PlayerAttackDataSO so)
+    {
+        var colliders = vfx.GetComponentsInChildren<Collider2D>(true);
+        if (colliders == null || colliders.Length == 0) return false;
+        var hitbox = vfx.AddComponent<PlayerVfxHitbox>();
+        hitbox.Setup(so.damage, so.hitbox.Duration);
+        return true;
     }
     private static GameObject SpawnVfx(GameObject prefab, Vector3 position, int direction)
     {
@@ -138,6 +171,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!IsAttacking) return;
         IsAttacking = false;
+        if (_playerMove != null) _playerMove.SetMovementLocked(false);
         OnAttackEnded?.Invoke();
     }
 }

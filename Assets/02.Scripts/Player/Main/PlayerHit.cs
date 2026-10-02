@@ -13,6 +13,7 @@ public class PlayerHit : MonoBehaviour
     private Health _health;
     private PlayerController _controller;
     private PlayerDash _dash;
+    private PlayerAttack _attack;
     private PlayerMove _move;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer[] _renderers;
@@ -27,6 +28,7 @@ public class PlayerHit : MonoBehaviour
         _health = GetComponent<Health>();
         _controller = GetComponent<PlayerController>();
         _dash = GetComponent<PlayerDash>();
+        _attack = GetComponent<PlayerAttack>();
         _move = GetComponent<PlayerMove>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderers = GetComponentsInChildren<SpriteRenderer>(true);
@@ -65,6 +67,7 @@ public class PlayerHit : MonoBehaviour
         if (!_knockbackLocking) return;
         _knockbackLocking = false;
         if (_dash != null && _dash.IsDashing) return;
+        if (_attack != null && _attack.IsAttacking) return;
         if (_move != null) _move.SetMovementLocked(false);
     }
     private void HandleHit()
