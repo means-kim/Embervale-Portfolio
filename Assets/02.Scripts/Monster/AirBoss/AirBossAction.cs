@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AirBossAction : MonoBehaviour
 {
-    private Animator _animator;
+    private AirBossAnimation _animation;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animation = GetComponent<AirBossAnimation>();
     }
 
     public void Execute(AirBossActionType actionType)
@@ -14,31 +14,31 @@ public class AirBossAction : MonoBehaviour
         switch (actionType)
         {
             case AirBossActionType.BothArmsLiftDrop:
-                _animator.CrossFade("BothArmsLiftDrop", 0.1f);
+                _animation.PlayBothArmsLiftDropAnimation();
                 break;
 
             case AirBossActionType.ForwardReach:
-                _animator.CrossFade("ForwardReach", 0.1f);
+                _animation.PlayForwardReachAnimation();
                 break;
 
             case AirBossActionType.OneArmUpDown:
-                _animator.CrossFade("OneArmUpDown", 0.1f);
+                _animation.PlayOneArmUpDownAnimation();
                 break;
 
             case AirBossActionType.BothArmsRaise:
-                _animator.CrossFade("BothArmsRaise", 0.1f);
+                _animation.PlayBothArmsRaiseAnimation();
                 break;
 
             case AirBossActionType.RaiseDropShadow:
-                _animator.CrossFade("RaiseDropShadow", 0.1f);
+                _animation.PlayRaiseDropShadowAnimation();
                 break;
 
             case AirBossActionType.SpinRoll360:
-                _animator.CrossFade("SpinRoll360", 0.1f);
+                _animation.PlaySpinRoll360Animation();
                 break;
 
             case AirBossActionType.SpinYaw360:
-                _animator.CrossFade("SpinYaw360", 0.1f);
+                _animation.PlaySpinYaw360Animation();
                 break;
         }
     }

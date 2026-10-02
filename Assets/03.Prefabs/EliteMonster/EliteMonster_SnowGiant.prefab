@@ -134,7 +134,6 @@ GameObject:
   m_Component:
   - component: {fileID: 579012923072910444}
   - component: {fileID: 3180728724621837134}
-  - component: {fileID: 147796837412912370}
   m_Layer: 10
   m_Name: Hurtbox
   m_TagString: Boss
@@ -203,19 +202,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 5.6}
   m_EdgeRadius: 0
---- !u!114 &147796837412912370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950595207199591173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b89f277c8810c7d47a96485e11abc033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
-  _health: {fileID: 5930615092485249234}
 --- !u!1 &3620871782854802714
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +605,7 @@ GameObject:
   - component: {fileID: 2567005633489926930}
   - component: {fileID: 6456768735056663740}
   - component: {fileID: 8224518611717997992}
-  - component: {fileID: 659636493486438817}
+  - component: {fileID: 7238580381561034051}
   m_Layer: 10
   m_Name: EliteMonster_SnowGiant
   m_TagString: Boss
@@ -715,7 +701,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 25
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 10
@@ -764,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac27ea21794c640aa4658fd10a7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMovement
-  _moveSpeed: 7
+  _moveSpeed: 15
   _stopDistance: 3
   _detectDistance: 40
   _loseDistance: 45
@@ -780,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 1000
+  _maxHealth: 300
   _autoRecover: 0
   _secondsPerSlot: 1.2
 --- !u!114 &7419796586167053868
@@ -913,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
   _movement: {fileID: 1428997075298612375}
-  _moveSpeedUp: 8
+  _moveSpeedUp: 10
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
   _effectPoint: {fileID: 4296080632268900524}
 --- !u!114 &2567005633489926930
@@ -964,8 +950,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossIceThornAttack
   _effectPrefab: {fileID: 8425433907468996792, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
   _effectPoint: {fileID: 2394664394161340326}
---- !u!61 &659636493486438817
-BoxCollider2D:
+--- !u!70 &7238580381561034051
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -998,18 +984,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 3.48}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 8.33, y: 7.02}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 5, y: 7}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 3.3}
+  m_Size: {x: 4, y: 6.5}
+  m_Direction: 0
 --- !u!1 &9022871376022956552
 GameObject:
   m_ObjectHideFlags: 0
