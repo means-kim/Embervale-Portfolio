@@ -91,8 +91,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.19921875}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -171,12 +171,12 @@ TextureImporter:
       name: Attack4_Grid512_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 512
-        height: 512
+        x: 110
+        y: 1122
+        width: 235
+        height: 303
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.6213, y: 0.0132}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +193,12 @@ TextureImporter:
       name: Attack4_Grid512_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
+        x: 538
+        y: 1123
+        width: 348
+        height: 283
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.6609, y: 0.0106}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: Attack4_Grid512_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 512
-        height: 512
+        x: 1051
+        y: 1123
+        width: 353
+        height: 290
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.6487, y: 0.0103}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: Attack4_Grid512_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 512
-        height: 512
+        x: 1663
+        y: 1123
+        width: 241
+        height: 311
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.5353, y: 0.0096}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,12 +259,12 @@ TextureImporter:
       name: Attack4_Grid512_4
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 1024
-        width: 512
-        height: 512
+        x: 2160
+        y: 1124
+        width: 298
+        height: 292
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.4832, y: 0.0068}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Attack4_Grid512_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
+        x: 119
+        y: 612
+        width: 340
+        height: 281
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.4029, y: 0.0071}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,12 +303,12 @@ TextureImporter:
       name: Attack4_Grid512_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
+        x: 645
+        y: 611
+        width: 316
+        height: 299
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.3892, y: 0.0100}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -325,12 +325,12 @@ TextureImporter:
       name: Attack4_Grid512_7
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 512
-        height: 512
+        x: 1150
+        y: 611
+        width: 348
+        height: 306
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.3736, y: 0.0098}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -347,12 +347,12 @@ TextureImporter:
       name: Attack4_Grid512_8
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 512
-        height: 512
+        x: 1638
+        y: 611
+        width: 310
+        height: 290
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.4968, y: 0.0103}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -369,12 +369,12 @@ TextureImporter:
       name: Attack4_Grid512_9
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 512
-        width: 512
-        height: 512
+        x: 2189
+        y: 612
+        width: 272
+        height: 302
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.4228, y: 0.0066}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -391,12 +391,12 @@ TextureImporter:
       name: Attack4_Grid512_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 143
+        y: 99
+        width: 226
+        height: 307
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.5000, y: 0.0098}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -413,12 +413,12 @@ TextureImporter:
       name: Attack4_Grid512_11
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 512
+        x: 685
+        y: 99
+        width: 196
+        height: 316
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.4235, y: 0.0095}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: Attack4_Grid512_12
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 512
-        height: 512
+        x: 1185
+        y: 99
+        width: 189
+        height: 341
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.5026, y: 0.0088}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: Attack4_Grid512_13
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 512
-        height: 512
+        x: 1701
+        y: 99
+        width: 177
+        height: 337
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.5141, y: 0.0089}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -479,12 +479,12 @@ TextureImporter:
       name: Attack4_Grid512_14
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 512
-        height: 512
+        x: 2213
+        y: 99
+        width: 259
+        height: 359
       alignment: 9
-      pivot: {x: 0.5, y: 0.19921875}
+      pivot: {x: 0.3514, y: 0.0084}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -501,7 +501,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f700355a48cb71045aa83ac9949dc989
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -509,9 +509,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":3.0},"gridSpriteSize":{"x":512.0,"y":416.0},"gridSpriteOffset":{"x":0.0,"y":96.0},"gridSpritePadding":{"x":0.0,"y":96.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Attack4_Grid512_0: -3219772562313399784
       Attack4_Grid512_1: -5198624778864684737
