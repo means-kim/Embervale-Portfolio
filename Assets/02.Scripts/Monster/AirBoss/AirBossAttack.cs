@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AirBossAttack : MonoBehaviour
 {
-    [SerializeField] private AirBosssAttackType _type;
+    [SerializeField] private AirBossAttackType _type;
     [SerializeField] private int _damage;
 
-    public AirBosssAttackType Type => _type;
+    public AirBossAttackType Type => _type;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

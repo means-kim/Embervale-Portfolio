@@ -38,7 +38,7 @@ public class AirBossAttackPool : MonoBehaviour
         }
     }
 
-    public AirBossAttack GetAttack(AirBosssAttackType attackType)
+    public AirBossAttack GetAttack(AirBossAttackType attackType)
     {
         for (int i = 0; i < _attackPrefabs.Length; i++)
         {
