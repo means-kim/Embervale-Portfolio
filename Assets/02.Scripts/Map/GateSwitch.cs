@@ -27,6 +27,7 @@ public class GateSwitch : MonoBehaviour
     [SerializeField] private string _playerTag = "Player";
     [SerializeField] private MapVisibility _mapVisibility;
     [SerializeField] private BoxCollider2D _boxCollider;
+    [SerializeField] private CinematicManager _cinematicManager;
 
     private bool _enterFromRight;
 
@@ -89,6 +90,7 @@ public class GateSwitch : MonoBehaviour
                 if (exitFromRight)
                 {
                     audio.PlayBgm(BgmType.Boss);
+                    _cinematicManager.PlayCinematic();
                 }
                 else
                 {
