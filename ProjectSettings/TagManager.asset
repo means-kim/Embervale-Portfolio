@@ -12,6 +12,9 @@ TagManager:
   - Platform
   - CheckPoint
   - FireObject
+  - FxTemporaire
+  - FireInteract
+  - UnFireInteract
   layers:
   - Default
   - TransparentFX
@@ -81,6 +84,9 @@ TagManager:
     locked: 0
   - name: GA1_HD_FX
     uniqueID: 1722700006
+    locked: 0
+  - name: BOSS
+    uniqueID: 4156918677
     locked: 0
   m_RenderingLayers:
   - Default
