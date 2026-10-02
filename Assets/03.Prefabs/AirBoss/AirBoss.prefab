@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3684625565806078733}
   - component: {fileID: 6954472282831411894}
   - component: {fileID: 4804818044005549590}
+  - component: {fileID: 3536419785821164132}
   m_Layer: 0
   m_Name: AirBoss
   m_TagString: Untagged
@@ -196,6 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
   _idleTimer: 3
   _moveTimer: 1
+  _idleWeight: 20
+  _moveWeight: 30
+  _actionWeight: 50
 --- !u!114 &6954472282831411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +227,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06a8d442fcdae6439a986f37384269c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAnimation
+--- !u!114 &3536419785821164132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5292b7c857d188c46b89c900802e19a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
