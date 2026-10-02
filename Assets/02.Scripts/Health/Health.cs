@@ -4,6 +4,9 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
+    [SerializeField] private bool _autoRecover;
+    [SerializeField, Min(0.05f)] private float _secondsPerSlot = 1.2f;
+    private float _recoveryRemainder;
     private int _currentHealth;
     private bool _isDead = false;
 
@@ -19,9 +22,32 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    private void Update()
+    {
+        AdvanceRecovery(Time.deltaTime);
+    }
+
+    public void AdvanceRecovery(float deltaTime)
+    {
+        if (!_autoRecover || _isDead || _currentHealth >= _maxHealth)
+        {
+            _recoveryRemainder = 0f;
+            return;
+        }
+
+        _recoveryRemainder += Mathf.Max(0f, deltaTime) * 100f / Mathf.Max(0.05f, _secondsPerSlot);
+        int amount = Mathf.FloorToInt(_recoveryRemainder);
+        if (amount <= 0) return;
+        _recoveryRemainder -= amount;
+        Heal(amount);
+        if (_currentHealth >= _maxHealth) _recoveryRemainder = 0f;
+    }
+
     public void TakeDamage(int damage)
     {
         if (_isDead || damage <= 0) return;
+
+        _recoveryRemainder = 0f;
 
         _currentHealth -= damage;
 
