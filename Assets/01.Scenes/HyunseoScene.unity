@@ -8216,6 +8216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicManager
   _cinematicBars: {fileID: 1506034660}
+  _letterboxGroup: {fileID: 1506034659}
+  _player: {fileID: 375355131}
+  _playerControls: []
   _bossEncounter: {fileID: 794411675}
 --- !u!1 &359815619
 GameObject:
@@ -9520,6 +9523,91 @@ MeshRenderer:
   m_SortingOrder: 34
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &496897915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954074921792302040, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954074921792302040, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1722300002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_Name
+      value: AirBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 346.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 155.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+--- !u!114 &496897916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 496897915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossController
+--- !u!95 &496897917 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8233074775862955928, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 496897915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502362057
 GameObject:
   m_ObjectHideFlags: 0
@@ -17108,7 +17196,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1133023746}
   m_Father: {fileID: 357357372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &794411675
@@ -17123,29 +17212,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f40d7b4ae774ff48606b67f7a86d6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEncounterCinematic
+  _cinematicManager: {fileID: 357357373}
+  _director: {fileID: 1133023747}
+  _boss: {fileID: 496897916}
   _player: {fileID: 375355131}
   _walkTarget: {fileID: 669907012}
-  _walkSpeed: 5
-  _stopDistance: 0.05
-  _walkTimeout: 10
-  _onArrived:
-    m_PersistentCalls:
-      m_Calls: []
-  _onCancelled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 357357373}
-        m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
-        m_MethodName: EndCinematic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _walkSpeed: 8
+  _stopDistance: 0.1
+  _walkTimeout: 5
 --- !u!1 &805802016
 GameObject:
   m_ObjectHideFlags: 0
@@ -20298,6 +20372,57 @@ MeshRenderer:
   m_SortingOrder: 35
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1133023745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133023746}
+  - component: {fileID: 1133023747}
+  m_Layer: 0
+  m_Name: PlayableDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1133023746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 794411674}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1133023747
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023745}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 705b8c574b57b7446984a5d616cb58c7, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -1090374336950496822, guid: 705b8c574b57b7446984a5d616cb58c7, type: 2}
+    value: {fileID: 496897917}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1138591375
 GameObject:
   m_ObjectHideFlags: 0
@@ -36535,8 +36660,8 @@ MonoBehaviour:
   _doubleJumpVfx: {fileID: 0}
   _dashVfx: {fileID: 0}
   _footstepVfx: {fileID: 0}
-  _bossHitVfx: {fileID: 0}
-  _bossDeathVfx: {fileID: 0}
+  _enemyHitVfx: {fileID: 0}
+  _enemyDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 0}
   _levelUpVfx: {fileID: 0}
   _wallSlideVfx: {fileID: 0}
@@ -46761,3 +46886,4 @@ SceneRoots:
   - {fileID: 1504072919}
   - {fileID: 2077971910}
   - {fileID: 669907012}
+  - {fileID: 496897915}
