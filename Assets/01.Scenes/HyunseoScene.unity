@@ -8215,8 +8215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9a0b93bf7ae8f4d9da018aff506dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicManager
-  _cinematicCanvasGroup: {fileID: 1506034659}
-  _fadeDuration: 0.5
+  _cinematicBars: {fileID: 1506034660}
 --- !u!1 &359815619
 GameObject:
   m_ObjectHideFlags: 0
@@ -22710,6 +22709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506034658}
   - component: {fileID: 1506034659}
+  - component: {fileID: 1506034660}
   m_Layer: 0
   m_Name: LetterBox
   m_TagString: Untagged
@@ -22750,6 +22750,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1506034660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506034657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5365d9856384b24b979486691e1a34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CinematicBars
+  _cinematicCanvasGroup: {fileID: 1506034659}
+  _fadeDuration: 0.5
 --- !u!1 &1506233956
 GameObject:
   m_ObjectHideFlags: 0
