@@ -75,13 +75,17 @@ public class EliteMonsterMovement : MonoBehaviour
 
     private void Move(Vector2 direction, float distance)
     {
-        bool shouldMove = distance > _stopDistance;
+        float horizontalDistance = Mathf.Abs(direction.x);
+        bool shouldMove = horizontalDistance > _stopDistance;
+
         _animator.SetBool("IsWalk", shouldMove);
 
         if (!shouldMove) return;
 
+        float directionX = Mathf.Sign(direction.x);
+
         transform.position +=
-            (Vector3)(direction.normalized * _moveSpeed * Time.deltaTime);
+            Vector3.right * directionX * _moveSpeed * Time.deltaTime;
     }
 
     public void ChargeMovement(float speed)
