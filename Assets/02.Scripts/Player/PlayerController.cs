@@ -106,7 +106,8 @@ public class PlayerController : MonoBehaviour
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }
-        var moving = _playerMove.IsMoving || Mathf.Abs(_moveInput.x) > 0.01f;
+        // 사선 미끄러짐(물리 속도)만으로는 Run을 재생하지 않는다. 방향키 입력이 있을 때만 Run.
+        var moving = _playerMove != null ? _playerMove.HasMoveInput : Mathf.Abs(_moveInput.x) > 0.01f;
         ChangeState(moving ? PlayerState.Run : PlayerState.Idle);
     }
     private void HandleMoveInput(Vector2 direction) => _moveInput = direction;

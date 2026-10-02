@@ -8,6 +8,8 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private List<int> _jumpPowers = new() { 7, 7, 7, 7, 7 };
     [SerializeField, Min(0f)] private float _dropThroughDuration = 0.4f;
     [SerializeField, Min(0f)] private float _platformLandTolerance = 0.1f;
+    [SerializeField, Min(0f), Tooltip("접촉이 끊겨도 이 시간 안에 다시 닿으면 공중으로 처리하지 않는다. 사선 미세 들뜸 깜빡임 방지용.")] private float _groundLossGrace = 0.1f;
+    [SerializeField, Min(0f), Tooltip("절벽·발판 끝을 벗어난 뒤에도 이 시간 안에는 지상 점프를 허용한다. 만료되면 지상 점프 1회가 소모된다.")] private float _coyoteTime = 0.1f;
     public event Action OnJumpStarted;
     public event Action OnLanded;
     public event Action OnGroundLost;
@@ -21,6 +23,8 @@ public class PlayerJump : MonoBehaviour
     private readonly HashSet<Collider2D> _platformContacts = new();
     private readonly List<Collider2D> _ignoredPlatforms = new();
     private float _dropTimer;
+    private float _ungroundedTimer = -1f;
+    private float _lastGroundedTime = -100f;
     private bool _isGrounded;
     private bool _isJumping;
     private int _jumpCount;
@@ -32,6 +36,9 @@ public class PlayerJump : MonoBehaviour
     public IReadOnlyList<int> JumpPowers => _jumpPowers;
     public int CurrentJumpCount => _jumpCount;
     public float JumpSpeed => GetJumpPower(0);
+    public float CoyoteTime => _coyoteTime;
+    /// <summary>코요테 유예가 현재 유효한지. 점프를 한 번도 안 쓰고 떨어진 직후에만 true.</summary>
+    public bool IsCoyoteActive => !_isGrounded && !_isJumping && _jumpCount == 0 && _coyoteTime > 0f && (Time.time - _lastGroundedTime) <= _coyoteTime;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -54,10 +61,24 @@ public class PlayerJump : MonoBehaviour
     }
     private void Update()
     {
-        if (_dropTimer <= 0f) return;
-        _dropTimer -= Time.deltaTime;
-        if (_dropTimer > 0f) return;
-        RestoreIgnoredPlatforms();
+        if (_dropTimer > 0f)
+        {
+            _dropTimer -= Time.deltaTime;
+            if (_dropTimer <= 0f) RestoreIgnoredPlatforms();
+        }
+        if (_ungroundedTimer >= 0f)
+        {
+            _ungroundedTimer -= Time.deltaTime;
+            if (_ungroundedTimer < 0f && _groundContacts.Count == 0) SetGrounded(false);
+        }
+        // 코요테 만료: 가만히 떨어진 경우 지상 점프 1회를 소모한다. 이후 점프는 더블점프로 처리된다.
+        // 점프 후 공중에 있으면 _isJumping이 true라서 소모하지 않는다.
+        // _coyoteTime이 0이면 벗어나자마자 소모된다.
+        if (!_isGrounded && !_isJumping && _jumpCount == 0
+            && (Time.time - _lastGroundedTime) > Mathf.Max(0f, _coyoteTime))
+        {
+            _jumpCount = 1;
+        }
     }
     private void HandleJump()
     {
@@ -75,6 +96,7 @@ public class PlayerJump : MonoBehaviour
         if (_playerDash.IsDashing) return false;
         if (_playerHit != null && _playerHit.IsHit) return false;
         if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return false;
+        _ungroundedTimer = -1f;
         if (_isGrounded)
         {
             _groundContacts.Clear();
@@ -103,6 +125,7 @@ public class PlayerJump : MonoBehaviour
         }
         _platformContacts.Clear();
         _dropTimer = _dropThroughDuration;
+        _ungroundedTimer = -1f;
         SetGrounded(_groundContacts.Count > 0);
     }
     private void RestoreIgnoredPlatforms()
@@ -126,7 +149,13 @@ public class PlayerJump : MonoBehaviour
         if (collision.collider != null && _groundContacts.Remove(collision.collider))
         {
             _platformContacts.Remove(collision.collider);
-            SetGrounded(_groundContacts.Count > 0);
+            if (_groundContacts.Count > 0)
+            {
+                _ungroundedTimer = -1f;
+                return;
+            }
+            // 사선에서 1~2프레임 떨어졌다 붙는 경우 즉시 공중 처리하지 않고 유예한다.
+            if (_isGrounded) _ungroundedTimer = _groundLossGrace;
         }
     }
     private void TryLand(Collision2D collision)
@@ -142,11 +171,13 @@ public class PlayerJump : MonoBehaviour
             ContactPoint2D contact = collision.GetContact(i);
             if (contact.normal.y > 0.5f)
             {
+                // 유예 시간 안에 다시 닿으면 공중이었던 적이 없으므로 Landed를 다시 쏘지 않는다.
+                _ungroundedTimer = -1f;
                 if (_groundContacts.Add(collision.collider))
                 {
                     if (platform) _platformContacts.Add(collision.collider);
-                    SetGrounded(true);
                 }
+                SetGrounded(true);
                 return;
             }
         }
@@ -157,6 +188,7 @@ public class PlayerJump : MonoBehaviour
         _isGrounded = grounded;
         if (!grounded)
         {
+            _lastGroundedTime = Time.time;
             OnGroundLost?.Invoke();
             return;
         }

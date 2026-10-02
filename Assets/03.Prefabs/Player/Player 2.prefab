@@ -281,6 +281,7 @@ MonoBehaviour:
   _jumpPowers: 32000000280000001e000000140000000a000000
   _dropThroughDuration: 0.4
   _platformLandTolerance: 0.1
+  _groundLossGrace: 0.1
 --- !u!114 &9139932681856386106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
   _jumpStartDuration: 0.2
-  _apexVelocityRange: 1.5
+  _apexVelocityRange: 5
+  _apexMinAirTime: 0.15
   _dashStartDuration: 0.075
   _dashEndDuration: 0.13
 --- !u!114 &1037139212557433009
