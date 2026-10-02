@@ -48,9 +48,8 @@ public class AirBossAttackPool : MonoBehaviour
             {
                 AirBossAttack attack = _pool[i, j];
 
-                if (attack.gameObject.activeSelf == false)
+                if (attack.TryReserve())
                 {
-                    attack.gameObject.SetActive(true);
                     return attack;
                 }
             }
