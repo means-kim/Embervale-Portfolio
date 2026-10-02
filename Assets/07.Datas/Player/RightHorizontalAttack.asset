@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
   attackType: 2
   attackPrefab: {fileID: 8076720663886689820, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
-  spawnOffset: {x: 0.8, y: 0.8}
+  spawnOffset: {x: 0, y: -5}
   animClipName: RightHorizontalAttack
   damage: 10
   windupDuration: 0
