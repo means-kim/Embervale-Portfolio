@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac27ea21794c640aa4658fd10a7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMovement
-  _moveSpeed: 7
+  _moveSpeed: 15
   _stopDistance: 3
   _detectDistance: 40
   _loseDistance: 45
@@ -766,7 +766,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 1000
+  _maxHealth: 300
+  _autoRecover: 0
+  _secondsPerSlot: 1.2
 --- !u!114 &7419796586167053868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
   _movement: {fileID: 1428997075298612375}
-  _moveSpeedUp: 8
+  _moveSpeedUp: 10
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
   _effectPoint: {fileID: 4296080632268900524}
 --- !u!114 &2567005633489926930
