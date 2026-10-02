@@ -58,7 +58,7 @@ public class PlayerWall : MonoBehaviour
         if (_moveLocked)
         {
             _moveLocked = false;
-            _playerMove.SetMovementLocked(false);
+            _playerMove.SetMovementLocked(this, false);
         }
     }
     private void EnsureFrictionlessCollider()
@@ -79,7 +79,7 @@ public class PlayerWall : MonoBehaviour
         if (_moveLocked && Time.time >= _moveLockUntil)
         {
             _moveLocked = false;
-            if (!_playerDash.IsDashing) _playerMove.SetMovementLocked(false);
+            _playerMove.SetMovementLocked(this, false);
         }
         var pressingToward = 0f;
         if (Mathf.Abs(_moveInput.x) > 0.01f) pressingToward = Mathf.Sign(_moveInput.x);
@@ -133,7 +133,7 @@ public class PlayerWall : MonoBehaviour
         _regrabUntil = Time.time + _wallJumpLockDuration;
         _moveLockUntil = Time.time + _wallJumpLockDuration;
         _moveLocked = true;
-        _playerMove.SetMovementLocked(true);
+        _playerMove.SetMovementLocked(this, true);
         IsClinging = false;
         IsClimbing = false;
         _rigidbody.linearVelocity = new Vector2(-_clingDirection * _wallJumpAwaySpeed, _playerJump.JumpSpeed);

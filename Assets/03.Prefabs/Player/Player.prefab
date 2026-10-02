@@ -107,7 +107,7 @@ SpriteRenderer:
   m_Size: {x: 2.62, y: 3.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1253728359634469888
 Rigidbody2D:
@@ -183,12 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf09f1dbd43daa4a96c72a6d56ffae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  _attacks:
-  - {fileID: 11400000, guid: c0355d26aa2bf5140bdb0f50b9a02c1c, type: 2}
-  - {fileID: 11400000, guid: 5bd6d3c8cd0e8674686605f53200f3ac, type: 2}
-  - {fileID: 11400000, guid: 272894b29ceac9e4cb8ffcfac79021fe, type: 2}
-  - {fileID: 11400000, guid: 6b7eb69b3247b3949ab83ff93e70cae4, type: 2}
-  - {fileID: 11400000, guid: 73fa6af4c8602f9468eff07352a20698, type: 2}
   _showHitboxes: 1
 --- !u!114 &7533624692983177567
 MonoBehaviour:
@@ -203,6 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 500
+  _autoRecover: 0
+  _secondsPerSlot: 1.2
 --- !u!114 &4853069123459756985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +211,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ff222b1449ab0409710a9a3a0aa059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
+  _attackBindings:
+  - key: 50
+    attack: {fileID: 11400000, guid: c0355d26aa2bf5140bdb0f50b9a02c1c, type: 2}
+  - key: 101
+    attack: {fileID: 11400000, guid: 5bd6d3c8cd0e8674686605f53200f3ac, type: 2}
+  - key: 49
+    attack: {fileID: 11400000, guid: 272894b29ceac9e4cb8ffcfac79021fe, type: 2}
+  - key: 114
+    attack: {fileID: 11400000, guid: 6b7eb69b3247b3949ab83ff93e70cae4, type: 2}
+  - key: 51
+    attack: {fileID: 11400000, guid: 73fa6af4c8602f9468eff07352a20698, type: 2}
 --- !u!114 &4054343572524884209
 MonoBehaviour:
   m_ObjectHideFlags: 0

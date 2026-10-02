@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 public class EffectManager : MonoBehaviour
 {
     private static EffectManager _instance = null;
@@ -18,8 +19,10 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _dashVfx;
     [SerializeField] private GameObject _footstepVfx;
     [Header("VFX 프리팹 (적)")]
-    [SerializeField] private GameObject _enemyHitVfx;
-    [SerializeField] private GameObject _enemyDeathVfx;
+    [FormerlySerializedAs("_enemyHitVfx")]
+    [SerializeField] private GameObject _bossHitVfx;
+    [FormerlySerializedAs("_enemyDeathVfx")]
+    [SerializeField] private GameObject _bossDeathVfx;
     [Header("VFX 프리팹 (맵)")]
     [SerializeField] private GameObject _checkpointVfx;
     [Header("VFX 프리팹 (레벨·벽)")]
@@ -64,8 +67,8 @@ public class EffectManager : MonoBehaviour
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
-    public void PlayEnemyHit(Vector3 position) => Spawn(_enemyHitVfx, position);
-    public void PlayEnemyDeath(Vector3 position) => Spawn(_enemyDeathVfx, position);
+    public void PlayBossHit(Vector3 position) => Spawn(_bossHitVfx, position);
+    public void PlayBossDeath(Vector3 position) => Spawn(_bossDeathVfx, position);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);

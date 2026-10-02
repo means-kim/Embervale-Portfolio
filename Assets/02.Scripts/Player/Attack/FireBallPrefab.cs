@@ -1,108 +1,106 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
-public class FireBallPrefab : MonoBehaviour, IPlayerProjectile
+
+[RequireComponent(typeof(PlayerAttackInstance), typeof(Collider2D))]
+public class FireBallPrefab : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _speed = 12f;
-    [SerializeField, Min(0f)] private float _maxDistance = 8f;
-    [SerializeField, Min(0f)] private float _lifeTime = 2f;
-    [Tooltip("발사 직후 이 시간 동안은 지형(Ground/Wall/Platform) 접촉을 무시한다. 스폰 위치 겹침 오폭 방지. 적은 즉시 맞는다.")]
-    [SerializeField, Min(0f)] private float _terrainGrace = 0.15f;
-    [Header("소멸 페이드")]
-    [Tooltip("켜면 수명/사거리 만료나 벽 충돌 시 스프라이트가 투명해지며 사라진다. 적 명중은 즉시 소멸한다.")]
+    [SerializeField, Min(0)] private float _speed = 12;
+    [SerializeField, Min(0)] private float _maxDistance = 8;
+    [SerializeField, Min(0)] private float _lifeTime = 2;
     [SerializeField] private bool _fadeOut = true;
-    [Tooltip("페이드 진행 시간. 0이면 즉시 소멸한다.")]
-    [SerializeField, Min(0f)] private float _fadeOutTime = 0.25f;
-    public float MaxDistance => _maxDistance;
-    private int _damage;
-    private int _direction = 1;
-    private Vector3 _startPos;
+    [SerializeField, Min(0)] private float _fadeOutTime = 0.25f;
+    private readonly HashSet<Collider2D> _spawnOverlaps = new();
+    private readonly List<Collider2D> _overlaps = new();
+    private readonly List<RaycastHit2D> _castHits = new();
+    private PlayerAttackInstance _attack;
+    private PlayerDamageHitbox _hitbox;
+    private Collider2D _collider;
+    private Rigidbody2D _body;
     private float _age;
-    private bool _launched;
+    private float _distance;
     private bool _destroying;
+    private ContactFilter2D _filter;
+    public float EffectiveRange => Mathf.Min(_maxDistance, _speed * _lifeTime);
     private void Awake()
     {
-        var collider = GetComponent<Collider2D>();
-        if (collider != null) collider.isTrigger = true;
-        var rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.isKinematic = true;
-        rigidbody.gravityScale = 0f;
+        _attack = GetComponent<PlayerAttackInstance>();
+        _hitbox = GetComponent<PlayerDamageHitbox>();
+        _body = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
+        _filter = new ContactFilter2D { useTriggers = true };
+        _filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
     }
-    public void Launch(int damage, int direction)
+    private void OnEnable() => _hitbox.OnDamageApplied += HandleDamage;
+    private void OnDisable() => _hitbox.OnDamageApplied -= HandleDamage;
+    private void Start()
     {
-        _damage = damage;
-        _direction = direction >= 0 ? 1 : -1;
-        _startPos = transform.position;
-        _age = 0f;
-        _launched = true;
-        if (_direction < 0)
+        Physics2D.SyncTransforms();
+        _collider.Overlap(_filter, _overlaps);
+        foreach (var other in _overlaps)
+            if (IsTerrain(other)) _spawnOverlaps.Add(other);
+    }
+    private void FixedUpdate()
+    {
+        if (_destroying) return;
+        _age += Time.fixedDeltaTime;
+        if (_age >= _lifeTime || _distance >= _maxDistance) { BeginDestroy(false); return; }
+        _spawnOverlaps.RemoveWhere(c => c == null || !c.enabled || !_collider.Distance(c).isOverlapped);
+        Vector2 direction = Vector2.right * _attack.Direction;
+        float step = Mathf.Min(_speed * Time.fixedDeltaTime, Mathf.Max(0, _maxDistance - _distance));
+        _castHits.Clear();
+        _collider.Cast(direction, _filter, _castHits, step);
+        _castHits.Sort((a, b) => a.distance.CompareTo(b.distance));
+        foreach (var hit in _castHits)
         {
-            var scale = transform.localScale;
-            scale.x = -Mathf.Abs(scale.x);
-            transform.localScale = scale;
+            if (hit.collider == null || (_attack.Owner != null && hit.collider.transform.IsChildOf(_attack.Owner))) continue;
+            if (IsTerrain(hit.collider) && !_spawnOverlaps.Contains(hit.collider))
+            {
+                _body.position += direction * Mathf.Max(0, hit.distance);
+                BeginDestroy(false);
+                return;
+            }
+            if (_hitbox.TryHit(hit.collider)) return;
         }
+        _body.MovePosition(_body.position + direction * step);
+        _distance += step;
     }
-    private void Update()
+    private static bool IsTerrain(Collider2D other) => other != null &&
+        (other.CompareTag("Ground") || other.CompareTag("Wall") || other.CompareTag("Platform"));
+    private void OnTriggerEnter2D(Collider2D other) => CheckTerrain(other);
+    private void OnTriggerStay2D(Collider2D other) => CheckTerrain(other);
+    private void CheckTerrain(Collider2D other)
     {
-        if (!_launched) return;
-        transform.position += new Vector3(_direction * _speed * Time.deltaTime, 0f, 0f);
-        _age += Time.deltaTime;
-        if (_age >= _lifeTime || Vector3.Distance(_startPos, transform.position) >= _maxDistance) BeginDestroy(instant: false);
+        if (!_destroying && IsTerrain(other) && !_spawnOverlaps.Contains(other)) BeginDestroy(false);
     }
+    private void HandleDamage(Collider2D _) => BeginDestroy(true);
     private void BeginDestroy(bool instant)
     {
         if (_destroying) return;
         _destroying = true;
-        if (!instant && _fadeOut && _fadeOutTime > 0f)
-        {
-            _launched = false;
-            var collider = GetComponent<Collider2D>();
-            if (collider != null) collider.enabled = false;
-            StartCoroutine(FadeAndDestroy());
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        _attack.StopDamage();
+        if (instant || !_fadeOut || _fadeOutTime <= 0) Destroy(gameObject);
+        else StartCoroutine(FadeAndDestroy());
     }
     private IEnumerator FadeAndDestroy()
     {
-        var sprite = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
-        Color start = sprite != null ? sprite.color : Color.white;
-        float t = 0f;
+        var sprites = GetComponentsInChildren<SpriteRenderer>();
+        var colors = Array.ConvertAll(sprites, s => s.color);
+        var animator = GetComponent<Animator>();
+        if (animator != null) animator.enabled = false;
+        float t = 0;
         while (t < _fadeOutTime)
         {
             t += Time.deltaTime;
-            if (sprite != null)
+            for (int i = 0; i < sprites.Length; i++)
             {
-                Color c = start;
-                c.a *= Mathf.Clamp01(1f - t / _fadeOutTime);
-                sprite.color = c;
+                var color = colors[i];
+                color.a *= Mathf.Clamp01(1 - t / _fadeOutTime);
+                sprites[i].color = color;
             }
             yield return null;
         }
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!_launched || other == null) return;
-        if (other.CompareTag("Enemy"))
-        {
-            var health = other.GetComponent<Health>();
-            if (health == null) health = other.GetComponentInParent<Health>();
-            if (health != null)
-            {
-                health.TakeDamage(_damage);
-                EffectManager.Instance?.PlayEnemyHit(other.transform.position);
-            }
-            BeginDestroy(instant: true);
-            return;
-        }
-        if (other.CompareTag("Ground") || other.CompareTag("Wall") || other.CompareTag("Platform"))
-        {
-            if (_age < _terrainGrace) return;
-            BeginDestroy(instant: false);
-        }
     }
 }

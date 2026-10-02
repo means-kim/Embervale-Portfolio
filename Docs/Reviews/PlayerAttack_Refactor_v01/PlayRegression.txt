@@ -1,0 +1,26 @@
+PASS Boss 태그 통일 / Enemy 제거
+PASS DownAttack 좌우 판정 반전
+PASS DownAttack 시작/취소/잠금
+PASS DownAttack 자연 종료와 판정 시간 분리
+PASS RightHorizontalAttack 좌우 판정 반전
+PASS RightHorizontalAttack 시작/취소/잠금
+PASS RightHorizontalAttack 자연 종료와 판정 시간 분리
+PASS LeftHorizontalAttack 좌우 판정 반전
+PASS LeftHorizontalAttack 시작/취소/잠금
+PASS LeftHorizontalAttack 자연 종료와 판정 시간 분리
+PASS FireBallAttack 좌우 판정 반전
+PASS FireBallAttack 시작/취소/잠금
+PASS FireBallAttack 자연 종료와 판정 시간 분리
+PASS UpAttack 좌우 판정 반전
+PASS UpAttack 시작/취소/잠금
+PASS UpAttack 자연 종료와 판정 시간 분리
+PASS 준비 구간 취소 시 공격 객체가 생성되지 않음
+PASS 실제 설인 Hurtbox 명중 / 한 공격 중복 타격 방지
+PASS 화염구도 공통 피해 판정 사용
+PASS 공격 종료가 다른 행동의 잠금을 해제하지 않음
+PASS 착지 시 생성한 근접 판정도 취소
+PASS 피격 시 공격 취소 / 피격 중 신규 공격 차단
+PASS 대시 중 공격 차단
+PASS 실제 물리 트리거로 Boss 피해 전달
+PASS 화염구가 얇은 벽을 sweep 검사로 정지
+PASS 사망 시 공격 취소 / 입력으로 Death 덮어쓰기 차단

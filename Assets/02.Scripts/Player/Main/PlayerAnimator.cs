@@ -32,7 +32,7 @@ public class PlayerAnimator : MonoBehaviour
                 PlayClip("DashStart");
                 break;
             case PlayerState.Attack:
-                PlayClip("LeftHorizontalAttack");
+                PlayClip(GetComponent<PlayerAttack>().CurrentAttackClip);
                 break;
             case PlayerState.Death:
                 PlayClip("Death");
@@ -59,7 +59,6 @@ public class PlayerAnimator : MonoBehaviour
     public void ResetJumpPhase() => _jumpPhase = 2;
     public void BeginDash() => _dashStartTime = Time.time;
     public void PlayLand() => PlayPhaseClip("Land");
-    public void PlayAttackClip(string clipName) => PlayPhaseClip(clipName);
     public void Tick(PlayerState state, bool landingLocked, float verticalVelocity, float dashDuration)
     {
         if (landingLocked) return;

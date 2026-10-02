@@ -1,75 +1,65 @@
 using UnityEditor;
 using UnityEngine;
+
 [CustomEditor(typeof(PlayerAttack))]
 public class PlayerAttackEditor : Editor
 {
     private void OnSceneGUI()
     {
-        var atk = (PlayerAttack)target;
-        if (atk == null || atk.Attacks == null) return;
-        Vector3 basePos = atk.transform.position;
-        foreach (var so in atk.Attacks)
+        var attack = (PlayerAttack)target;
+        if (attack == null || !attack.DebugDrawEnabled) return;
+        if (Application.isPlaying)
         {
-            if (so == null) continue;
-            PlayerAttackType type = so.attackType;
-            PlayerAttackHitbox box = so.hitbox;
-            Color color = ColorOf(type);
-            string label = string.IsNullOrEmpty(so.name) ? type.ToString() : so.name;
-            if (so.projectilePrefab != null)
+            if (attack.TryGetDebugBox(out var type, out var center, out var size))
             {
-                DrawProjectilePath(basePos, box, so, color, label);
+                Handles.color = Color.white;
+                Handles.DrawWireCube(center, size);
+                Handles.Label(center, type + " 실제 판정 bounds");
             }
-            else
+            return;
+        }
+        var input = attack.GetComponent<PlayerInput>();
+        if (input == null) return;
+        foreach (var binding in input.AttackBindings)
+        {
+            if (binding?.attack?.attackPrefab == null) continue;
+            var definition = binding.attack;
+            for (int direction = -1; direction <= 1; direction += 2)
             {
-                DrawBox(basePos + new Vector3(box.Offset.x, box.Offset.y, 0f), box.Size, color, label);
-                Color ghost = color;
-                ghost.a = 0.25f;
-                DrawBox(basePos + new Vector3(-box.Offset.x, box.Offset.y, 0f), box.Size, ghost, null);
+                var root = definition.attackPrefab.transform;
+                var scale = root.localScale;
+                scale.x = Mathf.Abs(scale.x) * direction;
+                Vector3 origin = attack.transform.position + new Vector3(direction * definition.spawnOffset.x, definition.spawnOffset.y);
+                Matrix4x4 spawn = Matrix4x4.TRS(origin, Quaternion.identity, scale);
+                Handles.color = direction == 1 ? Color.cyan : new Color(1, 0.7f, 0.3f, 0.45f);
+                foreach (var collider in definition.attackPrefab.GetComponentsInChildren<Collider2D>())
+                {
+                    Matrix4x4 matrix = spawn * root.worldToLocalMatrix * collider.transform.localToWorldMatrix;
+                    DrawCollider(collider, matrix);
+                }
+                Handles.Label(origin, definition.name + " / " + binding.key + " 스폰 판정");
             }
         }
-        if (atk.TryGetDebugBox(out PlayerAttackType debugType, out Vector2 debugCenter, out Vector2 debugSize))
+    }
+    private static void DrawCollider(Collider2D collider, Matrix4x4 matrix)
+    {
+        if (collider is PolygonCollider2D polygon)
         {
-            Color color = ColorOf(debugType);
-            color.a = 1f;
-            Handles.color = Color.white;
-            Handles.DrawWireCube(debugCenter, new Vector3(debugSize.x, debugSize.y, 0f));
-            Handles.Label(debugCenter + Vector2.up * (debugSize.y * 0.5f + 0.3f), debugType + " HIT");
+            for (int path = 0; path < polygon.pathCount; path++)
+            {
+                var points = polygon.GetPath(path);
+                for (int i = 0; i < points.Length; i++) Handles.DrawLine(matrix.MultiplyPoint3x4(points[i] + polygon.offset), matrix.MultiplyPoint3x4(points[(i + 1) % points.Length] + polygon.offset));
+            }
         }
-    }
-    private static void DrawProjectilePath(Vector3 basePos, PlayerAttackHitbox box, PlayerAttackDataSO so, Color color, string label)
-    {
-        float range = box.Size.x;
-        var stab = so.projectilePrefab.GetComponent<IPlayerProjectile>();
-        if (stab != null && stab.MaxDistance > 0f)
-            range = stab.MaxDistance;
-        Vector3 origin = basePos + new Vector3(box.Offset.x, box.Offset.y, 0f);
-        Vector3 end = origin + new Vector3(range, 0f, 0f);
-        Handles.color = color;
-        Handles.DrawLine(origin, end, 3f);
-        Handles.DrawWireCube((origin + end) * 0.5f, new Vector3(range, Mathf.Max(box.Size.y, 0.2f), 0f));
-        Handles.Label(end + new Vector3(0.15f, 0f, 0f), label + " (projectile)");
-        Color ghost = color;
-        ghost.a = 0.25f;
-        Handles.color = ghost;
-        Vector3 morigin = basePos + new Vector3(-box.Offset.x, box.Offset.y, 0f);
-        Handles.DrawLine(morigin, morigin + new Vector3(-range, 0f, 0f), 2f);
-    }
-    private static void DrawBox(Vector3 center, Vector2 size, Color color, string label)
-    {
-        Handles.color = color;
-        Handles.DrawWireCube(center, new Vector3(size.x, size.y, 0f));
-        if (!string.IsNullOrEmpty(label))
-            Handles.Label(center + new Vector3(0f, size.y * 0.5f + 0.15f, 0f), label);
-    }
-    private static Color ColorOf(PlayerAttackType type)
-    {
-        switch (type)
+        else if (collider is CircleCollider2D circle)
         {
-            case PlayerAttackType.Stab: return Color.yellow;
-            case PlayerAttackType.Horizontal: return Color.cyan;
-            case PlayerAttackType.Down: return Color.magenta;
-            case PlayerAttackType.Up: return new Color(1f, 0.5f, 0f);
-            default: return Color.green;
+            float scale = Mathf.Max(matrix.MultiplyVector(Vector3.right).magnitude, matrix.MultiplyVector(Vector3.up).magnitude);
+            Handles.DrawWireDisc(matrix.MultiplyPoint3x4(circle.offset), Vector3.forward, circle.radius * scale);
+        }
+        else
+        {
+            Vector2 size = collider is CapsuleCollider2D capsule ? capsule.size : collider is BoxCollider2D box ? box.size : Vector2.zero;
+            using (new Handles.DrawingScope(matrix)) Handles.DrawWireCube(collider.offset, size);
         }
     }
 }
