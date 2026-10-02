@@ -4,8 +4,6 @@ using UnityEngine.Rendering.Universal;
 
 public class TorchLight : MonoBehaviour
 {
-    private const string FireObjectTag = "FireObject";
-
     [SerializeField]
     private float _duration = 10f;
 
@@ -13,6 +11,7 @@ public class TorchLight : MonoBehaviour
     [SerializeField] private float _fadeDuration = 0.4f;
     [SerializeField] private ParticleSystem _fireEffect;
     [SerializeField] private string _fireInteract = "FireInteract";
+    [SerializeField] private string _unFireInteract = "UnFireInteract";
 
     private Light2D _light;
     private Coroutine _routine;
@@ -44,24 +43,28 @@ public class TorchLight : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_fireInteract))
         {
-            fireActive();
+            FireActive();
+        }
+        else if (other.gameObject.CompareTag(_unFireInteract))
+        {
+            FireUnActive();
         }
     }
 
-    public void fireActive()
+    private void FireActive()
     {
         SetFire(true);
-        StartRoutine(fireOnRoutine());
+        StartRoutine(FireOnRoutine());
     }
 
-    public void Extinguish()
+    private void FireUnActive()
     {
         if (!IsLit) return;
         SetFire(false);
         StartRoutine(FadeTo(0f));
     }
 
-    private IEnumerator fireOnRoutine()
+    private IEnumerator FireOnRoutine()
     {
         yield return FadeTo(_targetIntensity);
         if (_litWait == null)
