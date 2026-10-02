@@ -1,177 +1,84 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D), typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerDash))]
+
+[RequireComponent(typeof(PlayerMove))]
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("공격 데이터 (SO를 연결하면 바로 사용. 콤보는 SO 나열로 확장)")]
-    [SerializeField] private List<PlayerAttackDataSO> _attacks = new();
-    [Header("디버그 (플레이 중 발동 판정 표시)")]
     [SerializeField] private bool _showHitboxes;
-    private PlayerAttackType _debugLastType;
-    private Vector2 _debugLastCenter;
-    private Vector2 _debugLastSize;
-    private float _debugBoxUntil;
-    private PlayerMove _playerMove;
-    private PlayerDash _playerDash;
+    private PlayerMove _move;
+    private PlayerAttackDataSO _current;
+    private PlayerAttackInstance _instance;
+    private float _elapsed;
+    private int _direction;
+    private bool _spawned;
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip { get; private set; } = "LeftHorizontalAttack";
-    public IReadOnlyList<PlayerAttackDataSO> Attacks => _attacks;
-    private Rigidbody2D _rigidbody;
-    private float _attackTimeRemaining;
-    private void Awake()
+    public string CurrentAttackClip => _current != null ? _current.animClipName : "LeftHorizontalAttack";
+    public bool DebugDrawEnabled => _showHitboxes;
+    private void Awake() => _move = GetComponent<PlayerMove>();
+    private void OnDisable() => CancelAttack();
+
+    // 공격 허용 여부는 PlayerController가 결정한다. 입력이나 프리팹 종류를 판별하지 않는다.
+    public bool TryStartAttack(PlayerAttackDataSO definition)
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerMove = GetComponent<PlayerMove>();
-        _playerDash = GetComponent<PlayerDash>();
-    }
-    private void OnDisable()
-    {
-        EndAttack();
-    }
-    private void OnValidate()
-    {
-        var types = new HashSet<PlayerAttackType>();
-        var keys = new HashSet<KeyCode>();
-        foreach (var so in _attacks)
+        var controller = GetComponent<PlayerController>();
+        if (!isActiveAndEnabled || IsAttacking || definition == null || controller == null || !controller.CanAttack)
         {
-            if (so == null) continue;
-            if (!types.Add(so.attackType))
-                Debug.LogWarning($"공격 타입 중복: {so.attackType} ({so.name})", so);
-            foreach (var key in new[] { so.triggerKey, so.altTriggerKey })
-            {
-                if (key == KeyCode.None) continue;
-                if (!keys.Add(key)) Debug.LogWarning($"발동 키 중복: {key} ({so.name})", so);
-            }
+            return false;
         }
+        if (definition.attackPrefab == null || string.IsNullOrWhiteSpace(definition.animClipName))
+        {
+            Debug.LogError($"공격 프리팹 또는 애니메이션이 비어 있습니다: {definition.name}", definition);
+            return false;
+        }
+        _current = definition;
+        _elapsed = 0;
+        _spawned = false;
+        _direction = _move.FacingDirection;
+        IsAttacking = true;
+        _move.SetMovementLocked(this, true);
+        OnAttackStarted?.Invoke();
+        if (IsAttacking && definition.windupDuration <= 0) SpawnAttack();
+        return true;
     }
     private void Update()
     {
-        if (IsAttacking)
-        {
-            _attackTimeRemaining -= Time.deltaTime;
-            if (_attackTimeRemaining <= 0f) EndAttack();
-            return;
-        }
-        if (_playerDash.IsDashing) return;
-        foreach (var so in _attacks)
-        {
-            if (so == null) continue;
-            if (!Input.GetKeyDown(so.triggerKey) && !(so.altTriggerKey != KeyCode.None && Input.GetKeyDown(so.altTriggerKey))) continue;
-            Execute(so);
-            break;
-        }
+        if (!IsAttacking) return;
+        _elapsed += Time.deltaTime;
+        if (!_spawned && _elapsed >= Mathf.Max(0, _current.windupDuration)) SpawnAttack();
+        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.windupDuration) + Mathf.Max(0.05f, _current.recoveryDuration))
+            FinishAttack();
     }
-    private void Execute(PlayerAttackDataSO so)
+    private void SpawnAttack()
     {
-        var direction = _playerMove.FacingDirection;
-        _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
-        _playerMove?.SetMovementLocked(true);
-        IsAttacking = true;
-        CurrentAttackClip = string.IsNullOrEmpty(so.animClipName) ? "LeftHorizontalAttack" : so.animClipName;
-        _attackTimeRemaining = so.hitbox.Duration;
-        if (so.projectilePrefab != null)
-            FireProjectile(so, direction);
-        else
-            SpawnMeleeHitbox(so, direction);
-        OnAttackStarted?.Invoke();
-    }
-    private void FireProjectile(PlayerAttackDataSO so, int direction)
-    {
-        var spawnPos = (Vector2)transform.position + new Vector2(direction * so.hitbox.Offset.x, so.hitbox.Offset.y);
-        SpawnVfx(so.vfxPrefab, spawnPos, direction);
-        var spawned = Instantiate(so.projectilePrefab, spawnPos, Quaternion.identity);
-        var projectile = spawned.GetComponent<IPlayerProjectile>();
-        if (projectile == null)
+        _spawned = true;
+        Vector3 position = transform.position + new Vector3(_direction * _current.spawnOffset.x, _current.spawnOffset.y);
+        _instance = Instantiate(_current.attackPrefab, position, Quaternion.identity);
+        if (!_instance.Initialize(_current.damage, _direction, transform))
         {
-            Debug.LogError($"투사체 프리팹에 IPlayerProjectile이 없음. 근접 히트박스로 대체한다. ({so.name})", spawned);
-            Destroy(spawned);
-            SpawnMeleeHitbox(so, direction);
-            return;
-        }
-        projectile.Launch(so.damage, direction);
-        if (_showHitboxes)
-        {
-            _debugLastType = so.attackType;
-            _debugLastCenter = spawnPos + new Vector2(direction * projectile.MaxDistance * 0.5f, 0f);
-            _debugLastSize = new Vector2(projectile.MaxDistance, so.hitbox.Size.y);
-            _debugBoxUntil = Time.time + Mathf.Max(so.hitbox.Duration, 0.05f);
+            Destroy(_instance.gameObject);
+            _instance = null;
+            FinishAttack();
         }
     }
-    private void SpawnMeleeHitbox(PlayerAttackDataSO so, int direction)
-    {
-        var box = so.hitbox;
-        var center = (Vector2)transform.position + new Vector2(direction * box.Offset.x, box.Offset.y);
-        var spawnedVfx = SpawnVfx(so.vfxPrefab, center, direction);
-        if (spawnedVfx != null && TryAttachPrefabHitbox(spawnedVfx, so))
-        {
-            if (_showHitboxes) CapturePrefabDebugBox(spawnedVfx, so);
-            return;
-        }
-        if (_showHitboxes)
-        {
-            _debugLastType = so.attackType;
-            _debugLastCenter = center;
-            _debugLastSize = box.Size;
-            _debugBoxUntil = Time.time + Mathf.Max(box.Duration, 0.05f);
-        }
-        var hitboxObject = new GameObject($"MeleeHitbox_{so.attackType}");
-        hitboxObject.transform.position = center;
-        var melee = hitboxObject.AddComponent<PlayerMeleeHitbox>();
-        melee.Setup(so.damage, box.Size, box.Duration);
-    }
-    private void CapturePrefabDebugBox(GameObject vfx, PlayerAttackDataSO so)
-    {
-        var first = true;
-        var bounds = new Bounds(vfx.transform.position, Vector3.zero);
-        foreach (var collider in vfx.GetComponentsInChildren<Collider2D>())
-        {
-            if (collider == null || !collider.enabled) continue;
-            if (first) { bounds = collider.bounds; first = false; }
-            else
-            {
-                bounds.Encapsulate(collider.bounds);
-            }
-        }
-        if (first) return;
-        _debugLastType = so.attackType;
-        _debugLastCenter = bounds.center;
-        _debugLastSize = bounds.size;
-        _debugBoxUntil = Time.time + Mathf.Max(so.hitbox.Duration, 0.05f);
-    }
-    private static bool TryAttachPrefabHitbox(GameObject vfx, PlayerAttackDataSO so)
-    {
-        var colliders = vfx.GetComponentsInChildren<Collider2D>(true);
-        if (colliders == null || colliders.Length == 0) return false;
-        var hitbox = vfx.AddComponent<PlayerVfxHitbox>();
-        hitbox.Setup(so.damage, so.hitbox.Duration);
-        return true;
-    }
-    private static GameObject SpawnVfx(GameObject prefab, Vector3 position, int direction)
-    {
-        if (prefab == null) return null;
-        GameObject spawned = Instantiate(prefab, position, Quaternion.identity);
-        if (direction < 0)
-            spawned.GetComponent<VFXFlip>()?.Apply(direction);
-        return spawned;
-    }
-    public bool DebugDrawEnabled => _showHitboxes;
-    public bool TryGetDebugBox(out PlayerAttackType type, out Vector2 center, out Vector2 size)
-    {
-        type = _debugLastType;
-        center = _debugLastCenter;
-        size = _debugLastSize;
-        return _showHitboxes && Time.time < _debugBoxUntil;
-    }
-    public void CancelAttack() => EndAttack();
-    private void EndAttack()
+    public void CancelAttack() => FinishAttack();
+    private void FinishAttack()
     {
         if (!IsAttacking) return;
         IsAttacking = false;
-        if (_playerMove != null) _playerMove.SetMovementLocked(false);
+        if (_instance != null) _instance.EndPlayerAction();
+        _instance = null;
+        if (_move != null) _move.SetMovementLocked(this, false);
         OnAttackEnded?.Invoke();
+    }
+    public bool TryGetDebugBox(out PlayerAttackType type, out Vector2 center, out Vector2 size)
+    {
+        type = _current != null ? _current.attackType : default;
+        center = size = Vector2.zero;
+        if (!_showHitboxes || _instance == null || !_instance.TryGetHitBounds(out var bounds)) return false;
+        center = bounds.center;
+        size = bounds.size;
+        return true;
     }
 }

@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: UpAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
   attackType: 4
-  triggerKey: 51
-  altTriggerKey: 0
-  hitbox:
-    Size: {x: 1.4, y: 1.2}
-    Offset: {x: 0.2, y: 1.2}
-    Duration: 0.22
+  attackPrefab: {fileID: 750714777870707188, guid: 85e87edd6b1d24343bf99e728eba4ae9, type: 3}
+  spawnOffset: {x: 0.2, y: 1.2}
   animClipName: UpAttack
-  vfxPrefab: {fileID: 6914652183001740788, guid: 85e87edd6b1d24343bf99e728eba4ae9, type: 3}
-  projectilePrefab: {fileID: 0}
   damage: 10
+  windupDuration: 0
+  recoveryDuration: 0.25

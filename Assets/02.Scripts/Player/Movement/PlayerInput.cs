@@ -2,6 +2,15 @@ using System;
 using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
+    [Serializable]
+    public class AttackBinding
+    {
+        public KeyCode key;
+        public PlayerAttackDataSO attack;
+    }
+    [SerializeField] private AttackBinding[] _attackBindings = Array.Empty<AttackBinding>();
+    public AttackBinding[] AttackBindings => _attackBindings;
+    public event Action<PlayerAttackDataSO> OnAttackInput;
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
     public event Action OnDashInput;
@@ -17,7 +26,18 @@ public class PlayerInput : MonoBehaviour
         CheckDashInput();
         CheckDropInput();
         CheckWallJumpInput();
+        CheckAttackInput();
         CheckClickVfx();
+    }
+    private void CheckAttackInput()
+    {
+        foreach (var binding in _attackBindings)
+        {
+            if (binding == null || binding.attack == null || binding.key == KeyCode.None) continue;
+            if (!Input.GetKeyDown(binding.key)) continue;
+            OnAttackInput?.Invoke(binding.attack);
+            break;
+        }
     }
     private void CheckHorizontalInput()
     {

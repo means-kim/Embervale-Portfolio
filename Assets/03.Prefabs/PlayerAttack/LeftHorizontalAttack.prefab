@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 2118427043656218772}
   - component: {fileID: -6067699325894458336}
   - component: {fileID: 738784141499013937}
-  - component: {fileID: 6100000000000000011}
-  - component: {fileID: 6100000000000000012}
+  - component: {fileID: 6504751839968567790}
+  - component: {fileID: 7610300340094818154}
+  - component: {fileID: 7204501283301863550}
   m_Layer: 0
   m_Name: LeftHorizontalAttack
   m_TagString: FireObject
@@ -34,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -323,7 +324,7 @@ PolygonCollider2D:
       - {x: 0.17, y: 0.24}
       - {x: 0.26999998, y: 0.28}
   m_UseDelaunayMesh: 1
---- !u!114 &6100000000000000011
+--- !u!114 &6504751839968567790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,11 +333,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 6862992273260027518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a06b423b0615f643aa80b47f510e000, type: 3}
+  m_Script: {fileID: 11500000, guid: 0522d99e1909754488b5ac13450699d7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXOffset
-  _offset: {x: 0, y: 0, z: 0}
---- !u!114 &6100000000000000012
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageHitbox
+  _colliders:
+  - {fileID: 738784141499013937}
+--- !u!50 &7610300340094818154
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862992273260027518}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &7204501283301863550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,8 +374,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6862992273260027518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abbd83b41c534fb89f822ef779691f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0daa092068437438c91fd735ddad4c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXFlip
-  _flipSprites: 1
-  _mirrorOffset: 1
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackInstance
+  _hitDelay: 0
+  _hitDuration: 0.22
+  _independent: 0
