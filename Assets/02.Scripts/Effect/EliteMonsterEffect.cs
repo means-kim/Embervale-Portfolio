@@ -1,9 +1,5 @@
 using UnityEngine;
-
 public class EliteMonsterEffect : MonoBehaviour
 {
-    public void StopEffect()
-    {
-        Destroy(gameObject);
-    }
+    public void StopEffect() => Destroy(gameObject);
 }

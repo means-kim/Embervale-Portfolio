@@ -77,7 +77,6 @@ public class BuffPool : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    // 버프당 SO 1개 규칙 검사. 같은 BuffType이 풀에 2개 이상이면 캡이 뚫리므로 경고한다.
     private void OnValidate()
     {
         if (_pool == null) return;

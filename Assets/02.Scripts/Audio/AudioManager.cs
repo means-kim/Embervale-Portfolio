@@ -1,21 +1,9 @@
 using System;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-
-public enum BgmType
-{
-    Title,
-    Snow,
-    Cave,
-    IntoBoss,
-    Boss
-}
-
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
-
     [Serializable]
     private struct BgmTrack
     {
@@ -23,29 +11,23 @@ public class AudioManager : MonoBehaviour
         public AudioSource Source;
         [Tooltip("켜질 때 처음부터 재생")] public bool RestartOnPlay;
     }
-
     [Header("BGM")]
     [SerializeField] private BgmTrack[] _bgmTracks;
     [Tooltip("위에 다른 곡이 얹혔을 때 아래 곡의 볼륨 배율")]
     [SerializeField, Range(0f, 1f)] private float _layerVolume = 0.3f;
     [SerializeField, Min(0.01f)] private float _fadeTime = 1f;
-
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _sfxSource;
     [Header("Footsteps (비워 두면 SFX Source로 대체)")]
     [SerializeField] private AudioSource _footstepSource;
-
     [Header("Scene Names")]
     [SerializeField] private string _outGameSceneName = "OutGameScene";
     [SerializeField] private string _inGameSceneName = "InGameScene";
-
     private AudioSource[] _bgmSources;
     private bool[] _bgmOn;
     private bool[] _bgmRestartOnPlay;
     private float[] _bgmTargetVolumes;
-
     private string _currentSceneName;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -53,34 +35,25 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
         InitBgmSources();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
     private void OnDestroy()
     {
         if (Instance != this) return;
-
         SceneManager.sceneLoaded -= OnSceneLoaded;
         Instance = null;
     }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (mode == LoadSceneMode.Additive) return;
-
         StopAllBgm();
-
         if (scene.name == _outGameSceneName) PlayBgm(BgmType.Title);
         else if (scene.name == _inGameSceneName) PlayBgm(BgmType.Snow);
-
         _currentSceneName = scene.name;
     }
-
     private void Update()
     {
         for (int i = 0; i < _bgmSources.Length; i++)
@@ -90,7 +63,6 @@ public class AudioManager : MonoBehaviour
             source.volume = Mathf.MoveTowards(source.volume, _bgmTargetVolumes[i], Time.unscaledDeltaTime / _fadeTime);
         }
     }
-
     private void InitBgmSources()
     {
         int count = Enum.GetValues(typeof(BgmType)).Length;
@@ -98,58 +70,39 @@ public class AudioManager : MonoBehaviour
         _bgmOn = new bool[count];
         _bgmRestartOnPlay = new bool[count];
         _bgmTargetVolumes = new float[count];
-
         double startDsp = AudioSettings.dspTime + 0.1;
-
         foreach (BgmTrack track in _bgmTracks)
         {
             AudioSource source = track.Source;
             if (source == null || source.clip == null) continue;
-
             int index = (int)track.Type;
-            if (_bgmSources[index] != null)
-            {
-                continue;
-            }
-
+            if (_bgmSources[index] != null) continue;
             source.loop = true;
             source.volume = 0f;
             source.PlayScheduled(startDsp);
-
             _bgmSources[index] = source;
             _bgmRestartOnPlay[index] = track.RestartOnPlay;
         }
     }
-
     public void PlayBgm(BgmType type) => SetBgm(type, true);
     public void StopBgm(BgmType type) => SetBgm(type, false);
-
     public void StopAllBgm()
     {
         Array.Clear(_bgmOn, 0, _bgmOn.Length);
         ReCalculateBgmVolumes();
     }
-
     private void SetBgm(BgmType type, bool on)
     {
         int index = (int)type;
         if (_bgmOn[index] == on) return;
-
         _bgmOn[index] = on;
-
         AudioSource source = _bgmSources[index];
-        if (on && _bgmRestartOnPlay[index] && source != null)
-        {
-            source.time = 0f;
-        }
-
+        if (on && _bgmRestartOnPlay[index] && source != null) source.time = 0f;
         ReCalculateBgmVolumes();
     }
-
     private void ReCalculateBgmVolumes()
     {
         float volume = 1f;
-
         for (int i = _bgmOn.Length - 1; i >= 0; i--)
         {
             if (!_bgmOn[i])
@@ -157,19 +110,16 @@ public class AudioManager : MonoBehaviour
                 _bgmTargetVolumes[i] = 0f;
                 continue;
             }
-
             _bgmTargetVolumes[i] = volume;
             volume *= _layerVolume;
         }
     }
-
     public void PlaySFX(SFXData sfxData)
     {
         if (sfxData == null || sfxData.Clip == null || _sfxSource == null) return;
         _sfxSource.pitch = sfxData.Pitch;
         _sfxSource.PlayOneShot(sfxData.Clip, sfxData.Volume);
     }
-
     public void PlayFootstep(FootstepSFXBank bank)
     {
         if (bank == null || !bank.HasClips) return;
