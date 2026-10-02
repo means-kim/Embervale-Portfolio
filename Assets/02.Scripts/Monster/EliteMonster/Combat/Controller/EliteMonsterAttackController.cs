@@ -32,6 +32,7 @@ public class EliteMonsterAttackController : MonoBehaviour
         if (_target == null) return;
         if (_currentAttack != null) return;
         if (_eliteMonsterHit.IsHit) return;
+        if (!_movement.IsChasing) return;
 
         float distance = Mathf.Abs(_target.position.x - transform.position.x);
         EliteMonsterAttack sellectAttack = _eliteMonsterAttackSellector.SellectAttack(distance);
@@ -44,6 +45,7 @@ public class EliteMonsterAttackController : MonoBehaviour
         {
             hitbox.ResetHits();
         }
+
         _currentAttack.StartAttack();
 
         _movement.enabled = false;
