@@ -67,7 +67,7 @@ public class FireBallPrefab : MonoBehaviour
         _distance += step;
     }
     private static bool IsTerrain(Collider2D other) => other != null &&
-        (other.CompareTag("Ground") || other.CompareTag("Wall") || other.CompareTag("Platform"));
+        (other.CompareTag("Ground") || other.CompareTag("Platform"));
     private void OnTriggerEnter2D(Collider2D other) => CheckTerrain(other);
     private void OnTriggerStay2D(Collider2D other) => CheckTerrain(other);
     private void CheckTerrain(Collider2D other)

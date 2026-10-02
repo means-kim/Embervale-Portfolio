@@ -171,7 +171,7 @@ public static class PlayerAttackRegression
                 var wall = new GameObject("ThinWall");
                 Temporary.Add(wall);
                 SceneManager.MoveGameObjectToScene(wall, _scene);
-                wall.tag = "Wall";
+                wall.tag = "Ground";
                 wall.transform.position = new Vector3(bounds.max.x + 0.1f, bounds.center.y);
                 wall.AddComponent<BoxCollider2D>().size = new Vector2(0.02f, 3);
                 Physics2D.SyncTransforms();
