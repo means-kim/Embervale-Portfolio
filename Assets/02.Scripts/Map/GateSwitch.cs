@@ -90,7 +90,7 @@ public class GateSwitch : MonoBehaviour
                 if (exitFromRight)
                 {
                     audio.PlayBgm(BgmType.Boss);
-                    _cinematicManager.PlayCinematic();
+                    _cinematicManager.PlayBossEncounter();
                 }
                 else
                 {
