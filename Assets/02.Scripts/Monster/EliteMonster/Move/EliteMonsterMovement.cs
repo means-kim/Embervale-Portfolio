@@ -2,11 +2,21 @@ using UnityEngine;
 
 public class EliteMonsterMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 3f;
+    [Header("몬스터 이동")]
+    [SerializeField] private float _moveSpeed = 7f;
+
     [SerializeField] private float _stopDistance = 1f;
+
+    [Header("플레이어 감지")]
+    [SerializeField] private float _detectDistance = 40f;
+
+    [SerializeField] private float _loseDistance = 45f;
 
     private GameObject _player;
     private Animator _animator;
+    private bool _isChasing;
+
+    public bool IsChasing => _isChasing;
 
     private void Awake()
     {
@@ -16,38 +26,66 @@ public class EliteMonsterMovement : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-
-        if (_player == null)
-        {
-            Debug.Log($"{_player} : Palyer Tag가 붙은 오브젝트가 없습니다.");
-        }
     }
 
     private void Update()
     {
-        if (_player == null) return;
+        if (_player == null || !_player.activeInHierarchy)
+        {
+            _isChasing = false;
+            _animator.SetBool("IsWalk", false);
+            return;
+        }
 
-        Move();
-    }
-
-    private void Move()
-    {
-        Vector3 direction = _player.transform.position - transform.position;
+        Vector2 direction =
+            (Vector2)_player.transform.position - (Vector2)transform.position;
 
         float distance = direction.magnitude;
 
-        if (distance > _stopDistance)
+        UpdateChaseState(distance);
+
+        if (!_isChasing)
         {
-            direction.Normalize();
+            _animator.SetBool("IsWalk", false);
+            return;
+        }
 
-            _animator.SetBool("IsWalk", true);
+        Move(direction, distance);
+    }
 
-            transform.position += direction * _moveSpeed * Time.deltaTime;
+    private void UpdateChaseState(float distance)
+    {
+        if (!_isChasing)
+        {
+            if (distance <= _detectDistance)
+            {
+                _isChasing = true;
+            }
         }
         else
         {
-            _animator.SetBool("IsWalk", false);
+            float loseDistance = Mathf.Max(_detectDistance, _loseDistance);
+
+            if (distance > loseDistance)
+            {
+                _isChasing = false;
+            }
         }
+    }
+
+    private void Move(Vector2 direction, float distance)
+    {
+        float horizontalDistance = Mathf.Abs(direction.x);
+        bool shouldMove = horizontalDistance > _stopDistance;
+
+        _animator.SetBool("IsWalk", shouldMove);
+
+        if (!shouldMove) return;
+
+        float directionX = Mathf.Sign(direction.x);
+
+        transform.position +=
+            Vector3.right * directionX * _moveSpeed * Time.deltaTime;
     }
 
     public void ChargeMovement(float speed)
