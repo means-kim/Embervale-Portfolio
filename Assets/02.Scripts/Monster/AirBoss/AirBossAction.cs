@@ -48,11 +48,14 @@ public class AirBossAction : MonoBehaviour
 
     public void ExecuteRandom()
     {
-        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        // 작은 번개 패턴만 테스트
+        Execute(AirBossActionType.BothArmsLiftDrop);
 
-        AirBossActionType actionType = (AirBossActionType)randomIndex;
-
-        Execute(actionType);
+        // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        //
+        // AirBossActionType actionType = (AirBossActionType)randomIndex;
+        //
+        // Execute(actionType);
     }
 
     private void StartAttack(AirBossAttackBase attack)
