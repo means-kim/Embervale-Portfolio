@@ -18,7 +18,8 @@ public class GateSwitch : MonoBehaviour
         Secret,
         Cave,
         IntoBoss,
-        Boss
+        Boss,
+        Elite
     }
 
     [SerializeField] private GateType _gateType;
@@ -29,6 +30,8 @@ public class GateSwitch : MonoBehaviour
     [SerializeField] private BoxCollider2D _boxCollider;
     [SerializeField] private CinematicManager _cinematicManager;
 
+    [SerializeField] private AreaController _area;
+    [SerializeField] private bool _areaIsOnRight = true;
     private bool _enterFromRight;
 
     private void Awake()
@@ -73,6 +76,17 @@ public class GateSwitch : MonoBehaviour
                 }
 
                 break;
+            case GateType.Elite:
+                if (exitFromRight)
+                {
+                    audio.PlayBgm(BgmType.Ellite);
+                }
+                else
+                {
+                    audio.StopBgm(BgmType.Ellite);
+                }
+
+                break;
 
             case GateType.IntoBoss:
                 if (exitFromRight)
@@ -91,6 +105,7 @@ public class GateSwitch : MonoBehaviour
                 {
                     audio.PlayBgm(BgmType.Boss);
                     _cinematicManager.PlayBossEncounter();
+                    InArea(_gateType);
                 }
                 else
                 {
@@ -98,6 +113,20 @@ public class GateSwitch : MonoBehaviour
                 }
 
                 break;
+        }
+    }
+
+    private void InArea(GateType type)
+    {
+
+        switch (type)
+        {
+            case GateType.Elite:
+
+                break;
+            case GateType.Boss:
+                break;
+
         }
     }
 

@@ -3,6 +3,7 @@
     Title,
     Snow,
     Cave,
+    Ellite,
     IntoBoss,
     Boss
 }
