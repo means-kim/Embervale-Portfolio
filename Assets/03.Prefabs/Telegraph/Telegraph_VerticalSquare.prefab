@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6949609105575327068}
   - component: {fileID: 2598739496480284067}
+  - component: {fileID: 1696395169436744111}
   m_Layer: 0
   m_Name: Telegraph_VerticalSquare
   m_TagString: Untagged
@@ -52,6 +53,19 @@ MonoBehaviour:
   _minimumAlpha: 0.45
   _maximumAlpha: 0.9
   _loop: 0
+--- !u!114 &1696395169436744111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960144833580838281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decadb6bf7e5343208764aedf39e7e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Telegraph
+  _type: 5
 --- !u!1 &5199138955156969688
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4483599159413890441}
   - component: {fileID: 3889462859771004043}
+  - component: {fileID: 3365085907564005587}
   m_Layer: 0
   m_Name: Telegraph_Circle2
   m_TagString: Untagged
@@ -143,3 +144,16 @@ MonoBehaviour:
   _minimumAlpha: 0.45
   _maximumAlpha: 0.9
   _loop: 0
+--- !u!114 &3365085907564005587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286715155834901091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decadb6bf7e5343208764aedf39e7e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Telegraph
+  _type: 1
