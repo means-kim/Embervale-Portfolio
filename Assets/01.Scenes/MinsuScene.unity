@@ -178,6 +178,54 @@ MonoBehaviour:
   _wallClimbDownVfx: {fileID: 0}
   _respawnVfx: {fileID: 0}
   _clickVfx: {fileID: 0}
+--- !u!1 &23365614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23365616}
+  - component: {fileID: 23365615}
+  m_Layer: 0
+  m_Name: AirBossAttackPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &23365615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23365614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c83232b12da849b1697837d1e7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackPool
+  _attackPrefabs:
+  - {fileID: 5039348117906714883, guid: a92e42f453cbe45e3b4a6959b6eebfd0, type: 3}
+  - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
+  _poolSize: 2
+--- !u!4 &23365616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23365614}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 298.91855, y: 130.94525, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &111541204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -302,8 +350,9 @@ GameObject:
   m_Component:
   - component: {fileID: 198088055}
   - component: {fileID: 198088054}
+  - component: {fileID: 198088056}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,11 +427,83 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 386.9034, y: 131.24966, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &198088056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198088053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  _maxHealth: 100
+  _autoRecover: 0
+  _secondsPerSlot: 1.2
+--- !u!1001 &436986467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3600937937441663754, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_Name
+      value: Telegraph_Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 297.88724
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 142.93423
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079099333837818146, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
 --- !u!1001 &649130648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,6 +1039,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288646290909099654, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 198088055}
+    - target: {fileID: 3536419785821164132, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _bothArmsLiftDrop
+      value: 
+      objectReference: {fileID: 5259171813249767551}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss
@@ -967,6 +1096,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+--- !u!114 &5259171813249767551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 288646290909099654, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 5259171813249767550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65259abe062da1a44ba2a495d0cb5544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsLiftDrop
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -984,3 +1124,5 @@ SceneRoots:
   - {fileID: 1265106182}
   - {fileID: 654072125}
   - {fileID: 111541204}
+  - {fileID: 23365616}
+  - {fileID: 436986467}
