@@ -1,3 +1,4 @@
+using Game.Boss.Roar;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,8 @@ public class BossEncounterCinematic : CinematicSequence
     [SerializeField] private Transform _walkTarget;
 
     [SerializeField] private AreaController _area;
+    [SerializeField] private BossRoarScreenEffect _roarEffect;
+    [SerializeField, Min(0.1f)] private float _roarDuration = 3f;
 
     [Header("이동")]
     [SerializeField, Min(0.1f)] private float _walkSpeed = 5f;
@@ -101,6 +104,8 @@ public class BossEncounterCinematic : CinematicSequence
         _player.linearVelocity = stoppedVelocity;
 
         _playerAnimator?.PlayState(PlayerState.Idle, false);
+
+        _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
     }
 
     private void HandleCompleted()

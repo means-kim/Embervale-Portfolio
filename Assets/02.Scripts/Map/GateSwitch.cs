@@ -127,7 +127,6 @@ public class GateSwitch : MonoBehaviour
             case GateType.Boss:
                 if (_area == null)
                 {
-                    Debug.LogWarning($"{name}: AreaController가 연결되지 않았습니다.", this);
                     return;
                 }
 
