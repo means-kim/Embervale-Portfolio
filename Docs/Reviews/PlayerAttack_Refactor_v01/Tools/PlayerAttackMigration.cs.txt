@@ -1,0 +1,190 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
+// 기존 직렬화 값을 이관하는 일회성 도구. 메뉴/명시적인 로컬 요청이 있을 때만 실행한다.
+[InitializeOnLoad]
+public static class PlayerAttackMigration
+{
+    private const string Work = "Library/PlayerAttackRefactor";
+    static PlayerAttackMigration() => EditorApplication.update += ProcessRequest;
+    private static void ProcessRequest()
+    {
+        string request = Work + "/request.txt";
+        if (EditorApplication.isCompiling || EditorApplication.isUpdating || !File.Exists(request)) return;
+        string action = File.ReadAllText(request).Trim();
+        File.Delete(request);
+        try
+        {
+            if (action == "migrate") Migrate();
+            else if (action == "validate") Validate();
+        }
+        catch (Exception exception)
+        {
+            File.WriteAllText(Work + "/failure.txt", exception.ToString());
+            Debug.LogException(exception);
+        }
+    }
+
+    [MenuItem("Tools/Player/Migrate Attack Prefabs")]
+    public static void Migrate()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) throw new InvalidOperationException("Edit Mode에서 실행하세요.");
+        Directory.CreateDirectory(Work);
+        var updated = new List<string>();
+        var definitions = new Dictionary<string, PlayerAttackDataSO>();
+        var keys = new Dictionary<string, int>();
+        foreach (string guid in AssetDatabase.FindAssets("t:PlayerAttackDataSO"))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            string original = Original(path);
+            var definition = AssetDatabase.LoadAssetAtPath<PlayerAttackDataSO>(path);
+            if (!original.Contains("  hitbox:")) continue;
+            string prefabGuid = ReferenceGuid(original, "projectilePrefab");
+            bool independent = !string.IsNullOrEmpty(prefabGuid);
+            if (!independent) prefabGuid = ReferenceGuid(original, "vfxPrefab");
+            if (string.IsNullOrEmpty(prefabGuid)) throw new InvalidOperationException("공격 프리팹 없음: " + path);
+            string prefabPath = AssetDatabase.GUIDToAssetPath(prefabGuid);
+            float duration = Number(original, "Duration");
+            var root = PrefabUtility.LoadPrefabContents(prefabPath);
+            try
+            {
+                // 그림과 콜라이더는 같은 루트의 Scale로 반전한다. 루트 추가 오프셋은 제거한다.
+                var offset = root.GetComponent<VFXOffset>();
+                if (offset != null) Object.DestroyImmediate(offset);
+                var flip = root.GetComponent<VFXFlip>();
+                if (flip != null) Object.DestroyImmediate(flip);
+                var instance = root.GetComponent<PlayerAttackInstance>() ?? root.AddComponent<PlayerAttackInstance>();
+                var damage = root.GetComponent<PlayerDamageHitbox>();
+                var serializedDamage = new SerializedObject(damage);
+                var colliders = root.GetComponentsInChildren<Collider2D>(true);
+                if (colliders.Length == 0) throw new InvalidOperationException("공격 콜라이더 없음: " + prefabPath);
+                var list = serializedDamage.FindProperty("_colliders");
+                list.arraySize = colliders.Length;
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    colliders[i].isTrigger = true;
+                    list.GetArrayElementAtIndex(i).objectReferenceValue = colliders[i];
+                }
+                serializedDamage.ApplyModifiedPropertiesWithoutUndo();
+                var serializedInstance = new SerializedObject(instance);
+                serializedInstance.FindProperty("_hitDelay").floatValue = 0;
+                serializedInstance.FindProperty("_hitDuration").floatValue = independent ?
+                    new SerializedObject(root.GetComponent<FireBallPrefab>()).FindProperty("_lifeTime").floatValue : duration;
+                serializedInstance.FindProperty("_independent").boolValue = independent;
+                serializedInstance.ApplyModifiedPropertiesWithoutUndo();
+                root.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                root.GetComponent<Rigidbody2D>().gravityScale = 0;
+                PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
+            }
+            finally { PrefabUtility.UnloadPrefabContents(root); }
+            definition.attackPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath).GetComponent<PlayerAttackInstance>();
+            var vector = Regex.Match(original, @"Offset: \{x: ([^,]+), y: ([^}]+)\}");
+            definition.spawnOffset = new Vector2(Parse(vector.Groups[1].Value), Parse(vector.Groups[2].Value));
+            definition.recoveryDuration = duration;
+            definition.windupDuration = 0;
+            EditorUtility.SetDirty(definition);
+            definitions.Add(guid, definition);
+            keys.Add(guid, (int)Number(original, "triggerKey"));
+            updated.Add(path);
+            updated.Add(prefabPath);
+        }
+        string playerPath = "Assets/03.Prefabs/Player/Player.prefab";
+        var player = PrefabUtility.LoadPrefabContents(playerPath);
+        try
+        {
+            string original = Original(playerPath);
+            var attackList = Regex.Match(original, @"(?m)^  _attacks:\r?\n((?:  - .*\r?\n)+)");
+            if (attackList.Success && definitions.Count > 0)
+            {
+                var references = Regex.Matches(attackList.Groups[1].Value, @"guid: ([a-f0-9]+)");
+                var input = new SerializedObject(player.GetComponent<PlayerInput>());
+                var bindings = input.FindProperty("_attackBindings");
+                bindings.arraySize = references.Count;
+                for (int i = 0; i < references.Count; i++)
+                {
+                    string guid = references[i].Groups[1].Value;
+                    bindings.GetArrayElementAtIndex(i).FindPropertyRelative("key").intValue = keys[guid];
+                    bindings.GetArrayElementAtIndex(i).FindPropertyRelative("attack").objectReferenceValue = definitions[guid];
+                }
+                input.ApplyModifiedPropertiesWithoutUndo();
+                PrefabUtility.SaveAsPrefabAsset(player, playerPath);
+                updated.Add(playerPath);
+            }
+        }
+        finally { PrefabUtility.UnloadPrefabContents(player); }
+
+        ConfigureReceiver("Assets/03.Prefabs/Dummy/Dummy.prefab", null, updated);
+        ConfigureReceiver("Assets/03.Prefabs/EliteMonster/EliteMonster_SnowGiant.prefab", "Hurtbox", updated);
+        // 대상 태그 변경 후에만 기존 태그를 제거한다.
+        foreach (string path in AssetDatabase.GetAllAssetPaths().Where(p => p.EndsWith(".unity") || p.EndsWith(".prefab")))
+            if (File.Exists(path) && Regex.IsMatch(File.ReadAllText(path), @"(?m)^\s*(m_TagString:|value:) Enemy\s*$"))
+                throw new InvalidOperationException("Enemy 태그가 남아 있습니다: " + path);
+        var tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
+        var tags = tagManager.FindProperty("tags");
+        for (int i = tags.arraySize - 1; i >= 0; i--)
+            if (tags.GetArrayElementAtIndex(i).stringValue == "Enemy") tags.DeleteArrayElementAtIndex(i);
+        tagManager.ApplyModifiedPropertiesWithoutUndo();
+
+        AssetDatabase.SaveAssets();
+        // 제거된 공격 필드만 있던 저장 자산을 Unity 직렬화로 갱신한다. 열린 씬은 저장하지 않는다.
+        foreach (string path in AssetDatabase.GetAllAssetPaths().Where(p => p.EndsWith(".unity") || p.EndsWith(".prefab")))
+            if (File.Exists(path) && Regex.IsMatch(File.ReadAllText(path), @"(?m)^  _attack(?:Basic|SideAttack|Stab|Horizontal|Down|Up)Vfx:")) updated.Add(path);
+        AssetDatabase.ForceReserializeAssets(updated.Distinct(), ForceReserializeAssetsOptions.ReserializeAssets);
+        File.WriteAllLines(Work + "/migration.txt", updated.Distinct());
+        Validate();
+    }
+    private static void ConfigureReceiver(string path, string childName, List<string> updated)
+    {
+        var root = PrefabUtility.LoadPrefabContents(path);
+        try
+        {
+            var target = childName == null ? root : root.GetComponentsInChildren<Transform>(true).First(t => t.name == childName).gameObject;
+            target.tag = "Boss";
+            var receiver = target.GetComponent<DamageReceiver>() ?? target.AddComponent<DamageReceiver>();
+            var serialized = new SerializedObject(receiver);
+            serialized.FindProperty("_health").objectReferenceValue = root.GetComponent<Health>();
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            PrefabUtility.SaveAsPrefabAsset(root, path);
+            updated.Add(path);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+    }
+    [MenuItem("Tools/Player/Validate Attack Setup")]
+    public static void Validate()
+    {
+        var checks = new List<string>();
+        var player = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/03.Prefabs/Player/Player.prefab");
+        var bindings = player.GetComponent<PlayerInput>().AttackBindings;
+        if (bindings.Length != 5) throw new InvalidOperationException("공격 연결 5종 확인 실패");
+        if (bindings.Select(b => b.key).Distinct().Count() != bindings.Length) throw new InvalidOperationException("공격 키 중복");
+        foreach (var binding in bindings)
+        {
+            var definition = binding.attack;
+            if (definition == null || definition.attackPrefab == null) throw new InvalidOperationException("공격 연결 누락");
+            if (!definition.attackPrefab.GetComponent<PlayerDamageHitbox>().IsConfigured) throw new InvalidOperationException("판정 연결 누락: " + definition.name);
+            if (definition.attackPrefab.GetComponent<VFXFlip>() != null || definition.attackPrefab.GetComponent<VFXOffset>() != null)
+                throw new InvalidOperationException("중복 오프셋/반전: " + definition.name);
+            checks.Add(definition.name + " | key=" + binding.key + " | offset=" + definition.spawnOffset + " | damage=" + definition.damage + " | recovery=" + definition.recoveryDuration);
+        }
+        if (UnityEditorInternal.InternalEditorUtility.tags.Contains("Enemy")) throw new InvalidOperationException("Enemy 태그 미제거");
+        File.WriteAllLines(Work + "/validation.txt", checks);
+        Debug.Log("Player attack asset validation PASS: " + checks.Count);
+    }
+    private static string Original(string path)
+    {
+        string backup = Work + "/Original/" + path;
+        return File.ReadAllText(File.Exists(backup) ? backup : path);
+    }
+    private static string ReferenceGuid(string text, string field) =>
+        Regex.Match(text, @"(?m)^  " + field + @": .*guid: ([a-f0-9]+)").Groups[1].Value;
+    private static float Number(string text, string field) => Parse(Regex.Match(text, @"(?m)^\s*" + field + @": ([^\r\n]+)").Groups[1].Value);
+    private static float Parse(string value) => float.Parse(value, CultureInfo.InvariantCulture);
+}

@@ -1,7 +1,7 @@
 public enum PlayerAttackType
 {
     SideAttack,
-    Stab,
+    FireBall,
     Horizontal,
     Down,
     Up,

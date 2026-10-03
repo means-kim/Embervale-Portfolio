@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: RightHorizontalAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
   attackType: 2
-  triggerKey: 101
-  altTriggerKey: 0
-  hitbox:
-    Size: {x: 1.4, y: 1.2}
-    Offset: {x: 0.8, y: 0.8}
-    Duration: 0.22
+  attackPrefab: {fileID: 8076720663886689820, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
+  spawnOffset: {x: 0, y: -5}
   animClipName: RightHorizontalAttack
-  vfxPrefab: {fileID: 295151123095771115, guid: d25025854d5c7ab44b324d30d9d54e6a, type: 3}
-  projectilePrefab: {fileID: 0}
   damage: 10
+  windupDuration: 0
+  recoveryDuration: 0.25

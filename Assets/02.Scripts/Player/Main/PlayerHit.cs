@@ -55,7 +55,7 @@ public class PlayerHit : MonoBehaviour
         float xPush = -facing * _knockbackForce;
         if (_move != null && _knockbackLockTime > 0f)
         {
-            _move.SetMovementLocked(true);
+            _move.SetMovementLocked(this, true);
             _moveUnlockAt = Time.time + _knockbackLockTime;
             _knockbackLocking = true;
         }
@@ -66,13 +66,12 @@ public class PlayerHit : MonoBehaviour
     {
         if (!_knockbackLocking) return;
         _knockbackLocking = false;
-        if (_dash != null && _dash.IsDashing) return;
-        if (_attack != null && _attack.IsAttacking) return;
-        if (_move != null) _move.SetMovementLocked(false);
+        if (_move != null) _move.SetMovementLocked(this, false);
     }
     private void HandleHit()
     {
         if (_health.IsDead) return;
+        if (_attack != null) _attack.CancelAttack();
         _hitUntil = Time.time + _hitDuration;
         _flashTimer = 0f;
         _flashOn = false;
@@ -82,6 +81,9 @@ public class PlayerHit : MonoBehaviour
     }
     private void HandleDie()
     {
+        if (_attack != null) _attack.CancelAttack();
+        if (_dash != null) _dash.CancelDash();
+        if (_move != null) _move.SetMovementLocked(_health, true);
         _hitUntil = 0f;
         RestoreColors();
         EffectManager.Instance?.PlayPlayerDeath(transform.position);

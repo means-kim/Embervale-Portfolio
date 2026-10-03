@@ -1,27 +1,16 @@
 using UnityEngine;
+
 [CreateAssetMenu(menuName = "Player/Attack Data", fileName = "PlayerAttack_")]
 public class PlayerAttackDataSO : ScriptableObject
 {
-    [Header("발동")]
     public PlayerAttackType attackType;
-    public KeyCode triggerKey = KeyCode.Alpha1;
-    [Tooltip("보조 키. None이면 쓰지 않는다.")]
-    public KeyCode altTriggerKey = KeyCode.None;
-    [Header("판정·스폰 (Offset 하나로 통일)")]
-    public PlayerAttackHitbox hitbox = new()
-    {
-        Size = new Vector2(1.4f, 1.2f),
-        Offset = new Vector2(0.8f, 0.8f),
-        Duration = 0.5f,
-    };
-    [Header("연출")]
-    [Tooltip("재생할 플레이어 애니 클립명. 비어 있으면 LeftHorizontalAttack.")]
+    public PlayerAttackInstance attackPrefab;
+    [Tooltip("플레이어 기준 월드 단위 스폰 위치. x만 바라보는 방향에 맞춰 반전한다.")]
+    public Vector2 spawnOffset;
     public string animClipName = "LeftHorizontalAttack";
-    [Tooltip("타격 지점 VFX 프리팹. 비어 있으면 생략.")]
-    public GameObject vfxPrefab;
-    [Header("투사체 (지정 시 데미지는 투사체가 전담)")]
-    [Tooltip("IPlayerProjectile 포함 프리팹. 비어 있으면 근접 히트박스 판정.")]
-    public GameObject projectilePrefab;
-    [Header("데미지")]
     [Min(0)] public int damage = 10;
+    [Tooltip("공격 애니메이션 시작 후 공격 객체를 생성할 때까지의 시간.")]
+    [Min(0)] public float windupDuration;
+    [Tooltip("생성 후 다음 행동을 허용하기까지의 시간. 판정 수명은 프리팹에서 설정한다.")]
+    [Min(0.05f)] public float recoveryDuration = 0.22f;
 }

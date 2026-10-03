@@ -22,7 +22,7 @@ public class Dummy : MonoBehaviour
     {
         if (_isDead) return;
         _isDead = true;
-        if (_health != null && _health.CurrentHealth <= 0) EffectManager.Instance?.PlayEnemyDeath(transform.position);
+        if (_health != null && _health.CurrentHealth <= 0) EffectManager.Instance?.PlayBossDeath(transform.position);
         Destroy(gameObject);
     }
 }
