@@ -41802,6 +41802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1720755803402107804, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2171849040325447986, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 220.6871
@@ -41841,6 +41845,38 @@ PrefabInstance:
     - target: {fileID: 2171849040325447986, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414873504900805849, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: _bgmTracks.Array.data[2].Type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414873504900805849, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: _bgmTracks.Array.data[3].Type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414873504900805849, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: _bgmTracks.Array.data[4].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800255201996225920, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611931370507398495, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516444966870782271, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516444966870782271, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ed6500c0adf0d48a447a1707066462, type: 3}
+    - target: {fileID: 8978080015111687776, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43454,7 +43490,7 @@ EdgeCollider2D:
   - {x: 73.33926, y: 36.71277}
   - {x: 86.28148, y: 36.248177}
   - {x: 111.17037, y: 35.982697}
-  - {x: 135.0637, y: 35.982697}
+  - {x: 126.063705, y: 35.982697}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

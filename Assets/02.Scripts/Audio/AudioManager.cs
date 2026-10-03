@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     [Header("BGM")]
     [SerializeField] private BgmTrack[] _bgmTracks;
     [Tooltip("위에 다른 곡이 얹혔을 때 아래 곡의 볼륨 배율")]
-    [SerializeField, Range(0f, 1f)] private float _layerVolume = 0.3f;
+    [SerializeField, Range(0f, 1f)] private float _layerVolume = 0.25f;
     [SerializeField, Min(0.01f)] private float _fadeTime = 1f;
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _sfxSource;
@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
     private bool[] _bgmOn;
     private bool[] _bgmRestartOnPlay;
     private float[] _bgmTargetVolumes;
+    private float[] _bgmOriginVolumes;
     private string _currentSceneName;
     private void Awake()
     {
@@ -48,10 +49,19 @@ public class AudioManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (mode == LoadSceneMode.Additive) return;
+        if (mode == LoadSceneMode.Additive)
+        {
+            return;
+        }
         StopAllBgm();
-        if (scene.name == _outGameSceneName) PlayBgm(BgmType.Title);
-        else if (scene.name == _inGameSceneName) PlayBgm(BgmType.Snow);
+        if (scene.name == _outGameSceneName)
+        {
+            PlayBgm(BgmType.Title);
+        }
+        else if (scene.name == _inGameSceneName)
+        {
+            PlayBgm(BgmType.Snow);
+        }
         _currentSceneName = scene.name;
     }
     private void Update()
@@ -59,7 +69,10 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < _bgmSources.Length; i++)
         {
             AudioSource source = _bgmSources[i];
-            if (source == null) continue;
+            if (source == null)
+            {
+                continue;
+            }
             source.volume = Mathf.MoveTowards(source.volume, _bgmTargetVolumes[i], Time.unscaledDeltaTime / _fadeTime);
         }
     }
@@ -70,18 +83,26 @@ public class AudioManager : MonoBehaviour
         _bgmOn = new bool[count];
         _bgmRestartOnPlay = new bool[count];
         _bgmTargetVolumes = new float[count];
+        _bgmOriginVolumes = new float[count];
         double startDsp = AudioSettings.dspTime + 0.1;
         foreach (BgmTrack track in _bgmTracks)
         {
             AudioSource source = track.Source;
-            if (source == null || source.clip == null) continue;
+            if (source == null || source.clip == null)
+            {
+                continue;
+            }
             int index = (int)track.Type;
-            if (_bgmSources[index] != null) continue;
+            if (_bgmSources[index] != null)
+            {
+                continue;
+            }
             source.loop = true;
-            source.volume = 0f;
             source.PlayScheduled(startDsp);
             _bgmSources[index] = source;
+            _bgmOriginVolumes[index] = source.volume;
             _bgmRestartOnPlay[index] = track.RestartOnPlay;
+            source.volume = 0f;
         }
     }
     public void PlayBgm(BgmType type) => SetBgm(type, true);
@@ -94,10 +115,16 @@ public class AudioManager : MonoBehaviour
     private void SetBgm(BgmType type, bool on)
     {
         int index = (int)type;
-        if (_bgmOn[index] == on) return;
+        if (_bgmOn[index] == on)
+        {
+            return;
+        }
         _bgmOn[index] = on;
         AudioSource source = _bgmSources[index];
-        if (on && _bgmRestartOnPlay[index] && source != null) source.time = 0f;
+        if (on && _bgmRestartOnPlay[index] && source != null)
+        {
+            source.time = 0f;
+        }
         ReCalculateBgmVolumes();
     }
     private void ReCalculateBgmVolumes()
@@ -110,7 +137,7 @@ public class AudioManager : MonoBehaviour
                 _bgmTargetVolumes[i] = 0f;
                 continue;
             }
-            _bgmTargetVolumes[i] = volume;
+            _bgmTargetVolumes[i] = _bgmOriginVolumes[i] * volume;
             volume *= _layerVolume;
         }
     }
@@ -122,11 +149,20 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayFootstep(FootstepSFXBank bank)
     {
-        if (bank == null || !bank.HasClips) return;
+        if (bank == null || !bank.HasClips)
+        {
+            return;
+        }
         AudioClip clip = bank.PickRandom();
-        if (clip == null) return;
+        if (clip == null)
+        {
+            return;
+        }
         AudioSource source = _footstepSource != null ? _footstepSource : _sfxSource;
-        if (source == null) return;
+        if (source == null)
+        {
+            return;
+        }
         source.pitch = bank.RollPitch();
         source.PlayOneShot(clip, bank.Volume);
     }

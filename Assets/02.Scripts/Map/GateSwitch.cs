@@ -96,6 +96,8 @@ public class GateSwitch : MonoBehaviour
             case GateType.IntoBoss:
                 if (exitFromRight)
                 {
+                    audio.StopBgm(BgmType.Cave);
+                    audio.StopBgm(BgmType.Ellite);
                     audio.PlayBgm(BgmType.IntoBoss);
                 }
                 else
@@ -108,6 +110,8 @@ public class GateSwitch : MonoBehaviour
             case GateType.Boss:
                 if (exitFromRight)
                 {
+                    audio.StopBgm(BgmType.Cave);
+                    audio.StopBgm(BgmType.Ellite);
                     audio.PlayBgm(BgmType.Boss);
                 }
                 else
