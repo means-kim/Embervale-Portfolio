@@ -60,6 +60,11 @@ public class GateSwitch : MonoBehaviour
         if (_enterFromRight == exitFromRight) return;
         ApplyDestination(exitFromRight ? _right : _left);
 
+        if (exitFromRight)
+        {
+            InArea(_gateType);
+        }
+
         AudioManager audio = AudioManager.Instance;
         if (audio == null) return;
 
@@ -104,8 +109,6 @@ public class GateSwitch : MonoBehaviour
                 if (exitFromRight)
                 {
                     audio.PlayBgm(BgmType.Boss);
-                    _cinematicManager.PlayBossEncounter();
-                    InArea(_gateType);
                 }
                 else
                 {
@@ -118,15 +121,18 @@ public class GateSwitch : MonoBehaviour
 
     private void InArea(GateType type)
     {
-
         switch (type)
         {
             case GateType.Elite:
-
-                break;
             case GateType.Boss:
-                break;
+                if (_area == null)
+                {
+                    Debug.LogWarning($"{name}: AreaController가 연결되지 않았습니다.", this);
+                    return;
+                }
 
+                _area.TryEnter();
+                break;
         }
     }
 
