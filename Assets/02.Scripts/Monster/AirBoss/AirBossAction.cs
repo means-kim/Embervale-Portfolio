@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class AirBossAction : MonoBehaviour
 {
+    [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
+
     private AirBossAnimation _animation;
+    private AirBossAttackBase _currentAttack;
 
     private void Awake()
     {
@@ -14,7 +17,7 @@ public class AirBossAction : MonoBehaviour
         switch (actionType)
         {
             case AirBossActionType.BothArmsLiftDrop:
-                _animation.PlayBothArmsLiftDropAnimation();
+                StartAttack(_bothArmsLiftDrop);
                 break;
 
             case AirBossActionType.ForwardReach:
@@ -45,10 +48,58 @@ public class AirBossAction : MonoBehaviour
 
     public void ExecuteRandom()
     {
-        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        // 작은 번개 패턴만 테스트
+        Execute(AirBossActionType.BothArmsLiftDrop);
 
-        AirBossActionType actionType = (AirBossActionType)randomIndex;
+        // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        //
+        // AirBossActionType actionType = (AirBossActionType)randomIndex;
+        //
+        // Execute(actionType);
+    }
 
-        Execute(actionType);
+    private void StartAttack(AirBossAttackBase attack)
+    {
+        CancelCurrentAttack();
+
+        if (attack == null) return;
+
+        _currentAttack = attack;
+        _currentAttack.BeginAttack();
+    }
+
+    private void WarningCue()
+    {
+        if (_currentAttack != null)
+        {
+            _currentAttack.ShowWarning();
+        }
+    }
+
+    private void CastCue()
+    {
+        if (_currentAttack != null)
+        {
+            _currentAttack.Cast();
+        }
+    }
+
+    public void ActionFinished()
+    {
+        if (_currentAttack == null) return;
+
+        AirBossAttackBase finished = _currentAttack;
+        _currentAttack = null;
+
+        finished.Finish();
+    }
+
+    private void CancelCurrentAttack()
+    {
+        if (_currentAttack == null) return;
+
+        AirBossAttackBase canceled = _currentAttack;
+        _currentAttack = null;
+        canceled.Cancel();
     }
 }

@@ -139,4 +139,11 @@ public class AirBossController : MonoBehaviour
             ChangeState(AirBossState.Action);
         }
     }
+
+    public void OnActionFinished()
+    {
+        if (_currentstate != AirBossState.Action) return;
+
+        ChangeState(AirBossState.Idle);
+    }
 }

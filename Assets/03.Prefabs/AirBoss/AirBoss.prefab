@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 6954472282831411894}
   - component: {fileID: 4804818044005549590}
   - component: {fileID: 3536419785821164132}
-  m_Layer: 0
+  - component: {fileID: 288646290909099654}
+  m_Layer: 10
   m_Name: AirBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722300003
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 506869325, guid: f85b02a1c2b49214dbda6b1f9f52f983, type: 3}
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
   _idleTimer: 3
   _moveTimer: 1
-  _idleWeight: 20
+  _idleWeight: 10
   _moveWeight: 30
   _actionWeight: 50
 --- !u!114 &6954472282831411894
@@ -212,9 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8361091d400c04640846f3e1b2a610cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossMovement
-  _maxPosition: {x: 30, y: 10}
-  _minPosition: {x: -30, y: -5}
-  _speed: 5
+  _maxPosition: {x: 380, y: 155}
+  _minPosition: {x: 300, y: 140}
+  _speed: 20
 --- !u!114 &4804818044005549590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +240,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292b7c857d188c46b89c900802e19a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
+  _bothArmsLiftDrop: {fileID: 0}
+--- !u!114 &288646290909099654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65259abe062da1a44ba2a495d0cb5544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsLiftDrop
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 0}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 5, y: 5, z: 1}
