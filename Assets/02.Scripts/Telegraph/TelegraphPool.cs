@@ -32,13 +32,14 @@ public class TelegraphPool : MonoBehaviour
             for (int j = 0; j < _poolSize; j++)
             {
                 Telegraph telegraph = Instantiate(telegraphPrefab, gameObject.transform);
-                telegraph.gameObject.SetActive(false);
+                telegraph.gameObject.SetActive(true);
+                telegraph.Release();
                 _pool[i, j] = telegraph;
             }
         }
     }
 
-    private Telegraph GetTelegraph(TelegraphType telegraphType)
+    public Telegraph GetTelegraph(TelegraphType telegraphType)
     {
         for (int i = 0; i < _telegraphPrefabs.Length; i++)
         {

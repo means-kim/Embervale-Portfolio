@@ -46,7 +46,7 @@ public class Telegraph : MonoBehaviour
 
     public void Release()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
 
         transform.localScale = _defaultScale;
         _isReserved = false;

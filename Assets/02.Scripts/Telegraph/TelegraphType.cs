@@ -2,7 +2,7 @@ public enum TelegraphType
 {
     Circle,
     Circle2,
-    BottonLine,
+    BottomLine,
     Vertical,
     Horizontal,
     VerticalSquare,
