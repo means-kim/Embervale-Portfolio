@@ -1,4 +1,4 @@
-public enum AirBosssAttackType
+public enum AirBossAttackType
 {
     Icicle, // 고드름
     IcePillar, // 얼음 기둥

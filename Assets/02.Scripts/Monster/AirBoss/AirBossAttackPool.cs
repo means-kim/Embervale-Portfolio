@@ -38,7 +38,7 @@ public class AirBossAttackPool : MonoBehaviour
         }
     }
 
-    public AirBossAttack GetAttack(AirBosssAttackType attackType)
+    public AirBossAttack GetAttack(AirBossAttackType attackType)
     {
         for (int i = 0; i < _attackPrefabs.Length; i++)
         {
@@ -48,9 +48,8 @@ public class AirBossAttackPool : MonoBehaviour
             {
                 AirBossAttack attack = _pool[i, j];
 
-                if (attack.gameObject.activeSelf == false)
+                if (attack.TryReserve())
                 {
-                    attack.gameObject.SetActive(true);
                     return attack;
                 }
             }
