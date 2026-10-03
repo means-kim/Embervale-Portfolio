@@ -107,7 +107,6 @@ public class BossEncounterCinematic : CinematicSequence
     {
         _requested = false;
         _area.HandleIntroCompleted();
-        //_boss.StartBattle();
     }
 
     private void HandleCancelled()
