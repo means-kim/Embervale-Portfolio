@@ -10,6 +10,7 @@ public class BossEncounterCinematic : CinematicSequence
     [SerializeField] private CinematicManager _cinematicManager;
     [SerializeField] private PlayableDirector _director;
     [SerializeField] private AirBossController _boss;
+    [SerializeField] private SpriteRenderer _bossRenderer;
     [SerializeField] private Rigidbody2D _player;
     [SerializeField] private Transform _walkTarget;
 
@@ -38,6 +39,9 @@ public class BossEncounterCinematic : CinematicSequence
         {
             return false;
         }
+
+        _boss.enabled = false;
+        _bossRenderer.enabled = false;
 
         _playerAnimator = _player.GetComponent<PlayerAnimator>();
 
@@ -104,6 +108,24 @@ public class BossEncounterCinematic : CinematicSequence
         _player.linearVelocity = stoppedVelocity;
 
         _playerAnimator?.PlayState(PlayerState.Idle, false);
+    }
+
+    public void ShowBoss()
+    {
+        if (_bossRenderer == null)
+        {
+            return;
+        }
+        _bossRenderer.enabled = true;
+    }
+
+    public void PlayRoar()
+    {
+        if (_boss == null || _roarEffect == null)
+        {
+            return;
+        }
+
 
         _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
     }
@@ -111,6 +133,16 @@ public class BossEncounterCinematic : CinematicSequence
     private void HandleCompleted()
     {
         _requested = false;
+        if (_bossRenderer != null)
+        {
+            _bossRenderer.enabled = true;
+        }
+
+        if (_boss != null)
+        {
+            _boss.enabled = true;
+        }
+
         _area.HandleIntroCompleted();
     }
 

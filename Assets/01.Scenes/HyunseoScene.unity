@@ -9757,111 +9757,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!1 &491968657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 491968658}
-  - component: {fileID: 491968660}
-  - component: {fileID: 491968659}
-  - component: {fileID: 491968661}
-  m_Layer: 5
-  m_Name: BossRoarEffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &491968658
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491968657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1504072919}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &491968659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491968657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &491968660
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491968657}
-  m_CullTransparentMesh: 1
---- !u!114 &491968661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491968657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22df56277b62ce4ca1cd7cf1c91eb37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.Roar.BossRoarScreenEffect
-  _settings: {fileID: 0}
-  _ringMaterial: {fileID: 2100000, guid: 0d84d9069be9cc0448ba0652f82d311d, type: 2}
-  _worldCamera: {fileID: 1653261766}
-  _centerOffset: {x: 0, y: 1}
-  _shakeInterval: 0.1
-  _onEnvelope:
-    m_PersistentCalls:
-      m_Calls: []
-  _onShake:
-    m_PersistentCalls:
-      m_Calls: []
-  _onRoarFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  _useUnscaledTime: 0
-  _phase1Settings: {fileID: 11400000, guid: 3bcdbc43be4feb140afa1fbc5cf49708, type: 2}
-  _phase2Settings: {fileID: 11400000, guid: 416828cfe59104345b0fa330c20fa1bd, type: 2}
 --- !u!1 &495427966
 GameObject:
   m_ObjectHideFlags: 0
@@ -9979,6 +9874,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4954074921792302040, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954074921792302040, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -9996,7 +9895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 155.6
+      value: 145
       objectReference: {fileID: 0}
     - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17621,6 +17520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794411674}
   - component: {fileID: 794411675}
+  - component: {fileID: 794411676}
   m_Layer: 0
   m_Name: BossEncounterCinematic
   m_TagString: Untagged
@@ -17659,14 +17559,60 @@ MonoBehaviour:
   _cinematicManager: {fileID: 357357373}
   _director: {fileID: 1133023747}
   _boss: {fileID: 496897916}
+  _bossRenderer: {fileID: 1226626067}
   _player: {fileID: 628667}
   _walkTarget: {fileID: 669907012}
   _area: {fileID: 1978271481}
-  _roarEffect: {fileID: 491968661}
-  _roarDuration: 3
+  _roarEffect: {fileID: 1291746008}
+  _roarDuration: 2
   _walkSpeed: 8
   _stopDistance: 0.1
   _walkTimeout: 15
+--- !u!114 &794411676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794411673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2d33c8806f94d7b42a32e92fc0a7f09a, type: 2}
+    - {fileID: 11400000, guid: 7adcc38eefcb1a845b688c0b58404b43, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 794411675}
+          m_TargetAssemblyTypeName: BossEncounterCinematic, Assembly-CSharp
+          m_MethodName: ShowBoss
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 794411675}
+          m_TargetAssemblyTypeName: BossEncounterCinematic, Assembly-CSharp
+          m_MethodName: PlayRoar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &805802016
 GameObject:
   m_ObjectHideFlags: 0
@@ -21054,6 +21000,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -1090374336950496822, guid: 705b8c574b57b7446984a5d616cb58c7, type: 2}
     value: {fileID: 496897917}
+  - key: {fileID: 8924852779150517618, guid: 705b8c574b57b7446984a5d616cb58c7, type: 2}
+    value: {fileID: 794411676}
+  - key: {fileID: -6240627212416077951, guid: 705b8c574b57b7446984a5d616cb58c7, type: 2}
+    value: {fileID: 794411676}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1138591375
@@ -21674,6 +21624,11 @@ PolygonCollider2D:
       - {x: 27.282845, y: 3.074871}
       - {x: 3.2887716, y: 3.2311592}
   m_UseDelaunayMesh: 1
+--- !u!212 &1226626067 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4954074921792302040, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 496897915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235385684
 GameObject:
   m_ObjectHideFlags: 0
@@ -21851,6 +21806,127 @@ Transform:
   - {fileID: 2127956225}
   m_Father: {fileID: 930280856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1291746006
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1504072919}
+    m_Modifications:
+    - target: {fileID: 3371453051194732970, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_Name
+      value: CinematicBossRoarEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371453051194732970, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7842346566309949095, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: _worldCamera
+      value: 
+      objectReference: {fileID: 1653261766}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+--- !u!224 &1291746007 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+  m_PrefabInstance: {fileID: 1291746006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1291746008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7842346566309949095, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+  m_PrefabInstance: {fileID: 1291746006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22df56277b62ce4ca1cd7cf1c91eb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.Roar.BossRoarScreenEffect
 --- !u!1 &1294209519
 GameObject:
   m_ObjectHideFlags: 0
@@ -23770,7 +23846,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1506034658}
-  - {fileID: 491968658}
+  - {fileID: 1291746007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
