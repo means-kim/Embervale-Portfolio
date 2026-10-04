@@ -1,0 +1,52 @@
+얼음 원기둥 v01 — 상승 / 유지 / 파괴 (과거 12프레임 기록)
+후속:24프레임 v02로 갱신됨. 최신안내는 ../IceCylinder_v02/ProductionNotes.txt.
+v01 PNG는 보존. 아래에 기록된 v01 클립은 GUID를 유지해 v02 이름으로 이동·갱신했으며, 이전파일은 ../IceCylinder_v02/PreviousClips_v01/에 보관.
+제작일: 2026-10-05 (Asia/Seoul)
+
+요청 및 결과
+- 기존 Attack_IcePillar와 Attack_Icicle_Fall의 파랑/청록 얼음 디자인을 참조.
+- 바닥에서 솟아올라 구역을 막고, 잠시 유지된 뒤 깨지는 원기둥.
+- 총 12프레임 멀티스프라이트 하나, 각 4프레임을 사용하는 세 클립.
+- 모든 피벗은 셀 중심 (0.5,0.5). 생성/파괴의 보이는 내용에 따라 중심을 다시 잡지 않음.
+- 최종 월드 크기와 위치는 사용자가 조절. 공격/차단 Collider 및 페이즈 로직은 이번 범위에 없음.
+- 새 Animator Controller 또는 프리팹은 생성하지 않음. 기존 씬/프리팹/코드/원본 이미지 변경 없음.
+
+파일
+- ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_4x3_v01.png
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Rise_v01.anim
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Hold_v01.anim
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Break_v01.anim
+- 위 파일들의 Unity .meta 보존.
+
+제작 기록
+- 내장 image_gen 사용. 최초 생성, 마지막 잔해 정리, 정렬/여백 보완 순으로 제작.
+- 정확한 프롬프트: GenerationPrompts.txt
+- 참조1: ../IcicleFall_v01/Reference_IcePillar_Frame64_Render.png
+- 참조2: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_Loop_4x3_v01.png
+- 요청 해상도 최초1536x1152, 실제 출력1448x1086. 최종 보완은 실제 해상도 기준.
+- 생성 PNG를 리사이즈/픽셀 수정 없이 프로젝트에 보존.
+
+Import 및 배치
+- RGBA 1448x1086. 4열x3행, 각 셀362x362.
+- 좌상단부터 가로로 01~12 순서, Sprite Mode Multiple.
+- PPU400, Point, Clamp, Mipmap Off, 무압축, MaxSize2048, FullRect.
+- 12개 전부 SpriteAlignment.Center, 실제 피벗 픽셀 (181,181).
+- 셀의 Scale1 월드 크기는0.905x0.905. 보이는 몸체는 셀보다 작음.
+- 중심을 기준으로 높이를 키우면 아래쪽도 커짐. Scale 결정 후 부모 위치Y를 조정하여 접지선을 맞출 것.
+- 그림의 작은 냉기/기저부 윤곽 변화가 있으며 픽셀 단위의 완전 고정 형태는 아님. 실제 배치 시 바닥과의 겹침 검토 필요.
+
+클립 사양
+- Rise: 프레임01~04,12FPS,0.333333초, 반복 끔.
+- Hold: 프레임05~08,8FPS,0.5초, 반복 켬. 원하는 유지 시간은 외부 로직/전환에서 제어.
+- Break: 프레임09~12,10FPS. 0.4초 시점에 Sprite=null 키 추가, 총0.5초, 반복 끔.
+- Break의 마지막 null키는 별도 생성 스프라이트가 아니라 화면을 비우는 종료 처리.
+- 바인딩은 경로빈문자열의 SpriteRenderer.m_Sprite. Animator와 SpriteRenderer가 같은 오브젝트에 있을 때 사용.
+- Transform/Scale/알파 곡선 없음. 애니메이션 이벤트 없음. 파괴 후 시각만 사라지며 Collider 해제/풀 반환은 게임 로직에서 별도 처리.
+
+검증
+- Unity6000.3.22f1 격리 Preview Scene에서 각 클립의 모든 키를 샘플링하여 프레임01~12 순서와 피벗181,181 확인.
+- Break 종단 sprite=null 확인. 모든 클립 floatCurves0 / events0 확인.
+- 최종시트의 각 셀 가장자리4px에 alpha>128인 픽셀이 없음. 낮은 알파의 미세 냉기/광택은 존재.
+- PreviewFrames/는 실제 Unity 렌더. Preview_Unity_Sequence.gif는 Rise + Hold3회(1.5초) + Break + 빈화면 검토본.
+- GIF의 ms 단위는 일부 반올림됨. 실제 클립 타이밍은 위 값이 기준.
+- 실제 게임 충돌·구역차단·플레이어 밀어내기·점프 차단은 미구현/미검증.

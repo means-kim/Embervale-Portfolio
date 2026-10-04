@@ -1,0 +1,37 @@
+고드름 AirBoss 화풍 파생본 v02
+제작일: 2026-10-05 (Asia/Seoul)
+
+결과물
+- Sprite: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_AirBoss_4x3_v02.png
+- Clip: ../../../../Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall_AirBoss_v02.anim
+- 각 에셋 .meta 포함. 새 GUID를 사용한 별도 에셋이다.
+- 적용할 Motion은 Attack_Icicle_Fall_AirBoss_v02. 기존 프리팹/컨트롤러에는 자동 연결하지 않았다.
+
+디자인
+- 원본의 고채도 청록/코발트 표면을 은백색·연청색·회청색 결정 표면으로 변경.
+- AirBoss 얼음 시전 이미지의 회화적 얼음 반사와 서리 질감을 참조.
+- 색과 내부 표면의 가는 명암으로 가장자리를 정리했다. 사용자 요청에 따라 외부 알파 윤곽 자체를 새로 깎거나 넓히지 않았다. 따라서 원본 윤곽/입자 모양의 픽셀 계단은 유지된다.
+
+제작 및 보존 방법
+- 미술 생성/편집: built-in image_gen, transparent_background=true. 정확한 프롬프트는 GenerationPrompt.txt.
+- 편집 대상: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_Loop_4x3_v01.png
+- 화풍 참조: ../../../../Assets/04.Sprites/AirBoss/AirBoss_Cast_BothArms_IcePush_Part1_4x4_1024_v01.png
+- Generated_Style_Source.png는 도구 원출력 1448x1086 RGBA. 원출력에는 원본 대비 위치/알파 차이가 있었으므로 그대로 에셋화하지 않았다.
+- RegisterGeometry.cs.txt: 생성된 표면을 원본 끝/어깨 위치에 등록하고, 투명 영역의 경계색을 확장한 뒤 원본의 알파 채널을 픽셀 단위 그대로 복제했다. 창작 질감을 코드로 대체한 것이 아니라, 생성된 그림을 사용자 지정 윤곽에 맞춰 등록한 후처리다.
+- Registered_Sheet.png가 Assets PNG와 같은 최종 이미지다. 원본과 모든 픽셀의 alpha가 동일하므로 외곽 범위·여백·실루엣·효과 위치가 유지된다.
+- 원본 PNG/meta/clip/meta/컨트롤러/프리팹은 SHA256 비교로 변경 없음 확인.
+
+실제 사양
+- 1448x1086 RGBA, 4열 x 3행, 12개 362x362 셀.
+- 원본과 동일한 12개 rect/custom pivot, PPU400, Point, mipmap off, sRGB on, Clamp, 무압축, max2048.
+- 피봇은 중심이 아닌 원본의 각 고드름 아래 끝점 부근 값을 그대로 사용.
+- 클립 12FPS / 1초 / Loop Time on. 12개 Sprite 키 시간과 순서, 빈 경로 SpriteRenderer.m_Sprite 바인딩 동일.
+- Transform/알파/색 곡선과 Animation Event 없음. 실제 낙하 이동은 포함하지 않는다.
+
+검증
+- 원본/새 PNG의 캔버스 크기와 전체 alpha 배열 일치.
+- Unity 6000.3.22f1에서 12개 Sprite subasset, 피봇, PPU와 모든 클립 참조 로드 확인.
+- PreviewRenderUtility의 별도 미리보기에서 두 클립을 12개 시각으로 샘플링. 새 01~12 프레임 지정 확인.
+- PreviewFrames 및 Preview.html은 실제 Unity 렌더 비교. 기존 고드름/새 고드름은 동일 Scale, 보스는 화풍 비교용 높이 정규화.
+- 프레임01/06/12의 크기·끝점 및 표면 확인. 실제 씬의 낙하·충돌·피해·풀 반환은 변경/검증하지 않음.
+- 작업 종료 시 Unity 오류 로그 0개 확인.

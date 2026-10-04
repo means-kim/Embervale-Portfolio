@@ -1,0 +1,37 @@
+Tool: built-in image_gen; transparent_background=true.
+
+Use case: stylized-concept.
+Asset type: NEW transparent 32-frame Unity VFX sprite sheet.
+Create an airy BLIZZARD / WHIRLING SNOWSTORM that appears around the center of a spinning airborne ice boss. The boss is NOT drawn. The effect is viewed from a side-view 2D platform game camera.
+Input1 approved icicle, input2 approved cylindrical ice, input3 approved ice boulder: all are MATERIAL AND COLOR REFERENCES ONLY. Match their refined silvery ice blue, blue-gray shading, crystalline planes, thin white reflections, delicate frosted edges and sharp tapered shard tips. Do not reproduce an icicle, pillar or boulder as the main subject.
+
+EFFECT DESIGN:
+An open, roughly round airy volume of rapidly orbiting snow grains and small faceted ice slivers around an EMPTY CENTRAL SPACE. Flow wraps around a vertical axis: broad slightly slanted elliptical sweeps and broken spiral wisps suggest depth. Fine curved silver-blue wind streaks are intermittent and semitransparent. A few larger foreground crystal flakes contrast with smaller dimmer distant flakes. This is a snowstorm with scattered moving ice; NOT a solid torus, portal, clock face, magic circle or continuous luminous ring.
+Keep the central upright oval especially clear: on a256px square cell, central x92..164 and y62..194 contains at most a few isolated faint specks. No opaque snow cloud, fog disk, smoke wall, solid white blob, filled ice ball or thick tornado body anywhere. The imaginary boss's face and torso must remain readable behind the effect. Large blank spaces between streams.
+Small ice shards carry the precise same painted crystal material as references; snow dust and wind tips fade gently into true transparency. Edges should be fine, antialiased, crisp at the ice tips, not pixelated or thickly outlined. Restrained small glints, no neon cyan, no yellow, no purple glow, no opaque bloom.
+One coherent circulation direction for the whole action. Do not rotate one still image; draw changed particle positions, shapes and highlights so flakes progress along the same curved paths, with varied depths. Swirl visibly moves from frame to frame; no random respawning cloud morphology.
+
+EXACT GRID AND GEOMETRY:
+Exactly32 unique sequential drawings, 8 columns x4 rows, left-to-right then top-to-bottom.
+Request2048x1024 RGBA, with256x256 SQUARE cells.
+All32 frames use the IDENTICAL center(128,128), identical canvas/camera and orientation. The imaginary boss stays centered. Do not recenter following an individual flake.
+All visible frost and shards inside each cell x16..240,y16..240 with true transparent gutters. Equal cell spacing. No particle may touch or cross a cell boundary.
+Truly transparent background. No backdrop of any color, no ground, no platform, no character, no labels, numbers, gridlines, frame borders or watermark.
+The fully active storm is approximately208px wide and204px high around the center; center stays airy, top/bottom do not get clipped.
+
+32 FRAMES IN ONE COMPLETE ACTION:
+01: a few tiny faint silver snow flecks in an open arc at the outer region, center empty.
+02: another fine arc begins to join; tiny flakes advance.
+03: more curved streaks appear, sparse.
+04: orbiting small sharp ice fragments become visible.
+05: volume grows into the full open snowstorm with clear negative spaces.
+06: reaches full diameter and moderate density; center still almost entirely clear.
+07..26:20 distinct connected motion drawings of the active whirling blizzard. Maintain overall radius and center; particle paths move coherently around it, narrow wind streaks change shape, icy shard facets glimmer naturally. Main volume stays steady without inflating/deflating or moving around the canvas. Never fill in the center with fog. Some streams pass behind the invisible center; a few loose foreground flakes pass around its sides. No dense ring or repeated identical pictures.
+27: circulation loosens and a few outer streaks thin.
+28: fewer flakes, arcs break up into shorter strokes.
+29: scattered residual icy flakes drift outward; no opaque cloud.
+30: only sparse small snow particles and very faint streak remnants.
+31: two or three dim isolated flakes with almost no wind.
+32: nearly empty transparent cell with a last tiny fading speck.
+This sheet will play once; do not restart or loop in the last row.
+Deliver only the transparent32-frame sprite sheet.

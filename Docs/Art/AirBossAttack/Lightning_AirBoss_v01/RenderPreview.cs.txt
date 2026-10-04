@@ -1,0 +1,42 @@
+var folder = "Docs/Art/AirBossAttack/Lightning_AirBoss_v01/PreviewFrames";
+System.IO.Directory.CreateDirectory(folder);
+var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Lightning_AirBoss_v01.anim");
+var iceClip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall_AirBoss_v02.anim");
+var bossClip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBoss/AirBoss_SpinYaw360.anim");
+var keys = AnimationUtility.GetObjectReferenceCurve(clip, AnimationUtility.GetObjectReferenceCurveBindings(clip)[0]);
+var preview = new PreviewRenderUtility();
+var material = new Material(Shader.Find("Sprites/Default"));
+var records = new System.Collections.Generic.List<object>();
+try {
+    var lightning = new GameObject("New lightning", typeof(SpriteRenderer), typeof(Animator));
+    var ice = new GameObject("Approved ice reference", typeof(SpriteRenderer), typeof(Animator));
+    var boss = new GameObject("AirBoss reference", typeof(SpriteRenderer), typeof(Animator));
+    preview.AddSingleGO(lightning); preview.AddSingleGO(ice); preview.AddSingleGO(boss);
+    var lr = lightning.GetComponent<SpriteRenderer>(); var ir = ice.GetComponent<SpriteRenderer>(); var br = boss.GetComponent<SpriteRenderer>();
+    lr.sharedMaterial = material; ir.sharedMaterial = material; br.sharedMaterial = material;
+    iceClip.SampleAnimation(ice, 0); bossClip.SampleAnimation(boss, 0);
+    var ib = ir.bounds; var bb = br.bounds;
+    float iceScale = 0.75f / ib.size.y, bossScale = 0.78f / bb.size.y;
+    ice.transform.localScale = Vector3.one * iceScale;
+    boss.transform.localScale = Vector3.one * bossScale;
+    ice.transform.position = new Vector3(-0.95f, 0, 0) - ib.center * iceScale;
+    boss.transform.position = new Vector3(0.95f, 0, 0) - bb.center * bossScale;
+    preview.camera.orthographic = true; preview.camera.orthographicSize = 0.56f;
+    preview.camera.nearClipPlane = 0.01f; preview.camera.farClipPlane = 100;
+    preview.camera.transform.position = new Vector3(0, 0, -10); preview.camera.transform.rotation = Quaternion.identity;
+    for (int i = 0; i < keys.Length; i++) {
+        clip.SampleAnimation(lightning, keys[i].time + 0.00001f);
+        preview.BeginPreview(new Rect(0, 0, 900, 330), GUIStyle.none);
+        preview.camera.clearFlags = CameraClearFlags.SolidColor; preview.camera.backgroundColor = Color.black;
+        preview.Render(true, false);
+        var rt = preview.EndPreview() as RenderTexture;
+        var previous = RenderTexture.active; RenderTexture.active = rt;
+        var image = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+        image.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0); image.Apply();
+        System.IO.File.WriteAllBytes(folder + "/Frame_" + (i + 1).ToString("00") + ".png", image.EncodeToPNG());
+        records.Add(new { frame = i + 1, time = keys[i].time, sprite = lr.sprite == null ? null : lr.sprite.name, width = rt.width, height = rt.height });
+        UnityEngine.Object.DestroyImmediate(image); RenderTexture.active = previous;
+    }
+} finally { preview.Cleanup(); UnityEngine.Object.DestroyImmediate(material); }
+System.IO.File.WriteAllText("Docs/Art/AirBossAttack/Lightning_AirBoss_v01/UnityPreviewReport.json", Newtonsoft.Json.JsonConvert.SerializeObject(records, Newtonsoft.Json.Formatting.Indented));
+return "Rendered " + records.Count + " states; duration=" + clip.length;

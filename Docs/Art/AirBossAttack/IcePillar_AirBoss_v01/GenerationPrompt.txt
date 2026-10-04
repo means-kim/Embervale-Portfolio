@@ -1,0 +1,47 @@
+Tool: built-in image_gen; transparent_background=true.
+
+Use case: style-transfer.
+Create a NEW 24-frame transparent Unity sprite sheet: a thin jagged ICE SPIRE growing upward from a small frozen base, with short angled crystal branches. This is a reskin and in-betweening of input1, not a new attack design.
+
+Input1 (black-background 4x4 sheet with 14 occupied cells): EXACT SHAPE/MOTION/POSITION reference. It shows a slender pointed ice spike rising, with a small LEFT-lower branch and a long RIGHT-upper branch. Keep this asymmetric silhouette, trunk width and narrow ground footprint. Black is only a preview backdrop: output MUST be transparent.
+Input2 approved silver-blue icicle: PRIMARY material, color, fine frosting and edge finish.
+Input3 approved ice cylinder: supplementary material/facets reference, DO NOT copy cylindrical shape or wide base.
+Input4 approved ice boulder: supplementary dense ice facets/shading reference, DO NOT copy round form.
+
+STYLE:
+Repaint the flat cyan pixel spike as finely illustrated translucent silver-blue / blue-gray ice matching inputs2-4: layered icy depth, long angular facets along the narrow spire, restrained white edge reflections, fine frost veins, crisp tapered crystalline tips and smooth antialiased contours. NO pixel blocks, chunky outlines, neon cyan, round cylinder, wide pillar, tree bark or snow-covered tree. Keep the original skinny spear-like main shaft and two or three narrow upward branches, not a bush of many fat crystals. Subtle frost wisps and occasional tiny glints. No opaque mist, no giant burst, no concentric ground ring.
+
+EXACT SHEET:
+24 distinct sequential drawings, 6 columns x4 rows, row-major order.
+Request2304x1536 with 384x384 square cells. Use equivalent normalized256x256 cell coordinates below (scale1.5 if384).
+Every cell has same camera, same scale, main shaft centered on x128. Stable ground contact at approximately y214 to219 from the top. Entire effect fits in x44..224,y25..220. Truly transparent background everywhere outside the art. Leave gutters. No labels, numbers, gridlines, character or scene.
+DO NOT make all frames full height. The first half gradually rises; second half holds the tall final shape.
+
+24 drawing breakdown (draw every in-between freshly):
+01 tiny pointed emerging ice nub, height21px (on256 cell scale).
+02 new halfway growth, height32.
+03 height43.
+04 height53.
+05 height64.
+06 height84, tiny lateral crystal buds emerge.
+07 height104, narrow left-low and right-high branches developing.
+08 height120, smoothly lengthening branches and shaft.
+09 height136.
+10 height151.
+11 height165.
+12 height177.
+13 reaches height189, tall narrow branching spire, small transient detached flakes around it.
+14 same height189, stronger traveling highlight climbs along facets; branches reach full length.
+15 same height189, brief strong silver-white facet reflection, still detailed dimensional ice, NOT a solid white silhouette.
+16 same height189, reflection eases, a few small chips drift outward.
+17 same height189, restored silver-blue material; outward chips continue.
+18 same height189, fewer chips, stable spire and branches.
+19 same height189, only tiny passing flakes, no shape change.
+20 same height189, flakes fade out.
+21 same height189, stable final silhouette, subtle glints.
+22 stable final form like input1 drawing12, no detached chunky debris.
+23 stable form with slightly different small highlights like input1 drawing13.
+24 stable form with slightly different small highlights like input1 drawing14.
+Rows:1=01..06,2=07..12,3=13..18,4=19..24. Final frame is STILL A STANDING ICE SPIRE. Do not add collapse, shatter or disappearance at the end, since the original clip holds.
+Early growth and side-branch development must be gradual with coherent outlines, no pasted duplicate drawings. Preserve the original narrow main shaft, original fork directions, fixed centerline and ground contact; improve only surface finish and intermediate growth.
+Output only this 24-frame transparent sheet.

@@ -7,6 +7,8 @@ public class EliteMonsterDeath : MonoBehaviour
     [SerializeField] private EliteMonsterFacing _eliteMonsterFacing;
     [SerializeField] private Animator _animator;
     [SerializeField] private EliteMonsterAttackController _eliteMonsterAttackController;
+    [SerializeField] private Rigidbody2D _rigidBody;
+    [SerializeField] private CapsuleCollider2D _bodyCollider;
 
     private void OnEnable()
     {
@@ -27,7 +29,17 @@ public class EliteMonsterDeath : MonoBehaviour
         _eliteMonsterMovement.enabled = false;
         _eliteMonsterFacing.enabled = false;
 
+        DisableBodyCollision();
+
         _animator.SetBool("IsWalk", false);
         _animator.SetTrigger("IsDeath");
+    }
+
+    private void DisableBodyCollision()
+    {
+        if (!_bossHealth.IsDead) return;
+
+        _rigidBody.simulated = false;
+        _bodyCollider.enabled = false;
     }
 }

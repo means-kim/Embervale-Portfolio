@@ -1,0 +1,32 @@
+var folder="Docs/Art/AirBossAttack/IcePillar_AirBoss_v01";
+System.IO.Directory.CreateDirectory(folder+"/PreviewFrames");
+var original=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_IcePillar.anim");
+var replacement=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_IcePillar_AirBoss_v01.anim");
+var icicle=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall_AirBoss_v02.anim");
+var keys=AnimationUtility.GetObjectReferenceCurve(replacement,AnimationUtility.GetObjectReferenceCurveBindings(replacement)[0]);
+var preview=new PreviewRenderUtility();var material=new Material(Shader.Find("Sprites/Default"));
+var left=new GameObject("OriginalIcePillar",typeof(SpriteRenderer),typeof(Animator));
+var middle=new GameObject("NewIcePillar",typeof(SpriteRenderer),typeof(Animator));
+var right=new GameObject("ApprovedIcicle",typeof(SpriteRenderer),typeof(Animator));
+var output=new System.Collections.Generic.List<object>();
+try{
+ preview.AddSingleGO(left);preview.AddSingleGO(middle);preview.AddSingleGO(right);
+ var a=left.GetComponent<SpriteRenderer>();var b=middle.GetComponent<SpriteRenderer>();var c=right.GetComponent<SpriteRenderer>();
+ a.sharedMaterial=material;b.sharedMaterial=material;c.sharedMaterial=material;
+ left.transform.position=new Vector3(-.65f,-.16f,0);middle.transform.position=new Vector3(0,-.16f,0);
+ icicle.SampleAnimation(right,0);right.transform.position=new Vector3(.7f,0,0);
+ var camera=preview.camera;camera.orthographic=true;camera.orthographicSize=.49f;
+ camera.nearClipPlane=.01f;camera.farClipPlane=100;camera.transform.position=new Vector3(0,.37f,-10);camera.transform.rotation=Quaternion.identity;
+ for(int n=0;n<keys.Length;n++){
+   original.SampleAnimation(left,keys[n].time+.00001f);replacement.SampleAnimation(middle,keys[n].time+.00001f);
+   if(b.sprite!=keys[n].value)throw new System.Exception("Wrong sampled new sprite at "+n);
+   preview.BeginPreview(new Rect(0,0,600,300),GUIStyle.none);camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;
+   preview.Render(true,false);var rt=preview.EndPreview() as RenderTexture;var save=RenderTexture.active;RenderTexture.active=rt;
+   var image=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);
+   try{image.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0);image.Apply();System.IO.File.WriteAllBytes(folder+"/PreviewFrames/Frame_"+(n+1).ToString("00")+".png",image.EncodeToPNG());}
+   finally{UnityEngine.Object.DestroyImmediate(image);RenderTexture.active=save;}
+   output.Add(new{frame=n+1,time=keys[n].time,original=a.sprite.name,replacement=b.sprite.name});
+ }
+ System.IO.File.WriteAllText(folder+"/UnityRenderReport.json",Newtonsoft.Json.JsonConvert.SerializeObject(output,Newtonsoft.Json.Formatting.Indented));
+ return "Rendered25 exact clip keys in isolated preview. Original and new share the same scale and Visual Y=-.16. Scene untouched.";
+}finally{preview.Cleanup();UnityEngine.Object.DestroyImmediate(material);}

@@ -1,0 +1,100 @@
+// Geometry registration only. Artwork is the built-in image_gen output.
+// Runs in Unity execute_code. No changes to the source texture/importer/scene.
+var originalPath = "Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_Loop_4x3_v01.png";
+var paintedPath = "Docs/Art/AirBossAttack/IcicleFall_AirBoss_v02/Generated_Style_Source.png";
+var outputPath = "Docs/Art/AirBossAttack/IcicleFall_AirBoss_v02/Registered_Sheet.png";
+var original = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+var painted = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+Texture2D output = null;
+try {
+    ImageConversion.LoadImage(original, System.IO.File.ReadAllBytes(originalPath), false);
+    ImageConversion.LoadImage(painted, System.IO.File.ReadAllBytes(paintedPath), false);
+    if (original.width != 1448 || original.height != 1086 ||
+        painted.width != original.width || painted.height != original.height)
+        throw new System.Exception("Unexpected canvas dimensions; abort.");
+    var a = original.GetPixels32();
+    var b = painted.GetPixels32();
+    var dst = new Color32[a.Length];
+    int width = original.width, height = original.height, size = 362;
+    var anchors = new System.Collections.Generic.List<object>();
+    for (int frame = 0; frame < 12; frame++) {
+        int left = frame % 4 * size, top = frame / 4 * size;
+        System.Func<int,int,int> index = (x,y) => (height - 1 - top - y) * width + left + x;
+        var al = new int[size]; var ar = new int[size];
+        var bl = new int[size]; var br = new int[size];
+        for (int y=0; y<size; y++) {
+            al[y]=bl[y]=size; ar[y]=br[y]=-1;
+            for(int x=0;x<size;x++) {
+                if(a[index(x,y)].a>128) { al[y]=System.Math.Min(al[y],x); ar[y]=x; }
+                if(b[index(x,y)].a>128) { bl[y]=System.Math.Min(bl[y],x); br[y]=x; }
+            }
+        }
+        int aTop=System.Array.FindIndex(ar,v=>v>=0), bTop=System.Array.FindIndex(br,v=>v>=0);
+        int aTip=System.Array.FindLastIndex(ar,v=>v>=0), bTip=System.Array.FindLastIndex(br,v=>v>=0);
+        // Wide shoulders occur near y110 in the original registered cells.
+        int aShoulder=90,bShoulder=90;
+        for(int y=91;y<145;y++) {
+            if(ar[y]-al[y]>ar[aShoulder]-al[aShoulder]) aShoulder=y;
+            if(br[y]-bl[y]>br[bShoulder]-bl[bShoulder]) bShoulder=y;
+        }
+        System.Func<int[],int,int> nearestRow=(ends, yy)=>{
+            yy=Mathf.Clamp(yy,0,size-1);
+            if(ends[yy]>=0) return yy;
+            for(int d=1;d<size;d++) {
+                if(yy-d>=0 && ends[yy-d]>=0) return yy-d;
+                if(yy+d<size && ends[yy+d]>=0) return yy+d;
+            }
+            throw new System.Exception("Empty sprite.");
+        };
+        // Extend painted edge colors into transparent pixels, without synthesizing artwork.
+        // Nearest opaque painting is used only where the source silhouette requires coverage.
+        var nearest=new int[size*size];
+        var queue=new System.Collections.Generic.Queue<int>();
+        for(int y=0;y<size;y++) for(int x=0;x<size;x++) {
+            int cell=y*size+x;
+            if(b[index(x,y)].a>128) { nearest[cell]=cell; queue.Enqueue(cell); }
+            else nearest[cell]=-1;
+        }
+        while(queue.Count>0) {
+            int q=queue.Dequeue(),qx=q%size,qy=q/size;
+            for(int dir=0;dir<4;dir++) {
+                int nx=qx+(dir==0?-1:dir==1?1:0);
+                int ny=qy+(dir==2?-1:dir==3?1:0);
+                if(nx<0||nx>=size||ny<0||ny>=size) continue;
+                int next=ny*size+nx;
+                if(nearest[next]>=0) continue;
+                nearest[next]=nearest[q]; queue.Enqueue(next);
+            }
+        }
+        System.Func<int,int,Color> edgeColor=(x,y)=>{
+            x=Mathf.Clamp(x,0,size-1);y=Mathf.Clamp(y,0,size-1);
+            int src=nearest[y*size+x];
+            return b[index(src%size,src/size)];
+        };
+        for(int y=0;y<size;y++) {
+            float t = y<=aShoulder ? Mathf.InverseLerp(aTop,aShoulder,y) : Mathf.InverseLerp(aShoulder,aTip,y);
+            float gy = y<=aShoulder ? Mathf.Lerp(bTop,bShoulder,t) : Mathf.Lerp(bShoulder,bTip,t);
+            int y0=Mathf.FloorToInt(gy),y1=Mathf.CeilToInt(gy);
+            float fy=gy-y0;
+            for(int x=0;x<size;x++) {
+                int i=index(x,y);
+                byte alpha=a[i].a;
+                if(alpha==0) {dst[i]=new Color32(0,0,0,0); continue;}
+                // No per-scanline horizontal stretching: retain the painted surface continuity.
+                Color32 color=Color.Lerp(edgeColor(x,y0),edgeColor(x,y1),fy);
+                color.a=alpha;
+                dst[i]=color;
+            }
+        }
+        anchors.Add(new {frame=frame+1,aTop,bTop,aShoulder,bShoulder,aTip,bTip});
+    }
+    if(dst.Where((c,i)=>c.a!=a[i].a).Any()) throw new System.Exception("Alpha preservation failed.");
+    output=new Texture2D(width,height,TextureFormat.RGBA32,false);
+    output.SetPixels32(dst); output.Apply(false,false);
+    System.IO.File.WriteAllBytes(outputPath,ImageConversion.EncodeToPNG(output));
+    return Newtonsoft.Json.JsonConvert.SerializeObject(new{outputPath,width,height,alphaExactlyPreserved=true,anchors});
+} finally {
+    if(output!=null) UnityEngine.Object.DestroyImmediate(output);
+    UnityEngine.Object.DestroyImmediate(original);
+    UnityEngine.Object.DestroyImmediate(painted);
+}

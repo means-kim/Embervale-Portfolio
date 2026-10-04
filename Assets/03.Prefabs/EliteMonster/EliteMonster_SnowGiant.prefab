@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 579012923072910444}
   - component: {fileID: 3180728724621837134}
+  - component: {fileID: 1397540403625094172}
   m_Layer: 10
   m_Name: Hurtbox
   m_TagString: Boss
@@ -202,6 +203,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 5.6}
   m_EdgeRadius: 0
+--- !u!114 &1397540403625094172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950595207199591173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89f277c8810c7d47a96485e11abc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  _health: {fileID: 5930615092485249234}
 --- !u!1 &3620871782854802714
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +832,8 @@ MonoBehaviour:
   _eliteMonsterFacing: {fileID: 7873688310279483471}
   _animator: {fileID: 2081650440081494536}
   _eliteMonsterAttackController: {fileID: 2851188379507211719}
+  _rigidBody: {fileID: 1731196025700362507}
+  _bodyCollider: {fileID: 7238580381561034051}
 --- !u!114 &2851188379507211719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +938,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1405717601429288287}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
   _flashInterval: 0.08
+  _flashDuration: 0.24
 --- !u!114 &6456768735056663740
 MonoBehaviour:
   m_ObjectHideFlags: 0

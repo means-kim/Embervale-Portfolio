@@ -1,0 +1,41 @@
+var dir="Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/PreviewFrames";
+System.IO.Directory.CreateDirectory(dir);
+var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_IceCylinder_AirBoss_v03.anim");
+var icicle=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall_AirBoss_v02.anim");
+var boss=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBoss/AirBoss_Idle.anim");
+var keys=AnimationUtility.GetObjectReferenceCurve(clip,AnimationUtility.GetObjectReferenceCurveBindings(clip)[0]);
+var preview=new PreviewRenderUtility();
+var material=new Material(Shader.Find("Sprites/Default"));
+var left=new GameObject("ApprovedIcicle",typeof(SpriteRenderer),typeof(Animator));
+var middle=new GameObject("NewCylinder",typeof(SpriteRenderer),typeof(Animator));
+var right=new GameObject("AirBossReference",typeof(SpriteRenderer),typeof(Animator));
+var report=new System.Collections.Generic.List<object>();
+try{
+ preview.AddSingleGO(left);preview.AddSingleGO(middle);preview.AddSingleGO(right);
+ var a=left.GetComponent<SpriteRenderer>();var b=middle.GetComponent<SpriteRenderer>();var c=right.GetComponent<SpriteRenderer>();
+ a.sharedMaterial=material;b.sharedMaterial=material;c.sharedMaterial=material;
+ icicle.SampleAnimation(left,0);boss.SampleAnimation(right,0);
+ left.transform.position=new Vector3(-.68f,0,0);
+ middle.transform.position=new Vector3(0,100f/256f,0);
+ right.transform.localScale=Vector3.one*(.82f/c.bounds.size.y);
+ right.transform.position=new Vector3(.7f,-c.bounds.min.y,0);
+ var cam=preview.camera;cam.orthographic=true;cam.orthographicSize=.51f;cam.nearClipPlane=.01f;cam.farClipPlane=100;
+ cam.transform.position=new Vector3(.03f,.4f,-10);cam.transform.rotation=Quaternion.identity;
+ for(int n=0;n<keys.Length;n++){
+   clip.SampleAnimation(middle,keys[n].time+.0005f);
+   if(b.sprite!=keys[n].value)throw new System.Exception("Wrong sampled sprite at "+n);
+   preview.BeginPreview(new Rect(0,0,600,300),GUIStyle.none);
+   cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.055f,.07f,.1f,1);
+   preview.Render(true,false);var rt=preview.EndPreview() as RenderTexture;
+   var save=RenderTexture.active;RenderTexture.active=rt;
+   var tex=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);
+   try{
+     tex.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0);tex.Apply();
+     System.IO.File.WriteAllBytes(dir+"/Frame_"+(n+1).ToString("00")+".png",tex.EncodeToPNG());
+   }finally{UnityEngine.Object.DestroyImmediate(tex);RenderTexture.active=save;}
+   report.Add(new{frame=n+1,time=keys[n].time,sprite=b.sprite==null?null:b.sprite.name});
+ }
+ var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);
+ System.IO.File.WriteAllText("Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/UnityRenderReport.json",json);
+ return "Rendered "+report.Count+" key states in isolated Unity preview. Final state is cleared; scene untouched.";
+}finally{preview.Cleanup();UnityEngine.Object.DestroyImmediate(material);}

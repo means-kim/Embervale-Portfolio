@@ -1,0 +1,20 @@
+Tool: built-in image_gen (transparent_background=true)
+Edit target: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_Loop_4x3_v01.png
+Style reference: ../../../../Assets/04.Sprites/AirBoss/AirBoss_Cast_BothArms_IcePush_Part1_4x4_1024_v01.png
+
+Use case: style-transfer.
+Asset type: Unity 2D falling icicle loop MULTI-SPRITE SHEET, exactly 12 frames, 4 columns by 3 rows.
+EDIT TARGET Image 1: the existing cyan icicle sprite sheet. It is a 1448 x 1086 transparent RGBA canvas, exact square 362 x 362 grid cells. Preserve this target's entire composition, positions, silhouette scale, transparent padding, orientation, and all 12 frame-specific motion phases.
+STYLE REFERENCE Image 2: AirBoss character animation. Use only its material painting style and restrained palette; do not put the boss, armor, hands, or clothing into the output.
+
+Primary edit: repaint ONLY the color, surface texture, and visual edge treatment of every existing icicle in Image 1 to match AirBoss's finely painted silver-white, pale ice-blue and gray-blue frost/crystal magic. Preserve the original downward-pointing icicle shape and its continuous solid body. Replace the saturated neon cyan/cobalt blocky facets with subtle layered translucent ice, delicate long internal cracks, fine frosty brushwork, pale crystalline striations and narrow silver rim highlights. Make the edges feel finely painted rather than enlarged pixel-art blocks, but DO NOT move the silhouette or add outside glows. Maintain readable darker gray-blue side facets. The upward cold trail stays in the exact same space and shape but becomes pale, thin, ethereal frost matching the boss.
+Animate only the already present glints and tiny trailing variations as in Image 1; all 12 icicles must remain fully formed. No spawning, growing, shrinking, shattering or fading the solid icicle. No isolated new particles beyond the original occupied pixels. No large starbursts. Do not replace the tail with a cloud.
+
+CRITICAL REGISTRATION CONSTRAINTS:
+- Exactly the same 1448 x 1086 pixel output canvas as Image 1, not a new layout.
+- Exactly 4 columns x 3 rows, 362 x 362 cells, ordered left-to-right then top-to-bottom.
+- Keep every object in its original cell and keep its original silhouette, width, height, location and empty margins. Do not recenter the images or normalize the small original frame offsets.
+- Local downward solid tips (x,y measured from TOP LEFT of each 362px cell): (181,342),(181,341),(181,342),(181,341),(180,343),(181,342),(180,342),(181,342),(181,343),(181,342),(181,342),(181,342). Keep these anchors exactly fixed.
+- Preserve the original transparency footprint/alpha and negative space as closely as possible. Change painting inside existing shapes, not their layout.
+- Transparent RGBA background, truly transparent, no painted backdrop, black, gradient, checkerboard or grid. No text, labels, borders, cell dividers, UI, logos or watermark.
+Quality: detailed hand-painted fantasy game VFX, cohesive with Image 2; restrained luminous silver frost, not coarse pixel art, not plastic, not soft unfocused blur.

@@ -1,0 +1,51 @@
+var folder="Docs/Art/AirBossAttack/IcePillar_AirBoss_v01";
+var texturePath="Assets/04.Sprites/AirBossAttack/Attack_IcePillar_AirBoss_24F_v01.png";
+var clipPath="Assets/05.Animation/AirBossAttack/Attack_IcePillar_AirBoss_v01.anim";
+if(System.IO.File.Exists(texturePath)||System.IO.File.Exists(clipPath))throw new System.Exception("New paths already exist; no overwrite.");
+var report=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(folder+"/RegistrationReport.json"));
+System.IO.File.Copy(folder+"/Registered_Sheet.png",texturePath);
+AssetDatabase.ImportAsset(texturePath,ImportAssetOptions.ForceSynchronousImport);
+var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);
+importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Multiple;
+importer.spritePixelsPerUnit=400;importer.filterMode=FilterMode.Bilinear;importer.mipmapEnabled=false;
+importer.alphaIsTransparency=true;importer.wrapMode=TextureWrapMode.Clamp;importer.sRGBTexture=true;
+importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=4096;
+var textureSettings=new TextureImporterSettings();importer.ReadTextureSettings(textureSettings);
+textureSettings.spriteMeshType=SpriteMeshType.FullRect;importer.SetTextureSettings(textureSettings);
+var metas=new SpriteMetaData[24];
+for(int n=0;n<24;n++){
+ var f=report["frames"][n];var r=f["rect"];var p=f["pivotNormalized"];
+ metas[n]=new SpriteMetaData{name="Attack_IcePillar_AirBoss_v01_"+(n+1).ToString("00"),rect=new Rect((float)r[0],(float)r[1],(float)r[2],(float)r[3]),alignment=(int)SpriteAlignment.Custom,pivot=new Vector2((float)p[0],(float)p[1]),border=Vector4.zero};
+}
+importer.spritesheet=metas;importer.SaveAndReimport();
+var sprites=AssetDatabase.LoadAllAssetsAtPath(texturePath).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if(sprites.Length!=24)throw new System.Exception("Expected24 sprites.");
+var original=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_IcePillar.anim");
+var binding=AnimationUtility.GetObjectReferenceCurveBindings(original).First();
+var oldKeys=AnimationUtility.GetObjectReferenceCurve(original,binding);
+var oldSprites=oldKeys.Select(k=>k.value as Sprite).Distinct().ToArray();
+var comparisons=new System.Collections.Generic.List<object>();float maxDifference=0;
+for(int i=0;i<oldSprites.Length;i++){
+ int n=i<=10?i*2:i+10;var a=oldSprites[i];var b=sprites[n];
+ float[] av={-a.pivot.x/a.pixelsPerUnit,-a.pivot.y/a.pixelsPerUnit,(a.rect.width-a.pivot.x)/a.pixelsPerUnit,(a.rect.height-a.pivot.y)/a.pixelsPerUnit};
+ float[] bv={-b.pivot.x/b.pixelsPerUnit,-b.pivot.y/b.pixelsPerUnit,(b.rect.width-b.pivot.x)/b.pixelsPerUnit,(b.rect.height-b.pivot.y)/b.pixelsPerUnit};
+ float diff=av.Zip(bv,(x,y)=>Mathf.Abs(x-y)).Max();maxDifference=Mathf.Max(maxDifference,diff);
+ comparisons.Add(new{original=a.name,replacement=b.name,originalWorldBounds=av,newWorldBounds=bv,maxDifference=diff});
+}
+if(maxDifference>.00001f)throw new System.Exception("World geometry mismatch: "+maxDifference);
+var clip=UnityEngine.Object.Instantiate(original);clip.name="Attack_IcePillar_AirBoss_v01";
+var keys=new ObjectReferenceKeyframe[25];
+for(int n=0;n<24;n++)keys[n]=new ObjectReferenceKeyframe{time=(float)report["frames"][n]["time"],value=sprites[n]};
+keys[24]=new ObjectReferenceKeyframe{time=oldKeys.Last().time,value=sprites.Last()};
+AnimationUtility.SetObjectReferenceCurve(clip,binding,keys);
+AnimationUtility.SetAnimationClipSettings(clip,AnimationUtility.GetAnimationClipSettings(original));
+AssetDatabase.CreateAsset(clip,clipPath);AssetDatabase.SaveAssetIfDirty(clip);
+var output=new{texturePath,clipPath,width=2304,height=1536,ppu=400,frameCount=24,keyCount=25,
+ sampleRate=clip.frameRate,length=clip.length,loop=AnimationUtility.GetAnimationClipSettings(clip).loopTime,
+ events=AnimationUtility.GetAnimationEvents(clip).Length,
+ floatCurves=AnimationUtility.GetCurveBindings(clip).Select(b=>new{b.path,b.propertyName}).ToArray(),
+ maxOriginalAnchorWorldDifference=maxDifference,anchorComparisons=comparisons,
+ keys=keys.Select(k=>new{k.time,sprite=k.value.name}).ToArray(),
+ sprites=sprites.Select(s=>new{name=s.name,rect=new[]{s.rect.x,s.rect.y,s.rect.width,s.rect.height},pivotPixels=new[]{s.pivot.x,s.pivot.y},ppu=s.pixelsPerUnit}).ToArray()};
+System.IO.File.WriteAllText(folder+"/UnityImportReport.json",Newtonsoft.Json.JsonConvert.SerializeObject(output,Newtonsoft.Json.Formatting.Indented));
+return "Created24 sprites and clip; 25keys, duration="+clip.length+", sampleRate="+clip.frameRate+", original anchor geometry max difference="+maxDifference;
