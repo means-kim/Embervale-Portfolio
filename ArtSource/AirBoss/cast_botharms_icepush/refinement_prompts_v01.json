@@ -1,0 +1,72 @@
+[
+  {
+    "frame": 1,
+    "prompt": "PRECISE TINY LOCAL EDIT of this original Idle frost boss. Keep all head, chest, body size, canvas margins and almost all cloth EXACTLY AS INPUT. Move hands only5pixels upward from existing idle, wrists turn inward only2degrees; hands remain wide apart hanging near hips, DO NOT bring them together under chest. No added ice, no particles. Cloth free tips curl only3pixels to right, near-original contour. True transparent RGBA single square requested1024 frame. Preserve original visible figure size and placement.",
+    "references": [
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame01_revised.png"
+  },
+  {
+    "frame": 4,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1, keep entire head, collar, torso, BOTH ARMS and HANDS, ICE and all particles EXACTLY as image1. Image2 is master only as same-size framing reference. Change ONLY the LOWEST CLOTH ENDS below the waist: curl the last part of those trailing ribbons gently UPWARD so their lowest visible tip ends at y900 to925 on original1024 canvas, safely inside y960. Do not shorten or scale whole body, do not zoom or translate. Keep cloth attachment points and same flowing silhouette, just lift/curl the long lowest tips. Same ice state and perspective hand sizes, no new energy or particles. Background genuinely transparent and outer64px completely empty, no stray specks. Single square1024 frame.",
+    "references": [
+      "source/v01/frame04_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame04_revised.png"
+  },
+  {
+    "frame": 10,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1, keep entire head, collar, torso, BOTH ARMS and HANDS, ICE and all particles EXACTLY as image1. Image2 is master only as same-size framing reference. Change ONLY the LOWEST CLOTH ENDS below the waist: curl the last part of those trailing ribbons gently UPWARD so their lowest visible tip ends at y900 to925 on original1024 canvas, safely inside y960. Do not shorten or scale whole body, do not zoom or translate. Keep cloth attachment points and same flowing silhouette, just lift/curl the long lowest tips. Same ice state and perspective hand sizes, no new energy or particles. Background genuinely transparent and outer64px completely empty, no stray specks. Single square1024 frame.",
+    "references": [
+      "source/v01/frame10_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame10_revised.png"
+  },
+  {
+    "frame": 12,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1, keep entire head, collar, torso, BOTH ARMS and HANDS, ICE and all particles EXACTLY as image1. Image2 is master only as same-size framing reference. Change ONLY the LOWEST CLOTH ENDS below the waist: curl the last part of those trailing ribbons gently UPWARD so their lowest visible tip ends at y900 to925 on original1024 canvas, safely inside y960. Do not shorten or scale whole body, do not zoom or translate. Keep cloth attachment points and same flowing silhouette, just lift/curl the long lowest tips. Same ice state and perspective hand sizes, no new energy or particles. Background genuinely transparent and outer64px completely empty, no stray specks. Single square1024 frame.",
+    "references": [
+      "source/v01/frame12_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame12_revised.png"
+  },
+  {
+    "frame": 13,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1, keep entire head, collar, torso, BOTH ARMS and HANDS, ICE and all particles EXACTLY as image1. Image2 is master only as same-size framing reference. Change ONLY the LOWEST CLOTH ENDS below the waist: curl the last part of those trailing ribbons gently UPWARD so their lowest visible tip ends at y900 to925 on original1024 canvas, safely inside y960. Do not shorten or scale whole body, do not zoom or translate. Keep cloth attachment points and same flowing silhouette, just lift/curl the long lowest tips. Same ice state and perspective hand sizes, no new energy or particles. Background genuinely transparent and outer64px completely empty, no stray specks. Single square1024 frame.",
+    "references": [
+      "source/v01/frame13_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame13_revised.png"
+  },
+  {
+    "frame": 14,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1, keep entire head, collar, torso, BOTH ARMS and HANDS, ICE and all particles EXACTLY as image1. Image2 is master only as same-size framing reference. Change ONLY the LOWEST CLOTH ENDS below the waist: curl the last part of those trailing ribbons gently UPWARD so their lowest visible tip ends at y900 to925 on original1024 canvas, safely inside y960. Do not shorten or scale whole body, do not zoom or translate. Keep cloth attachment points and same flowing silhouette, just lift/curl the long lowest tips. Same ice state and perspective hand sizes, no new energy or particles. Background genuinely transparent and outer64px completely empty, no stray specks. Single square1024 frame.",
+    "references": [
+      "source/v01/frame14_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame14_revised.png"
+  },
+  {
+    "frame": 17,
+    "prompt": "PRECISE LOCAL EDIT of IMAGE1. Preserve EXACT existing head/torso scale, arms and hands, foreshortening, faint frost state and body position. ONLY curl the LOWEST TAIL CLOTH upward gently so lowest tip ends at y910 on the1024 canvas, with at least64pixels empty margin below. Image2 is original master scale/framing reference only. Do not scale whole character, no camera zoom, no translation, no ice addition. Single square1024 transparent RGBA frame.",
+    "references": [
+      "source/v01/frame17_generated.png",
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame17_revised.png"
+  },
+  {
+    "frame": 22,
+    "prompt": "PRECISE TINY LOCAL EDIT of this original Idle frost boss. This is last frame before exact original Idle. Keep head, collar, torso, ALL body proportions, arm positions and whole cloth contour nearly IDENTICAL to input. Move each wrist inward1degree only and let only the last tiny cloth tips drift2pixels right. No added ice, no motes or new effects. Preserve same original body scale/framing and empty margins, do not lengthen tail. Genuine transparent RGBA single square1024 frame.",
+    "references": [
+      "../idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "output": "source/v01/frame22_revised.png"
+  }
+]
