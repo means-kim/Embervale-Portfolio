@@ -29,6 +29,7 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
         if (_collider != null)
         {
             _collider.enabled = true;
+            // Debug.Log("콜라이더 켜짐");
         }
     }
 
@@ -37,6 +38,7 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
         if (_collider != null)
         {
             _collider.enabled = false;
+            // Debug.Log("콜라이더 꺼짐");
         }
     }
 
