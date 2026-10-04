@@ -70,27 +70,27 @@ public class AirBossAnimation : MonoBehaviour
         _animator.CrossFade("SpinYaw360", 0.1f);
     }
 
-    private void PlayBothArmsLightningGather()
+    public void PlayBothArmsLightningGather()
     {
         _animator.CrossFade("BothArmsLightningGather", 0.1f);
     }
 
-    private void PlayBothArmsIceThrow()
+    public void PlayBothArmsIceThrow()
     {
         _animator.CrossFade("BothArmsIceThrow", 0.1f);
     }
 
-    private void PlayBothArmsIcePush()
+    public void PlayBothArmsIcePush()
     {
         _animator.CrossFade("BothArmsIcePush", 0.1f);
     }
 
-    private void PlayOneArmIceSummon()
+    public void PlayOneArmIceSummon()
     {
         _animator.CrossFade("OneArmIceSummon", 0.1f);
     }
 
-    private void PlayOneArmUpDownIce()
+    public void PlayOneArmUpDownIce()
     {
         _animator.CrossFade("OneArmUpDownIce", 0.1f);
     }
