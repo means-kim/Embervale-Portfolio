@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292b7c857d188c46b89c900802e19a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
-  _bothArmsLiftDrop: {fileID: 0}
+  _bothArmsLiftDrop: {fileID: 288646290909099654}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,4 +257,4 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 5, y: 5, z: 1}
+  _telegraphScaleMultiplier: {x: 20, y: 100, z: 1}
