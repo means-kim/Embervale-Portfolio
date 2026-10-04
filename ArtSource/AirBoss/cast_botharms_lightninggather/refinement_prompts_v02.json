@@ -1,0 +1,32 @@
+[
+  {
+    "frame": 7,
+    "previousFrameReference": 6,
+    "prompt": "Precise local animation edit on transparent RGBA square1024 canvas. Image1 is previous accepted dynamic frame; use its CLOTH silhouette and body size as the main edit target. Image2 supplies exact desired ARM/HAND/ENERGY pose for this frame. Image3 is original master solely for anatomy/scale. Next moment after image1: retain same CLOTH SHAPE and major ribbons but reduce its outward billow slightly, lower-right ribbon tips 15px closer to torso, upper-left curl 8px inward. Replace ONLY hands/forearms with approved pose image2, slightly closer together. No central ball yet. Head/chest lean forward imperceptibly. Preserve every major fabric attachment, mask/collar design, constant lighting and canvas framing. No zoom, no full-body translation, no newly invented cloth ribbons, no new decoration. Visible artwork stays64px from edges. One frame, no labels.",
+    "output": "source/v02/frame07_revised.png"
+  },
+  {
+    "frame": 13,
+    "previousFrameReference": 12,
+    "prompt": "Precise local animation edit on transparent RGBA square1024 canvas. Image1 is previous accepted dynamic frame; use its CLOTH silhouette and body size as the main edit target. Image2 supplies exact desired ARM/HAND/ENERGY pose for this frame. Image3 is original master solely for anatomy/scale. Next moment after image1: keep near-identical compact CURLING CLOTH SILHOUETTE. Curl just the loose lowest tips a further5px left/up; keep total tail length similar. Use approved hand pose and small lightning from image2. Chest/head remain slightly bowed. Do not expand cloth wide again. Preserve every major fabric attachment, mask/collar design, constant lighting and canvas framing. No zoom, no full-body translation, no newly invented cloth ribbons, no new decoration. Visible artwork stays64px from edges. One frame, no labels.",
+    "output": "source/v02/frame13_revised.png"
+  },
+  {
+    "frame": 14,
+    "previousFrameReference": 12,
+    "prompt": "Precise local animation edit on transparent RGBA square1024 canvas. Image1 is previous accepted dynamic frame; use its CLOTH silhouette and body size as the main edit target. Image2 supplies exact desired ARM/HAND/ENERGY pose for this frame. Image3 is original master solely for anatomy/scale. Hold frame after image1: keep same compact curling cloth contour, but loosen free tips only5px outward. Do not straighten the whole cloth. Use approved held hands and small lightning image2. Preserve bowed head/torso and proportions. Slight settling. Preserve every major fabric attachment, mask/collar design, constant lighting and canvas framing. No zoom, no full-body translation, no newly invented cloth ribbons, no new decoration. Visible artwork stays64px from edges. One frame, no labels.",
+    "output": "source/v02/frame14_revised.png"
+  },
+  {
+    "frame": 15,
+    "previousFrameReference": 12,
+    "prompt": "Precise local animation edit on transparent RGBA square1024 canvas. Image1 is previous accepted dynamic frame; use its CLOTH silhouette and body size as the main edit target. Image2 supplies exact desired ARM/HAND/ENERGY pose for this frame. Image3 is original master solely for anatomy/scale. Hold and breath: keep cloth near same image1 contour but relax lower curls10px to right, head rises only3px. Use approved cupped hands/small lightning image2. Same tail length as image1, do not shorten character or make costume thinner. Preserve every major fabric attachment, mask/collar design, constant lighting and canvas framing. No zoom, no full-body translation, no newly invented cloth ribbons, no new decoration. Visible artwork stays64px from edges. One frame, no labels.",
+    "output": "source/v02/frame15_revised.png"
+  },
+  {
+    "frame": 17,
+    "previousFrameReference": 16,
+    "prompt": "Precise local animation edit on transparent RGBA square1024 canvas. Image1 is previous accepted dynamic frame; use its CLOTH silhouette and body size as the main edit target. Image2 supplies exact desired ARM/HAND/ENERGY pose for this frame. Image3 is original master solely for anatomy/scale. Next moment after image1 HOLD: KEEP BOTH HANDS CUPPED UNDER CHEST around the little blue knot. Do NOT return to idle, do not lower hands to sides. Fingers may relax 2px and knot dims slightly to image2 brightness. Cloth tips settle10px right, upper-left loop opens5px, head lifts2px. Same body pose and character scale. Preserve every major fabric attachment, mask/collar design, constant lighting and canvas framing. No zoom, no full-body translation, no newly invented cloth ribbons, no new decoration. Visible artwork stays64px from edges. One frame, no labels.",
+    "output": "source/v02/frame17_revised.png"
+  }
+]
