@@ -112,7 +112,6 @@ public class GateSwitch : MonoBehaviour
                 {
                     audio.StopBgm(BgmType.Cave);
                     audio.StopBgm(BgmType.Ellite);
-                    audio.PlayBgm(BgmType.Boss);
                 }
                 else
                 {
