@@ -43,6 +43,26 @@ public class AirBossAction : MonoBehaviour
             case AirBossActionType.SpinYaw360:
                 _animation.PlaySpinYaw360Animation();
                 break;
+
+            case AirBossActionType.BothArmsLightningGather:
+                _animation.PlayBothArmsLightningGather();
+                break;
+
+            case AirBossActionType.BothArmsIcePush:
+                _animation.PlayBothArmsIcePush();
+                break;
+
+            case AirBossActionType.BothArmsIceThrow:
+                _animation.PlayBothArmsIceThrow();
+                break;
+
+            case AirBossActionType.OneArmIceSummon:
+                _animation.PlayOneArmIceSummon();
+                break;
+
+            case AirBossActionType.OneArmUpDownIce:
+                _animation.PlayOneArmUpDownIce();
+                break;
         }
     }
 
