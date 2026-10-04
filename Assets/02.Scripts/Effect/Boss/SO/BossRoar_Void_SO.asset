@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6f8ef0c45de6f40a502ead913f69f3, type: 3}
+  m_Name: BossRoar_Void_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.Roar.BossRoarSettings
+  ringInterval: 0.176
+  ringSpeed: 5.2
+  thickness: 0.1
+  startRadius: 0.05
+  ringIntensity: 0.9
+  firstRingBoost: 1.6
+  intensityJitter: 0.15
+  spikeCount: 96
+  spikeLength: 0.08
+  breakup: 0.75
+  coreColor: {r: 0.55, g: 0.38, b: 0.95, a: 1}
+  edgeColor: {r: 0, g: 0, b: 0, a: 1}
+  tintColor: {r: 0, g: 0, b: 0.02, a: 1}
+  ringOcclusion: 1
+  flashColor: {r: 0.25, g: 0.18, b: 0.4, a: 1}
+  tintAmount: 0.55
+  vignette: 0.7
+  pulsePerRing: 0.05
+  startFlash: 0.15
+  flashDecay: 9
+  fadeIn: 0.12
+  fadeOut: 0.45
+  shakeOnStart: 0.035
+  shakeSustain: 0.011
+  shakeFrequency: 28

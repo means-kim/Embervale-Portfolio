@@ -1,3 +1,4 @@
+using Game.Boss.Roar;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,10 @@ public class BossEncounterCinematic : CinematicSequence
     [SerializeField] private Rigidbody2D _player;
     [SerializeField] private Transform _walkTarget;
 
+    [SerializeField] private AreaController _area;
+    [SerializeField] private BossRoarScreenEffect _roarEffect;
+    [SerializeField, Min(0.1f)] private float _roarDuration = 3f;
+
     [Header("이동")]
     [SerializeField, Min(0.1f)] private float _walkSpeed = 5f;
     [SerializeField, Min(0.01f)] private float _stopDistance = 0.1f;
@@ -19,22 +24,28 @@ public class BossEncounterCinematic : CinematicSequence
 
     private PlayerAnimator _playerAnimator;
     private bool _requested;
-    private bool _hasPlayed;
 
     public bool TryPlay()
     {
-        if (!isActiveAndEnabled || _requested || _hasPlayed)
+        if (!isActiveAndEnabled || _requested)
         {
             return false;
         }
 
-        if (_cinematicManager == null || _director == null || _boss == null
+        if (_area == null || _cinematicManager == null
+            || _director == null || _boss == null
             || _player == null || _walkTarget == null)
         {
             return false;
         }
 
         _playerAnimator = _player.GetComponent<PlayerAnimator>();
+
+        if (_playerAnimator == null)
+        {
+            return false;
+        }
+
         _requested = true;
 
         bool accepted = _cinematicManager.Play(_director, HandleCompleted, WalkToTarget, HandleCancelled);
@@ -93,22 +104,27 @@ public class BossEncounterCinematic : CinematicSequence
         _player.linearVelocity = stoppedVelocity;
 
         _playerAnimator?.PlayState(PlayerState.Idle, false);
+
+        _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
     }
 
     private void HandleCompleted()
     {
         _requested = false;
-        _hasPlayed = true;
-        //_boss.StartBattle();
+        _area.HandleIntroCompleted();
     }
 
     private void HandleCancelled()
     {
         _requested = false;
+        _area.HandleIntroCancelled();
     }
 
     private void OnDisable()
     {
-        _cinematicManager.Cancel();
+        if (_requested && _cinematicManager != null)
+        {
+            _cinematicManager.Cancel();
+        }
     }
 }
