@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AirBoss 번개 v01</title>
+<style>
+body{margin:0;background:#101621;color:#e4edff;font:16px system-ui,sans-serif}main{max-width:1200px;margin:32px auto;padding:0 20px}h1{font-size:25px;margin-bottom:8px}p{color:#afbed3;line-height:1.6}.labels{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin:25px 0 8px;font-weight:600}.labels span:nth-child(2){color:#b5d4ff}img{display:block;width:100%;background:#000;border-radius:12px}nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0}button,select{background:#d5e5ff;color:#10213b;border:0;border-radius:8px;padding:10px 16px;font:inherit;cursor:pointer}input{flex:1;min-width:180px;accent-color:#94c0ff}small{display:block;margin-top:18px;color:#8fa2bd;line-height:1.6}.timing{display:flex;height:8px;gap:3px}.timing i{border-radius:4px}.approach{flex:3;background:#617fbd}.crack{flex:14;background:#c9deff}.shatter{flex:7;background:#6888ca}output{min-width:185px}.links{display:flex;gap:24px;flex-wrap:wrap}a{color:#b5d4ff}
+</style>
+<main>
+<h1>AirBoss 번개 · v01</h1>
+<p>24장의 서로 다른 그림 · 중심 피봇 · 흰 중심선과 가는 옆갈래가 방전한 뒤 청보라 잔광으로 사라집니다.</p>
+<div class="labels"><span>승인된 고드름</span><span>새 번개</span><span>AirBoss 참조</span></div>
+<img id="frame" src="PreviewFrames/Frame_09.png" alt="고드름, 새 번개, AirBoss의 Unity 렌더 비교">
+<nav>
+<button id="toggle">일시 정지</button><button id="again">처음부터</button>
+<select id="speed" aria-label="미리보기 속도"><option value="1">1배속</option><option value="0.5">0.5배속</option><option value="0.25">0.25배속</option></select>
+<input id="seek" type="range" min="0" max="1.041666667" step="0.001" value="0" aria-label="재생 시각"><output id="label"></output>
+</nav>
+<div class="timing"><i class="approach"></i><i class="crack"></i><i class="shatter"></i></div>
+<p>형성 3장 / 0.125초 → 방전 14장 / 0.583초 → 잔광·소멸 7장 / 0.292초<br>24FPS · 1초에 표시 종료 · 빈 끝 프레임 포함 전체 약 1.042초</p>
+<small>Unity에서 실제 클립의 모든 키를 샘플링한 렌더입니다. 이 페이지는 반복 감상용이며, 제작한 Unity 클립은 한 번 재생합니다. 보스와 고드름은 화풍 비교용이며 실제 게임 배치 크기를 확정한 것이 아닙니다. 속도 선택은 미리보기에만 적용됩니다.</small>
+<p class="links"><a href="../../../../Assets/04.Sprites/AirBossAttack/Attack_Lightning_AirBoss_24F_v01.png">멀티 스프라이트</a><a href="../../../../Assets/05.Animation/AirBossAttack/Attack_Lightning_AirBoss_v01.anim">애니메이션 클립</a><a href="GenerationPrompt.txt">제작 프롬프트</a><a href="ProductionNotes.txt">제작 사양</a></p>
+</main>
+<script>
+const end=1.041666667,count=25;
+const imgs=Array.from({length:count},(_,i)=>{const im=new Image();im.src=`PreviewFrames/Frame_${String(i+1).padStart(2,'0')}.png`;return im});
+const image=document.querySelector('#frame'),seek=document.querySelector('#seek'),label=document.querySelector('#label'),toggle=document.querySelector('#toggle'),speed=document.querySelector('#speed');
+let playing=true,time=0,elapsed=0,previous=performance.now(),last=-1;
+function show(t){time=t;const index=Math.min(24,Math.floor((t+.000001)*24));if(index!==last){image.src=imgs[index].src;last=index}seek.value=t;const phase=t<3/24?'형성':t<17/24?'방전':t<24/24?'잔광·소멸':'종료';label.value=`${t.toFixed(2)}초 · ${phase} · ${index<24?String(index+1).padStart(2,'0')+'/24':'빈 화면'}`}
+toggle.onclick=()=>{playing=!playing;previous=performance.now();elapsed=time;toggle.textContent=playing?'일시 정지':'재생'};
+document.querySelector('#again').onclick=()=>{elapsed=0;previous=performance.now();playing=true;toggle.textContent='일시 정지';show(0)};
+seek.oninput=()=>{playing=false;toggle.textContent='재생';elapsed=Number(seek.value);show(elapsed)};
+function tick(now){if(playing){elapsed=(elapsed+Math.min(.1,(now-previous)/1000)*Number(speed.value))%(end+.65);show(Math.min(elapsed,end))}previous=now;requestAnimationFrame(tick)}
+Promise.all(imgs.map(im=>im.decode().catch(()=>{}))).then(()=>{previous=performance.now();requestAnimationFrame(tick)});
+</script>
+</html>
