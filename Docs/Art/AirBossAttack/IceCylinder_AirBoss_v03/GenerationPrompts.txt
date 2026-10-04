@@ -1,0 +1,55 @@
+Built-in image_gen. Both calls transparent_background=true.
+
+INITIAL PROMPT
+Use case: style-transfer.
+Asset: a NEW Unity 2D ice CYLINDER rising, holding, and shattering animation sprite sheet, exactly 24 distinct drawings in a strict 6-column x 4-row grid.
+Image roles:
+1. Approved AirBoss-style icicle sheet: PRIMARY material, color and edge-treatment reference. Match its silver-white and pale gray-blue crystalline facets, delicate frost veins, refined edges and restrained luminous highlights.
+2. AirBoss character: supporting style reference only, for painterly icy-blue spectral magic.
+3. Previous cylinder sheet: subject and action reference only. Redesign its surface to match image 1. Do NOT copy its saturated neon cyan palette, chunky pixel outlines, uneven row placement or cartoon rounded baubles.
+
+Paint a substantial upright circular ice cylinder rising vertically OUT OF THE GROUND, remaining fully risen for several consecutive frames, then cracking and shattering into falling ice shards and fine frost. Maintain a clear CYLINDRICAL silhouette: nearly parallel sides and a shallow elliptical top plane, subtly faceted frosted rim, restrained angular imperfections. No pointed stalagmite, no icicle cone, no stone pedestal, no boss character, no hands.
+Materials: finely painted translucent silver-blue ice with visible depth, narrow dark gray-blue side planes, layered frozen striations, thin internal frost veins, fine silver-white rims and modest moving glints. Crisp refined silhouette with small softened frost edges, no chunky retro pixels, no heavy dark outlines, no oversized white zigzags. The coherent color and finish must feel like the approved icicle.
+
+GRID AND ANCHOR:
+Request canvas 2304 x 1536 RGBA, 6 x 4 EXACT uniform square cells (384 x 384 if requested size is used).
+Left-to-right, then top-to-bottom temporal order. Do not draw labels, grid lines or numbers.
+Within EVERY cell, the pillar centerline is at x=50% and a COMMON GROUND BASELINE is at y=89% measured from TOP. At maximum height the cylinder extends from y=14% to y=89%; cylinder diameter roughly 36% of the cell width. All important particles stay within x=10%-90%, y=7%-94%, with clear empty gutters.
+Each frame uses the same scale, orthographic side-view camera, and baseline. For rising frames, lower part remains planted at the baseline while the top rises; do not center small stages vertically. Do not zoom, rotate the pillar, shift horizontally or change full-height dimensions. Sprite pivot later will be the CENTER OF THE CELL, so registered layout is essential.
+
+EXACT 24-FRAME STORYBOARD:
+Row 1, frames 01-06: six genuinely different upward emergence poses at approximately 5%, 13%, 26%, 44%, 66%, 84% of full height; cylinder width stays consistent while the top visibly moves upward. Tiny frost eruption near the feet.
+Row 2:
+07: 96% height, slowing near the top.
+08: reaches 100% height, a small settling frost wisp.
+09,10,11,12: four consecutive INTACT FULL-HEIGHT HOLD drawings; only small silver glints and faint drifting frost vary. No damage cracks, size change, swelling or deformation.
+Row 3:
+13,14: two MORE intact FULL-HEIGHT HOLD drawings; stable body, distinct subtle glints.
+15: first fine structural crack starts high on the body, pillar remains full height.
+16: cracks propagate down and branch.
+17: larger connected cracks, a few seams separate slightly, overall cylinder still recognizable.
+18: large segments begin to separate outward; small chips drop.
+Row 4:
+19: upper cylinder breaks into broad angular ice segments, lower portion collapses.
+20: separated shards move outward and downward, retaining some column outline.
+21: fragments lower and spread, no intact cylinder left.
+22: fewer smaller fragments near the baseline, fading fine frost above.
+23: low small scattered ice splinters and thin dissipating frost.
+24: only a few tiny fading flakes near the baseline, almost empty.
+Every intermediate frame must be a new drawing representing the progression, not repeated stills or global scaling. Hold frames keep the same geometry but change glints. Fragments keep the SAME refined ice material.
+
+True transparent RGBA background. Preserve alpha, no solid or gradient backdrop, no checkerboard painted into image. No floor strip or shadow rectangle. Do not bake bright mist across the entire cell. No frame overlap or clipping. No UI, text, watermark or decorative borders. Output ONLY the sprite sheet.
+
+REGISTRATION REVISION
+Edit this exact 24-frame ice cylinder sheet. Keep its beautiful existing silver-white / pale gray-blue painterly ice material, refined crystal facets, fine edge treatment, lighting and all 24 action drawings. Keep the transparent RGBA background.
+
+The only corrections are animation registration/layout and the last rising poses. Output exactly 1536x1024, strict 6 columns x4 rows, every cell exactly 256x256. Use local coordinates measured from each cell TOP LEFT:
+- centerline x=128 in every frame.
+- ground contact baseline y=228 in every frame.
+- all painted content including chips/mist must remain inside x=18..238, y=12..241 so there is transparent separation between all cells.
+- full-height cylinder top y=36 and bottom y=228 (body height192px), body width74px, identical for frames08 through17. Same drawing scale every frame.
+- Frames01..08 show gradual emergence with body heights 12,25,50,85,127,161,184,192px respectively. Bottom fixed at y228. SAME WIDTH (74px) for emerging cylinder body; frost puffs can vary.
+- Frames09,10,11,12,13,14 are all intact at the EXACT full height and width, with subtle distinct moving glints. Frame08 also fully risen.
+- Frames15..18 show progressive cracks/separation as already painted; frame19..24 the existing shattering and falling shards, ending in a few tiny low flakes.
+No zooming or shifting of objects from one cell to another. In particular remove the current first-row baseline being below its cell and the height/position jump between row2 and row3. Use consistent equal cell layout and same floor contact across ALL rows.
+Preserve the refined painted ice finish; do not add pixel-art blocks, heavy outlines, large starbursts, ground tiles, text, grid lines, numbers, solid backgrounds or any new object. Exactly24 frames. New generation is a production sprite sheet, not a contact sheet with variable rows.

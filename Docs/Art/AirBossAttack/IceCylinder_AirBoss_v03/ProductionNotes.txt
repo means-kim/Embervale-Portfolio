@@ -1,0 +1,45 @@
+AirBoss 얼음 원기둥 신규 24프레임 v03
+제작일: 2026-10-05 (Asia/Seoul)
+
+결과물
+- 멀티 스프라이트: ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_AirBoss_24F_v03.png
+- 전체 동작 클립: ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_AirBoss_v03.anim
+- 각 .meta 포함. 새 GUID의 별도 에셋이며 기존 원기둥/고드름/클립/프리팹/컨트롤러는 보존했다.
+- 사용할 Motion은 Attack_IceCylinder_AirBoss_v03. 새 컨트롤러는 만들지 않았다.
+
+디자인 및 제작
+- 사용자가 승인한 고드름 AirBoss_v02의 은청색 결정면, 서리 질감, 가는 반사와 끝처리를 기준으로 제작.
+- 원기둥의 평행한 옆면과 타원형 윗면, 얇은 냉기와 바닥 결정, 파괴 후 떨어지는 파편으로 구성.
+- built-in image_gen으로 24프레임 전체 생성 후 같은 도구로 배치/상승 보완을 요청했다. 정확한 두 프롬프트: GenerationPrompts.txt.
+- 참조: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_AirBoss_4x3_v02.png
+- 참조: ../../../../Assets/04.Sprites/AirBoss/AirBoss_Cast_BothArms_IcePush_Part1_4x4_1024_v01.png
+- 동작 참조: ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_24F_v02.png
+- 최초 요청2304x1536, 실제 두 생성 PNG는 모두1536x1024 RGBA. 최종본도1536x1024다.
+- Generated_Initial.png/Generated_Revised.png는 도구 원본. 행별 바닥선 차이를 PackSheet.cs.txt로 같은 셀에 정렬했다. 최대 높이 구간은 작은 폭/높이 차이도 정규화했다. 상세 수치: PackingReport.json.
+- Packed_Sheet.png가 최종 Assets PNG와 동일. 생성된 서로 다른 24개 그림을 사용했으며 하나의 그림을 반복 확대해 상승/파괴를 만들지 않았다.
+- RGBA 알파를 사용해 투명 여백 유지. 원시 PNG의 알파0 RGB에 남은 배경색은 불투명 배경이 아니다. 실제 표시 확인은 PreviewFrames의 Unity 렌더로 수행했다.
+
+실제 임포트 사양
+- 6열 x4행, 전 셀256x256. 좌상단부터 오른쪽, 다음 행 순서.
+- 전 프레임 center pivot(0.5,0.5). 셀 중심 기준이며 프레임마다 보이는 물체의 중심을 다시 계산하지 않는다.
+- 셀 내 중심선 x128, 공통 바닥 기준은 위에서 y228. 고정 피봇에서 그림이 위로 솟아오른다.
+- PPU256, Bilinear, Mipmap off, sRGB on, Clamp, Full Rect, 무압축, max2048.
+- 프레임당1x1 월드 단위(Scale1), 실제 게임 크기는 사용자 Transform Scale에서 조절.
+
+클립
+- sampleRate24, 24개 스프라이트와 마지막 null키1개. 길이2.5416667초, Loop Time off.
+- 01~08: 상승/정착 0~0.5초. 24FPS 눈금에서1~2틱씩 배분.
+- 09~14: 완성된 원기둥의 서로 다른 반짝임 그림6개, 각각0.25초씩 총1.5초 유지.
+- 15~24: 균열→분리→낙하 파편→작은 잔해, 2.0~2.5초.
+- 2.5초: Sprite를 null로 지워 마지막 잔해가 계속 남지 않게 한다. 이후 마지막1틱은 빈 화면.
+- 바인딩: 빈 경로 SpriteRenderer.m_Sprite. Animator와 SpriteRenderer가 같은 오브젝트에 있을 때 사용.
+- Transform/색/알파 float curve와 이벤트 없음. 공격 판정·풀 반환 로직은 이 클립에 포함하지 않는다.
+
+검증
+- PNG24셀의 픽셀 해시가 모두 다름, 중요한 알파 영역이 셀 경계에 닿지 않음 확인.
+- Unity6000.3.22f1에서24 Sprite/피봇/PPU/클립 참조, 순서/시간/loopoff 확인.
+- 격리된 PreviewRenderUtility에서24키와마지막null, 총25상태를 샘플링·렌더. UnityRenderReport.json 참조.
+- Frame04/09/14/19/24의 상승/동일최대높이/파괴/잔해와 화풍을 직접 검토. 셀 간 혼입·배경 사각형·주요그림 잘림 없음.
+- 검토용 고드름/원기둥/보스는 나란히 배치했다. 보스 높이는 화풍 비교용이며 실제 씬 크기 합의가 아니다.
+- 작업 전 기존41개 공격 관련 파일의 SHA256과 비교하여 변경 없음 확인.
+- 실제 씬의 배치/콜라이더/공격 지속시간/피해/풀 반환은 이번 제작 범위가 아니다.
