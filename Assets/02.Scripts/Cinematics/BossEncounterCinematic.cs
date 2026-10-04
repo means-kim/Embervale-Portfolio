@@ -1,7 +1,6 @@
 using Game.Boss.Roar;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Playables;
 
 public class BossEncounterCinematic : CinematicSequence
@@ -10,6 +9,7 @@ public class BossEncounterCinematic : CinematicSequence
     [SerializeField] private CinematicManager _cinematicManager;
     [SerializeField] private PlayableDirector _director;
     [SerializeField] private AirBossController _boss;
+    [SerializeField] private SpriteRenderer _bossRenderer;
     [SerializeField] private Rigidbody2D _player;
     [SerializeField] private Transform _walkTarget;
 
@@ -24,10 +24,20 @@ public class BossEncounterCinematic : CinematicSequence
 
     private PlayerAnimator _playerAnimator;
     private bool _requested;
+    private bool _repeatPlayback;
+    private bool _startedBossBgm;
+
+    private bool CanPlay()
+    {
+        return Application.isPlaying && isActiveAndEnabled && !_requested
+            && _area != null && _boss != null && _bossRenderer != null
+            && _director != null && _director.isActiveAndEnabled
+            && _director.playableAsset != null && _director.state != PlayState.Playing;
+    }
 
     public bool TryPlay()
     {
-        if (!isActiveAndEnabled || _requested)
+        if (!CanPlay())
         {
             return false;
         }
@@ -46,16 +56,57 @@ public class BossEncounterCinematic : CinematicSequence
             return false;
         }
 
-        _requested = true;
+        bool wasBossEnabled = _boss.enabled;
+        bool wasRendererEnabled = _bossRenderer.enabled;
+        PrepareBoss();
 
         bool accepted = _cinematicManager.Play(_director, HandleCompleted, WalkToTarget, HandleCancelled);
 
         if (!accepted)
         {
             _requested = false;
+            _boss.enabled = wasBossEnabled;
+            _bossRenderer.enabled = wasRendererEnabled;
         }
 
         return accepted;
+    }
+
+    // 재입장은 플레이어 조작과 카메라 연출을 건드리지 않고 보스 Timeline만 재생한다.
+    public bool TryPlayWithoutCinematic()
+    {
+        if (!CanPlay())
+        {
+            return false;
+        }
+
+        PrepareBoss();
+        _repeatPlayback = true;
+        _director.stopped += HandleRepeatStopped;
+        _director.time = 0;
+        _director.Play();
+        return true;
+    }
+
+    private void PrepareBoss()
+    {
+        _requested = true;
+        _repeatPlayback = false;
+        _startedBossBgm = false;
+        _boss.enabled = false;
+        _bossRenderer.enabled = false;
+    }
+
+    private void HandleRepeatStopped(PlayableDirector director)
+    {
+        if (!_requested || !_repeatPlayback || director != _director)
+        {
+            return;
+        }
+
+        _director.stopped -= HandleRepeatStopped;
+        _repeatPlayback = false;
+        HandleCompleted();
     }
 
     private IEnumerator WalkToTarget()
@@ -104,25 +155,91 @@ public class BossEncounterCinematic : CinematicSequence
         _player.linearVelocity = stoppedVelocity;
 
         _playerAnimator?.PlayState(PlayerState.Idle, false);
+    }
+
+    public void ShowBoss()
+    {
+        if (_bossRenderer == null)
+        {
+            return;
+        }
+        _bossRenderer.enabled = true;
+    }
+
+    public void PlayRoar()
+    {
+        if (_boss == null || _roarEffect == null)
+        {
+            return;
+        }
+
 
         _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
+    }
+
+    public void PlayBossBgm()
+    {
+        if (!_requested || _startedBossBgm || AudioManager.Instance == null)
+        {
+            return;
+        }
+
+        AudioManager.Instance.StopBgm(BgmType.IntoBoss);
+        AudioManager.Instance.PlayBgm(BgmType.Boss);
+        _startedBossBgm = true;
     }
 
     private void HandleCompleted()
     {
         _requested = false;
+        if (_bossRenderer != null)
+        {
+            _bossRenderer.enabled = true;
+        }
+
+        if (_boss != null)
+        {
+            _boss.enabled = true;
+        }
+
         _area.HandleIntroCompleted();
     }
 
     private void HandleCancelled()
     {
         _requested = false;
+        _roarEffect?.Stop();
+        if (_bossRenderer != null)
+        {
+            _bossRenderer.enabled = false;
+        }
+        if (_boss != null)
+        {
+            _boss.enabled = false;
+        }
+        if (_startedBossBgm)
+        {
+            AudioManager.Instance?.StopBgm(BgmType.Boss);
+            _startedBossBgm = false;
+        }
         _area.HandleIntroCancelled();
     }
 
     private void OnDisable()
     {
-        if (_requested && _cinematicManager != null)
+        if (!_requested)
+        {
+            return;
+        }
+
+        if (_repeatPlayback)
+        {
+            _director.stopped -= HandleRepeatStopped;
+            _repeatPlayback = false;
+            _director.Stop();
+            HandleCancelled();
+        }
+        else if (_cinematicManager != null)
         {
             _cinematicManager.Cancel();
         }
