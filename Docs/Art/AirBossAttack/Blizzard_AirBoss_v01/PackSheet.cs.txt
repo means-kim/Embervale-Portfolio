@@ -1,0 +1,26 @@
+var dir="Docs/Art/AirBossAttack/Blizzard_AirBoss_v01";
+var grid=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(dir+"/GeneratedGridAudit.json"));
+var source=new Texture2D(2,2,TextureFormat.RGBA32,false);Texture2D output=null;
+try{
+ ImageConversion.LoadImage(source,System.IO.File.ReadAllBytes(dir+"/Generated_Revised.png"),false);
+ var pixels=source.GetPixels32();var dst=new Color32[2048*1024];
+ for(int n=0;n<32;n++){
+  var rect=grid["frames"][n]["rect"];int x0=(int)rect[0],y0=(int)rect[1],w=(int)rect[2],h=(int)rect[3];
+  // Fit the entire generated canvas to232px and preserve a fixed center, never follow individual particles.
+  for(int y=12;y<244;y++)for(int x=12;x<244;x++){
+   float sx=(x-127.5f)*w/232f+(w-1)*.5f,sy=(y-127.5f)*h/232f+(h-1)*.5f;
+   int ix=Mathf.FloorToInt(sx),iy=Mathf.FloorToInt(sy);float fx=sx-ix,fy=sy-iy;
+   float aa=0,rr=0,gg=0,bb=0;
+   for(int dy=0;dy<2;dy++)for(int dx=0;dx<2;dx++){
+    int px=ix+dx,py=iy+dy;if(px<0||px>=w||py<0||py>=h)continue;
+    var c=pixels[(source.height-1-y0-py)*source.width+x0+px];
+    float weight=(dx==0?1-fx:fx)*(dy==0?1-fy:fy),wa=weight*c.a;
+    aa+=wa;rr+=c.r*wa;gg+=c.g*wa;bb+=c.b*wa;
+   }
+   dst[(1023-n/8*256-y)*2048+n%8*256+x]=aa>.001f?new Color32((byte)Mathf.Clamp(Mathf.RoundToInt(rr/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(gg/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(bb/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(aa),0,255)):new Color32(0,0,0,0);
+  }
+ }
+ output=new Texture2D(2048,1024,TextureFormat.RGBA32,false);output.SetPixels32(dst);output.Apply(false,false);
+ System.IO.File.WriteAllBytes(dir+"/Packed_Sheet.png",output.EncodeToPNG());
+ return "Packed32 unique generated drawings into8x4 identical256px cells; fixed center and12px outer gutters, generated alpha retained.";
+}finally{UnityEngine.Object.DestroyImmediate(source);if(output!=null)UnityEngine.Object.DestroyImmediate(output);}

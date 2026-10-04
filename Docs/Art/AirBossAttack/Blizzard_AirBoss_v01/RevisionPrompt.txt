@@ -1,0 +1,14 @@
+Tool: built-in image_gen; transparent_background=true.
+
+Use case: style-transfer.
+Edit input1, the 32-frame transparent snowstorm sprite sheet. Keep EXACTLY32 drawings in an8x4 grid, same centered action timing (6appear,20active,6dissipate), same silver-blue palette and transparent background.
+Input2 approved icicle and input3 approved cylinder are material references only.
+
+ONE CRITICAL CORRECTION: The current result looks like six large gemstones orbiting in a closed ring. Replace that look with a genuine airy BLIZZARD OF FINE SNOW AND WIND, while preserving the refined ice surface style. Reduce the current large ice crystals to roughly one third of their size and use only2-3 slightly larger foreground splinters per active frame. Most visible content must be many tiny irregular snow flakes, pin-size icy granules and thin short streaks at different depths, carried by swift curved gusts.
+
+DO NOT draw a neat donut, circular hole, ice necklace, portal ring, a chain of six large rocks, or a single uniform orbit. Make an irregular, open, roughly round SNOWSTORM VOLUME. Use broken arcing currents at multiple radii, oblique streaks and loose trailing wisps. Streams curl around the imaginary boss's vertical axis in overlapping flattened ellipses with coherent direction. The visual footprint remains centered and stable. A few faint flakes cross the otherwise clear center so it is not a perfectly punched-out hole. More flakes flow at the sides and lower outer sweep, with clear gaps between currents. This should look like blowing snow, not a shield or a spell circle.
+
+TRANSPARENCY IS ESSENTIAL: No opaque white cloud, fog disk, white cotton smoke, opaque background or big bloom. Individual opaque pixels are only tiny sharp crystal flakes. Thin snow dust and fine blue-white wisps are semitransparent, air stays visible between them. Center x92..164,y62..194 in a256 square cell should have very low density and only a handful of faint isolated particles, so the boss face and torso remain readable. Do not add a character.
+Keep fine silver-white glints and cool blue-gray shadow facets on the few small ice splinters, with sharp tapered tips matching the ice references. Not pixel art. No large geometric snowflake symbols.
+32 distinct fresh sequential drawings, not rotating or copying one image. Flakes and streaks advance coherently. Frames01-06 build from sparse fine drifting grains to moderate snowstorm.07-26 retain steady moderate density and diameter while particles move.27-32 thin and disperse, frame32 a last faint tiny speck.
+8columns x4rows, request2048x1024 RGBA,256square cells. Center always128,128. Keep ALL content inside each cell x16..240,y16..240; transparent gutters and no cross-cell bleeding. No labels/grid/text/border/ground/scenery. Deliver only the revised transparent sprite sheet.

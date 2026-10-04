@@ -1,0 +1,39 @@
+AirBoss 눈보라 v01 — 2026-10-05
+
+요청
+승인된 고드름·얼음 원기둥·얼음 덩어리의 은청색, 결정 질감, 날카로운 끝처리를 사용한 새 눈보라. 32장, 전체 중심 피봇 통일, 단일 클립, 불투명 눈구름 누적 방지. AirBoss_SpinYaw360과 함께 사용할 소재이며 최종 배치와 스케일은 사용자가 조절한다.
+
+제작 파일
+../../../../Assets/04.Sprites/AirBossAttack/Attack_Blizzard_AirBoss_32F_v01.png (+ .meta)
+../../../../Assets/05.Animation/AirBossAttack/Attack_Blizzard_AirBoss_v01.anim (+ .meta)
+
+사양
+8열×4행, 총 32장의 서로 다른 그림. 해시 검사로 동일 프레임 없음 확인.
+시트 2048×1024 RGBA, 각 셀 256×256, 모든 셀 중심 피봇 (0.5, 0.5).
+PPU 256, Bilinear, Clamp, FullRect, 무압축, mipmap 없음, alphaIsTransparency 사용.
+24FPS, 비반복 단일 클립. 형성 6장(0.25초), 회전 20장(0.833초), 흩어짐 6장(0.25초).
+32/24초(1.333333초)에 SpriteRenderer.sprite를 null로 바꾸는 끝 키가 있다.
+Unity가 보고하는 총 길이는 빈 끝 프레임을 포함해 1.375초다.
+이벤트와 Transform 곡선은 없다. Animator Controller는 생성하지 않았다.
+
+이미지 생성
+Codex 내장 image_gen을 사용했다. API 별도 호출이나 Python 그림 생성은 사용하지 않았다.
+최초 프롬프트: GenerationPrompt.txt. 원본: Generated_Initial.png.
+수정 프롬프트: RevisionPrompt.txt. 채택 원본: Generated_Revised.png.
+참조는 Attack_Icicle_Fall_AirBoss_4x3_v02.png, Attack_IceCylinder_AirBoss_24F_v03.png, Attack_IcePush_IceMass_32F_v01.png다.
+최초안의 큰 결정 비중을 줄이고 얇은 서리와 잔눈이 여러 반경으로 흐르도록 수정했다.
+요청 시트 해상도는 2048×1024였으나 실제 생성 원본은 1774×887이다.
+Unity C#으로 각 원본 셀을 232×232 안쪽 영역으로 균일 정규화하고 256×256 셀에 중앙 배치했다. 외곽 투명 여백은 12px이며 개별 눈조각 중심으로 재정렬하지 않았다.
+premultiplied alpha 보간으로 원본 색과 투명도를 유지했다. 출력 확대가 원본 디테일 증가를 뜻하지 않는다.
+PackSheet.cs.txt, CreateAssets.cs.txt에 기계적 정리와 임포트 과정을 보관했다.
+
+검증
+UnitySpriteAudit.json: 32개 모두 256×256, 중심 피봇, PPU256 확인.
+FinalFileAudit.json: 서로 다른 32장, 모든 셀 바깥 테두리 alpha0 확인.
+UnityImportReport.json: 키32개+null, 이벤트0, float곡선0, 비반복 확인.
+PreviewFrames는 별도 PreviewRenderUtility에서 실제 클립을 샘플링한 33개 렌더다. 현재 게임 씬은 변경하지 않았다.
+왼쪽은 눈보라 단독, 오른쪽은 AirBoss_SpinYaw360과 겹친 결과다. 가장 짙은 구간에서도 얼굴과 몸통이 식별되며 불투명한 눈구름 누적은 보이지 않는다.
+Frame_33에서 눈보라 렌더러가 해제되고 보스만 남는 것을 확인했다.
+검토용 크기·검은 배경 합성이며 실제 전투 배경, 최종 배치, 피해 판정은 검증 대상이 아니다.
+기존 관련 소재·프리팹·애니메이션 89개 파일의 SHA256을 대조했고 변경은 없었다.
+Preview.html은 감상 편의를 위해 반복 재생하지만 제작한 Unity 클립 자체는 반복하지 않는다.
