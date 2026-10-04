@@ -68,7 +68,7 @@ public class AreaController : MonoBehaviour
 
         bool shouldPlayIntro = _useIntro && !history.HasSeenIntro(_encounterId);
 
-        if (shouldPlayIntro && _intro == null)
+        if (_useIntro && _intro == null)
         {
             return;
         }
@@ -76,7 +76,7 @@ public class AreaController : MonoBehaviour
         _leftBlock?.Close();
         _rightBlock?.Close();
 
-        if (!shouldPlayIntro)
+        if (!_useIntro)
         {
             StartBattle();
             return;
@@ -84,7 +84,11 @@ public class AreaController : MonoBehaviour
 
         _state = AreaState.Intro;
 
-        if (!_intro.TryPlay())
+        bool accepted = shouldPlayIntro
+            ? _intro.TryPlay()
+            : _intro.TryPlayWithoutCinematic();
+
+        if (!accepted)
         {
             HandleIntroCancelled();
         }

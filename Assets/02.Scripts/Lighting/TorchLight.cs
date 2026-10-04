@@ -7,24 +7,25 @@ public class TorchLight : MonoBehaviour
     [SerializeField]
     private float _duration = 10f;
 
+    [SerializeField] private Light2D _light;
     [SerializeField] private float _targetIntensity = 1.5f;
     [SerializeField] private float _fadeDuration = 0.4f;
     [SerializeField] private ParticleSystem _fireEffect;
+    [SerializeField] private GameObject _flame;
     [SerializeField] private string _fireInteract = "FireInteract";
     [SerializeField] private string _unFireInteract = "UnFireInteract";
 
-    private Light2D _light;
     private Coroutine _routine;
     private WaitForSeconds _litWait;
     private float _baseIntensity;
     public bool IsLit { get; private set; }
     private void Awake()
     {
-        _light = GetComponent<Light2D>();
         if (_duration > 0f)
         {
             _litWait = new WaitForSeconds(_duration);
         }
+        SetFire(false);
         ResetLight();
     }
 
@@ -59,7 +60,10 @@ public class TorchLight : MonoBehaviour
 
     private void FireUnActive()
     {
-        if (!IsLit) return;
+        if (!IsLit)
+        {
+            return;
+        }
         SetFire(false);
         StartRoutine(FadeTo(0f));
     }
@@ -86,6 +90,7 @@ public class TorchLight : MonoBehaviour
         for (float t = 0f; t < _fadeDuration; t += Time.deltaTime)
         {
             _baseIntensity = Mathf.Lerp(start, target, t / _fadeDuration);
+            _light.intensity = _baseIntensity;
             yield return null;
         }
 
@@ -94,11 +99,18 @@ public class TorchLight : MonoBehaviour
         {
             _light.enabled = false;
         }
+        _light.intensity = _baseIntensity;
     }
 
     private void SetFire(bool lit)
     {
         IsLit = lit;
+
+        if (_flame != null)
+        {
+            _flame.SetActive(lit);
+        }
+
         if (_fireEffect == null)
         {
             return;
@@ -110,7 +122,7 @@ public class TorchLight : MonoBehaviour
         }
         else
         {
-            _fireEffect.Stop();
+            _fireEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
     }
 
