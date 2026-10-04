@@ -7,7 +7,7 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
 
     private void Awake()
     {
-        _attack = GetComponent<AirBossAttack>();
+        _attack = GetComponentInParent<AirBossAttack>();
     }
 
     private void Release()
