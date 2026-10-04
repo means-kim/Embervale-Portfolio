@@ -1,0 +1,27 @@
+var folder="Docs/Art/AirBossAttack/IcePillar_AirBoss_v01";
+var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_IcePillar.anim");
+var binding=AnimationUtility.GetObjectReferenceCurveBindings(clip).First();
+var keys=AnimationUtility.GetObjectReferenceCurve(clip,binding);
+var sprites=keys.Select(k=>k.value as Sprite).Distinct().ToArray();
+var frames=sprites.Select(s=>new{name=s.name,rect=new[]{s.rect.x,s.rect.y,s.rect.width,s.rect.height},pivot=new[]{s.pivot.x,s.pivot.y},ppu=s.pixelsPerUnit}).ToArray();
+var atlas=sprites[0].texture;var save=RenderTexture.active;
+var rt=RenderTexture.GetTemporary(atlas.width,atlas.height,0,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
+var readable=new Texture2D(atlas.width,atlas.height,TextureFormat.RGBA32,false);
+var sheet=new Texture2D(1536,1536,TextureFormat.RGBA32,false);
+try{
+ Graphics.Blit(atlas,rt);RenderTexture.active=rt;readable.ReadPixels(new Rect(0,0,atlas.width,atlas.height),0,0);readable.Apply();
+ var pixels=readable.GetPixels32();var dst=new Color32[1536*1536];
+ for(int n=0;n<sprites.Length;n++){
+   var s=sprites[n];int w=Mathf.RoundToInt(s.rect.width),h=Mathf.RoundToInt(s.rect.height);
+   int left=Mathf.RoundToInt(48-s.pivot.x),bottom=Mathf.RoundToInt(-s.pivot.y);
+   for(int y=0;y<h;y++)for(int x=0;x<w;x++){
+     var c=pixels[(Mathf.RoundToInt(s.rect.y)+y)*atlas.width+Mathf.RoundToInt(s.rect.x)+x];
+     for(int yy=0;yy<4;yy++)for(int xx=0;xx<4;xx++)dst[((3-n/4)*384+(bottom+y)*4+yy)*1536+n%4*384+(left+x)*4+xx]=c;
+   }
+ }
+ sheet.SetPixels32(dst);sheet.Apply();System.IO.File.WriteAllBytes(folder+"/Original_14Frames_Reference.png",sheet.EncodeToPNG());
+ var report=new{sourceClip=AssetDatabase.GetAssetPath(clip),sourceTexture=AssetDatabase.GetAssetPath(sprites[0]),fps=clip.frameRate,length=clip.length,loop=AnimationUtility.GetAnimationClipSettings(clip).loopTime,frames,keys=keys.Select(k=>new{k.time,sprite=k.value.name}).ToArray()};
+ var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);
+ System.IO.File.WriteAllText(folder+"/OriginalGeometry.json",json);
+ return "Saved original 14-frame reference and geometry. Atlas "+atlas.width+"x"+atlas.height;
+}finally{RenderTexture.active=save;RenderTexture.ReleaseTemporary(rt);UnityEngine.Object.DestroyImmediate(readable);UnityEngine.Object.DestroyImmediate(sheet);}

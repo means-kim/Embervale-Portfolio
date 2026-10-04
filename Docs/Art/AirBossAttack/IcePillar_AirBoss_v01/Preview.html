@@ -1,0 +1,21 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AirBoss IcePillar 24장 비교</title>
+<style>body{margin:0;background:#101621;color:#e4edff;font:16px system-ui,sans-serif}main{max-width:1200px;margin:32px auto;padding:0 20px}h1{font-size:25px;margin-bottom:8px}p{color:#afbed3;line-height:1.6}.labels{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin:25px 0 8px;font-weight:600}.labels span:nth-child(2){color:#b5d4ff}img{display:block;width:100%;background:#000;border-radius:12px}nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0}button,select{background:#d5e5ff;color:#10213b;border:0;border-radius:8px;padding:10px 16px;font:inherit;cursor:pointer}input{flex:1;min-width:180px;accent-color:#94c0ff}small{display:block;margin-top:18px;color:#8fa2bd;line-height:1.6}output{min-width:185px}a{color:#b5d4ff}.links{display:flex;gap:24px;flex-wrap:wrap}</style>
+<main><h1>AirBoss 얼음기둥 · 24장 리디자인</h1><p>원본의 기준 시점 14개 + 새 중간 그림 10장 · 약 0.77초 유지 · 프레임별 피봇과 월드 크기 보존</p>
+<div class="labels"><span>기존 Attack_IcePillar</span><span>새 24장 IcePillar</span><span>승인된 고드름 질감</span></div>
+<img id="frame" src="PreviewFrames/Frame_24.png" alt="원본, 새 얼음기둥, 승인된 고드름의 Unity 렌더 비교">
+<nav><button id="toggle">일시 정지</button><button id="again">처음부터</button><select id="speed" aria-label="미리보기 속도"><option value="1">1배속</option><option value="0.5">0.5배속</option><option value="0.25">0.25배속</option></select><input id="seek" type="range" min="0" max="0.7700002" step="0.001" value="0" aria-label="재생 시각"><output id="label"></output></nav>
+<p>같은 시각의 원본과 새 클립을 Unity에서 나란히 렌더했습니다. 양쪽은 같은 Scale과 Visual Y=-0.16을 적용했습니다.</p>
+<small>24장은 서로 다른 그림의 수입니다. 원본 타이밍을 보존하기 위해 일정한 24FPS 대신 원본 키 사이에 중간 그림을 배치했습니다. 기존 Sample Rate 100, 약 0.77초 길이, Loop Time 설정을 유지했습니다. 이 페이지는 비교 편의를 위해 회차 사이 0.6초를 쉬며, Unity 클립 자체에는 이 대기 시간이 없습니다.</small>
+<p class="links"><a href="../../../../Assets/04.Sprites/AirBossAttack/Attack_IcePillar_AirBoss_24F_v01.png">멀티 스프라이트</a><a href="ProductionNotes.txt">제작 사양</a><a href="GenerationPrompt.txt">제작 프롬프트</a></p></main>
+<script>
+const times=[0.0, 0.0275000334, 0.0550000668, 0.0825001, 0.110000134, 0.137500167, 0.1650002, 0.192500114, 0.220000029, 0.247500062, 0.2750001, 0.302500129, 0.330000162, 0.357500076, 0.385, 0.412500024, 0.440000057, 0.4675001, 0.495000124, 0.522500157, 0.5500002, 0.605, 0.6600001, 0.715000153, 0.760000169],end=0.77000016;
+const imgs=times.map((_,i)=>{const im=new Image();im.src=`PreviewFrames/Frame_${String(i+1).padStart(2,'0')}.png`;return im});
+const image=document.querySelector('#frame'),seek=document.querySelector('#seek'),label=document.querySelector('#label'),toggle=document.querySelector('#toggle'),speed=document.querySelector('#speed');
+let playing=true,time=0,elapsed=0,previous=performance.now(),last=-1;
+function show(t){time=t;let index=0;while(index<times.length-1&&times[index+1]<=t+.000001)index++;if(index!==last){image.src=imgs[index].src;last=index}seek.value=t;label.value=`${t.toFixed(3)}초 · ${Math.min(index+1,24)}/24장`}
+toggle.onclick=()=>{playing=!playing;previous=performance.now();elapsed=time;toggle.textContent=playing?'일시 정지':'재생'};
+document.querySelector('#again').onclick=()=>{elapsed=0;previous=performance.now();playing=true;toggle.textContent='일시 정지';show(0)};
+seek.oninput=()=>{playing=false;toggle.textContent='재생';elapsed=Number(seek.value);show(elapsed)};
+function tick(now){if(playing){elapsed=(elapsed+Math.min(.1,(now-previous)/1000)*Number(speed.value))%(end+.6);show(Math.min(elapsed,end))}previous=now;requestAnimationFrame(tick)}
+Promise.all(imgs.map(im=>im.decode().catch(()=>{}))).then(()=>{previous=performance.now();requestAnimationFrame(tick)});
+</script></html>
