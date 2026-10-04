@@ -55,5 +55,6 @@ public class AirBossAttack : MonoBehaviour
         _hasHit = true;
 
         health.TakeDamage(_damage);
+        // Debug.Log("공격 적중");
     }
 }

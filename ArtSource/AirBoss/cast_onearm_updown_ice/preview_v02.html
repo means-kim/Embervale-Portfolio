@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AirBoss 얼음 한팔 시전 · 실제 프레임 수정 v02</title>
+<style>
+body{margin:0;background:#172032;color:#e5edfc;font:15px/1.65 system-ui}main{max-width:1180px;margin:auto;padding:24px}h1{font-size:25px;margin:0 0 8px}p{color:#b8c9de}a{color:#a5e5ff}.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}button,select{font:inherit;padding:7px 12px;border:1px solid #536682;border-radius:7px;color:inherit;background:#263b54}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}h2{font-size:18px;margin:4px 0}.phase{color:#aadfff;min-height:26px}canvas{display:block;width:100%;height:auto;background:repeating-conic-gradient(#26344a 0% 25%,#202c3f 0% 50%) 0/28px 28px;border:1px solid #3d4e68;border-radius:8px}.scrub{display:flex;align-items:center;gap:15px;margin-top:18px}input{flex:1}#number{font-variant-numeric:tabular-nums}.links{display:flex;gap:16px;flex-wrap:wrap}details img{max-width:100%}@media(max-width:680px){.pair{grid-template-columns:1fr}}
+</style><main>
+<h1>실제 PNG 프레임 수정 · v01 / v02 비교</h1>
+<p>양쪽 모두 같은 FPS, 같은 프레임 간격으로 재생합니다. v02는 올리기·유지·내리기를 17장에서 23장으로 늘렸습니다. 전체 32장과 Idle 시작·끝은 유지합니다.</p>
+<div class="controls"><button id="play">일시정지</button><button id="prev" aria-label="이전 프레임">◀</button><button id="next" aria-label="다음 프레임">▶</button><label>동일 속도 <select id="speed"><option value="12">12 FPS</option><option value="8">8 FPS</option><option value="24">24 FPS</option></select></label><label>배경 <select id="bg"><option value="">체크</option><option value="#0c1321">어둡게</option><option value="#eceef3">밝게</option></select></label></div>
+<div class="pair"><section><h2>v01 · 이전 스프라이트</h2><div id="phaseOld" class="phase">로딩 중</div><canvas id="old" width="1024" height="1024"></canvas></section><section><h2>v02 · 수정된 스프라이트</h2><div id="phaseNew" class="phase">로딩 중</div><canvas id="new" width="1024" height="1024"></canvas></section></div>
+<div class="scrub"><span id="number">00 / 31</span><input id="frame" aria-label="프레임" type="range" min="0" max="31" value="0"></div>
+<p>v02: 01~10 올리기 → 11~17 최고점 유지 → 18~23 내리기 → 24~30 복귀 → 31 Idle. 12 FPS에서 앞부분 1.42초 → 1.92초, 최고점 유지 0.33초 → 0.58초입니다. 일정 FPS 비교이며 프레임별 대기 시간 조절은 없습니다.</p>
+<div class="links"><a href="sheets/AirBoss_Cast_OneArm_UpDown_Ice_Part1_4x4_1024_v02.png">수정 시트 1 · 00~15</a><a href="sheets/AirBoss_Cast_OneArm_UpDown_Ice_Part2_4x4_1024_v02.png">수정 시트 2 · 16~31</a><a href="Cast_OneArm_UpDown_Ice_Production_v02.md">제작 기록</a></div>
+<details><summary>v02 전체 프레임</summary><img src="contact_final_v02.jpg" alt="수정된 32프레임"></details>
+</main><script>
+const versions=['v01','v02'];
+const sheets=versions.map(v=>[1,2].map(part=>{const im=new Image();im.src='sheets/AirBoss_Cast_OneArm_UpDown_Ice_Part'+part+'_4x4_1024_'+v+'.png';return im}));
+const canvases=[document.querySelector('#old'),document.querySelector('#new')];
+const contexts=canvases.map(c=>c.getContext('2d'));
+let running=true,index=0,last=0;
+function phase(i,v){if(i===0||i===31)return'Idle';if(v===0)return i<=8?'팔 올리기':i<=12?'최고점 유지':i<=17?'내리기':'후행 · 복귀';return i<=10?'팔 올리기':i<=17?'최고점 유지':i<=23?'내리기':'후행 · 복귀'}
+function draw(){contexts.forEach((ctx,v)=>{const j=index%16;ctx.clearRect(0,0,1024,1024);ctx.drawImage(sheets[v][Math.floor(index/16)],j%4*1024,Math.floor(j/4)*1024,1024,1024,0,0,1024,1024)});document.querySelector('#frame').value=index;document.querySelector('#number').textContent=String(index).padStart(2,'0')+' / 31';document.querySelector('#phaseOld').textContent=phase(index,0);document.querySelector('#phaseNew').textContent=phase(index,1)}
+function pause(){running=false;document.querySelector('#play').textContent='재생'}
+document.querySelector('#play').onclick=()=>{running=!running;last=performance.now();document.querySelector('#play').textContent=running?'일시정지':'재생'};
+document.querySelector('#prev').onclick=()=>{pause();index=(index+31)%32;draw()};
+document.querySelector('#next').onclick=()=>{pause();index=(index+1)%32;draw()};
+document.querySelector('#frame').oninput=e=>{pause();index=+e.target.value;draw()};
+document.querySelector('#speed').onchange=()=>{last=performance.now()};
+document.querySelector('#bg').onchange=e=>canvases.forEach(c=>c.style.background=e.target.value||'');
+function tick(t){const delay=1000/+document.querySelector('#speed').value;if(running&&t-last>=delay){index=(index+1)%32;last=t;draw()}requestAnimationFrame(tick)}
+Promise.all(sheets.flat().map(im=>im.decode())).then(()=>{last=performance.now();draw();requestAnimationFrame(tick)}).catch(()=>{pause();document.querySelector('#phaseNew').textContent='이미지 경로를 확인하세요'});
+</script></html>

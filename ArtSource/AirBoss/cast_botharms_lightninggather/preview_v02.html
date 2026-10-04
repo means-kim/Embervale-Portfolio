@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AirBoss · 양손 번개 응축 v02 비교</title>
+<style>
+:root{color-scheme:dark}body{margin:0;background:#141926;color:#e6efff;font:15px/1.6 system-ui}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:25px;margin:0 0 8px}p{color:#adbbd1;margin:8px 0 16px}button,select{font:inherit;border:1px solid #4a5a73;background:#233249;color:#edf4ff;border-radius:7px;padding:7px 12px}button:hover{background:#334963}.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.panel{border:1px solid #34415a;border-radius:12px;overflow:hidden}.caption{padding:9px 16px;background:#202b3f;display:flex;justify-content:space-between}.stage{display:block;width:100%;height:auto;background:repeating-conic-gradient(#252d3e 0% 25%,#202838 0% 50%) 0/24px 24px}.scrub{display:flex;gap:16px;align-items:center;margin:20px 0}input[type=range]{flex:1;min-width:100px}#frameLabel{font-variant-numeric:tabular-nums;min-width:65px}#phase{color:#9fe2fa;min-width:150px}.links{display:flex;gap:16px;flex-wrap:wrap}a{color:#9cd8ff}details{margin-top:22px}details img{max-width:100%;height:auto}@media(max-width:700px){main{padding:15px}.panels{gap:8px}.caption{font-size:12px;padding:8px}h1{font-size:21px}}
+</style>
+<main><h1>양손 번개 응축 · 천과 몸통의 움직임 보완</h1>
+<p>같은 프레임을 같은 그림 크기로 비교합니다. 팔 펼침 → 천의 바깥 흐름 → 응축과 숙임 → 유지 → 천의 후행과 Idle 복귀.</p>
+<div class="controls"><button id="play">일시정지</button><button id="previous" aria-label="이전 프레임">◀</button><button id="next" aria-label="다음 프레임">▶</button><label>속도 <select id="fps"><option>12</option><option>8</option><option>6</option><option>24</option></select> fps</label><label>배경 <select id="background"><option value="">체크</option><option value="#0a1020">어둡게</option><option value="#eceef3">밝게</option></select></label><span id="phase">로딩 중</span></div>
+<div class="panels"><section class="panel"><div class="caption"><strong>v01 · 이전</strong><span>천이 고정된 버전</span></div><canvas class="stage" id="old" width="1024" height="1024"></canvas></section><section class="panel"><div class="caption"><strong>v02 · 수정</strong><span>천의 흐름 + 몸통 반응</span></div><canvas class="stage" id="current" width="1024" height="1024"></canvas></section></div>
+<div class="scrub"><span id="frameLabel">00 / 23</span><input id="frame" aria-label="프레임" type="range" min="0" max="23" value="0"></div>
+<p>v02: 24프레임 · 셀 1024×1024 · PPU 24 · 중앙 피봇. 00과 23은 Idle 원본입니다. 기본 12fps는 비교용이며 Unity 애니메이션 클립은 만들지 않았습니다.</p>
+<div class="links"><a href="sheets/AirBoss_Cast_BothArms_LightningGather_Part1_4x4_1024_v02.png">시트 1 · 00~15</a><a href="sheets/AirBoss_Cast_BothArms_LightningGather_Part2_4x2_1024_v02.png">시트 2 · 16~23</a><a href="Cast_BothArms_LightningGather_Production_v02.md">제작 기록</a></div>
+<details><summary>24프레임 전체 비교 펼치기</summary><img src="contact_final_v02.jpg" alt="수정된 24프레임"></details>
+</main><script>
+const oldFrames=[],newFrames=[];let running=true,index=0,last=0;
+const oldCtx=document.querySelector('#old').getContext('2d'),newCtx=document.querySelector('#current').getContext('2d');
+for(let i=0;i<24;i++){const n=String(i).padStart(2,'0'),a=new Image(),b=new Image();a.src=`references/v02/frame${n}_pose.png`;b.src=`frames/v02/AirBoss_Cast_BothArms_LightningGather_v02_${n}.png`;oldFrames.push(a);newFrames.push(b);}
+function phase(i){return i===0||i===23?'Idle':i<=4?'준비 · 펼침':i<=9?'모으기 · 천의 후행':i<=13?'응축 · 몸통 숙임':i<=17?'유지 · 잔흔들림':'이완 · 복귀';}
+function draw(){for(const [ctx,frames] of [[oldCtx,oldFrames],[newCtx,newFrames]]){ctx.clearRect(0,0,1024,1024);ctx.drawImage(frames[index],0,0,1024,1024);}document.querySelector('#frame').value=index;document.querySelector('#frameLabel').textContent=String(index).padStart(2,'0')+' / 23';document.querySelector('#phase').textContent=phase(index);}
+function pause(){running=false;document.querySelector('#play').textContent='재생';}
+document.querySelector('#play').onclick=()=>{running=!running;last=performance.now();document.querySelector('#play').textContent=running?'일시정지':'재생';};
+document.querySelector('#frame').oninput=e=>{pause();index=+e.target.value;draw();};
+document.querySelector('#previous').onclick=()=>{pause();index=(index+23)%24;draw();};document.querySelector('#next').onclick=()=>{pause();index=(index+1)%24;draw();};
+document.querySelector('#background').onchange=e=>document.querySelectorAll('.stage').forEach(c=>c.style.background=e.target.value||'');
+function tick(t){if(running&&t-last>=1000/+document.querySelector('#fps').value){index=(index+1)%24;last=t;draw();}requestAnimationFrame(tick);}
+Promise.all([...oldFrames,...newFrames].map(im=>im.decode())).then(()=>{draw();requestAnimationFrame(tick);}).catch(()=>{pause();document.querySelector('#phase').textContent='이미지 경로를 확인하세요';});
+</script></html>

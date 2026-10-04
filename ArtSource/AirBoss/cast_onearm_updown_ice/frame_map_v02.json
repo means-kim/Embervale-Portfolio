@@ -1,0 +1,156 @@
+{
+  "previous_version": "v01",
+  "frames": [
+    {
+      "frame": 0,
+      "source": 0
+    },
+    {
+      "frame": 1,
+      "source": 1
+    },
+    {
+      "frame": 2,
+      "source": 2
+    },
+    {
+      "frame": 3,
+      "source": "new03"
+    },
+    {
+      "frame": 4,
+      "source": 3
+    },
+    {
+      "frame": 5,
+      "source": 4
+    },
+    {
+      "frame": 6,
+      "source": 5
+    },
+    {
+      "frame": 7,
+      "source": "new07"
+    },
+    {
+      "frame": 8,
+      "source": 6
+    },
+    {
+      "frame": 9,
+      "source": 7
+    },
+    {
+      "frame": 10,
+      "source": 8
+    },
+    {
+      "frame": 11,
+      "source": 9
+    },
+    {
+      "frame": 12,
+      "source": 10
+    },
+    {
+      "frame": 13,
+      "source": "new13"
+    },
+    {
+      "frame": 14,
+      "source": "new14"
+    },
+    {
+      "frame": 15,
+      "source": "new15"
+    },
+    {
+      "frame": 16,
+      "source": 11
+    },
+    {
+      "frame": 17,
+      "source": 12
+    },
+    {
+      "frame": 18,
+      "source": 13
+    },
+    {
+      "frame": 19,
+      "source": 14
+    },
+    {
+      "frame": 20,
+      "source": "new19"
+    },
+    {
+      "frame": 21,
+      "source": 15
+    },
+    {
+      "frame": 22,
+      "source": 16
+    },
+    {
+      "frame": 23,
+      "source": 17
+    },
+    {
+      "frame": 24,
+      "source": 18
+    },
+    {
+      "frame": 25,
+      "source": 20
+    },
+    {
+      "frame": 26,
+      "source": 22
+    },
+    {
+      "frame": 27,
+      "source": 24
+    },
+    {
+      "frame": 28,
+      "source": 26
+    },
+    {
+      "frame": 29,
+      "source": 28
+    },
+    {
+      "frame": 30,
+      "source": 30
+    },
+    {
+      "frame": 31,
+      "source": 31
+    }
+  ],
+  "stages": {
+    "raise": [
+      1,
+      10
+    ],
+    "hold": [
+      11,
+      17
+    ],
+    "downstroke": [
+      18,
+      23
+    ],
+    "recovery": [
+      24,
+      30
+    ],
+    "idle": [
+      0,
+      31
+    ]
+  },
+  "selection_note": "Generated downstroke candidate19 sits lower than v01frame14; selected as v02frame20 to preserve downward motion."
+}
