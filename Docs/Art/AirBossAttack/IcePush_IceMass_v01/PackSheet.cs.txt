@@ -1,0 +1,44 @@
+// Mechanical registration of 32 unique image_gen drawings; no synthesized poses or recoloring.
+var inputPath="Docs/Art/AirBossAttack/IcePush_IceMass_v01/Generated_Initial.png";
+var outputPath="Docs/Art/AirBossAttack/IcePush_IceMass_v01/Packed_Sheet.png";
+var src=new Texture2D(2,2,TextureFormat.RGBA32,false);Texture2D dst=null;
+try{
+ ImageConversion.LoadImage(src,System.IO.File.ReadAllBytes(inputPath),false);
+ if(src.width!=1774||src.height!=887)throw new System.Exception("Unexpected source dimensions.");
+ var pixels=src.GetPixels32();var result=new Color32[2048*1024];
+ float[] diameters={28,30,32,35,38,42,47,54,61,70,80,91,103,116,132,152,152,152,152,160};
+ var stats=new System.Collections.Generic.List<object>();
+ for(int n=0;n<32;n++){
+   int col=n%8,row=n/8;
+   int x0=Mathf.RoundToInt(col*src.width/8f),x1=Mathf.RoundToInt((col+1)*src.width/8f);
+   int y0=Mathf.RoundToInt(row*src.height/4f),y1=Mathf.RoundToInt((row+1)*src.height/4f);
+   int width=x1-x0,height=y1-y0;
+   int minX=width,minY=height,maxX=-1,maxY=-1;
+   for(int y=0;y<height;y++)for(int x=0;x<width;x++){
+     if(pixels[(src.height-1-y0-y)*src.width+x0+x].a>240){minX=Mathf.Min(minX,x);maxX=Mathf.Max(maxX,x);minY=Mathf.Min(minY,y);maxY=Mathf.Max(maxY,y);}
+   }
+   float cx=(width-1)*.5f,cy=(height-1)*.5f,scale=1.09f;
+   if(n<20){cx=(minX+maxX)*.5f;cy=(minY+maxY)*.5f;scale=diameters[n]/Mathf.Max(maxX-minX+1,maxY-minY+1);}
+   if(n==20)scale=.96f;
+   if(n==21)scale=1.01f;
+   if(n==22)scale=1.05f;
+   // Retain a fixed origin during scattering so fragments are not re-centered per pose.
+   for(int y=0;y<256;y++)for(int x=0;x<256;x++){
+     float sx=(x-127.5f)/scale+cx,sy=(y-127.5f)/scale+cy;
+     int ix=Mathf.FloorToInt(sx),iy=Mathf.FloorToInt(sy);float fx=sx-ix,fy=sy-iy;
+     float aa=0,rr=0,gg=0,bb=0;
+     for(int dy=0;dy<2;dy++)for(int dx=0;dx<2;dx++){
+       int px=ix+dx,py=iy+dy;if(px<0||px>=width||py<0||py>=height)continue;
+       Color32 c=pixels[(src.height-1-y0-py)*src.width+x0+px];
+       float w=(dx==0?1-fx:fx)*(dy==0?1-fy:fy),wa=w*c.a;
+       aa+=wa;rr+=c.r*wa;gg+=c.g*wa;bb+=c.b*wa;
+     }
+     result[(1023-row*256-y)*2048+col*256+x]=aa>.001f?new Color32((byte)Mathf.Clamp(Mathf.RoundToInt(rr/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(gg/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(bb/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(aa),0,255)):new Color32(0,0,0,0);
+   }
+   stats.Add(new{frame=n+1,sourceRect=new[]{x0,y0,width,height},sourceCenter=new[]{cx,cy},scale,targetCenter=new[]{127.5f,127.5f}});
+ }
+ dst=new Texture2D(2048,1024,TextureFormat.RGBA32,false);dst.SetPixels32(result);dst.Apply(false,false);
+ System.IO.File.WriteAllBytes(outputPath,dst.EncodeToPNG());
+ System.IO.File.WriteAllText("Docs/Art/AirBossAttack/IcePush_IceMass_v01/PackingReport.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{source=inputPath,output=outputPath,width=2048,height=1024,cell=256,frames=stats},Newtonsoft.Json.Formatting.Indented));
+ return "Packed 32 unique generated drawings into 8x4 cells; approach/crack size and center registered; generated RGBA preserved with premultiplied interpolation.";
+}finally{UnityEngine.Object.DestroyImmediate(src);if(dst!=null)UnityEngine.Object.DestroyImmediate(dst);}

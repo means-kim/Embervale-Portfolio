@@ -1,0 +1,57 @@
+AirBoss IcePush — Ice Mass v01
+Date: 2026-10-05 KST
+
+User direction
+- Telegraph begins with the boss animation; user handles its integration.
+- A round ice mass with 16+ angular facets, approaching the camera then breaking apart.
+- Match the approved new icicle and cylinder in color, material and edge finish.
+- 32 unique drawings; new multi-sprite and animation clip. No controller.
+
+Delivered assets
+- Assets/04.Sprites/AirBossAttack/Attack_IcePush_IceMass_32F_v01.png and .meta
+- Assets/05.Animation/AirBossAttack/Attack_IcePush_IceMass_v01.anim and .meta
+
+Actual specifications
+- Sheet: 2048 x 1024 RGBA, 8 columns x 4 rows, 32 cells of 256 x 256.
+- Import: Multiple, PPU 256, pivot center (0.5,0.5), FullRect, Bilinear,
+  no mipmaps, Clamp, uncompressed, max size 2048.
+- Image request was 2048 x 1024; native generated source was 1774 x 887.
+  Final production sheet is registered/resampled to 2048 x 1024;
+  that packing does not add native painted detail.
+- 32 distinct generated drawings, ordered left-to-right then top-to-bottom.
+- Root SpriteRenderer.m_Sprite curve only. 24FPS. Loop disabled.
+- Frames 01–16: approach, 0.000–0.667 seconds.
+- Frames 17–20: cracking, 0.667–0.833 seconds.
+- Frames 21–32: shatter, fading fragments and glints, 0.833–1.333 seconds.
+- Null sprite at 1.333333 seconds; total clip duration 1.375 seconds.
+- No Transform scale or position curves, no animation events.
+- Increasing visible size is baked into the drawings. Prefab scale remains user-adjustable.
+- Last six drawings show remaining fragments fading after the larger outer shards disappear.
+
+Production method
+- Built-in image_gen with transparent_background=true.
+- Exact request: GenerationPrompt.txt.
+- Actual image references: Attack_Icicle_Fall_AirBoss_4x3_v02.png and
+  Attack_IceCylinder_AirBoss_24F_v03.png.
+- Generated_Initial.png preserves the native image_gen result.
+- PackSheet.cs.txt registers the individual drawings, removes size resets across rows,
+  and retains a stable center. Premultiplied interpolation preserves semi-transparent color.
+  No duplicated pose, generated in-between, recoloring or newly painted detail was added by code.
+- Packed_Sheet.png is the exact production source copied to Assets.
+
+Verification
+- 32 distinct per-cell pixel hashes; all cell boundary pixels have alpha 0.
+- Unity imported 32 sprite subassets; 33 clip keys include final null.
+- All 33 key states were sampled with the actual clip in an isolated PreviewRenderUtility.
+  PreviewFrames and UnityRenderReport.json contain the results; final effect is cleared.
+- Preview.html uses those actual rendered frames and clip key times.
+- Existing 81 baseline asset files in relevant boss sprite/animation/prefab folders
+  retained their original SHA256 values.
+- No scene, prefab, controller, boss clip or gameplay script was edited by this task.
+- Unity MCP became unavailable after the completed render; final console query was unavailable.
+  This does not invalidate the saved import or completed 33-frame render reports.
+- Gameplay damage, telegraph integration and camera-composition play testing are outside this asset task.
+
+Preview composition
+- Left: approved icicle. Center: new ice mass. Right: AirBoss idle reference.
+- Boss display height normalized for style comparison only; not a gameplay-scale prescription.

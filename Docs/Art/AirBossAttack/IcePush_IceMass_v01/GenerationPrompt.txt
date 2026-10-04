@@ -1,0 +1,42 @@
+Tool: built-in image_gen, transparent_background=true.
+References: approved Icicle_Fall_AirBoss_v02 and IceCylinder_AirBoss_v03 in Assets/04.Sprites/AirBossAttack.
+
+Use case: style-transfer.
+Create a NEW 32-frame Unity VFX sprite sheet of a faceted ICE BOULDER rushing straight TOWARD THE CAMERA then cracking and bursting apart in midair.
+Input1 approved icicle sprite sheet: PRIMARY style/material/color reference, not shape.
+Input2 approved cylindrical ice sprite sheet: matching crystalline surface reference, not shape. The new object is a ROUND POLYHEDRAL ICE MASS, not an icicle, cylinder, pillar, ground effect, fireball or smooth ball.
+
+STYLE AND SHAPE:
+A compact roughly spherical/round polyhedron with at least 16 angular segments around its silhouette and 24-32 clearly articulated irregular triangular/polygonal crystalline surface planes. Rounded overall volume, many small sharp facet corners, moderately irregular ice-boulder silhouette. Not a flat polygon disk, not a simple six-sided gemstone, not a ring, spiked mace or snowflake.
+Finely painted pale silver-blue / gray-blue translucent ice, silver-white edge reflections, fine frosted veins, narrow dark-blue shadow planes, layered frozen depth, restrained glints. Match the approved reference ice materials. Refined sharp frosted bevels; no chunky pixel-art outlines, no cyan neon, no opaque fog blob. Consistent lighting upper-left, 3D volume clearly readable. The boulder stays structurally recognizable throughout approach, with a subtle gradual change of facet angle/reflection suggesting depth, not erratic spinning or morphing.
+
+EXACT LAYOUT:
+Exactly 32 unique drawings, 8 columns x4 rows, request 2048x1024 RGBA so each square cell is256x256.
+Cells ordered left-to-right then top-to-bottom. Identical transparent square canvas for every frame.
+During approach and cracking, center the boulder at (128,128) IN EVERY CELL, same center and camera. Keep all painted content including frost trails and shards inside x=12..244,y=12..244; transparent gutters between cells. No labels, gridlines, borders or frame numbers.
+Background must be genuinely transparent. Do not fill the background with a solid color, gradient, smoke, checkerboard, scenery, shadow plane or ground.
+
+32-FRAME ACTION:
+Row1 frames01..08 are the SAME connected boulder seen far away, coming nearer. Apparent diameters within256px cells approximately28,30,32,35,38,42,47,54px. Detailed tiny icy glints, minimal mist. Progressively bigger at each step. No cracks or breakup.
+Row2 frames09..16 continue approaching: diameters61,70,80,91,103,116,132,152px. This increasing increment is essential: approach feels faster near the viewer. Every frame changes subtle surface parallax/highlight details in addition to size. Final frame16 is a large fully formed dense many-faceted boulder.
+Row3:
+17 same152px boulder, first thin fracture begins.
+18 fractures spread across adjoining planes.
+19 several connected fractures deepen; boulder still mostly intact.
+20 segments begin to pull apart, only narrow gaps, recognizable circular mass.
+21 first outward displacement of large segments from the core.
+22 wider gaps, sharp pieces expand outward in all directions; remaining core visible.
+23 large near shards move faster toward outer corners, smaller shards remain near center.
+24 wider radial scattering with coherent trajectories; core almost gone.
+Row4:
+25 fragments further apart, near shards slightly larger and faster, small far shards dimmer.
+26 more outward motion and downward drift, center opening.
+27 largest fragments approach outer margins but remain entirely inside their cell.
+28 fragments thin and spread, fewer pieces near center.
+29 only scattered medium and small sharp fragments, no intact center.
+30 sparse small ice splinters and frost dust.
+31 very few faint tiny flakes/glints.
+32 almost empty, last two or three tiny fading icy specks.
+The breakup is an AIRBURST IN FREE SPACE: no grounded piles, floor rings, cylinders, bases, puddles or flat horizon. Fragments continue radially away from the boulder's original center with differing sizes for depth.
+All32 are new sequential drawings, not pasted duplicate stills. Do not collapse stages. Do not include telegraph marks, boss character, hands, UI, lettering, watermark or scene.
+Deliver only the transparent sprite sheet, preserving fine semitransparent frost edges.
