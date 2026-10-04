@@ -102,7 +102,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 53
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 85ea322c645850c4ba39989fe14e6daf, type: 3}
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 53
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3763513525208064098, guid: 0c9015bbc81c5014cb960c13ac92bb83, type: 3}
@@ -5061,7 +5061,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 54
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -5105,6 +5105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2560386140201841538}
   - component: {fileID: 8479989138613486104}
+  - component: {fileID: -1941727081841364516}
   m_Layer: 31
   m_Name: Fire_Object_Heavy
   m_TagString: FireObject
@@ -5175,7 +5176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 52
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2587788157111312224, guid: 7b44b4897b2b2c340ac12703bcc0b96d, type: 3}
@@ -5188,3 +5189,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &-1941727081841364516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426507195566773914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c514c416648a514ea861ca925c2f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TorchLight
+  _duration: 10
+  _targetIntensity: 1.5
+  _fadeDuration: 0.4
+  _fireEffect: {fileID: 0}
+  _fireInteract: FireInteract
+  _unFireInteract: UnFireInteract

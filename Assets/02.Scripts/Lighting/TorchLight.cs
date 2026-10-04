@@ -59,7 +59,10 @@ public class TorchLight : MonoBehaviour
 
     private void FireUnActive()
     {
-        if (!IsLit) return;
+        if (!IsLit)
+        {
+            return;
+        }
         SetFire(false);
         StartRoutine(FadeTo(0f));
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Unity.Cinemachine;
 
@@ -31,9 +32,10 @@ public class GateSwitch : MonoBehaviour
     [SerializeField] private CinematicManager _cinematicManager;
 
     [SerializeField] private AreaController _area;
-    [SerializeField] private bool _areaIsOnRight = true;
     private bool _enterFromRight;
 
+    private bool _findSecret = false;
+    private Coroutine _secretRoutine;
     private void Awake()
     {
         if (_boxCollider == null) _boxCollider = GetComponent<BoxCollider2D>();
@@ -63,6 +65,19 @@ public class GateSwitch : MonoBehaviour
         if (exitFromRight)
         {
             InArea(_gateType);
+        }
+
+        if (_gateType == GateType.Secret)
+        {
+            if (exitFromRight)
+            {
+                CancelSecretOpen();
+            }
+            else if (!_findSecret && _secretRoutine == null)
+            {
+                _secretRoutine = StartCoroutine(OpenSecretAfterDelay());
+            }
+            return;
         }
 
         AudioManager audio = AudioManager.Instance;
@@ -120,6 +135,31 @@ public class GateSwitch : MonoBehaviour
 
                 break;
         }
+    }
+
+    private IEnumerator OpenSecretAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+
+        UI_Ability ui = UI_Ability.Instance;
+        if (ui != null && ui.isActiveAndEnabled && !ui.IsOpen)
+        {
+            ui.Open();
+            _findSecret = ui.IsOpen;
+        }
+        _secretRoutine = null;
+    }
+
+    private void CancelSecretOpen()
+    {
+        if (_secretRoutine == null) return;
+        StopCoroutine(_secretRoutine);
+        _secretRoutine = null;
+    }
+
+    private void OnDisable()
+    {
+        CancelSecretOpen();
     }
 
     private void InArea(GateType type)
