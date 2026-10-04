@@ -1,0 +1,56 @@
+얼음 원기둥 v02 — 24개 고유 그림
+제작일: 2026-10-05 (Asia/Seoul)
+
+변경
+- 사용자가 요청한 실제 중간 동작을 추가. 24개 이미지 픽셀 해시 모두 다름.
+- 그림01~06은 상승 높이가 증가하는6단계. 07~14는 완성 높이에서 정착/반짝임8장.
+- 15~24는 균열 시작, 균열 확대, 블록 분리, 붕괴, 파편 낙하, 작은 파편, 잔광의10장.
+- Rise 클립에 정착07~08을 포함하여 최소2프레임의 최대높이 유지 확보.
+- 기존 v01 PNG/meta는 보존. 이전 클립 원본과 meta는 PreviousClips_v01/에 백업.
+- 기존 Rise/Hold/Break는 GUID를 유지하며 v02로 이동·갱신. 연결이 있었다면 같은GUID를 참조함.
+- 컨트롤러, 프리팹, 게임 코드, 현재 씬은 변경하지 않음.
+
+새 파일
+- ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_24F_v02.png
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Rise_v02.anim
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Hold_v02.anim
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Break_v02.anim
+- ../../../../Assets/05.Animation/AirBossAttack/Attack_IceCylinder_Sequence_v02.anim
+- Unity .meta 모두 포함.
+
+생성
+- 내장 image_gen 도구 사용. 정확한 최초/보완 프롬프트는 GenerationPrompts.txt.
+- 참조: ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_4x3_v01.png
+- 초기 요청3072x2048, 실제 생성1536x1024 RGBA. 보완 요청은 실제 해상도1536x1024.
+- 미리보기에서 파란 RGB배경이 보여도 해당 영역 alpha0임을 파일로 확인. 생성 PNG 픽셀은 후처리하지 않고 보존.
+
+스프라이트 분할
+- 6열x4행으로 배치된24개 도형. 자동256x256 그리드 절단은 첫번째 행을 자르므로 사용하지 않음.
+- 모든 rect 폭256, X=열번호x256.
+- 이미지 좌상단 기준 각 행의 시작Y=[34,274,514,760], 높이=[244,240,240,248].
+- 바닥선과 반투명 여백을 보존하도록 행별 rect 높이를 조정. 모든 pivot은 정규화(0.5,0.5) Center.
+- PPU256, Point, Clamp, 무압축, Mipmap Off, FullRect, MaxSize2048.
+- 기존362px셀/PPU400보다 새 프레임 픽셀 크기가 작아 PPU256으로 초기 월드 크기를 비슷하게 유지. 실제 최종Scale은 사용자가 조정.
+
+클립
+- Rise:01~08,24FPS,0.333333초, Loop Off. 상승6+최대높이 정착2.
+- Hold:09~14,12FPS,0.5초, Loop On. 6개 서로 다른 반짝임 프레임.
+- Break:15~24,24FPS,0.458333초, Loop Off. 마지막0.416667초에 Sprite=null 키.
+- Sequence: Rise -> Hold1회 -> Break. 총1.291667초, Loop Off. 동일한24개 그림을 한 번씩 사용하되 Hold 구간은12FPS 속도.
+- Sequence에서 그림07의0.25초부터 균열15의0.833333초까지 최대높이를0.583333초 유지.
+- Sequence의1.25초에는 Sprite=null. 25번째 키는 추가 그림이 아니라 화면을 비우는 종료 키.
+- 바인딩은 루트 SpriteRenderer.m_Sprite. Transform/Scale/알파 곡선 및 이벤트 없음.
+- 파괴 후 시각 제거는 수행하지만 Collider 해제, 피격, 오브젝트풀 반환은 별도 게임 로직 필요.
+
+GUID 보존 검증
+- Rise:8b1b9ac547a214078b3db31ef629af07
+- Hold:727e227bf59a04700a0b80d713263498
+- Break:f5e1f93fd0bf94023a7a42472ada2f99
+
+검증
+- 격리된 Unity Preview Scene에서 Sequence의24키가 각각 올바른Sprite를 가리키는지 확인.
+- 모든 pivot이 rect크기의 절반인지 확인. 끝의Sprite=null 확인.
+- 24개 이미지 데이터가 서로 다름을 SHA256 비교로 확인(완전 투명 영역 RGB는 제외).
+- PreviewFrames/는 실제 Unity 렌더. Preview_Unity_Sequence_v02.gif는 해당 렌더를 클립 시간에 맞춰 연결한 검토본.
+- GIF 끝 빈화면400ms는 검토를 위한 반복 사이 간격이며 실제클립 유지 시간이 아님. GIF 시간은10ms 단위로 반올림.
+- 실제 씬 공격/충돌/점프 차단 검증은 이번 아트/클립 작업에 포함되지 않음.
