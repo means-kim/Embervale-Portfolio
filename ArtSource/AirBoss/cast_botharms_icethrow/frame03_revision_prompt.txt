@@ -1,0 +1,5 @@
+Precise local edit of this full character sprite. Keep its current body size, pose, hands, head and chest EXACTLY in place, no zoom or reframe.
+Only two local corrections:
+1. Move the entire overhead four-crystal cluster DOWN by 65 pixels on this 1254 square canvas, and reduce the cluster's total width and height by 20%. Keep exactly one central long diamond and three satellites, retain their proportions, make the cluster faint at 20% opacity. Its highest visible ice/glow must start BELOW y125 on this canvas. Do NOT move the character downward.
+2. The bottommost long cloth tips approach the canvas bottom. Bend ONLY their last 70 pixels gently UPWARD, so the lowest drawn tip ends BEFORE y1150 on this 1254 canvas. Preserve attachment points and the rest of the cloth. Do not crop or scale the character.
+True transparent background; outer 90 pixels must be fully empty, no faint dust or glow there. No new objects or other edits.

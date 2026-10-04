@@ -1,0 +1,23 @@
+[
+  {
+    "frame": 18,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_botharms_icethrow/source/v01/frame18_generated.png"
+    ],
+    "prompt": "Edit this existing transparent game animation frame with ONLY small local corrections. Preserve the character's face, torso, hands, wrists, armor, ice shapes, pose, framing and scale exactly. It is one frame of a fixed-size animation, not a redesign. Requested canvas 1024 by 1024 RGBA, genuinely transparent background. All pixel coordinates below are normalized to a 1024 square with origin at top left; if output is larger scale coordinates proportionally.\nThe high curling cloth behind the screen-left shoulder currently goes too high: bend ONLY its uppermost fold downward so the topmost substantial cloth is at y=95 or lower. The lower flowing cloth currently nearly reaches the bottom: turn ONLY the final cloth tips inward and upward so nothing opaque or glowing extends below y=935. Keep the cloth attachment and flowing follow-through, not a crop. The ice cluster is still exactly four crystals near the sternum: one large central diamond and three small satellites, with the reference spacing and scale. Preserve their location. Do not add crystals above the head.\nThe outer 80 pixels on all four sides must be completely transparent, alpha exactly zero, including stray faint alpha noise; erase isolated stray pixels only, preserve smooth soft alpha at actual cloth edges and frost glow. Do not globally shrink, recenter, crop, change the head location, or rescale the character. No background, ground, shadow, text or guides. Return one single full-body frame."
+  },
+  {
+    "frame": 19,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_botharms_icethrow/source/v01/frame19_generated.png"
+    ],
+    "prompt": "Edit this existing transparent game animation frame with ONLY small local corrections. Preserve the character's face, torso, hands, wrists, armor, ice shapes, pose, framing and scale exactly. It is one frame of a fixed-size animation, not a redesign. Requested canvas 1024 by 1024 RGBA, genuinely transparent background. All pixel coordinates below are normalized to a 1024 square with origin at top left; if output is larger scale coordinates proportionally.\nThe lowest loose cloth tips extend a little too low. Gently curl their final ends inward and upward so the lowest visible material ends by y=935. Keep all other drawing unchanged. Preserve the four-crystal cluster below the hands exactly with its thin straight vertical trail above it, indicating separation downward. Preserve the curved frost wakes behind the wrists.\nThe outer 80 pixels on all four sides must be completely transparent, alpha exactly zero, including stray faint alpha noise; erase isolated stray pixels only, preserve smooth soft alpha at actual cloth edges and frost glow. Do not globally shrink, recenter, crop, change the head location, or rescale the character. No background, ground, shadow, text or guides. Return one single full-body frame."
+  },
+  {
+    "frame": 21,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_botharms_icethrow/source/v01/frame21_generated.png"
+    ],
+    "prompt": "Edit this existing transparent game animation frame with ONLY small local corrections. Preserve the character's face, torso, hands, wrists, armor, ice shapes, pose, framing and scale exactly. It is one frame of a fixed-size animation, not a redesign. Requested canvas 1024 by 1024 RGBA, genuinely transparent background. All pixel coordinates below are normalized to a 1024 square with origin at top left; if output is larger scale coordinates proportionally.\nGently turn only the extreme right and lowest loose cloth tips inward: no drawn material farther right than x=930 or lower than y=935. All other cloth retains its direction and body keeps the reference size. This is the late follow-through after the crystals have exited: keep NO solid ice crystals. Remove the large bright curved frost arcs by the hands, replacing them with only extremely faint, very short fading wrist frost. The hands still point down in exactly the current pose. Keep the central falling ice residual streak extremely faint and ending by y=800.\nThe outer 80 pixels on all four sides must be completely transparent, alpha exactly zero, including stray faint alpha noise; erase isolated stray pixels only, preserve smooth soft alpha at actual cloth edges and frost glow. Do not globally shrink, recenter, crop, change the head location, or rescale the character. No background, ground, shadow, text or guides. Return one single full-body frame."
+  }
+]

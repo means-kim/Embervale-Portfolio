@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AirBoss · 양팔 얼음 수직 투척 · 32프레임</title>
+<style>
+:root{color-scheme:dark;font:15px system-ui,sans-serif;background:#101723;color:#e6efff}body{max-width:1120px;margin:28px auto;padding:0 20px}h1{font-size:24px;margin-bottom:8px}p{color:#b6c7df;line-height:1.6}main{display:grid;grid-template-columns:minmax(320px,720px) 260px;gap:24px}canvas{width:100%;aspect-ratio:1;border:1px solid #38516c;border-radius:12px;background:#1c2330}aside{padding-top:8px}label{display:block;margin:18px 0 8px}button,select{font:inherit;background:#23364e;color:#edf6ff;border:1px solid #5c7290;border-radius:7px;padding:8px 11px;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #79d5ff}input[type=range]{width:100%}#frame{font-size:26px;font-weight:700;color:#84d6ff}#phase{min-height:48px;line-height:1.5}dl{line-height:1.8}dt{color:#9dafc8}dd{margin-left:0;margin-bottom:10px}a{color:#8ddaff}#error{color:#ffb6b6}button:disabled{opacity:.4}footer{margin:20px 0;color:#94a9c6}li{margin:8px 0}@media(max-width:800px){main{grid-template-columns:1fr}body{margin-top:18px}}
+</style>
+<h1>AirBoss · 머리 위 얼음 결정 → 수직 투척</h1>
+<p>32장 / 모든 프레임 동일 시간. 최고점 유지는 12~15번 스프라이트에 들어 있습니다.</p>
+<main><canvas id="view" width="1024" height="1024" aria-label="32프레임 스프라이트 미리보기"></canvas>
+<aside>
+<div id="frame" aria-live="off">00 / 31</div><p id="phase">시작 Idle</p>
+<button id="play" disabled>재생</button> <button id="prev" disabled aria-label="이전 프레임">←</button> <button id="next" disabled aria-label="다음 프레임">→</button>
+<label for="scrub">프레임</label><input id="scrub" type="range" min="0" max="31" value="0" step="1" disabled>
+<label for="fps">균등 재생 속도</label><select id="fps"><option value="8">8 FPS · 느리게</option><option value="12" selected>12 FPS · 기본</option><option value="24">24 FPS · 빠르게</option></select>
+<p id="timing"></p>
+<label for="bg">배경</label><select id="bg"><option value="#1c2330">어두운 배경</option><option value="#eff3f7">밝은 배경</option><option value="checker">체커보드</option></select>
+<dl><dt>스프라이트 셀</dt><dd>1024 × 1024 · PPU 24<br>Center (512, 512)</dd><dt>구성</dt><dd>중심 결정 1 + 보조 결정 3<br>12~15 최고점 유지<br>19 손에서 분리<br>00 · 31 Idle 원본 동일</dd></dl>
+<p id="error" role="alert"></p>
+</aside></main>
+<footer>두 PNG 시트를 직접 재생합니다. Unity 애니메이션 클립이 아니며, 실제 게임에서의 재생은 별도 확인이 필요합니다. <a href="Cast_BothArms_IceThrow_Production_v01.md">제작·검증 기록</a></footer>
+<script>
+const canvas=document.querySelector('#view'),ctx=canvas.getContext('2d');
+const play=document.querySelector('#play'),prev=document.querySelector('#prev'),next=document.querySelector('#next'),scrub=document.querySelector('#scrub'),fps=document.querySelector('#fps'),bg=document.querySelector('#bg');
+const sheets=[1,2].map(n=>{const im=new Image();im.src=`sheets/AirBoss_Cast_BothArms_IceThrow_Part${n}_4x4_1024_v01.png`;return im});
+let ready=false,playing=false,index=0,startIndex=0,startTime=0;
+function phase(i){if(i===0)return '시작 Idle';if(i<=11)return '천천히 양팔 상승 · 결정 형성';if(i<=15)return '최고점 유지 · 천의 미세한 후행';if(i<=18)return '아래로 가속 · 마법 제어';if(i===19)return '결정 분리 · 수직 투척';if(i<=21)return '결정 하강 · 팔 후행';if(i<=30)return '잔상 소멸 · Idle 복귀';return '마지막 Idle'}
+function render(){
+ ctx.clearRect(0,0,1024,1024);
+ if(bg.value==='checker'){for(let y=0;y<1024;y+=32)for(let x=0;x<1024;x+=32){ctx.fillStyle=((x+y)/32)%2?'#607084':'#8190a2';ctx.fillRect(x,y,32,32)}}else{ctx.fillStyle=bg.value;ctx.fillRect(0,0,1024,1024)}
+ if(ready){const n=index%16;ctx.drawImage(sheets[Math.floor(index/16)],n%4*1024,Math.floor(n/4)*1024,1024,1024,0,0,1024,1024)}
+ document.querySelector('#frame').textContent=`${String(index).padStart(2,'0')} / 31`;document.querySelector('#phase').textContent=phase(index);scrub.value=index;
+ const rate=Number(fps.value);document.querySelector('#timing').textContent=`전체 ${(32/rate).toFixed(2)}초 · 최고점 ${(4/rate).toFixed(2)}초`;
+}
+function pause(){playing=false;play.textContent='재생'}
+function resetClock(){startIndex=index;startTime=performance.now()}
+function tick(now){if(playing){const wanted=(startIndex+Math.floor((now-startTime)*Number(fps.value)/1000))%32;if(wanted!==index){index=wanted;render()}}requestAnimationFrame(tick)}
+play.onclick=()=>{playing=!playing;play.textContent=playing?'일시정지':'재생';resetClock()};
+prev.onclick=()=>{pause();index=(index+31)%32;render()};next.onclick=()=>{pause();index=(index+1)%32;render()};
+scrub.oninput=()=>{pause();index=Number(scrub.value);render()};fps.onchange=()=>{resetClock();render()};bg.onchange=render;
+Promise.all(sheets.map(im=>im.decode())).then(()=>{ready=true;[play,prev,next,scrub].forEach(x=>x.disabled=false);render();resetClock();requestAnimationFrame(tick)}).catch(e=>{document.querySelector('#error').textContent='시트 PNG를 불러오지 못했습니다. 프로젝트 폴더 구조를 유지해 열어 주세요.';console.error(e)});
+render();
+</script>
+</html>

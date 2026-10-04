@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9079099333837818146
 Transform:
   m_ObjectHideFlags: 0
@@ -48,10 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TelegraphVisual
   _visual: {fileID: 1440376445449177785}
   _duration: 1
-  _minimumBrightness: 0.65
+  _minimumBrightness: 0.2
   _maximumBrightness: 1
-  _minimumAlpha: 0.45
-  _maximumAlpha: 0.9
+  _minimumAlpha: 0.1
+  _maximumAlpha: 1
   _loop: 0
 --- !u!114 &3816866358988572836
 MonoBehaviour:
@@ -92,8 +92,8 @@ Transform:
   m_GameObject: {fileID: 8377484897342059283}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.00882353, y: 0.1882353, z: 0}
-  m_LocalScale: {x: 0.5882353, y: 0.5882353, z: 0.5882353}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9079099333837818146}

@@ -1,0 +1,53 @@
+[
+  {
+    "frame": 3,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_02.png",
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_03.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 is the preceding pose, input2 is the following pose, input3 the canonical character design only. DRAW one genuine intermediate pose halfway between first two frames: screen-left forearm bends a little further inward/up, claw palm rotates halfway from downward toward upward cupping, centered about(335,415). Head/chest stay at input1 position. Four ice shards from input2 are starting to appear faintly at10% opacity around(340,350); identical relative shapes. Cloth intermediate between two refs with very modest lag. NOT a crossfade or two superimposed characters. Must be a single coherent hand. This is v02frame03."
+  },
+  {
+    "frame": 7,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_05.png",
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_06.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 is preceding pose, input2 following pose, input3 master anatomy only. Draw a subtle true INBETWEEN of input1 and2, same raised screen-left hand, averaging their tiny wristangle change and clothforms. Do not increase handlift beyond eitherref. Keep FOUR primary ice shapes from input1 unchanged sizes, positions shift at most4px left. Head/chest interpolate tinyhalfway, no globaltranslation. Cloth leftloops midway opening and lowerstreamers sway4px left. No duplicated arm or crossfade. This is v02frame07."
+  },
+  {
+    "frame": 13,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_10.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 is the EXACT high raised-hold pose to preserve. Input2 is canonical identity only; do not use its low-arm pose. This is v02frame13, HOLD phase 1 of3. The hand and entire rigid body must be COMPLETELY STILL relative to input1: identical head, collar, chest, shoulder, elbow, wrist, all fingertips, fouricepieces and their positions/scales. Do not raise, lower, rotate or bend thearm, do not move torso or alter scale. Only make a barelyperceptible real change in the flexible cloth at its very ends: lower-right tips flex 3 pixels inward-left, upper-left endfolds breathe1pixels, attachedclothbases stayexactlysame. Ice stays FOUR with same facet silhouettes, NO extra particles. This should read as a brief PAUSE with only residual cloth settling; virtually identical target except few clothfolds. No trail yet."
+  },
+  {
+    "frame": 14,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_10.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 is the EXACT high raised-hold pose to preserve. Input2 is canonical identity only; do not use its low-arm pose. This is v02frame14, HOLD phase 2 of3. The hand and entire rigid body must be COMPLETELY STILL relative to input1: identical head, collar, chest, shoulder, elbow, wrist, all fingertips, fouricepieces and their positions/scales. Do not raise, lower, rotate or bend thearm, do not move torso or alter scale. Only make a barelyperceptible real change in the flexible cloth at its very ends: lower-right tips flex 5 pixels inward-left, upper-left endfolds breathe2pixels, attachedclothbases stayexactlysame. Ice stays FOUR with same facet silhouettes, NO extra particles. This should read as a brief PAUSE with only residual cloth settling; virtually identical target except few clothfolds. No trail yet."
+  },
+  {
+    "frame": 15,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_10.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 is the EXACT high raised-hold pose to preserve. Input2 is canonical identity only; do not use its low-arm pose. This is v02frame15, HOLD phase 3 of3. The hand and entire rigid body must be COMPLETELY STILL relative to input1: identical head, collar, chest, shoulder, elbow, wrist, all fingertips, fouricepieces and their positions/scales. Do not raise, lower, rotate or bend thearm, do not move torso or alter scale. Only make a barelyperceptible real change in the flexible cloth at its very ends: lower-right tips flex 3 pixels back-right, upper-left endfolds breathe1pixels, attachedclothbases stayexactlysame. Ice stays FOUR with same facet silhouettes, NO extra particles. This should read as a brief PAUSE with only residual cloth settling; virtually identical target except few clothfolds. No trail yet."
+  },
+  {
+    "frame": 19,
+    "reference_images": [
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_13.png",
+      "ArtSource/AirBoss/cast_onearm_updown_ice/frames/v01/AirBoss_Cast_OneArm_UpDown_Ice_v01_14.png",
+      "ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Production 2D game sprite, one complete AirBoss character on a genuine transparent square1024 canvas. Preserve input1 artwork scale, mask placement, armor/collar anatomy, asymmetric upper-left cloth loops and lower-right long ragged cloth, two hands. Character right hand = screen LEFT, the active hand. The other hand remains LOW. Do not zoom or reframe. Retain faceted small blue-white ice and consistent painting style. ALL alpha including edgeglow must remain inside x80..944,y80..944 on1024 canvas; no stray dust in border, no text, grid, background or floor.\nInput1 precedingstart-downstroke pose, input2 followinglowerhandpose, input3 masteridentity. Draw ONE coherent true halfwaypose between inputs1and2: screen-left hand moves DOWN slightly about20px frominput1 towardinput2, fingertips turn downward withwrist. Keep bodymaskscaleanchor fixed, only slightfollowthrough1deg. FOUR ice pieces frominput1 followhanddownonly15px, same sizes, bluewhite angularfacets. Begin short softwhite frostwake behindthemovingwrist, do notcreateelectricalarc. Clothlaghalfwaybetweenrefs, not largersilhouette or globalreframe. No crossfade. This is v02frame19."
+  }
+]
