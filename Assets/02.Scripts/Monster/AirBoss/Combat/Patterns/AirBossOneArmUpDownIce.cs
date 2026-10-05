@@ -19,6 +19,9 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
     [Header("공격 X 축 간격")]
     [SerializeField] private float _offSetX = 3f;
 
+    [Header("Y축 오프셋")]
+    [SerializeField] private float _offSetY = 8f;
+
     private AirBossAttack[] _icicles = new AirBossAttack[3];
     private Telegraph[] _telegraphs = new Telegraph[3];
     private Vector3[] _attackPositions = new Vector3[3];
@@ -113,7 +116,9 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
         {
             if (_icicles[i] == null) continue;
 
-            _icicles[i].Activate(_attackPositions[i]);
+            Vector3 spawnPosition = _attackPositions[i] + Vector3.up * _offSetY;
+
+            _icicles[i].Activate(spawnPosition);
             _icicles[i] = null;
         }
 
