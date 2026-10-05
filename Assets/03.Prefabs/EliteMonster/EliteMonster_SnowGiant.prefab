@@ -690,7 +690,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6051521588232645407, guid: b6773ed8b9b8ccf49bd53167a5823e60, type: 3}
@@ -918,6 +918,7 @@ MonoBehaviour:
   _moveSpeedUp: 10
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
   _effectPoint: {fileID: 4296080632268900524}
+  _facing: {fileID: 7873688310279483471}
 --- !u!114 &2567005633489926930
 MonoBehaviour:
   m_ObjectHideFlags: 0
