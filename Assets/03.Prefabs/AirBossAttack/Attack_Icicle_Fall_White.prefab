@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3211384717075615708}
   - component: {fileID: 5039348117906714883}
   - component: {fileID: 8947883615194580563}
+  - component: {fileID: 4059410317661825121}
   m_Layer: 0
   m_Name: Attack_Icicle_Fall_White
   m_TagString: Untagged
@@ -158,6 +159,33 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
+--- !u!50 &4059410317661825121
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293481016969042167}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 5
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5506047462549978221
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +197,7 @@ GameObject:
   - component: {fileID: 2856916361771630706}
   - component: {fileID: 7444443690279221896}
   - component: {fileID: 298357955577012188}
-  - component: {fileID: 5662115705623587484}
+  - component: {fileID: 8820139603769102593}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -273,7 +301,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5662115705623587484
+--- !u!114 &8820139603769102593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,6 +310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5506047462549978221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8de27c793272f4aa6b3d356c1474ad97, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bb077a91a5c741d2abcf2ea891d7d77, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackAnimationEvent
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossIcicleLifeTimer
+  _icicleLifeTime: 4

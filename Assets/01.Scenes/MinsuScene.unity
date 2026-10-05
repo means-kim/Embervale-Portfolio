@@ -212,7 +212,8 @@ MonoBehaviour:
   - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
   - {fileID: 5039348117906714883, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
   - {fileID: 5039348117906714883, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
-  _poolSize: 5
+  - {fileID: 1300002583}
+  _poolSize: 6
 --- !u!4 &23365616
 Transform:
   m_ObjectHideFlags: 0
@@ -238,11 +239,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 404.7034
+      value: 296.5
       objectReference: {fileID: 0}
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 131.17966
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_LocalPosition.z
@@ -576,6 +577,17 @@ MonoBehaviour:
   - {fileID: 3816866358988572836, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
   - {fileID: 1696395169436744111, guid: 6bf790af21170404ba07b686c8c6137a, type: 3}
   _poolSize: 5
+--- !u!114 &1300002583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5039348117906714883, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
+  m_PrefabInstance: {fileID: 1406385731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4b6a2a502500c4095719c107ca8df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
 --- !u!1001 &1406385731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,6 +635,10 @@ PrefabInstance:
     - target: {fileID: 3005443960643297400, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059410317661825121, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4293481016969042167, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
       propertyPath: m_Name
@@ -995,18 +1011,6 @@ PrefabInstance:
     - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _telegraphType
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _telegraphScaleMultiplier.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _telegraphScaleMultiplier.y
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
