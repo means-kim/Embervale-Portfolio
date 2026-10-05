@@ -3,6 +3,7 @@ using UnityEngine;
 public class AirBossAction : MonoBehaviour
 {
     [SerializeField] private AirBossOneArmUpDownIce _oneArmUpDownIce;
+    [SerializeField] private AirBossOneArmIceSummon _oneArmIceSummon;
     [SerializeField] private AirBossBothArmsIceThrow _bothArmsIceThrow;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
 
@@ -59,7 +60,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.OneArmIceSummon:
-                _animation.PlayOneArmIceSummon();
+                StartAttack(_oneArmIceSummon);
                 break;
 
             case AirBossActionType.OneArmUpDownIce:
@@ -77,7 +78,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsIceThrow);
 
         // 고드름 3발 패턴 테스트
-        Execute(AirBossActionType.OneArmUpDownIce);
+        // Execute(AirBossActionType.OneArmUpDownIce);
+
+        // 작은 얼음 기둥 패턴만 테스트
+        Execute(AirBossActionType.OneArmIceSummon);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
