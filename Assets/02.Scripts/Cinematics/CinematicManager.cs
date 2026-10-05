@@ -12,8 +12,6 @@ public class CinematicManager : MonoBehaviour
     [Header("연출 중 끌 컴포넌트")]
     [SerializeField] private Behaviour[] _playerControls = new Behaviour[0];
 
-    [SerializeField] private BossEncounterCinematic _bossEncounter;
-
     public bool IsPlaying { get; private set; }
 
     private Behaviour[] _lockedControls;
@@ -25,6 +23,9 @@ public class CinematicManager : MonoBehaviour
     private Action _onCompleted;
     private Action _onCancelled;
     private bool _timelineFinished;
+
+    private bool _usesTimeline;
+    private bool _showBars;
 
     public bool Play(
         PlayableDirector director,
@@ -56,6 +57,8 @@ public class CinematicManager : MonoBehaviour
         }
 
         _director = director;
+        _usesTimeline = true;
+        _showBars = true;
         _onCompleted = onCompleted;
         _onCancelled = onCancelled;
         _timelineFinished = false;
@@ -66,16 +69,6 @@ public class CinematicManager : MonoBehaviour
 
         _routine = StartCoroutine(PlayRoutine(preparation));
         return true;
-    }
-
-    public void PlayBossEncounter()
-    {
-        if (_bossEncounter == null)
-        {
-            return;
-        }
-
-        _bossEncounter.TryPlay();
     }
 
     private IEnumerator PlayRoutine(Func<IEnumerator> preparation)
@@ -96,7 +89,82 @@ public class CinematicManager : MonoBehaviour
         _director.time = 0;
         _director.Play();
 
-        yield return new WaitUntil(() => _timelineFinished);
+        while (!_timelineFinished)
+        {
+            yield return null;
+        }
+
+        _routine = null;
+        EndPlayback(true);
+    }
+
+    public bool Play(
+        IEnumerator routine,
+        Action onCompleted,
+        Action onCancelled,
+        bool showBars = false)
+    {
+        if (!Application.isPlaying ||
+            !isActiveAndEnabled ||
+            IsPlaying ||
+            routine == null ||
+            _player == null)
+        {
+            return false;
+        }
+
+        if (showBars &&
+            (_cinematicBars == null ||
+             !_cinematicBars.isActiveAndEnabled ||
+             _letterboxGroup == null))
+        {
+            return false;
+        }
+
+        _health = _player.GetComponent<Health>();
+
+        if (!_player.gameObject.activeInHierarchy ||
+            !_player.simulated ||
+            (_health != null && _health.IsDead))
+        {
+            return false;
+        }
+
+        _director = null;
+        _usesTimeline = false;
+        _showBars = showBars;
+
+        _onCompleted = onCompleted;
+        _onCancelled = onCancelled;
+
+        IsPlaying = true;
+
+        _player.GetComponent<PlayerAttack>()?.CancelAttack();
+
+        LockControls();
+        StopHorizontalMovement();
+
+        if (_showBars)
+        {
+            _cinematicBars.FadeIn();
+        }
+
+        _routine = StartCoroutine(PlayCoroutineRoutine(routine));
+
+        return true;
+    }
+
+    private IEnumerator PlayCoroutineRoutine(IEnumerator routine)
+    {
+        // 즉시 끝나는 연출도 _routine 대입 이후에 완료
+        yield return null;
+
+        yield return routine;
+
+        if (!IsPlaying)
+        {
+            yield break;
+        }
 
         _routine = null;
         EndPlayback(true);
@@ -140,7 +208,7 @@ public class CinematicManager : MonoBehaviour
             }
         }
 
-        if (_cinematicBars != null && _cinematicBars.isActiveAndEnabled)
+        if (_showBars && _cinematicBars != null && _cinematicBars.isActiveAndEnabled)
         {
             _cinematicBars.FadeOut();
         }
@@ -154,7 +222,8 @@ public class CinematicManager : MonoBehaviour
         _director = null;
         _onCompleted = null;
         _onCancelled = null;
-
+        _usesTimeline = false;
+        _showBars = false;
         callback?.Invoke();
     }
 
@@ -207,12 +276,22 @@ public class CinematicManager : MonoBehaviour
     private void Update()
     {
         if (!IsPlaying)
+        {
             return;
+        }
 
-        if (_player == null || !_player.gameObject.activeInHierarchy
-                            || !_player.simulated
-                            || (_health != null && _health.IsDead)
-                            || _director == null || !_director.isActiveAndEnabled)
+        bool playerUnavailable =
+            _player == null ||
+            !_player.gameObject.activeInHierarchy ||
+            !_player.simulated ||
+            (_health != null && _health.IsDead);
+
+        bool directorUnavailable =
+            _usesTimeline &&
+            (_director == null ||
+             !_director.isActiveAndEnabled);
+
+        if (playerUnavailable || directorUnavailable)
         {
             Cancel();
         }

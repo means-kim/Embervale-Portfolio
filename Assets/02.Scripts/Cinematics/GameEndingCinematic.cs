@@ -1,3 +1,3 @@
-public class GameEndingCinematic : CinematicSequence
+public class GameEndingCinematic
 {
 }

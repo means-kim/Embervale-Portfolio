@@ -167,6 +167,13 @@ public class GateSwitch : MonoBehaviour
         switch (type)
         {
             case GateType.Elite:
+                if (_area == null)
+                {
+                    return;
+                }
+
+                _area.TryEnter();
+                break;
             case GateType.Boss:
                 if (_area == null)
                 {

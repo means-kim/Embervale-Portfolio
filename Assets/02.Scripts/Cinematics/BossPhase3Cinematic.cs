@@ -1,3 +1,3 @@
-public class BossPhase3Cinematic : CinematicSequence
+public class BossPhase3Cinematic
 {
 }
