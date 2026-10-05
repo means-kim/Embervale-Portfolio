@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 288646290909099654}
   - component: {fileID: 7231270996186931566}
   - component: {fileID: 6351156603021301246}
+  - component: {fileID: -5426264349106596146}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -243,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
   _oneArmUpDownIce: {fileID: 6351156603021301246}
+  _oneArmIceSummon: {fileID: 0}
   _bothArmsIceThrow: {fileID: 7231270996186931566}
   _bothArmsLiftDrop: {fileID: 288646290909099654}
 --- !u!114 &288646290909099654
@@ -298,3 +300,20 @@ MonoBehaviour:
   _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
   _offSetX: 40
   _offSetY: 50
+--- !u!114 &-5426264349106596146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af86b1ffb5d94290859074fc3f01f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmIceSummon
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 0}
+  _telegraphType: 0
+  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
