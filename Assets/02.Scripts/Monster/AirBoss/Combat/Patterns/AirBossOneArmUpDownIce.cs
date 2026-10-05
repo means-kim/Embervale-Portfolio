@@ -19,12 +19,12 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
     [Header("공격 X 축 간격")]
     [SerializeField] private float _offSetX = 3f;
 
-    private AirBossAttack[] _icicle = new AirBossAttack[3];
-    private Telegraph[] _telegraph = new Telegraph[3];
-    private Vector3[] _attackPosition = new Vector3[3];
+    private AirBossAttack[] _icicles = new AirBossAttack[3];
+    private Telegraph[] _telegraphs = new Telegraph[3];
+    private Vector3[] _attackPositions = new Vector3[3];
 
     private bool _isRunning = false;
-    private bool _isWarnigShow = false;
+    private bool _isWarningShown = false;
     private bool _hasCast = false;
 
     public override void BeginAttack()
@@ -53,12 +53,12 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
             return;
         }
 
-        for (int i = 0; i < _icicle.Length; i++)
+        for (int i = 0; i < _icicles.Length; i++)
         {
-            _icicle[i] = attackPool.GetAttack(AirBossAttackType.Icicle);
-            _telegraph[i] = telegraphPool.GetTelegraph(_telegraphType);
+            _icicles[i] = attackPool.GetAttack(AirBossAttackType.Icicle);
+            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
 
-            if (_icicle[i] == null || _telegraph[i] == null)
+            if (_icicles[i] == null || _telegraphs[i] == null)
             {
                 Cancel();
                 _controller.OnActionFinished();
@@ -73,35 +73,35 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
     public override void ShowWarning()
     {
         if (!_isRunning) return;
-        if (_isWarnigShow) return;
+        if (_isWarningShown) return;
         if (_hasCast) return;
 
-        if (_player == null || _telegraph == null)
+        if (_player == null || _telegraphs == null)
         {
             Finish();
             return;
         }
 
         Vector3 centerPosition = _player.position;
-        _attackPosition[0] = centerPosition + Vector3.left * _offSetX;
-        _attackPosition[1] = centerPosition;
-        _attackPosition[2] = centerPosition + Vector3.right * _offSetX;
+        _attackPositions[0] = centerPosition + Vector3.left * _offSetX;
+        _attackPositions[1] = centerPosition;
+        _attackPositions[2] = centerPosition + Vector3.right * _offSetX;
 
-        for (int i = 0; i < _icicle.Length; i++)
+        for (int i = 0; i < _icicles.Length; i++)
         {
-            _telegraph[i].Activate(_attackPosition[i], _telegraphScaleMultiplier);
+            _telegraphs[i].Activate(_attackPositions[i], _telegraphScaleMultiplier);
         }
 
-        _isWarnigShow = true;
+        _isWarningShown = true;
     }
 
     public override void Cast()
     {
         if (!_isRunning) return;
-        if (!_isWarnigShow) return;
+        if (!_isWarningShown) return;
         if (_hasCast) return;
 
-        if (_icicle == null)
+        if (_icicles == null)
         {
             Finish();
             return;
@@ -109,12 +109,12 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
 
         _hasCast = true;
 
-        for (int i = 0; i < _icicle.Length; i++)
+        for (int i = 0; i < _icicles.Length; i++)
         {
-            if (_icicle[i] == null) continue;
+            if (_icicles[i] == null) continue;
 
-            _icicle[i].Activate(_attackPosition[i]);
-            _icicle[i] = null;
+            _icicles[i].Activate(_attackPositions[i]);
+            _icicles[i] = null;
         }
 
         ReleaseTelegraph();
@@ -131,27 +131,27 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
     public override void Cancel()
     {
         _isRunning = false;
-        _isWarnigShow = false;
+        _isWarningShown = false;
         _hasCast = false;
 
         ReleaseTelegraph();
 
-        for (int i = 0; i < _icicle.Length; i++)
+        for (int i = 0; i < _icicles.Length; i++)
         {
-            if (_icicle[i] == null) continue;
+            if (_icicles[i] == null) continue;
 
-            _icicle[i].Release();
-            _icicle[i] = null;
+            _icicles[i].Release();
+            _icicles[i] = null;
         }
     }
 
     private void ReleaseTelegraph()
     {
-        for (int i = 0; i < _telegraph.Length; i++)
+        for (int i = 0; i < _telegraphs.Length; i++)
         {
-            if (_telegraph[i] == null) continue;
-            _telegraph[i].Release();
-            _telegraph[i] = null;
+            if (_telegraphs[i] == null) continue;
+            _telegraphs[i].Release();
+            _telegraphs[i] = null;
         }
     }
 

@@ -21,7 +21,7 @@ public class AirBossBothArmsIceThrow : AirBossAttackBase
     private Vector3 _attackPosition;
 
     private bool _isRunning = false;
-    private bool _isWarnigShow = false;
+    private bool _isWarningShown = false;
     private bool _hasCast = false;
 
     public override void BeginAttack()
@@ -74,7 +74,7 @@ public class AirBossBothArmsIceThrow : AirBossAttackBase
     public override void ShowWarning()
     {
         if (!_isRunning) return;
-        if (_isWarnigShow) return;
+        if (_isWarningShown) return;
         if (_hasCast) return;
 
         if (_player == null || _telegraph == null)
@@ -86,13 +86,13 @@ public class AirBossBothArmsIceThrow : AirBossAttackBase
         _attackPosition = _player.position;
         _telegraph.Activate(_attackPosition, _telegraphScaleMultiplier);
 
-        _isWarnigShow = true;
+        _isWarningShown = true;
     }
 
     public override void Cast()
     {
         if (!_isRunning) return;
-        if (!_isWarnigShow) return;
+        if (!_isWarningShown) return;
         if (_hasCast) return;
 
         if (_largerIcePillar == null)
@@ -120,7 +120,7 @@ public class AirBossBothArmsIceThrow : AirBossAttackBase
     public override void Cancel()
     {
         _isRunning = false;
-        _isWarnigShow = false;
+        _isWarningShown = false;
         _hasCast = false;
 
         ReleaseTelegraph();
