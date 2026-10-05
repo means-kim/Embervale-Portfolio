@@ -575,6 +575,63 @@ MonoBehaviour:
   - {fileID: 3816866358988572836, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
   - {fileID: 1696395169436744111, guid: 6bf790af21170404ba07b686c8c6137a, type: 3}
   _poolSize: 5
+--- !u!1001 &1239731805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 295.15808
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 129.1069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293481016969042167, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
+      propertyPath: m_Name
+      value: Attack_IcePillar_White
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
 --- !u!1001 &1426937789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,3 +949,4 @@ SceneRoots:
   - {fileID: 1121847564}
   - {fileID: 231332533}
   - {fileID: 1426937789}
+  - {fileID: 1239731805}
