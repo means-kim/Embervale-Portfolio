@@ -585,16 +585,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3005443960643297400, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005443960643297400, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005443960643297400, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 306.80136
+      value: 380.7
       objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1003,6 +995,18 @@ PrefabInstance:
     - target: {fileID: 6638137889588832488, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231270996186931566, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.y
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
