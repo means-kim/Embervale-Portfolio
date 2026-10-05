@@ -9184,11 +9184,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 45.01854, y: -21.421646}
-      - {x: 45.619713, y: 26.280628}
-      - {x: 20.921574, y: 26.436531}
+    - - {x: 45.01854, y: -18.421646}
+      - {x: 45.056084, y: 26.942448}
       - {x: -47.599697, y: 26.6574}
-      - {x: -48.07151, y: -21.479485}
+      - {x: -48.07151, y: -19.479485}
   m_UseDelaunayMesh: 1
 --- !u!1 &363975886
 GameObject:
@@ -10515,9 +10514,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 166.00952, y: -22.17586}
-      - {x: 165.75858, y: 148.2933}
-      - {x: 107.903694, y: 148.0101}
-      - {x: 107.77412, y: 69.75723}
+      - {x: 166.75858, y: 149.2933}
+      - {x: 105.75622, y: 149.74748}
+      - {x: 105.77412, y: 70.75723}
       - {x: -17.865469, y: 70.156204}
       - {x: -17.886438, y: -21.905596}
   m_UseDelaunayMesh: 1
@@ -17391,7 +17390,7 @@ Transform:
   m_GameObject: {fileID: 688136367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.34633, y: -24.87346, z: -10}
+  m_LocalPosition: {x: -11.95367, y: -27.27346, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17497,7 +17496,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 40
-    OrthographicSize: 16
+    OrthographicSize: 14
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -18092,7 +18091,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 40
-    OrthographicSize: 18
+    OrthographicSize: 16
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -18772,7 +18771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: _maxHealth
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
@@ -25957,6 +25956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4054343572524884209, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _moveSpeed
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6236980405585183086, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -25968,6 +25971,30 @@ PrefabInstance:
     - target: {fileID: 6236980405585183086, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_SortingLayerID
       value: 1722300004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _jumpPowers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: '_jumpPowers.Array.data[0]'
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: '_jumpPowers.Array.data[1]'
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: '_jumpPowers.Array.data[2]'
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: '_jumpPowers.Array.data[3]'
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139932681856386106, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _dashSpeed
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7464,6 +7464,76 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28d947013999d5f43ab2fa48842055d6, type: 3}
+--- !u!1001 &144654592
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 251.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 126.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405717601429288287, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405717601429288287, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -138048619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: m_Name
+      value: EliteMonster_SnowGiant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+--- !u!4 &144654593 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1020913575131678032, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+  m_PrefabInstance: {fileID: 144654592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145553047
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,6 +9263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 794411674}
+  - {fileID: 729100182}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &357357373
@@ -9219,7 +9290,6 @@ MonoBehaviour:
   - {fileID: 628664}
   - {fileID: 628656}
   - {fileID: 628652}
-  _bossEncounter: {fileID: 794411675}
 --- !u!1 &359815619
 GameObject:
   m_ObjectHideFlags: 0
@@ -17912,6 +17982,55 @@ MeshRenderer:
   m_SortingOrder: 34
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &729100181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729100182}
+  - component: {fileID: 729100183}
+  m_Layer: 0
+  m_Name: EliteEncounterCinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &729100182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729100181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 357357372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729100183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729100181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb28c53d78879a4a969008a58daef6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EliteEncounterCinematic
+  _cinematicManager: {fileID: 357357373}
+  _camera: {fileID: 1653261766}
+  _eliteMonster: {fileID: 144654593}
+  _moveTime: 0.2
+  _holdTime: 2
 --- !u!1001 &732372850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18401,7 +18520,6 @@ MonoBehaviour:
   _bossRenderer: {fileID: 1226626067}
   _player: {fileID: 628667}
   _walkTarget: {fileID: 669907012}
-  _area: {fileID: 1978271481}
   _roarEffect: {fileID: 1291746008}
   _roarDuration: 2
   _walkSpeed: 12
@@ -19590,7 +19708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &925901291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27480,6 +27598,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 708513049}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1628460081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1628460082}
+  - component: {fileID: 1628460083}
+  m_Layer: 0
+  m_Name: EliteAreaController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1628460082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628460081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2099139867}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1628460083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628460081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af956688fbd6434aab4b40e00786a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AreaController
+  _encounterId: 0
+  _eliminateId: 0
+  _leftBlock: {fileID: 1342358006}
+  _rightBlock: {fileID: 1438447954}
+  _useIntro: 1
+  _intro: {fileID: 729100183}
+  _onBattleStarted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1637842145
 GameObject:
   m_ObjectHideFlags: 0
@@ -27587,7 +27758,7 @@ Transform:
   m_GameObject: {fileID: 1653261761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0135946, y: -19.146324, z: -10}
+  m_LocalPosition: {x: 1.7411909, y: -19.144287, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41339,8 +41510,8 @@ MonoBehaviour:
   _playerTag: Player
   _mapVisibility: {fileID: 1376007187}
   _boxCollider: {fileID: 2091770970}
-  _cinematicManager: {fileID: 0}
-  _area: {fileID: 0}
+  _cinematicManager: {fileID: 357357373}
+  _area: {fileID: 1628460083}
 --- !u!61 &2091770970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41417,6 +41588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1978271480}
+  - {fileID: 1628460082}
   m_Father: {fileID: 1235385685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103680331
@@ -44987,7 +45159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2414873504900805849, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
       propertyPath: _bgmTracks.Array.data[4].Type
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2800255201996225920, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
       propertyPath: m_Volume
@@ -51044,3 +51216,4 @@ SceneRoots:
   - {fileID: 4109765981703094200}
   - {fileID: 1973641964}
   - {fileID: 90437142}
+  - {fileID: 144654592}
