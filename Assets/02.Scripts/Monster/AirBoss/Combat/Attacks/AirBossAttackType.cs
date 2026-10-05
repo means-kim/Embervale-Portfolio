@@ -1,7 +1,9 @@
 public enum AirBossAttackType
 {
     Icicle, // 고드름
-    IcePillar, // 얼음 기둥
+    SmallIcePillar, // 작은 얼음 기둥
+    LargeIcePillar, // 큰 얼음 기둥
+    IceBlock,
 
     SmallLightning, // 작은 번개
     LargeLightning, // 큰 번개

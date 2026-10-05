@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 4804818044005549590}
   - component: {fileID: 3536419785821164132}
   - component: {fileID: 288646290909099654}
+  - component: {fileID: 7231270996186931566}
+  - component: {fileID: 6351156603021301246}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -86,7 +88,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 506869325, guid: f85b02a1c2b49214dbda6b1f9f52f983, type: 3}
@@ -240,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292b7c857d188c46b89c900802e19a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
+  _oneArmUpDownIce: {fileID: 6351156603021301246}
+  _bothArmsIceThrow: {fileID: 7231270996186931566}
   _bothArmsLiftDrop: {fileID: 288646290909099654}
 --- !u!114 &288646290909099654
 MonoBehaviour:
@@ -258,3 +262,39 @@ MonoBehaviour:
   _player: {fileID: 0}
   _telegraphType: 3
   _telegraphScaleMultiplier: {x: 20, y: 30, z: 1}
+--- !u!114 &7231270996186931566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66154ff556fc0484bbffed124e75496d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIceThrow
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 5
+  _telegraphScaleMultiplier: {x: 6, y: 12, z: 1}
+--- !u!114 &6351156603021301246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b97bdb775374ad19c392830fa59410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIce
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
+  _offSetX: 40
+  _offSetY: 50

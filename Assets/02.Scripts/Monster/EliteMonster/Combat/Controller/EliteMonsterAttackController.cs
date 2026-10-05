@@ -46,6 +46,7 @@ public class EliteMonsterAttackController : MonoBehaviour
             hitbox.ResetHits();
         }
 
+        _facing.UpdateFacing(); // 공격전 방향 조절
         _currentAttack.StartAttack();
 
         _movement.enabled = false;

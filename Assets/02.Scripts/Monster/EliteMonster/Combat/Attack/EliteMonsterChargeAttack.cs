@@ -8,6 +8,8 @@ public class EliteMonsterChargeAttack : EliteMonsterAttack
     [SerializeField] private EliteMonsterEffect _effectPrefab;
     [SerializeField] private Transform _effectPoint;
 
+    [SerializeField] private EliteMonsterFacing _facing;
+
     private bool _isChargeMove;
 
     public override void StartAttack()
@@ -70,6 +72,7 @@ public class EliteMonsterChargeAttack : EliteMonsterAttack
 
         _movement.ChargeMovement(_moveSpeedUp);
         _movement.enabled = true;
+        _facing.enabled = true;
     }
 
     public void StopChargeMovement()
@@ -81,6 +84,7 @@ public class EliteMonsterChargeAttack : EliteMonsterAttack
         }
 
         _movement.enabled = false;
+        _facing.enabled = false;
 
         if (_animator != null)
         {
