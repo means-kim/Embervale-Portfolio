@@ -7499,6 +7499,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -138048619
       objectReference: {fileID: 0}
+    - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: _maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: _secondsPerSlot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
       value: EliteMonster_SnowGiant
@@ -18232,6 +18240,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Hyunseo
       objectReference: {fileID: 0}
+    - target: {fileID: 3034470034761653321, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054343572524884209, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
+      propertyPath: _moveSpeed
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6236980405585183086, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -18239,6 +18255,14 @@ PrefabInstance:
     - target: {fileID: 6236980405585183086, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: m_SortingLayerID
       value: 1722300004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533624692983177567, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
+      propertyPath: _autoRecover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533624692983177567, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
+      propertyPath: _secondsPerSlot
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7684787043264827604, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: _jumpPowers.Array.size
@@ -27926,7 +27950,7 @@ Transform:
   m_GameObject: {fileID: 1653261761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7370243, y: -19.144287, z: -10}
+  m_LocalPosition: {x: 1.7516127, y: -19.144306, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
