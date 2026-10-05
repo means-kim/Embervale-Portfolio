@@ -16,9 +16,12 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
     [Header("텔레그래프 프리팹의 기본 크기에 곱할 배수")]
     [SerializeField] private Vector3 _telegraphScaleMultiplier = Vector3.one;
 
-    private AirBossAttack _icicle;
-    private Telegraph _telegraph;
-    private Vector3 _attackPosition;
+    [Header("공격 X 축 간격")]
+    [SerializeField] private float _offSetX = 3f;
+
+    private AirBossAttack[] _icicle = new AirBossAttack[3];
+    private Telegraph[] _telegraph = new Telegraph[3];
+    private Vector3[] _attackPosition = new Vector3[3];
 
     private bool _isRunning = false;
     private bool _isWarnigShow = false;
@@ -50,21 +53,17 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
             return;
         }
 
-        _icicle = attackPool.GetAttack(AirBossAttackType.Icicle);
-
-        if (_icicle == null)
+        for (int i = 0; i < _icicle.Length; i++)
         {
-            _controller.OnActionFinished();
-            return;
-        }
+            _icicle[i] = attackPool.GetAttack(AirBossAttackType.Icicle);
+            _telegraph[i] = telegraphPool.GetTelegraph(_telegraphType);
 
-        _telegraph = telegraphPool.GetTelegraph(_telegraphType);
-
-        if (_telegraph == null)
-        {
-            Cancel();
-            _controller.OnActionFinished();
-            return;
+            if (_icicle[i] == null || _telegraph[i] == null)
+            {
+                Cancel();
+                _controller.OnActionFinished();
+                return;
+            }
         }
 
         _isRunning = true;
@@ -83,8 +82,15 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
             return;
         }
 
-        _attackPosition = _player.position;
-        _telegraph.Activate(_attackPosition, _telegraphScaleMultiplier);
+        Vector3 centerPosition = _player.position;
+        _attackPosition[0] = centerPosition + Vector3.left * _offSetX;
+        _attackPosition[1] = centerPosition;
+        _attackPosition[2] = centerPosition + Vector3.right * _offSetX;
+
+        for (int i = 0; i < _icicle.Length; i++)
+        {
+            _telegraph[i].Activate(_attackPosition[i], _telegraphScaleMultiplier);
+        }
 
         _isWarnigShow = true;
     }
@@ -103,9 +109,14 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
 
         _hasCast = true;
 
-        _icicle.Activate(_attackPosition);
+        for (int i = 0; i < _icicle.Length; i++)
+        {
+            if (_icicle[i] == null) continue;
 
-        _icicle = null;
+            _icicle[i].Activate(_attackPosition[i]);
+            _icicle[i] = null;
+        }
+
         ReleaseTelegraph();
     }
 
@@ -125,18 +136,23 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
 
         ReleaseTelegraph();
 
-        if (_icicle != null)
+        for (int i = 0; i < _icicle.Length; i++)
         {
-            _icicle.Release();
-            _icicle = null;
+            if (_icicle[i] == null) continue;
+
+            _icicle[i].Release();
+            _icicle[i] = null;
         }
     }
 
     private void ReleaseTelegraph()
     {
-        if (_telegraph == null) return;
-        _telegraph.Release();
-        _telegraph = null;
+        for (int i = 0; i < _telegraph.Length; i++)
+        {
+            if (_telegraph[i] == null) continue;
+            _telegraph[i].Release();
+            _telegraph[i] = null;
+        }
     }
 
     private void OnDisable()
