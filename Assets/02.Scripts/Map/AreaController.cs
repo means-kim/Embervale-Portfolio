@@ -26,10 +26,17 @@ public class AreaController : MonoBehaviour
     [Header("전투 시작")]
     [SerializeField] private UnityEvent _onBattleStarted;
 
+    [Header("처치 대상")]
+    [SerializeField] private Health _enemyHealth;
     private AreaState _state = AreaState.Waiting;
 
     private void OnEnable()
     {
+        if (_enemyHealth != null)
+        {
+            _enemyHealth.OnDie += HandleEnemyEliminated;
+        }
+
         if (_intro == null)
         {
             return;
@@ -167,6 +174,11 @@ public class AreaController : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_enemyHealth != null)
+        {
+            _enemyHealth.OnDie -= HandleEnemyEliminated;
+        }
+
         if (_state == AreaState.Intro)
         {
             _intro?.Cancel();

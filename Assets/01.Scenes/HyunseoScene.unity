@@ -18764,6 +18764,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 778327420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823063615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+  m_PrefabInstance: {fileID: 144654592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1 &824961505
 GameObject:
   m_ObjectHideFlags: 0
@@ -27651,6 +27662,7 @@ MonoBehaviour:
   _onBattleStarted:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHealth: {fileID: 823063615}
 --- !u!1 &1637842145
 GameObject:
   m_ObjectHideFlags: 0
@@ -27758,7 +27770,7 @@ Transform:
   m_GameObject: {fileID: 1653261761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7411909, y: -19.144287, z: -10}
+  m_LocalPosition: {x: 1.7370243, y: -19.144287, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40462,6 +40474,7 @@ MonoBehaviour:
   _onBattleStarted:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHealth: {fileID: 0}
 --- !u!1 &1996445611
 GameObject:
   m_ObjectHideFlags: 0
