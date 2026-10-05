@@ -1,0 +1,52 @@
+var texturePath="Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_AirBoss_24F_v03.png";
+var clipPath="Assets/05.Animation/AirBossAttack/Attack_IceCylinder_AirBoss_v03.anim";
+if(System.IO.File.Exists(texturePath)||System.IO.File.Exists(clipPath))
+ throw new System.Exception("New version path already exists; no overwrite.");
+System.IO.File.Copy("Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/Packed_Sheet.png",texturePath);
+AssetDatabase.ImportAsset(texturePath,ImportAssetOptions.ForceSynchronousImport);
+var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);
+importer.textureType=TextureImporterType.Sprite;
+importer.spriteImportMode=SpriteImportMode.Multiple;
+importer.spritePixelsPerUnit=256;
+importer.filterMode=FilterMode.Bilinear;
+importer.mipmapEnabled=false;
+importer.alphaIsTransparency=true;
+importer.wrapMode=TextureWrapMode.Clamp;
+importer.textureCompression=TextureImporterCompression.Uncompressed;
+importer.maxTextureSize=2048;
+var texSettings=new TextureImporterSettings();importer.ReadTextureSettings(texSettings);
+texSettings.spriteMeshType=SpriteMeshType.FullRect;
+importer.SetTextureSettings(texSettings);
+var metas=new SpriteMetaData[24];
+for(int n=0;n<24;n++) metas[n]=new SpriteMetaData{
+ name="Attack_IceCylinder_AirBoss_v03_"+(n+1).ToString("00"),
+ rect=new Rect((n%6)*256,(3-n/6)*256,256,256),
+ alignment=(int)SpriteAlignment.Center,pivot=new Vector2(.5f,.5f),border=Vector4.zero
+};
+importer.spritesheet=metas;
+importer.SaveAndReimport();
+var sprites=AssetDatabase.LoadAllAssetsAtPath(texturePath).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if(sprites.Length!=24)throw new System.Exception("Expected 24 sprite subassets.");
+var clip=new AnimationClip{name="Attack_IceCylinder_AirBoss_v03",frameRate=24,wrapMode=WrapMode.Once};
+int[] durations={1,1,2,2,2,2,1,1,6,6,6,6,6,6,1,1,1,1,1,1,1,1,2,2};
+var keys=new ObjectReferenceKeyframe[25];int tick=0;
+for(int n=0;n<24;n++){keys[n]=new ObjectReferenceKeyframe{time=tick/24f,value=sprites[n]};tick+=durations[n];}
+keys[24]=new ObjectReferenceKeyframe{time=tick/24f,value=null};
+var binding=new EditorCurveBinding{path="",type=typeof(SpriteRenderer),propertyName="m_Sprite"};
+AnimationUtility.SetObjectReferenceCurve(clip,binding,keys);
+var settings=AnimationUtility.GetAnimationClipSettings(clip);
+settings.loopTime=false;settings.startTime=0;settings.stopTime=(tick+1)/24f;
+AnimationUtility.SetAnimationClipSettings(clip,settings);
+AssetDatabase.CreateAsset(clip,clipPath);
+AssetDatabase.SaveAssetIfDirty(clip);
+var report=new{
+ texturePath,clipPath,width=1536,height=1024,frameCount=sprites.Length,cellSize=256,
+ pivot=new[]{.5f,.5f},ppu=256,filter="Bilinear",
+ duration=clip.length,riseSeconds=.5f,holdSeconds=1.5f,breakSeconds=.5f,clearAtSeconds=2.5f,
+ keys=keys.Select(k=>new{k.time,sprite=k.value==null?null:k.value.name}).ToArray(),
+ loop=AnimationUtility.GetAnimationClipSettings(clip).loopTime,
+ events=AnimationUtility.GetAnimationEvents(clip).Length,floatCurves=AnimationUtility.GetCurveBindings(clip).Length
+};
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText("Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/UnityImportReport.json",json);
+return json;

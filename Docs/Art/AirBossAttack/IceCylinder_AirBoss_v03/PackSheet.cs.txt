@@ -1,0 +1,47 @@
+// Pack image_gen artwork into equal cells. No new poses are synthesized.
+var inputPath="Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/Generated_Revised.png";
+var outputPath="Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/Packed_Sheet.png";
+var src=new Texture2D(2,2,TextureFormat.RGBA32,false);
+Texture2D dst=null;
+try{
+ ImageConversion.LoadImage(src,System.IO.File.ReadAllBytes(inputPath),false);
+ if(src.width!=1536||src.height!=1024)throw new System.Exception("Unexpected source size.");
+ var pixels=src.GetPixels32();var result=new Color32[1536*1024];
+ int[] rowMin={0,280,525,758},rowMax={280,525,758,1024},baseY={259,501,744,980};
+ int[] bodyTop={234,214,184,144,101,70,310,310,310,310,309,309,546,546,546,546,545,545};
+ float[] centerX={134,132,131,129,129,129,130.5f,129,128.5f,128.5f,128,129.5f,131,128,129,127,128,129,128,128,128,128,128,128};
+ float[] bodyWidth={74,74,75,78,76,75,78,77,76,76,77,76,77,77,77,77,77,77};
+ var stats=new System.Collections.Generic.List<object>();
+ for(int n=0;n<24;n++){
+   int col=n%6,row=n/6;
+   float scaleY=1,scaleX=1;
+   if(n>=6&&n<=17){
+     float targetHeight=n==6?190:192;
+     scaleY=targetHeight/(baseY[row]-bodyTop[n]);
+     scaleX=76f/bodyWidth[n];
+   }
+   float cx=centerX[n];
+   for(int y=0;y<256;y++)for(int x=0;x<256;x++){
+     float sx=(x-128)/scaleX+cx;
+     float sy=(y-228)/scaleY+baseY[row];
+     int ix=Mathf.FloorToInt(sx),iy=Mathf.FloorToInt(sy);
+     float fx=sx-ix,fy=sy-iy;
+     float aa=0,rr=0,gg=0,bb=0;
+     for(int dy=0;dy<2;dy++)for(int dx=0;dx<2;dx++){
+       int px=ix+dx,py=iy+dy;
+       if(px<0||px>=256||py<rowMin[row]||py>=rowMax[row])continue;
+       Color32 c=pixels[(1023-py)*1536+col*256+px];
+       float w=(dx==0?1-fx:fx)*(dy==0?1-fy:fy),wa=w*c.a;
+       aa+=wa;rr+=c.r*wa;gg+=c.g*wa;bb+=c.b*wa;
+     }
+     Color32 outColor=aa>0.001f?new Color32((byte)Mathf.Clamp(Mathf.RoundToInt(rr/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(gg/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(bb/aa),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(aa),0,255)):new Color32(0,0,0,0);
+     result[(1023-row*256-y)*1536+col*256+x]=outColor;
+   }
+   stats.Add(new{frame=n+1,sourceCenterX=cx,sourceBaseline=baseY[row],scaleX,scaleY,targetBaseline=228});
+ }
+ dst=new Texture2D(1536,1024,TextureFormat.RGBA32,false);dst.SetPixels32(result);dst.Apply(false,false);
+ System.IO.File.WriteAllBytes(outputPath,dst.EncodeToPNG());
+ var json=Newtonsoft.Json.JsonConvert.SerializeObject(new{source=inputPath,output=outputPath,width=1536,height=1024,cell=256,frames=stats},Newtonsoft.Json.Formatting.Indented);
+ System.IO.File.WriteAllText("Docs/Art/AirBossAttack/IceCylinder_AirBoss_v03/PackingReport.json",json);
+ return "Packed 24 unique generated poses into 6x4 uniform 256px cells; centered x128, common baseline y228.";
+}finally{UnityEngine.Object.DestroyImmediate(src);if(dst!=null)UnityEngine.Object.DestroyImmediate(dst);}

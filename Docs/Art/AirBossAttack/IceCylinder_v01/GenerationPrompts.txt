@@ -1,0 +1,32 @@
+BUILT-IN IMAGE_GEN
+
+INITIAL PROMPT
+Use case: stylized-concept.
+Asset type: Unity 2D pixel-art animated sprite sheet with true transparent RGBA background.
+Reference 1: existing blue ice pillar, palette/pixel-art style only.
+Reference 2: existing falling icicle sheet, palette/crystalline facets/white glints style only. Do NOT copy its pointed shape or grid content.
+Create a NEW solid upright cylindrical ICE COLUMN obstacle that erupts UP from a fixed baseline, remains standing briefly with sparkling highlights, then shatters. This is an area-blocking tall broad cylinder, NOT an icicle, tree, bottle, hollow tube, pointed crystal cluster or stone classical column.
+ONE sheet, EXACTLY 12 frames, regular 4 columns x 3 rows. Requested 1536x1152 canvas, cells384x384, no gutters. Read left to right, top to bottom. No labels, numbers, borders or grid. Uniform cell canvas and a FIXED CENTER pivot at local(192,192) for ALL frames, including tiny/debris frames. Never automatically center the current visible art. Every frame is fully inside its cell.
+Mature body geometry: straight nearly parallel vertical sides at local X126..258, softly rounded polygonal circumference, solid closed elliptical top around Y48..70, bottom ellipse anchored Y328..336. Mature object bounding center local(192,192). Whole body has strong vertical ice facets, cobalt/royal-blue side shadows, cyan/turquoise planes, tiny ice-white specular pixels. Crisp chunky pixel-art stepped edges matching references, not smooth 3D or vector. Heavy, solid, unbroken wall of ice, not transparent glass.
+Fixed BASELINE at local Y336 across all 12 cells. This baseline never moves. Full mature silhouette invariant frames4 through9. Emergence reveals more of the same cylinder vertically from the baseline; don't squash an entire full cylinder to different heights. No supporting terrain, scenery, pedestal, shadow disk or black background. Occasional small ice flakes/cold wisps may rise around the base, modest amount.
+EXACT animation storyboard:
+Frame1 (top row col1): shallow ice crown emerging, topY288, baseY336, width132.
+Frame2 (top row col2): half cylinder risen, topY192, baseY336, width132.
+Frame3 (top row col3): mostly risen, topY96, baseY336, width132.
+Frame4 (top row col4): full cylinder topY48 bottomY336, stable and intact, mild sparkle.
+Frames5,6,7,8 (entire middle row): SAME complete cylinder, SAME dimensions/base/center/facets. ONLY tiny white highlights sweep along ice facets and a few faint cold wisps cycle subtly. Four-frame SEAMLESS HOLD LOOP; frame8 connects to frame5. No shape change or flicker.
+Frame9 (bottom row col1): same full column, branching thin luminous cracks, still whole.
+Frame10 (bottom row col2): recognizable column shatters into several large angular blue ice chunks, separating sideways and beginning to fall, within cell bounds.
+Frame11 (bottom row col3): chunks lower and smaller around the fixed baseline, clear opening where column was, scant icy powder.
+Frame12 (bottom row col4): almost fully cleared, only a few tiny dissolving pale-cyan ice dust specks near the baseline, no solid column or large chunks remain.
+No sparks colored orange/yellow, no lightning, no big white flash, no beam. Keep design cohesive to the 2 references. Absolutely transparent background with alpha, no checkerboard. Maintain enough clearance at every cell edge so no content overlaps adjacent frames.
+
+END FRAME REFINEMENT
+Edit this exact sprite sheet. Preserve the exact canvas dimensions, 4x3 grid, pixel style, transparency and every pixel/design/position of frames1 through11 as closely as possible. Change ONLY the bottom-right cell (frame12): remove ALL solid ice chunks, the blue mound and the blue ground puddle/baseline. It should be almost entirely TRANSPARENT, with at most 3 tiny very faint cyan dust flecks near the lower part of this cell. This is the LAST frame of a SHATTER/DISSOLVE animation: the obstacle has fully cleared. Do not move, grow, resize, recenter, redraw or add anything in the other 11 cells. No background, no checkerboard, no text, no grid. Preserve true alpha.
+
+ALIGNMENT REFINEMENT
+Refine the attached 12-frame sprite sheet for precise Unity grid slicing. Keep this exact ice-cylinder design, blue/cyan pixel-art style, 4 columns x 3 rows, full animation order, and truly transparent background. Actual canvas MUST remain1448x1086, each cell362x362.
+The important correction is consistent placement and CLEAR MARGINS: absolutely every colored/alpha pixel must be inside a cell's local X20..342 and Y20..342; no neighboring-cell particles or edge clipping. Baseline for all solid ice is localY312, leaving50px bottom margin.
+MATURE cylinder body in frames4,5,6,7,8,9 must be the IDENTICAL dimensions and placement: X121..241, TOP Y50, BOTTOM Y312. Full body's center therefore exactly local(181,181), for a CENTER pivot. Preserve identical core silhouette from frame4 through9. Minor glints and wisps only vary. All cold wisps must also stay inside safe margins.
+Frame1 low crown at baseline, frame2 half-height at same baseline, frame3 three-quarter height, frame4 full. Frames5–8 seamless shimmering hold loop, no shifting. Frame9 identical full cylinder with thin white cracks. Frame10 large angular shards falling apart but confined to the original cell. Frame11 low scattered ice fragments at baseline. Frame12 only THREE TINY FAINT CYAN DUST SPECKS, no solid ice, no base disk, otherwise empty transparent.
+Retain the crisp pixel-art facets from input. Keep the object solid closed cylindrical ice, not hollow, not stone, not pointed. No text, labels, grid, backgrounds, floor. Do not recenter short emergence or debris stages; they remain at the common baseline. This fixed anchor and cell margin correction is more important than adding any detail.

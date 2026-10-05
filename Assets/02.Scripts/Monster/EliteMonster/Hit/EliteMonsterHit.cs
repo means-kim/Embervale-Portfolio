@@ -17,6 +17,8 @@ public class EliteMonsterHit : MonoBehaviour
     public bool IsHit => _isHit;
 
     [SerializeField] private float _flashInterval = 0.08f;
+    [SerializeField] private float _flashDuration = 0.24f;
+    private float _flashRemaining;
     private float _flashTimer;
     private bool _isWhiteFlash = false;
 
@@ -29,16 +31,23 @@ public class EliteMonsterHit : MonoBehaviour
 
     private void Update()
     {
-        if (!_isHit) return;
-        if (_bossHealth.IsDead) return;
+        if (_flashRemaining <= 0f) return;
+
+        _flashRemaining -= Time.deltaTime;
+
+        if (_bossHealth.IsDead || _flashRemaining <= 0f)
+        {
+            StopFlash();
+            return;
+        }
 
         _flashTimer -= Time.deltaTime;
         if (_flashTimer > 0f) return;
 
         _flashTimer = _flashInterval;
         _isWhiteFlash = !_isWhiteFlash;
-
-        _spriteRenderer.sharedMaterial = _isWhiteFlash ? _hitMaterial : _originalMaterial;
+        _spriteRenderer.sharedMaterial =
+            _isWhiteFlash ? _hitMaterial : _originalMaterial;
     }
 
     private void OnEnable()
@@ -57,15 +66,14 @@ public class EliteMonsterHit : MonoBehaviour
 
     private void HandleHit()
     {
-        if (_eliteMonsterAttackController.IsAttacking) return;
         if (_bossHealth.IsDead) return;
-        if (_isHit) return;
+
+        StartFlash();
+
+        if (_eliteMonsterAttackController.IsAttacking || _isHit)
+            return;
 
         _isHit = true;
-        _isWhiteFlash = true;
-        _flashTimer = _flashInterval;
-        _spriteRenderer.sharedMaterial = _hitMaterial;
-
         _eliteMonsterMovement.enabled = false;
         _eliteMonsterFacing.enabled = false;
 
@@ -77,7 +85,7 @@ public class EliteMonsterHit : MonoBehaviour
     {
         if (!_isHit) return;
 
-        ClearHit();
+        _isHit = false;
 
         if (_bossHealth.IsDead) return;
         if (_eliteMonsterAttackController.IsAttacking) return;
@@ -89,9 +97,7 @@ public class EliteMonsterHit : MonoBehaviour
     private void ClearHit()
     {
         _isHit = false;
-        _isWhiteFlash = false;
-        _flashTimer = 0f;
-        _spriteRenderer.sharedMaterial = _originalMaterial;
+        StopFlash();
     }
 
     [ContextMenu("Test Hit")]
@@ -100,5 +106,21 @@ public class EliteMonsterHit : MonoBehaviour
         if (!Application.isPlaying) return;
 
         HandleHit();
+    }
+
+    private void StartFlash()
+    {
+        _flashRemaining = _flashDuration;
+        _flashTimer = _flashInterval;
+        _isWhiteFlash = true;
+        _spriteRenderer.sharedMaterial = _hitMaterial;
+    }
+
+    private void StopFlash()
+    {
+        _flashRemaining = 0f;
+        _flashTimer = 0f;
+        _isWhiteFlash = false;
+        _spriteRenderer.sharedMaterial = _originalMaterial;
     }
 }

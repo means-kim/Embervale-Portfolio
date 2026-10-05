@@ -1,0 +1,47 @@
+var folder = "Docs/Art/AirBossAttack/Blizzard_AirBoss_v01/PreviewFrames";
+System.IO.Directory.CreateDirectory(folder);
+var effectClip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Blizzard_AirBoss_v01.anim");
+var bossClip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBoss/AirBoss_SpinYaw360.anim");
+var bindings = AnimationUtility.GetObjectReferenceCurveBindings(effectClip);
+var keys = AnimationUtility.GetObjectReferenceCurve(effectClip, bindings[0]);
+var preview = new PreviewRenderUtility();
+var material = new Material(Shader.Find("Sprites/Default"));
+var records = new System.Collections.Generic.List<object>();
+try {
+    var left = new GameObject("Blizzard alone", typeof(SpriteRenderer), typeof(Animator));
+    var right = new GameObject("Blizzard with boss", typeof(SpriteRenderer), typeof(Animator));
+    var boss = new GameObject("Boss reference", typeof(SpriteRenderer), typeof(Animator));
+    preview.AddSingleGO(left); preview.AddSingleGO(right); preview.AddSingleGO(boss);
+    var lr = left.GetComponent<SpriteRenderer>(); var rr = right.GetComponent<SpriteRenderer>(); var br = boss.GetComponent<SpriteRenderer>();
+    lr.sharedMaterial = material; rr.sharedMaterial = material; br.sharedMaterial = material;
+    lr.sortingOrder = 1; rr.sortingOrder = 1; br.sortingOrder = 0;
+    left.transform.position = new Vector3(-0.54f, 0, 0); right.transform.position = new Vector3(0.54f, 0, 0);
+    bossClip.SampleAnimation(boss, 0);
+    var b = br.bounds;
+    float bossScale = 0.72f / b.size.y;
+    boss.transform.localScale = Vector3.one * bossScale;
+    boss.transform.position = new Vector3(0.54f, 0, 0) - b.center * bossScale;
+    preview.camera.orthographic = true; preview.camera.orthographicSize = 0.54f;
+    preview.camera.nearClipPlane = 0.01f; preview.camera.farClipPlane = 100;
+    preview.camera.transform.position = new Vector3(0, 0, -10); preview.camera.transform.rotation = Quaternion.identity;
+    for (int i = 0; i < keys.Length; i++) {
+        float sample = keys[i].time + 0.00001f;
+        effectClip.SampleAnimation(left, sample); effectClip.SampleAnimation(right, sample);
+        bossClip.SampleAnimation(boss, Mathf.Min(sample, bossClip.length - 0.0001f));
+        preview.BeginPreview(new Rect(0, 0, 600, 300), GUIStyle.none);
+        preview.camera.clearFlags = CameraClearFlags.SolidColor; preview.camera.backgroundColor = Color.black;
+        preview.Render(true, false);
+        var rt = preview.EndPreview() as RenderTexture;
+        var previous = RenderTexture.active;
+        RenderTexture.active = rt;
+        var image = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+        image.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0); image.Apply();
+        var file = folder + "/Frame_" + (i + 1).ToString("00") + ".png";
+        System.IO.File.WriteAllBytes(file, image.EncodeToPNG());
+        records.Add(new { frame = i + 1, time = keys[i].time, sprite = lr.sprite == null ? null : lr.sprite.name, bossSprite = br.sprite.name, width = rt.width, height = rt.height });
+        UnityEngine.Object.DestroyImmediate(image); RenderTexture.active = previous;
+    }
+} finally { preview.Cleanup(); UnityEngine.Object.DestroyImmediate(material); }
+var json = Newtonsoft.Json.JsonConvert.SerializeObject(records, Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText("Docs/Art/AirBossAttack/Blizzard_AirBoss_v01/UnityPreviewReport.json", json);
+return "Rendered " + records.Count + " states; duration=" + effectClip.length;

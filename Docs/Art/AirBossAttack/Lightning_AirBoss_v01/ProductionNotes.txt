@@ -1,0 +1,45 @@
+AirBoss 번개 v01 — 2026-10-05
+
+요청과 결과
+거의 흰 중심선 → 청백색 광층 → 아주 약한 청보라 잔광을 사용한 새 번개.
+중심 줄기는 선명하고, 옆갈래는 가늘고 불규칙하며 끝으로 좁아진다.
+승인된 얼음 소재와 차가운 색감·마감을 공유하되 번개는 고체가 아닌 빛의 선으로 표현했다.
+처음부터 세로로 그린 독립 에셋이며 사용자 배치를 위한 스케일·피봇 기준을 일정하게 유지했다.
+
+사용할 파일
+../../../../Assets/04.Sprites/AirBossAttack/Attack_Lightning_AirBoss_24F_v01.png (+ .meta)
+../../../../Assets/05.Animation/AirBossAttack/Attack_Lightning_AirBoss_v01.anim (+ .meta)
+
+실제 사양
+24장 모두 서로 다른 그림. 6열×4행, 1536×1024 RGBA 시트, 각 셀 256×256.
+모든 피봇 정중앙 (0.5, 0.5), PPU256, Bilinear, FullRect, Clamp, 무압축, mipmap 없음.
+24FPS의 단일 비반복 클립. 형성 3장(0.125초), 방전 14장(0.583초), 잔광·소멸 7장(0.292초).
+1초에 SpriteRenderer.sprite=null 키를 넣어 표시가 남지 않도록 했다.
+Unity clip.length는 빈 끝 프레임을 포함해 1.04166663초다.
+스프라이트 키24개와 null 키1개, 이벤트0개, float 곡선0개. Animator Controller는 만들지 않았다.
+
+제작과 참조
+Codex 내장 image_gen 도구를 사용했다. 정확한 최종 프롬프트는 GenerationPrompt.txt.
+참조1: ../../../../Assets/04.Sprites/AirBossAttack/Attack_Icicle_Fall_AirBoss_4x3_v02.png
+참조2: ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_AirBoss_24F_v03.png
+참조는 색감과 마감용이며 얼음 결정이나 덩어리를 번개에 복사하지 않았다.
+실제 생성 원본 Generated_Initial.png는 1536×1024 RGBA로 요청 해상도와 같다.
+생성된 256×256 셀의 전체 그림을 동일하게 232×232에 맞추고 사방12px 투명 여백을 넣었다. 개별 프레임의 줄기 위치를 따라 재정렬하지 않았다.
+Unity C#의 premultiplied alpha 보간으로 기계적 패킹했다. 그림 복제나 절차적 번개 그리기를 하지 않았다.
+PackSheet.cs.txt와 CreateAssets.cs.txt에 패킹·임포트 과정을 저장했다.
+원본 PNG에서 alpha0 영역의 RGB까지 보여주는 뷰어에서는 배경 빛이 과해 보일 수 있다. Initial_Visible.png는 원본의 실제 alpha를 검정에 합성한 진단 이미지다.
+
+검증
+UnitySpriteAudit.json:24개 스프라이트가 동일한256셀, 중심피봇, PPU256으로 임포트됨.
+FinalFileAudit.json:24개 그림해시가 모두 다름, 모든 셀 외곽 경계alpha0.
+UnityImportReport.json:24FPS, 총길이, 비반복, null종료, 이벤트·float곡선 부재 확인.
+별도 PreviewRenderUtility에서 실제 클립의25개 상태를 렌더했다. PreviewFrames, UnityPreviewReport.json 참조.
+Frame_09에서 중심 줄기와 가는 가지 확인. Frame_23에서 끊어진 약한 잔광, Frame_25에서 번개가 완전히 해제되는 것 확인.
+Preview.html에서 고드름·번개·AirBoss를 함께 비교할 수 있다. 크기는 화풍 검토용이며 실제 게임 배치 크기를 확정하지 않는다.
+관련 기존 스프라이트·클립·프리팹93개 파일의 SHA256 불변 확인. 씬·컨트롤러·기존프리팹은 변경하지 않았다.
+현재 검증은 임포트/클립 샘플링/검은 바탕의 비교 렌더다. 최종 전투 배경과 실제 배치·피해 로직은 별도 사용자 작업이다.
+
+기존 프리팹에 적용할 때 참고
+기존 Attack_SmallLightning/Attack_LargeLightning은 가로 그림을 Visual Z -90도로 회전한 구조다.
+이번 그림은 처음부터 세로이므로 기존 회전·오프셋·비균일Scale을 그대로 물려받으면 의도와 달라질 수 있다.
+새 그림과 클립은 기존 프리팹에 자동 연결하지 않았다. 배치에 맞춰 Visual을 조정한다.

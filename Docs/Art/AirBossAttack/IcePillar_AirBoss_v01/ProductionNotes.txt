@@ -1,0 +1,68 @@
+Attack_IcePillar — AirBoss material redesign v01
+Date: 2026-10-05 KST
+
+Requested result
+- New multi-sprite and animation clip; existing assets must remain unchanged.
+- Same pivot-relative position and world size as Attack_IcePillar.
+- Match approved icicle, cylinder and ice mass color, texture and edge finish.
+- User approved increasing 14 original drawings to 24 unique drawings while keeping approximately0.77 seconds.
+
+Files
+- Assets/04.Sprites/AirBossAttack/Attack_IcePillar_AirBoss_24F_v01.png and .meta
+- Assets/05.Animation/AirBossAttack/Attack_IcePillar_AirBoss_v01.anim and .meta
+- Preview.html: actual Unity keyframe renders with pause, seek and playback speed controls.
+
+Original audit
+- Prefab: Assets/03.Prefabs/AirBossAttack/Attack_IcePillar.prefab
+- Source: Assets/vfx_complete_set_season_2/vfx_ice/vfx_ice/aseprite_files_96x96/vfx.aseprite
+- Clip: Assets/05.Animation/AirBossAttack/Attack_IcePillar.anim
+- 14 original sprite drawings: Frame_53 through Frame_64, then Frame_72 and Frame_73.
+- 15 original keys; last key repeats the final sprite.
+- Original sample rate100; length0.77000016s; Loop Time enabled; no events.
+- Original root SpriteRenderer.m_Enabled=1 curve and m_Sprite curve.
+- Original PPU100; each sprite has its own trimmed rectangle and custom pivot, including negative Y pivots.
+- Prefab root Scale(50,50,1), Visual position(0,-0.16,0). These are not modified.
+
+New geometry and timing
+- Production PNG2304x1536 RGBA; logical6x4 layout with384px square working cells.
+- Actual imported sprite rectangles are individually trimmed according to original geometry;
+  do not replace them with a uniform center-pivot grid.
+- PPU400 and four times the original rectangle/pixel-pivot dimensions preserve world geometry.
+- Original14 anchor frames retain their exact key times and pivot-relative world rectangle.
+- Ten new paintings occupy the midpoints of the first ten original transitions.
+- Intermediate rectangle and pixel pivot coordinates are interpolated before normalization.
+- 24 unique drawings,25 keys; the last key repeats drawing24 at the original0.76000017s.
+- Clip length0.7700002s; original sample rate100, loop setting, enabled curve and no-events setting preserved.
+- This is24 drawings over the original timing, not uniform24FPS.
+- No Transform position/scale curves, new controller, prefab or scene changes.
+- Like the original attack, the final drawing remains a standing spike. No unrequested shatter ending was added.
+
+Artwork and production
+- Built-in image_gen, transparent_background=true; exact prompt in GenerationPrompt.txt.
+- Shape reference: Original_14Frames_Visible.png, exported from the actual clip sprites.
+- Style references: approved Icicle_Fall_AirBoss_v02, IceCylinder_AirBoss_v03 and IcePush_IceMass_v01.
+- Native generation was1536x1024; requested2304x1536.
+- Generated_Initial.png preserves the native output. Registered_Sheet.png is the production copy.
+- RegisterSheet.cs.txt performs mechanical placement/resampling of the distinct generated paintings
+  against original visible body bounds, rectangles and pivots. No duplicate-pose in-betweening.
+- Floating glints are registered separately with their proportions preserved, keeping them inside the original envelope.
+- Premultiplied color interpolation retains translucent painted edges. Generated alpha is used;
+  the original pixel-step silhouette is not imposed on the new painting.
+- Working output dimensions are not a claim of native2304x1536 painted detail.
+- Import: Bilinear, FullRect mesh, no mipmaps, Clamp, uncompressed, max4096, sRGB.
+
+Verification
+- UnityImportReport.json: all14 original anchor world rectangles/pivots compared after import; max difference0.
+- All25 actual animation keys sampled in isolated Unity PreviewRenderUtility and saved to PreviewFrames.
+- Original and new previews use identical Scale and Visual Y=-0.16.
+- Final file audit: all25 sprite references match current24 sprite IDs; all24 drawings are nonempty and unique.
+- FinalValidation.json: all51 baseline source assets unchanged, including prefab/controller/clip and original aseprite.
+- Console error query returned0 entries after the final import/render.
+- Existing unrelated user changes in EliteMonsterDeath.cs and EliteMonster_SnowGiant.prefab were left untouched.
+- Gameplay collision, damage and scene integration were not part of this asset-only request.
+
+Usage
+- Use Attack_IcePillar_AirBoss_v01.anim in the desired duplicate prefab/controller setup.
+- Keep the existing Visual local position and prefab scale when comparing size.
+- Preserve the imported per-frame pivots; do not center them again.
+- The original prefab and controller still reference the original clip until the user chooses to connect the new clip.

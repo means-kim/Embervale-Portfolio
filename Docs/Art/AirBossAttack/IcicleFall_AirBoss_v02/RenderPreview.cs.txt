@@ -1,0 +1,44 @@
+var dir="Docs/Art/AirBossAttack/IcicleFall_AirBoss_v02/PreviewFrames";
+System.IO.Directory.CreateDirectory(dir);
+var originalClip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall.anim");
+var newClip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_Icicle_Fall_AirBoss_v02.anim");
+var bossClip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBoss/AirBoss_Idle.anim");
+var preview=new PreviewRenderUtility();
+var mat=new Material(Shader.Find("Sprites/Default"));
+var goA=new GameObject("Original_Icicle_Preview",typeof(SpriteRenderer),typeof(Animator));
+var goB=new GameObject("New_Icicle_Preview",typeof(SpriteRenderer),typeof(Animator));
+var goC=new GameObject("AirBoss_Style_Reference",typeof(SpriteRenderer),typeof(Animator));
+var sampled=new System.Collections.Generic.List<string>();
+try {
+    preview.AddSingleGO(goA); preview.AddSingleGO(goB); preview.AddSingleGO(goC);
+    var a=goA.GetComponent<SpriteRenderer>();var b=goB.GetComponent<SpriteRenderer>();var c=goC.GetComponent<SpriteRenderer>();
+    a.sharedMaterial=mat;b.sharedMaterial=mat;c.sharedMaterial=mat;
+    goA.transform.position=new Vector3(-0.7f,0,0); goB.transform.position=new Vector3(0,0,0);
+    bossClip.SampleAnimation(goC,0);
+    if(c.sprite==null) throw new System.Exception("Boss reference clip did not sample.");
+    float bossScale=0.83f/c.bounds.size.y;
+    goC.transform.localScale=Vector3.one*bossScale;
+    goC.transform.position=new Vector3(0.72f,-c.bounds.min.y,0);
+    var cam=preview.camera;
+    cam.orthographic=true;cam.orthographicSize=0.52f;cam.nearClipPlane=0.01f;cam.farClipPlane=100;
+    cam.transform.position=new Vector3(0.06f,0.40f,-10);cam.transform.rotation=Quaternion.identity;
+    cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(0.055f,0.07f,0.10f,1);
+    for(int n=0;n<12;n++) {
+        float t=(n+0.1f)/12f;
+        originalClip.SampleAnimation(goA,t);newClip.SampleAnimation(goB,t);
+        if(a.sprite==null||b.sprite==null) throw new System.Exception("Null sampled frame "+n);
+        sampled.Add(b.sprite.name);
+        preview.BeginPreview(new Rect(0,0,600,300),GUIStyle.none);
+        cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(0.055f,0.07f,0.10f,1);
+        preview.Render(true,false);
+        var rt=preview.EndPreview() as RenderTexture;
+        if(rt==null) throw new System.Exception("Preview was not a RenderTexture.");
+        var saved=RenderTexture.active;RenderTexture.active=rt;
+        var tex=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);
+        try{
+            tex.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0);tex.Apply();
+            System.IO.File.WriteAllBytes(dir+"/Frame_"+(n+1).ToString("00")+".png",tex.EncodeToPNG());
+        }finally{RenderTexture.active=saved;UnityEngine.Object.DestroyImmediate(tex);}
+    }
+    return Newtonsoft.Json.JsonConvert.SerializeObject(new {sampled,frameCount=sampled.Count,previewSceneOnly=true});
+}finally{preview.Cleanup();UnityEngine.Object.DestroyImmediate(mat);}

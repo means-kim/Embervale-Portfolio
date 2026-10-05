@@ -1,0 +1,42 @@
+var texturePath="Assets/04.Sprites/AirBossAttack/Attack_Lightning_AirBoss_24F_v01.png";
+var clipPath="Assets/05.Animation/AirBossAttack/Attack_Lightning_AirBoss_v01.anim";
+if(System.IO.File.Exists(texturePath)||System.IO.File.Exists(clipPath))throw new System.Exception("New version path already exists; no overwrite.");
+System.IO.File.Copy("Docs/Art/AirBossAttack/Lightning_AirBoss_v01/Packed_Sheet.png",texturePath);
+AssetDatabase.ImportAsset(texturePath,ImportAssetOptions.ForceSynchronousImport);
+var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);
+importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Multiple;
+importer.spritePixelsPerUnit=256;importer.filterMode=FilterMode.Bilinear;importer.mipmapEnabled=false;
+importer.alphaIsTransparency=true;importer.wrapMode=TextureWrapMode.Clamp;
+importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=2048;
+var texSettings=new TextureImporterSettings();importer.ReadTextureSettings(texSettings);
+texSettings.spriteMeshType=SpriteMeshType.FullRect;importer.SetTextureSettings(texSettings);
+var metas=new SpriteMetaData[24];
+for(int n=0;n<24;n++)metas[n]=new SpriteMetaData{
+ name="Attack_Lightning_AirBoss_v01_"+(n+1).ToString("00"),
+ rect=new Rect((n%6)*256,(3-n/6)*256,256,256),
+ alignment=(int)SpriteAlignment.Center,pivot=new Vector2(.5f,.5f),border=Vector4.zero
+};
+importer.spritesheet=metas;importer.SaveAndReimport();
+var sprites=AssetDatabase.LoadAllAssetsAtPath(texturePath).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if(sprites.Length!=24)throw new System.Exception("Expected24 sprite subassets.");
+var clip=new AnimationClip{name="Attack_Lightning_AirBoss_v01",frameRate=24,wrapMode=WrapMode.Once};
+var keys=new ObjectReferenceKeyframe[25];
+for(int n=0;n<24;n++)keys[n]=new ObjectReferenceKeyframe{time=n/24f,value=sprites[n]};
+keys[24]=new ObjectReferenceKeyframe{time=24/24f,value=null};
+var binding=new EditorCurveBinding{path="",type=typeof(SpriteRenderer),propertyName="m_Sprite"};
+AnimationUtility.SetObjectReferenceCurve(clip,binding,keys);
+var settings=AnimationUtility.GetAnimationClipSettings(clip);
+settings.loopTime=false;settings.startTime=0;settings.stopTime=24/24f;
+AnimationUtility.SetAnimationClipSettings(clip,settings);
+AssetDatabase.CreateAsset(clip,clipPath);AssetDatabase.SaveAssetIfDirty(clip);
+var report=new{
+ texturePath,clipPath,width=1536,height=1024,frameCount=sprites.Length,cellSize=256,
+ pivot=new[]{.5f,.5f},ppu=256,filter="Bilinear",fps=clip.frameRate,duration=clip.length,
+ appearSeconds=3/24f,dischargeSeconds=14/24f,fadeSeconds=7/24f,clearAtSeconds=24/24f,
+ keys=keys.Select(k=>new{k.time,sprite=k.value==null?null:k.value.name}).ToArray(),
+ loop=AnimationUtility.GetAnimationClipSettings(clip).loopTime,
+ events=AnimationUtility.GetAnimationEvents(clip).Length,floatCurves=AnimationUtility.GetCurveBindings(clip).Length
+};
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText("Docs/Art/AirBossAttack/Lightning_AirBoss_v01/UnityImportReport.json",json);
+return json;

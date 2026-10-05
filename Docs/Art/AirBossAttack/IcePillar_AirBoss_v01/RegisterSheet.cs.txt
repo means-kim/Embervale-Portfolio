@@ -1,0 +1,95 @@
+// Mechanical geometry registration of 24 unique image_gen drawings.
+// Original visible body bounds, trimmed rectangles and pixel pivots provide anchors.
+var folder="Docs/Art/AirBossAttack/IcePillar_AirBoss_v01";
+var original=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(folder+"/OriginalGeometry.json"));
+var analysis=Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(folder+"/RegistrationAnalysis.json"));
+var source=new Texture2D(2,2,TextureFormat.RGBA32,false);Texture2D target=null;
+try{
+ ImageConversion.LoadImage(source,System.IO.File.ReadAllBytes(folder+"/Generated_Initial.png"),false);
+ if(source.width!=1536||source.height!=1024)throw new System.Exception("Unexpected generated dimensions.");
+ var pixels=source.GetPixels32();var result=new Color32[2304*1536];
+ var frames=new System.Collections.Generic.List<object>();
+ for(int n=0;n<24;n++){
+   float fi=n<=20?n/2f:n-10;int a=Mathf.FloorToInt(fi),b=Mathf.CeilToInt(fi);float t=fi-a;
+   var oa=original["frames"][a];var ob=original["frames"][b];
+   float width=Mathf.Lerp((float)oa["rect"][2],(float)ob["rect"][2],t)*4;
+   float height=Mathf.Lerp((float)oa["rect"][3],(float)ob["rect"][3],t)*4;
+   float px=Mathf.Lerp((float)oa["pivot"][0],(float)ob["pivot"][0],t)*4;
+   float py=Mathf.Lerp((float)oa["pivot"][1],(float)ob["pivot"][1],t)*4;
+   int left=Mathf.RoundToInt(192-px),bottom=Mathf.RoundToInt(-py),w=Mathf.RoundToInt(width),h=Mathf.RoundToInt(height);
+   int top=384-bottom-h;float[] full={left,top,left+w-1,top+h-1};
+   var body=new float[4];for(int j=0;j<4;j++)body[j]=Mathf.Lerp((float)analysis["original"][a]["body"][j],(float)analysis["original"][b]["body"][j],t);
+   var g=analysis["generated"][n];var gb=g["body"];var gf=g["full"];var sr=g["sourceRect"];
+   int sx0=(int)sr[0],sy0=(int)sr[1],sw=(int)sr[2],sh=(int)sr[3];
+   // Separate floating glints so fitting the old particle envelope never flattens them.
+   var owners=Enumerable.Repeat(-1,sw*sh).ToArray();var pieces=new System.Collections.Generic.List<int[]>();
+   System.Func<int,int,Color32> sourcePixel=(xx,yy)=>pixels[(source.height-1-sy0-yy)*source.width+sx0+xx];
+   for(int seed=0;seed<owners.Length;seed++){
+     if(owners[seed]>=0||sourcePixel(seed%sw,seed/sw).a<=2)continue;
+     int id=pieces.Count;var q=new System.Collections.Generic.List<int>();q.Add(seed);owners[seed]=id;
+     int minX=sw,minY=sh,maxX=-1,maxY=-1;
+     for(int qi=0;qi<q.Count;qi++){
+       int v=q[qi],xx=v%sw,yy=v/sw;minX=Mathf.Min(minX,xx);maxX=Mathf.Max(maxX,xx);minY=Mathf.Min(minY,yy);maxY=Mathf.Max(maxY,yy);
+       for(int dir=0;dir<4;dir++){
+         int nx=xx+(dir==0?-1:dir==1?1:0),ny=yy+(dir==2?-1:dir==3?1:0);
+         if(nx<0||nx>=sw||ny<0||ny>=sh)continue;int next=ny*sw+nx;
+         if(owners[next]>=0||sourcePixel(nx,ny).a<=2)continue;owners[next]=id;q.Add(next);
+       }
+     }
+     pieces.Add(new[]{id,minX,minY,maxX,maxY,q.Count});
+   }
+   int main=pieces.OrderByDescending(v=>v[5]).First()[0];
+   for(int pass=0;pass<2;pass++){
+     var more=(int[])owners.Clone();
+     for(int v=0;v<owners.Length;v++){
+       if(owners[v]>=0||sourcePixel(v%sw,v/sw).a==0)continue;int xx=v%sw,yy=v/sw;
+       for(int dir=0;dir<4;dir++){
+         int nx=xx+(dir==0?-1:dir==1?1:0),ny=yy+(dir==2?-1:dir==3?1:0);
+         if(nx>=0&&nx<sw&&ny>=0&&ny<sh&&owners[ny*sw+nx]>=0){more[v]=owners[ny*sw+nx];break;}
+       }
+     }
+     owners=more;
+   }
+   float bodyScaleX=(body[2]-body[0])/((float)gb[2]-(float)gb[0]);
+   float bodyScaleY=(body[3]-body[1])/((float)gb[3]-(float)gb[1]);
+   foreach(var piece in pieces.OrderByDescending(v=>v[5])){
+     int id=piece[0];float scaleX=bodyScaleX,scaleY=bodyScaleY;
+     float srcCX=((float)gb[0]+(float)gb[2])*.5f,srcCY=((float)gb[1]+(float)gb[3])*.5f;
+     float dstCX=(body[0]+body[2])*.5f,dstCY=(body[1]+body[3])*.5f;
+     if(id!=main){
+       srcCX=(piece[1]+piece[3])*.5f;srcCY=(piece[2]+piece[4])*.5f;
+       float scale=Mathf.Min((bodyScaleX+bodyScaleY)*.5f,(w-4f)/(piece[3]-piece[1]+1),(h-4f)/(piece[4]-piece[2]+1));
+       scaleX=scaleY=scale;
+       float halfW=(piece[3]-piece[1]+3)*scale*.5f,halfH=(piece[4]-piece[2]+3)*scale*.5f;
+       dstCX=body[0]+(srcCX-(float)gb[0])*bodyScaleX;
+       dstCY=body[1]+(srcCY-(float)gb[1])*bodyScaleY;
+       dstCX=Mathf.Clamp(dstCX,left+halfW,left+w-1-halfW);dstCY=Mathf.Clamp(dstCY,top+halfH,top+h-1-halfH);
+     }
+     int minDX=Mathf.Max(left,Mathf.FloorToInt(dstCX+(piece[1]-srcCX-2)*scaleX));
+     int maxDX=Mathf.Min(left+w-1,Mathf.CeilToInt(dstCX+(piece[3]-srcCX+2)*scaleX));
+     int minDY=Mathf.Max(top,Mathf.FloorToInt(dstCY+(piece[2]-srcCY-2)*scaleY));
+     int maxDY=Mathf.Min(top+h-1,Mathf.CeilToInt(dstCY+(piece[4]-srcCY+2)*scaleY));
+     for(int y=minDY;y<=maxDY;y++)for(int x=minDX;x<=maxDX;x++){
+       float sx=(x-dstCX)/scaleX+srcCX,sy=(y-dstCY)/scaleY+srcCY;
+       int ix=Mathf.FloorToInt(sx),iy=Mathf.FloorToInt(sy);float fx=sx-ix,fy=sy-iy;
+       float aa=0,rr=0,gg=0,bb=0;
+       for(int dy=0;dy<2;dy++)for(int dx=0;dx<2;dx++){
+         int xx=ix+dx,yy=iy+dy;if(xx<0||xx>=sw||yy<0||yy>=sh||owners[yy*sw+xx]!=id)continue;
+         Color32 c=sourcePixel(xx,yy);float weight=(dx==0?1-fx:fx)*(dy==0?1-fy:fy),wa=weight*c.a;
+         aa+=wa;rr+=c.r*wa;gg+=c.g*wa;bb+=c.b*wa;
+       }
+       if(aa<=.001f)continue;
+       int at=(1535-n/6*384-y)*2304+n%6*384+x;var under=result[at];float keep=1-aa/255f,combined=aa+under.a*keep;
+       result[at]=new Color32((byte)Mathf.Clamp(Mathf.RoundToInt((rr+under.r*under.a*keep)/combined),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt((gg+under.g*under.a*keep)/combined),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt((bb+under.b*under.a*keep)/combined),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(combined),0,255));
+     }
+   }
+   float time=Mathf.Lerp((float)original["keys"][a]["time"],(float)original["keys"][b]["time"],t);
+   frames.Add(new{frame=n+1,originalFrameFraction=fi,originalAnchor=a==b?oa["name"].ToString():null,time,
+    rect=new[]{n%6*384+left,(3-n/6)*384+bottom,w,h},pivotPixels=new[]{px,py},pivotNormalized=new[]{px/width,py/height},bodyTarget=body,fullTarget=full});
+ }
+ target=new Texture2D(2304,1536,TextureFormat.RGBA32,false);target.SetPixels32(result);target.Apply(false,false);
+ System.IO.File.WriteAllBytes(folder+"/Registered_Sheet.png",target.EncodeToPNG());
+ var report=new{width=2304,height=1536,frameCount=24,cell=384,ppu=400,originalPpu=100,scale=4,frames};
+ System.IO.File.WriteAllText(folder+"/RegistrationReport.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+ return "24 unique paintings registered to original body/rect/pivot anchors and 10 interpolated intermediate states.";
+}finally{UnityEngine.Object.DestroyImmediate(source);if(target!=null)UnityEngine.Object.DestroyImmediate(target);}

@@ -1,0 +1,38 @@
+Built-in image_gen
+
+Initial prompt:
+Use case: precise-object-edit.
+Create a NEW improved 24-frame animation sheet based on the attached existing ice cylinder design. Keep the same solid blue/cyan cylindrical ICE column, crisp chunky pixel-art facets, closed oval top, white specular shimmer and small icy wisps. The change is adding TRUE INTERMEDIATE DRAWINGS to the rise and shatter, NOT duplicating frames, not frame interpolation smears.
+Output ONE transparent RGBA spritesheet, EXACTLY 24 equally sized cells in a precise 6-column by4-row grid. Requested canvas3072x2048, cells512x512. No gutters, labels, numbers or grid. Read left-to-right then top-to-bottom. Every sprite fully contained inside its own cell with generous12% clear edge margins.
+FIXED ANCHOR: identical canvas center50%,50% for every frame (Unity center pivot). Fixed cylinder BASELINE at88% of each cell's height. Full mature solid body top12%, bottom88%, core left31%, right69%. Its center is exactly cell center. No auto centering of short/debris stages. NO horizontal shifting, body wobble or moving baseline. Surface shards/wisps only in margins up to8% of cell edges.
+CYLINDER APPEARANCE: rounded thick ice volume with nearly parallel sides and softly faceted oval closed top; not a sharp icicle, not a tree, not hollow, not a classical stone column. Match existing saturated turquoise/cyan planes and royal-blue side shadows. The same crystal planes are REVEALED as it rises, not stretched/squashed.
+24 FRAME STORYBOARD:
+01-08 = rise, ALL eight are DIFFERENT progressive reveal states. At fixed width and baseline, exposed body height is respectively8%,20%,35%,50%,65%,80%,94%,100% of mature height. Lower part emerges from below the same baseline, cold flecks rise briefly. Frame08 is fully grown.
+09-14 = six completely intact FULL HEIGHT HOLD frames. Absolutely same core dimensions/outline, no cracks, no breaking. Glints travel upward smoothly in six distinct phases, small wisps drift; seamless shimmer cycle14->09. This is a readable pause before destruction. Mature geometry identical to08.
+15 = full height with first hairline crack.
+16 = full height with cracks branching further, still one intact column.
+17 = big blocks slightly separated along cracks, silhouette still recognizable, clear gaps.
+18 = upper blocks start falling, central column starts collapsing; DIFFERENT intermediate block positions.
+19 = large separated chunks falling sideways and down, column upper half now open.
+20 = chunks lower, center nearly cleared, some fragment rotation.
+21 = fragments nearing baseline, smaller pieces breaking away.
+22 = low scattered small fragments, no standing column.
+23 = a few tiny shards and sparse faint ice dust at baseline.
+24 = only2 or3 extremely faint tiny cold dust pixels, almost completely transparent, no solid ice, no mound or puddle.
+Progression must be smooth and coherent across19-24, not ten copies of the same explosion.
+No white whole-body flash, no lightning, no fire, no floor/background/ground shadow, no checkerboard. Preserve true alpha. Do not draw more or fewer than24 cells. The second row contains rise07,08 then hold09,10,11,12. The third row contains hold13,14 then crack15,16 and split17,18. The fourth row contains collapse19,20,21,22,23,24.
+
+Refinement:
+Edit this 24-frame sheet for actual Unity import. The blue background is WRONG. REMOVE THE ENTIRE blue/black painted background and produce TRUE RGBA TRANSPARENCY (alpha0) around all sprites. Do not leave blue squares or a checkerboard. Preserve the existing ice color and design.
+Also fix row placement to a strict six-column x four-row GRID on an EXACT1536x1024 canvas. Cells are256x256. No outer margins or gutters BETWEEN cells.
+Every sprite's ground/bottom line must be at its cell's localY224, i.e. sheet baselines Y224,480,736,992 for rows1,2,3,4. Keep all effects inside localX16..240 and Y16..240. Full-height cylinders have EXACT local topY32, bottomY224, centerX128, core width90pixels, giving fixed CENTER128,128. Do not squash. Reposition the row artwork so bases and mature dimensions align in identical cell coordinates.
+Keep EXACT24frames and their order:
+01..08 are eight distinct rise heights (8%,20%,35%,50%,65%,80%,94%,100%) above the fixed base.
+09..14 six full-height intact holding frames; same silhouette, changing little glints only.
+15..16 full-height cracks.
+17..18 blocks separating and beginning collapse.
+19..22 debris falling progressively lower.
+23 few tiny shards.
+24 only tiny faint dust, no solid ice.
+Frame6 must NOT already be full height; frame7 still slightly shorter, frame8 reaches full. Freeze the core shape during frames8..16. Preserve chronological shatter progression.
+This is a transparent texture asset, not an illustration/poster. No background lighting or backdrop at all. Make only precise layout and alpha corrections, keep the blue/cyan pixel-art ice design.
