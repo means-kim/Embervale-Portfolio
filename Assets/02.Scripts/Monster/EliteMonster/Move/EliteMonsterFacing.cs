@@ -29,7 +29,7 @@ public class EliteMonsterFacing : MonoBehaviour
         UpdateFacing();
     }
 
-    private void UpdateFacing()
+    public void UpdateFacing()
     {
         float directionX = _target.position.x - transform.position.x;
 
