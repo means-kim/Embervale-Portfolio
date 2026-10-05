@@ -690,7 +690,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6051521588232645407, guid: b6773ed8b9b8ccf49bd53167a5823e60, type: 3}
@@ -715,7 +715,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 50
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 10
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac27ea21794c640aa4658fd10a7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMovement
-  _moveSpeed: 15
+  _moveSpeed: 20
   _stopDistance: 3
   _detectDistance: 40
   _loseDistance: 45
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 300
+  _maxHealth: 450
   _autoRecover: 0
   _secondsPerSlot: 1.2
 --- !u!114 &7419796586167053868
@@ -915,9 +915,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
   _movement: {fileID: 1428997075298612375}
-  _moveSpeedUp: 10
+  _moveSpeedUp: 15
   _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
   _effectPoint: {fileID: 4296080632268900524}
+  _facing: {fileID: 7873688310279483471}
 --- !u!114 &2567005633489926930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,7 +938,7 @@ MonoBehaviour:
   _animator: {fileID: 2081650440081494536}
   _spriteRenderer: {fileID: 1405717601429288287}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
-  _flashInterval: 0.08
+  _flashInterval: 0.1
   _flashDuration: 0.24
 --- !u!114 &6456768735056663740
 MonoBehaviour:
