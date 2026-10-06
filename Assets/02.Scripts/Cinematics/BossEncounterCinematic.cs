@@ -28,9 +28,9 @@ public class BossEncounterCinematic : CinematicSequence
     private bool CanPlay()
     {
         return Application.isPlaying && isActiveAndEnabled && !_requested
-            && _boss != null && _bossRenderer != null
-            && _director != null && _director.isActiveAndEnabled
-            && _director.playableAsset != null && _director.state != PlayState.Playing;
+               && _boss != null && _bossRenderer != null
+               && _director != null && _director.isActiveAndEnabled
+               && _director.playableAsset != null && _director.state != PlayState.Playing;
     }
 
     public override bool TryPlay()
@@ -161,6 +161,7 @@ public class BossEncounterCinematic : CinematicSequence
         {
             return;
         }
+
         _bossRenderer.enabled = true;
     }
 
@@ -170,7 +171,6 @@ public class BossEncounterCinematic : CinematicSequence
         {
             return;
         }
-
 
         _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
     }
@@ -211,15 +211,18 @@ public class BossEncounterCinematic : CinematicSequence
         {
             _bossRenderer.enabled = false;
         }
+
         if (_boss != null)
         {
             _boss.enabled = false;
         }
+
         if (_startedBossBgm)
         {
             AudioManager.Instance?.StopBgm(BgmType.Boss);
             _startedBossBgm = false;
         }
+
         NotifyCancelled();
     }
 

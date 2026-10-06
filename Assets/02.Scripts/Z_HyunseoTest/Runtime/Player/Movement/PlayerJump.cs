@@ -129,6 +129,20 @@ namespace HyunseoTest
             _ungroundedTimer = -1f;
             SetGrounded(_groundContacts.Count > 0);
         }
+        public void ResetForRespawn()
+        {
+            RestoreIgnoredPlatforms();
+            _groundContacts.Clear();
+            _platformContacts.Clear();
+            _dropTimer = 0f;
+            _ungroundedTimer = -1f;
+            _lastGroundedTime = float.NegativeInfinity;
+            _bufferedJumpTime = float.NegativeInfinity;
+            _isGrounded = false;
+            _isJumping = false;
+            _jumpCount = 0;
+        }
+
         private void RestoreIgnoredPlatforms()
         {
             if (_playerCollider == null)

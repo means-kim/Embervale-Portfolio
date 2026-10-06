@@ -124,6 +124,21 @@ namespace HyunseoTest
             IsClimbing = false;
             _rigidbody.linearVelocity = new Vector2(-_clingDirection * _wallJumpAwaySpeed, _playerJump.JumpSpeed);
         }
+        public void ResetForRespawn()
+        {
+            _playerMove.SetMovementLocked(this, false);
+            _wallContacts.Clear();
+            _moveInput = Vector2.zero;
+            _moveLocked = false;
+            _touchingWall = false;
+            _clingDirection = 0f;
+            _regrabUntil = 0f;
+            _moveLockUntil = 0f;
+            IsClinging = false;
+            IsClimbing = false;
+            HandleLanded();
+        }
+
         private void HandleLanded()
         {
             _stamina = MaxStamina;

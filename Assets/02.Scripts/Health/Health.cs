@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
@@ -9,7 +10,11 @@ public class Health : MonoBehaviour
     private int _currentHealth;
     private bool _isDead = false;
     public int MaxHealth => _maxHealth;
-    public int CurrentHealth => _currentHealth;
+    public int CurrentHealth
+    {
+        get => _currentHealth;
+        set => _currentHealth = value;
+    }
     public bool IsDead => _isDead;
     public event Action OnDie;
     public event Action OnHit;
@@ -70,5 +75,12 @@ public class Health : MonoBehaviour
         {
             _currentHealth = _maxHealth;
         }
+    }
+
+    public void ReviveFull()
+    {
+        _isDead = false;
+        _currentHealth = _maxHealth;
+        _recoveryRemainder = 0f;
     }
 }

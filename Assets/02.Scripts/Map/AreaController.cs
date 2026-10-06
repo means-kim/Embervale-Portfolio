@@ -153,6 +153,14 @@ public class AreaController : MonoBehaviour
         _onBattleStarted.Invoke();
     }
 
+    // Called by the test player's checkpoint before retrying this room.
+    public void ResetForRetry()
+    {
+        _intro?.Cancel();
+        if (_state != AreaState.Cleared) _state = AreaState.Waiting;
+        OpenBlocks();
+    }
+
     public void HandleEnemyEliminated()
     {
         if (_state != AreaState.Fighting)

@@ -64,6 +64,8 @@ public class CinematicManager : MonoBehaviour
         _timelineFinished = false;
         IsPlaying = true;
 
+        _player.GetComponent<PlayerAttack>()?.CancelAttack();
+
         LockControls();
         StopHorizontalMovement();
 
