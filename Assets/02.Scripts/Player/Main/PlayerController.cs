@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
         EvaluateState();
         var landing = Time.time < _landUntil;
         var verticalVelocity = _rigidbody.linearVelocity.y;
-        var dashDuration = _playerDash.DashDuration;
-        _playerAnimator.Tick(CurrentState, landing, verticalVelocity, dashDuration);
+        _playerAnimator.Tick(CurrentState, landing, verticalVelocity);
     }
     public void ChangeState(PlayerState newState)
     {
@@ -147,7 +146,6 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Dash);
-        _playerAnimator.BeginDash();
     }
     private void HandleDashEnded() => EvaluateState();
     private void HandleAttackStarted()

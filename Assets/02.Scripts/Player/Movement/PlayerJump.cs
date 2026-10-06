@@ -6,7 +6,6 @@ public class PlayerJump : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _maxJumpCount = 2;
     [SerializeField] private List<int> _jumpPowers = new() { 7, 7, 7, 7, 7 };
-    [SerializeField, Min(0f)] private float _dropThroughDuration = 0.4f;
     [SerializeField, Min(0f)] private float _platformLandTolerance = 0.1f;
     [SerializeField, Min(0f), Tooltip("사선 미세 들뜸 깜빡임 방지")] private float _groundLossGrace = 0.1f;
     [SerializeField, Min(0f), Tooltip("코요테 타임")] private float _coyoteTime = 0.1f;
@@ -27,6 +26,7 @@ public class PlayerJump : MonoBehaviour
     private float _ungroundedTimer = -1f;
     private float _lastGroundedTime = -100f;
     private float _bufferedJumpTime = -100f;
+    private float _dropThroughDuration = 0.4f;
     private bool _isGrounded;
     private bool _isJumping;
     private int _jumpCount;
@@ -134,6 +134,7 @@ public class PlayerJump : MonoBehaviour
         _platformContacts.Clear();
         _dropTimer = _dropThroughDuration;
         _ungroundedTimer = -1f;
+        _isJumping = true; // S 하강은 점프가 아님: 코요테 만료의 _jumpCount 회수를 건너뛰고 첫 점프를 정상 점프로 유지
         SetGrounded(_groundContacts.Count > 0);
     }
     private void RestoreIgnoredPlatforms()
@@ -148,10 +149,10 @@ public class PlayerJump : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) => TryLand(collision);
     private void OnCollisionStay2D(Collision2D collision) => TryLand(collision);
     private void OnCollisionExit2D(Collision2D collision) => RemoveGroundContact(collision.collider);
-    private void RemoveGroundContact(Collider2D collider)
+    private void RemoveGroundContact(Collider2D otherCollider)
     {
-        if (collider == null || !_groundContacts.Remove(collider)) return;
-        _platformContacts.Remove(collider);
+        if (otherCollider == null || !_groundContacts.Remove(otherCollider)) return;
+        _platformContacts.Remove(otherCollider);
         if (_groundContacts.Count > 0) _ungroundedTimer = -1f;
         else if (_isGrounded) _ungroundedTimer = _groundLossGrace;
     }
