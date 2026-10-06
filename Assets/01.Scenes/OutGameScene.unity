@@ -126,51 +126,7 @@ PrefabInstance:
   m_Modification:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3259513043659435426, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.06685
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -16.65843
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965630618833172988, guid: 3c1f1ec1a5d58ea4ab43286805cf66f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -656,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec98ca257922fe14183ad258e814db1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutGameUI
-  _gameSceneName: YuchanScene
+  _gameSceneName: MainTestScene
 --- !u!1 &1806416990
 GameObject:
   m_ObjectHideFlags: 0
