@@ -64,7 +64,7 @@ public class PlayerAnimator : MonoBehaviour
                 UpdateJumpPhase(verticalVelocity);
                 break;
             case PlayerState.Dash:
-                PlayPhaseClip("DashLoop");
+                PlayPhaseClip("Dash");
                 break;
         }
     }
