@@ -1,0 +1,45 @@
+var root="ArtSource/AirBoss/cast_onearm_updown_throw_iceblock";
+var framesDir=root+"/frames/v01";System.IO.Directory.CreateDirectory(framesDir);
+string BaseName="AirBoss_Cast_OneArm_UpDown";
+var report=new System.Collections.Generic.List<object>();
+foreach(int frame in FRAME_LIST) {
+ string dst=framesDir+"/"+BaseName+"_v01_"+frame.ToString("D2")+"_Throw_IceBlock.png";
+ if(frame==0){System.IO.File.Copy("ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png",dst,true);report.Add(new{frame,masterExact=true});continue;}
+ string src=root+"/source/v01/frame"+frame.ToString("D2")+"_generated.png";
+ var input=new Texture2D(2,2,TextureFormat.RGBA32,false);
+ ImageConversion.LoadImage(input,System.IO.File.ReadAllBytes(src));int sw=input.width,sh=input.height;
+ var sp=input.GetPixels32();var px=new Color32[1024*1024];
+ for(int y=0;y<1024;y++)for(int x=0;x<1024;x++){
+  float fx=(x+.5f)*sw/1024f-.5f,fy=(y+.5f)*sh/1024f-.5f;
+  int x0=Mathf.Clamp(Mathf.FloorToInt(fx),0,sw-1),y0=Mathf.Clamp(Mathf.FloorToInt(fy),0,sh-1),x1=Mathf.Min(x0+1,sw-1),y1=Mathf.Min(y0+1,sh-1);
+  float tx=fx-Mathf.Floor(fx),ty=fy-Mathf.Floor(fy);
+  var c0=sp[y0*sw+x0];var c1=sp[y0*sw+x1];var c2=sp[y1*sw+x0];var c3=sp[y1*sw+x1];
+  float w0=(1-tx)*(1-ty),w1=tx*(1-ty),w2=(1-tx)*ty,w3=tx*ty;
+  float a=c0.a*w0+c1.a*w1+c2.a*w2+c3.a*w3;
+  byte aa=(byte)Mathf.Clamp(Mathf.RoundToInt(a),0,255);
+  if(aa==0){px[y*1024+x]=new Color32(0,0,0,0);continue;}
+  float rr=(c0.r*c0.a*w0+c1.r*c1.a*w1+c2.r*c2.a*w2+c3.r*c3.a*w3)/a;
+  float gg=(c0.g*c0.a*w0+c1.g*c1.a*w1+c2.g*c2.a*w2+c3.g*c3.a*w3)/a;
+  float bb=(c0.b*c0.a*w0+c1.b*c1.a*w1+c2.b*c2.a*w2+c3.b*c3.a*w3)/a;
+  px[y*1024+x]=new Color32((byte)Mathf.Clamp(Mathf.RoundToInt(rr),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(gg),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(bb),0,255),aa);
+ }
+ // Remove only isolated alpha=1 artifacts in safety border, never cut a connected edge.
+ // Every removed pixel has no alpha>=2 support within 16px in any direction.
+ int removed=0,unresolved=0;
+ for(int y=0;y<1024;y++)for(int x=0;x<1024;x++){
+  if(x>=64&&x<960&&y>=64&&y<960)continue;
+  int p=y*1024+x;if(px[p].a==0)continue;if(px[p].a!=1){unresolved++;continue;}
+  bool supported=false;
+  for(int yy=Mathf.Max(0,y-16);yy<=Mathf.Min(1023,y+16)&&!supported;yy++)
+   for(int xx=Mathf.Max(0,x-16);xx<=Mathf.Min(1023,x+16);xx++)
+    if(px[yy*1024+xx].a>=2){supported=true;break;}
+  if(!supported){px[p]=new Color32(0,0,0,0);removed++;}else unresolved++;
+ }
+ int xmin=1024,ymin=1024,xmax=-1,ymax=-1;
+ for(int y=0;y<1024;y++)for(int x=0;x<1024;x++)if(px[y*1024+x].a>0){xmin=Mathf.Min(xmin,x);xmax=Mathf.Max(xmax,x);ymin=Mathf.Min(ymin,y);ymax=Mathf.Max(ymax,y);}
+ var output=new Texture2D(1024,1024,TextureFormat.RGBA32,false);output.SetPixels32(px);output.Apply();
+ System.IO.File.WriteAllBytes(dst,ImageConversion.EncodeToPNG(output));
+ using(var sha=System.Security.Cryptography.SHA256.Create()){report.Add(new{frame,sourceWidth=sw,sourceHeight=sh,width=1024,height=1024,removedIsolatedBorderAlpha1=removed,unresolvedBorderPixels=unresolved,strict64pxMargin=unresolved==0,boundsTopOrigin=new[]{xmin,1023-ymax,xmax,1023-ymin},pngSha256=System.BitConverter.ToString(sha.ComputeHash(System.IO.File.ReadAllBytes(dst))).Replace("-","")});}
+ UnityEngine.Object.DestroyImmediate(input);UnityEngine.Object.DestroyImmediate(output);
+}
+return report;
