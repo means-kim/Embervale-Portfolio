@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 500
-  _autoRecover: 0
+  _autoRecover: 1
   _secondsPerSlot: 1.2
 --- !u!114 &4853069123459756985
 MonoBehaviour:
@@ -284,11 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
   _maxJumpCount: 2
-  _jumpPowers: 32000000280000001e000000140000000a000000
+  _jumpPowers: 280000001e000000
   _platformLandTolerance: 0.1
   _groundLossGrace: 0.1
-  _coyoteTime: 0.1
-  _jumpBufferTime: 0.15
 --- !u!114 &9139932681856386106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
   _dashSpeed: 40
   _dashDuration: 0.2
-  _dashCooldown: 0.15
+  _dashCooldown: 0.5
 --- !u!114 &117639582548002243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8879e11e56431684394ebc995710cd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWall
-  _climbSpeed: 20
   _slideSpeed: 1.5
   _wallJumpAwaySpeed: 8
   _wallJumpLockDuration: 0.2
@@ -338,7 +335,6 @@ MonoBehaviour:
   _maxStamina: 100
   _staminaTick: 0.1
   _clingDrain: 1
-  _climbDrain: 2
   _wallJumpCost: 25
   _chargeOnlyFirstWallJump: 1
 --- !u!114 &8383643512430087822

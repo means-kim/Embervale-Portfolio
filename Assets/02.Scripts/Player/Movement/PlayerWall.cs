@@ -5,22 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMove))]
 public class PlayerWall : MonoBehaviour
 {
-    private enum WallState { None, Cling, Slide, ClimbUp, ClimbDown }
-    [SerializeField, Min(0f)] private float _climbSpeed = 3f;
+    private enum WallState { None, Cling, Slide }
     [SerializeField, Min(0f)] private float _slideSpeed = 1.5f;
     [SerializeField, Min(0f)] private float _wallJumpAwaySpeed = 8f;
     [SerializeField, Min(0f)] private float _wallJumpLockDuration = 0.2f;
     [SerializeField, Min(0f)] private float _wallProbeDistance = 0.05f;
     [SerializeField, Range(0.5f, 1f)] private float _minimumWallNormal = 0.5f;
-    [SerializeField, Min(1)] private int _maxStamina = 100;
-    [SerializeField, Min(0.01f)] private float _staminaTick = 0.1f;
-    [SerializeField, Min(0)] private int _clingDrain = 1;
-    [SerializeField, Min(0)] private int _climbDrain = 2;
-    [SerializeField, Min(0)] private int _wallJumpCost = 25;
     [SerializeField] private bool _chargeOnlyFirstWallJump = true;
 
     public bool IsClinging => isActiveAndEnabled && _state != WallState.None;
-    public bool IsClimbing => IsClinging && (_state == WallState.ClimbUp || _state == WallState.ClimbDown);
     public int Stamina { get; private set; }
     private Rigidbody2D _body;
     private PlayerInput _input;
@@ -36,6 +29,10 @@ public class PlayerWall : MonoBehaviour
     private int _wallDirection;
     private float _wallJumpUntil;
     private float _staminaTimer;
+    private int _maxStamina = 100;
+    private float _staminaTick = 0.1f;
+    private int _clingDrain = 1;
+    private int _wallJumpCost = 25;
     private bool _moveLocked;
     private bool _wallJumpUsed;
     private Collider2D _collider;
@@ -107,7 +104,7 @@ public class PlayerWall : MonoBehaviour
         while (_staminaTimer >= interval && Stamina > 0)
         {
             _staminaTimer -= interval;
-            Stamina = Mathf.Max(0, Stamina - (IsClimbing ? _climbDrain : _clingDrain));
+            Stamina = Mathf.Max(0, Stamina - _clingDrain);
         }
         if (Stamina == 0) RefreshWallState();
     }
@@ -121,8 +118,7 @@ public class PlayerWall : MonoBehaviour
             _wallDirection = direction;
             if (!IsClinging) _jump.RefreshJumpsFromWall();
         }
-        SetState(!attached ? WallState.None : _moveInput.y > 0.01f ? WallState.ClimbUp
-            : _moveInput.y < -0.01f ? WallState.ClimbDown
+        SetState(!attached ? WallState.None
             : _body.linearVelocity.y < 0f ? WallState.Slide : WallState.Cling);
         SetMovementLock(IsClinging || Time.time < _wallJumpUntil);
     }
@@ -160,8 +156,7 @@ public class PlayerWall : MonoBehaviour
         if (!IsClinging) return;
         Vector2 velocity = _body.linearVelocity;
         velocity.x = 0f; // Keep the player beside one-way platform sides.
-        if (IsClimbing) velocity.y = _moveInput.y * _climbSpeed;
-        else if (velocity.y < 0f) velocity.y = -_slideSpeed;
+        if (velocity.y < 0f) velocity.y = -_slideSpeed;
         _body.linearVelocity = velocity;
     }
     private void SetState(WallState state)
@@ -170,12 +165,7 @@ public class PlayerWall : MonoBehaviour
         _state = state;
         var effects = EffectManager.Instance;
         if (effects == null) return;
-        switch (state)
-        {
-            case WallState.Slide: effects.PlayWallSlide(transform.position); break;
-            case WallState.ClimbUp: effects.PlayWallClimbUp(transform.position); break;
-            case WallState.ClimbDown: effects.PlayWallClimbDown(transform.position); break;
-        }
+        if (state == WallState.Slide) effects.PlayWallSlide(transform.position);
     }
     private void SetMovementLock(bool locked)
     {

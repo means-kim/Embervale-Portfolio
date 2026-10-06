@@ -5,11 +5,9 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _maxJumpCount = 2;
-    [SerializeField] private List<int> _jumpPowers = new() { 7, 7, 7, 7, 7 };
+    [SerializeField] private List<int> _jumpPowers = new() { 40, 30 };
     [SerializeField, Min(0f)] private float _platformLandTolerance = 0.1f;
     [SerializeField, Min(0f), Tooltip("사선 미세 들뜸 깜빡임 방지")] private float _groundLossGrace = 0.1f;
-    [SerializeField, Min(0f), Tooltip("코요테 타임")] private float _coyoteTime = 0.1f;
-    [SerializeField, Min(0f), Tooltip("점프 버퍼")] private float _jumpBufferTime = 0.15f;
     public event Action OnJumpStarted;
     public event Action OnLanded;
     public event Action OnGroundLost;
@@ -27,6 +25,8 @@ public class PlayerJump : MonoBehaviour
     private float _lastGroundedTime = -100f;
     private float _bufferedJumpTime = -100f;
     private float _dropThroughDuration = 0.4f;
+    private float _coyoteTime = 0.1f;
+    private float _jumpBufferTime = 0.1f;
     private bool _isGrounded;
     private bool _isJumping;
     private int _jumpCount;

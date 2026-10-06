@@ -28,8 +28,6 @@ public class EffectManager : MonoBehaviour
     [Header("VFX 프리팹 (레벨·벽)")]
     [SerializeField] private GameObject _levelUpVfx;
     [SerializeField] private GameObject _wallSlideVfx;
-    [SerializeField] private GameObject _wallClimbUpVfx;
-    [SerializeField] private GameObject _wallClimbDownVfx;
     [Header("VFX 프리팹 (기타)")]
     [SerializeField] private GameObject _respawnVfx;
     [SerializeField] private GameObject _clickVfx;
@@ -72,8 +70,6 @@ public class EffectManager : MonoBehaviour
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);
     public void PlayLevelUp(Vector3 position) => Spawn(_levelUpVfx, position);
     public void PlayWallSlide(Vector3 position) => Spawn(_wallSlideVfx, position);
-    public void PlayWallClimbUp(Vector3 position) => Spawn(_wallClimbUpVfx, position);
-    public void PlayWallClimbDown(Vector3 position) => Spawn(_wallClimbDownVfx, position);
     public void PlayRespawn(Vector3 position) => Spawn(_respawnVfx, position);
     public void PlayClick(Vector3 position) => Spawn(_clickVfx, position);
     private GameObject Spawn(GameObject prefab, Vector3 position, int direction = 1)

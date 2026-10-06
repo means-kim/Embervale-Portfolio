@@ -89,11 +89,6 @@ public class PlayerController : MonoBehaviour
             ChangeState(PlayerState.Dash);
             return;
         }
-        if (_playerWall.IsClimbing)
-        {
-            ChangeState(PlayerState.WallClimb);
-            return;
-        }
         if (_playerWall.IsClinging)
         {
             ChangeState(PlayerState.WallCling);
@@ -106,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!_playerJump.IsGrounded)
         {
-            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling || CurrentState == PlayerState.WallClimb;
+            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling;
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }

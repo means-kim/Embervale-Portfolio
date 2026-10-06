@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerController))]
-[RequireComponent(typeof(PlayerWall))]
 public class PlayerFootsteps : MonoBehaviour
 {
     [Header("Surface Banks")]
@@ -14,22 +13,18 @@ public class PlayerFootsteps : MonoBehaviour
     [SerializeField] private AudioSource _groundSource;
     [Tooltip("Platform용")]
     [SerializeField] private AudioSource _platformSource;
-    [SerializeField, Min(0.05f)] private float _stepInterval = 0.35f;
     [SerializeField] private bool _playOnLand;
     private PlayerMove _move;
     private PlayerJump _jump;
     private PlayerController _controller;
-    private PlayerWall _wall;
-    private Rigidbody2D _rigidbody;
     private float _nextStepTime;
+    private float _stepInterval = 0.35f;
     private bool _wasStepping;
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
         _jump = GetComponent<PlayerJump>();
         _controller = GetComponent<PlayerController>();
-        _wall = GetComponent<PlayerWall>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         EnsureSources();
     }
     private void OnValidate()
@@ -67,9 +62,7 @@ public class PlayerFootsteps : MonoBehaviour
     private void Update()
     {
         bool runStep = _controller.CurrentState == PlayerState.Run && _jump.IsGrounded && _move.IsMoving && _move.HasMoveInput;
-        bool wallStep = _wall != null && _wall.IsClimbing && _rigidbody != null && Mathf.Abs(_rigidbody.linearVelocity.y) > 0.01f;
-        bool shouldStep = runStep || wallStep;
-        if (!shouldStep)
+        if (!runStep)
         {
             if (_wasStepping)
             {
@@ -82,8 +75,7 @@ public class PlayerFootsteps : MonoBehaviour
         _wasStepping = true;
         if (Time.time < _nextStepTime) return;
         _nextStepTime = Time.time + _stepInterval;
-        if (wallStep) PlayPlatformStepOnce();
-        else PlayCurrentSurface();
+        PlayCurrentSurface();
         EffectManager.Instance?.PlayFootstep(transform.position);
     }
     private void HandleLanded()
@@ -115,11 +107,5 @@ public class PlayerFootsteps : MonoBehaviour
         }
         if (bank == null || source == null) return;
         bank.PlayOn(source);
-    }
-    public void PlayPlatformStepOnce()
-    {
-        FootstepSFXBank bank = _platformBank != null ? _platformBank : _groundBank;
-        AudioSource source = _platformSource != null ? _platformSource : _groundSource;
-        if (bank != null && source != null) bank.PlayOn(source);
     }
 }

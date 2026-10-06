@@ -198,9 +198,6 @@ AnimatorStateMachine:
     m_State: {fileID: 4013718127854144718}
     m_Position: {x: 380, y: 140, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 761291186347896802}
-    m_Position: {x: -110, y: 420, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -5456513954738436518}
     m_Position: {x: 120, y: 420, z: 0}
   - serializedVersion: 1
@@ -395,32 +392,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 61ebb20afc35f8944a06a4fd8eb993dd, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &761291186347896802
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WallClimb
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 906a43190abb20d4b842c2c0e9a8b2e3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
