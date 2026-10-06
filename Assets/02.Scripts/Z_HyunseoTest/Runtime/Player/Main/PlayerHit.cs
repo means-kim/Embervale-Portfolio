@@ -70,6 +70,16 @@ namespace HyunseoTest
             _knockbackLocking = false;
             if (_move != null) _move.SetMovementLocked(this, false);
         }
+        public void ResetForRespawn()
+        {
+            _hitUntil = 0f;
+            _flashTimer = 0f;
+            _moveUnlockAt = 0f;
+            ReleaseKnockbackLock();
+            if (_move != null) _move.SetMovementLocked(_health, false);
+            RestoreColors();
+        }
+
         private void HandleHit()
         {
             if (_health.IsDead) return;

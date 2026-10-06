@@ -46,6 +46,8 @@ namespace HyunseoTest
             velocity.x = _moveInput.x * _moveSpeed;
             _rigidbody.linearVelocity = velocity;
         }
+        public void ResetForRespawn() => _moveInput = Vector2.zero;
+
         public void SetMovementLocked(Object source, bool locked)
         {
             if (source == null) return;

@@ -92,6 +92,16 @@ namespace HyunseoTest
             }
         }
         public void CancelAttack() => FinishAttack();
+        public void ResetForRespawn()
+        {
+            CancelAttack();
+            _nextAttackTimes.Clear();
+            _combo = null;
+            _nextCombo = 0;
+            _comboExpires = -1f;
+            _queuedCombo = false;
+            _isComboAttack = false;
+        }
         // Called by events on the copied player clips, not by input or a free-running timer.
         public void OpenAttackHitbox(string clipName)
         {

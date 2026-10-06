@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 7063253867997152185}
   - component: {fileID: 5296047191700168514}
   - component: {fileID: 4146579483708080785}
+  - component: {fileID: 9171509485249804042}
   m_Layer: 0
   m_Name: Player_Hyunseo
   m_TagString: Player
@@ -596,3 +597,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9171509485249804042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034470034761653321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6a70e827d68db4faf1c6f56d80c7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Respone
+  _returnDamage: 100

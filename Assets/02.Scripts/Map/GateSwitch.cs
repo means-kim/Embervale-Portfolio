@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class GateSwitch : MonoBehaviour
@@ -32,6 +33,8 @@ public class GateSwitch : MonoBehaviour
     [SerializeField] private CinematicManager _cinematicManager;
 
     [SerializeField] private AreaController _area;
+    [Header("부활 지점")]
+    [SerializeField] private RespawnPoint _respawnPoint;
     private bool _enterFromRight;
 
     private bool _findSecret = false;
@@ -64,6 +67,11 @@ public class GateSwitch : MonoBehaviour
 
         if (exitFromRight)
         {
+            var player = other.GetComponentInParent<HyunseoTest.Player>();
+            if (player != null && _respawnPoint != null)
+            {
+                player.SetRespawnPoint(_respawnPoint);
+            }
             InArea(_gateType);
         }
 

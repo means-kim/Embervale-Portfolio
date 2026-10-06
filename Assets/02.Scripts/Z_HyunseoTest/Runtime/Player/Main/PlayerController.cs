@@ -71,6 +71,15 @@ namespace HyunseoTest
             var dashDuration = _playerDash.DashDuration;
             _playerAnimator.Tick(CurrentState, landing, verticalVelocity, dashDuration);
         }
+        public void ResetForRespawn()
+        {
+            _moveInput = Vector2.zero;
+            _landUntil = 0f;
+            CurrentState = PlayerState.Idle;
+            _playerAnimator.ResetJumpPhase();
+            _playerAnimator.PlayState(CurrentState, false);
+        }
+
         public void ChangeState(PlayerState newState)
         {
             if (CurrentState == PlayerState.Death && newState != PlayerState.Death) return;

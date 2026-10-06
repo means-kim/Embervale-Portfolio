@@ -69,6 +69,12 @@ namespace HyunseoTest
             OnDashStarted?.Invoke();
         }
         public void CancelDash() => EndDash();
+        public void ResetForRespawn()
+        {
+            EndDash();
+            _dashTimeRemaining = 0f;
+            _cooldownTimeRemaining = 0f;
+        }
         private void EndDash()
         {
             if (!IsDashing) return;
