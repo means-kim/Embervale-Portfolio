@@ -12,6 +12,9 @@ public class AirBossAttackBezierMovement : MonoBehaviour
     private float _t;
     private bool _isMoving = false;
 
+    private Vector2 _targetPosition;
+    private bool _isPrepared;
+
     private void Update()
     {
         if (!_isMoving) return;
@@ -56,9 +59,26 @@ public class AirBossAttackBezierMovement : MonoBehaviour
         }
     }
 
+    public void PrepareMove(Vector2 targetPosition)
+    {
+        _targetPosition = targetPosition;
+        _isPrepared = true;
+        _isMoving = false;
+        _t = 0f;
+    }
+
+    public void StartPreparedMove()
+    {
+        if (!_isPrepared) return;
+
+        _isPrepared = false;
+        StartMove(_targetPosition);
+    }
+
     private void OnDisable()
     {
         _isMoving = false;
+        _isPrepared = false;
         _t = 0f;
     }
 }

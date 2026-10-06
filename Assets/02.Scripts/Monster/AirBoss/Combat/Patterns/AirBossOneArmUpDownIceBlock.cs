@@ -104,8 +104,19 @@ public class AirBossOneArmUpDownIceBlock : AirBossAttackBase
             return;
         }
 
+        var movement =
+            _iceBlock.GetComponent<AirBossAttackBezierMovement>();
+
+        if (_iceBlockPoint == null || movement == null)
+        {
+            Debug.LogError("발사 위치 또는 베지어 이동 컴포넌트가 없습니다.", this);
+            Finish();
+            return;
+        }
+
         _hasCast = true;
 
+        movement.PrepareMove(_attackPosition);
         _iceBlock.Activate(_iceBlockPoint.position);
 
         _iceBlock = null;
