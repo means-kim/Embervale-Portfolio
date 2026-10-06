@@ -53,7 +53,7 @@ public class AirBossOneArmUpDownIceBlock : AirBossAttackBase
             return;
         }
 
-        _iceBlock = attackPool.GetAttack(AirBossAttackType.IceBlock);
+        _iceBlock = attackPool.GetAttack(AirBossAttackType.IceBlockBezier);
 
         if (_iceBlock == null)
         {
