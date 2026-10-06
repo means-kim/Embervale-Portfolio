@@ -6,4 +6,6 @@ public enum TelegraphType
     Vertical,
     Horizontal,
     VerticalSquare,
+    Circle3,
+    Circle4,
 }
