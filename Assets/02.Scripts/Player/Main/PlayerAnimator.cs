@@ -5,14 +5,11 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField, Min(0f)] private float _jumpStartDuration = 0.13f;
     [SerializeField, Min(0f)] private float _apexVelocityRange = 1.5f;
     [SerializeField, Min(0f), Tooltip("미세 들뜸 깜빡임 방지")] private float _apexMinAirTime = 0.15f;
-    [SerializeField, Min(0f)] private float _dashStartDuration = 0.075f;
-    [SerializeField, Min(0f)] private float _dashEndDuration = 0.13f;
     private Animator _animator;
     private string _currentClip;
     private int _jumpPhase = 2;
     private float _jumpStartTime;
     private float _jumpEnterTime = -100f;
-    private float _dashStartTime;
     private void Awake() => _animator = GetComponent<Animator>();
     public void PlayState(PlayerState state, bool isDoubleJump)
     {
@@ -29,7 +26,7 @@ public class PlayerAnimator : MonoBehaviour
                 PlayClip(isDoubleJump ? "DoubleJump" : "JumpStart");
                 break;
             case PlayerState.Dash:
-                PlayClip("DashStart");
+                PlayClip("Dash");
                 break;
             case PlayerState.Attack:
                 PlayClip(GetComponent<PlayerAttack>().CurrentAttackClip);
@@ -43,9 +40,6 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.WallCling:
                 PlayClip("WallCling");
                 break;
-            case PlayerState.WallClimb:
-                PlayClip("WallClimb");
-                break;
             default:
                 throw new System.ArgumentOutOfRangeException(nameof(state));
         }
@@ -57,9 +51,8 @@ public class PlayerAnimator : MonoBehaviour
         _jumpPhase = 0;
     }
     public void ResetJumpPhase() => _jumpPhase = 2;
-    public void BeginDash() => _dashStartTime = Time.time;
     public void PlayLand() => PlayPhaseClip("Land");
-    public void Tick(PlayerState state, bool landingLocked, float verticalVelocity, float dashDuration)
+    public void Tick(PlayerState state, bool landingLocked, float verticalVelocity)
     {
         if (landingLocked) return;
         switch (state)
@@ -68,7 +61,7 @@ public class PlayerAnimator : MonoBehaviour
                 UpdateJumpPhase(verticalVelocity);
                 break;
             case PlayerState.Dash:
-                UpdateDashPhase(dashDuration);
+                PlayPhaseClip("Dash");
                 break;
         }
     }
@@ -98,13 +91,6 @@ public class PlayerAnimator : MonoBehaviour
             if (Time.time - _jumpEnterTime < _apexMinAirTime) return;
             PlayPhaseClip("JumpApex");
         }
-    }
-    private void UpdateDashPhase(float dashDuration)
-    {
-        var elapsed = Time.time - _dashStartTime;
-        if (elapsed < _dashStartDuration) PlayPhaseClip("DashStart");
-        else if (elapsed >= Mathf.Max(_dashStartDuration, dashDuration - _dashEndDuration)) PlayPhaseClip("DashEnd");
-        else PlayPhaseClip("DashLoop");
     }
     private void PlayClip(string clipName)
     {

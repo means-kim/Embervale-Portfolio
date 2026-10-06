@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59869d35d43963b4e91cb2da7d8afe86, type: 3}
   m_Name: DownAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
-  attackType: 3
-  attackPrefab: {fileID: 2191306174086185430, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
-  spawnOffset: {x: 0.2, y: -3}
-  animClipName: DownAttack
-  damage: 10
-  windupDuration: 0
-  recoveryDuration: 0.25
+  AttackType: 3
+  AttackPrefab: {fileID: 2191306174086185430, guid: 86b0a652a294bd645816748cf28c4c2b, type: 3}
+  SpawnOffset: {x: 0, y: -3}
+  AnimClipName: DownAttack
+  Damage: 10
+  WindupDuration: 0
+  RecoveryDuration: 0.22

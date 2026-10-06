@@ -1,0 +1,27 @@
+PASS Physics world is isolated
+PASS Ground side -1
+PASS Ground side 1
+PASS Platform side -1
+PASS Platform side 1
+PASS Platform floor and ceiling are not walls
+PASS Ignored platform is not regrabbed
+PASS One-way platform side is detected
+PASS Actual collision normals without probes -1
+PASS Actual collision normals without probes 1
+PASS Trigger and untagged surfaces are excluded
+PASS Exhausted jump budget resets on wall and stays zero
+PASS Platform attachment and one Space consume exactly one jump
+PASS Low stamina rejects wall jump without normal-jump fallback
+PASS Ordinary air jump still consumes the existing budget
+PASS Grounded player does not attach to adjacent wall
+PASS Attack/external lock interrupts wall without releasing other owner's lock
+PASS hit blocks wall velocity writes
+PASS death blocks wall velocity writes
+PASS dash blocks wall velocity writes
+PASS Disable clears wall state and only its own lock; reenable uses fresh input
+PASS Disabled Platform is not retained as a wall
+PASS Landing resets stamina and jump budget
+PASS Top-to-side ground invalidation removes both ground and platform records
+PASS Health events immediately interrupt attachment
+PASS Stamina drain, exhaustion and original first-jump-only cost
+TOTAL: 26 PASS, 0 FAIL

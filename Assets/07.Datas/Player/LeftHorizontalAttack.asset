@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59869d35d43963b4e91cb2da7d8afe86, type: 3}
   m_Name: LeftHorizontalAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
-  attackType: 0
-  attackPrefab: {fileID: 7204501283301863550, guid: 33b2843295fd0bc4e97773956f5e9e41, type: 3}
-  spawnOffset: {x: 0.8, y: -3}
-  animClipName: LeftHorizontalAttack
-  damage: 10
-  windupDuration: 0
-  recoveryDuration: 0.22156864
+  AttackType: 0
+  AttackPrefab: {fileID: 7204501283301863550, guid: 33b2843295fd0bc4e97773956f5e9e41, type: 3}
+  SpawnOffset: {x: 0, y: -2.6}
+  AnimClipName: LeftHorizontalAttack
+  Damage: 10
+  WindupDuration: 0
+  RecoveryDuration: 0.22

@@ -8,6 +8,12 @@ public class PlayerMove : MonoBehaviour
     private Vector2 _moveInput;
     private readonly HashSet<Object> _movementLocks = new();
     public bool MovementLocked => _movementLocks.Count > 0;
+    public bool HasMovementLockOtherThan(Object source)
+    {
+        foreach (var owner in _movementLocks)
+            if (owner != source) return true;
+        return false;
+    }
     private int _facingDirection = 1;
     private PlayerInput _playerInput;
     public int FacingDirection => _facingDirection;
@@ -29,13 +35,11 @@ public class PlayerMove : MonoBehaviour
             return;
         }
         _moveInput = direction;
-        if (!MovementLocked && Mathf.Abs(_moveInput.x) > 0.01f)
-        {
-            _facingDirection = _moveInput.x > 0f ? 1 : -1;
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * _facingDirection;
-            transform.localScale = scale;
-        }
+        if (Mathf.Abs(_moveInput.x) <= 0.01f) return;
+        _facingDirection = _moveInput.x > 0f ? 1 : -1;
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * _facingDirection;
+        transform.localScale = scale;
     }
     private void FixedUpdate()
     {
