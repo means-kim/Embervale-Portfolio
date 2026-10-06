@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5435d92ea0a146e685736eb45d2300ab, type: 3}
+  m_Name: DownAttack
+  m_EditorClassIdentifier: Assembly-CSharp::HyunseoTest.PlayerAttackDataSO
+  attackType: 3
+  attackPrefab: {fileID: 2191306174086185430, guid: 2b877d6a97f546d483da9a347bbdd2b7, type: 3}
+  spawnOffset: {x: 0.2, y: -3}
+  animClipName: DownAttack
+  damage: 10
+  windupDuration: 0
+  recoveryDuration: 0.3472222

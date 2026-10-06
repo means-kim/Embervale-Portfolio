@@ -14,6 +14,8 @@ public class TorchLight : MonoBehaviour
     [SerializeField] private GameObject _flame;
     [SerializeField] private string _fireInteract = "FireInteract";
     [SerializeField] private string _unFireInteract = "UnFireInteract";
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _igniteSound;
 
     private Coroutine _routine;
     private WaitForSeconds _litWait;
@@ -104,6 +106,7 @@ public class TorchLight : MonoBehaviour
 
     private void SetFire(bool lit)
     {
+        bool wasLit = IsLit;
         IsLit = lit;
 
         if (_flame != null)
@@ -123,6 +126,11 @@ public class TorchLight : MonoBehaviour
         else
         {
             _fireEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+
+        if (lit && !wasLit && _audioSource != null && _igniteSound != null)
+        {
+            _audioSource.PlayOneShot(_igniteSound);
         }
     }
 

@@ -21,12 +21,30 @@ public class AreaController : MonoBehaviour
 
     [Header("등장 연출")]
     [SerializeField] private bool _useIntro;
-    [SerializeField] private BossEncounterCinematic _intro;
+    [SerializeField] private CinematicSequence _intro;
 
     [Header("전투 시작")]
     [SerializeField] private UnityEvent _onBattleStarted;
 
+    [Header("처치 대상")]
+    [SerializeField] private Health _enemyHealth;
     private AreaState _state = AreaState.Waiting;
+
+    private void OnEnable()
+    {
+        if (_enemyHealth != null)
+        {
+            _enemyHealth.OnDie += HandleEnemyEliminated;
+        }
+
+        if (_intro == null)
+        {
+            return;
+        }
+
+        _intro.Completed += HandleIntroCompleted;
+        _intro.Cancelled += HandleIntroCancelled;
+    }
 
     private void Start()
     {
@@ -66,8 +84,6 @@ public class AreaController : MonoBehaviour
             return;
         }
 
-        bool shouldPlayIntro = _useIntro && !history.HasSeenIntro(_encounterId);
-
         if (_useIntro && _intro == null)
         {
             return;
@@ -82,11 +98,20 @@ public class AreaController : MonoBehaviour
             return;
         }
 
+        bool firstEncounter = !history.HasSeenIntro(_encounterId);
+
         _state = AreaState.Intro;
 
-        bool accepted = shouldPlayIntro
-            ? _intro.TryPlay()
-            : _intro.TryPlayWithoutCinematic();
+        bool accepted;
+
+        if (firstEncounter)
+        {
+            accepted = _intro.TryPlay();
+        }
+        else
+        {
+            accepted = _intro.TryPlayWithoutCinematic();
+        }
 
         if (!accepted)
         {
@@ -101,7 +126,13 @@ public class AreaController : MonoBehaviour
             return;
         }
 
-        EncounterHistory.Instance.MarkIntroSeen(_encounterId);
+        EncounterHistory history = EncounterHistory.Instance;
+
+        if (history != null)
+        {
+            history.MarkIntroSeen(_encounterId);
+        }
+
         StartBattle();
     }
 
@@ -122,6 +153,14 @@ public class AreaController : MonoBehaviour
         _onBattleStarted.Invoke();
     }
 
+    // Called by the test player's checkpoint before retrying this room.
+    public void ResetForRetry()
+    {
+        _intro?.Cancel();
+        if (_state != AreaState.Cleared) _state = AreaState.Waiting;
+        OpenBlocks();
+    }
+
     public void HandleEnemyEliminated()
     {
         if (_state != AreaState.Fighting)
@@ -130,8 +169,37 @@ public class AreaController : MonoBehaviour
         }
 
         _state = AreaState.Cleared;
-        EncounterHistory.Instance.MarkEliminate(_eliminateId);
+
+        EncounterHistory history = EncounterHistory.Instance;
+
+        if (history != null)
+        {
+            history.MarkEliminate(_eliminateId);
+        }
 
         OpenBlocks();
     }
+
+    private void OnDisable()
+    {
+        if (_enemyHealth != null)
+        {
+            _enemyHealth.OnDie -= HandleEnemyEliminated;
+        }
+
+        if (_state == AreaState.Intro)
+        {
+            _intro?.Cancel();
+
+            _state = AreaState.Waiting;
+            OpenBlocks();
+        }
+
+        if (_intro != null)
+        {
+            _intro.Completed -= HandleIntroCompleted;
+            _intro.Cancelled -= HandleIntroCancelled;
+        }
+    }
+
 }

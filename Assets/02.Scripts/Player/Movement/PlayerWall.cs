@@ -1,183 +1,176 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerMove), typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerMove))]
 public class PlayerWall : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _climbSpeed = 3f;
+    private enum WallState { None, Cling, Slide }
     [SerializeField, Min(0f)] private float _slideSpeed = 1.5f;
     [SerializeField, Min(0f)] private float _wallJumpAwaySpeed = 8f;
     [SerializeField, Min(0f)] private float _wallJumpLockDuration = 0.2f;
-    private const int MaxStamina = 100;
-    private const float StaminaTick = 0.1f;
-    private const int ClingDrain = 1;
-    private const int ClimbDrain = 2;
-    private const int WallJumpCost = 25;
-    public bool IsClinging { get; private set; }
-    public bool IsClimbing { get; private set; }
-    public int Stamina => _stamina;
-    private Rigidbody2D _rigidbody;
-    private PlayerInput _playerInput;
-    private PlayerJump _playerJump;
-    private PlayerMove _playerMove;
-    private PlayerDash _playerDash;
+    [SerializeField, Min(0f)] private float _wallProbeDistance = 0.05f;
+    [SerializeField, Range(0.5f, 1f)] private float _minimumWallNormal = 0.5f;
+    [SerializeField] private bool _chargeOnlyFirstWallJump = true;
+
+    public bool IsClinging => isActiveAndEnabled && _state != WallState.None;
+    public int Stamina { get; private set; }
+    private Rigidbody2D _body;
+    private PlayerInput _input;
+    private PlayerJump _jump;
+    private PlayerMove _move;
+    private PlayerDash _dash;
+    private PlayerHit _hit;
+    private Health _health;
+    private PlayerWallSensor _sensor;
+    private Func<Collider2D, bool> _isIgnoredPlatform;
     private Vector2 _moveInput;
-    private readonly Dictionary<Collider2D, float> _wallContacts = new();
-    private int _stamina = MaxStamina;
+    private WallState _state;
+    private int _wallDirection;
+    private float _wallJumpUntil;
     private float _staminaTimer;
-    private float _clingDirection;
-    private bool _touchingWall;
-    private float _regrabUntil;
-    private float _moveLockUntil;
-    private bool _exhausted;
+    private int _maxStamina = 100;
+    private float _staminaTick = 0.1f;
+    private int _clingDrain = 1;
+    private int _wallJumpCost = 25;
     private bool _moveLocked;
-    private bool _wasSliding;
-    private bool _wasClimbingUp;
-    private bool _wasClimbingDown;
     private bool _wallJumpUsed;
+    private Collider2D _collider;
+    private PhysicsMaterial2D _originalMaterial;
+    private PhysicsMaterial2D _runtimeMaterial;
+    private int JumpCost => _chargeOnlyFirstWallJump && _wallJumpUsed ? 0 : _wallJumpCost;
+    private bool CanUseWall => _jump.isActiveAndEnabled && (_health == null || !_health.IsDead)
+        && (_hit == null || !_hit.IsHit) && (_dash == null || !_dash.IsDashing)
+        && !_move.HasMovementLockOtherThan(this);
+
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerInput = GetComponent<PlayerInput>();
-        _playerJump = GetComponent<PlayerJump>();
-        _playerMove = GetComponent<PlayerMove>();
-        _playerDash = GetComponent<PlayerDash>();
-        EnsureFrictionlessCollider();
+        _body = GetComponent<Rigidbody2D>();
+        _input = GetComponent<PlayerInput>();
+        _jump = GetComponent<PlayerJump>();
+        _move = GetComponent<PlayerMove>();
+        _dash = GetComponent<PlayerDash>();
+        _hit = GetComponent<PlayerHit>();
+        _health = GetComponent<Health>();
+        _sensor = new PlayerWallSensor(_body);
+        _isIgnoredPlatform = _jump.IsIgnoringPlatform;
+        Stamina = _maxStamina;
+        _collider = GetComponent<Collider2D>();
+        if (_collider == null) return;
+        _originalMaterial = _collider.sharedMaterial;
+        if (_originalMaterial != null && _originalMaterial.friction <= 0f && _originalMaterial.bounciness <= 0f) return;
+        _runtimeMaterial = new PhysicsMaterial2D("PlayerWallFrictionless") { friction = 0f, bounciness = 0f };
+        _collider.sharedMaterial = _runtimeMaterial;
     }
     private void OnEnable()
     {
-        _playerInput.OnMoveInput += HandleMove;
-        _playerInput.OnWallJumpInput += HandleWallJump;
-        _playerJump.OnLanded += HandleLanded;
+        _input.OnMoveInput += HandleMove;
+        _jump.OnLanded += HandleLanded;
+        if (_health == null) return;
+        _health.OnHit += ReleaseWall;
+        _health.OnDie += ReleaseWall;
     }
     private void OnDisable()
     {
-        _playerInput.OnMoveInput -= HandleMove;
-        _playerInput.OnWallJumpInput -= HandleWallJump;
-        _playerJump.OnLanded -= HandleLanded;
-        if (_moveLocked)
+        _input.OnMoveInput -= HandleMove;
+        _jump.OnLanded -= HandleLanded;
+        if (_health != null)
         {
-            _moveLocked = false;
-            _playerMove.SetMovementLocked(this, false);
+            _health.OnHit -= ReleaseWall;
+            _health.OnDie -= ReleaseWall;
         }
+        _moveInput = Vector2.zero;
+        _staminaTimer = 0f;
+        ReleaseWall();
     }
-    private void EnsureFrictionlessCollider()
+    private void OnDestroy()
     {
-        var playerCollider = GetComponent<Collider2D>();
-        if (playerCollider == null) return;
-        var material = playerCollider.sharedMaterial;
-        if (material != null && material.friction <= 0f && material.bounciness <= 0f) return;
-        playerCollider.sharedMaterial = new PhysicsMaterial2D("PlayerWallFrictionless")
-        {
-            friction = 0f,
-            bounciness = 0f
-        };
+        if (_runtimeMaterial == null) return;
+        if (_collider != null && _collider.sharedMaterial == _runtimeMaterial) _collider.sharedMaterial = _originalMaterial;
+        if (Application.isPlaying) Destroy(_runtimeMaterial);
+        else DestroyImmediate(_runtimeMaterial);
     }
-    private void HandleMove(Vector2 direction) => _moveInput = direction;
+    private void HandleMove(Vector2 input)
+    {
+        _moveInput = input;
+        RefreshWallState();
+    }
     private void Update()
     {
-        if (_moveLocked && Time.time >= _moveLockUntil)
+        RefreshWallState();
+        if (!IsClinging) { _staminaTimer = 0f; return; }
+        _staminaTimer += Time.deltaTime;
+        float interval = Mathf.Max(0.01f, _staminaTick);
+        while (_staminaTimer >= interval && Stamina > 0)
         {
-            _moveLocked = false;
-            _playerMove.SetMovementLocked(this, false);
+            _staminaTimer -= interval;
+            Stamina = Mathf.Max(0, Stamina - _clingDrain);
         }
-        var pressingToward = 0f;
-        if (Mathf.Abs(_moveInput.x) > 0.01f) pressingToward = Mathf.Sign(_moveInput.x);
-        var canGrab = Time.time >= _regrabUntil && !_exhausted;
-        _touchingWall = pressingToward != 0f && _wallContacts.ContainsValue(pressingToward) && !_playerJump.IsGrounded;
-        IsClinging = _touchingWall && canGrab;
-        IsClimbing = IsClinging && Mathf.Abs(_moveInput.y) > 0.01f;
-        if (IsClinging) _clingDirection = pressingToward;
-        bool sliding = !_exhausted && _touchingWall && !IsClimbing && _rigidbody.linearVelocity.y < 0f;
-        bool climbingUp = IsClimbing && _moveInput.y > 0.01f;
-        bool climbingDown = IsClimbing && _moveInput.y < -0.01f;
-        if (sliding && !_wasSliding) EffectManager.Instance?.PlayWallSlide(transform.position);
-        if (climbingUp && !_wasClimbingUp) EffectManager.Instance?.PlayWallClimbUp(transform.position);
-        if (climbingDown && !_wasClimbingDown) EffectManager.Instance?.PlayWallClimbDown(transform.position);
-        _wasSliding = sliding;
-        _wasClimbingUp = climbingUp;
-        _wasClimbingDown = climbingDown;
-        if (IsClinging)
-        {
-            _staminaTimer += Time.deltaTime;
-            while (_staminaTimer >= StaminaTick && _stamina > 0)
-            {
-                _staminaTimer -= StaminaTick;
-                _stamina = Mathf.Max(0, _stamina - (IsClimbing ? ClimbDrain : ClingDrain));
-            }
-            if (_stamina <= 0)
-            {
-                _exhausted = true;
-                IsClinging = false;
-                IsClimbing = false;
-            }
-        }
-        else
-        {
-            _staminaTimer = 0f;
-        }
+        if (Stamina == 0) RefreshWallState();
     }
-    private void HandleWallJump()
+    private void RefreshWallState()
     {
-        if (!IsClinging) return;
-        if (_playerJump.CurrentJumpCount >= _playerJump.MaxJumpCount) return;
-        bool freeJump = _wallJumpUsed;
-        if (!freeJump && _stamina < WallJumpCost) return;
-        if (!_playerJump.TryConsumeJump()) return;
-        if (!freeJump)
+        int direction = Mathf.Abs(_moveInput.x) > 0.01f ? (_moveInput.x > 0f ? 1 : -1) : 0;
+        bool attached = CanUseWall && !_jump.IsGrounded && Stamina > 0 && Time.time >= _wallJumpUntil
+            && _sensor.HasWall(direction, _wallProbeDistance, _minimumWallNormal, _isIgnoredPlatform);
+        if (attached)
         {
-            _stamina -= WallJumpCost;
-            if (_stamina <= 0) _exhausted = true;
-            _wallJumpUsed = true;
+            _wallDirection = direction;
+            if (!IsClinging) _jump.RefreshJumpsFromWall();
         }
-        _regrabUntil = Time.time + _wallJumpLockDuration;
-        _moveLockUntil = Time.time + _wallJumpLockDuration;
-        _moveLocked = true;
-        _playerMove.SetMovementLocked(this, true);
-        IsClinging = false;
-        IsClimbing = false;
-        _rigidbody.linearVelocity = new Vector2(-_clingDirection * _wallJumpAwaySpeed, _playerJump.JumpSpeed);
+        SetState(!attached ? WallState.None
+            : _body.linearVelocity.y < 0f ? WallState.Slide : WallState.Cling);
+        SetMovementLock(IsClinging || Time.time < _wallJumpUntil);
+    }
+    public bool TryHandleJumpInput()
+    {
+        if (!isActiveAndEnabled) return false;
+        RefreshWallState();
+        if (!IsClinging) return false;
+        if (Stamina < JumpCost || !_jump.TryConsumeJump()) return true;
+        Stamina -= JumpCost;
+        _wallJumpUsed = true;
+        _staminaTimer = 0f;
+        _wallJumpUntil = Time.time + _wallJumpLockDuration;
+        SetState(WallState.None);
+        SetMovementLock(Time.time < _wallJumpUntil);
+        _body.linearVelocity = new Vector2(-_wallDirection * _wallJumpAwaySpeed, _jump.JumpSpeed);
+        return true;
     }
     private void HandleLanded()
     {
-        _stamina = MaxStamina;
+        Stamina = _maxStamina;
         _staminaTimer = 0f;
-        _exhausted = false;
         _wallJumpUsed = false;
+        ReleaseWall();
+    }
+    private void ReleaseWall()
+    {
+        SetState(WallState.None);
+        _wallJumpUntil = 0f;
+        SetMovementLock(false);
     }
     private void FixedUpdate()
     {
-        if (IsClimbing)
-        {
-            var velocity = _rigidbody.linearVelocity;
-            velocity.y = _moveInput.y * _climbSpeed;
-            _rigidbody.linearVelocity = velocity;
-        }
-        else if (!_exhausted && _touchingWall && _rigidbody.linearVelocity.y < 0f)
-        {
-            var velocity = _rigidbody.linearVelocity;
-            velocity.y = -_slideSpeed;
-            _rigidbody.linearVelocity = velocity;
-        }
+        RefreshWallState();
+        if (!IsClinging) return;
+        Vector2 velocity = _body.linearVelocity;
+        velocity.x = 0f; // Keep the player beside one-way platform sides.
+        if (velocity.y < 0f) velocity.y = -_slideSpeed;
+        _body.linearVelocity = velocity;
     }
-    private void OnCollisionEnter2D(Collision2D collision) => TrackWall(collision);
-    private void OnCollisionStay2D(Collision2D collision) => TrackWall(collision);
-    private void OnCollisionExit2D(Collision2D collision)
+    private void SetState(WallState state)
     {
-        if (collision.collider != null) _wallContacts.Remove(collision.collider);
+        if (_state == state) return;
+        _state = state;
+        var effects = EffectManager.Instance;
+        if (effects == null) return;
+        if (state == WallState.Slide) effects.PlayWallSlide(transform.position);
     }
-    private void TrackWall(Collision2D collision)
+    private void SetMovementLock(bool locked)
     {
-        if (collision.collider == null || !collision.collider.CompareTag("Ground")) return;
-        int contactCount = collision.contactCount;
-        for (int i = 0; i < contactCount; i++)
-        {
-            ContactPoint2D contact = collision.GetContact(i);
-            if (Mathf.Abs(contact.normal.x) > 0.5f)
-            {
-                _wallContacts[collision.collider] = -Mathf.Sign(contact.normal.x);
-                return;
-            }
-        }
+        if (_moveLocked == locked) return;
+        _moveLocked = locked;
+        _move.SetMovementLocked(this, locked);
     }
 }

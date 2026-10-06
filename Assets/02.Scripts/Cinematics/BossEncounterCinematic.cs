@@ -12,8 +12,6 @@ public class BossEncounterCinematic : CinematicSequence
     [SerializeField] private SpriteRenderer _bossRenderer;
     [SerializeField] private Rigidbody2D _player;
     [SerializeField] private Transform _walkTarget;
-
-    [SerializeField] private AreaController _area;
     [SerializeField] private BossRoarScreenEffect _roarEffect;
     [SerializeField, Min(0.1f)] private float _roarDuration = 3f;
 
@@ -30,19 +28,19 @@ public class BossEncounterCinematic : CinematicSequence
     private bool CanPlay()
     {
         return Application.isPlaying && isActiveAndEnabled && !_requested
-            && _area != null && _boss != null && _bossRenderer != null
-            && _director != null && _director.isActiveAndEnabled
-            && _director.playableAsset != null && _director.state != PlayState.Playing;
+               && _boss != null && _bossRenderer != null
+               && _director != null && _director.isActiveAndEnabled
+               && _director.playableAsset != null && _director.state != PlayState.Playing;
     }
 
-    public bool TryPlay()
+    public override bool TryPlay()
     {
         if (!CanPlay())
         {
             return false;
         }
 
-        if (_area == null || _cinematicManager == null
+        if (_cinematicManager == null
             || _director == null || _boss == null
             || _player == null || _walkTarget == null)
         {
@@ -72,8 +70,8 @@ public class BossEncounterCinematic : CinematicSequence
         return accepted;
     }
 
-    // 재입장은 플레이어 조작과 카메라 연출을 건드리지 않고 보스 Timeline만 재생한다.
-    public bool TryPlayWithoutCinematic()
+    // 재입장은 플레이어 조작과 카메라 연출을 건드리지 않고 보스 Timeline만 재생
+    public override bool TryPlayWithoutCinematic()
     {
         if (!CanPlay())
         {
@@ -163,6 +161,7 @@ public class BossEncounterCinematic : CinematicSequence
         {
             return;
         }
+
         _bossRenderer.enabled = true;
     }
 
@@ -172,7 +171,6 @@ public class BossEncounterCinematic : CinematicSequence
         {
             return;
         }
-
 
         _roarEffect.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase1);
     }
@@ -202,7 +200,7 @@ public class BossEncounterCinematic : CinematicSequence
             _boss.enabled = true;
         }
 
-        _area.HandleIntroCompleted();
+        NotifyCompleted();
     }
 
     private void HandleCancelled()
@@ -213,19 +211,22 @@ public class BossEncounterCinematic : CinematicSequence
         {
             _bossRenderer.enabled = false;
         }
+
         if (_boss != null)
         {
             _boss.enabled = false;
         }
+
         if (_startedBossBgm)
         {
             AudioManager.Instance?.StopBgm(BgmType.Boss);
             _startedBossBgm = false;
         }
-        _area.HandleIntroCancelled();
+
+        NotifyCancelled();
     }
 
-    private void OnDisable()
+    public override void Cancel()
     {
         if (!_requested)
         {
@@ -234,14 +235,32 @@ public class BossEncounterCinematic : CinematicSequence
 
         if (_repeatPlayback)
         {
-            _director.stopped -= HandleRepeatStopped;
+            if (_director != null)
+            {
+                _director.stopped -= HandleRepeatStopped;
+            }
+
             _repeatPlayback = false;
-            _director.Stop();
+
+            if (_director != null)
+            {
+                _director.Stop();
+            }
+
             HandleCancelled();
         }
-        else if (_cinematicManager != null)
+        else if (_cinematicManager != null && _cinematicManager.IsPlaying)
         {
             _cinematicManager.Cancel();
         }
+        else
+        {
+            HandleCancelled();
+        }
+    }
+
+    private void OnDisable()
+    {
+        Cancel();
     }
 }

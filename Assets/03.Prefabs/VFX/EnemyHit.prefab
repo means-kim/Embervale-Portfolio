@@ -4886,7 +4886,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -9792,7 +9792,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -10011,7 +10011,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -14868,7 +14868,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: acb49b65e707ecc458fe84b62ce82eb2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6020e270022af5646a57f210946f0d87, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14967,6 +14967,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
   _strength: 0.5
+--- !u!114 &9183367237338067126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112403345868107898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
+  _lifeTime: 0
+  _extraDelay: 0.1
+  _playReversed: 0
 --- !u!1 &5112403347238810573
 GameObject:
   m_ObjectHideFlags: 0
@@ -19839,7 +19854,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -24637,7 +24652,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 1
@@ -24671,18 +24686,3 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
---- !u!114 &9183367237338067126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5112403345868107898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
-  _lifeTime: 0
-  _extraDelay: 0.1
-  _playReversed: 0

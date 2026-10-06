@@ -18,9 +18,7 @@ public class PlayerController : MonoBehaviour
     private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
     private Health _health;
-    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death &&
-        (_health == null || !_health.IsDead) && !_playerHit.IsHit &&
-        !_playerDash.IsDashing && !_playerAttack.IsAttacking;
+    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death && (_health == null || !_health.IsDead) && !_playerHit.IsHit && !_playerDash.IsDashing && !_playerAttack.IsAttacking;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -66,8 +64,7 @@ public class PlayerController : MonoBehaviour
         EvaluateState();
         var landing = Time.time < _landUntil;
         var verticalVelocity = _rigidbody.linearVelocity.y;
-        var dashDuration = _playerDash.DashDuration;
-        _playerAnimator.Tick(CurrentState, landing, verticalVelocity, dashDuration);
+        _playerAnimator.Tick(CurrentState, landing, verticalVelocity);
     }
     public void ChangeState(PlayerState newState)
     {
@@ -92,11 +89,6 @@ public class PlayerController : MonoBehaviour
             ChangeState(PlayerState.Dash);
             return;
         }
-        if (_playerWall.IsClimbing)
-        {
-            ChangeState(PlayerState.WallClimb);
-            return;
-        }
         if (_playerWall.IsClinging)
         {
             ChangeState(PlayerState.WallCling);
@@ -109,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!_playerJump.IsGrounded)
         {
-            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling || CurrentState == PlayerState.WallClimb;
+            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling;
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }
@@ -149,7 +141,6 @@ public class PlayerController : MonoBehaviour
     {
         _landUntil = 0f;
         ChangeState(PlayerState.Dash);
-        _playerAnimator.BeginDash();
     }
     private void HandleDashEnded() => EvaluateState();
     private void HandleAttackStarted()
