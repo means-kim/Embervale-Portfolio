@@ -3,48 +3,39 @@ using UnityEngine;
 
 namespace Game.Effects
 {
-    /// <summary>
-    /// 플레이어 피격 연출 오케스트레이터 (할로우 나이트 스타일).
+    /// 플레이어 피격 연출 오케스트레이터
     /// 타임라인:
     ///   [정지 구간] 히트스톱 + 검은 스플랫 등장 + 흰 균열선 깜빡임 + 화면 어둡게
     ///   [해제 순간] 스플랫 확장/소멸, 균열 페이드, 검은 덩어리·흰 파편 방사 폭발, 카메라 셰이크
     ///   [여운]      화면 밝기 서서히 복구
     /// 정지 구간에서도 진행돼야 하므로 모든 시간 계산은 unscaled time 기준이다.
-    /// </summary>
-    /// <remarks>
     /// 이 오브젝트는 씬 루트에 둔다(플레이어 자식 X). 플레이어의 Flip(scale -1)이나 이동에 영향받지 않게 하기 위함.
-    /// </remarks>
     public sealed class PlayerHitEffect : MonoBehaviour
     {
-        [SerializeField] private PlayerHitEffectSettings settings;
+        [SerializeField] private PlayerHitEffectSettings _settings;
 
         [Header("Visual Parts (빌더가 자동 연결)")]
-        [SerializeField] private SpriteRenderer splatRenderer;
-        [SerializeField] private SpriteRenderer crackRenderer;
-        [SerializeField] private SpriteRenderer screenDimRenderer;
-        [SerializeField] private RadialBurstEmitter shadeEmitter;
-        [SerializeField] private RadialBurstEmitter shardEmitter;
+        [SerializeField] private SpriteRenderer _splatRenderer;
+        [SerializeField] private SpriteRenderer _crackRenderer;
+        [SerializeField] private SpriteRenderer _screenDimRenderer;
+        [SerializeField] private RadialBurstEmitter _shadeEmitter;
+        [SerializeField] private RadialBurstEmitter _shardEmitter;
 
         [Header("Scene References (선택)")]
-        [Tooltip("비워두면 Camera.main 사용.")]
-        [SerializeField] private Camera targetCamera;
-        [Tooltip("비워두면 히트스톱 없이 연출만 재생.")]
-        [SerializeField] private HitStopController hitStop;
-        [Tooltip("비워두면 카메라 셰이크 생략.")]
-        [SerializeField] private CameraShaker cameraShaker;
+        [SerializeField] private Camera _targetCamera;
 
         private Coroutine _routine;
         private Vector3 _splatBaseScale;
         private Vector3 _crackBaseScale;
 
-        /// <summary>현재 연출이 재생 중인지 여부.</summary>
+        // 현재 연출이 재생 중인지 여부
         public bool IsPlaying => _routine != null;
 
         private void Awake()
         {
-            if (targetCamera == null)
+            if (_targetCamera == null)
             {
-                targetCamera = Camera.main;
+                _targetCamera = Camera.main;
             }
 
             ApplySettings();
@@ -66,21 +57,20 @@ namespace Game.Effects
         private void OnDestroy()
         {
             // Awake에서 카메라 밑으로 옮겼으므로 직접 정리.
-            if (screenDimRenderer != null && screenDimRenderer.transform.parent != transform)
+            if (_screenDimRenderer != null && _screenDimRenderer.transform.parent != transform)
             {
-                Destroy(screenDimRenderer.gameObject);
+                Destroy(_screenDimRenderer.gameObject);
             }
         }
 
-        /// <summary>
-        /// 피격 연출을 재생한다. 재생 중이면 처음부터 다시 시작한다.
-        /// </summary>
+        /// 피격 연출을 재생. 재생 중이면 처음부터 다시 시작
         /// <param name="worldPosition">피격 지점(보통 플레이어 몸 중심).</param>
-        public void Play(Vector3 worldPosition)
+        public void Play(Vector3 worldPosition, System.Action onReleased = null)
         {
-            if (settings == null)
+            if (_settings == null)
             {
-                Debug.LogError($"[{nameof(PlayerHitEffect)}] Settings가 비어 있음.", this);
+                Debug.LogError("PlayerHitEffect의 Settings가 연결되지 않았습니다.", this);
+                onReleased?.Invoke();
                 return;
             }
 
@@ -89,87 +79,74 @@ namespace Game.Effects
                 StopCoroutine(_routine);
             }
 
-            _routine = StartCoroutine(PlayRoutine(worldPosition));
+            _routine = StartCoroutine(PlayRoutine(worldPosition, onReleased));
         }
 
-        /// <summary>Play 모드에서 Inspector 우클릭 메뉴로 바로 확인하기 위한 테스트용.</summary>
-        [ContextMenu("Play Test (Play Mode)")]
-        private void PlayTest()
-        {
-            if (Application.isPlaying)
-            {
-                ApplySettings(); // Settings 수정사항 즉시 반영
-                Play(transform.position);
-            }
-        }
-
-        /// <summary>
         /// Settings 값을 렌더러 크기/정렬과 파티클 모듈에 반영한다.
         /// 런타임에 Settings를 바꿨다면 호출해서 다시 적용할 수 있다.
-        /// </summary>
         public void ApplySettings()
         {
-            if (settings == null)
+            if (_settings == null)
             {
                 return;
             }
 
-            float scale = settings.globalScale;
-            _splatBaseScale = ScaleForWorldSize(splatRenderer, settings.splatSize * scale);
-            _crackBaseScale = ScaleForWorldSize(crackRenderer, settings.crackSize * scale);
+            float scale = _settings.globalScale;
+            if (_settings.splatSprite != null)
+            {
+                _splatRenderer.sprite = _settings.splatSprite;
+            }
 
-            SetSorting(splatRenderer, settings.splatSortingOrder);
-            SetSorting(crackRenderer, settings.crackSortingOrder);
-            SetSorting(screenDimRenderer, settings.dimSortingOrder);
+            _splatBaseScale = ScaleForWorldSize(_splatRenderer, _settings.splatSize * scale);
+            _crackBaseScale = ScaleForWorldSize(_crackRenderer, _settings.crackSize * scale);
 
-            shadeEmitter.Configure(settings.shadeBurst, settings.sortingLayerName, settings.particleSortingOrder);
-            shardEmitter.Configure(settings.shardBurst, settings.sortingLayerName, settings.particleSortingOrder);
+            SetSorting(_splatRenderer, _settings.splatSortingOrder);
+            SetSorting(_crackRenderer, _settings.crackSortingOrder);
+            SetSorting(_screenDimRenderer, _settings.dimSortingOrder);
+
+            _shadeEmitter.Configure(_settings.shadeBurst, _settings.sortingLayerName, _settings.particleSortingOrder);
+            _shardEmitter.Configure(_settings.shardBurst, _settings.sortingLayerName, _settings.particleSortingOrder);
         }
 
-        private IEnumerator PlayRoutine(Vector3 hitPosition)
+        private IEnumerator PlayRoutine(Vector3 hitPosition, System.Action onReleased)
         {
-            PlayerHitEffectSettings s = settings;
+            PlayerHitEffectSettings s = _settings;
             float scale = s.globalScale;
 
             Vector3 splatPosition = hitPosition + (Vector3)(s.splatOffset * scale);
             transform.position = splatPosition;
-            crackRenderer.transform.localPosition = s.crackOffset * scale;
-            crackRenderer.flipX = Random.value < 0.5f; // 매번 같은 모양으로 보이지 않게
+            _crackRenderer.transform.localPosition = s.crackOffset * scale;
+            _crackRenderer.flipX = Random.value < 0.5f; // 매번 같은 모양으로 보이지 않게
             FitScreenDimToCamera();
 
-            if (hitStop != null)
-            {
-                hitStop.Request(s.freezeDuration, s.freezeTimeScale);
-            }
+            HitImpactFeedback.EnsureInstance().RequestHitstop(s.freezeDuration, s.freezeTimeScale);
 
-            splatRenderer.enabled = true;
-            crackRenderer.enabled = true;
-            screenDimRenderer.enabled = true;
+            _splatRenderer.enabled = true;
+            _crackRenderer.enabled = true;
+            _screenDimRenderer.enabled = true;
 
             // ---- 1. 정지 구간 ------------------------------------------------
             for (float t = 0f; t < s.freezeDuration; t += Time.unscaledDeltaTime)
             {
                 float pop = s.splatPopDuration > 0f ? Mathf.Clamp01(t / s.splatPopDuration) : 1f;
-                splatRenderer.transform.localScale =
+                _splatRenderer.transform.localScale =
                     _splatBaseScale * Mathf.Lerp(s.splatPopStartScale, 1f, pop);
-                SetTint(splatRenderer, s.splatColor, 1f);
+                SetTint(_splatRenderer, s.splatColor, 1f);
 
                 bool flickerLow = Mathf.Repeat(t, s.crackFlickerInterval * 2f) >= s.crackFlickerInterval;
-                SetTint(crackRenderer, s.crackColor, flickerLow ? s.crackFlickerMinAlpha : 1f);
-                crackRenderer.transform.localScale = _crackBaseScale;
+                SetTint(_crackRenderer, s.crackColor, flickerLow ? s.crackFlickerMinAlpha : 1f);
+                _crackRenderer.transform.localScale = _crackBaseScale;
 
-                SetTint(screenDimRenderer, s.dimColor, s.dimDuringFreeze);
+                SetTint(_screenDimRenderer, s.dimColor, s.dimDuringFreeze);
                 yield return null;
             }
 
             // ---- 2. 해제 순간 ------------------------------------------------
-            shadeEmitter.Emit(splatPosition, s.shadeBurst, scale);
-            shardEmitter.Emit(splatPosition, s.shardBurst, scale);
+            _shadeEmitter.Emit(splatPosition, s.shadeBurst, scale);
+            _shardEmitter.Emit(splatPosition, s.shardBurst, scale);
 
-            if (cameraShaker != null)
-            {
-                cameraShaker.Shake(s.shakeAmplitude * scale, s.shakeDuration, s.shakeFrequency);
-            }
+            CameraManager.ShakeCamera(s.shakeAmplitude * scale, s.shakeDuration);
+            onReleased?.Invoke();
 
             // ---- 3. 해제 후 여운 ---------------------------------------------
             float releaseDuration = s.ReleasePhaseDuration;
@@ -177,7 +154,7 @@ namespace Game.Effects
             {
                 UpdateSplatRelease(s, t);
                 UpdateCrackRelease(s, t);
-                SetTint(screenDimRenderer, s.dimColor, EvaluateDimAfterRelease(s, t));
+                SetTint(_screenDimRenderer, s.dimColor, EvaluateDimAfterRelease(s, t));
                 yield return null;
             }
 
@@ -189,8 +166,12 @@ namespace Game.Effects
         {
             float k = Mathf.Clamp01(t / s.splatReleaseDuration);
             float easeOut = 1f - (1f - k) * (1f - k);
-            splatRenderer.transform.localScale = _splatBaseScale * Mathf.Lerp(1f, s.splatReleaseScale, easeOut);
-            SetTint(splatRenderer, s.splatColor, 1f - k);
+            var release = new Vector3(
+                Mathf.Lerp(1f, s.splatReleaseScale.x, easeOut),
+                Mathf.Lerp(1f, s.splatReleaseScale.y, easeOut),
+                1f);
+            _splatRenderer.transform.localScale = Vector3.Scale(_splatBaseScale, release);
+            SetTint(_splatRenderer, s.splatColor, 1f - k);
         }
 
         private void UpdateCrackRelease(PlayerHitEffectSettings s, float t)
@@ -198,8 +179,8 @@ namespace Game.Effects
             float k = Mathf.Clamp01(t / s.crackFadeDuration);
             Vector3 crackScale = _crackBaseScale;
             crackScale.x *= 1f - s.crackShrinkOnFade * k;
-            crackRenderer.transform.localScale = crackScale;
-            SetTint(crackRenderer, s.crackColor, 1f - k);
+            _crackRenderer.transform.localScale = crackScale;
+            SetTint(_crackRenderer, s.crackColor, 1f - k);
         }
 
         private static float EvaluateDimAfterRelease(PlayerHitEffectSettings s, float t)
@@ -215,35 +196,35 @@ namespace Game.Effects
 
         private void AttachScreenDimToCamera()
         {
-            if (targetCamera == null || screenDimRenderer == null)
+            if (_targetCamera == null || _screenDimRenderer == null)
             {
                 return;
             }
 
             // 카메라를 따라다녀야 하므로 카메라 자식으로 옮긴다.
-            Transform dim = screenDimRenderer.transform;
-            dim.SetParent(targetCamera.transform, false);
+            Transform dim = _screenDimRenderer.transform;
+            dim.SetParent(_targetCamera.transform, false);
             dim.localRotation = Quaternion.identity;
-            dim.localPosition = new Vector3(0f, 0f, targetCamera.nearClipPlane + 0.05f);
+            dim.localPosition = new Vector3(0f, 0f, _targetCamera.nearClipPlane + 0.05f);
         }
 
         /// <summary>카메라 시야 전체(+셰이크 여유)를 덮도록 딤 스프라이트 크기를 맞춘다.</summary>
         private void FitScreenDimToCamera()
         {
-            if (targetCamera == null || screenDimRenderer == null || screenDimRenderer.sprite == null)
+            if (_targetCamera == null || _screenDimRenderer == null || _screenDimRenderer.sprite == null)
             {
                 return;
             }
 
             const float margin = 1.15f;
-            float distance = screenDimRenderer.transform.localPosition.z;
-            float viewHeight = targetCamera.orthographic
-                ? targetCamera.orthographicSize * 2f
-                : 2f * distance * Mathf.Tan(targetCamera.fieldOfView * 0.5f * Mathf.Deg2Rad);
-            float viewWidth = viewHeight * targetCamera.aspect;
+            float distance = _screenDimRenderer.transform.localPosition.z;
+            float viewHeight = _targetCamera.orthographic
+                ? _targetCamera.orthographicSize * 2f
+                : 2f * distance * Mathf.Tan(_targetCamera.fieldOfView * 0.5f * Mathf.Deg2Rad);
+            float viewWidth = viewHeight * _targetCamera.aspect;
 
-            Vector2 spriteSize = screenDimRenderer.sprite.bounds.size;
-            screenDimRenderer.transform.localScale = new Vector3(
+            Vector2 spriteSize = _screenDimRenderer.sprite.bounds.size;
+            _screenDimRenderer.transform.localScale = new Vector3(
                 viewWidth * margin / spriteSize.x,
                 viewHeight * margin / spriteSize.y,
                 1f);
@@ -251,9 +232,9 @@ namespace Game.Effects
 
         private void HideAll()
         {
-            if (splatRenderer != null) splatRenderer.enabled = false;
-            if (crackRenderer != null) crackRenderer.enabled = false;
-            if (screenDimRenderer != null) screenDimRenderer.enabled = false;
+            if (_splatRenderer != null) _splatRenderer.enabled = false;
+            if (_crackRenderer != null) _crackRenderer.enabled = false;
+            if (_screenDimRenderer != null) _screenDimRenderer.enabled = false;
         }
 
         private void SetSorting(Renderer target, int order)
@@ -263,7 +244,7 @@ namespace Game.Effects
                 return;
             }
 
-            target.sortingLayerName = settings.sortingLayerName;
+            target.sortingLayerName = _settings.sortingLayerName;
             target.sortingOrder = order;
         }
 

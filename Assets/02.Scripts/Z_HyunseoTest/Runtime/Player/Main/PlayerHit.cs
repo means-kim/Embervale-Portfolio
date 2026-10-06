@@ -1,4 +1,5 @@
 using UnityEngine;
+
 namespace HyunseoTest
 {
     [RequireComponent(typeof(global::Health))]
@@ -25,6 +26,7 @@ namespace HyunseoTest
         private bool _flashOn;
         private float _moveUnlockAt;
         private bool _knockbackLocking;
+
         private void Awake()
         {
             _health = GetComponent<global::Health>();
@@ -35,13 +37,18 @@ namespace HyunseoTest
             _rigidbody = GetComponent<Rigidbody2D>();
             _renderers = GetComponentsInChildren<SpriteRenderer>(true);
             _originalColors = new Color[_renderers.Length];
-            for (int i = 0; i < _renderers.Length; i++) _originalColors[i] = _renderers[i].color;
+            for (int i = 0; i < _renderers.Length; i++)
+            {
+                _originalColors[i] = _renderers[i].color;
+            }
         }
+
         private void OnEnable()
         {
             _health.OnHit += HandleHit;
             _health.OnDie += HandleDie;
         }
+
         private void OnDisable()
         {
             _health.OnHit -= HandleHit;
@@ -52,7 +59,11 @@ namespace HyunseoTest
 
         private void ApplyKnockback()
         {
-            if (_rigidbody == null) return;
+            if (_rigidbody == null)
+            {
+                return;
+            }
+
             int facing = _move != null ? _move.FacingDirection : 1;
             float xPush = -facing * _knockbackForce;
             if (_move != null && _knockbackLockTime > 0f)
@@ -61,73 +72,131 @@ namespace HyunseoTest
                 _moveUnlockAt = Time.time + _knockbackLockTime;
                 _knockbackLocking = true;
             }
+
             _rigidbody.linearVelocity = new Vector2(xPush, Mathf.Max(_rigidbody.linearVelocity.y, _knockbackUp));
         }
 
         private void ReleaseKnockbackLock()
         {
-            if (!_knockbackLocking) return;
+            if (!_knockbackLocking)
+            {
+                return;
+            }
+
             _knockbackLocking = false;
-            if (_move != null) _move.SetMovementLocked(this, false);
+            if (_move != null)
+            {
+                _move.SetMovementLocked(this, false);
+            }
         }
+
         public void ResetForRespawn()
         {
             _hitUntil = 0f;
             _flashTimer = 0f;
             _moveUnlockAt = 0f;
             ReleaseKnockbackLock();
-            if (_move != null) _move.SetMovementLocked(_health, false);
+            if (_move != null)
+            {
+                _move.SetMovementLocked(_health, false);
+            }
+
             RestoreColors();
         }
 
         private void HandleHit()
         {
-            if (_health.IsDead) return;
-            if (_attack != null) _attack.CancelAttack();
+            if (_health.IsDead)
+            {
+                return;
+            }
+
+            if (_attack != null)
+            {
+                _attack.CancelAttack();
+            }
+
             _hitUntil = Time.time + _hitDuration;
             _flashTimer = 0f;
             _flashOn = false;
-            if (_dash != null) _dash.CancelDash();
+            if (_dash != null)
+            {
+                _dash.CancelDash();
+            }
+
+            EffectManager.Instance?.PlayPlayerHit(transform.position, true); // false = 일반형
             ApplyKnockback();
-            ;
         }
+
         private void HandleDie()
         {
-            if (_attack != null) _attack.CancelAttack();
-            if (_dash != null) _dash.CancelDash();
-            if (_move != null) _move.SetMovementLocked(_health, true);
+            if (_attack != null)
+            {
+                _attack.CancelAttack();
+            }
+
+            if (_dash != null)
+            {
+                _dash.CancelDash();
+            }
+
+            if (_move != null)
+            {
+                _move.SetMovementLocked(_health, true);
+            }
+
+            EffectManager.Instance.PlayPlayerHit(transform.position, true, BeginDeathPresentation);
             _hitUntil = 0f;
             RestoreColors();
-            ;
-            if (_controller != null) _controller.ChangeState(PlayerState.Death);
         }
+
+        // 사망 판정 콜백
+        private void BeginDeathPresentation()
+        {
+            _controller.ChangeState(PlayerState.Death);
+        }
+
         private void Update()
         {
-            if (_knockbackLocking && Time.time >= _moveUnlockAt) ReleaseKnockbackLock();
+            if (_knockbackLocking && Time.time >= _moveUnlockAt)
+            {
+                ReleaseKnockbackLock();
+            }
+
             if (!IsHit)
             {
                 if (_flashOn) RestoreColors();
                 return;
             }
+
             _flashTimer += Time.deltaTime;
-            if (_flashTimer < _flashInterval) return;
+            if (_flashTimer < _flashInterval)
+            {
+                return;
+            }
+
             _flashTimer = 0f;
             _flashOn = !_flashOn;
             ApplyFlash(_flashOn);
         }
+
         private void ApplyFlash(bool on)
         {
             for (int i = 0; i < _renderers.Length; i++)
             {
-                if (_renderers[i] == null) continue;
+                if (_renderers[i] == null)
+                {
+                    continue;
+                }
+
                 _renderers[i].color = on ? _flashColor : _originalColors[i];
             }
         }
+
         private void RestoreColors()
         {
             _flashOn = false;
             ApplyFlash(false);
         }
     }
-
 }

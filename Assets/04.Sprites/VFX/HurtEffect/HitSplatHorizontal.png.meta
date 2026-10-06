@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 9ba865e2845997645a9a3c311db6a016
+guid: 4e585efb1f993d14b9e3ca2267feb897
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8388991250147475354
-    second: WhiteShard_2x2_0
-  - first:
-      213: 6685083858939290425
-    second: WhiteShard_2x2_1
-  - first:
-      213: 3955142320819942564
-    second: WhiteShard_2x2_2
-  - first:
-      213: 7534020739716655938
-    second: WhiteShard_2x2_3
+      213: 2285709318426724984
+    second: HitSplatHorizontal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhiteShard_2x2_0
+      name: HitSplatHorizontal_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 99
-        width: 47
-        height: 18
+        x: 49
+        y: 44
+        width: 901
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,74 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 660891f97e0549b80800000000000000
-      internalID: -8388991250147475354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WhiteShard_2x2_1
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 101
-        width: 45
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93326c1c95036cc50800000000000000
-      internalID: 6685083858939290425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WhiteShard_2x2_2
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 39
-        width: 40
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a4369c4cfc73e630800000000000000
-      internalID: 3955142320819942564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WhiteShard_2x2_3
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 41
-        width: 36
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24bac3122f73e8860800000000000000
-      internalID: 7534020739716655938
+      spriteID: 87a00a0d38878bf10800000000000000
+      internalID: 2285709318426724984
       vertices: []
       indices: 
       edges: []
@@ -226,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhiteShard_2x2_0: -8388991250147475354
-      WhiteShard_2x2_1: 6685083858939290425
-      WhiteShard_2x2_2: 3955142320819942564
-      WhiteShard_2x2_3: 7534020739716655938
+      HitSplatHorizontal_0: 2285709318426724984
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

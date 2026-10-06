@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e338ac50cc984a3418ab0012da025f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectManager
-  _playerHitVfx: {fileID: 4021103657954561961, guid: 275785150a53a4b4989309a6b663eb12, type: 3}
+  _playerHitVfx: {fileID: 3909549382037466487, guid: e1aabf03bcb2b514d8cf7588b317e705, type: 3}
+  _playerHitHorizontalVfx: {fileID: 830958173528827939, guid: d65d9f8f74a3bb94eac9f607462cae34, type: 3}
+  _useHorizontalPlayerHit: 0
   _playerDeathVfx: {fileID: 5985634496115995773, guid: ec3da48247b33f84b8012c97e39a3dee, type: 3}
   _jumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
   _doubleJumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
@@ -55,7 +57,5 @@ MonoBehaviour:
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
   _wallSlideVfx: {fileID: 0}
-  _wallClimbUpVfx: {fileID: 0}
-  _wallClimbDownVfx: {fileID: 0}
   _respawnVfx: {fileID: 0}
   _clickVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}

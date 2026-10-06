@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: f0f89da65808d08499b0008a1dab6143
+guid: 31cc90f6f45d38145bac6acfd5316c37
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3886014944748231566
-    second: ShadeBlob_2x2_0
+      213: -8388991250147475354
+    second: WhiteShard_2x2_0
   - first:
-      213: 947126756324582139
-    second: ShadeBlob_2x2_1
+      213: 6685083858939290425
+    second: WhiteShard_2x2_1
   - first:
-      213: 8444924582265518602
-    second: ShadeBlob_2x2_2
+      213: 3955142320819942564
+    second: WhiteShard_2x2_2
   - first:
-      213: -8476910251064008259
-    second: ShadeBlob_2x2_3
+      213: 7534020739716655938
+    second: WhiteShard_2x2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShadeBlob_2x2_0
+      name: WhiteShard_2x2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 68
-        width: 55
-        height: 57
+        x: 9
+        y: 99
+        width: 47
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8bd395d006ede530800000000000000
-      internalID: 3886014944748231566
+      spriteID: 660891f97e0549b80800000000000000
+      internalID: -8388991250147475354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadeBlob_2x2_1
+      name: WhiteShard_2x2_1
       rect:
         serializedVersion: 2
-        x: 68
-        y: 68
-        width: 60
-        height: 57
+        x: 74
+        y: 101
+        width: 45
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf2aefb44ced42d00800000000000000
-      internalID: 947126756324582139
+      spriteID: 93326c1c95036cc50800000000000000
+      internalID: 6685083858939290425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadeBlob_2x2_2
+      name: WhiteShard_2x2_2
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 56
-        height: 54
+        x: 13
+        y: 39
+        width: 40
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0a76e81a26623570800000000000000
-      internalID: 8444924582265518602
+      spriteID: 4a4369c4cfc73e630800000000000000
+      internalID: 3955142320819942564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadeBlob_2x2_3
+      name: WhiteShard_2x2_3
       rect:
         serializedVersion: 2
-        x: 68
-        y: 4
-        width: 56
-        height: 57
+        x: 79
+        y: 41
+        width: 36
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db1667c0a07fb5a80800000000000000
-      internalID: -8476910251064008259
+      spriteID: 24bac3122f73e8860800000000000000
+      internalID: 7534020739716655938
       vertices: []
       indices: 
       edges: []
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ShadeBlob_2x2_0: 3886014944748231566
-      ShadeBlob_2x2_1: 947126756324582139
-      ShadeBlob_2x2_2: 8444924582265518602
-      ShadeBlob_2x2_3: -8476910251064008259
+      WhiteShard_2x2_0: -8388991250147475354
+      WhiteShard_2x2_1: 6685083858939290425
+      WhiteShard_2x2_2: 3955142320819942564
+      WhiteShard_2x2_3: 7534020739716655938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

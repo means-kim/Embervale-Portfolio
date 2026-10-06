@@ -18657,11 +18657,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2864288753525930506, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.28885
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: 2864288753525930506, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.92839
+      value: 139.3
       objectReference: {fileID: 0}
     - target: {fileID: 2864288753525930506, guid: e9de1a55fa2542ed8a9f655ea2fa750d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29170,7 +29170,7 @@ Transform:
   m_GameObject: {fileID: 1653261761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7516127, y: -19.144306, z: -10}
+  m_LocalPosition: {x: 146.32431, y: 112.02154, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35424,7 +35424,7 @@ Transform:
   m_GameObject: {fileID: 1819953068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6648197, y: -19.34507, z: -10}
+  m_LocalPosition: {x: 157.04633, y: 112.02654, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42515,7 +42515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e338ac50cc984a3418ab0012da025f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SnowEffect
-  _playerHitVfx: {fileID: 0}
+  _playerHitVfx: {fileID: 3909549382037466487, guid: e1aabf03bcb2b514d8cf7588b317e705, type: 3}
+  _playerHitHorizontalVfx: {fileID: 830958173528827939, guid: d65d9f8f74a3bb94eac9f607462cae34, type: 3}
+  _useHorizontalPlayerHit: 0
   _playerDeathVfx: {fileID: 0}
   _jumpVfx: {fileID: 0}
   _doubleJumpVfx: {fileID: 0}
@@ -42526,8 +42528,6 @@ MonoBehaviour:
   _checkpointVfx: {fileID: 0}
   _levelUpVfx: {fileID: 0}
   _wallSlideVfx: {fileID: 0}
-  _wallClimbUpVfx: {fileID: 0}
-  _wallClimbDownVfx: {fileID: 0}
   _respawnVfx: {fileID: 0}
   _clickVfx: {fileID: 0}
 --- !u!4 &2058891490

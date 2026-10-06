@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game.Effects
 {
     /// <summary>
-    /// ParticleSystem을 "한 번에 방사형으로 터뜨리는" 용도로만 쓰는 래퍼.
+    /// ParticleSystem을 "한 번에 터뜨리는" 용도로만 쓰는 래퍼. (원형 / 가로 방향 지원)
     /// Shape 모듈 대신 EmitParams로 직접 속도를 넣는 이유:
     /// 원본처럼 가로로 납작한 분포(verticalSquash)와 개별 속도 범위를 Settings 하나로 정확히 제어하기 위해서다.
     /// </summary>
@@ -40,6 +40,7 @@ namespace Game.Effects
 
             ParticleSystem.MainModule main = ps.main;
             main.loop = false;
+            main.useUnscaledTime = true;
             main.playOnAwake = false;
             main.duration = 1f;
             main.simulationSpace = ParticleSystemSimulationSpace.World;
@@ -107,8 +108,7 @@ namespace Game.Effects
             var emitParams = new ParticleSystem.EmitParams();
             for (int i = 0; i < burst.count; i++)
             {
-                float angle = Random.Range(0f, Mathf.PI * 2f);
-                var direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle) * burst.verticalSquash, 0f);
+                Vector3 direction = SampleDirection(burst);
                 Vector2 jitter = Random.insideUnitCircle * (burst.spawnJitter * scale);
 
                 emitParams.position = center + new Vector3(jitter.x, jitter.y, 0f);
@@ -121,6 +121,23 @@ namespace Game.Effects
         }
 
         private static float RandomIn(Vector2 range) => Random.Range(range.x, range.y);
+
+        /// <summary>방향 모드에 따라 단위 방향(세로 squash 적용)을 뽑는다.</summary>
+        private static Vector3 SampleDirection(BurstSettings burst)
+        {
+            float angle;
+            if (burst.direction == BurstDirection.Horizontal)
+            {
+                float side = Random.value < 0.5f ? 0f : Mathf.PI; // 오른쪽 / 왼쪽
+                angle = side + Random.Range(-burst.spreadAngle, burst.spreadAngle) * Mathf.Deg2Rad;
+            }
+            else
+            {
+                angle = Random.Range(0f, Mathf.PI * 2f);
+            }
+
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle) * burst.verticalSquash, 0f);
+        }
 
         private static Gradient CreateFadeGradient(float fadeStart)
         {
