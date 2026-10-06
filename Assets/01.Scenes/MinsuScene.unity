@@ -239,6 +239,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2508001429532137085, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508001429532137085, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 380.92975
@@ -1044,6 +1052,14 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
+    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3536419785821164132, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _oneArmIceSummon
       value: 
