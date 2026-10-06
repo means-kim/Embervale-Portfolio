@@ -15,7 +15,6 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
     public string CurrentAttackClip => _current != null ? _current.animClipName : "LeftHorizontalAttack";
-    public bool DebugDrawEnabled => _showHitboxes;
     private void Awake() => _move = GetComponent<PlayerMove>();
     private void OnDisable() => CancelAttack();
 
@@ -71,14 +70,5 @@ public class PlayerAttack : MonoBehaviour
         _instance = null;
         if (_move != null) _move.SetMovementLocked(this, false);
         OnAttackEnded?.Invoke();
-    }
-    public bool TryGetDebugBox(out PlayerAttackType type, out Vector2 center, out Vector2 size)
-    {
-        type = _current != null ? _current.attackType : default;
-        center = size = Vector2.zero;
-        if (!_showHitboxes || _instance == null || !_instance.TryGetHitBounds(out var bounds)) return false;
-        center = bounds.center;
-        size = bounds.size;
-        return true;
     }
 }
