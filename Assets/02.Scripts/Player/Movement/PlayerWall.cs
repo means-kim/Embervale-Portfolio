@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerMove), typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerMove))]
 public class PlayerWall : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _climbSpeed = 3f;
@@ -20,7 +20,6 @@ public class PlayerWall : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerJump _playerJump;
     private PlayerMove _playerMove;
-    private PlayerDash _playerDash;
     private Vector2 _moveInput;
     private readonly Dictionary<Collider2D, float> _wallContacts = new();
     private int _stamina = MaxStamina;
@@ -41,7 +40,6 @@ public class PlayerWall : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerJump = GetComponent<PlayerJump>();
         _playerMove = GetComponent<PlayerMove>();
-        _playerDash = GetComponent<PlayerDash>();
         EnsureFrictionlessCollider();
     }
     private void OnEnable()
