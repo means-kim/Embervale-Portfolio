@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7231270996186931566}
   - component: {fileID: 6351156603021301246}
   - component: {fileID: -5426264349106596146}
+  - component: {fileID: 2886692296107327024}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -317,3 +318,20 @@ MonoBehaviour:
   _player: {fileID: 0}
   _telegraphType: 0
   _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
+--- !u!114 &2886692296107327024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66eee6322369c1a45bccf0395033ef04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIcePush
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 7
+  _telegraphScaleMultiplier: {x: 30, y: 30, z: 1}
