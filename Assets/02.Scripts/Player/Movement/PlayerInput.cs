@@ -15,17 +15,12 @@ public class PlayerInput : MonoBehaviour
     public event Action OnJumpInput;
     public event Action OnDashInput;
     public event Action OnDropInput;
-    public event Action OnWallJumpInput;
-    private float _horizontal;
-    private float _vertical;
-    private Vector2 _moveDirection = Vector2.zero;
     private void Update()
     {
-        CheckHorizontalInput();
-        CheckJumpInput();
-        CheckDashInput();
-        CheckDropInput();
-        CheckWallJumpInput();
+        OnMoveInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        if (Input.GetKeyDown(KeyCode.Space)) OnJumpInput?.Invoke();
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) OnDashInput?.Invoke();
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) OnDropInput?.Invoke();
         CheckAttackInput();
         CheckClickVfx();
     }
@@ -38,29 +33,6 @@ public class PlayerInput : MonoBehaviour
             OnAttackInput?.Invoke(binding.attack);
             break;
         }
-    }
-    private void CheckHorizontalInput()
-    {
-        _horizontal = Input.GetAxis("Horizontal");
-        _vertical = Input.GetAxis("Vertical");
-        _moveDirection = new Vector2(_horizontal, _vertical);
-        OnMoveInput?.Invoke(_moveDirection);
-    }
-    private void CheckJumpInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) OnJumpInput?.Invoke();
-    }
-    private void CheckDashInput()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) OnDashInput?.Invoke();
-    }
-    private void CheckDropInput()
-    {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) OnDropInput?.Invoke();
-    }
-    private void CheckWallJumpInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) OnWallJumpInput?.Invoke();
     }
     private void CheckClickVfx()
     {
