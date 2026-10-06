@@ -213,6 +213,9 @@ MonoBehaviour:
   - {fileID: 5039348117906714883, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
   - {fileID: 5039348117906714883, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
   - {fileID: 1300002583}
+  - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
+  - {fileID: 959314006}
+  - {fileID: 5039348117906714883, guid: 90ddc00d6b0bfa04b8be8aaf5ba527cc, type: 3}
   _poolSize: 6
 --- !u!4 &23365616
 Transform:
@@ -229,6 +232,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &47354844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2508001429532137085, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508001429532137085, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 380.92975
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 166.1927
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293481016969042167, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+      propertyPath: m_Name
+      value: Attack_IceBlock
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
 --- !u!1001 &131758580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -468,7 +536,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &231332533
+--- !u!1001 &286834754
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -478,11 +546,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3005443960643297400, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 381.4488
+      value: 412.8
       objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 150.49994
+      value: 149.6
       objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -518,13 +586,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293481016969042167, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
       propertyPath: m_Name
-      value: Attack_IcePillar
+      value: Attack_SmallIcePillar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
+--- !u!114 &959314006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5039348117906714883, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+  m_PrefabInstance: {fileID: 47354844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4b6a2a502500c4095719c107ca8df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
 --- !u!1 &1121847563
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +655,8 @@ MonoBehaviour:
   - {fileID: 7363931872858314062, guid: 7a77a1d3d87b34fc88c1da122527f2a7, type: 3}
   - {fileID: 3816866358988572836, guid: 19582c3a8f1144d12a9657ba75fff3ee, type: 3}
   - {fileID: 1696395169436744111, guid: 6bf790af21170404ba07b686c8c6137a, type: 3}
+  - {fileID: 3365085907564005587, guid: d7a6fddf6186a90489582f4775dc0620, type: 3}
+  - {fileID: 3365085907564005587, guid: 86c30195746596649b091de932410a03, type: 3}
   _poolSize: 5
 --- !u!114 &1300002583 stripped
 MonoBehaviour:
@@ -964,10 +1045,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5426264349106596146, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 198088055}
     - target: {fileID: 288646290909099654, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
+    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536419785821164132, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _oneArmIceSummon
+      value: 
+      objectReference: {fileID: 5259171813249767551}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss
@@ -1012,11 +1109,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7010184717608891334, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 198088055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+--- !u!114 &5259171813249767551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5426264349106596146, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 5259171813249767550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af86b1ffb5d94290859074fc3f01f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmIceSummon
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1029,7 +1141,8 @@ SceneRoots:
   - {fileID: 5259171813249767550}
   - {fileID: 23365616}
   - {fileID: 1121847564}
-  - {fileID: 231332533}
   - {fileID: 1426937789}
   - {fileID: 1634636934}
   - {fileID: 1406385731}
+  - {fileID: 286834754}
+  - {fileID: 47354844}

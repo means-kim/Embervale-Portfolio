@@ -95,6 +95,11 @@ public class AirBossAnimation : MonoBehaviour
         _animator.CrossFade("OneArmUpDownIce", 0.1f);
     }
 
+    public void PlayOneArmUpDownIceBlock()
+    {
+        _animator.CrossFade("OneArmUpDownIceBlock", 0.1f);
+    }
+
     public void PlayDeathAnimation()
     {
         _animator.CrossFade("Death", 0.1f);

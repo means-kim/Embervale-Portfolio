@@ -5,6 +5,7 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
 {
     private AirBossAttack _attack;
     private Collider2D _collider;
+    private AirBossAttackBezierMovement _movement;
 
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
         if (_attack != null)
         {
             _collider = _attack.GetComponent<Collider2D>();
+            _movement = _attack.GetComponent<AirBossAttackBezierMovement>();
         }
     }
 
@@ -50,5 +52,13 @@ public class AirBossAttackAnimationEvent : MonoBehaviour
     private void OnDisable()
     {
         DisableHitBox();
+    }
+
+    public void StartMovement()
+    {
+        if (_movement != null)
+        {
+            _movement.StartPreparedMove();
+        }
     }
 }

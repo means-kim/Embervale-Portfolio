@@ -1,0 +1,11 @@
+var root="ArtSource/AirBoss/cast_onearm_updown_throw_iceblock"; var results=new System.Collections.Generic.List<object>();string baseName="AirBoss_Cast_OneArm_UpDown";
+for(int part=1;part<=2;part++){
+ string name=baseName+"_Part"+part+"_4x4_1152_v01_Throw_IceBlock.png";string outPath=root+"/sheets/"+name;
+ var pixels=new Color32[4608*4608];int start=(part-1)*16;
+ for(int j=0;j<16;j++){int index=start+j;string fp=root+"/frames/final_v01/"+baseName+"_v01_"+index.ToString("D2")+"_Throw_IceBlock.png";var ft=new Texture2D(2,2,TextureFormat.RGBA32,false);ImageConversion.LoadImage(ft,System.IO.File.ReadAllBytes(fp));if(ft.width!=1152||ft.height!=1152)throw new System.Exception("Bad cell size");var cell=ft.GetPixels32();for(int y=0;y<1152;y++)for(int x=0;x<1152;x++)if((x<64||x>=1088||y<64||y>=1088)&&cell[y*1152+x].a!=0)throw new System.Exception("Unsafe alpha frame "+index);int ox=(j%4)*1152,oy=(3-j/4)*1152;for(int y=0;y<1152;y++)System.Array.Copy(cell,y*1152,pixels,(oy+y)*4608+ox,1152);UnityEngine.Object.DestroyImmediate(ft);}
+ var sheet=new Texture2D(4608,4608,TextureFormat.RGBA32,false);sheet.SetPixels32(pixels);sheet.Apply();System.IO.File.WriteAllBytes(outPath,ImageConversion.EncodeToPNG(sheet));UnityEngine.Object.DestroyImmediate(sheet);
+ // Decode the saved PNG, then compare every cell byte-for-byte.
+ var check=new Texture2D(2,2,TextureFormat.RGBA32,false);ImageConversion.LoadImage(check,System.IO.File.ReadAllBytes(outPath));var back=check.GetPixels32();
+ for(int j=0;j<16;j++){var ft=new Texture2D(2,2,TextureFormat.RGBA32,false);ImageConversion.LoadImage(ft,System.IO.File.ReadAllBytes(root+"/frames/final_v01/"+baseName+"_v01_"+(start+j).ToString("D2")+"_Throw_IceBlock.png"));var cell=ft.GetPixels32();int ox=j%4*1152,oy=(3-j/4)*1152;for(int y=0;y<1152;y++)for(int x=0;x<1152;x++){var a=cell[y*1152+x];var b=back[(oy+y)*4608+ox+x];if(a.r!=b.r||a.g!=b.g||a.b!=b.b||a.a!=b.a)throw new System.Exception("Roundtrip mismatch");}UnityEngine.Object.DestroyImmediate(ft);}UnityEngine.Object.DestroyImmediate(check);
+ results.Add(new{part,path=outPath,width=4608,height=4608,frames=16,roundTripExact=true,strict64pxMargin=true});
+}return results;

@@ -3,7 +3,10 @@ using UnityEngine;
 public class AirBossAction : MonoBehaviour
 {
     [SerializeField] private AirBossOneArmUpDownIce _oneArmUpDownIce;
+    [SerializeField] private AirBossOneArmUpDownIceBlock _oneArmUpDownIceBlock;
+    [SerializeField] private AirBossOneArmIceSummon _oneArmIceSummon;
     [SerializeField] private AirBossBothArmsIceThrow _bothArmsIceThrow;
+    [SerializeField] private AirBossBothArmsIcePush _bothArmsIcePush;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
 
     private AirBossAnimation _animation;
@@ -51,7 +54,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsIcePush:
-                _animation.PlayBothArmsIcePush();
+                StartAttack(_bothArmsIcePush);
                 break;
 
             case AirBossActionType.BothArmsIceThrow:
@@ -59,11 +62,15 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.OneArmIceSummon:
-                _animation.PlayOneArmIceSummon();
+                StartAttack(_oneArmIceSummon);
                 break;
 
             case AirBossActionType.OneArmUpDownIce:
                 StartAttack(_oneArmUpDownIce);
+                break;
+
+            case AirBossActionType.OneArmUpDownIceBlock:
+                StartAttack(_oneArmUpDownIceBlock);
                 break;
         }
     }
@@ -77,7 +84,16 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsIceThrow);
 
         // 고드름 3발 패턴 테스트
-        Execute(AirBossActionType.OneArmUpDownIce);
+        // Execute(AirBossActionType.OneArmUpDownIce);
+
+        // 작은 얼음 기둥 패턴만 테스트
+        // Execute(AirBossActionType.OneArmIceSummon);
+
+        // 얼음 덩어리 패턴만 테스트
+        // Execute(AirBossActionType.BothArmsIcePush);
+
+        // 베지어 곡선 얼음 덩어리 패턴만 테스트
+        Execute(AirBossActionType.OneArmUpDownIceBlock);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //

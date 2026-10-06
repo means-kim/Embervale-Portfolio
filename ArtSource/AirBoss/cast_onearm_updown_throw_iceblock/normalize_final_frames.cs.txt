@@ -1,0 +1,22 @@
+var root="ArtSource/AirBoss/cast_onearm_updown_throw_iceblock";System.IO.Directory.CreateDirectory(root+"/frames/final_v01");System.IO.Directory.CreateDirectory(root+"/reference");var map=new[]{0,1,2,4,5,9,3,7,10,6,11,15,14,12,13,8,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};var report=new System.Collections.Generic.List<object>();for(int frame=0;frame<32;frame++){int n=map[frame];string src=n==0?"ArtSource/AirBoss/idle/AirBoss_Idle_Master_image2.png":root+"/source/v01/frame"+n.ToString("D2")+((n==16||n==25||n==29)?"_pose_final.png":"_generated.png");var input=new Texture2D(2,2,TextureFormat.RGBA32,false);ImageConversion.LoadImage(input,System.IO.File.ReadAllBytes(src));int sw=input.width,sh=input.height;var sp=input.GetPixels32();var px=new Color32[1024*1024];if(n==0)px=sp;else{ for(int y=0;y<1024;y++)for(int x=0;x<1024;x++){
+  float fx=(x+.5f)*sw/1024f-.5f,fy=(y+.5f)*sh/1024f-.5f;
+  int x0=Mathf.Clamp(Mathf.FloorToInt(fx),0,sw-1),y0=Mathf.Clamp(Mathf.FloorToInt(fy),0,sh-1),x1=Mathf.Min(x0+1,sw-1),y1=Mathf.Min(y0+1,sh-1);
+  float tx=fx-Mathf.Floor(fx),ty=fy-Mathf.Floor(fy);
+  var c0=sp[y0*sw+x0];var c1=sp[y0*sw+x1];var c2=sp[y1*sw+x0];var c3=sp[y1*sw+x1];
+  float w0=(1-tx)*(1-ty),w1=tx*(1-ty),w2=(1-tx)*ty,w3=tx*ty;
+  float a=c0.a*w0+c1.a*w1+c2.a*w2+c3.a*w3;
+  byte aa=(byte)Mathf.Clamp(Mathf.RoundToInt(a),0,255);
+  if(aa==0){px[y*1024+x]=new Color32(0,0,0,0);continue;}
+  float rr=(c0.r*c0.a*w0+c1.r*c1.a*w1+c2.r*c2.a*w2+c3.r*c3.a*w3)/a;
+  float gg=(c0.g*c0.a*w0+c1.g*c1.a*w1+c2.g*c2.a*w2+c3.g*c3.a*w3)/a;
+  float bb=(c0.b*c0.a*w0+c1.b*c1.a*w1+c2.b*c2.a*w2+c3.b*c3.a*w3)/a;
+  px[y*1024+x]=new Color32((byte)Mathf.Clamp(Mathf.RoundToInt(rr),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(gg),0,255),(byte)Mathf.Clamp(Mathf.RoundToInt(bb),0,255),aa);
+ }
+}var padded=new Color32[1152*1152];for(int y=0;y<1024;y++)System.Array.Copy(px,y*1024,padded,(y+64)*1152+64,1024);
+int xmin=1152,ymin=1152,xmax=-1,ymax=-1,nonzero=0;for(int y=0;y<1152;y++)for(int x=0;x<1152;x++)if(padded[y*1152+x].a>0){xmin=Mathf.Min(xmin,x);xmax=Mathf.Max(xmax,x);ymin=Mathf.Min(ymin,y);ymax=Mathf.Max(ymax,y);nonzero++;if(x<64||x>=1088||y<64||y>=1088)throw new System.Exception("Margin failure "+frame);}
+var output=new Texture2D(1152,1152,TextureFormat.RGBA32,false);output.SetPixels32(padded);output.Apply();
+string dst=root+"/frames/final_v01/AirBoss_Cast_OneArm_UpDown_v01_"+frame.ToString("D2")+"_Throw_IceBlock.png";System.IO.File.WriteAllBytes(dst,ImageConversion.EncodeToPNG(output));
+if(frame==0)System.IO.File.Copy(dst,root+"/reference/AirBoss_Idle_Master_1152_v01_Throw_IceBlock.png",true);
+using(var sha=System.Security.Cryptography.SHA256.Create()){var raw=new byte[padded.Length*4];for(int k=0;k<padded.Length;k++){raw[k*4]=padded[k].r;raw[k*4+1]=padded[k].g;raw[k*4+2]=padded[k].b;raw[k*4+3]=padded[k].a;}report.Add(new{frame,sourceFrame=n,source=src,sourceWidth=sw,sourceHeight=sh,normalizedCanvas=1024,width=1152,height=1152,padding=64,strict64pxMargin=true,alphaPixels=nonzero,boundsTopOrigin=new[]{xmin,1151-ymax,xmax,1151-ymin},rgbaSha256=System.BitConverter.ToString(sha.ComputeHash(raw)).Replace("-","")});}
+UnityEngine.Object.DestroyImmediate(input);UnityEngine.Object.DestroyImmediate(output);
+}return report;
