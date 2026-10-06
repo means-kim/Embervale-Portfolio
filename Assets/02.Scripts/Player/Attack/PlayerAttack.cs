@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMove))]
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private bool _showHitboxes;
     private PlayerMove _move;
     private PlayerAttackDataSO _current;
     private PlayerAttackInstance _instance;
@@ -14,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip => _current != null ? _current.animClipName : "LeftHorizontalAttack";
+    public string CurrentAttackClip => _current != null ? _current.AnimClipName : "LeftHorizontalAttack";
     private void Awake() => _move = GetComponent<PlayerMove>();
     private void OnDisable() => CancelAttack();
 
@@ -26,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         {
             return false;
         }
-        if (definition.attackPrefab == null || string.IsNullOrWhiteSpace(definition.animClipName))
+        if (definition.AttackPrefab == null || string.IsNullOrWhiteSpace(definition.AnimClipName))
         {
             Debug.LogError($"공격 프리팹 또는 애니메이션이 비어 있습니다: {definition.name}", definition);
             return false;
@@ -38,23 +37,22 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = true;
         _move.SetMovementLocked(this, true);
         OnAttackStarted?.Invoke();
-        if (IsAttacking && definition.windupDuration <= 0) SpawnAttack();
+        if (IsAttacking && definition.WindupDuration <= 0) SpawnAttack();
         return true;
     }
     private void Update()
     {
         if (!IsAttacking) return;
         _elapsed += Time.deltaTime;
-        if (!_spawned && _elapsed >= Mathf.Max(0, _current.windupDuration)) SpawnAttack();
-        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.windupDuration) + Mathf.Max(0.05f, _current.recoveryDuration))
-            FinishAttack();
+        if (!_spawned && _elapsed >= Mathf.Max(0, _current.WindupDuration)) SpawnAttack();
+        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration)) FinishAttack();
     }
     private void SpawnAttack()
     {
         _spawned = true;
-        Vector3 position = transform.position + new Vector3(_direction * _current.spawnOffset.x, _current.spawnOffset.y);
-        _instance = Instantiate(_current.attackPrefab, position, Quaternion.identity);
-        if (!_instance.Initialize(_current.damage, _direction, transform))
+        Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x, _current.SpawnOffset.y);
+        _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
+        if (!_instance.Initialize(_current.Damage, _direction, transform))
         {
             Destroy(_instance.gameObject);
             _instance = null;

@@ -51,22 +51,18 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_jump != null)
-        {
-            _jump.OnLanded += HandleLanded;
-            _jump.OnJumpStarted += HandleSteppingStopped;
-            _jump.OnGroundLost += HandleSteppingStopped;
-        }
+        if (_jump == null) return;
+        _jump.OnLanded += HandleLanded;
+        _jump.OnJumpStarted += HandleSteppingStopped;
+        _jump.OnGroundLost += HandleSteppingStopped;
     }
     private void OnDisable()
     {
-        if (_jump != null)
-        {
-            _jump.OnLanded -= HandleLanded;
-            _jump.OnJumpStarted -= HandleSteppingStopped;
-            _jump.OnGroundLost -= HandleSteppingStopped;
-        }
         StopFootstepSounds();
+        if (_jump == null) return;
+        _jump.OnLanded -= HandleLanded;
+        _jump.OnJumpStarted -= HandleSteppingStopped;
+        _jump.OnGroundLost -= HandleSteppingStopped;
     }
     private void Update()
     {
@@ -119,11 +115,6 @@ public class PlayerFootsteps : MonoBehaviour
         }
         if (bank == null || source == null) return;
         bank.PlayOn(source);
-    }
-    public void PlayStepOnce() => PlayCurrentSurface();
-    public void PlayGroundStepOnce()
-    {
-        if (_groundBank != null && _groundSource != null) _groundBank.PlayOn(_groundSource);
     }
     public void PlayPlatformStepOnce()
     {

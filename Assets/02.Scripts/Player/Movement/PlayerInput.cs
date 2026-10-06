@@ -65,9 +65,9 @@ public class PlayerInput : MonoBehaviour
     private void CheckClickVfx()
     {
         if (!Input.GetMouseButtonDown(0)) return;
-        var camera = Camera.main;
-        if (camera == null) return;
-        Vector3 worldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        var myCamera = Camera.main;
+        if (myCamera == null) return;
+        Vector3 worldPosition = myCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition.z = 0f;
         EffectManager.Instance?.PlayClick(worldPosition);
     }

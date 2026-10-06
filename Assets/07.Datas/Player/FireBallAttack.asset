@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59869d35d43963b4e91cb2da7d8afe86, type: 3}
   m_Name: FireBallAttack
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
-  attackType: 1
-  attackPrefab: {fileID: 802468350584377373, guid: 54a4f1f209140d440ad6c34ff8c6c59d, type: 3}
-  spawnOffset: {x: 1.1, y: -1.6}
-  animClipName: FireBallAttack
-  damage: 10
-  windupDuration: 0
-  recoveryDuration: 0.25
+  AttackType: 1
+  AttackPrefab: {fileID: 802468350584377373, guid: 54a4f1f209140d440ad6c34ff8c6c59d, type: 3}
+  SpawnOffset: {x: 0, y: -1.6}
+  AnimClipName: FireBallAttack
+  Damage: 10
+  WindupDuration: 0
+  RecoveryDuration: 0.22

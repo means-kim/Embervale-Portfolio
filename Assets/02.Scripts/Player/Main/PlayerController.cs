@@ -18,9 +18,7 @@ public class PlayerController : MonoBehaviour
     private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
     private Health _health;
-    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death &&
-        (_health == null || !_health.IsDead) && !_playerHit.IsHit &&
-        !_playerDash.IsDashing && !_playerAttack.IsAttacking;
+    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death && (_health == null || !_health.IsDead) && !_playerHit.IsHit && !_playerDash.IsDashing && !_playerAttack.IsAttacking;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
