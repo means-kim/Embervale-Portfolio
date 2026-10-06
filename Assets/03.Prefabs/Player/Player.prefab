@@ -183,7 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf09f1dbd43daa4a96c72a6d56ffae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  _showHitboxes: 1
 --- !u!114 &7533624692983177567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHit
   _hitDuration: 0.35
   _flashInterval: 0.08
-  _flashColor: {r: 1, g: 0.25, b: 0.25, a: 1}
+  _flashColor: {r: 0, g: 0, b: 0, a: 1}
   _knockbackForce: 10
   _knockbackUp: 2
   _knockbackLockTime: 0.15
