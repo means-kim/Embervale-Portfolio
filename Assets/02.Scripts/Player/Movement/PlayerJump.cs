@@ -5,12 +5,9 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _maxJumpCount = 2;
-    [SerializeField] private List<int> _jumpPowers = new() { 7, 7, 7, 7, 7 };
-    [SerializeField, Min(0f)] private float _dropThroughDuration = 0.4f;
+    [SerializeField] private List<int> _jumpPowers = new() { 40, 30 };
     [SerializeField, Min(0f)] private float _platformLandTolerance = 0.1f;
     [SerializeField, Min(0f), Tooltip("사선 미세 들뜸 깜빡임 방지")] private float _groundLossGrace = 0.1f;
-    [SerializeField, Min(0f), Tooltip("코요테 타임")] private float _coyoteTime = 0.1f;
-    [SerializeField, Min(0f), Tooltip("점프 버퍼")] private float _jumpBufferTime = 0.15f;
     public event Action OnJumpStarted;
     public event Action OnLanded;
     public event Action OnGroundLost;
@@ -27,6 +24,9 @@ public class PlayerJump : MonoBehaviour
     private float _ungroundedTimer = -1f;
     private float _lastGroundedTime = -100f;
     private float _bufferedJumpTime = -100f;
+    private float _dropThroughDuration = 0.4f;
+    private float _coyoteTime = 0.1f;
+    private float _jumpBufferTime = 0.1f;
     private bool _isGrounded;
     private bool _isJumping;
     private int _jumpCount;
@@ -76,10 +76,20 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleJump()
     {
+        if (_playerWall != null && _playerWall.TryHandleJumpInput()) return;
         _bufferedJumpTime = Time.time;
-        if (_playerWall != null && _playerWall.IsClinging) return;
         TryPerformJump();
     }
+    // Restore the airborne budget without pretending to land or refilling stamina.
+    public void RefreshJumpsFromWall()
+    {
+        if (_isGrounded) return;
+        _jumpCount = 0;
+        _isJumping = true; // Still airborne: coyote expiry must not consume the restored first jump.
+        _ungroundedTimer = -1f;
+        _bufferedJumpTime = -100f;
+    }
+    public bool IsIgnoringPlatform(Collider2D platform) => _ignoredPlatforms.Contains(platform);
     private bool TryPerformJump()
     {
         if (!TryConsumeJump()) return false;
@@ -92,17 +102,14 @@ public class PlayerJump : MonoBehaviour
     public bool TryConsumeJump()
     {
         var health = GetComponent<Health>();
-        if (health != null && health.IsDead) return false;
-        if (_playerDash.IsDashing) return false;
-        if (_playerHit != null && _playerHit.IsHit) return false;
-        if (_maxJumpCount <= 0 || _jumpCount >= _maxJumpCount) return false;
-        _ungroundedTimer = -1f;
-        if (_isGrounded)
+        if ((health != null && health.IsDead) || _playerDash.IsDashing || (_playerHit != null && _playerHit.IsHit) || _jumpCount >= _maxJumpCount)
         {
-            _groundContacts.Clear();
-            _platformContacts.Clear();
-            _isGrounded = false;
+            return false;
         }
+        _ungroundedTimer = -1f;
+        _groundContacts.Clear();
+        _platformContacts.Clear();
+        _isGrounded = false;
         _isJumping = true;
         _jumpCount++;
         _bufferedJumpTime = -100f;
@@ -111,8 +118,8 @@ public class PlayerJump : MonoBehaviour
     }
     private int GetJumpPower(int index)
     {
-        if (_jumpPowers == null || _jumpPowers.Count == 0) return 0;
-        return _jumpPowers[Mathf.Clamp(index, 0, _jumpPowers.Count - 1)];
+        return _jumpPowers == null || _jumpPowers.Count == 0
+            ? 0 : _jumpPowers[Mathf.Clamp(index, 0, _jumpPowers.Count - 1)];
     }
     private void HandleDrop()
     {
@@ -127,59 +134,54 @@ public class PlayerJump : MonoBehaviour
         _platformContacts.Clear();
         _dropTimer = _dropThroughDuration;
         _ungroundedTimer = -1f;
+        _isJumping = true; // S 하강은 점프가 아님: 코요테 만료의 _jumpCount 회수를 건너뛰고 첫 점프를 정상 점프로 유지
         SetGrounded(_groundContacts.Count > 0);
     }
     private void RestoreIgnoredPlatforms()
     {
-        if (_playerCollider == null)
-        {
-            _ignoredPlatforms.Clear();
-            return;
-        }
         foreach (var platform in _ignoredPlatforms)
         {
-            if (platform == null) continue;
+            if (_playerCollider == null || platform == null) continue;
             Physics2D.IgnoreCollision(_playerCollider, platform, false);
         }
         _ignoredPlatforms.Clear();
     }
     private void OnCollisionEnter2D(Collision2D collision) => TryLand(collision);
     private void OnCollisionStay2D(Collision2D collision) => TryLand(collision);
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision) => RemoveGroundContact(collision.collider);
+    private void RemoveGroundContact(Collider2D otherCollider)
     {
-        if (collision.collider != null && _groundContacts.Remove(collision.collider))
-        {
-            _platformContacts.Remove(collision.collider);
-            if (_groundContacts.Count > 0)
-            {
-                _ungroundedTimer = -1f;
-                return;
-            }
-            if (_isGrounded) _ungroundedTimer = _groundLossGrace;
-        }
+        if (otherCollider == null || !_groundContacts.Remove(otherCollider)) return;
+        _platformContacts.Remove(otherCollider);
+        if (_groundContacts.Count > 0) _ungroundedTimer = -1f;
+        else if (_isGrounded) _ungroundedTimer = _groundLossGrace;
     }
     private void TryLand(Collision2D collision)
     {
         if (collision.collider == null) return;
         var platform = collision.collider.CompareTag("Platform");
-        if (!platform && !collision.collider.CompareTag("Ground")) return;
-        if (_rigidbody.linearVelocity.y > 0.01f) return;
-        if (platform && (_playerCollider == null || _playerCollider.bounds.min.y < collision.collider.bounds.max.y - _platformLandTolerance)) return;
+        if ((!platform && !collision.collider.CompareTag("Ground"))
+            || (platform && (_playerCollider == null || IsIgnoringPlatform(collision.collider))))
+        {
+            RemoveGroundContact(collision.collider);
+            return;
+        }
         int contactCount = collision.contactCount;
         for (int i = 0; i < contactCount; i++)
         {
-            ContactPoint2D contact = collision.GetContact(i);
-            if (contact.normal.y > 0.5f)
-            {
-                _ungroundedTimer = -1f;
-                if (_groundContacts.Add(collision.collider))
-                {
-                    if (platform) _platformContacts.Add(collision.collider);
-                }
-                SetGrounded(true);
-                return;
-            }
+            var contact = collision.GetContact(i);
+            // 경사를 따라 오르는 이동과 접촉면에서 떨어지는 점프를 구분한다.
+            if (contact.normal.y <= 0.5f || Vector2.Dot(_rigidbody.linearVelocity, contact.normal) > 0.01f) continue;
+            // 발판 전체의 최고점 대신 플레이어 아래의 실제 접촉점을 사용한다.
+            if (platform && contact.point.y > _playerCollider.bounds.center.y + _platformLandTolerance) continue;
+            _ungroundedTimer = -1f;
+            _groundContacts.Add(collision.collider);
+            if (platform) _platformContacts.Add(collision.collider);
+            SetGrounded(true);
+            return;
         }
+        // A top-to-side transition on one collider is not necessarily a collision exit.
+        RemoveGroundContact(collision.collider);
     }
     private void SetGrounded(bool grounded)
     {

@@ -22,8 +22,8 @@ public class PlayerDamageHitbox : MonoBehaviour
     public void SetActive(bool active)
     {
         IsActive = active;
-        foreach (var collider in _colliders)
-            if (collider != null) { collider.isTrigger = true; collider.enabled = active; }
+        foreach (var hitCollider in _colliders)
+            if (hitCollider != null) { hitCollider.isTrigger = true; hitCollider.enabled = active; }
     }
     public bool TryHit(Collider2D other)
     {
@@ -41,13 +41,13 @@ public class PlayerDamageHitbox : MonoBehaviour
     {
         bounds = default;
         bool found = false;
-        foreach (var collider in _colliders)
+        foreach (var hitCollider in _colliders)
         {
-            if (collider == null || !collider.enabled) continue;
-            if (!found) { bounds = collider.bounds; found = true; }
+            if (hitCollider == null || !hitCollider.enabled) continue;
+            if (!found) { bounds = hitCollider.bounds; found = true; }
             else
             {
-                bounds.Encapsulate(collider.bounds);
+                bounds.Encapsulate(hitCollider.bounds);
             }
         }
         return found;

@@ -47,8 +47,8 @@ public class FireBallPrefab : MonoBehaviour
         _age += Time.fixedDeltaTime;
         if (_age >= _lifeTime || _distance >= _maxDistance) { BeginDestroy(false); return; }
         _spawnOverlaps.RemoveWhere(c => c == null || !c.enabled || !_collider.Distance(c).isOverlapped);
-        Vector2 direction = Vector2.right * _attack.Direction;
-        float step = Mathf.Min(_speed * Time.fixedDeltaTime, Mathf.Max(0, _maxDistance - _distance));
+        var direction = Vector2.right * _attack.Direction;
+        var step = Mathf.Min(_speed * Time.fixedDeltaTime, Mathf.Max(0, _maxDistance - _distance));
         _castHits.Clear();
         _collider.Cast(direction, _filter, _castHits, step);
         _castHits.Sort((a, b) => a.distance.CompareTo(b.distance));
@@ -66,8 +66,7 @@ public class FireBallPrefab : MonoBehaviour
         _body.MovePosition(_body.position + direction * step);
         _distance += step;
     }
-    private static bool IsTerrain(Collider2D other) => other != null &&
-        (other.CompareTag("Ground") || other.CompareTag("Platform"));
+    private static bool IsTerrain(Collider2D other) => other != null && (other.CompareTag("Ground") || other.CompareTag("Platform"));
     private void OnTriggerEnter2D(Collider2D other) => CheckTerrain(other);
     private void OnTriggerStay2D(Collider2D other) => CheckTerrain(other);
     private void CheckTerrain(Collider2D other)

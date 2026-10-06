@@ -2,8 +2,6 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerHit : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _hitDuration = 0.35f;
-    [SerializeField, Min(0.01f)] private float _flashInterval = 0.08f;
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
     [Header("피격 넉백")]
     [SerializeField, Min(0f)] private float _knockbackForce = 4f;
@@ -22,6 +20,8 @@ public class PlayerHit : MonoBehaviour
     private float _flashTimer;
     private bool _flashOn;
     private float _moveUnlockAt;
+    private float _hitDuration = 0.35f;
+    private float _flashInterval = 0.08f;
     private bool _knockbackLocking;
     private void Awake()
     {
