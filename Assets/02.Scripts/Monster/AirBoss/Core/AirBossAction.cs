@@ -5,6 +5,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossOneArmUpDownIce _oneArmUpDownIce;
     [SerializeField] private AirBossOneArmIceSummon _oneArmIceSummon;
     [SerializeField] private AirBossBothArmsIceThrow _bothArmsIceThrow;
+    [SerializeField] private AirBossBothArmsIcePush _bothArmsIcePush;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
 
     private AirBossAnimation _animation;
@@ -52,7 +53,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsIcePush:
-                _animation.PlayBothArmsIcePush();
+                StartAttack(_bothArmsIcePush);
                 break;
 
             case AirBossActionType.BothArmsIceThrow:
