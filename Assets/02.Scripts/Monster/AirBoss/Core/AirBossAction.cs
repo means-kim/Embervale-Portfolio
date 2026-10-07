@@ -50,7 +50,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsLightningGather:
-                _animation.PlayBothArmsLightningGather();
+                _animation.PlayBothArmsLightningGatherAnimation();
                 break;
 
             case AirBossActionType.BothArmsIcePush:
