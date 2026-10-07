@@ -362,8 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
   _groundBank: {fileID: 11400000, guid: 99a10d8f2d02ec63003e135260fd1a29, type: 2}
   _platformBank: {fileID: 11400000, guid: c2147ee97db64c3e94cb63e96796c9c6, type: 2}
-  _groundSource: {fileID: 0}
-  _platformSource: {fileID: 0}
+  _audioSource: {fileID: 5296047191700168514}
   _playOnLand: 1
 --- !u!114 &6489230758359516687
 MonoBehaviour:
@@ -393,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHit
   _flashColor: {r: 0, g: 0, b: 0, a: 1}
+  _hitInvincibilityTime: 0.3
   _knockbackForce: 10
   _knockbackUp: 2
   _knockbackLockTime: 0.15

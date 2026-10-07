@@ -26,13 +26,22 @@ public class PlayerInput : MonoBehaviour
     }
     private void CheckAttackInput()
     {
+        if (Input.GetMouseButtonDown(0))
+            GetComponent<PlayerAttack>().RequestCombo(GetAttack(KeyCode.Alpha1), GetAttack(KeyCode.Alpha3), GetAttack(KeyCode.Alpha2));
         foreach (var binding in _attackBindings)
         {
             if (binding == null || binding.attack == null || binding.key == KeyCode.None) continue;
+            if (binding.key == KeyCode.Alpha1 || binding.key == KeyCode.Alpha2 || binding.key == KeyCode.Alpha3) continue;
             if (!Input.GetKeyDown(binding.key)) continue;
             OnAttackInput?.Invoke(binding.attack);
             break;
         }
+    }
+    private PlayerAttackDataSO GetAttack(KeyCode key)
+    {
+        foreach (var binding in _attackBindings)
+            if (binding != null && binding.key == key) return binding.attack;
+        return null;
     }
     private void CheckClickVfx()
     {
