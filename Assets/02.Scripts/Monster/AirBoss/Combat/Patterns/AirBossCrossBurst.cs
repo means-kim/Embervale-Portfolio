@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class AirBossCrossBurst : AirBossAttackBase
 {
@@ -15,6 +16,14 @@ public class AirBossCrossBurst : AirBossAttackBase
 
     [Header("텔레그래프 프리팹의 기본 크기에 곱할 배수")]
     [SerializeField] private Vector3 _telegraphScaleMultiplier = Vector3.one;
+
+    [Header("코루틴에 사용")]
+    [SerializeField] private float _warningInterval = 0.2f;
+
+    [SerializeField] private float _waitAfterWarnings = 0.5f;
+    [SerializeField] private float _attackInterval = 0.2f;
+
+    private Coroutine _sequence;
 
     private const int AttackCount = 4;
     private readonly float[] _attackAngles = { 0f, 45f, 90f, 135f };
@@ -82,10 +91,23 @@ public class AirBossCrossBurst : AirBossAttackBase
             return;
         }
 
+        // 중복 실행 방지
+        _isWarningShown = true;
+
         Vector3 centerPosition = _player.position;
 
+        _sequence = StartCoroutine(AttackSequence(centerPosition));
+    }
+
+    private IEnumerator AttackSequence(Vector3 centerPosition)
+    {
         for (int i = 0; i < AttackCount; i++)
         {
+            if (i > 0)
+            {
+                yield return new WaitForSeconds(_warningInterval);
+            }
+
             // 공격 모두 같은 중심 사용
             _attackPositions[i] = centerPosition;
 
@@ -95,25 +117,17 @@ public class AirBossCrossBurst : AirBossAttackBase
             _telegraphs[i].Activate(_attackPositions[i], _telegraphScaleMultiplier);
         }
 
-        _isWarningShown = true;
-    }
-
-    public override void Cast()
-    {
-        if (!_isRunning) return;
-        if (!_isWarningShown) return;
-        if (_hasCast) return;
-
-        if (_horizontalSmallLightnings == null)
-        {
-            Finish();
-            return;
-        }
+        yield return new WaitForSeconds(_waitAfterWarnings);
 
         _hasCast = true;
 
         for (int i = 0; i < AttackCount; i++)
         {
+            if (i > 0)
+            {
+                yield return new WaitForSeconds(_attackInterval);
+            }
+
             AirBossAttack attack = _horizontalSmallLightnings[i];
 
             if (attack == null) continue;
@@ -122,14 +136,26 @@ public class AirBossCrossBurst : AirBossAttackBase
 
             attack.Activate(_attackPositions[i]);
             _horizontalSmallLightnings[i] = null;
+
+            if (_telegraphs[i] != null)
+            {
+                _telegraphs[i].Release();
+                _telegraphs[i] = null;
+            }
         }
 
-        ReleaseTelegraph();
+        _sequence = null;
+        Finish();
+    }
+
+    public override void Cast()
+    {
     }
 
     public override void Finish()
     {
         if (!_isRunning) return;
+        if (_sequence != null) return;
 
         Cancel();
         _controller.OnActionFinished();
@@ -137,6 +163,12 @@ public class AirBossCrossBurst : AirBossAttackBase
 
     public override void Cancel()
     {
+        if (_sequence != null)
+        {
+            StopCoroutine(_sequence);
+            _sequence = null;
+        }
+
         _isRunning = false;
         _isWarningShown = false;
         _hasCast = false;
