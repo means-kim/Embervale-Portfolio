@@ -137,6 +137,14 @@ public class PlayerWall : MonoBehaviour
         _body.linearVelocity = new Vector2(-_wallDirection * _wallJumpAwaySpeed, _jump.JumpSpeed);
         return true;
     }
+    public void ResetForRespawn()
+    {
+        _moveInput = Vector2.zero;
+        Stamina = _maxStamina;
+        _staminaTimer = 0f;
+        _wallJumpUsed = false;
+        ReleaseWall();
+    }
     private void HandleLanded()
     {
         Stamina = _maxStamina;
