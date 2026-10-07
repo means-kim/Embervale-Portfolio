@@ -13,6 +13,13 @@ public class AirBossAttack : MonoBehaviour
 
     public AirBossAttackType Type => _type;
 
+    private Quaternion _defaultLocalRotation;
+
+    private void Awake()
+    {
+        _defaultLocalRotation = transform.localRotation;
+    }
+
     public bool TryReserve()
     {
         if (_isReserved || gameObject.activeSelf)
@@ -38,6 +45,7 @@ public class AirBossAttack : MonoBehaviour
         gameObject.SetActive(false);
         _isReserved = false;
         _hasHit = false;
+        transform.localRotation = _defaultLocalRotation;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
