@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 2886692296107327024}
   - component: {fileID: 7010184717608891334}
   - component: {fileID: 9028817793882323740}
+  - component: {fileID: 7887491556339557163}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -351,6 +352,7 @@ MonoBehaviour:
   _bothArmsIcePush: {fileID: 2886692296107327024}
   _bothArmsLiftDrop: {fileID: 288646290909099654}
   _oneArmUpDown: {fileID: 9028817793882323740}
+  _bothArmsRaise: {fileID: 7887491556339557163}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +439,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 7
-  _telegraphScaleMultiplier: {x: 30, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 20, y: 20, z: 1}
 --- !u!114 &7010184717608891334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,3 +475,20 @@ MonoBehaviour:
   _player: {fileID: 0}
   _telegraphType: 0
   _telegraphScaleMultiplier: {x: 7, y: 10, z: 1}
+--- !u!114 &7887491556339557163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9be0163090cdd4a9b52b6b1c64f258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsRaise
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 60, y: 30, z: 1}

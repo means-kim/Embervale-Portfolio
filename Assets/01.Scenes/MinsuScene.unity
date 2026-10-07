@@ -613,6 +613,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2508001429532137085, guid: a92e42f453cbe45e3b4a6959b6eebfd0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508001429532137085, guid: a92e42f453cbe45e3b4a6959b6eebfd0, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: a92e42f453cbe45e3b4a6959b6eebfd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 252.45682
@@ -1233,18 +1241,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
-    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _telegraphScaleMultiplier.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886692296107327024, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _telegraphScaleMultiplier.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536419785821164132, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _oneArmIceSummon
-      value: 
-      objectReference: {fileID: 5259171813249767551}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss
@@ -1302,17 +1298,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
---- !u!114 &5259171813249767551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -5426264349106596146, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-  m_PrefabInstance: {fileID: 5259171813249767550}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af86b1ffb5d94290859074fc3f01f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmIceSummon
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
