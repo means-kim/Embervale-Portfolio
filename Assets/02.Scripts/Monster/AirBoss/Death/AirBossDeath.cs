@@ -25,6 +25,12 @@ public class AirBossDeath : MonoBehaviour
         if (_isDead) return;
         _isDead = true;
 
+        // Death 상태로 전환하고 이동과 공격 제한
+        _airBossController.EnterDeath();
+
+        // 이미 발사된 공격체 반환
+        AirBossAttackPool.Instance?.ReleaseAll();
+
         _airBossCollider.enabled = false;
         _airBossRB.velocity = Vector2.zero;
         _airBossRB.angularVelocity = 0f;
