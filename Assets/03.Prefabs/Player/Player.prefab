@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf09f1dbd43daa4a96c72a6d56ffae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  _comboResetDelay: 0.4
+  _comboInputBuffer: 0.2
 --- !u!114 &7533624692983177567
 MonoBehaviour:
   m_ObjectHideFlags: 0
