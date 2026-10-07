@@ -13,6 +13,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossBothArmsLightningGather _bothArmsLightningGather;
     [SerializeField] private AirBossCrossBurst _crossBurst;
     [SerializeField] private AirBossForwardReach _forwardReach;
+    [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -81,6 +82,10 @@ public class AirBossAction : MonoBehaviour
             case AirBossActionType.CrossBurst:
                 StartAttack(_crossBurst);
                 break;
+
+            case AirBossActionType.CrossBurst6Point:
+                StartAttack(_crossBurst6Point);
+                break;
         }
     }
 
@@ -113,11 +118,14 @@ public class AirBossAction : MonoBehaviour
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
         // Execute(AirBossActionType.BothArmsLightningGather);
 
-        // 3줄 번개(보스 위치 센터) 패턴만 테스트
+        // * 모양 번개 패턴만 테스트
         // Execute(AirBossActionType.CrossBurst);
 
-        // 번개 구체 패턴 테스트
-        Execute(AirBossActionType.ForwardReach);
+        // // 번개 구체 패턴 테스트
+        // Execute(AirBossActionType.ForwardReach);
+
+        // 6줄기 번개 패턴만 테스트
+        Execute(AirBossActionType.CrossBurst6Point);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
