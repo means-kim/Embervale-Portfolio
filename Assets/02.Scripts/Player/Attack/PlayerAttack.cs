@@ -6,6 +6,13 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
     [SerializeField, Min(0f)] private float _comboInputBuffer = 0.2f;
+    [SerializeField, Min(0.01f), Tooltip("공격 오프셋과 인스턴스 크기에 일괄 적용되는 배율. 기준 1.")]
+    private float _attackScale = 1f;
+    public float AttackScale
+    {
+        get => _attackScale;
+        set => _attackScale = Mathf.Max(0.01f, value);
+    }
     private PlayerAttackDataSO[] _combo;
     private int _nextCombo;
     private float _comboExpires = -1f;
@@ -85,8 +92,9 @@ public class PlayerAttack : MonoBehaviour
     private void SpawnAttack()
     {
         _spawned = true;
-        Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x, _current.SpawnOffset.y);
+        Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x * _attackScale, _current.SpawnOffset.y * _attackScale);
         _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
+        _instance.transform.localScale *= _attackScale;
         if (!_instance.Initialize(_current.Damage, _direction, transform))
         {
             Destroy(_instance.gameObject);
