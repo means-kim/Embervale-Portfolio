@@ -47,11 +47,22 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (_isDead || damage <= 0) return;
+        ApplyHealthLoss(damage, true);
+    }
+
+    // 공격 코스트 같은 자해성 소모. OnHit(넉백·피격 이펙트) 없이 체력만 감소한다.
+    public void SpendHealth(int amount)
+    {
+        ApplyHealthLoss(amount, false);
+    }
+
+    private void ApplyHealthLoss(int amount, bool triggerHit)
+    {
+        if (_isDead || amount <= 0) return;
 
         _recoveryRemainder = 0f;
 
-        _currentHealth -= damage;
+        _currentHealth -= amount;
 
         if (_currentHealth <= 0)
         {
@@ -62,7 +73,7 @@ public class Health : MonoBehaviour
             return;
         }
 
-        OnHit?.Invoke();
+        if (triggerHit) OnHit?.Invoke();
     }
 
     public void Heal(int healAmount)

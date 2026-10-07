@@ -4,6 +4,32 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMove))]
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
+    [SerializeField, Min(0f)] private float _comboInputBuffer = 0.2f;
+    private PlayerAttackDataSO[] _combo;
+    private int _nextCombo;
+    private float _comboExpires = -1f;
+    private bool _queuedCombo;
+    private bool _isComboAttack;
+    public void RequestCombo(params PlayerAttackDataSO[] combo)
+    {
+        _combo = combo;
+        if (IsAttacking)
+        {
+            float remaining = Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration) - _elapsed;
+            if (_isComboAttack && remaining <= _comboInputBuffer) _queuedCombo = true;
+            return;
+        }
+        StartNextCombo();
+    }
+    private void StartNextCombo()
+    {
+        if (_combo == null || _combo.Length == 0) return;
+        int index = Time.time > _comboExpires ? 0 : _nextCombo;
+        if (!TryStartAttack(_combo[index])) return;
+        _isComboAttack = true;
+        _nextCombo = (index + 1) % _combo.Length;
+    }
     private PlayerMove _move;
     private PlayerAttackDataSO _current;
     private PlayerAttackInstance _instance;
@@ -30,11 +56,20 @@ public class PlayerAttack : MonoBehaviour
             Debug.LogError($"공격 프리팹 또는 애니메이션이 비어 있습니다: {definition.name}", definition);
             return false;
         }
+        int healthCost = Mathf.Max(0, definition.HealthCost);
+        if (healthCost > 0)
+        {
+            var health = GetComponent<Health>();
+            // 자해로 죽지 않도록 체력이 코스트 이하이면 발동 불가.
+            if (health == null || health.CurrentHealth <= healthCost) return false;
+            health.SpendHealth(healthCost);
+        }
         _current = definition;
         _elapsed = 0;
         _spawned = false;
         _direction = _move.FacingDirection;
         IsAttacking = true;
+        _isComboAttack = false;
         _move.SetMovementLocked(this, true);
         OnAttackStarted?.Invoke();
         if (IsAttacking && definition.WindupDuration <= 0) SpawnAttack();
@@ -45,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
         if (!IsAttacking) return;
         _elapsed += Time.deltaTime;
         if (!_spawned && _elapsed >= Mathf.Max(0, _current.WindupDuration)) SpawnAttack();
-        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration)) FinishAttack();
+        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration)) FinishAttack(true);
     }
     private void SpawnAttack()
     {
@@ -60,13 +95,27 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     public void CancelAttack() => FinishAttack();
-    private void FinishAttack()
+    public void ResetForRespawn()
+    {
+        CancelAttack();
+        _combo = null;
+        _nextCombo = 0;
+        _comboExpires = -1f;
+        _queuedCombo = false;
+        _isComboAttack = false;
+    }
+    private void FinishAttack(bool completed = false)
     {
         if (!IsAttacking) return;
+        bool continueCombo = completed && _isComboAttack && _queuedCombo;
+        _queuedCombo = false;
+        _comboExpires = completed && _isComboAttack ? Time.time + _comboResetDelay : -1f;
         IsAttacking = false;
         if (_instance != null) _instance.EndPlayerAction();
         _instance = null;
-        if (_move != null) _move.SetMovementLocked(this, false);
+        // 콤보가 이어지면 이동 락을 유지하고 다음 타를 바로 시작한다.
+        if (!continueCombo && _move != null) _move.SetMovementLocked(this, false);
         OnAttackEnded?.Invoke();
+        if (continueCombo) StartNextCombo();
     }
 }
