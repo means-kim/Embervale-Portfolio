@@ -57,4 +57,17 @@ public class AirBossAttackPool : MonoBehaviour
 
         return null;
     }
+
+    public void ReleaseAll()
+    {
+        if (_pool == null) return;
+
+        foreach (AirBossAttack attack in _pool)
+        {
+            if (attack != null)
+            {
+                attack.Release();
+            }
+        }
+    }
 }

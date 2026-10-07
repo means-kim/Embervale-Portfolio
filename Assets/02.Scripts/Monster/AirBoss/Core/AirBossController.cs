@@ -95,6 +95,8 @@ public class AirBossController : MonoBehaviour
 
     private void ChangeState(AirBossState newstate)
     {
+        if (_currentstate == AirBossState.Death) return;
+
         _currentstate = newstate;
         _stateTimer = 0f;
 
@@ -138,6 +140,15 @@ public class AirBossController : MonoBehaviour
         {
             ChangeState(AirBossState.Action);
         }
+    }
+
+    public void EnterDeath()
+    {
+        if (_currentstate == AirBossState.Death) return;
+
+        ChangeState(AirBossState.Death);
+        _movement.StopMove();
+        _action.CancelCurrentAttack();
     }
 
     public void OnActionFinished()
