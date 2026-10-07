@@ -87,6 +87,15 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     public void CancelAttack() => FinishAttack();
+    public void ResetForRespawn()
+    {
+        CancelAttack();
+        _combo = null;
+        _nextCombo = 0;
+        _comboExpires = -1f;
+        _queuedCombo = false;
+        _isComboAttack = false;
+    }
     private void FinishAttack(bool completed = false)
     {
         if (!IsAttacking) return;

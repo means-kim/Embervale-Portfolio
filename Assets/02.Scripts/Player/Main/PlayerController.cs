@@ -66,6 +66,14 @@ public class PlayerController : MonoBehaviour
         var verticalVelocity = _rigidbody.linearVelocity.y;
         _playerAnimator.Tick(CurrentState, landing, verticalVelocity);
     }
+    public void ResetForRespawn()
+    {
+        _moveInput = Vector2.zero;
+        _landUntil = 0f;
+        CurrentState = PlayerState.Idle;
+        _playerAnimator.ResetJumpPhase();
+        _playerAnimator.PlayState(CurrentState, false);
+    }
     public void ChangeState(PlayerState newState)
     {
         if (CurrentState == PlayerState.Death && newState != PlayerState.Death) return;
