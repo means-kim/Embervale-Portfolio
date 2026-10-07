@@ -38,16 +38,43 @@ public class UI_Ability : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private PlayerAttack _playerAttack;
+    [Header("테스트 플레이어 입력 잠금")]
+    [SerializeField] private HyunseoTest.PlayerInput _testPlayerInput;
+    [SerializeField] private HyunseoTest.PlayerMove _testPlayerMove;
+    [SerializeField] private HyunseoTest.PlayerAttack _testPlayerAttack;
 
     [Header("능력치 적용 연결: 0 체력 / 1 공격력 / 2 공격속도")]
     [SerializeField] private AbilityEvent _onAbilityConfirmed = new AbilityEvent();
     [SerializeField] private UnityEvent _onClosed = new UnityEvent();
     public event Action<AbilityType> AbilityConfirmed;
     public bool IsOpen => _isOpen;
+    public bool AllowCancel => _allowCancel;
     public int SelectedIndex => _selectedIndex;
+    public bool HasSelectableOptions
+    {
+        get
+        {
+            for (int i = 0; i < _options.Length; i++) if (CanSelect(i)) return true;
+            return false;
+        }
+    }
+
+    public void SetAllowCancel(bool allow) => _allowCancel = allow;
+
+    public void ConfigurePlayer(GameObject player)
+    {
+        if (_isOpen) Close();
+        _playerInput = player != null ? player.GetComponent<PlayerInput>() : null;
+        _playerMove = player != null ? player.GetComponent<PlayerMove>() : null;
+        _playerAttack = player != null ? player.GetComponent<PlayerAttack>() : null;
+        _testPlayerInput = player != null ? player.GetComponent<HyunseoTest.PlayerInput>() : null;
+        _testPlayerMove = player != null ? player.GetComponent<HyunseoTest.PlayerMove>() : null;
+        _testPlayerAttack = player != null ? player.GetComponent<HyunseoTest.PlayerAttack>() : null;
+    }
 
     private bool _isOpen;
     private bool _inputWasEnabled;
+    private bool _testInputWasEnabled;
     private bool _locksHeld;
     private int _selectedIndex = -1;
     private EventSystem _lockedEvents;
@@ -200,12 +227,23 @@ public class UI_Ability : MonoBehaviour
                 _navigationWasEnabled = _lockedEvents.sendNavigationEvents;
                 _lockedEvents.sendNavigationEvents = false;
             }
-            _playerAttack?.CancelAttack();
-            _playerMove?.SetMovementLocked(this, true);
+            if (_playerAttack != null && _playerAttack.gameObject.activeInHierarchy)
+                _playerAttack.CancelAttack();
+            if (_playerMove != null && _playerMove.gameObject.activeInHierarchy)
+                _playerMove.SetMovementLocked(this, true);
+            if (_testPlayerAttack != null && _testPlayerAttack.gameObject.activeInHierarchy)
+                _testPlayerAttack.CancelAttack();
+            if (_testPlayerMove != null && _testPlayerMove.gameObject.activeInHierarchy)
+                _testPlayerMove.SetMovementLocked(this, true);
             if (_playerInput != null)
             {
                 _inputWasEnabled = _playerInput.enabled;
                 _playerInput.enabled = false;
+            }
+            if (_testPlayerInput != null)
+            {
+                _testInputWasEnabled = _testPlayerInput.enabled;
+                _testPlayerInput.enabled = false;
             }
             _locksHeld = true;
         }
@@ -230,9 +268,9 @@ public class UI_Ability : MonoBehaviour
             return;
         }
         AbilityType type = _options[_selectedIndex].type;
-        Close();
         AbilityConfirmed?.Invoke(type);
         _onAbilityConfirmed.Invoke((int)type);
+        Close();
     }
 
     public void Close()
@@ -272,6 +310,18 @@ public class UI_Ability : MonoBehaviour
             _selectedIndex = -1;
         }
         Refresh();
+    }
+
+    public void SetProgress(AbilityType type, int level, int maxLevel)
+    {
+        foreach (Option option in _options)
+        {
+            if (option != null && option.type == type)
+            {
+                option.maxLevel = Mathf.Max(1, maxLevel);
+            }
+        }
+        SetLevel(type, level);
     }
 
     public int GetLevel(AbilityType type)
@@ -341,11 +391,16 @@ public class UI_Ability : MonoBehaviour
         {
             return;
         }
-        _playerMove?.SetMovementLocked(this, false);
+        if (_playerMove != null && _playerMove.gameObject.activeInHierarchy)
+            _playerMove.SetMovementLocked(this, false);
+        if (_testPlayerMove != null && _testPlayerMove.gameObject.activeInHierarchy)
+            _testPlayerMove.SetMovementLocked(this, false);
         if (_playerInput != null)
         {
             _playerInput.enabled = _inputWasEnabled;
         }
+        if (_testPlayerInput != null)
+            _testPlayerInput.enabled = _testInputWasEnabled;
         if (_lockedEvents != null)
         {
             _lockedEvents.sendNavigationEvents = _navigationWasEnabled;

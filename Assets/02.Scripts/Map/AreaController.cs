@@ -30,6 +30,9 @@ public class AreaController : MonoBehaviour
     [SerializeField] private Health _enemyHealth;
     private AreaState _state = AreaState.Waiting;
 
+    [Header("다시시작 초기화")]
+    [SerializeField] public UnityEvent OnRetryReset;
+
     private void OnEnable()
     {
         if (_enemyHealth != null)
@@ -48,12 +51,34 @@ public class AreaController : MonoBehaviour
 
     private void Start()
     {
-        EncounterHistory history = EncounterHistory.Instance;
-
-        if (history != null && history.IsEliminate(_eliminateId))
+        if (EncounterHistory.HasEliminated(_eliminateId))
         {
             _state = AreaState.Cleared;
+            if (_enemyHealth != null)
+            {
+                _enemyHealth.gameObject.SetActive(false);
+            }
+
             OpenBlocks();
+        }
+    }
+
+    public void SetEnemyHealth(Health health)
+    {
+        if (_enemyHealth == health)
+        {
+            return;
+        }
+
+        if (isActiveAndEnabled && _enemyHealth != null)
+        {
+            _enemyHealth.OnDie -= HandleEnemyEliminated;
+        }
+
+        _enemyHealth = health;
+        if (isActiveAndEnabled && _enemyHealth != null)
+        {
+            _enemyHealth.OnDie += HandleEnemyEliminated;
         }
     }
 
@@ -153,11 +178,15 @@ public class AreaController : MonoBehaviour
         _onBattleStarted.Invoke();
     }
 
-    // Called by the test player's checkpoint before retrying this room.
     public void ResetForRetry()
     {
         _intro?.Cancel();
-        if (_state != AreaState.Cleared) _state = AreaState.Waiting;
+        if (_state != AreaState.Cleared)
+        {
+            _state = AreaState.Waiting;
+            OnRetryReset?.Invoke();
+        }
+
         OpenBlocks();
     }
 
@@ -201,5 +230,4 @@ public class AreaController : MonoBehaviour
             _intro.Cancelled -= HandleIntroCancelled;
         }
     }
-
 }
