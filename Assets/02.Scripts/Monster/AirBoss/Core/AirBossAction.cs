@@ -73,6 +73,10 @@ public class AirBossAction : MonoBehaviour
             case AirBossActionType.OneArmUpDownIceBlock:
                 StartAttack(_oneArmUpDownIceBlock);
                 break;
+
+            case AirBossActionType.CrossBurst:
+                _animation.PlayCrossBurstAnimation();
+                break;
         }
     }
 
