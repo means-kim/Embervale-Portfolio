@@ -58,6 +58,38 @@ public class Respone : MonoBehaviour
         player.RestartAt(checkpoint.position);
     }
 
+    // Main-player (global Player) integration. Mirrors the TestPlayer flow above.
+    public void ResponePlayer(Player player, Transform checkpoint)
+    {
+        if (checkpoint == null) return;
+        if (player == null) return;
+        var point = checkpoint.GetComponent<RespawnPoint>();
+        if (point != null) player.SetRespawnPoint(point);
+        else player.SetRespawnPoint(checkpoint.position);
+        ResponePlayer(player, checkpoint.position);
+    }
+
+    public void ResponePlayer(Player player, Vector3 checkpointPosition)
+    {
+        if (player == null) return;
+        Health health = player.GetComponent<Health>();
+
+        if (health.IsDead)
+            return;
+
+        health.TakeDamage(_returnDamage);
+        player.MoveToCheckpoint(checkpointPosition);
+    }
+
+    public void RestartPlayer(Player player, Transform checkpoint)
+    {
+        if (player == null || checkpoint == null) return;
+        var point = checkpoint.GetComponent<RespawnPoint>();
+        if (point != null) player.SetRespawnPoint(point);
+        else player.SetRespawnPoint(checkpoint.position);
+        player.RestartAt(checkpoint.position);
+    }
+
     // Parameterless entry point for the test player's retry button.
     public void RestartTestPlayer()
     {

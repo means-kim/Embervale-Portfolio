@@ -90,6 +90,19 @@ public class PlayerJump : MonoBehaviour
         _bufferedJumpTime = -100f;
     }
     public bool IsIgnoringPlatform(Collider2D platform) => _ignoredPlatforms.Contains(platform);
+    public void ResetForRespawn()
+    {
+        RestoreIgnoredPlatforms();
+        _groundContacts.Clear();
+        _platformContacts.Clear();
+        _dropTimer = 0f;
+        _ungroundedTimer = -1f;
+        _lastGroundedTime = -100f;
+        _bufferedJumpTime = -100f;
+        _jumpCount = 0;
+        _isGrounded = false;
+        _isJumping = false;
+    }
     private bool TryPerformJump()
     {
         if (!TryConsumeJump()) return false;

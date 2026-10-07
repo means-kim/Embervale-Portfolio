@@ -65,6 +65,17 @@ public class PlayerHit : MonoBehaviour
         _rigidbody.linearVelocity = new Vector2(xPush, Mathf.Max(_rigidbody.linearVelocity.y, _knockbackUp));
     }
 
+    public void ResetForRespawn()
+    {
+        _hitUntil = 0f;
+        _flashTimer = 0f;
+        _moveUnlockAt = 0f;
+        _isInvincible = false;
+        _invincibilityTimer = 0f;
+        ReleaseKnockbackLock();
+        RestoreColors();
+        if (_move != null) _move.SetMovementLocked(_health, false);
+    }
     private void ReleaseKnockbackLock()
     {
         if (!_knockbackLocking) return;
