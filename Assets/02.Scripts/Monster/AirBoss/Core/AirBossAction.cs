@@ -11,6 +11,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossOneArmUpDown _oneArmUpDown;
     [SerializeField] private AirBossBothArmsRaise _bothArmsRaise;
     [SerializeField] private AirBossBothArmsLightningGather _bothArmsLightningGather;
+    [SerializeField] private AirBossCrossBurst _crossBurst;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -77,7 +78,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.CrossBurst:
-                _animation.PlayCrossBurstAnimation();
+                StartAttack(_crossBurst);
                 break;
         }
     }
@@ -109,7 +110,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsRaise);
 
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
-        Execute(AirBossActionType.BothArmsLightningGather);
+        // Execute(AirBossActionType.BothArmsLightningGather);
+
+        // 3줄 번개(보스 위치 센터) 패턴만 테스트
+        Execute(AirBossActionType.CrossBurst);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
