@@ -35,7 +35,7 @@ public class AirBossHit : MonoBehaviour
 
         _flashRemaining -= Time.deltaTime;
 
-        if (_airBossHealth == null || _airBossHealth.IsDead)
+        if (_airBossHealth == null || _airBossHealth.IsDead || _flashRemaining <= 0f)
         {
             StopFlash();
             return;
@@ -60,8 +60,11 @@ public class AirBossHit : MonoBehaviour
 
     private void OnDisable()
     {
-        _airBossHealth.OnHit -= HandleHit;
-        _airBossHealth.OnDie -= StopFlash;
+        if (_airBossHealth != null)
+        {
+            _airBossHealth.OnHit -= HandleHit;
+            _airBossHealth.OnDie -= StopFlash;
+        }
 
         StopFlash();
     }
@@ -72,12 +75,12 @@ public class AirBossHit : MonoBehaviour
         if (_airBossSpriteRenderer == null || _hitMaterial == null) return;
 
         // 이동과 FSM은 유지
-        StopFlash();
+        StartFlash();
     }
 
     private void StartFlash()
     {
-        _flashTimer = _flashDuration;
+        _flashRemaining = _flashDuration;
         _flashTimer = _flashInterval;
         _isWhiteFlash = true;
 
