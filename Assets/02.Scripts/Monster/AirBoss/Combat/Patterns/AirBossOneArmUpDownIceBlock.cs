@@ -71,7 +71,7 @@ public class AirBossOneArmUpDownIceBlock : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayOneArmUpDownIceBlock();
+        _animation.PlayOneArmUpDownIceBlockAnimation();
     }
 
     public override void ShowWarning()

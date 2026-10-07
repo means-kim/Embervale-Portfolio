@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>세로 번개 · 32프레임 v01</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b101a;color:#e5ecfa;font:15px/1.6 system-ui,sans-serif}main{max-width:1160px;margin:auto;padding:28px}h1{font-size:25px;margin:0}p{color:#aebdd4;margin:8px 0 18px}.bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:16px 0}button,select{background:#202e47;color:#edf3ff;border:1px solid #3f557d;border-radius:7px;padding:7px 12px}input{accent-color:#a7b7ff}canvas{display:block;width:100%;height:auto;background:#111725;border:1px solid #2c3a53;border-radius:12px}output{font-variant-numeric:tabular-nums;min-width:85px}.spec{display:flex;gap:18px;flex-wrap:wrap;color:#aebdd4}.sheet{width:100%;margin-top:14px;border-radius:10px}a{color:#b4c6ff}#error{color:#ffb7b7}
+</style>
+<main><h1>세로 번개 · 32프레임</h1><p>가는 줄기 → 굵은 방전 → 잔광. ShortLightning의 백색 중심선과 청보라색 발광을 참고한 새 형태입니다.</p>
+<div class="spec"><span>32 Sprite · 00–31</span><span>384×768 / 프레임</span><span>Center (0.5, 0.5)</span><span>PPU 256</span></div>
+<div class="bar"><button id="play">일시정지</button><label>속도 <select id="fps"><option>16</option><option selected>24</option><option>32</option></select> fps</label><label>회전 <select id="angle"><option value="0">0°</option><option value="45">45°</option><option value="90">90°</option><option value="180">180°</option></select></label><label>배경 <select id="bg"><option value="#111725">어두움</option><option value="#55627a">중간 밝기</option><option value="#d4dfeb">밝음</option></select></label><label><input id="guide" type="checkbox">중앙 피봇 표시</label></div>
+<canvas id="canvas" width="1080" height="720"></canvas><div class="bar"><output id="frame">00 / 31</output><input id="scrub" type="range" min="0" max="31" value="0" style="flex:1"><output id="phase">성장</output></div><p id="error"></p>
+<p>24fps는 비교용 재생 속도입니다. Unity 애니메이션 클립·컨트롤러·콜라이더는 포함하지 않습니다.</p>
+<details><summary>전체 32프레임 보기</summary><img class="sheet" src="contact_sheet_dark.png" alt="32프레임 전체 배열"></details>
+<p><a href="../../../Assets/04.Sprites/AirBossAttack/Attack_Lightning_VerticalGrowth_AirBoss_32F_v01.png">멀티 스프라이트 PNG</a> · <a href="../../../Docs/VFX/Lightning_VerticalGrowth_32F_v01.md">제작 사양과 검증 기록</a></p>
+</main>
+<script>
+const sheet=new Image(),canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
+const play=document.getElementById('play'),fps=document.getElementById('fps'),angle=document.getElementById('angle'),bg=document.getElementById('bg'),guide=document.getElementById('guide'),scrub=document.getElementById('scrub'),label=document.getElementById('frame'),phase=document.getElementById('phase');
+let frame=0,playing=true,last=0,acc=0;
+sheet.src='../../../Assets/04.Sprites/AirBossAttack/Attack_Lightning_VerticalGrowth_AirBoss_32F_v01.png';
+sheet.onerror=()=>document.getElementById('error').textContent='PNG를 불러오지 못했습니다. 프로젝트 폴더 구조를 유지한 상태에서 이 문서를 열어주세요.';
+function draw(){ctx.fillStyle=bg.value;ctx.fillRect(0,0,canvas.width,canvas.height);ctx.save();ctx.translate(540,360);ctx.rotate(Number(angle.value)*Math.PI/180);if(sheet.complete&&sheet.naturalWidth)ctx.drawImage(sheet,(frame%8)*384,Math.floor(frame/8)*768,384,768,-172.8,-345.6,345.6,691.2);ctx.restore();if(guide.checked){ctx.strokeStyle='#ffb559';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(529,360);ctx.lineTo(551,360);ctx.moveTo(540,349);ctx.lineTo(540,371);ctx.stroke()}label.textContent=String(frame).padStart(2,'0')+' / 31';scrub.value=frame;phase.textContent=frame<22?'성장':frame<26?'강한 방전':'소멸';}
+function tick(t){if(last&&playing){acc+=Math.min(t-last,100);const dt=1000/Number(fps.value);while(acc>=dt){frame=(frame+1)%32;acc-=dt;}}last=t;draw();requestAnimationFrame(tick)}
+play.onclick=()=>{playing=!playing;acc=0;play.textContent=playing?'일시정지':'재생'};
+scrub.oninput=()=>{playing=false;play.textContent='재생';frame=Number(scrub.value);acc=0;draw()};
+requestAnimationFrame(tick);
+</script></html>
