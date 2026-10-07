@@ -68,7 +68,7 @@ public class AirBossOneArmUpDown : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayBothArmsLiftDropAnimation();
+        _animation.PlayOneArmUpDownAnimation();
     }
 
     public override void ShowWarning()
