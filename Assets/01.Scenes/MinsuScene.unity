@@ -659,6 +659,63 @@ MonoBehaviour:
   - {fileID: 3365085907564005587, guid: d7a6fddf6186a90489582f4775dc0620, type: 3}
   - {fileID: 3365085907564005587, guid: 86c30195746596649b091de932410a03, type: 3}
   _poolSize: 5
+--- !u!1001 &1217637817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 432.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 146.21619
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005443960643297400, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293481016969042167, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
+      propertyPath: m_Name
+      value: Attack_SmallLightning
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
 --- !u!114 &1300002583 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5039348117906714883, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
@@ -1209,3 +1266,4 @@ SceneRoots:
   - {fileID: 286834754}
   - {fileID: 47354844}
   - {fileID: 2035989222}
+  - {fileID: 1217637817}

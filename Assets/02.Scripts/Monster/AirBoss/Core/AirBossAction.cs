@@ -79,7 +79,7 @@ public class AirBossAction : MonoBehaviour
     public void ExecuteRandom()
     {
         // 작은 번개 패턴만 테스트
-        // Execute(AirBossActionType.BothArmsLiftDrop);
+        Execute(AirBossActionType.BothArmsLiftDrop);
 
         // 큰 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.BothArmsIceThrow);
@@ -97,7 +97,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.OneArmUpDownIceBlock);
 
         // 짧은 번개 패턴만 테스트
-        Execute(AirBossActionType.OneArmUpDown);
+        // Execute(AirBossActionType.OneArmUpDown);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
