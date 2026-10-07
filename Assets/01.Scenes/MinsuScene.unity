@@ -218,7 +218,8 @@ MonoBehaviour:
   - {fileID: 5039348117906714883, guid: 90ddc00d6b0bfa04b8be8aaf5ba527cc, type: 3}
   - {fileID: 5039348117906714883, guid: 054b7f28974995241ab3be3422618eb1, type: 3}
   - {fileID: 5039348117906714883, guid: 1e71af5bc88d01242a11793ab6f0c4a8, type: 3}
-  _poolSize: 6
+  - {fileID: 5039348117906714883, guid: 87d5847d30c538d4baf82a69de733005, type: 3}
+  _poolSize: 10
 --- !u!4 &23365616
 Transform:
   m_ObjectHideFlags: 0
@@ -660,6 +661,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2508001429532137085, guid: 87d5847d30c538d4baf82a69de733005, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508001429532137085, guid: 87d5847d30c538d4baf82a69de733005, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3005443960643297400, guid: 87d5847d30c538d4baf82a69de733005, type: 3}
       propertyPath: m_LocalPosition.x
       value: 281.4
