@@ -32,7 +32,7 @@ public class AirBossDeath : MonoBehaviour
         AirBossAttackPool.Instance?.ReleaseAll();
 
         _airBossCollider.enabled = false;
-        _airBossRB.velocity = Vector2.zero;
+        _airBossRB.linearVelocity = Vector2.zero;
         _airBossRB.angularVelocity = 0f;
         _airBossRB.simulated = false;
 

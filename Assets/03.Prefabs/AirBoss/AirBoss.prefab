@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8233074775862955928}
   - component: {fileID: 3290482276672149958}
   - component: {fileID: 8679760138037404816}
+  - component: {fileID: 828212918542545421}
   - component: {fileID: 3684625565806078733}
   - component: {fileID: 6954472282831411894}
   - component: {fileID: 4804818044005549590}
@@ -252,6 +253,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _health: {fileID: 3290482276672149958}
+--- !u!114 &828212918542545421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2081dfefb5eacc84385c49e37bef4cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossDeath
+  _airBossossHealth: {fileID: 3290482276672149958}
+  _airBossController: {fileID: 3684625565806078733}
+  _airBossAnimation: {fileID: 4804818044005549590}
+  _airBossCollider: {fileID: 6406218199782589037}
+  _airBossRB: {fileID: 7428786995035875786}
 --- !u!114 &3684625565806078733
 MonoBehaviour:
   m_ObjectHideFlags: 0
