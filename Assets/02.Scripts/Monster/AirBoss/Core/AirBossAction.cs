@@ -14,6 +14,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossCrossBurst _crossBurst;
     [SerializeField] private AirBossForwardReach _forwardReach;
     [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
+    [SerializeField] private AirBossRaiseDropShadow _raiseDropShadow;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -44,7 +45,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.RaiseDropShadow:
-                _animation.PlayRaiseDropShadowAnimation();
+                StartAttack(_raiseDropShadow);
                 break;
 
             case AirBossActionType.SpinRoll360:
@@ -125,7 +126,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.ForwardReach);
 
         // 6줄기 번개 패턴만 테스트
-        Execute(AirBossActionType.CrossBurst6Point);
+        // Execute(AirBossActionType.CrossBurst6Point);
+
+        // 눈보라 패턴만 테스트
+        Execute(AirBossActionType.RaiseDropShadow);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
