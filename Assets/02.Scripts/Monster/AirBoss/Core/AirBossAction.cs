@@ -9,6 +9,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossBothArmsIcePush _bothArmsIcePush;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
     [SerializeField] private AirBossOneArmUpDown _oneArmUpDown;
+    [SerializeField] private AirBossBothArmsRaise _bothArmsRaise;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -35,7 +36,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsRaise:
-                _animation.PlayBothArmsRaiseAnimation();
+                StartAttack(_bothArmsRaise);
                 break;
 
             case AirBossActionType.RaiseDropShadow:
@@ -83,7 +84,7 @@ public class AirBossAction : MonoBehaviour
     public void ExecuteRandom()
     {
         // 작은 번개 패턴만 테스트
-        Execute(AirBossActionType.BothArmsLiftDrop);
+        // Execute(AirBossActionType.BothArmsLiftDrop);
 
         // 큰 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.BothArmsIceThrow);
@@ -102,6 +103,9 @@ public class AirBossAction : MonoBehaviour
 
         // 짧은 번개 패턴만 테스트
         // Execute(AirBossActionType.OneArmUpDown);
+
+        // 큰 번개(보스 위치) 패턴만 테스트
+        Execute(AirBossActionType.BothArmsRaise);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
