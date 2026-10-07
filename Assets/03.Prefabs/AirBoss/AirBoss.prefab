@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 9091893829221749218}
   - component: {fileID: 3651520461735629383}
   - component: {fileID: 8334308445502172291}
+  - component: {fileID: 5809469499536019829}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -393,6 +394,7 @@ MonoBehaviour:
   _crossBurst: {fileID: 9091893829221749218}
   _forwardReach: {fileID: 3651520461735629383}
   _crossBurst6Point: {fileID: 8334308445502172291}
+  _raiseDropShadow: {fileID: 5809469499536019829}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,3 +609,20 @@ MonoBehaviour:
   _warningInterval: 0.2
   _waitAfterWarnings: 0.8
   _attackInterval: 0.2
+--- !u!114 &5809469499536019829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7d5b5a09a6fa540ac4adfeb62bf160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossRaiseDropShadow
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 5
+  _telegraphScaleMultiplier: {x: 25, y: 15, z: 1}
