@@ -1423,6 +1423,22 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _idleTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _idleWeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _moveWeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _actionWeight
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss

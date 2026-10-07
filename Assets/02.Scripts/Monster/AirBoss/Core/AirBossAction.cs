@@ -129,13 +129,13 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.CrossBurst6Point);
 
         // 눈보라 패턴만 테스트
-        Execute(AirBossActionType.RaiseDropShadow);
+        // Execute(AirBossActionType.RaiseDropShadow);
 
-        // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
-        //
-        // AirBossActionType actionType = (AirBossActionType)randomIndex;
-        //
-        // Execute(actionType);
+        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+
+        AirBossActionType actionType = (AirBossActionType)randomIndex;
+
+        Execute(actionType);
     }
 
     private void StartAttack(AirBossAttackBase attack)
