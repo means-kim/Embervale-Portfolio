@@ -54,6 +54,10 @@ public class AudioManager : MonoBehaviour
             return;
         }
         StopAllBgm();
+        if (GameIntroCinematic.IsTransitioning)
+        {
+            return;
+        }
         if (scene.name == _outGameSceneName)
         {
             PlayBgm(BgmType.Title);
