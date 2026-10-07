@@ -1,0 +1,63 @@
+string path = "Assets/04.Sprites/AirBossAttack/Attack_LightningOrb_FlightLoop_AirBoss_16F_v01.png";
+string source = "ArtSource/AirBossAttack/lightning_orb_loop_v01/Attack_LightningOrb_FlightLoop_AirBoss_16F_v01.png";
+if (System.IO.File.Exists(path)) throw new System.Exception("Existing asset protected: " + path);
+System.IO.File.Copy(source, path, false);
+AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+var importer = (TextureImporter)AssetImporter.GetAtPath(path);
+importer.textureType = TextureImporterType.Sprite;
+importer.spriteImportMode = SpriteImportMode.Multiple;
+importer.spritePixelsPerUnit = 256;
+importer.alphaSource = TextureImporterAlphaSource.FromInput;
+importer.alphaIsTransparency = true;
+importer.mipmapEnabled = false;
+importer.npotScale = TextureImporterNPOTScale.None;
+importer.maxTextureSize = 4096;
+importer.textureCompression = TextureImporterCompression.Uncompressed;
+importer.filterMode = FilterMode.Bilinear;
+importer.wrapMode = TextureWrapMode.Clamp;
+var settings = new TextureImporterSettings();
+importer.ReadTextureSettings(settings);
+settings.spriteMeshType = SpriteMeshType.FullRect;
+settings.spriteGenerateFallbackPhysicsShape = false;
+importer.SetTextureSettings(settings);
+importer.SaveAndReimport();
+var factory = new UnityEditor.U2D.Sprites.SpriteDataProviderFactories();
+factory.Init();
+var provider = factory.GetSpriteEditorDataProviderFromObject(importer);
+provider.InitSpriteEditorDataProvider();
+var rects = new UnityEditor.SpriteRect[16];
+var pairs = new System.Collections.Generic.List<UnityEditor.SpriteNameFileIdPair>();
+for (int f = 0; f < 16; f++) {
+  var id = GUID.Generate();
+  rects[f] = new UnityEditor.SpriteRect {
+    name = "Attack_LightningOrb_FlightLoop_AirBoss_v01_" + f.ToString("D2"),
+    rect = new Rect((f % 4) * 512, (3 - f / 4) * 512, 512, 512),
+    alignment = SpriteAlignment.Center, pivot = new Vector2(0.5f, 0.5f), spriteID = id
+  };
+  pairs.Add(new UnityEditor.SpriteNameFileIdPair(rects[f].name, id));
+}
+provider.SetSpriteRects(rects);
+provider.GetDataProvider<UnityEditor.U2D.Sprites.ISpriteNameFileIdDataProvider>().SetNameFileIdPairs(pairs);
+provider.Apply();
+importer.SaveAndReimport();
+var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+var sprites = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if (sprites.Length != 16 || texture.width != 2048 || texture.height != 2048) throw new System.Exception("Wrong sprite count or imported texture size.");
+for (int f=0; f<16; f++) {
+  var sprite=sprites[f];
+  if(sprite.rect != new Rect((f%4)*512,(3-f/4)*512,512,512) || sprite.pivot != new Vector2(256,256) || sprite.pixelsPerUnit != 256) throw new System.Exception("Sprite rect/pivot/PPU mismatch: " + sprite.name);
+}
+var report = new {
+  path, guid=AssetDatabase.AssetPathToGUID(path),
+  textureWidth=texture.width,textureHeight=texture.height,
+  count=sprites.Length, cellWidth=512,cellHeight=512,
+  pivot="0.5,0.5",pivotPixels="256,256",ppu=256,
+  filter=importer.filterMode.ToString(),compression=importer.textureCompression.ToString(),
+  generatePhysicsShape=settings.spriteGenerateFallbackPhysicsShape,
+  scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,
+  sceneDirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty,
+  sprites=sprites.Select(s=>new{name=s.name,rect=s.rect.ToString(),pivot=s.pivot.ToString()}).ToArray()
+};
+System.IO.File.WriteAllText("ArtSource/AirBossAttack/lightning_orb_loop_v01/unity_validation.json", Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+return report;
+

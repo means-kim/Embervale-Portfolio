@@ -10,9 +10,12 @@ public class Telegraph : MonoBehaviour
     public TelegraphType Type => _type;
     public bool IsReserved => _isReserved;
 
+    private Quaternion _defaultLocalRotation;
+
     private void Awake()
     {
         _defaultScale = transform.localScale;
+        _defaultLocalRotation = transform.localRotation;
     }
 
     public bool TryReserve()
@@ -50,5 +53,6 @@ public class Telegraph : MonoBehaviour
 
         transform.localScale = _defaultScale;
         _isReserved = false;
+        transform.localRotation = _defaultLocalRotation;
     }
 }
