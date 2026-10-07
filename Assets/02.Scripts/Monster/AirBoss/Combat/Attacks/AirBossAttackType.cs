@@ -11,4 +11,5 @@ public enum AirBossAttackType
     IceBlockBezier, // 베지어 곡선 얼음 덩어리
     ShortLightning, // 짧은 번개
     LightningFlight, // 번개 구체
+    Blizzard, // 눈보라
 }
