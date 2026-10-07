@@ -10,4 +10,5 @@ public enum AirBossAttackType
     SmallLightningHorizontal, // 가로 번개
     IceBlockBezier, // 베지어 곡선 얼음 덩어리
     ShortLightning, // 짧은 번개
+    LightningFlight, // 번개 구체
 }
