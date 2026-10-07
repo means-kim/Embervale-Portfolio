@@ -55,7 +55,7 @@ public class AirBossBothArmsLightningGather : AirBossAttackBase
 
         for (int i = 0; i < _horizontalSmallLightnings.Length; i++)
         {
-            _horizontalSmallLightnings[i] = attackPool.GetAttack(AirBossAttackType.ShortLightning);
+            _horizontalSmallLightnings[i] = attackPool.GetAttack(AirBossAttackType.SmallLightningHorizontal);
             _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
 
             if (_horizontalSmallLightnings[i] == null || _telegraphs[i] == null)
