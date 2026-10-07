@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6483099917751927888}
   - component: {fileID: 4012806773794386826}
   - component: {fileID: 2118427043656218772}
-  - component: {fileID: -6067699325894458336}
   - component: {fileID: 738784141499013937}
   - component: {fileID: 6504751839968567790}
   - component: {fileID: 7610300340094818154}
@@ -233,19 +232,6 @@ MonoBehaviour:
   _lifeTime: 0
   _extraDelay: 0.1
   _playReversed: 0
---- !u!114 &-6067699325894458336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6862992273260027518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
-  _strength: 1
 --- !u!60 &738784141499013937
 PolygonCollider2D:
   m_ObjectHideFlags: 0
