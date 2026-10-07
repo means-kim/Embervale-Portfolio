@@ -12,6 +12,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossBothArmsRaise _bothArmsRaise;
     [SerializeField] private AirBossBothArmsLightningGather _bothArmsLightningGather;
     [SerializeField] private AirBossCrossBurst _crossBurst;
+    [SerializeField] private AirBossForwardReach _forwardReach;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -30,7 +31,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.ForwardReach:
-                _animation.PlayForwardReachAnimation();
+                StartAttack(_forwardReach);
                 break;
 
             case AirBossActionType.OneArmUpDown:
@@ -92,7 +93,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsIceThrow);
 
         // 고드름 3발 패턴 테스트
-        Execute(AirBossActionType.OneArmUpDownIce);
+        // Execute(AirBossActionType.OneArmUpDownIce);
 
         // 작은 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.OneArmIceSummon);
@@ -114,6 +115,9 @@ public class AirBossAction : MonoBehaviour
 
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
         // Execute(AirBossActionType.CrossBurst);
+
+        // 번개 구체 패턴 테스트
+        Execute(AirBossActionType.ForwardReach);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
