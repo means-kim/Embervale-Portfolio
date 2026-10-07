@@ -38,6 +38,8 @@ namespace HyunseoTest
             if (target == null || !_hitTargets.Add(target)) return false;
             if (!receiver.TryTakeDamage(_damage, _owner)) { _hitTargets.Remove(target); return false; }
             // This point is reached only after damage was accepted, once per target.
+            Vector2 direction = other.bounds.center - (_owner != null ? _owner.transform.position : transform.position);
+            EffectManager.Instance?.PlayBossHit(other.ClosestPoint(transform.position), direction);
             if (_impactClip != null)
             {
                 var sound = new GameObject("PlayerImpactSound");

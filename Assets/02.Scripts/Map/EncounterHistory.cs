@@ -42,8 +42,10 @@ public class EncounterHistory : MonoBehaviour
     }
     public bool IsEliminate(EliminateId id)
     {
-        return PlayerPrefs.GetInt($"EliminateId.{id}", 0) == 1;
+        return HasEliminated(id);
     }
+
+    public static bool HasEliminated(EliminateId id) => PlayerPrefs.GetInt($"EliminateId.{id}", 0) == 1;
 
     public void MarkIntroSeen(EncounterId id)
     {
@@ -57,6 +59,11 @@ public class EncounterHistory : MonoBehaviour
     }
     [ContextMenu("Reset Encounter Progress")]
     public void ResetProgress()
+    {
+        ResetSavedProgress();
+    }
+
+    public static void ResetSavedProgress()
     {
         foreach (EncounterId id in System.Enum.GetValues(typeof(EncounterId)))
         {

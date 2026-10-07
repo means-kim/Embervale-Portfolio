@@ -31,7 +31,8 @@ public class PlayerDamageHitbox : MonoBehaviour
         var target = receiver.Health;
         if (target == null || !_hitTargets.Add(target)) return false;
         if (!receiver.TryTakeDamage(_damage, _owner)) { _hitTargets.Remove(target); return false; }
-        EffectManager.Instance?.PlayBossHit(other.transform.position);
+        Vector2 direction = other.bounds.center - (_owner != null ? _owner.transform.position : transform.position);
+        EffectManager.Instance?.PlayBossHit(other.ClosestPoint(transform.position), direction);
         OnDamageApplied?.Invoke(other);
         return true;
     }
