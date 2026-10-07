@@ -10,6 +10,7 @@ namespace HyunseoTest
         [SerializeField] private Player _player;
         [SerializeField] private Button _retryButton;
         [SerializeField, Min(0f)] private float _fadeDuration = 0.4f;
+        [SerializeField] private AudioSource _deathAudioSource;
 
         private global::Health _health;
         private PlayerInput _input;
@@ -18,10 +19,12 @@ namespace HyunseoTest
         private bool _waitingForRetry;
         private bool _ready;
         private bool _restoreInput;
+        private string _deathAudioPath = "DeathBgm";
 
         private void Awake()
         {
             _group = GetComponent<CanvasGroup>();
+            CacheDeathAudioPath();
             if (_player == null || _retryButton == null)
             {
                 enabled = false;
@@ -103,6 +106,36 @@ namespace HyunseoTest
             _group.blocksRaycasts = true;
             _retryButton.interactable = false;
             _fade = StartCoroutine(FadeIn());
+            PlayDeathAudio();
+        }
+
+        private void CacheDeathAudioPath()
+        {
+            if (_deathAudioSource == null) return;
+            AudioManager owner = _deathAudioSource.GetComponentInParent<AudioManager>();
+            if (owner == null) return;
+            Transform current = _deathAudioSource.transform;
+            string path = current.name;
+            while (current.parent != null && current.parent != owner.transform)
+            {
+                current = current.parent;
+                path = current.name + "/" + path;
+            }
+            _deathAudioPath = _deathAudioSource.transform == owner.transform ? "" : path;
+        }
+
+        private void PlayDeathAudio()
+        {
+            // Scene reload destroys the duplicate AudioManager. Resolve its source
+            // from the surviving manager, using Unity's destroyed-object null check.
+            if (_deathAudioSource == null && AudioManager.Instance != null)
+            {
+                Transform source = string.IsNullOrEmpty(_deathAudioPath)
+                    ? AudioManager.Instance.transform
+                    : AudioManager.Instance.transform.Find(_deathAudioPath);
+                if (source != null) _deathAudioSource = source.GetComponent<AudioSource>();
+            }
+            if (_deathAudioSource != null) _deathAudioSource.Play();
         }
 
         private IEnumerator FadeIn()
@@ -130,7 +163,12 @@ namespace HyunseoTest
             }
 
             _ready = false;
-            _player.RestartAtCheckpoint();
+            _retryButton.interactable = false;
+            if (!GameManager.RetryScene(gameObject.scene))
+            {
+                _ready = true;
+                _retryButton.interactable = true;
+            }
         }
 
         private void HandleRestarted()

@@ -146,7 +146,7 @@ public class AirBossAction : MonoBehaviour
         finished.Finish();
     }
 
-    private void CancelCurrentAttack()
+    public void CancelCurrentAttack()
     {
         if (_currentAttack == null) return;
 

@@ -145,11 +145,20 @@ public class EffectManager : MonoBehaviour
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
 
-    public void PlayBossHit(Vector3 position)
+    public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right);
+
+    public void PlayBossHit(Vector3 position, Vector2 direction)
     {
         if (!isActiveAndEnabled) return;
         GameObject effect = Spawn(_bossHitVfx, position);
-        HitImpactFeedback.EnsureInstance().RequestBossHitstop();
+        if (effect != null && effect.TryGetComponent<EnemyHitEffect>(out var enemyHit))
+        {
+            enemyHit.Play(position, direction);
+        }
+        else
+        {
+            HitImpactFeedback.EnsureInstance().RequestBossHitstop();
+        }
         if (effect != null)
         {
             TrackHitEffect(effect, null);
@@ -176,7 +185,8 @@ public class EffectManager : MonoBehaviour
     private IEnumerator CleanupHitEffect(GameObject effect, PlayerHitEffect hitEffect)
     {
         yield return null;
-        if (hitEffect == null)
+        EnemyHitEffect enemyHit = effect != null ? effect.GetComponent<EnemyHitEffect>() : null;
+        if (hitEffect == null && enemyHit == null)
         {
             yield return new WaitForSecondsRealtime(2f);
         }
@@ -194,6 +204,7 @@ public class EffectManager : MonoBehaviour
         while (effect != null)
         {
             bool alive = false;
+            if (enemyHit != null) alive = enemyHit.IsPlaying;
             if (hitEffect != null)
             {
                 alive = hitEffect.IsPlaying;
