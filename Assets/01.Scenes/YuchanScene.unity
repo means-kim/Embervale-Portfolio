@@ -583,6 +583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectManager
   _playerHitVfx: {fileID: 4021103657954561961, guid: 275785150a53a4b4989309a6b663eb12, type: 3}
+  _playerHitHorizontalVfx: {fileID: 0}
+  _useHorizontalPlayerHit: 0
   _playerDeathVfx: {fileID: 5985634496115995773, guid: ec3da48247b33f84b8012c97e39a3dee, type: 3}
   _jumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
   _doubleJumpVfx: {fileID: 2708598583397607911, guid: 693dffcb97e91f143bb3e77f3cdba7bf, type: 3}
@@ -593,8 +595,6 @@ MonoBehaviour:
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 493b07ea159d88440ad0220e8fd0b9b0, type: 3}
   _wallSlideVfx: {fileID: 0}
-  _wallClimbUpVfx: {fileID: 0}
-  _wallClimbDownVfx: {fileID: 0}
   _respawnVfx: {fileID: 8440736990562456301, guid: abb1688e8cd009748a486cf74f20d271, type: 3}
   _clickVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
 --- !u!4 &225376280
@@ -4453,58 +4453,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2063275398
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063275400}
-  - component: {fileID: 2063275399}
-  m_Layer: 0
-  m_Name: BuffPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2063275399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063275398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2acdb9ca78cd2b45834a37d42281bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuffPool
-  _pool:
-  - {fileID: 11400000, guid: 12e7fb761e0d16c44ad0c0d3fcddb62f, type: 2}
-  - {fileID: 11400000, guid: 126c5177a2234b545b122df08a2a1838, type: 2}
-  - {fileID: 11400000, guid: 7e72c637319174144ada30ebddaaff48, type: 2}
-  - {fileID: 11400000, guid: 81c1bff2cfafbec47b4a86afcbdf8466, type: 2}
-  - {fileID: 11400000, guid: d5dd00b94b0b836498c3294ec30d7fcc, type: 2}
-  - {fileID: 11400000, guid: 142b1f47d6619724fbc3367ae2109679, type: 2}
-  - {fileID: 11400000, guid: 9617ab70108fe0a48812cd871b9b0779, type: 2}
---- !u!4 &2063275400
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063275398}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1698961790355794777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4701,6 +4649,5 @@ SceneRoots:
   - {fileID: 2061232443}
   - {fileID: 1476900788}
   - {fileID: 1396411640}
-  - {fileID: 2063275400}
   - {fileID: 225376280}
   - {fileID: 1481998117}
