@@ -50,7 +50,7 @@ public class AirBossOneArmUpDown : AirBossAttackBase
             return;
         }
 
-        _shortLightnig = attackPool.GetAttack(AirBossAttackType.SmallLightning);
+        _shortLightnig = attackPool.GetAttack(AirBossAttackType.ShortLightning);
 
         if (_shortLightnig == null)
         {
