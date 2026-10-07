@@ -16512,6 +16512,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8233074775862955928, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
   m_PrefabInstance: {fileID: 496897915}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &496897918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4804818044005549590, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+  m_PrefabInstance: {fileID: 496897915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06a8d442fcdae6439a986f37384269c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAnimation
 --- !u!1 &502362057
 GameObject:
   m_ObjectHideFlags: 0
@@ -30890,9 +30901,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEndingCinematic
   _cinematicManager: {fileID: 357357373}
-  _director: {fileID: 0}
-  _boss: {fileID: 0}
-  _bossPosition: {fileID: 0}
+  _bossAnimation: {fileID: 496897918}
+  _screenFade: {fileID: 0}
+  _slowTimeScale: 0.05
+  _slowDuration: 3
+  _restoreDuration: 1.5
+  _hitShakeStrength: 2
+  _earthquakeStrength: 1
+  _earthquakeHoldDuration: 1
+  _fadeDuration: 2
 --- !u!1 &1256893410
 GameObject:
   m_ObjectHideFlags: 0

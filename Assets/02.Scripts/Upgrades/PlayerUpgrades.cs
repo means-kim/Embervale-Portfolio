@@ -31,7 +31,9 @@ namespace Game.Upgrades
         public void LoadProgress()
         {
             foreach (UpgradeType type in Enum.GetValues(typeof(UpgradeType)))
+            {
                 GetRule(type).level = Mathf.Clamp(UpgradeHistory.GetLevel(type), 0, GetMaxLevel(type));
+            }
             Changed?.Invoke();
         }
 
