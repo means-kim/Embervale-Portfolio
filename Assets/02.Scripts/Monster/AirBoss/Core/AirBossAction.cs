@@ -92,7 +92,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsIceThrow);
 
         // 고드름 3발 패턴 테스트
-        // Execute(AirBossActionType.OneArmUpDownIce);
+        Execute(AirBossActionType.OneArmUpDownIce);
 
         // 작은 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.OneArmIceSummon);
@@ -113,7 +113,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsLightningGather);
 
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
-        Execute(AirBossActionType.CrossBurst);
+        // Execute(AirBossActionType.CrossBurst);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //
