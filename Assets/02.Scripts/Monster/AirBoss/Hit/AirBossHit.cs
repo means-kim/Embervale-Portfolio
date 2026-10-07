@@ -95,4 +95,11 @@ public class AirBossHit : MonoBehaviour
             _airBossSpriteRenderer.sharedMaterial = _originalMaterial;
         }
     }
+
+    [ContextMenu("Test Hit")]
+    private void TestHit()
+    {
+        if (!Application.isPlaying) return;
+        HandleHit();
+    }
 }
