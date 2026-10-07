@@ -70,7 +70,7 @@ public class AirBossOneArmUpDownIce : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayOneArmUpDownIce();
+        _animation.PlayOneArmUpDownIceAnimation();
     }
 
     public override void ShowWarning()

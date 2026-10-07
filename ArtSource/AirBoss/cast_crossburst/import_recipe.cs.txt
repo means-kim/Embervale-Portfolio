@@ -1,0 +1,38 @@
+
+var result = new System.Collections.Generic.List<object>();
+for (int part = 1; part <= 3; part++) {
+ int rows = part == 3 ? 2 : 4, count=rows*4, start=(part-1)*16;
+ string name="AirBoss_Cast_CrossBurst_Part"+part+"_4x"+rows+"_1152_v01.png";
+ string source=System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(),"ArtSource/AirBoss/cast_crossburst/sheets",name);
+ string asset="Assets/04.Sprites/AirBoss/"+name;
+ if (System.IO.File.Exists(asset)) throw new System.Exception("Refusing to overwrite existing asset "+asset);
+ System.IO.File.Copy(source, asset, false);
+ AssetDatabase.ImportAsset(asset,ImportAssetOptions.ForceSynchronousImport);
+ var imp=(TextureImporter)AssetImporter.GetAtPath(asset);
+ imp.textureType=TextureImporterType.Sprite; imp.spriteImportMode=SpriteImportMode.Multiple;
+ imp.spritePixelsPerUnit=24; imp.alphaSource=TextureImporterAlphaSource.FromInput; imp.alphaIsTransparency=true;
+ imp.mipmapEnabled=false; imp.npotScale=TextureImporterNPOTScale.None; imp.maxTextureSize=8192;
+ imp.textureCompression=TextureImporterCompression.Uncompressed; imp.filterMode=FilterMode.Bilinear; imp.wrapMode=TextureWrapMode.Clamp; imp.isReadable=false;
+ var settings=new TextureImporterSettings(); imp.ReadTextureSettings(settings);
+ settings.spriteMeshType=SpriteMeshType.FullRect; settings.spriteGenerateFallbackPhysicsShape=false;
+ imp.SetTextureSettings(settings); imp.SaveAndReimport();
+ var factory=new UnityEditor.U2D.Sprites.SpriteDataProviderFactories(); factory.Init();
+ var provider=factory.GetSpriteEditorDataProviderFromObject(imp); provider.InitSpriteEditorDataProvider();
+ var rects=new UnityEditor.SpriteRect[count]; var pairs=new System.Collections.Generic.List<UnityEditor.SpriteNameFileIdPair>();
+ for(int j=0;j<count;j++){
+  string spriteName="AirBoss_Cast_CrossBurst_v01_"+(start+j).ToString("00");
+  var id=UnityEditor.GUID.Generate();
+  rects[j]=new UnityEditor.SpriteRect { name=spriteName, rect=new Rect((j%4)*1152,(rows-1-j/4)*1152,1152,1152),alignment=SpriteAlignment.Center,pivot=new Vector2(.5f,.5f),spriteID=id };
+  pairs.Add(new UnityEditor.SpriteNameFileIdPair(spriteName,id));
+ }
+ provider.SetSpriteRects(rects);
+ provider.GetDataProvider<UnityEditor.U2D.Sprites.ISpriteNameFileIdDataProvider>().SetNameFileIdPairs(pairs);
+ provider.Apply(); imp.SaveAndReimport();
+ var sprites=AssetDatabase.LoadAllAssetsAtPath(asset).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+ var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(asset);
+ bool ok=sprites.Length==count && texture.width==4608 && texture.height==rows*1152 && sprites.Select((s,j)=>s.name==rects[j].name && s.rect==rects[j].rect && s.pixelsPerUnit==24 && s.pivot==new Vector2(576,576)).All(x=>x);
+ if(!ok)throw new System.Exception("Sprite import verification failed "+asset);
+ System.IO.File.Copy(asset+".meta",source+".meta",true);
+ result.Add(new {path=asset,count=sprites.Length,width=texture.width,height=texture.height,ppu=imp.spritePixelsPerUnit,mode=imp.spriteImportMode.ToString(),maxSize=imp.maxTextureSize,pivot="Center (576,576)",rectRoundtrip=true,physicsShapes=sprites.Select(s=>s.GetPhysicsShapeCount()).ToArray(),names=sprites.Select(s=>s.name).ToArray(),guid=AssetDatabase.AssetPathToGUID(asset)});
+}
+return result;

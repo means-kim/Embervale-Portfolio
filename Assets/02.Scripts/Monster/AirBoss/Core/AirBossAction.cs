@@ -8,6 +8,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossBothArmsIceThrow _bothArmsIceThrow;
     [SerializeField] private AirBossBothArmsIcePush _bothArmsIcePush;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
+    [SerializeField] private AirBossOneArmUpDown _oneArmUpDown;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -30,7 +31,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.OneArmUpDown:
-                _animation.PlayOneArmUpDownAnimation();
+                StartAttack(_oneArmUpDown);
                 break;
 
             case AirBossActionType.BothArmsRaise:
@@ -50,7 +51,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsLightningGather:
-                _animation.PlayBothArmsLightningGather();
+                _animation.PlayBothArmsLightningGatherAnimation();
                 break;
 
             case AirBossActionType.BothArmsIcePush:
@@ -72,13 +73,17 @@ public class AirBossAction : MonoBehaviour
             case AirBossActionType.OneArmUpDownIceBlock:
                 StartAttack(_oneArmUpDownIceBlock);
                 break;
+
+            case AirBossActionType.CrossBurst:
+                _animation.PlayCrossBurstAnimation();
+                break;
         }
     }
 
     public void ExecuteRandom()
     {
         // 작은 번개 패턴만 테스트
-        // Execute(AirBossActionType.BothArmsLiftDrop);
+        Execute(AirBossActionType.BothArmsLiftDrop);
 
         // 큰 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.BothArmsIceThrow);
@@ -93,7 +98,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsIcePush);
 
         // 베지어 곡선 얼음 덩어리 패턴만 테스트
-        Execute(AirBossActionType.OneArmUpDownIceBlock);
+        // Execute(AirBossActionType.OneArmUpDownIceBlock);
+
+        // 짧은 번개 패턴만 테스트
+        // Execute(AirBossActionType.OneArmUpDown);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //

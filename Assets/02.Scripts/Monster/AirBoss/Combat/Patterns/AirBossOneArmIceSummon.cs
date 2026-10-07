@@ -68,7 +68,7 @@ public class AirBossOneArmIceSummon : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayOneArmIceSummon();
+        _animation.PlayOneArmIceSummonAnimation();
     }
 
     public override void ShowWarning()

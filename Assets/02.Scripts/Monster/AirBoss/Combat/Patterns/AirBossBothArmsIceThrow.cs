@@ -68,7 +68,7 @@ public class AirBossBothArmsIceThrow : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayBothArmsIceThrow();
+        _animation.PlayBothArmsIceThrowAnimation();
     }
 
     public override void ShowWarning()
