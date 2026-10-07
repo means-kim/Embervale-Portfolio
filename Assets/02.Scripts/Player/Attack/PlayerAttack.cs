@@ -56,6 +56,14 @@ public class PlayerAttack : MonoBehaviour
             Debug.LogError($"공격 프리팹 또는 애니메이션이 비어 있습니다: {definition.name}", definition);
             return false;
         }
+        int healthCost = Mathf.Max(0, definition.HealthCost);
+        if (healthCost > 0)
+        {
+            var health = GetComponent<Health>();
+            // 자해로 죽지 않도록 체력이 코스트 이하이면 발동 불가.
+            if (health == null || health.CurrentHealth <= healthCost) return false;
+            health.SpendHealth(healthCost);
+        }
         _current = definition;
         _elapsed = 0;
         _spawned = false;
