@@ -15,6 +15,7 @@ public enum AirBossActionType
     OneArmUpDownIce,
     BothArmsLightningGather,
     OneArmUpDownIceBlock,
+    CrossBurst,
 
     Count
 }

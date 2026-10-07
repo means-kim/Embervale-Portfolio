@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
+    [SerializeField] private float _hitInvincibilityTime = 0.3f;
     [Header("피격 넉백")]
     [SerializeField, Min(0f)] private float _knockbackForce = 4f;
     [SerializeField] private float _knockbackUp = 2f;
@@ -19,6 +20,8 @@ public class PlayerHit : MonoBehaviour
     private float _hitUntil;
     private float _flashTimer;
     private bool _flashOn;
+    private bool _isInvincible = false;
+    private float _invincibilityTimer = 0f;
     private float _moveUnlockAt;
     private float _hitDuration = 0.35f;
     private float _flashInterval = 0.08f;
@@ -70,11 +73,13 @@ public class PlayerHit : MonoBehaviour
     }
     private void HandleHit()
     {
-        if (_health.IsDead) return;
+        if (_health.IsDead || _isInvincible) return;
         if (_attack != null) _attack.CancelAttack();
         _hitUntil = Time.time + _hitDuration;
         _flashTimer = 0f;
         _flashOn = false;
+        _isInvincible = true;
+        _invincibilityTimer = _hitInvincibilityTime;
         if (_dash != null) _dash.CancelDash();
         ApplyKnockback();
         EffectManager.Instance?.PlayPlayerHit(transform.position);
@@ -91,6 +96,14 @@ public class PlayerHit : MonoBehaviour
     }
     private void Update()
     {
+        if (_isInvincible)
+        {
+            _invincibilityTimer -= Time.deltaTime;
+            if (_invincibilityTimer <= 0f)
+            {
+                _isInvincible = false;
+            }
+        }
         if (_knockbackLocking && Time.time >= _moveUnlockAt) ReleaseKnockbackLock();
         if (!IsHit)
         {

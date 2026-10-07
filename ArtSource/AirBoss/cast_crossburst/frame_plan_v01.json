@@ -1,0 +1,319 @@
+{
+  "count": 40,
+  "master": "../idle/AirBoss_Idle_Master_image2.png",
+  "ppu": 24,
+  "pivot": [
+    0.5,
+    0.5
+  ],
+  "schedule": [
+    {
+      "frame": 0,
+      "kind": "idle",
+      "idle_frame": 0,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 1,
+      "kind": "idle",
+      "idle_frame": 1,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 2,
+      "kind": "idle",
+      "idle_frame": 2,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 3,
+      "kind": "idle",
+      "idle_frame": 3,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 4,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 5,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 6,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 7,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 8,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 9,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "준비"
+    },
+    {
+      "frame": 10,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 11,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 12,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 13,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 14,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 15,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 16,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 17,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.07,
+      "phase": "교차·압축"
+    },
+    {
+      "frame": 18,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.09,
+      "phase": "최대 전조"
+    },
+    {
+      "frame": 19,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.09,
+      "phase": "최대 전조"
+    },
+    {
+      "frame": 20,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.09,
+      "phase": "최대 전조"
+    },
+    {
+      "frame": 21,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.09,
+      "phase": "최대 전조"
+    },
+    {
+      "frame": 22,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.04,
+      "phase": "방출"
+    },
+    {
+      "frame": 23,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.04,
+      "phase": "방출"
+    },
+    {
+      "frame": 24,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.04,
+      "phase": "방출"
+    },
+    {
+      "frame": 25,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.04,
+      "phase": "방출"
+    },
+    {
+      "frame": 26,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 27,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 28,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 29,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 30,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 31,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 32,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 33,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 34,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 35,
+      "kind": "generated",
+      "idle_frame": null,
+      "duration": 0.075,
+      "phase": "후행·복귀"
+    },
+    {
+      "frame": 36,
+      "kind": "idle",
+      "idle_frame": 12,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 37,
+      "kind": "idle",
+      "idle_frame": 13,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 38,
+      "kind": "idle",
+      "idle_frame": 14,
+      "duration": 0.075,
+      "phase": "Idle"
+    },
+    {
+      "frame": 39,
+      "kind": "idle",
+      "idle_frame": 15,
+      "duration": 0.075,
+      "phase": "Idle"
+    }
+  ],
+  "inbetweenDescriptions": {
+    "5": "After frame04 and before frame10: elbows begin to bend more; low hands move inward only a little toward the abdomen, still far apart. No orb; faint existing wrist emission only. Head remains at Idle orientation. Cloth continues the preceding Idle03 outward flow.",
+    "6": "Hands move another small step inward and upward toward abdomen, elbows bend. Palms gradually rotate toward each other. A tiny dim spark appears halfway between hands. Cloth follows shoulders a beat later.",
+    "7": "Palms now face each other at abdomen height, hands halfway from their Idle positions to reference10. A very small dim blue-white orb starts coalescing between them. Shoulder width and face position unchanged. Cloth begins gentle inward curl.",
+    "8": "Hands continue upward/inward smoothly toward reference10, still clearly separated, not crossed. Small sphere diameter30px around lower chest. Upper cloth loop starts curling inward; lower-right train is still finishing prior outward swing.",
+    "9": "Almost reference10: open cupped hands around lower-chest orb, slightly wider apart and lower than frame10. Orb diameter45px. Chest subtly curls in; lower-right cloth begins following inward. Not yet crossing.",
+    "11": "After reference10 gather and before reference17 crossed. Forearms start sweeping diagonally inward. Hands still on their original sides, approaching center. Orb diameter55px at lower chest, clear from fingers. Slight shoulder hunch begins.",
+    "12": "Forearms approach one another in front of lower chest; wrists begin overlapping at center, not a complete X yet. Character right forearm from screen-left shoulder is in front. Orb descends slightly toward y490. Cloth continues inward following motion.",
+    "13": "Hands start passing across center to opposite sides, a shallow X crossing of forearms now visible below collar. Exactly2 arms and2 hands. Orb below crossing at y495, diameter50px. Mask slightly inclines toward the orb.",
+    "14": "Forearm crossing deepens, hands move further to opposite sides. Front arm remains the one from screen-left shoulder. Orb contracts slightly and becomes brighter. Thin short electricity threads connect wrists to orb. Cloth curl becomes tighter.",
+    "15": "Nearly the fully crossed reference17, but wrists slightly farther from torso and crossing a little looser. Orb diameter46px below crossing. Compact gathered silhouette. Lower cloth catches up to inward motion.",
+    "16": "One small motion before reference17: close X forearms at lower chest, clawed hands on opposite sides, clearly separated silhouette, one foreground wrist. Orb diameter43px bright compact core; very subtle forearm filaments. Same inward cloth curl with small delayed tips.",
+    "18": "Continue reference17 fully crossed X forearms. Compress slightly more into chest. Orb shrinks to diameter38px and brightens; palms remain at the opposite sides of crossing. Short restrained electric filaments at wrists. No opening. Cloth finishes inward movement.",
+    "19": "Maintain tight X compression, slight additional curl of shoulders and mask toward orb, body posture change tiny and anatomical. Orb diameter34px bright white-blue core, thin violet rim. Two hands and crossed arms remain visible; glow doesn't cover face.",
+    "20": "Maximum anticipation. Arms tightly crossed, orb compact30px core just below the crossing; brightest restrained charge yet. Fingers tense and open slightly; a few short arcs bridge wrist armor. Upper-left cloth loop settles inward while lower-right tips still curl.",
+    "21": "Last compressed hold before release. Maintain crossed pose, head begins lifting toward neutral; elbows show outward tension but hands still crossed. Orb30px with intense white center. One short faint electric contour along shoulders. Cloth motion nearly arrested, ready to reverse.",
+    "22": "Beginning fast release toward reference24: wrists UNCross, hands move apart to roughly x380 and665 at y430. Elbows sweep outward, chest starts opening. Orb expands to65px. Two short white-blue arc trails connect former wrist positions to current ones, old trail ends faint. No extra ghost hands.",
+    "23": "Mid release one drawing before reference24: arms sweep outward to fingertips x250 and790 around y395, elbows bent and palms open. Chest opens more, mask returns almost neutral. Orb flashes95px. Curved electric afterimages follow behind hands at lower chest; subtle shoulder trace. Cloth only starts flaring, lagging behind arms.",
+    "25": "One drawing after reference24 peak release: slight outward overshoot, fingertips x170 and875 near y390, never above head. Palms open, arms visible, slight backwards chest recoil. Orb already shrinks from peak toward95px. Electric arc trails still readable but fading behind wrists. Cloth now flares more strongly, especially lower-right tips, delayed after arms.",
+    "26": "Arms still spread but begin relaxing inward/downward a little, fingertips x190 and855 y410. Orb shrinks to60px with fading glow. Arcs break into thin short segments following the earlier outward sweep. Mask posture recovering. Cloth reaches delayed outward maximum.",
+    "27": "Hands descend farther toward x215 and830 y430, elbows relax. Orb diameter35px and dimmer. Only short wrist trails, no face-covering glow. Cloth tips continue outward briefly as shoulders already recover.",
+    "28": "One step before reference29. Hands around x245 and800 y455, palms turning toward Idle. Orb diameter18px nearly spent. Faint broken current behind wrists only. Torso nearly upright; cloth begins returning from outward flare.",
+    "30": "After reference29 recovery, before reference35 near Idle12. Hands lower and move slightly inward to x300 and755 y500. Orb extinguished, only the faintest wrist afterglow. Head and torso nearly match Idle. Cloth still slightly wider than Idle from aftermotion.",
+    "31": "Hands approach x320 and735 y520 in low relaxed position. No orb or lightning arcs; all casting effects are gone. Shoulders settle, cloth returns with a soft counter-swing. Preserve same armor and mask scale.",
+    "32": "Hands at nearly Idle12 height and spacing, elbows relaxed. No magical casting effect. Body upright. Upper-left cloth loop almost matches Idle12, long lower-right train still has a small trailing curl.",
+    "33": "Closer to reference35/Idle12: relaxed low claws and torso almost exact Idle posture. Cloth's last small counter-swing reduces; lower tips trail shoulder settling. No orb/trails.",
+    "34": "Immediately before reference35: almost indistinguishable from target Idle12 pose but a tiny remaining fold and cloth-tip movement. Match mask, shoulders and hands of Idle12 without global translation or scaling. No attack energy."
+  }
+}
