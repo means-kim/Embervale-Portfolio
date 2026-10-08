@@ -32,43 +32,64 @@ public class Respone : MonoBehaviour
     {
         if (checkpoint == null) return;
         if (player == null) return;
-        var point = checkpoint.GetComponent<RespawnPoint>();
-        if (point != null) player.SetRespawnPoint(point);
-        else player.SetRespawnPoint(checkpoint.position);
         ResponePlayer(player, checkpoint.position);
     }
 
     public void ResponePlayer(TestPlayer player, Vector3 checkpointPosition)
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            return;
+        }
         Health health = player.GetComponent<Health>();
 
-        if (health.IsDead)
+        if (health == null || health.IsDead)
+        {
             return;
-
+        }
         health.TakeDamage(_returnDamage);
+        if (health.IsDead)
+        {
+            return;
+        }
         player.MoveToCheckpoint(checkpointPosition);
     }
 
     public void RestartPlayer(TestPlayer player, Transform checkpoint)
     {
-        if (player == null || checkpoint == null) return;
+        if (player == null || checkpoint == null)
+        {
+            return;
+        }
         var point = checkpoint.GetComponent<RespawnPoint>();
-        if (point != null) player.SetRespawnPoint(point);
-        else player.SetRespawnPoint(checkpoint.position);
+        if (point != null)
+        {
+            player.SetRespawnPoint(point);
+        }
+        else
+        {
+            player.SetRespawnPoint(checkpoint.position);
+        }
         player.RestartAt(checkpoint.position);
     }
 
-    // Main-player (global Player) integration. Mirrors the TestPlayer flow above.
+    // Hazard return positions are temporary. Only gates/checkpoints record retry locations.
     public void ResponePlayer(Player player, Transform checkpoint)
     {
-        if (checkpoint == null) return;
-        if (player == null) return;
-        var point = checkpoint.GetComponent<RespawnPoint>();
-        if (point != null) player.SetRespawnPoint(point);
-        else player.SetRespawnPoint(checkpoint.position);
-        CheckpointHistory.Record(player, checkpoint);
+        if (checkpoint == null)
+        {
+            return;
+        }
+        if (player == null)
+        {
+            return;
+        }
         ResponePlayer(player, checkpoint.position);
+        var health = player.GetComponent<Health>();
+        if (health != null && !health.IsDead)
+        {
+            checkpoint.GetComponent<RespawnPoint>()?.RestoreView(player.transform);
+        }
     }
 
     public void ResponePlayer(Player player, Vector3 checkpointPosition)
@@ -76,10 +97,15 @@ public class Respone : MonoBehaviour
         if (player == null) return;
         Health health = player.GetComponent<Health>();
 
-        if (health.IsDead)
+        if (health == null || health.IsDead)
+        {
             return;
-
+        }
         health.TakeDamage(_returnDamage);
+        if (health.IsDead)
+        {
+            return;
+        }
         player.MoveToCheckpoint(checkpointPosition);
     }
 
@@ -87,8 +113,14 @@ public class Respone : MonoBehaviour
     {
         if (player == null || checkpoint == null) return;
         var point = checkpoint.GetComponent<RespawnPoint>();
-        if (point != null) player.SetRespawnPoint(point);
-        else player.SetRespawnPoint(checkpoint.position);
+        if (point != null)
+        {
+            player.SetRespawnPoint(point);
+        }
+        else
+        {
+            player.SetRespawnPoint(checkpoint.position);
+        }
         CheckpointHistory.Record(player, checkpoint);
         player.RestartAt(checkpoint.position);
     }
@@ -97,6 +129,9 @@ public class Respone : MonoBehaviour
     public void RestartTestPlayer()
     {
         TestPlayer player = GetComponent<TestPlayer>();
-        if (player != null) player.RestartAtCheckpoint();
+        if (player != null)
+        {
+            player.RestartAtCheckpoint();
+        }
     }
 }
