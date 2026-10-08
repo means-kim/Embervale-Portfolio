@@ -181,6 +181,15 @@ public class AirBossController : MonoBehaviour
 
     private void HandleTransitionRequested(int nextphase)
     {
+        if (_currentstate == AirBossState.Death) return;
+
+        ChangeState(AirBossState.Wait);
+
+        _movement.StopMove();
+        _action.CancelCurrentAttack();
+
+        AirBossAttackPool.Instance?.ReleaseAll();
+
         Debug.Log("다음 페이즈로 전환");
     }
 }
