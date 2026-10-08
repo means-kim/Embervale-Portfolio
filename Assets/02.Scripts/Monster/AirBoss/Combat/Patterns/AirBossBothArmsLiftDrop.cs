@@ -135,7 +135,7 @@ public class AirBossBothArmsLiftDrop : AirBossAttackBase
     private void ReleaseTelegraph()
     {
         if (_telegraph == null) return;
-        _telegraph.Release();
+        _telegraph.FadeOutAndRelease();
         _telegraph = null;
     }
 

@@ -15,6 +15,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossForwardReach _forwardReach;
     [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
     [SerializeField] private AirBossRaiseDropShadow _raiseDropShadow;
+    [SerializeField] private AirBossOneArmUpDownIcePhase3 _oneArmUpDownIcePhase3;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -48,13 +49,13 @@ public class AirBossAction : MonoBehaviour
                 StartAttack(_raiseDropShadow);
                 break;
 
-            case AirBossActionType.SpinRoll360:
-                _animation.PlaySpinRoll360Animation();
-                break;
-
-            case AirBossActionType.SpinYaw360:
-                _animation.PlaySpinYaw360Animation();
-                break;
+            // case AirBossActionType.SpinRoll360:
+            //     _animation.PlaySpinRoll360Animation();
+            //     break;
+            //
+            // case AirBossActionType.SpinYaw360:
+            //     _animation.PlaySpinYaw360Animation();
+            //     break;
 
             case AirBossActionType.BothArmsLightningGather:
                 StartAttack(_bothArmsLightningGather);
@@ -86,6 +87,10 @@ public class AirBossAction : MonoBehaviour
 
             case AirBossActionType.CrossBurst6Point:
                 StartAttack(_crossBurst6Point);
+                break;
+
+            case AirBossActionType.OneArmUpDownIcePhase3:
+                StartAttack(_oneArmUpDownIcePhase3);
                 break;
         }
     }
@@ -130,6 +135,9 @@ public class AirBossAction : MonoBehaviour
 
         // 눈보라 패턴만 테스트
         // Execute(AirBossActionType.RaiseDropShadow);
+
+        // 순차적 고드름 5 패턴만 테스트
+        // Execute(AirBossActionType.OneArmUpDownIcePhase3);
 
         int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
 

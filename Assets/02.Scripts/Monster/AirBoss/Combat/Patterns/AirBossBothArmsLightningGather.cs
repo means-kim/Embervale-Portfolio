@@ -150,7 +150,7 @@ public class AirBossBothArmsLightningGather : AirBossAttackBase
         for (int i = 0; i < _telegraphs.Length; i++)
         {
             if (_telegraphs[i] == null) continue;
-            _telegraphs[i].Release();
+            _telegraphs[i].FadeOutAndRelease();
             _telegraphs[i] = null;
         }
     }

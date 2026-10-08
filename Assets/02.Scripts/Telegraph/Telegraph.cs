@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Telegraph : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class Telegraph : MonoBehaviour
 
     private Quaternion _defaultLocalRotation;
 
+    private TelegraphVisual _visual;
+    private Coroutine _releaseSequence;
+
     private void Awake()
     {
         _defaultScale = transform.localScale;
         _defaultLocalRotation = transform.localRotation;
+        _visual = GetComponentInChildren<TelegraphVisual>(true);
     }
 
     public bool TryReserve()
@@ -49,10 +54,39 @@ public class Telegraph : MonoBehaviour
 
     public void Release()
     {
+        if (_releaseSequence != null)
+        {
+            StopCoroutine(_releaseSequence);
+            _releaseSequence = null;
+        }
+
         gameObject.SetActive(false);
 
         transform.localScale = _defaultScale;
-        _isReserved = false;
         transform.localRotation = _defaultLocalRotation;
+        _isReserved = false;
+    }
+
+    public void FadeOutAndRelease()
+    {
+        if (_releaseSequence != null) return;
+
+        if (!gameObject.activeInHierarchy ||
+            _visual == null ||
+            !_visual.isActiveAndEnabled)
+        {
+            Release();
+            return;
+        }
+
+        _releaseSequence = StartCoroutine(ReleaseSequence());
+    }
+
+    private IEnumerator ReleaseSequence()
+    {
+        yield return _visual.FadeOut();
+
+        _releaseSequence = null;
+        Release();
     }
 }

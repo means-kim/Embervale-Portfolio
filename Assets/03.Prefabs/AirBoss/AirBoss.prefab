@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6638137889588832488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2605855174889095880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5667198565276668799}
+  m_Layer: 10
+  m_Name: LargeIcePillarPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5667198565276668799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605855174889095880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6638137889588832488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4579540008362142718
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +127,7 @@ GameObject:
   - component: {fileID: 3651520461735629383}
   - component: {fileID: 8334308445502172291}
   - component: {fileID: 5809469499536019829}
+  - component: {fileID: 3177162394418046562}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -118,6 +150,7 @@ Transform:
   m_Children:
   - {fileID: 728499216316706709}
   - {fileID: 8650315564872302742}
+  - {fileID: 5667198565276668799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4954074921792302040
@@ -276,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 900
+  _maxHealth: 200
   _autoRecover: 0
   _secondsPerSlot: 1.2
 --- !u!114 &8679760138037404816
@@ -325,7 +358,7 @@ MonoBehaviour:
   _airBossSpriteRenderer: {fileID: 4954074921792302040}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
   _flashInterval: 0.1
-  _flashDuration: 0.2
+  _flashDuration: 0.24
 --- !u!114 &3684625565806078733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,11 +371,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
-  _idleTimer: 3
+  _idleTimer: 0.5
   _moveTimer: 1
-  _idleWeight: 10
-  _moveWeight: 30
-  _actionWeight: 50
+  _idleWeight: 0
+  _moveWeight: 20
+  _actionWeight: 60
 --- !u!114 &6954472282831411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +428,7 @@ MonoBehaviour:
   _forwardReach: {fileID: 3651520461735629383}
   _crossBurst6Point: {fileID: 8334308445502172291}
   _raiseDropShadow: {fileID: 5809469499536019829}
+  _oneArmUpDownIcePhase3: {fileID: 3177162394418046562}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +445,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 20, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 10, y: 30, z: 1}
 --- !u!114 &7231270996186931566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,9 +460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIceThrow
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
-  _player: {fileID: 6638137889588832488}
+  _player: {fileID: 5667198565276668799}
   _telegraphType: 5
-  _telegraphScaleMultiplier: {x: 6, y: 12, z: 1}
+  _telegraphScaleMultiplier: {x: 6, y: 22, z: 1}
 --- !u!114 &6351156603021301246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,8 +479,8 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
-  _offSetX: 40
+  _telegraphScaleMultiplier: {x: 10, y: 20, z: 1}
+  _offSetX: 30
   _offSetY: 50
 --- !u!114 &-5426264349106596146
 MonoBehaviour:
@@ -463,8 +497,8 @@ MonoBehaviour:
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
-  _telegraphType: 0
-  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
+  _telegraphType: 1
+  _telegraphScaleMultiplier: {x: 2, y: 2, z: 1}
 --- !u!114 &2886692296107327024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +532,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
   _telegraphType: 1
-  _telegraphScaleMultiplier: {x: 20, y: 20, z: 1}
+  _telegraphScaleMultiplier: {x: 7, y: 7, z: 1}
   _iceBlockPoint: {fileID: 728499216316706709}
 --- !u!114 &9028817793882323740
 MonoBehaviour:
@@ -515,8 +549,8 @@ MonoBehaviour:
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
-  _telegraphType: 0
-  _telegraphScaleMultiplier: {x: 7, y: 10, z: 1}
+  _telegraphType: 5
+  _telegraphScaleMultiplier: {x: 2, y: 2, z: 1}
 --- !u!114 &7887491556339557163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +567,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 60, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 40, y: 30, z: 1}
 --- !u!114 &4825282030232398469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +584,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 4
-  _telegraphScaleMultiplier: {x: 100, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 100, y: 20, z: 1}
   _offSetY: 20
 --- !u!114 &9091893829221749218
 MonoBehaviour:
@@ -568,7 +602,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 20, y: 40, z: 1}
+  _telegraphScaleMultiplier: {x: 10, y: 40, z: 1}
   _warningInterval: 0.3
   _waitAfterWarnings: 0.9
   _attackInterval: 0.3
@@ -588,7 +622,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 8650315564872302742}
   _telegraphType: 7
-  _telegraphScaleMultiplier: {x: 20, y: 20, z: 1}
+  _telegraphScaleMultiplier: {x: 15, y: 15, z: 1}
 --- !u!114 &8334308445502172291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +639,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 20, y: 40, z: 1}
+  _telegraphScaleMultiplier: {x: 10, y: 40, z: 1}
   _warningInterval: 0.2
   _waitAfterWarnings: 0.8
   _attackInterval: 0.2
@@ -625,4 +659,26 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 5
-  _telegraphScaleMultiplier: {x: 25, y: 15, z: 1}
+  _telegraphScaleMultiplier: {x: 15, y: 7, z: 1}
+--- !u!114 &3177162394418046562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d871ac2ace349142aebe3310d95a386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIcePhase3
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 10, y: 20, z: 1}
+  _offSetX: 20
+  _offSetY: 50
+  _warningInterval: 0.3
+  _waitAfterWarnings: 0.9
+  _attackInterval: 0.3
