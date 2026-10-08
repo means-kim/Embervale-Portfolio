@@ -13,6 +13,13 @@ public class AirBossController : MonoBehaviour
     [SerializeField] private int _moveWeight = 30;
     [SerializeField] private int _actionWeight = 50;
 
+    [Header("페이즈 관리")]
+    [SerializeField] private AirBossPhaseController _phaseController;
+
+    [SerializeField] private BossPhase2Cinematic _phase2Cinematic;
+    // Todo: 3페이즈 연출 완료시 연결
+    // [SerializeField] private BossPhase3Cinematic _phase3Cinematic;
+
     private AirBossState _currentstate = AirBossState.Idle;
     private float _stateTimer = 0f;
 
