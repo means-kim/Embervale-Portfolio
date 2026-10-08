@@ -34,6 +34,13 @@ public class AirBossController : MonoBehaviour
         _action = GetComponent<AirBossAction>();
     }
 
+    private void OnEnable()
+    {
+        if (_phaseController == null) return;
+
+        _phaseController.TransitionRequested += HandleTransitionRequested;
+    }
+
     private void Update()
     {
         _stateTimer += Time.deltaTime;
@@ -64,6 +71,13 @@ public class AirBossController : MonoBehaviour
                 UpdateDeath();
                 break;
         }
+    }
+
+    private void OnDisable()
+    {
+        if (_phaseController == null) return;
+
+        _phaseController.TransitionRequested -= HandleTransitionRequested;
     }
 
     private void UpdateWait()
@@ -163,5 +177,10 @@ public class AirBossController : MonoBehaviour
         if (_currentstate != AirBossState.Action) return;
 
         ChangeState(AirBossState.Idle);
+    }
+
+    private void HandleTransitionRequested(int nextphase)
+    {
+        Debug.Log("다음 페이즈로 전환");
     }
 }
