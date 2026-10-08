@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class AirBossOneArmUpDownIcePhase3 : AirBossAttackBase
 {
@@ -95,49 +96,85 @@ public class AirBossOneArmUpDownIcePhase3 : AirBossAttackBase
             return;
         }
 
+        _isWarningShown = true;
         Vector3 centerPosition = _player.position;
-        _attackPositions[0] = centerPosition + Vector3.left * _offSetX;
-        _attackPositions[1] = centerPosition;
-        _attackPositions[2] = centerPosition + Vector3.right * _offSetX;
 
-        for (int i = 0; i < _icicles.Length; i++)
+        _sequence = StartCoroutine(AttackSequence(centerPosition));
+    }
+
+    private IEnumerator AttackSequence(Vector3 centerPosition)
+    {
+        _attackPositions[0] = centerPosition;
+        _attackPositions[1] = centerPosition + Vector3.left * _offSetX;
+        _attackPositions[2] = centerPosition + Vector3.right * _offSetX;
+        _attackPositions[3] = centerPosition + Vector3.left * (_offSetX * 2f);
+        _attackPositions[4] = centerPosition + Vector3.right * (_offSetX * 2f);
+
+        ActivateWarning(0);
+
+        yield return new WaitForSeconds(_warningInterval);
+
+        ActivateWarning(1);
+        ActivateWarning(2);
+
+        yield return new WaitForSeconds(_warningInterval);
+
+        ActivateWarning(3);
+        ActivateWarning(4);
+
+        yield return new WaitForSeconds(_waitAfterWarnings);
+
+        _hasCast = true;
+
+        ActivateIcicle(0);
+
+        yield return new WaitForSeconds(_attackInterval);
+
+        ActivateIcicle(1);
+        ActivateIcicle(2);
+
+        yield return new WaitForSeconds(_attackInterval);
+
+        ActivateIcicle(3);
+        ActivateIcicle(4);
+
+        _sequence = null;
+        Finish();
+    }
+
+    private void ActivateWarning(int index)
+    {
+        if (_telegraphs[index] == null) return;
+
+        _telegraphs[index].Activate(_attackPositions[index], _telegraphScaleMultiplier);
+    }
+
+    private void ActivateIcicle(int index)
+    {
+        if (_icicles[index] != null)
         {
-            _telegraphs[i].Activate(_attackPositions[i], _telegraphScaleMultiplier);
+            Vector3 spawnPosition = _attackPositions[index] + Vector3.up * _offSetY;
+
+            _icicles[index].Activate(spawnPosition);
+            _icicles[index] = null;
         }
 
-        _isWarningShown = true;
+        if (_telegraphs[index] != null)
+        {
+            _telegraphs[index].Release();
+            _telegraphs[index] = null;
+        }
     }
 
     public override void Cast()
     {
-        if (!_isRunning) return;
-        if (!_isWarningShown) return;
-        if (_hasCast) return;
-
-        if (_icicles == null)
-        {
-            Finish();
-            return;
-        }
-
-        _hasCast = true;
-
-        for (int i = 0; i < _icicles.Length; i++)
-        {
-            if (_icicles[i] == null) continue;
-
-            Vector3 spawnPosition = _attackPositions[i] + Vector3.up * _offSetY;
-
-            _icicles[i].Activate(spawnPosition);
-            _icicles[i] = null;
-        }
-
-        ReleaseTelegraph();
+        // 공격은 AttackSequence에서 실행
     }
 
     public override void Finish()
     {
         if (!_isRunning) return;
+        if (_sequence != null) return;
 
         Cancel();
         _controller.OnActionFinished();
@@ -145,6 +182,12 @@ public class AirBossOneArmUpDownIcePhase3 : AirBossAttackBase
 
     public override void Cancel()
     {
+        if (_sequence != null)
+        {
+            StopCoroutine(_sequence);
+            _sequence = null;
+        }
+
         _isRunning = false;
         _isWarningShown = false;
         _hasCast = false;
