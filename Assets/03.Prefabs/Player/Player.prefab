@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 5296047191700168514}
   - component: {fileID: 7125860679552362356}
   - component: {fileID: 5573973081042068529}
+  - component: {fileID: 2559918198518714434}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -100,15 +101,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1310404032529668550, guid: a012d908617ed6e4a8a38bd8e52cd2ff, type: 3}
+  m_Sprite: {fileID: 6360019923305539543, guid: 140b315c85948d849b2055cfe2152031, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.62, y: 3.58}
+  m_Size: {x: 2.53, y: 4.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!50 &1253728359634469888
 Rigidbody2D:
@@ -536,3 +537,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLandEffect
   _minAirTime: 0.12
   _positionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &2559918198518714434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034470034761653321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366886e7d56f7e44a9336b037a0faa6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDashGhost
+  _targetRenderer: {fileID: 6236980405585183086}
+  _poolSize: 10
+  _spawnDelay: 0.01
+  _spawnInterval: 0.06
+  _fadeTime: 0.1
+  _initialAlpha: 0.6
+  _tint: {r: 1, g: 1, b: 1, a: 1}
+  _sortingOrderOffset: -1
