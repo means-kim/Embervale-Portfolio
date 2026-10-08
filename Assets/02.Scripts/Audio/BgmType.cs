@@ -5,5 +5,8 @@
     Cave,
     Ellite,
     IntoBoss,
-    Boss
+    Boss,
+    BossPhase2ChoirPad,
+    BossPhase2StringOstinato,
+    BossPhase2WarDrums
 }

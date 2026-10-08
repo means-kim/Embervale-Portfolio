@@ -67,10 +67,11 @@ public class GateSwitch : MonoBehaviour
 
         if (exitFromRight)
         {
-            var player = other.GetComponentInParent<HyunseoTest.Player>();
+            var player = other.GetComponentInParent<Player>();
             if (player != null && _respawnPoint != null)
             {
                 player.SetRespawnPoint(_respawnPoint);
+                CheckpointHistory.Record(player, _respawnPoint.transform);
             }
             InArea(_gateType);
         }
@@ -105,7 +106,7 @@ public class GateSwitch : MonoBehaviour
 
                 break;
             case GateType.Elite:
-                if (exitFromRight)
+                if (exitFromRight && !EncounterHistory.HasEliminated(EliminateId.Elite01))
                 {
                     audio.PlayBgm(BgmType.Ellite);
                 }

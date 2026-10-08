@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "files": [
+    {
+      "name": "UI_Death_Vignette_v01.png",
+      "source": [
+        1672,
+        941
+      ],
+      "export": [
+        1920,
+        1080
+      ],
+      "alpha": {
+        "center": 0,
+        "corner": 249
+      }
+    },
+    {
+      "name": "UI_Death_YouDie_v01.png",
+      "source": [
+        2172,
+        724
+      ],
+      "export": [
+        1536,
+        512
+      ]
+    },
+    {
+      "name": "UI_Death_Retry_v01.png",
+      "source": [
+        2172,
+        724
+      ],
+      "export": [
+        768,
+        256
+      ]
+    }
+  ],
+  "exportMethod": "Aspect-preserving resampling with minimal centered crop; PNG alpha preserved.",
+  "preview": {
+    "size": [
+      1920,
+      1080
+    ],
+    "background": "../../../Assets/04.Sprites/UI/bg.png",
+    "blackDimAlpha": 120,
+    "titleRect": [
+      600,
+      380,
+      720,
+      240
+    ],
+    "buttonRect": [
+      750,
+      700,
+      420,
+      140
+    ]
+  },
+  "validation": "Visual composite and alpha sampling checked. No Unity scene, game code, or animation changed; Unity rendering unverified.",
+  "prompts": {
+    "vignette": "Edit the supplied black vignette into a finished 16:9 death-screen overlay PNG, target 1920x1080. Genuine transparent alpha. Preserve the concept of transparent center and black edges. A very smooth soft elliptical black vignette, all RGB black, gradual alpha only: central 45 percent of width and 45 percent of height entirely transparent, softly and continuously increasing opacity outward, corners nearly opaque black, middle of each outer edge about 75 percent opacity. No hard ellipse border, no opaque background rectangle, no white or gray pixels, no colored haze, no scenery, no text, no ornament, no checkerboard. Clean cinematic restrained blackout overlay for a blue snowy fantasy game, subtle organic softness but NO visible brush streaks or texture grain. Canvas edges must reach full image boundary; this is an overlay, not an isolated object with transparent outer padding.",
+    "titleInitial": "Create a single isolated death-screen title text sprite. Exact text \"YOU DIE\", uppercase, single line, generous balanced letter spacing. Refined slender classic serif lettering, flat graphic design with delicate slightly worn ink edges. Muted crimson red, gently brighter dusty coral in the middle of strokes for readability over dark navy background, subtle restrained dark red halo very close to letters. Somber calm winter fantasy atmosphere, dignified and understated. NO flame shapes, no sparks, no baroque ornaments, no 3D bevel, no metal, no leaves, no dripping blood, no subtitle, no symbol, no panel. Entire asset is only the two words YOU DIE. Landscape 3:1 transparent canvas, title centered with generous transparent padding, genuine alpha around and between letters. It will be displayed about 640 pixels wide in the center of a 1920x1080 snowy moonlit game scene. No black rectangle, no checkerboard, no scenery. Render beautiful carefully spaced readable typography.",
+    "titleRefinement": "Correct this exact YOU DIE wordmark: remove ALL 3D shading, bevels, outlines, embossed edges, inner shadows and grainy stone texture. Replace with completely FLAT refined THIN serif typography, stroke weight half the reference, generous letter spacing. Exact words YOU DIE, one line. Uniform muted dusty red #B86864 throughout the strokes, optionally minute ink edge irregularity only. Calm somber clean editorial typography. No glow, no shadow, no ornaments, no decorations, no texture inside letters. Keep canvas 3:1, title centered, true transparent alpha background around and inside letters. It must look like tasteful flat typesetting, not a rendered fantasy logo.",
+    "retry": "Create one isolated \"다시 시작\" retry button sprite for a death screen in a snowy blue forest fantasy game. Exact Korean text \"다시 시작\", centered, readable ivory thin Korean serif font. Small elegant horizontal dark matte navy plaque, very fine silver-gray border, tiny frost-branch strokes only at left and right ends. Restrained handmade painted look, quiet simple design. One tiny muted red ember diamond beneath center border to connect to crimson YOU DIE lettering. No ornate leaves filling the button, no big crystals, no heavy glow, no bevel, no chrome, no extra text or icons. Landscape 3:1 canvas, target 768x256, button occupies central 86% width and 55% height, generous real transparent padding. Genuine transparent alpha background. Navy interior retained. Normal unselected button, flat front-facing UI, no scene, no checkerboard."
+  }
+}

@@ -1,5 +1,4 @@
 using UnityEngine;
-using TestPlayer = HyunseoTest.Player;
 
 public class ResponeZone : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class ResponeZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        TestPlayer player = other.GetComponentInParent<TestPlayer>();
+        Player player = other.GetComponentInParent<Player>();
 
         if (player == null || _checkPoint == null)
         {

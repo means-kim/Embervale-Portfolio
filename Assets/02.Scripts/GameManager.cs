@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public static bool IsLoading { get; private set; }
     private static string _requestedScene;
+    private static bool _restoreCheckpointOnLoad;
 
     [SerializeField] private PlayerUpgrades _upgrades;
     [SerializeField] private UI_Ability _abilityUI;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         Instance = null;
         IsLoading = false;
         _requestedScene = null;
+        _restoreCheckpointOnLoad = false;
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -113,6 +115,12 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance?.StopAllBgm();
         AudioManager.Instance?.PlayBgm(_startBgm);
 
+        if (_restoreCheckpointOnLoad)
+        {
+            _restoreCheckpointOnLoad = false;
+            CheckpointHistory.Restore(gameObject.scene);
+        }
+
         if (_upgrades == null || _abilityUI == null)
         {
             Debug.LogWarning("GameManager: 실제 플레이어의 PlayerUpgrades와 UI_Ability를 연결하세요.", this);
@@ -181,6 +189,7 @@ public class GameManager : MonoBehaviour
 
         if (newGame)
         {
+            CheckpointHistory.Clear();
             UpgradeHistory.ResetProgress();
             EncounterHistory.ResetSavedProgress();
             GameIntroCinematic.ResetProgress();
@@ -190,6 +199,7 @@ public class GameManager : MonoBehaviour
             Instance._upgrades.SaveProgress();
         }
         IsLoading = true;
+        _restoreCheckpointOnLoad = false;
         _requestedScene = sceneName;
         try
         {
@@ -211,7 +221,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static bool RetryScene(Scene scene) => LoadGameScene(scene.path);
+    public static bool RetryScene(Scene scene)
+    {
+        if (!LoadGameScene(scene.path)) return false;
+        _restoreCheckpointOnLoad = true;
+        return true;
+    }
 
     private void RestoreCancel()
     {
