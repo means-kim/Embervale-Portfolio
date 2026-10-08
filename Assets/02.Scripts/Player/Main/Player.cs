@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
         GetComponent<PlayerAttack>()?.CancelAttack();
         GetComponent<PlayerDash>()?.CancelDash();
         GetComponent<PlayerJump>()?.ResetForRespawn();
+        GetComponent<PlayerLandEffect>()?.ResetForRespawn();
         GetComponent<PlayerWall>()?.ResetForRespawn();
         GetComponent<PlayerMove>()?.ResetForRespawn();
 

@@ -27,6 +27,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _playerDeathVfx;
     [SerializeField] private GameObject _jumpVfx;
     [SerializeField] private GameObject _doubleJumpVfx;
+    [SerializeField] private GameObject _landVfx;
     [SerializeField] private GameObject _dashVfx;
     [SerializeField] private GameObject _footstepVfx;
     [Header("VFX 프리팹 (적)")]
@@ -142,6 +143,7 @@ public class EffectManager : MonoBehaviour
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
     public void PlayJump(Vector3 position) => Spawn(_jumpVfx, position);
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
+    public void PlayLand(Vector3 position) => Spawn(_landVfx, position);
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
 
