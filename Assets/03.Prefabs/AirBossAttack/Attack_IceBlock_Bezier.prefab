@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5039348117906714883}
   - component: {fileID: 2078562738695238834}
   - component: {fileID: 210738289287431222}
+  - component: {fileID: 2654324854637233726}
   m_Layer: 0
   m_Name: Attack_IceBlock_Bezier
   m_TagString: Untagged
@@ -79,7 +80,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -97,8 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e5f80be2b73ed4d84f4bd0cab5880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackBezierMovement
-  _moveSpeed: 200
-  _curveAmount: 15
+  _moveSpeed: 150
+  _curveAmount: 10
+--- !u!114 &2654324854637233726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293481016969042167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 1
 --- !u!1 &7586911830876487903
 GameObject:
   m_ObjectHideFlags: 0
