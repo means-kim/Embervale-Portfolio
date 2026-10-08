@@ -1,0 +1,48 @@
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.Animations;
+using System;
+using System.IO;
+using System.Linq;
+internal class CommandScript : IRunCommand {
+public void Execute(ExecutionResult result) {
+string dir=Path.Combine(Application.dataPath,"../Docs/Art/LightningVerticalHD_v01/Unity");
+Directory.CreateDirectory(dir);
+var old=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_SmallLightning.anim");
+var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_SmallLightning_VerticalHD_v01.anim");
+var bindings=AnimationUtility.GetObjectReferenceCurveBindings(clip);
+var keys=AnimationUtility.GetObjectReferenceCurve(clip,bindings.Single());
+if(keys.Length!=32 || keys.Any(k=>k.value==null))throw new Exception("Broken frame references");
+for(int i=0;i<32;i++)if(!keys[i].value.name.EndsWith("_"+i.ToString("00")))throw new Exception("Wrong frame order");
+if(clip.events.Length!=old.events.Length)throw new Exception("Event count mismatch");
+for(int i=0;i<old.events.Length;i++)if(clip.events[i].functionName!=old.events[i].functionName || Mathf.Abs(clip.events[i].time-old.events[i].time)>.0001f)throw new Exception("Event mismatch");
+var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/03.Prefabs/AirBossAttack/Attack_SmallLightning.prefab");
+var material=prefab.GetComponentInChildren<SpriteRenderer>().sharedMaterial;
+result.Log("Preview material: "+material.name+" shader="+material.shader.name);
+var preview=new PreviewRenderUtility();
+try {
+var root=new GameObject("Lightning_HD_TransientPreview"); root.transform.localScale=new Vector3(10,100,1);
+preview.AddSingleGO(root);
+var visual=new GameObject("Visual");visual.transform.SetParent(root.transform,false);
+var sr=visual.AddComponent<SpriteRenderer>();sr.sharedMaterial=material;
+var animator=visual.AddComponent<Animator>();animator.runtimeAnimatorController=AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>("Assets/05.Animation/AirBossAttack/Attack_SmallLightning_VerticalHD_v01AC.controller");animator.fireEvents=false;animator.Rebind();animator.Update(0);
+for(int i=0;i<32;i++) {
+animator.Play("SmallLightningVerticalHD",0,(i+.1f)/32f);animator.Update(0);
+if(sr.sprite!=keys[i].value || Vector3.Distance(visual.transform.localScale,new Vector3(10,1,1))>.001f)throw new Exception("Sample failed "+i);
+}
+foreach(int i in new[]{0,7,15,16,23,28,31}) {
+animator.Play("SmallLightningVerticalHD",0,(i+.1f)/32f);animator.Update(0);
+preview.BeginStaticPreview(new Rect(0,0,240,1600));
+var cam=preview.camera;cam.orthographic=true;cam.orthographicSize=150;
+cam.transform.position=new Vector3(0,0,-10);cam.transform.rotation=Quaternion.identity;
+cam.nearClipPlane=.1f;cam.farClipPlane=100;
+cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.07f,.09f,.15f,1);
+preview.Render(true,false);
+var tex=preview.EndStaticPreview();
+File.WriteAllBytes(Path.Combine(dir,"frame"+i.ToString("00")+".png"),tex.EncodeToPNG());
+UnityEngine.Object.DestroyImmediate(tex);
+}
+result.Log("Validated 32/32 samples, sprite order, local scale, original event timings. Saved 7 Unity renders.");
+}finally{preview.Cleanup();}
+}
+}
