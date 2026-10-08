@@ -591,7 +591,7 @@ MonoBehaviour:
   _dashVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
   _footstepVfx: {fileID: 0}
   _bossHitVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
-  _bossDeathVfx: {fileID: 5112403345868107898, guid: 7533273221badcc4ca95ded2ecc53bb2, type: 3}
+  _bossDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 493b07ea159d88440ad0220e8fd0b9b0, type: 3}
   _wallSlideVfx: {fileID: 0}
@@ -4517,10 +4517,6 @@ PrefabInstance:
     - target: {fileID: 3034470034761653321, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
-      propertyPath: _autoRecover
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
