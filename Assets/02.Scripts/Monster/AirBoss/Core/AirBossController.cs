@@ -36,9 +36,16 @@ public class AirBossController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_phaseController == null) return;
+        if (_phaseController != null)
+        {
+            _phaseController.TransitionRequested += HandleTransitionRequested;
+        }
 
-        _phaseController.TransitionRequested += HandleTransitionRequested;
+        if (_phase2Cinematic != null)
+        {
+            _phase2Cinematic.Completed += HandlePhase2Completed;
+            _phase2Cinematic.Cancelled += HandlePhase2Cancelled;
+        }
     }
 
     private void Update()
@@ -75,9 +82,16 @@ public class AirBossController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_phaseController == null) return;
+        if (_phaseController != null)
+        {
+            _phaseController.TransitionRequested -= HandleTransitionRequested;
+        }
 
-        _phaseController.TransitionRequested -= HandleTransitionRequested;
+        if (_phase2Cinematic != null)
+        {
+            _phase2Cinematic.Completed -= HandlePhase2Completed;
+            _phase2Cinematic.Cancelled -= HandlePhase2Cancelled;
+        }
     }
 
     private void UpdateWait()
@@ -191,5 +205,15 @@ public class AirBossController : MonoBehaviour
         AirBossAttackPool.Instance?.ReleaseAll();
 
         Debug.Log("다음 페이즈로 전환");
+    }
+
+    private void HandlePhase2Completed()
+    {
+        Debug.Log("2페이즈 연출 완료");
+    }
+
+    private void HandlePhase2Cancelled()
+    {
+        Debug.Log("2페이즈 연출 취소");
     }
 }
