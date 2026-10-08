@@ -107,13 +107,13 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.OneArmUpDownIce);
 
         // 작은 얼음 기둥 패턴만 테스트
-        Execute(AirBossActionType.OneArmIceSummon);
+        // Execute(AirBossActionType.OneArmIceSummon);
 
         // 얼음 덩어리 패턴만 테스트
         // Execute(AirBossActionType.BothArmsIcePush);
 
         // 베지어 곡선 얼음 덩어리 패턴만 테스트
-        // Execute(AirBossActionType.OneArmUpDownIceBlock);
+        Execute(AirBossActionType.OneArmUpDownIceBlock);
 
         // 짧은 번개 패턴만 테스트
         // Execute(AirBossActionType.OneArmUpDown);
