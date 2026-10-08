@@ -116,7 +116,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.OneArmUpDownIceBlock);
 
         // 짧은 번개 패턴만 테스트
-        // Execute(AirBossActionType.OneArmUpDown);
+        Execute(AirBossActionType.OneArmUpDown);
 
         // 큰 번개(보스 위치) 패턴만 테스트
         // Execute(AirBossActionType.BothArmsRaise);
@@ -137,7 +137,7 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.RaiseDropShadow);
 
         // 순차적 고드름 5 패턴만 테스트
-        Execute(AirBossActionType.OneArmUpDownIcePhase3);
+        // Execute(AirBossActionType.OneArmUpDownIcePhase3);
 
         // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
         //

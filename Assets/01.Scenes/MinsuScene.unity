@@ -504,7 +504,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 386.9034, y: 131.24966, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1475,6 +1475,18 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
+    - target: {fileID: 9028817793882323740, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817793882323740, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817793882323740, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
