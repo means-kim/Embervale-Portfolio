@@ -131,10 +131,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.ForwardReach);
 
         // 6줄기 번개 패턴만 테스트
-        Execute(AirBossActionType.CrossBurst6Point);
+        // Execute(AirBossActionType.CrossBurst6Point);
 
         // 눈보라 패턴만 테스트
-        // Execute(AirBossActionType.RaiseDropShadow);
+        Execute(AirBossActionType.RaiseDropShadow);
 
         // 순차적 고드름 5 패턴만 테스트
         // Execute(AirBossActionType.OneArmUpDownIcePhase3);
