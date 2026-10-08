@@ -105,7 +105,7 @@ public class GateSwitch : MonoBehaviour
 
                 break;
             case GateType.Elite:
-                if (exitFromRight)
+                if (exitFromRight && !EncounterHistory.HasEliminated(EliminateId.Elite01))
                 {
                     audio.PlayBgm(BgmType.Ellite);
                 }
