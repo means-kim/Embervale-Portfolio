@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackDataSO
   AttackType: 4
   AttackPrefab: {fileID: 750714777870707188, guid: 85e87edd6b1d24343bf99e728eba4ae9, type: 3}
-  SpawnOffset: {x: 2.2, y: 0}
+  SpawnOffset: {x: 1, y: -1}
   AnimClipName: UpAttack
   Damage: 10
-  HealthCost: 1
+  HealthCost: 0
   WindupDuration: 0
   RecoveryDuration: 0.3
