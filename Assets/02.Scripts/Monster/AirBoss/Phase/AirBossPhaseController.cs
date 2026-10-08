@@ -21,4 +21,64 @@ public class AirBossPhaseController : MonoBehaviour
 
     public event Action<int> TransitionRequested;
     public event Action<int> PhaseChange;
+
+    private void OnEnable()
+    {
+        if (_airBossHealth == null) return;
+
+        _airBossHealth.OnHit += CheckPhase;
+        _airBossHealth.OnDie += CancelTransition;
+    }
+
+    private void OnDisable()
+    {
+        if (_airBossHealth != null)
+        {
+            _airBossHealth.OnHit -= CheckPhase;
+            _airBossHealth.OnDie -= CancelTransition;
+        }
+
+        CancelTransition();
+    }
+
+    public void CheckPhase()
+    {
+        if (_airBossHealth == null || _airBossHealth.IsDead) return;
+        if (_airBossHealth.MaxHealth <= 0) return;
+        if (_isTransition || _currentPhase >= 3) return;
+
+        float healthPercent = (float)_airBossHealth.CurrentHealth / _airBossHealth.MaxHealth * 100f;
+
+        float phasePercent = _currentPhase == 1 ? _phase2HealthPercent : _phase3HealthPercent;
+
+        if (healthPercent > phasePercent) return;
+
+        _pendingPhase = _currentPhase + 1;
+        _isTransition = true;
+
+        TransitionRequested?.Invoke(_pendingPhase);
+    }
+
+    public void CompletePhase()
+    {
+        if (!_isTransition) return;
+
+        if (_airBossHealth == null || _airBossHealth.IsDead)
+        {
+            CancelTransition();
+            return;
+        }
+
+        _currentPhase = _pendingPhase;
+        _pendingPhase = 0;
+        _isTransition = false;
+
+        PhaseChange?.Invoke(_currentPhase);
+    }
+
+    public void CancelTransition()
+    {
+        _pendingPhase = 0;
+        _isTransition = false;
+    }
 }
