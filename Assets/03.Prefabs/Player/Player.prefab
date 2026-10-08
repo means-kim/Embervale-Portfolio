@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 7063253867997152185}
   - component: {fileID: 5296047191700168514}
   - component: {fileID: 7125860679552362356}
+  - component: {fileID: 5573973081042068529}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -521,3 +522,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5dd00b94b0b836498c3294ec30d7fcc, type: 2}
   - {fileID: 11400000, guid: 142b1f47d6619724fbc3367ae2109679, type: 2}
   - {fileID: 11400000, guid: 9617ab70108fe0a48812cd871b9b0779, type: 2}
+--- !u!114 &5573973081042068529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034470034761653321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b087a108ee6afd45ac6b7f79b8b7c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLandEffect
+  _minAirTime: 0.12
+  _positionOffset: {x: 0, y: 0, z: 0}
