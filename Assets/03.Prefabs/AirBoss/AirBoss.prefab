@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 5809469499536019829}
   - component: {fileID: 3177162394418046562}
   - component: {fileID: 1566677918546449221}
+  - component: {fileID: 6821793748309605612}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -706,3 +707,18 @@ MonoBehaviour:
   _warningInterval: 0.3
   _waitAfterWarnings: 0.9
   _attackInterval: 0.3
+--- !u!114 &6821793748309605612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c83fec26d0bf4732a67a3099051e4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossPhaseController
+  _airBossHealth: {fileID: 0}
+  _phase2HealthPercent: 70
+  _phase3HealthPercent: 30

@@ -6,10 +6,10 @@ public class AirBossPhaseController : MonoBehaviour
     [SerializeField] private Health _airBossHealth;
 
     [Header("페이즈2 체력 퍼센트")]
-    [SerializeField] private float _phase2HealthPercent = 70f;
+    [SerializeField, Range(0f, 100f)] private float _phase2HealthPercent = 70f;
 
     [Header("페이즈3 체력 퍼센트")]
-    [SerializeField] private float _phase3HealthPercent = 30f;
+    [SerializeField, Range(0f, 100f)] private float _phase3HealthPercent = 30f;
 
     private int _currentPhase = 1;
     private int _pendingPhase;
