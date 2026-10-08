@@ -7,8 +7,8 @@ public enum AirBossActionType
     OneArmUpDown,
     BothArmsRaise,
     RaiseDropShadow,
-    SpinRoll360,
-    SpinYaw360,
+    // SpinRoll360,
+    // SpinYaw360,
     BothArmsIceThrow,
     BothArmsIcePush,
     OneArmIceSummon,
@@ -17,6 +17,7 @@ public enum AirBossActionType
     OneArmUpDownIceBlock,
     CrossBurst,
     CrossBurst6Point,
+    OneArmUpDownIcePhase3,
 
     Count
 }

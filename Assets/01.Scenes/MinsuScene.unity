@@ -212,9 +212,9 @@ MonoBehaviour:
   - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
   - {fileID: 5039348117906714883, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
   - {fileID: 5039348117906714883, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
-  - {fileID: 1300002583}
+  - {fileID: 5039348117906714883, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
   - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
-  - {fileID: 959314006}
+  - {fileID: 5039348117906714883, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
   - {fileID: 5039348117906714883, guid: 90ddc00d6b0bfa04b8be8aaf5ba527cc, type: 3}
   - {fileID: 5039348117906714883, guid: 054b7f28974995241ab3be3422618eb1, type: 3}
   - {fileID: 5039348117906714883, guid: 1e71af5bc88d01242a11793ab6f0c4a8, type: 3}
@@ -504,7 +504,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 386.9034, y: 131.24966, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -776,17 +776,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 927f7b9266e8a5d408128cd2eeedce81, type: 3}
---- !u!114 &959314006 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5039348117906714883, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
-  m_PrefabInstance: {fileID: 47354844}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4b6a2a502500c4095719c107ca8df3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
 --- !u!1001 &979077680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -971,17 +960,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
---- !u!114 &1300002583 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5039348117906714883, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
-  m_PrefabInstance: {fileID: 1406385731}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4b6a2a502500c4095719c107ca8df3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
 --- !u!1001 &1406385731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1423,22 +1401,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
-    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _idleTimer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _idleWeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _moveWeight
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
-      propertyPath: _actionWeight
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss

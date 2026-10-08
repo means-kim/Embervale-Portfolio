@@ -30,9 +30,19 @@ public class PlayerDamageHitbox : MonoBehaviour
         if (!IsActive || other == null || !other.TryGetComponent<DamageReceiver>(out var receiver)) return false;
         var target = receiver.Health;
         if (target == null || !_hitTargets.Add(target)) return false;
+        // 데미지(사망 시 Dummy가 Destroy 예약) 전에 타격점을 먼저 확정한다.
+        // transform.position은 공격 인스턴스 원점(플레이어 발 근처)이라 그대로
+        // ClosestPoint에 쓰면 Dummy 밑단 가장자리가 나온다. 실제 판정 콜라이더
+        // bounds 중심을 기준으로 구하고, 그 점이 대상 안에 있으면 중심을 쓴다.
+        Vector3 targetCenter = other.bounds.center;
+        Vector3 queryPoint = TryGetBounds(out Bounds attackerBounds)
+            ? (Vector3)attackerBounds.center
+            : transform.position;
+        Vector3 hitPoint = other.OverlapPoint(queryPoint) ? targetCenter : (Vector3)other.ClosestPoint(queryPoint);
+        Vector3 ownerPos = _owner != null ? _owner.transform.position : transform.position;
+        Vector2 direction = (Vector2)targetCenter - (Vector2)ownerPos;
         if (!receiver.TryTakeDamage(_damage, _owner)) { _hitTargets.Remove(target); return false; }
-        Vector2 direction = other.bounds.center - (_owner != null ? _owner.transform.position : transform.position);
-        EffectManager.Instance?.PlayBossHit(other.ClosestPoint(transform.position), direction);
+        EffectManager.Instance?.PlayBossHit(hitPoint, direction);
         OnDamageApplied?.Invoke(other);
         return true;
     }

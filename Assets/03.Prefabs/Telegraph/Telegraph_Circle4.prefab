@@ -139,11 +139,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TelegraphVisual
   _visual: {fileID: 7252921411846412441}
   _duration: 1
-  _minimumBrightness: 0.65
+  _minimumBrightness: 0.2
   _maximumBrightness: 1
-  _minimumAlpha: 0.45
-  _maximumAlpha: 0.9
+  _minimumAlpha: 0.1
+  _maximumAlpha: 1
   _loop: 0
+  _fadeOutDuration: 0.2
 --- !u!114 &3365085907564005587
 MonoBehaviour:
   m_ObjectHideFlags: 0

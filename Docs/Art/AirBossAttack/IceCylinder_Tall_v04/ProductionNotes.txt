@@ -1,0 +1,47 @@
+얼음 기둥 Tall v04 — 2026-10-08
+새 스프라이트: ../../../../Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_Tall_AirBoss_24F_v04.png
+새 클립: ../../../../Assets/05.Animation/AirBossAttack/Attack_LargeIcePillar_White_Tall_v04.anim
+
+설계
+- 기존 v03의 파란색/흰색 원통형 얼음 디자인과 단계 순서를 참조.
+- 몸통 폭 약160px, 완성 높이 약780px. 기존 약80x195px와 비교해 PPU512에서 폭은 비슷하고 높이는 약2배.
+- 512x1024 셀 x 6열4행 = 실제 PNG3072x4096 RGBA,24개 그림.
+- 중심 (256,512), Center Pivot(0.5,0.5), PPU512, FullRect, Bilinear, Clamp, Mipmaps Off, 무압축, MaxSize4096.
+- 프레임01~06 성장,07~14 유지,15~18 균열,19~24 파괴/파편/잔광.
+- 바닥 몸통 기준선은 이미지 상단 기준 y888로 정렬. 중앙 피봇이므로 기존 프리팹 위치에 연결했을 때 접지 위치는 자동 유지되지 않음.
+- 사용자 기존 Scale50을 가정하면 새 셀 월드크기는50x100. 기존 셀은50x50. 실제 몸통 폭/높이는 투명 여백을 제외하여 비교.
+- 실제 게임의 Visual 위치와 Collider size/offset은 사용자가 적용 시 검토. 현재 프리팹은 변경하지 않음.
+
+생성 및 후처리
+- 내장 image_gen 사용. 기존 v03 시트와 높이2배 시안이 이미지 참조.
+- 4프레임씩6회 생성. 요청 각1024x2048, 실제 각887x1774. 네이티브512x1024로 개별 생성된 프레임이 아님.
+- GenerationSources에 생성 원본 보존, GenerationPrompts.txt에 실제 프롬프트 보존.
+- PackFrames.cs는 생성된 프레임을 분리하고 폭/높이/접지 위치를 정렬한 뒤 정확한 셀에 배치하는 후처리.
+- 일부 프레임은 크기 보정과 소폭 확대가 포함됨. 이미지 확대만으로 네이티브 세부 묘사가 추가된다고 주장하지 않음.
+- 사라지는 파편은 비율을 유지하며 작아지도록 정렬. 완성 높이/폭과 바닥선 고정에도 얼음 무늬/밑동/광채의 프레임 간 변화는 남아 있음.
+- FrameMetrics.csv는 실제 프레임 경계, 배율, 해시. 전체24개 파일 해시가 서로 다름.
+
+클립
+- 원본 Attack_LargeIceIcePillar_White.anim을 복제하여 Sprite 참조만 새24장으로 교체.
+- Samples24, length2.541667초, 원본의 비균등한 키 시간 유지.
+- 0.333333 EnableHitBox / 2.166667 DisableHitBox / 2.5 Release 유지.
+- 2.5초 Sprite=null키. Loop Time도 원본처럼 On. Release가 정상 실행되면 기존 로직은 오브젝트를 비활성화함.
+- Animator Controller 및 기존 프리팹의 클립 연결은 변경하지 않음.
+
+검증
+- Unity6000.3.22f1에서 실제 임포트 크기3072x4096,24개 스프라이트, 전부512x1024/PPU512/Center Pivot 확인.
+- 새 클립25개 키(24개 그림+None)와 이벤트를 원본과 대조.
+- 격리 Preview Scene에 Animator+SpriteRenderer를 두고 모든 키를 SampleAnimation; 순서/누락/마지막None 검증 통과.
+- UnityPreview/Frame_01..25.png: 실제 Unity 렌더. URP Sprite-Unlit-Default로 조명 영향을 제외한 아트 검토.
+- 렌더에 사용한 Preview Scene/임시 오브젝트/재질/RenderTexture는 종료 시 정리.
+- 현재 MinsuScene의 저장 상태는 검사 전후 모두 dirty=false.
+- 실제 플레이 중 이벤트 실행/풀 반환/콜라이더/피격 판정은 미검증.
+- 콘솔에 기존 계정/연결 서비스 관련 로그가 있음. 이번 에셋의 컴파일 오류로 확인된 것은 없음.
+- 원본 PNG/meta, 원본 클립, 기존 프리팹 SHA256가 작업 전후 동일함. 사용자 수정 AirBossAction.cs는 보존.
+
+원본 보존 SHA256
+PNG 93397B33185A799421DD8E04547BC75356BA713C8B1A29C4D5884EC46B9BF938
+PNG.meta 238B8A2DE33108AE83DC2080B84FF3DD592F689A52F667579396F8B975675015
+원본 클립 B2CCF213F55AF45DC9B5AD0E1779D6EA67DA15FBD07C373144418098D33AEFC1
+기존 프리팹 E09BB5A46661AB8C7D4C86B1300F79624093A63066D72BD8E0222D42E83FFB5B
+
