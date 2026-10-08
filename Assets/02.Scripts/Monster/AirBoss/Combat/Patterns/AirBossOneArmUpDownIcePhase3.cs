@@ -161,7 +161,7 @@ public class AirBossOneArmUpDownIcePhase3 : AirBossAttackBase
 
         if (_telegraphs[index] != null)
         {
-            _telegraphs[index].Release();
+            _telegraphs[index].FadeOutAndRelease();
             _telegraphs[index] = null;
         }
     }
