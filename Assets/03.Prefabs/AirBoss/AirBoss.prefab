@@ -378,6 +378,8 @@ MonoBehaviour:
   _idleWeight: 0
   _moveWeight: 20
   _actionWeight: 60
+  _phaseController: {fileID: 0}
+  _phase2Cinematic: {fileID: 0}
 --- !u!114 &6954472282831411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c83fec26d0bf4732a67a3099051e4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossPhaseController
-  _airBossHealth: {fileID: 0}
+  _airBossHealth: {fileID: 3290482276672149958}
   _phase2HealthPercent: 70
   _phase3HealthPercent: 30
