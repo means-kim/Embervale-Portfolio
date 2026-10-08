@@ -18,6 +18,7 @@ public enum AirBossActionType
     CrossBurst,
     CrossBurst6Point,
     OneArmUpDownIcePhase3,
+    RaiseBothArmPhase3,
 
     Count
 }
