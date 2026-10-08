@@ -119,10 +119,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.OneArmUpDown);
 
         // 큰 번개(보스 위치) 패턴만 테스트
-        Execute(AirBossActionType.BothArmsRaise);
+        // Execute(AirBossActionType.BothArmsRaise);
 
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
-        // Execute(AirBossActionType.BothArmsLightningGather);
+        Execute(AirBossActionType.BothArmsLightningGather);
 
         // * 모양 번개 패턴만 테스트
         // Execute(AirBossActionType.CrossBurst);
