@@ -681,7 +681,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -702,7 +702,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -760,9 +760,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2304
-        width: 384
-        height: 768
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -781,10 +781,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_01
       rect:
         serializedVersion: 2
-        x: 384
-        y: 2304
-        width: 384
-        height: 768
+        x: 768
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -803,10 +803,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_02
       rect:
         serializedVersion: 2
-        x: 768
-        y: 2304
-        width: 384
-        height: 768
+        x: 1536
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -825,10 +825,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_03
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 2304
-        width: 384
-        height: 768
+        x: 2304
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -847,10 +847,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_04
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 2304
-        width: 384
-        height: 768
+        x: 3072
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -869,10 +869,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_05
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 2304
-        width: 384
-        height: 768
+        x: 3840
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -891,10 +891,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_06
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 2304
-        width: 384
-        height: 768
+        x: 4608
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -913,10 +913,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_07
       rect:
         serializedVersion: 2
-        x: 2688
-        y: 2304
-        width: 384
-        height: 768
+        x: 5376
+        y: 4608
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -936,9 +936,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
-        width: 384
-        height: 768
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -957,10 +957,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_09
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1536
-        width: 384
-        height: 768
+        x: 768
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -979,10 +979,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_10
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1536
-        width: 384
-        height: 768
+        x: 1536
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1001,10 +1001,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_11
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1536
-        width: 384
-        height: 768
+        x: 2304
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1023,10 +1023,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_12
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 384
-        height: 768
+        x: 3072
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1045,10 +1045,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_13
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 1536
-        width: 384
-        height: 768
+        x: 3840
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1067,10 +1067,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_14
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 1536
-        width: 384
-        height: 768
+        x: 4608
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1089,10 +1089,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_15
       rect:
         serializedVersion: 2
-        x: 2688
-        y: 1536
-        width: 384
-        height: 768
+        x: 5376
+        y: 3072
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1112,9 +1112,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
-        width: 384
-        height: 768
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1133,10 +1133,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_17
       rect:
         serializedVersion: 2
-        x: 384
-        y: 768
-        width: 384
-        height: 768
+        x: 768
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1155,10 +1155,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_18
       rect:
         serializedVersion: 2
-        x: 768
-        y: 768
-        width: 384
-        height: 768
+        x: 1536
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1177,10 +1177,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_19
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 768
-        width: 384
-        height: 768
+        x: 2304
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1199,10 +1199,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_20
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 768
-        width: 384
-        height: 768
+        x: 3072
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1221,10 +1221,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_21
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 768
-        width: 384
-        height: 768
+        x: 3840
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1243,10 +1243,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_22
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 768
-        width: 384
-        height: 768
+        x: 4608
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1265,10 +1265,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_23
       rect:
         serializedVersion: 2
-        x: 2688
-        y: 768
-        width: 384
-        height: 768
+        x: 5376
+        y: 1536
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1289,8 +1289,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1309,10 +1309,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_25
       rect:
         serializedVersion: 2
-        x: 384
+        x: 768
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1331,10 +1331,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_26
       rect:
         serializedVersion: 2
-        x: 768
+        x: 1536
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1353,10 +1353,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_27
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 2304
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1375,10 +1375,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_28
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 3072
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1397,10 +1397,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_29
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 3840
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1419,10 +1419,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_30
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 4608
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1441,10 +1441,10 @@ TextureImporter:
       name: Attack_Lightning_VerticalGrowth_AirBoss_v01_31
       rect:
         serializedVersion: 2
-        x: 2688
+        x: 5376
         y: 0
-        width: 384
-        height: 768
+        width: 768
+        height: 1536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

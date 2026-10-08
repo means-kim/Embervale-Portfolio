@@ -1,0 +1,26 @@
+using UnityEngine; using UnityEditor; using UnityEditor.U2D.Sprites; using System.IO;
+internal class CommandScript:IRunCommand {
+public void Execute(ExecutionResult result) {
+string dir="Docs/Boss/AirBoss/BodyResample_v01/";
+var factory=new SpriteDataProviderFactories();factory.Init();
+int n=0;
+foreach(var p in File.ReadAllLines(dir+"Paths.txt")) {
+string marker=dir+"Prepared/"+Path.GetFileName(p)+".applied";
+if(File.Exists(marker))continue;
+var imp=(TextureImporter)AssetImporter.GetAtPath(p);
+var provider=factory.GetSpriteEditorDataProviderFromObject(imp);provider.InitSpriteEditorDataProvider();
+var rects=provider.GetSpriteRects();
+foreach(var s in rects) {var r=s.rect;s.rect=new Rect(r.x*1.5f,r.y*1.5f,r.width*1.5f,r.height*1.5f);s.border*=1.5f;}
+AssetDatabase.DisallowAutoRefresh();
+try {
+File.Copy(dir+"Prepared/"+Path.GetFileName(p),p,true);
+imp.spritePixelsPerUnit*=1.5f;
+var setting=imp.GetDefaultPlatformTextureSettings();setting.maxTextureSize=8192;setting.textureCompression=TextureImporterCompression.Uncompressed;imp.SetPlatformTextureSettings(setting);
+provider.SetSpriteRects(rects);provider.Apply();
+imp.SaveAndReimport();
+File.WriteAllText(marker,"Applied 1.5x");
+} finally {AssetDatabase.AllowAutoRefresh();}
+result.Log(p);n++;if(n>=5)break;
+}
+result.Log("Applied batch "+n);
+}}

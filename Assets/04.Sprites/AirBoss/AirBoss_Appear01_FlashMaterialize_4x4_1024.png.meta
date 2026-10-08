@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -117,7 +117,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -175,11 +175,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3072
-        width: 1024
-        height: 1024
+        y: 4608
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_1
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 1536
+        y: 4608
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_2
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 3072
+        y: 4608
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_3
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 4608
+        y: 4608
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,11 +263,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2048
-        width: 1024
-        height: 1024
+        y: 3072
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_5
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 1536
+        y: 3072
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_6
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 3072
+        y: 3072
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_7
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 4608
+        y: 3072
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,11 +351,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
-        width: 1024
-        height: 1024
+        y: 1536
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_9
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 1536
+        y: 1536
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_10
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 3072
+        y: 1536
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -416,12 +416,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_11
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 4608
+        y: 1536
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -440,10 +440,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -460,12 +460,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_13
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1536
         y: 0
-        width: 1024
-        height: 1024
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -482,12 +482,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_14
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 3072
         y: 0
-        width: 1024
-        height: 1024
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -504,12 +504,12 @@ TextureImporter:
       name: AirBoss_Appear01_FlashMaterialize_4x4_1024_15
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 4608
         y: 0
-        width: 1024
-        height: 1024
+        width: 1536
+        height: 1536
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -526,7 +526,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5119aaa80a9b0ae45af5d148717fdf1f
     internalID: 0
     vertices: []
     indices: 
