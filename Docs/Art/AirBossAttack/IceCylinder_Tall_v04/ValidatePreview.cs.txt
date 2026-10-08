@@ -1,0 +1,51 @@
+
+var active=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+bool wasDirty=active.isDirty;
+var clip=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_LargeIcePillar_White_Tall_v04.anim");
+var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_LargeIceIcePillar_White.anim");
+var binding=UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(clip).Single(b=>b.propertyName=="m_Sprite");
+var keys=UnityEditor.AnimationUtility.GetObjectReferenceCurve(clip,binding);
+var oldKeys=UnityEditor.AnimationUtility.GetObjectReferenceCurve(source,binding);
+var sprites=UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_Tall_AirBoss_24F_v04.png").OfType<UnityEngine.Sprite>().OrderBy(s=>s.name).ToArray();
+var errors=new System.Collections.Generic.List<string>();
+var events=UnityEditor.AnimationUtility.GetAnimationEvents(clip);
+var oldEvents=UnityEditor.AnimationUtility.GetAnimationEvents(source);
+if(keys.Length!=25||sprites.Length!=24)errors.Add("counts");
+if(!events.Select(e=>e.time+":"+e.functionName).SequenceEqual(oldEvents.Select(e=>e.time+":"+e.functionName)))errors.Add("events");
+if(!keys.Select(k=>k.time).SequenceEqual(oldKeys.Select(k=>k.time)))errors.Add("timing");
+string dir=System.IO.Path.GetFullPath("Docs/Art/AirBossAttack/IceCylinder_Tall_v04/UnityPreview");
+System.IO.Directory.CreateDirectory(dir);
+var scene=UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+UnityEngine.RenderTexture rt=null;UnityEngine.Material material=null;UnityEngine.Texture2D capture=null;
+var oldRT=UnityEngine.RenderTexture.active;
+try {
+ var go=new UnityEngine.GameObject("TallIceV04_Preview",typeof(UnityEngine.SpriteRenderer),typeof(UnityEngine.Animator));go.hideFlags=UnityEngine.HideFlags.HideAndDontSave;UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,scene);
+ var renderer=go.GetComponent<UnityEngine.SpriteRenderer>();
+ var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Unlit-Default.shader");
+ material=new UnityEngine.Material(shader);material.hideFlags=UnityEngine.HideFlags.HideAndDontSave;renderer.sharedMaterial=material;
+ var cgo=new UnityEngine.GameObject("TallIceV04_PreviewCamera",typeof(UnityEngine.Camera));cgo.hideFlags=UnityEngine.HideFlags.HideAndDontSave;UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cgo,scene);
+ var camera=cgo.GetComponent<UnityEngine.Camera>();camera.scene=scene;camera.enabled=false;camera.orthographic=true;camera.orthographicSize=1;camera.aspect=0.5f;camera.transform.position=new UnityEngine.Vector3(0,0,-10);camera.clearFlags=UnityEngine.CameraClearFlags.SolidColor;camera.backgroundColor=new UnityEngine.Color(0.055f,0.07f,0.10f,1);camera.nearClipPlane=.1f;camera.farClipPlane=30;
+ rt=new UnityEngine.RenderTexture(256,512,24,UnityEngine.RenderTextureFormat.ARGB32);rt.Create();camera.targetTexture=rt;
+ capture=new UnityEngine.Texture2D(256,512,UnityEngine.TextureFormat.RGBA32,false);
+ for(int i=0;i<25;i++){
+  clip.SampleAnimation(go,keys[i].time+.0001f);
+  if(i<24){
+   if(renderer.sprite!=sprites[i])errors.Add("sample "+i);
+   var s=sprites[i];if(s.rect.width!=512||s.rect.height!=1024||s.pivot!=new UnityEngine.Vector2(256,512)||s.pixelsPerUnit!=512)errors.Add("sprite settings "+i);
+  } else if(renderer.sprite!=null)errors.Add("null end");
+  camera.Render();UnityEngine.RenderTexture.active=rt;capture.ReadPixels(new UnityEngine.Rect(0,0,256,512),0,0);capture.Apply();
+  System.IO.File.WriteAllBytes(System.IO.Path.Combine(dir,"Frame_"+(i+1).ToString("D2")+".png"),capture.EncodeToPNG());
+ }
+ camera.targetTexture=null;
+} finally {
+ UnityEngine.RenderTexture.active=oldRT;
+ if(capture!=null)UnityEngine.Object.DestroyImmediate(capture);
+ if(rt!=null){rt.Release();UnityEngine.Object.DestroyImmediate(rt);}
+ if(material!=null)UnityEngine.Object.DestroyImmediate(material);
+ UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(scene);
+}
+var texture=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/04.Sprites/AirBossAttack/Attack_IceCylinder_Tall_AirBoss_24F_v04.png");
+var report="Dimensions="+texture.width+"x"+texture.height+"\nSprites="+sprites.Length+"\nKeys="+keys.Length+"\nLength="+clip.length+"\nSamples="+clip.frameRate+"\nEvents="+string.Join(", ",events.Select(e=>e.time+":"+e.functionName))+"\nLoop="+UnityEditor.AnimationUtility.GetAnimationClipSettings(clip).loopTime+"\nErrors="+string.Join(",",errors)+"\nActiveScene="+active.path+"\nSceneDirtyBefore="+wasDirty+"\nSceneDirtyAfter="+active.isDirty;
+System.IO.File.WriteAllText(System.IO.Path.Combine(dir,"Validation.txt"),report);
+return report;
+
