@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 3
-  _damage: 10
+  _damage: 100
 --- !u!58 &2078562738695238834
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
-  _strength: 1
+  _strength: 2
 --- !u!1 &7586911830876487903
 GameObject:
   m_ObjectHideFlags: 0
