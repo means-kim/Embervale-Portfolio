@@ -81,7 +81,7 @@ public class AirBossOneArmUpDownIcePhase3 : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayOneArmUpDownIceAnimation();
+        _animation.PlayOneArmUpDownIcePhase3Animation();
     }
 
     public override void ShowWarning()
