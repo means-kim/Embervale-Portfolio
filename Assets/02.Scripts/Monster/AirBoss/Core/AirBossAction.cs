@@ -49,13 +49,13 @@ public class AirBossAction : MonoBehaviour
                 StartAttack(_raiseDropShadow);
                 break;
 
-            case AirBossActionType.SpinRoll360:
-                _animation.PlaySpinRoll360Animation();
-                break;
-
-            case AirBossActionType.SpinYaw360:
-                _animation.PlaySpinYaw360Animation();
-                break;
+            // case AirBossActionType.SpinRoll360:
+            //     _animation.PlaySpinRoll360Animation();
+            //     break;
+            //
+            // case AirBossActionType.SpinYaw360:
+            //     _animation.PlaySpinYaw360Animation();
+            //     break;
 
             case AirBossActionType.BothArmsLightningGather:
                 StartAttack(_bothArmsLightningGather);
@@ -122,10 +122,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsRaise);
 
         // 3줄 번개(보스 위치 센터) 패턴만 테스트
-        Execute(AirBossActionType.BothArmsLightningGather);
+        // Execute(AirBossActionType.BothArmsLightningGather);
 
         // * 모양 번개 패턴만 테스트
-        // Execute(AirBossActionType.CrossBurst);
+        Execute(AirBossActionType.CrossBurst);
 
         // // 번개 구체 패턴 테스트
         // Execute(AirBossActionType.ForwardReach);
