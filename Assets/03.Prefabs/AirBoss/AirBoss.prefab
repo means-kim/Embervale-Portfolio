@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 8334308445502172291}
   - component: {fileID: 5809469499536019829}
   - component: {fileID: 3177162394418046562}
+  - component: {fileID: 1566677918546449221}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -429,6 +430,7 @@ MonoBehaviour:
   _crossBurst6Point: {fileID: 8334308445502172291}
   _raiseDropShadow: {fileID: 5809469499536019829}
   _oneArmUpDownIcePhase3: {fileID: 3177162394418046562}
+  _raiseBothArmPhase3: {fileID: 1566677918546449221}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +681,28 @@ MonoBehaviour:
   _telegraphScaleMultiplier: {x: 10, y: 20, z: 1}
   _offSetX: 20
   _offSetY: 50
+  _warningInterval: 0.3
+  _waitAfterWarnings: 0.9
+  _attackInterval: 0.3
+--- !u!114 &1566677918546449221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b88596a080270e41a693700b34aa743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossRaiseBothArmPhase3
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 10, y: 40, z: 1}
+  _offSetX: 20
+  _offSetY: 0
   _warningInterval: 0.3
   _waitAfterWarnings: 0.9
   _attackInterval: 0.3
