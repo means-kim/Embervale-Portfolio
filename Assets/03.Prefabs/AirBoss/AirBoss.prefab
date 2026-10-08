@@ -445,7 +445,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 20, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 10, y: 30, z: 1}
 --- !u!114 &7231270996186931566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +479,8 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
-  _offSetX: 40
+  _telegraphScaleMultiplier: {x: 10, y: 20, z: 1}
+  _offSetX: 30
   _offSetY: 50
 --- !u!114 &-5426264349106596146
 MonoBehaviour:
@@ -497,8 +497,8 @@ MonoBehaviour:
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
-  _telegraphType: 0
-  _telegraphScaleMultiplier: {x: 10, y: 10, z: 1}
+  _telegraphType: 1
+  _telegraphScaleMultiplier: {x: 2, y: 2, z: 1}
 --- !u!114 &2886692296107327024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
   _telegraphType: 1
-  _telegraphScaleMultiplier: {x: 20, y: 20, z: 1}
+  _telegraphScaleMultiplier: {x: 7, y: 7, z: 1}
   _iceBlockPoint: {fileID: 728499216316706709}
 --- !u!114 &9028817793882323740
 MonoBehaviour:
@@ -549,8 +549,8 @@ MonoBehaviour:
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 0}
-  _telegraphType: 0
-  _telegraphScaleMultiplier: {x: 7, y: 10, z: 1}
+  _telegraphType: 5
+  _telegraphScaleMultiplier: {x: 2, y: 2, z: 1}
 --- !u!114 &7887491556339557163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _player: {fileID: 6638137889588832488}
   _telegraphType: 3
-  _telegraphScaleMultiplier: {x: 60, y: 30, z: 1}
+  _telegraphScaleMultiplier: {x: 40, y: 30, z: 1}
 --- !u!114 &4825282030232398469
 MonoBehaviour:
   m_ObjectHideFlags: 0
