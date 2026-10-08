@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
         Player player = other.GetComponent<Player>();
         if (player == null) return;
         player.SetRespawnPoint(transform.position);
+        CheckpointHistory.Record(player, transform);
         EffectManager.Instance?.PlayCheckpoint(transform.position);
     }
 }

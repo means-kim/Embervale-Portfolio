@@ -53,6 +53,7 @@ MonoBehaviour:
   _minimumAlpha: 0.1
   _maximumAlpha: 1
   _loop: 0
+  _fadeOutDuration: 0.4
 --- !u!114 &8020490807436406952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300005
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3987409572318650271, guid: 2c4257aa24c0f21429dbb9705d467502, type: 3}

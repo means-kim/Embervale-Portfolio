@@ -2,205 +2,204 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HyunseoTest
+[RequireComponent(typeof(CanvasGroup))]
+public class UI_PlayerDeath : MonoBehaviour
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class UI_PlayerDeath : MonoBehaviour
+    [SerializeField] private Player _player;
+    [SerializeField] private Button _retryButton;
+    [SerializeField, Min(0f)] private float _fadeDuration = 0.4f;
+    [SerializeField] private AudioSource _deathAudioSource;
+
+    private global::Health _health;
+    private PlayerInput _input;
+    private CanvasGroup _group;
+    private Coroutine _fade;
+    private bool _waitingForRetry;
+    private bool _ready;
+    private bool _restoreInput;
+    private string _deathAudioPath = "DeathBgm";
+
+    private void Awake()
     {
-        [SerializeField] private Player _player;
-        [SerializeField] private Button _retryButton;
-        [SerializeField, Min(0f)] private float _fadeDuration = 0.4f;
-        [SerializeField] private AudioSource _deathAudioSource;
-
-        private global::Health _health;
-        private PlayerInput _input;
-        private CanvasGroup _group;
-        private Coroutine _fade;
-        private bool _waitingForRetry;
-        private bool _ready;
-        private bool _restoreInput;
-        private string _deathAudioPath = "DeathBgm";
-
-        private void Awake()
+        _group = GetComponent<CanvasGroup>();
+        CacheDeathAudioPath();
+        if (_player == null || _retryButton == null)
         {
-            _group = GetComponent<CanvasGroup>();
-            CacheDeathAudioPath();
-            if (_player == null || _retryButton == null)
-            {
-                enabled = false;
-                return;
-            }
+            enabled = false;
+            return;
+        }
 
-            _health = _player.GetComponent<global::Health>();
-            _input = _player.GetComponent<PlayerInput>();
+        _health = _player.GetComponent<global::Health>();
+        _input = _player.GetComponent<PlayerInput>();
 
-            foreach (CanvasGroup child in GetComponentsInChildren<CanvasGroup>(true))
-            {
-                if (child == _group) continue;
-                child.alpha = 1f;
-                child.interactable = true;
-                child.blocksRaycasts = child.gameObject == _retryButton.gameObject;
-            }
+        foreach (CanvasGroup child in GetComponentsInChildren<CanvasGroup>(true))
+        {
+            if (child == _group) continue;
+            child.alpha = 1f;
+            child.interactable = true;
+            child.blocksRaycasts = child.gameObject == _retryButton.gameObject;
+        }
 
+        Hide();
+    }
+
+    private void OnEnable()
+    {
+        if (_health == null || _retryButton == null)
+        {
+            return;
+        }
+
+        _health.OnDie += ShowDeath;
+        _player.OnRestarted += HandleRestarted;
+        _retryButton.onClick.AddListener(Retry);
+        if (_health.IsDead)
+        {
+            ShowDeath();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_health != null)
+        {
+            _health.OnDie -= ShowDeath;
+        }
+
+        if (_player != null)
+        {
+            _player.OnRestarted -= HandleRestarted;
+        }
+
+        if (_retryButton != null)
+        {
+            _retryButton.onClick.RemoveListener(Retry);
+        }
+
+        if (_fade != null) StopCoroutine(_fade);
+        _fade = null;
+        RestoreInput();
+        if (_group != null && _retryButton != null)
+        {
             Hide();
         }
+    }
 
-        private void OnEnable()
+    private void ShowDeath()
+    {
+        if (_waitingForRetry)
         {
-            if (_health == null || _retryButton == null)
-            {
-                return;
-            }
-
-            _health.OnDie += ShowDeath;
-            _player.OnRestarted += HandleRestarted;
-            _retryButton.onClick.AddListener(Retry);
-            if (_health.IsDead)
-            {
-                ShowDeath();
-            }
+            return;
         }
 
-        private void OnDisable()
+        _waitingForRetry = true;
+        _ready = false;
+        _restoreInput = _input != null && _input.enabled;
+        if (_input != null)
         {
-            if (_health != null)
-            {
-                _health.OnDie -= ShowDeath;
-            }
-
-            if (_player != null)
-            {
-                _player.OnRestarted -= HandleRestarted;
-            }
-
-            if (_retryButton != null)
-            {
-                _retryButton.onClick.RemoveListener(Retry);
-            }
-
-            if (_fade != null) StopCoroutine(_fade);
-            _fade = null;
-            RestoreInput();
-            if (_group != null && _retryButton != null)
-            {
-                Hide();
-            }
+            _input.enabled = false;
         }
 
-        private void ShowDeath()
+        _group.interactable = false;
+        _group.blocksRaycasts = true;
+        _retryButton.interactable = false;
+        _fade = StartCoroutine(FadeIn());
+        PlayDeathAudio();
+    }
+
+    private void CacheDeathAudioPath()
+    {
+        if (_deathAudioSource == null) return;
+        AudioManager owner = _deathAudioSource.GetComponentInParent<AudioManager>();
+        if (owner == null) return;
+        Transform current = _deathAudioSource.transform;
+        string path = current.name;
+        while (current.parent != null && current.parent != owner.transform)
         {
-            if (_waitingForRetry)
-            {
-                return;
-            }
-
-            _waitingForRetry = true;
-            _ready = false;
-            _restoreInput = _input != null && _input.enabled;
-            if (_input != null)
-            {
-                _input.enabled = false;
-            }
-
-            _group.interactable = false;
-            _group.blocksRaycasts = true;
-            _retryButton.interactable = false;
-            _fade = StartCoroutine(FadeIn());
-            PlayDeathAudio();
+            current = current.parent;
+            path = current.name + "/" + path;
         }
 
-        private void CacheDeathAudioPath()
+        _deathAudioPath = _deathAudioSource.transform == owner.transform ? "" : path;
+    }
+
+    private void PlayDeathAudio()
+    {
+        // Scene reload destroys the duplicate AudioManager. Resolve its source
+        // from the surviving manager, using Unity's destroyed-object null check.
+        if (_deathAudioSource == null && AudioManager.Instance != null)
         {
-            if (_deathAudioSource == null) return;
-            AudioManager owner = _deathAudioSource.GetComponentInParent<AudioManager>();
-            if (owner == null) return;
-            Transform current = _deathAudioSource.transform;
-            string path = current.name;
-            while (current.parent != null && current.parent != owner.transform)
-            {
-                current = current.parent;
-                path = current.name + "/" + path;
-            }
-            _deathAudioPath = _deathAudioSource.transform == owner.transform ? "" : path;
+            Transform source = string.IsNullOrEmpty(_deathAudioPath)
+                ? AudioManager.Instance.transform
+                : AudioManager.Instance.transform.Find(_deathAudioPath);
+            if (source != null) _deathAudioSource = source.GetComponent<AudioSource>();
         }
 
-        private void PlayDeathAudio()
+        if (_deathAudioSource != null) _deathAudioSource.Play();
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float elapsed = 0f;
+        while (elapsed < _fadeDuration)
         {
-            // Scene reload destroys the duplicate AudioManager. Resolve its source
-            // from the surviving manager, using Unity's destroyed-object null check.
-            if (_deathAudioSource == null && AudioManager.Instance != null)
-            {
-                Transform source = string.IsNullOrEmpty(_deathAudioPath)
-                    ? AudioManager.Instance.transform
-                    : AudioManager.Instance.transform.Find(_deathAudioPath);
-                if (source != null) _deathAudioSource = source.GetComponent<AudioSource>();
-            }
-            if (_deathAudioSource != null) _deathAudioSource.Play();
+            elapsed += Time.unscaledDeltaTime;
+            _group.alpha = Mathf.Clamp01(elapsed / _fadeDuration);
+            yield return null;
         }
 
-        private IEnumerator FadeIn()
-        {
-            float elapsed = 0f;
-            while (elapsed < _fadeDuration)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                _group.alpha = Mathf.Clamp01(elapsed / _fadeDuration);
-                yield return null;
-            }
+        _group.alpha = 1f;
+        _group.interactable = true;
+        _retryButton.interactable = true;
+        _ready = true;
+        _fade = null;
+    }
 
-            _group.alpha = 1f;
-            _group.interactable = true;
-            _retryButton.interactable = true;
+    public void Retry()
+    {
+        if (!_waitingForRetry || !_ready)
+        {
+            return;
+        }
+
+        _ready = false;
+        _retryButton.interactable = false;
+        if (!GameManager.RetryScene(gameObject.scene))
+        {
             _ready = true;
-            _fade = null;
+            _retryButton.interactable = true;
         }
+    }
 
-        public void Retry()
+    private void HandleRestarted()
+    {
+        if (_fade != null)
         {
-            if (!_waitingForRetry || !_ready)
-            {
-                return;
-            }
-
-            _ready = false;
-            _retryButton.interactable = false;
-            if (!GameManager.RetryScene(gameObject.scene))
-            {
-                _ready = true;
-                _retryButton.interactable = true;
-            }
+            StopCoroutine(_fade);
         }
 
-        private void HandleRestarted()
+        _fade = null;
+        RestoreInput();
+        Hide();
+    }
+
+    private void RestoreInput()
+    {
+        if (_restoreInput && _input != null)
         {
-            if (_fade != null)
-            {
-                StopCoroutine(_fade);
-            }
-
-            _fade = null;
-            RestoreInput();
-            Hide();
+            _input.enabled = true;
         }
 
-        private void RestoreInput()
-        {
-            if (_restoreInput && _input != null)
-            {
-                _input.enabled = true;
-            }
+        _restoreInput = false;
+    }
 
-            _restoreInput = false;
-        }
-
-        private void Hide()
-        {
-            _waitingForRetry = false;
-            _ready = false;
-            _group.alpha = 0f;
-            _group.interactable = false;
-            _group.blocksRaycasts = false;
-            _retryButton.interactable = false;
-        }
+    private void Hide()
+    {
+        _waitingForRetry = false;
+        _ready = false;
+        _group.alpha = 0f;
+        _group.interactable = false;
+        _group.blocksRaycasts = false;
+        _retryButton.interactable = false;
     }
 }

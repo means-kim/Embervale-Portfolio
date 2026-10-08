@@ -1,0 +1,14 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>얼음 기둥 Tall v04</title>
+<style>body{margin:0;padding:24px;background:#161e2c;color:#e8f0ff;font:16px system-ui}main{display:flex;gap:30px;flex-wrap:wrap}.preview{width:256px;height:512px;border:1px solid #4b5972;background:#0e121b}img{width:256px;height:512px;display:block}button,input{margin:10px 8px 10px 0}button{padding:9px 15px;background:#33465f;color:white;border:1px solid #7282a2;border-radius:6px}p{line-height:1.7;max-width:670px}input{width:300px}a{color:#9fe2ff}</style>
+<h1>얼음 기둥 Tall v04</h1><main><div class="preview"><img id="frame" alt="Unity 프레임 검토"></div><section><p>512×1024 셀 · 24프레임 · PPU 512 · Center Pivot<br>기존 디자인을 참고한 높이 약2배 원기둥</p><p>Unity의 격리된 Preview Scene에서 렌더한 프레임입니다.<br>여기서는 조명 영향을 제외한 Unlit 재질로 표시합니다.</p>
+<button id="play">재생</button><button id="reset">처음으로</button><div><input id="scrub" type="range" min="0" max="61" value="0"><span id="label"></span></div>
+<p>기존 클립의 키 시간과 이벤트 유지:<br>0.333초 EnableHitBox · 2.167초 DisableHitBox · 2.5초 Release<br>24FPS / 2.541667초 / 마지막 Sprite=None / Loop Time은 원본처럼 On</p>
+<p>기존 프리팹·컨트롤러는 그대로입니다. 실제 연결 시 길어진 기둥에 맞춰 Visual의 접지 위치와 Collider 높이를 확인하세요. 이벤트 실제 실행과 충돌은 이번 검증 범위에 포함되지 않습니다.</p>
+<p><a href="ContactSheet_v04.png">24프레임 전체 보기</a> · <a href="ProductionNotes.txt">제작·검증 기록</a></p></section></main>
+<script>const times=[0,0.041666666666666664,0.08333333333333333,0.16666666666666666,0.25,0.3333333333333333,0.4166666666666667,0.4583333333333333,0.5,0.75,1,1.25,1.5,1.75,2,2.0416666666666665,2.0833333333333335,2.125,2.1666666666666665,2.2083333333333335,2.25,2.2916666666666665,2.3333333333333335,2.4166666666666665,2.5],images=times.map((_,i)=>{const im=new Image();im.src='UnityPreview/Frame_'+String(i+1).padStart(2,'0')+'.png';return im;});const f=document.getElementById('frame'),s=document.getElementById('scrub'),l=document.getElementById('label'),b=document.getElementById('play');let playing=false,start=0,t=0;
+function show(t){let i=0;for(let j=0;j<times.length;j++){if(t+1e-6>=times[j])i=j;}f.src=images[i].src;s.value=t*24;l.textContent=t.toFixed(3)+'초 · '+(i===24?'숨김':String(i+1).padStart(2,'0')+'/24');}
+b.onclick=()=>{if(playing){playing=false;b.textContent='재생';}else{if(t>=61/24)t=0;start=performance.now()-t*1000;playing=true;b.textContent='일시정지';}};
+document.getElementById('reset').onclick=()=>{playing=false;t=0;b.textContent='재생';show(t);};
+s.oninput=()=>{playing=false;b.textContent='재생';t=Number(s.value)/24;show(t);};
+function tick(now){if(playing){t=Math.min((now-start)/1000,61/24);show(t);if(t>=61/24){playing=false;b.textContent='다시 재생';}}requestAnimationFrame(tick);}show(0);requestAnimationFrame(tick);
+</script></html>

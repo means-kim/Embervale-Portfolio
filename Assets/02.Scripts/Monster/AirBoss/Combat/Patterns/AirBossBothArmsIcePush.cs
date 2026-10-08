@@ -135,7 +135,7 @@ public class AirBossBothArmsIcePush : AirBossAttackBase
     private void ReleaseTelegraph()
     {
         if (_telegraph == null) return;
-        _telegraph.Release();
+        _telegraph.FadeOutAndRelease();
         _telegraph = null;
     }
 

@@ -124,6 +124,7 @@ public class BossPhase2Cinematic : CinematicSequence
             return;
         }
 
+        AudioManager.Instance?.PlayBossPhase2Layers();
         _coverRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         _moonCover.SetActive(true);
     }
