@@ -9,6 +9,12 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossBothArmsIcePush _bothArmsIcePush;
     [SerializeField] private AirBossBothArmsLiftDrop _bothArmsLiftDrop;
     [SerializeField] private AirBossOneArmUpDown _oneArmUpDown;
+    [SerializeField] private AirBossBothArmsRaise _bothArmsRaise;
+    [SerializeField] private AirBossBothArmsLightningGather _bothArmsLightningGather;
+    [SerializeField] private AirBossCrossBurst _crossBurst;
+    [SerializeField] private AirBossForwardReach _forwardReach;
+    [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
+    [SerializeField] private AirBossRaiseDropShadow _raiseDropShadow;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -27,7 +33,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.ForwardReach:
-                _animation.PlayForwardReachAnimation();
+                StartAttack(_forwardReach);
                 break;
 
             case AirBossActionType.OneArmUpDown:
@@ -35,11 +41,11 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsRaise:
-                _animation.PlayBothArmsRaiseAnimation();
+                StartAttack(_bothArmsRaise);
                 break;
 
             case AirBossActionType.RaiseDropShadow:
-                _animation.PlayRaiseDropShadowAnimation();
+                StartAttack(_raiseDropShadow);
                 break;
 
             case AirBossActionType.SpinRoll360:
@@ -51,7 +57,7 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.BothArmsLightningGather:
-                _animation.PlayBothArmsLightningGatherAnimation();
+                StartAttack(_bothArmsLightningGather);
                 break;
 
             case AirBossActionType.BothArmsIcePush:
@@ -75,7 +81,11 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             case AirBossActionType.CrossBurst:
-                _animation.PlayCrossBurstAnimation();
+                StartAttack(_crossBurst);
+                break;
+
+            case AirBossActionType.CrossBurst6Point:
+                StartAttack(_crossBurst6Point);
                 break;
         }
     }
@@ -83,7 +93,7 @@ public class AirBossAction : MonoBehaviour
     public void ExecuteRandom()
     {
         // 작은 번개 패턴만 테스트
-        Execute(AirBossActionType.BothArmsLiftDrop);
+        // Execute(AirBossActionType.BothArmsLiftDrop);
 
         // 큰 얼음 기둥 패턴만 테스트
         // Execute(AirBossActionType.BothArmsIceThrow);
@@ -103,11 +113,29 @@ public class AirBossAction : MonoBehaviour
         // 짧은 번개 패턴만 테스트
         // Execute(AirBossActionType.OneArmUpDown);
 
-        // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
-        //
-        // AirBossActionType actionType = (AirBossActionType)randomIndex;
-        //
-        // Execute(actionType);
+        // 큰 번개(보스 위치) 패턴만 테스트
+        // Execute(AirBossActionType.BothArmsRaise);
+
+        // 3줄 번개(보스 위치 센터) 패턴만 테스트
+        // Execute(AirBossActionType.BothArmsLightningGather);
+
+        // * 모양 번개 패턴만 테스트
+        // Execute(AirBossActionType.CrossBurst);
+
+        // // 번개 구체 패턴 테스트
+        // Execute(AirBossActionType.ForwardReach);
+
+        // 6줄기 번개 패턴만 테스트
+        // Execute(AirBossActionType.CrossBurst6Point);
+
+        // 눈보라 패턴만 테스트
+        // Execute(AirBossActionType.RaiseDropShadow);
+
+        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+
+        AirBossActionType actionType = (AirBossActionType)randomIndex;
+
+        Execute(actionType);
     }
 
     private void StartAttack(AirBossAttackBase attack)

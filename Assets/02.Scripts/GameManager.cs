@@ -4,6 +4,7 @@ using Game.Upgrades;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
@@ -81,6 +82,10 @@ public class GameManager : MonoBehaviour
     {
         // Let every scene component finish Awake/OnEnable/Start before opening the UI.
         yield return null;
+        while (GameIntroCinematic.IsTransitioning)
+        {
+            yield return null;
+        }
         if (_upgrades == null)
         {
             foreach (PlayerUpgrades candidate in FindObjectsByType<PlayerUpgrades>(FindObjectsSortMode.None))
@@ -162,9 +167,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Preserve upgrades, intro history, and defeated enemies on retry/continue.
-    public static bool LoadGameScene(string sceneName, bool newGame = false)
+    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null)
     {
-        if (IsLoading || string.IsNullOrWhiteSpace(sceneName))
+        if (IsLoading || GameIntroCinematic.IsTransitioning || string.IsNullOrWhiteSpace(sceneName))
         {
             return false;
         }
@@ -178,6 +183,7 @@ public class GameManager : MonoBehaviour
         {
             UpgradeHistory.ResetProgress();
             EncounterHistory.ResetSavedProgress();
+            GameIntroCinematic.ResetProgress();
         }
         else if (Instance != null && Instance._upgrades != null)
         {
@@ -187,7 +193,13 @@ public class GameManager : MonoBehaviour
         _requestedScene = sceneName;
         try
         {
-            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            bool showIntro = introClip != null && !GameIntroCinematic.HasStartedGame;
+            AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            if (showIntro)
+            {
+                loading.allowSceneActivation = false;
+                GameIntroCinematic.Begin(introClip, loading);
+            }
             return true;
         }
         catch (Exception exception)

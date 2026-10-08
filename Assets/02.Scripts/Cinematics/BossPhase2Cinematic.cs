@@ -10,9 +10,8 @@ public class BossPhase2Cinematic : CinematicSequence
     [SerializeField] private PlayableDirector _director;
     [SerializeField] private AirBossController _boss;
 
-    [Header("보스 연출 위치 (선택)")]
+    [Header("보스 연출 위치")]
     [SerializeField] private Transform _phase2Position;
-    [SerializeField, Min(0.01f)] private float _moveDuration = 0.5f;
 
     [Header("달 가림")]
     [SerializeField] private GameObject _moonCover;
@@ -41,7 +40,7 @@ public class BossPhase2Cinematic : CinematicSequence
             return false;
         }
 
-        if (_cinematicManager == null || _director == null || _boss == null
+        if (_cinematicManager == null || _director == null || _boss == null || _phase2Position == null
             || _moonCover == null || _moonLight == null || _moonMask == null)
         {
             return false;
@@ -60,8 +59,7 @@ public class BossPhase2Cinematic : CinematicSequence
         }
 
         _requested = true;
-        bool accepted = _cinematicManager.Play(
-            _director, HandleCompleted, PrepareRoutine, HandleCancelled);
+        bool accepted = _cinematicManager.Play(_director, HandleCompleted, PrepareRoutine, HandleCancelled);
 
         if (!accepted)
         {
@@ -80,24 +78,6 @@ public class BossPhase2Cinematic : CinematicSequence
         _coverRenderer.enabled = true;
         _coverRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
 
-        if (_phase2Position != null)
-        {
-            Vector3 start = _boss.transform.position;
-            Vector3 target = _phase2Position.position;
-            float elapsed = 0f;
-            float duration = Mathf.Max(0.01f, _moveDuration);
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
-                _boss.transform.position = Vector3.Lerp(start, target, t);
-                yield return null;
-            }
-
-            _boss.transform.position = target;
-        }
-
         // 준비가 즉시 끝나도 매니저의 코루틴 참조 대입을 먼저 완료한다.
         yield return null;
     }
@@ -114,6 +94,28 @@ public class BossPhase2Cinematic : CinematicSequence
         _stateCaptured = true;
     }
 
+    // Timeline Signal: 사라짐 클립이 끝난 뒤 연출 위치로 이동한다.
+    public void MoveBossToPhase2Position()
+    {
+        if (!_requested || !_stateCaptured || _boss == null || _phase2Position == null)
+        {
+            return;
+        }
+
+        _boss.transform.position = _phase2Position.position;
+    }
+
+    // Timeline Signal: 연출 위치에서 사라진 뒤 시작 위치로 돌아간다.
+    public void ReturnBossToOriginalPosition()
+    {
+        if (!_requested || !_stateCaptured || _boss == null)
+        {
+            return;
+        }
+
+        _boss.transform.position = _bossOriginalPosition;
+    }
+
     // Timeline Signal: 가림 시작. 마스크 Scale 애니메이션은 Timeline에서 재생한다.
     public void CoverMoon()
     {
@@ -124,7 +126,6 @@ public class BossPhase2Cinematic : CinematicSequence
 
         _coverRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         _moonCover.SetActive(true);
-        _moonLight.enabled = false;
     }
 
     // Timeline Signal: Timeline 종료 후에도 완전히 덮인 상태를 유지한다.
@@ -143,6 +144,7 @@ public class BossPhase2Cinematic : CinematicSequence
     private void HandleCompleted()
     {
         FinishMoonCover();
+        ReturnBossToOriginalPosition();
         _stateCaptured = false;
         _requested = false;
         NotifyCompleted();
@@ -174,10 +176,7 @@ public class BossPhase2Cinematic : CinematicSequence
                 _moonCover.SetActive(_coverWasActive);
             }
 
-            if (_boss != null)
-            {
-                _boss.transform.position = _bossOriginalPosition;
-            }
+            ReturnBossToOriginalPosition();
         }
 
         _stateCaptured = false;
@@ -203,6 +202,24 @@ public class BossPhase2Cinematic : CinematicSequence
     }
 
     private void OnDisable()
+    {
+        Cancel();
+    }
+
+    [ContextMenu("Test/2페이즈 연출")]
+    private void TestPhase2()
+    {
+        if (!Application.isPlaying)
+        {
+            Debug.Log("Play 모드에서 실행하세요.", this);
+            return;
+        }
+
+        Debug.Log($"2페이즈 연출 재생: {TryPlay()}", this);
+    }
+
+    [ContextMenu("Test/2페이즈 중단")]
+    private void TestCancelPhase2()
     {
         Cancel();
     }

@@ -15,20 +15,20 @@ MonoBehaviour:
   globalScale: 1
   sortingLayerName: GA1_HD_FX
   hitStopDuration: 0.05
-  hitStopTimeScale: 0
-  streakLength: 22
-  streakWidth: 2
-  streakTiltRange: {x: 5, y: 35}
+  hitStopTimeScale: 0.19
+  streakLength: 20
+  streakWidth: 1.8
+  streakTiltRange: {x: 30, y: 60}
   streakGrowDuration: 0.033
   streakHoldDuration: 0.12
   streakFadeDuration: 0.12
-  streakThinOnFade: 0.8
-  streakColor: {r: 1, g: 0.912806, b: 0, a: 1}
+  streakThinOnFade: 0.7
+  streakColor: {r: 1, g: 0.78683865, b: 0, a: 1}
   streakSortingOrder: 150
   spikeCount: 3
   spikeLength: 3
   spikeLengthJitter: {x: 0.5, y: 0.8}
-  spikeWidth: 1.2
+  spikeWidth: 1
   spikeAngleRange: {x: 0, y: 80}
   spikeAreaMin: {x: 0, y: -3}
   spikeAreaMax: {x: 1, y: -1}

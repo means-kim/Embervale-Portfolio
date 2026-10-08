@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>번개 구체 · 비행 루프 16F</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101725;color:#e6edff;font:15px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:28px}h1{font-size:27px;margin:0}p{color:#adbed9;margin:7px 0 20px}.controls{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:18px 0}button,select{background:#243550;color:#e8f0ff;border:1px solid #53719e;border-radius:8px;padding:8px 14px}input{accent-color:#aebdff}canvas{display:block;width:100%;height:auto;border:1px solid #364a68;border-radius:14px}label{white-space:nowrap}output{font-variant-numeric:tabular-nums}a{color:#b9ccff}.sheet{width:100%}.note{font-size:13px;color:#97aac8}#err{color:#ffbbaa}
+</style><main>
+<h1>번개 구체 · 비행 루프 16프레임</h1>
+<p>청백색 핵 · 청보라색 나선 · 주변 방전. 추가 회전이나 프레임 보간 없이 원본 16장을 반복 재생합니다.</p>
+<div class="controls"><button id="play">일시정지</button><label>속도 <select id="fps"><option>12</option><option selected>16</option><option>20</option><option>24</option></select> fps</label><label>배경 <select id="bg"><option value="#182030">어두운 배경</option><option value="#66768c">중간 밝기</option><option value="#d6e3ed">밝은 눈 배경</option></select></label><label><input id="moving" type="checkbox">오른쪽 구체 이동</label><label><input id="guide" type="checkbox">중심 표시</label></div>
+<canvas id="canvas" width="1060" height="560"></canvas>
+<div class="controls"><output id="frame">01 / 16</output><input id="scrub" type="range" min="0" max="15" value="0" style="flex:1"><button id="next">다음 프레임</button></div>
+<p class="note">왼쪽: 확대 확인 · 오른쪽: 작은 표시 크기 확인. 이동은 검토용이며 게임 속도·충돌·이동 코드가 아닙니다. 별도의 비행 잔상은 아직 포함하지 않았습니다.</p>
+<details><summary>전체 16프레임 보기</summary><img class="sheet" src="contact_sheet_dark.png" alt="번개 구체 16프레임"></details>
+<p><a href="../../../Assets/04.Sprites/AirBossAttack/Attack_LightningOrb_FlightLoop_AirBoss_16F_v01.png">Unity용 PNG</a> · <a href="../../../Docs/VFX/LightningOrb_Loop_16F_v01.md">제작 기록</a></p><p id="err"></p>
+</main><script>
+const sheet=new Image(),canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
+const play=document.getElementById('play'),fps=document.getElementById('fps'),bg=document.getElementById('bg'),moving=document.getElementById('moving'),guide=document.getElementById('guide'),scrub=document.getElementById('scrub'),label=document.getElementById('frame');
+let frame=0,playing=true,last=0,acc=0,time=0;
+sheet.src='Attack_LightningOrb_FlightLoop_AirBoss_16F_v01.png';
+sheet.onerror=()=>document.getElementById('err').textContent='PNG를 불러오지 못했습니다. 폴더 구조를 유지한 상태에서 열어주세요.';
+function orb(x,y,size){if(sheet.complete&&sheet.naturalWidth)ctx.drawImage(sheet,frame%4*512,Math.floor(frame/4)*512,512,512,x-size/2,y-size/2,size,size);if(guide.checked){ctx.strokeStyle='#ffc887';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x-8,y);ctx.lineTo(x+8,y);ctx.moveTo(x,y-8);ctx.lineTo(x,y+8);ctx.stroke();}}
+function draw(){ctx.fillStyle=bg.value;ctx.fillRect(0,0,1060,560);ctx.fillStyle=bg.value==='#d6e3ed'?'#344a66':'#b6c9e6';ctx.font='15px system-ui';ctx.fillText('확대 · 원본 프레임',40,42);ctx.fillText('작은 크기 · 비행 확인',620,42);orb(290,286,720);orb(moving.checked?640+(time*120)%310:815,286,300);label.textContent=String(frame+1).padStart(2,'0')+' / 16';scrub.value=frame;}
+function tick(t){if(last&&playing){const delta=Math.min(t-last,100);time+=delta/1000;acc+=delta;while(acc>=1000/Number(fps.value)){frame=(frame+1)%16;acc-=1000/Number(fps.value);}}last=t;draw();requestAnimationFrame(tick);}
+function pause(){playing=false;play.textContent='재생';acc=0;}
+play.onclick=()=>{playing=!playing;play.textContent=playing?'일시정지':'재생';acc=0;};
+scrub.oninput=()=>{pause();frame=Number(scrub.value);draw();};
+document.getElementById('next').onclick=()=>{pause();frame=(frame+1)%16;draw();};
+requestAnimationFrame(tick);
+</script></html>
