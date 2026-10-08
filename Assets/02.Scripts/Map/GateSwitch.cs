@@ -67,7 +67,7 @@ public class GateSwitch : MonoBehaviour
 
         if (exitFromRight)
         {
-            var player = other.GetComponentInParent<HyunseoTest.Player>();
+            var player = other.GetComponentInParent<Player>();
             if (player != null && _respawnPoint != null)
             {
                 player.SetRespawnPoint(_respawnPoint);

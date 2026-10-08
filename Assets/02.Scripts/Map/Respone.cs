@@ -3,7 +3,7 @@ using TestPlayer = HyunseoTest.Player;
 
 public class Respone : MonoBehaviour
 {
-    // Respawn currently targets Player_Hyunseo only, before main-player integration.
+    // Shared respawn service. Can live on a separate scene object.
     [SerializeField, Min(0)] private int _returnDamage = 100;
     private static Respone _instance = null;
     public static Respone Instance => _instance;
@@ -27,6 +27,7 @@ public class Respone : MonoBehaviour
         }
     }
 
+    // Compatibility overloads for existing HyunseoTest player scripts and scenes.
     public void ResponePlayer(TestPlayer player, Transform checkpoint)
     {
         if (checkpoint == null) return;
