@@ -71,6 +71,7 @@ public class GateSwitch : MonoBehaviour
             if (player != null && _respawnPoint != null)
             {
                 player.SetRespawnPoint(_respawnPoint);
+                CheckpointHistory.Record(player, _respawnPoint.transform);
             }
             InArea(_gateType);
         }

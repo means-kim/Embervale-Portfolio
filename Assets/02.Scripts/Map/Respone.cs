@@ -67,6 +67,7 @@ public class Respone : MonoBehaviour
         var point = checkpoint.GetComponent<RespawnPoint>();
         if (point != null) player.SetRespawnPoint(point);
         else player.SetRespawnPoint(checkpoint.position);
+        CheckpointHistory.Record(player, checkpoint);
         ResponePlayer(player, checkpoint.position);
     }
 
@@ -88,6 +89,7 @@ public class Respone : MonoBehaviour
         var point = checkpoint.GetComponent<RespawnPoint>();
         if (point != null) player.SetRespawnPoint(point);
         else player.SetRespawnPoint(checkpoint.position);
+        CheckpointHistory.Record(player, checkpoint);
         player.RestartAt(checkpoint.position);
     }
 
