@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3651520461735629383}
   - component: {fileID: 8334308445502172291}
   - component: {fileID: 5809469499536019829}
+  - component: {fileID: 3177162394418046562}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -338,11 +339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
-  _idleTimer: 3
+  _idleTimer: 1
   _moveTimer: 1
-  _idleWeight: 10
-  _moveWeight: 30
-  _actionWeight: 50
+  _idleWeight: 5
+  _moveWeight: 20
+  _actionWeight: 60
 --- !u!114 &6954472282831411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +396,7 @@ MonoBehaviour:
   _forwardReach: {fileID: 3651520461735629383}
   _crossBurst6Point: {fileID: 8334308445502172291}
   _raiseDropShadow: {fileID: 5809469499536019829}
+  _oneArmUpDownIcePhase3: {fileID: 3177162394418046562}
 --- !u!114 &288646290909099654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,3 +628,25 @@ MonoBehaviour:
   _player: {fileID: 6638137889588832488}
   _telegraphType: 5
   _telegraphScaleMultiplier: {x: 25, y: 15, z: 1}
+--- !u!114 &3177162394418046562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d871ac2ace349142aebe3310d95a386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIcePhase3
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 6638137889588832488}
+  _telegraphType: 3
+  _telegraphScaleMultiplier: {x: 10, y: 20, z: 1}
+  _offSetX: 20
+  _offSetY: 50
+  _warningInterval: 0.3
+  _waitAfterWarnings: 0.9
+  _attackInterval: 0.3
