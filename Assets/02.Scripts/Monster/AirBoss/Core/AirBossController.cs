@@ -27,6 +27,9 @@ public class AirBossController : MonoBehaviour
     private AirBossAnimation _animation;
     private AirBossAction _action;
 
+    private bool _waitingForPhase2;
+    // private bool _waitingForPhase3;
+
     private void Awake()
     {
         _movement = GetComponent<AirBossMovement>();
@@ -196,6 +199,14 @@ public class AirBossController : MonoBehaviour
     private void HandleTransitionRequested(int nextphase)
     {
         if (_currentstate == AirBossState.Death) return;
+        if (_waitingForPhase2) return;
+
+        if (_phase2Cinematic == null || nextphase != 2)
+        {
+            Debug.LogWarning($"페이즈 {nextphase} 연출이 연결되지 않았습니다.");
+            _phaseController.CancelTransition();
+            return;
+        }
 
         ChangeState(AirBossState.Wait);
 
@@ -204,16 +215,52 @@ public class AirBossController : MonoBehaviour
 
         AirBossAttackPool.Instance?.ReleaseAll();
 
-        Debug.Log("다음 페이즈로 전환");
+        _waitingForPhase2 = true;
+
+        if (!_phase2Cinematic.TryPlay())
+        {
+            HandlePhase2Cancelled();
+            Debug.Log("2페이즈 연출 실패");
+        }
     }
 
     private void HandlePhase2Completed()
     {
+        if (!_waitingForPhase2) return;
+        _waitingForPhase2 = false;
+
+        if (_currentstate == AirBossState.Death) return;
+        if (_phaseController == null) return;
+
+        if (!_phaseController.IsTransition || _phaseController.PendingPhase != 2) return;
+
+        _phaseController.CompletePhase();
+
+        _phaseController.CheckPhase();
+
+        if (!_phaseController.IsTransition)
+        {
+            ChangeState(AirBossState.Idle);
+        }
+
         Debug.Log("2페이즈 연출 완료");
     }
 
     private void HandlePhase2Cancelled()
     {
+        if (!_waitingForPhase2) return;
+        _waitingForPhase2 = false;
+
+        if (_phaseController != null)
+        {
+            _phaseController.CancelTransition();
+        }
+
+        if (!isActiveAndEnabled) return;
+        if (_currentstate == AirBossState.Death) return;
+
+        ChangeState(AirBossState.Idle);
+
         Debug.Log("2페이즈 연출 취소");
     }
 }
