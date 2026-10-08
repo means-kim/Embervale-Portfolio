@@ -15,6 +15,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossForwardReach _forwardReach;
     [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
     [SerializeField] private AirBossRaiseDropShadow _raiseDropShadow;
+    [SerializeField] private AirBossOneArmUpDownIcePhase3 _oneArmUpDownIcePhase3;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -86,6 +87,10 @@ public class AirBossAction : MonoBehaviour
 
             case AirBossActionType.CrossBurst6Point:
                 StartAttack(_crossBurst6Point);
+                break;
+
+            case AirBossActionType.OneArmUpDownIcePhase3:
+                StartAttack(_oneArmUpDownIcePhase3);
                 break;
         }
     }
