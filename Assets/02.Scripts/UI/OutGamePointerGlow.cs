@@ -29,34 +29,30 @@ public class OutGamePointerGlow : MonoBehaviour
         _rt = (RectTransform)transform;
         if (_canvas == null) _canvas = GetComponentInParent<Canvas>();
         _canvasRt = (RectTransform)_canvas.transform;
-        // Image.material 접근 시 자동 복제되므로 에셋 원본이 더렵혀지지 않음
-        _mat = GetComponent<Image>().material;
+        var image = GetComponent<Image>();
+        _mat = new Material(image.material);
+        image.material = _mat;
         _baseColor = _mat.GetColor(ColorId);
         _rt.sizeDelta = new Vector2(_baseSize, _baseSize);
     }
-
+    private void OnDestroy()
+    {
+        if (_mat != null) Destroy(_mat);
+    }
     private void Update()
     {
-        // 위치 추적 (ScreenSpace-Camera 기준)
         Vector2 local;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            _canvasRt, Input.mousePosition, _canvas.worldCamera, out local);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, Input.mousePosition, _canvas.worldCamera, out local);
         _rt.anchoredPosition = local;
-
-        // 펄스 계수
         float factor = 1f;
         if (_pulseEnabled)
         {
             _phase += Time.unscaledDeltaTime * _pulseSpeed * Mathf.PI * 2f;
             factor = 1f + Mathf.Sin(_phase) * _pulseAmount;
         }
-        CurrentPulseFactor = factor; // 추가
-
-        // 크기 반영
+        CurrentPulseFactor = factor;
         float size = _baseSize * factor;
         _rt.sizeDelta = new Vector2(size, size);
-
-        // 밝기 반영 (기본색 × 슬라이더 × 펄스)
         _mat.SetColor(ColorId, _baseColor * (_brightness * factor));
     }
 }
