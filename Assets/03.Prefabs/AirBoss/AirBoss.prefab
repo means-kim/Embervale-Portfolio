@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6638137889588832488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2605855174889095880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5667198565276668799}
+  m_Layer: 10
+  m_Name: LargeIcePillarPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5667198565276668799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605855174889095880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6638137889588832488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4579540008362142718
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +150,7 @@ Transform:
   m_Children:
   - {fileID: 728499216316706709}
   - {fileID: 8650315564872302742}
+  - {fileID: 5667198565276668799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4954074921792302040
@@ -428,9 +460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIceThrow
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
-  _player: {fileID: 6638137889588832488}
+  _player: {fileID: 5667198565276668799}
   _telegraphType: 5
-  _telegraphScaleMultiplier: {x: 6, y: 12, z: 1}
+  _telegraphScaleMultiplier: {x: 6, y: 22, z: 1}
 --- !u!114 &6351156603021301246
 MonoBehaviour:
   m_ObjectHideFlags: 0
