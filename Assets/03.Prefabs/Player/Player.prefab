@@ -184,6 +184,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   _comboResetDelay: 0.4
+  _maxAirAttackCount: 3
+  _groundHorizontalLockDuration: 0.2
+  _airHorizontalLockDuration: 0.05
+  _airVerticalLockDuration: 0.1
+  _attackGravityScaleMultiplier: 1
   _comboInputBuffer: 0.2
   _attackScale: 1
 --- !u!114 &7533624692983177567

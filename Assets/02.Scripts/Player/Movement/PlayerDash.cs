@@ -54,7 +54,7 @@ public class PlayerDash : MonoBehaviour
         var health = GetComponent<Health>();
         if (health != null && health.IsDead) return;
         if (_playerHit != null && _playerHit.IsHit) return;
-        if (_playerAttack != null && _playerAttack.IsAttacking) return;
+        _playerAttack?.InterruptForDash();
         _dashDirection = _playerMove.FacingDirection;
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
