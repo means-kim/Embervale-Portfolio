@@ -95,6 +95,8 @@ public class AirBossController : MonoBehaviour
             _phase2Cinematic.Completed -= HandlePhase2Completed;
             _phase2Cinematic.Cancelled -= HandlePhase2Cancelled;
         }
+
+        CancelOwnedPhase2();
     }
 
     private void UpdateWait()
@@ -185,6 +187,7 @@ public class AirBossController : MonoBehaviour
         if (_currentstate == AirBossState.Death) return;
 
         ChangeState(AirBossState.Death);
+        CancelOwnedPhase2();
         _movement.StopMove();
         _action.CancelCurrentAttack();
     }
@@ -262,5 +265,16 @@ public class AirBossController : MonoBehaviour
         ChangeState(AirBossState.Idle);
 
         Debug.Log("2페이즈 연출 취소");
+    }
+
+    private void CancelOwnedPhase2()
+    {
+        if (!_waitingForPhase2) return;
+
+        // Cancel()이 취소 이벤트를 보내도 전투를 재개하지 않도록 먼저 해제
+        _waitingForPhase2 = false;
+
+        _phase2Cinematic?.Cancel();
+        _phaseController?.CancelTransition();
     }
 }
