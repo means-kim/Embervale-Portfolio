@@ -192,7 +192,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -213,7 +213,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -237,6 +237,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -244,10 +270,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_01
       rect:
         serializedVersion: 2
-        x: 172
-        y: 1216
-        width: 40
-        height: 32
+        x: 344
+        y: 2432
+        width: 80
+        height: 64
       alignment: 9
       pivot: {x: 0.5000001, y: -2}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +292,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_02
       rect:
         serializedVersion: 2
-        x: 552
-        y: 1216
-        width: 50
-        height: 48
+        x: 1104
+        y: 2432
+        width: 100
+        height: 96
       alignment: 9
       pivot: {x: 0.48, y: -1.3333334}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +314,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_03
       rect:
         serializedVersion: 2
-        x: 932
-        y: 1216
-        width: 60
-        height: 64
+        x: 1864
+        y: 2432
+        width: 120
+        height: 128
       alignment: 9
       pivot: {x: 0.4666666, y: -1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +336,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_04
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1216
-        width: 68
-        height: 80
+        x: 2624
+        y: 2432
+        width: 136
+        height: 160
       alignment: 9
       pivot: {x: 0.4705882, y: -0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +358,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_05
       rect:
         serializedVersion: 2
-        x: 1692
-        y: 1216
-        width: 76
-        height: 96
+        x: 3384
+        y: 2432
+        width: 152
+        height: 192
       alignment: 9
       pivot: {x: 0.47368422, y: -0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +380,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_06
       rect:
         serializedVersion: 2
-        x: 2072
-        y: 1216
-        width: 94
-        height: 126
+        x: 4144
+        y: 2432
+        width: 188
+        height: 252
       alignment: 9
       pivot: {x: 0.42553195, y: -0.50793654}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,10 +402,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_07
       rect:
         serializedVersion: 2
-        x: 148
-        y: 832
-        width: 112
-        height: 156
+        x: 296
+        y: 1664
+        width: 224
+        height: 312
       alignment: 9
       pivot: {x: 0.39285722, y: -0.41025645}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +424,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_08
       rect:
         serializedVersion: 2
-        x: 526
-        y: 832
-        width: 132
-        height: 180
+        x: 1052
+        y: 1664
+        width: 264
+        height: 360
       alignment: 9
       pivot: {x: 0.37878793, y: -0.35555556}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +446,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_09
       rect:
         serializedVersion: 2
-        x: 904
-        y: 832
-        width: 152
-        height: 204
+        x: 1808
+        y: 1664
+        width: 304
+        height: 408
       alignment: 9
       pivot: {x: 0.36842108, y: -0.3137255}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -442,10 +468,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_10
       rect:
         serializedVersion: 2
-        x: 1284
-        y: 830
-        width: 164
-        height: 226
+        x: 2568
+        y: 1660
+        width: 328
+        height: 452
       alignment: 9
       pivot: {x: 0.36585367, y: -0.27433628}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,10 +490,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_11
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 828
-        width: 176
-        height: 248
+        x: 3328
+        y: 1656
+        width: 352
+        height: 496
       alignment: 9
       pivot: {x: 0.36363634, y: -0.24193548}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,10 +512,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_12
       rect:
         serializedVersion: 2
-        x: 2038
-        y: 826
-        width: 190
-        height: 266
+        x: 4076
+        y: 1652
+        width: 380
+        height: 532
       alignment: 9
       pivot: {x: 0.38947368, y: -0.21804512}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,10 +534,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_13
       rect:
         serializedVersion: 2
-        x: 108
-        y: 440
-        width: 204
-        height: 284
+        x: 216
+        y: 880
+        width: 408
+        height: 568
       alignment: 9
       pivot: {x: 0.4117647, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -530,10 +556,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_14
       rect:
         serializedVersion: 2
-        x: 486
-        y: 440
-        width: 214
-        height: 284
+        x: 972
+        y: 880
+        width: 428
+        height: 568
       alignment: 9
       pivot: {x: 0.42056075, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,10 +578,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_15
       rect:
         serializedVersion: 2
-        x: 864
-        y: 440
-        width: 224
-        height: 284
+        x: 1728
+        y: 880
+        width: 448
+        height: 568
       alignment: 9
       pivot: {x: 0.42857143, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -574,10 +600,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_16
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 438
-        width: 234
-        height: 284
+        x: 2484
+        y: 876
+        width: 468
+        height: 568
       alignment: 9
       pivot: {x: 0.43589744, y: -0.19014084}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,10 +622,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_17
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 436
-        width: 244
-        height: 284
+        x: 3240
+        y: 872
+        width: 488
+        height: 568
       alignment: 9
       pivot: {x: 0.44262296, y: -0.1830986}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -618,10 +644,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_18
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 440
-        width: 252
-        height: 284
+        x: 4000
+        y: 880
+        width: 504
+        height: 568
       alignment: 9
       pivot: {x: 0.44444445, y: -0.1971831}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -640,10 +666,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_19
       rect:
         serializedVersion: 2
-        x: 76
-        y: 60
-        width: 260
-        height: 284
+        x: 152
+        y: 120
+        width: 520
+        height: 568
       alignment: 9
       pivot: {x: 0.44615382, y: -0.2112676}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,10 +688,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_20
       rect:
         serializedVersion: 2
-        x: 458
-        y: 60
-        width: 224
-        height: 284
+        x: 916
+        y: 120
+        width: 448
+        height: 568
       alignment: 9
       pivot: {x: 0.52678573, y: -0.2112676}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -684,10 +710,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_21
       rect:
         serializedVersion: 2
-        x: 840
-        y: 60
-        width: 188
-        height: 284
+        x: 1680
+        y: 120
+        width: 376
+        height: 568
       alignment: 9
       pivot: {x: 0.63829786, y: -0.2112676}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -706,10 +732,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_22
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 56
-        width: 148
-        height: 284
+        x: 2536
+        y: 112
+        width: 296
+        height: 568
       alignment: 9
       pivot: {x: 0.51351345, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -728,10 +754,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_23
       rect:
         serializedVersion: 2
-        x: 1652
-        y: 56
-        width: 148
-        height: 284
+        x: 3304
+        y: 112
+        width: 296
+        height: 568
       alignment: 9
       pivot: {x: 0.51351345, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -750,10 +776,10 @@ TextureImporter:
       name: Attack_IcePillar_AirBoss_v01_24
       rect:
         serializedVersion: 2
-        x: 2036
-        y: 56
-        width: 148
-        height: 284
+        x: 4072
+        y: 112
+        width: 296
+        height: 568
       alignment: 9
       pivot: {x: 0.51351345, y: -0.19718309}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -772,7 +798,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 380b4c3ac79cc614eaeafe5e9679fb43
     internalID: 0
     vertices: []
     indices: 

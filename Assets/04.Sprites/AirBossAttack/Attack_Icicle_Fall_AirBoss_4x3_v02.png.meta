@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 1600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -93,6 +93,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -101,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 724
-        width: 362
-        height: 362
+        y: 2896
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +148,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_02
       rect:
         serializedVersion: 2
-        x: 362
-        y: 724
-        width: 362
-        height: 362
+        x: 1448
+        y: 2896
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.056629833}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +170,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_03
       rect:
         serializedVersion: 2
-        x: 724
-        y: 724
-        width: 362
-        height: 362
+        x: 2896
+        y: 2896
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +192,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_04
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 724
-        width: 362
-        height: 362
+        x: 4344
+        y: 2896
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.056629833}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,9 +215,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 362
-        width: 362
-        height: 362
+        y: 1448
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.49861878, y: 0.051104974}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +236,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_06
       rect:
         serializedVersion: 2
-        x: 362
-        y: 362
-        width: 362
-        height: 362
+        x: 1448
+        y: 1448
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +258,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_07
       rect:
         serializedVersion: 2
-        x: 724
-        y: 362
-        width: 362
-        height: 362
+        x: 2896
+        y: 1448
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.49861878, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +280,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_08
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 362
-        width: 362
-        height: 362
+        x: 4344
+        y: 1448
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +304,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 362
-        height: 362
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.051104974}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +324,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_10
       rect:
         serializedVersion: 2
-        x: 362
+        x: 1448
         y: 0
-        width: 362
-        height: 362
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +346,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_11
       rect:
         serializedVersion: 2
-        x: 724
+        x: 2896
         y: 0
-        width: 362
-        height: 362
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +368,10 @@ TextureImporter:
       name: Attack_Icicle_Fall_AirBoss_v02_12
       rect:
         serializedVersion: 2
-        x: 1086
+        x: 4344
         y: 0
-        width: 362
-        height: 362
+        width: 1448
+        height: 1448
       alignment: 9
       pivot: {x: 0.5013812, y: 0.053867403}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -120,7 +120,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,7 +141,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -165,6 +165,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -173,9 +199,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 746
-        width: 256
-        height: 244
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +220,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_02
       rect:
         serializedVersion: 2
-        x: 256
-        y: 746
-        width: 256
-        height: 244
+        x: 1024
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +242,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_03
       rect:
         serializedVersion: 2
-        x: 512
-        y: 746
-        width: 256
-        height: 244
+        x: 2048
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +264,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_04
       rect:
         serializedVersion: 2
-        x: 768
-        y: 746
-        width: 256
-        height: 244
+        x: 3072
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +286,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_05
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 746
-        width: 256
-        height: 244
+        x: 4096
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +308,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_06
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 746
-        width: 256
-        height: 244
+        x: 5120
+        y: 2984
+        width: 1024
+        height: 976
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,9 +331,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 510
-        width: 256
-        height: 240
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,10 +352,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_08
       rect:
         serializedVersion: 2
-        x: 256
-        y: 510
-        width: 256
-        height: 240
+        x: 1024
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +374,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_09
       rect:
         serializedVersion: 2
-        x: 512
-        y: 510
-        width: 256
-        height: 240
+        x: 2048
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +396,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_10
       rect:
         serializedVersion: 2
-        x: 768
-        y: 510
-        width: 256
-        height: 240
+        x: 3072
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +418,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_11
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 510
-        width: 256
-        height: 240
+        x: 4096
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +440,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_12
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 510
-        width: 256
-        height: 240
+        x: 5120
+        y: 2040
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,9 +463,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 270
-        width: 256
-        height: 240
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,10 +484,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_14
       rect:
         serializedVersion: 2
-        x: 256
-        y: 270
-        width: 256
-        height: 240
+        x: 1024
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +506,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_15
       rect:
         serializedVersion: 2
-        x: 512
-        y: 270
-        width: 256
-        height: 240
+        x: 2048
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,10 +528,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_16
       rect:
         serializedVersion: 2
-        x: 768
-        y: 270
-        width: 256
-        height: 240
+        x: 3072
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +550,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_17
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 270
-        width: 256
-        height: 240
+        x: 4096
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +572,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_18
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 270
-        width: 256
-        height: 240
+        x: 5120
+        y: 1080
+        width: 1024
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,9 +595,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 256
-        height: 248
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,10 +616,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_20
       rect:
         serializedVersion: 2
-        x: 256
-        y: 16
-        width: 256
-        height: 248
+        x: 1024
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,10 +638,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_21
       rect:
         serializedVersion: 2
-        x: 512
-        y: 16
-        width: 256
-        height: 248
+        x: 2048
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,10 +660,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_22
       rect:
         serializedVersion: 2
-        x: 768
-        y: 16
-        width: 256
-        height: 248
+        x: 3072
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,10 +682,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_23
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 16
-        width: 256
-        height: 248
+        x: 4096
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,10 +704,10 @@ TextureImporter:
       name: Attack_IceCylinder_v02_24
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 16
-        width: 256
-        height: 248
+        x: 5120
+        y: 64
+        width: 1024
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
