@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 900
+  _maxHealth: 200
   _autoRecover: 0
   _secondsPerSlot: 1.2
 --- !u!114 &8679760138037404816
@@ -358,7 +358,7 @@ MonoBehaviour:
   _airBossSpriteRenderer: {fileID: 4954074921792302040}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
   _flashInterval: 0.1
-  _flashDuration: 0.2
+  _flashDuration: 0.24
 --- !u!114 &3684625565806078733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,9 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
-  _idleTimer: 1
+  _idleTimer: 0.5
   _moveTimer: 1
-  _idleWeight: 5
+  _idleWeight: 0
   _moveWeight: 20
   _actionWeight: 60
 --- !u!114 &6954472282831411894
