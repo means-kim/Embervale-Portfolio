@@ -125,10 +125,10 @@ public class AirBossAction : MonoBehaviour
         // Execute(AirBossActionType.BothArmsLightningGather);
 
         // * 모양 번개 패턴만 테스트
-        Execute(AirBossActionType.CrossBurst);
+        // Execute(AirBossActionType.CrossBurst);
 
         // // 번개 구체 패턴 테스트
-        // Execute(AirBossActionType.ForwardReach);
+        Execute(AirBossActionType.ForwardReach);
 
         // 6줄기 번개 패턴만 테스트
         // Execute(AirBossActionType.CrossBurst6Point);

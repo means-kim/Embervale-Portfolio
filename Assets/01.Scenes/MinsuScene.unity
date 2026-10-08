@@ -1401,9 +1401,13 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
-    - target: {fileID: 4825282030232398469, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+    - target: {fileID: 3651520461735629383, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _telegraphScaleMultiplier.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651520461735629383, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _telegraphScaleMultiplier.y
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
