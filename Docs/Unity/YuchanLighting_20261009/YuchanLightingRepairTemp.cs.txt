@@ -1,0 +1,159 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+
+[InitializeOnLoad]
+public static class YuchanLightingRepairTemp
+{
+    const string Dir = "Docs/Unity/YuchanLighting_20261009";
+    static double next;
+    static YuchanLightingRepairTemp()
+    {
+        EditorApplication.update += Tick;
+        if (File.Exists(Dir + "/editor-inspect.txt") && !File.Exists(Dir + "/apply-ok.txt"))
+            File.WriteAllText(Dir + "/request.txt", "apply");
+    }
+    static void Tick()
+    {
+        if (EditorApplication.timeSinceStartup < next || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+        next = EditorApplication.timeSinceStartup + 1;
+        if (SessionState.GetBool("YuchanLightingPlayCheck", false) && EditorApplication.isPlaying)
+        {
+            if (EditorApplication.timeSinceStartup < SessionState.GetFloat("YuchanLightingPlayStart", 0) + 4) return;
+            try { Capture("play"); RuntimeReport(); }
+            catch (Exception e) { File.WriteAllText(Dir + "/error.txt", e.ToString()); }
+            SessionState.SetBool("YuchanLightingPlayCheck", false);
+            EditorApplication.isPlaying = false;
+            return;
+        }
+        if (!File.Exists(Dir + "/request.txt")) return;
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        string op = File.ReadAllText(Dir + "/request.txt").Trim();
+        File.Delete(Dir + "/request.txt");
+        try
+        {
+            if (op == "inspect") Inspect();
+            if (op == "apply") Apply();
+            if (op == "playcheck")
+            {
+                SessionState.SetBool("YuchanLightingPlayCheck", true);
+                SessionState.SetFloat("YuchanLightingPlayStart", (float)EditorApplication.timeSinceStartup);
+                EditorApplication.isPlaying = true;
+            }
+            if (op == "reload")
+            {
+                var s = SceneManager.GetActiveScene();
+                if (s.path != "Assets/01.Scenes/YuchanScene.unity" || s.isDirty) throw new Exception("Reload requires clean YuchanScene");
+                EditorSceneManager.OpenScene(s.path);
+                Inspect();
+                Capture("reloaded");
+                File.WriteAllText(Dir + "/reload-ok.txt", "Reloaded saved scene successfully");
+            }
+        }
+        catch (Exception e) { File.WriteAllText(Dir + "/error.txt", e.ToString()); }
+    }
+    static string PathOf(Transform t) { return t.parent == null ? t.name : PathOf(t.parent) + "/" + t.name; }
+    static void Apply()
+    {
+        var s = SceneManager.GetActiveScene();
+        if (s.path != "Assets/01.Scenes/YuchanScene.unity") throw new Exception("Wrong scene");
+        var players = s.GetRootGameObjects().Where(g=>g.CompareTag("Player")).ToArray();
+        if (players.Length != 1) throw new Exception("Expected exactly one player");
+        var r = players[0].GetComponent<SpriteRenderer>();
+        if (r == null) throw new Exception("Player renderer not found");
+        Capture("before");
+        Undo.RecordObject(r, "Repair Yuchan player lighting");
+        r.sortingLayerName = "GA1_Actors";
+        PrefabUtility.RecordPrefabInstancePropertyModifications(r);
+        EditorSceneManager.MarkSceneDirty(s);
+        if (!EditorSceneManager.SaveScene(s)) throw new Exception("Save failed");
+        Capture("after");
+        Inspect();
+        File.WriteAllText(Dir + "/apply-ok.txt", "Saved player sorting layer scene override only");
+    }
+    static void Capture(string label)
+    {
+        var s = SceneManager.GetActiveScene();
+        var roots = s.GetRootGameObjects();
+        var c = roots.SelectMany(g=>g.GetComponentsInChildren<Camera>(true)).First(x=>x.enabled);
+        var player = roots.SelectMany(g=>g.GetComponentsInChildren<SpriteRenderer>(true)).First(x=>x.CompareTag("Player"));
+        var checkpoint = roots.SelectMany(g=>g.GetComponentsInChildren<SpriteRenderer>(true)).FirstOrDefault(x=>x.name == "CheckPoint 1");
+        var originalPosition = c.transform.position;
+        var originalTarget = c.targetTexture;
+        var originalActive = RenderTexture.active;
+        var rt = new RenderTexture(1280,720,24);
+        var tex = new Texture2D(1280,720,TextureFormat.RGB24,false);
+        try
+        {
+            c.targetTexture = rt;
+            foreach (var target in new[] { player, checkpoint })
+            {
+                if (!target) continue;
+                c.transform.position = new Vector3(target.transform.position.x,target.transform.position.y,originalPosition.z);
+                c.Render();
+                RenderTexture.active = rt;
+                tex.ReadPixels(new Rect(0,0,1280,720),0,0);
+                tex.Apply();
+                File.WriteAllBytes(Dir + "/" + label + "-" + (target==player ? "player" : "checkpoint") + ".png",tex.EncodeToPNG());
+            }
+        }
+        finally
+        {
+            c.transform.position = originalPosition;
+            c.targetTexture = originalTarget;
+            RenderTexture.active = originalActive;
+            UnityEngine.Object.DestroyImmediate(tex);
+            UnityEngine.Object.DestroyImmediate(rt);
+        }
+    }
+    static void RuntimeReport()
+    {
+        var s=SceneManager.GetActiveScene();
+        var report=new System.Text.StringBuilder("Playing=" + EditorApplication.isPlaying + " Scene=" + s.path + "\n");
+        foreach (var r in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<SpriteRenderer>(true)))
+            report.AppendLine(PathOf(r.transform) + " layer=" + r.sortingLayerName + " sprite=" + (r.sprite ? r.sprite.name : "null"));
+        foreach (var l in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Light2D>(true)))
+            report.AppendLine(l.name + " intensity=" + l.intensity);
+        File.WriteAllText(Dir + "/play-report.txt",report.ToString());
+    }
+    static void Inspect()
+    {
+        var report = new System.Text.StringBuilder();
+        report.AppendLine("play=" + EditorApplication.isPlaying);
+        for (int i=0; i<SceneManager.sceneCount; i++)
+        {
+            var s = SceneManager.GetSceneAt(i);
+            report.AppendLine("SCENE " + s.path + " dirty=" + s.isDirty + " loaded=" + s.isLoaded);
+            if (!s.isLoaded) continue;
+            if (s.path == "Assets/01.Scenes/YuchanScene.unity" && !File.Exists(Dir + "/YuchanScene.editor.before.unity.txt"))
+            {
+                string copy = Dir + "/YuchanScene.editor.before.unity";
+                if (!EditorSceneManager.SaveScene(s, copy, true)) throw new Exception("Editor snapshot failed");
+                File.Move(copy, copy + ".txt");
+            }
+            foreach (var root in s.GetRootGameObjects())
+            {
+                foreach (var r in root.GetComponentsInChildren<Renderer>(true))
+                    report.AppendLine("RENDER " + PathOf(r.transform) + " type=" + r.GetType().Name + " sorting=" + r.sortingLayerName + " order=" + r.sortingOrder + " material=" + (r.sharedMaterial ? r.sharedMaterial.name + ":" + r.sharedMaterial.shader.name : "null") + " active=" + r.gameObject.activeInHierarchy);
+                foreach (var l in root.GetComponentsInChildren<Light2D>(true))
+                {
+                    var so = new SerializedObject(l);
+                    var a = so.FindProperty("m_ApplyToSortingLayers");
+                    string layers = string.Join(",", Enumerable.Range(0,a.arraySize).Select(j=>SortingLayer.IDToName(a.GetArrayElementAtIndex(j).intValue)));
+                    report.AppendLine("LIGHT " + PathOf(l.transform) + " intensity=" + l.intensity + " type=" + l.lightType + " layers=" + layers);
+                }
+                foreach (var c in root.GetComponentsInChildren<Camera>(true))
+                    report.AppendLine("CAMERA " + PathOf(c.transform) + " pos=" + c.transform.position + " size=" + c.orthographicSize);
+                foreach (var t in root.GetComponentsInChildren<Transform>(true))
+                    if (GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0) report.AppendLine("MISSING " + PathOf(t));
+            }
+        }
+        report.AppendLine("PIPELINE " + UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline);
+        File.WriteAllText(Dir + "/editor-inspect.txt", report.ToString());
+    }
+}
