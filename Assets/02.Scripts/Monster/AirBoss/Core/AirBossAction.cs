@@ -33,29 +33,24 @@ public class AirBossAction : MonoBehaviour
         _animation = GetComponent<AirBossAnimation>();
     }
 
-    public void Execute(AirBossActionType actionType)
+    public bool Execute(AirBossActionType actionType)
     {
         switch (actionType)
         {
             case AirBossActionType.BothArmsLiftDrop:
-                StartAttack(_bothArmsLiftDrop);
-                break;
+                return StartAttack(_bothArmsLiftDrop);
 
             case AirBossActionType.ForwardReach:
-                StartAttack(_forwardReach);
-                break;
+                return StartAttack(_forwardReach);
 
             case AirBossActionType.OneArmUpDown:
-                StartAttack(_oneArmUpDown);
-                break;
+                return StartAttack(_oneArmUpDown);
 
             case AirBossActionType.BothArmsRaise:
-                StartAttack(_bothArmsRaise);
-                break;
+                return StartAttack(_bothArmsRaise);
 
             case AirBossActionType.RaiseDropShadow:
-                StartAttack(_raiseDropShadow);
-                break;
+                return StartAttack(_raiseDropShadow);
 
             // case AirBossActionType.SpinRoll360:
             //     _animation.PlaySpinRoll360Animation();
@@ -66,48 +61,42 @@ public class AirBossAction : MonoBehaviour
             //     break;
 
             case AirBossActionType.BothArmsLightningGather:
-                StartAttack(_bothArmsLightningGather);
-                break;
+                return StartAttack(_bothArmsLightningGather);
 
             case AirBossActionType.BothArmsIcePush:
-                StartAttack(_bothArmsIcePush);
-                break;
+                return StartAttack(_bothArmsIcePush);
 
             case AirBossActionType.BothArmsIceThrow:
-                StartAttack(_bothArmsIceThrow);
-                break;
+                return StartAttack(_bothArmsIceThrow);
 
             case AirBossActionType.OneArmIceSummon:
-                StartAttack(_oneArmIceSummon);
-                break;
+                return StartAttack(_oneArmIceSummon);
 
             case AirBossActionType.OneArmUpDownIce:
-                StartAttack(_oneArmUpDownIce);
-                break;
+                return StartAttack(_oneArmUpDownIce);
 
             case AirBossActionType.OneArmUpDownIceBlock:
-                StartAttack(_oneArmUpDownIceBlock);
-                break;
+                return StartAttack(_oneArmUpDownIceBlock);
 
             case AirBossActionType.CrossBurst:
-                StartAttack(_crossBurst);
-                break;
+                return StartAttack(_crossBurst);
 
             case AirBossActionType.CrossBurst6Point:
-                StartAttack(_crossBurst6Point);
-                break;
+                return StartAttack(_crossBurst6Point);
 
             case AirBossActionType.OneArmUpDownIcePhase3:
-                StartAttack(_oneArmUpDownIcePhase3);
-                break;
+                return StartAttack(_oneArmUpDownIcePhase3);
 
             case AirBossActionType.RaiseBothArmPhase3:
-                StartAttack(_raiseBothArmPhase3);
-                break;
+                return StartAttack(_raiseBothArmPhase3);
+
+            default:
+                Debug.LogWarning($"실행할 수 없는 공격입니다: {actionType}", this);
+                return false;
         }
     }
 
-    public void ExecuteRandom(int phase)
+    public bool ExecuteRandom(int phase)
     {
         // OnePatternTest();
 
@@ -128,35 +117,33 @@ public class AirBossAction : MonoBehaviour
                 break;
 
             default:
-                return;
+                Debug.LogWarning($"잘못된 페이즈입니다: {phase}", this);
+                return false;
         }
 
         if (actions == null || actions.Length == 0)
         {
-            Debug.LogWarning($"페이즈 {phase}의 공격 목록이 비어있습니다.");
-            return;
+            Debug.LogWarning($"페이즈 {phase}의 공격 목록이 비어있습니다.", this);
+            return false;
         }
 
         int randomIndex = Random.Range(0, actions.Length);
-        AirBossActionType actionType = actions[randomIndex];
-
-        if (actionType == AirBossActionType.Count)
-        {
-            Debug.LogWarning($"Count 는 실행할 수 있는 공격이 아닙니다");
-            return;
-        }
-
-        Execute(actionType);
+        return Execute(actions[randomIndex]);
     }
 
-    private void StartAttack(AirBossAttackBase attack)
+    private bool StartAttack(AirBossAttackBase attack)
     {
+        if (attack == null)
+        {
+            Debug.LogWarning("공격 패턴 컴포넌트가 연결되지 않았습니다.", this);
+            return false;
+        }
+
         CancelCurrentAttack();
-
-        if (attack == null) return;
-
         _currentAttack = attack;
-        _currentAttack.BeginAttack();
+        attack.BeginAttack();
+
+        return _currentAttack == attack;
     }
 
     private void WarningCue()
@@ -177,7 +164,7 @@ public class AirBossAction : MonoBehaviour
 
     public void ActionFinished()
     {
-        if (_currentAttack) return;
+        if (_currentAttack == null) return;
 
         _currentAttack.Finish();
     }

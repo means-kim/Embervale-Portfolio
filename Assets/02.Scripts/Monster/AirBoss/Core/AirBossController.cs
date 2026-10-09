@@ -171,7 +171,10 @@ public class AirBossController : MonoBehaviour
                 return;
             }
 
-            _action.ExecuteRandom(_phaseController.CurrentPhase);
+            if (!_action.ExecuteRandom(_phaseController.CurrentPhase))
+            {
+                OnActionFinished();
+            }
         }
     }
 
