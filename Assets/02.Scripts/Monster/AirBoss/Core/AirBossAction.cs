@@ -107,13 +107,44 @@ public class AirBossAction : MonoBehaviour
         }
     }
 
-    public void ExecuteRandom()
+    public void ExecuteRandom(int phase)
     {
         // OnePatternTest();
 
-        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        AirBossActionType[] actions;
 
-        AirBossActionType actionType = (AirBossActionType)randomIndex;
+        switch (phase)
+        {
+            case 1:
+                actions = _phase1Actions;
+                break;
+
+            case 2:
+                actions = _phase2Actions;
+                break;
+
+            case 3:
+                actions = _phase3Actions;
+                break;
+
+            default:
+                return;
+        }
+
+        if (actions == null || actions.Length == 0)
+        {
+            Debug.LogWarning($"페이즈 {phase}의 공격 목록이 비어있습니다.");
+            return;
+        }
+
+        int randomIndex = Random.Range(0, actions.Length);
+        AirBossActionType actionType = actions[randomIndex];
+
+        if (actionType == AirBossActionType.Count)
+        {
+            Debug.LogWarning($"Count 는 실행할 수 있는 공격이 아닙니다");
+            return;
+        }
 
         Execute(actionType);
     }
