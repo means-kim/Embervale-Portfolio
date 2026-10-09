@@ -16,6 +16,8 @@ public class PlayerDashGhost : MonoBehaviour
     [SerializeField, Min(1)] private int _poolSize = 10;
     [Tooltip("대시 시작 후 첫 잔상이 나오기까지 대기 시간. 서있는 자세 복제를 피하려면 0.1 정도.")]
     [SerializeField, Min(0f)] private float _spawnDelay = 0.1f;
+    [Tooltip("차지 점프 발사 후 첫 잔상 지연. 대시 자세가 반영된 뒤 복사합니다.")]
+    [SerializeField, Min(0f)] private float _chargeJumpSpawnDelay = 0.02f;
     [SerializeField, Min(0.01f)] private float _spawnInterval = 0.04f;
     [SerializeField, Min(0.05f)] private float _fadeTime = 0.4f;
     [SerializeField, Range(0f, 1f)] private float _initialAlpha = 0.6f;
@@ -23,10 +25,12 @@ public class PlayerDashGhost : MonoBehaviour
     [SerializeField] private int _sortingOrderOffset = -1;
 
     private PlayerDash _playerDash;
+    private PlayerAnimator _playerAnimator;
     private Transform _holder;
     private readonly List<Ghost> _pool = new();
     private float _spawnTimer;
     private bool _spawning;
+    private bool _chargeJumpSpawning;
 
     private sealed class Ghost
     {
@@ -41,9 +45,9 @@ public class PlayerDashGhost : MonoBehaviour
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
 
         _playerDash = GetComponent<PlayerDash>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
 
         _holder = new GameObject($"{gameObject.name}_DashGhosts").transform;
-        _holder.SetParent(transform.parent);
         _holder.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
         _holder.localScale = Vector3.one;
 
@@ -80,7 +84,8 @@ public class PlayerDashGhost : MonoBehaviour
         ClearGhosts();
     }
 
-    private void Update()
+    // Animator가 현재 프레임의 스프라이트를 적용한 뒤 복사합니다.
+    private void LateUpdate()
     {
         if (_spawning)
         {
@@ -129,31 +134,55 @@ public class PlayerDashGhost : MonoBehaviour
     private void HandleDashEnded()
     {
         // 스폰만 중단하고, 이미 나온 잔상은 자연 페이드.
-        _spawning = false;
+        _spawning = _chargeJumpSpawning;
+    }
+
+    public void BeginChargeJumpLaunch()
+    {
+        if (!isActiveAndEnabled) return;
+        if (_targetRenderer == null)
+            _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
+        _chargeJumpSpawning = true;
+        _spawning = true;
+        _spawnTimer = _chargeJumpSpawnDelay;
+    }
+
+    public void EndChargeJumpLaunch()
+    {
+        _chargeJumpSpawning = false;
+        _spawning = _playerDash != null && _playerDash.IsDashing;
     }
 
     private void Spawn()
     {
         if (_targetRenderer == null || _targetRenderer.sprite == null) return;
+        SpriteRenderer renderer = _playerAnimator != null
+            ? _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer) : _targetRenderer;
 
         foreach (Ghost ghost in _pool)
         {
             if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
             if (ghost.Go.activeSelf) continue;
 
-            ghost.Renderer.sharedMaterial = _targetRenderer.sharedMaterial;
-            ghost.Renderer.sprite = _targetRenderer.sprite;
-            ghost.Renderer.flipX = _targetRenderer.flipX;
-            ghost.Renderer.flipY = _targetRenderer.flipY;
-            ghost.Renderer.sortingLayerID = _targetRenderer.sortingLayerID;
-            ghost.Renderer.sortingOrder = _targetRenderer.sortingOrder + _sortingOrderOffset;
+            ghost.Renderer.sharedMaterial = renderer.sharedMaterial;
+            ghost.Renderer.sprite = renderer.sprite;
+            ghost.Renderer.flipX = renderer.flipX;
+            ghost.Renderer.flipY = renderer.flipY;
+            ghost.Renderer.sortingLayerID = renderer.sortingLayerID;
+            ghost.Renderer.sortingOrder = renderer.sortingOrder + _sortingOrderOffset;
 
             Color color = _tint;
             color.a = _initialAlpha;
             ghost.Renderer.color = color;
 
-            ghost.Go.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            ghost.Go.transform.localScale = transform.localScale;
+            ghost.Go.layer = renderer.gameObject.layer;
+            // 회전과 좌우 반전이 함께 있어도 실제 월드 축을 그대로 복사합니다.
+            Vector3 right = renderer.transform.TransformVector(Vector3.right);
+            Vector3 up = renderer.transform.TransformVector(Vector3.up);
+            float angle = Mathf.Atan2(right.y, right.x) * Mathf.Rad2Deg;
+            float handedness = Vector3.Cross(right, up).z < 0f ? -1f : 1f;
+            ghost.Go.transform.SetPositionAndRotation(renderer.transform.position, Quaternion.Euler(0f, 0f, angle));
+            ghost.Go.transform.localScale = new Vector3(right.magnitude, up.magnitude * handedness, 1f);
 
             ghost.LifeRemaining = _fadeTime;
             ghost.Renderer.enabled = true;
@@ -166,6 +195,7 @@ public class PlayerDashGhost : MonoBehaviour
     public void ClearGhosts()
     {
         _spawning = false;
+        _chargeJumpSpawning = false;
         foreach (Ghost ghost in _pool)
         {
             if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
@@ -176,4 +206,8 @@ public class PlayerDashGhost : MonoBehaviour
     }
 
     public void ResetForRespawn() => ClearGhosts();
+    private void OnDestroy()
+    {
+        if (_holder != null) Destroy(_holder.gameObject);
+    }
 }

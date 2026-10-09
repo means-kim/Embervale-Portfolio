@@ -1,0 +1,99 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+
+[InitializeOnLoad]
+public static class YuchanHaloTemp
+{
+    const string D="Docs/Unity/YuchanHalo_20261009";
+    static double next;
+    static YuchanHaloTemp() { EditorApplication.update+=Tick; }
+    static void Tick()
+    {
+        if(EditorApplication.timeSinceStartup<next || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+        next=EditorApplication.timeSinceStartup+0.5;
+        try
+        {
+            if(SessionState.GetBool("HaloPlay",false) && EditorApplication.isPlaying)
+            {
+                if(EditorApplication.timeSinceStartup<SessionState.GetFloat("HaloStart",0)+6) return;
+                Capture("play"); Report("play");
+                SessionState.SetBool("HaloPlay",false); EditorApplication.isPlaying=false; return;
+            }
+            if(EditorApplication.isPlayingOrWillChangePlaymode) return;
+            if(!File.Exists(D+"/applied.txt")) { Apply(); return; }
+            if(!File.Exists(D+"/request.txt")) return;
+            var op=File.ReadAllText(D+"/request.txt").Trim(); File.Delete(D+"/request.txt");
+            if(op=="play") { SessionState.SetBool("HaloPlay",true); SessionState.SetFloat("HaloStart",(float)EditorApplication.timeSinceStartup); EditorApplication.isPlaying=true; }
+            if(op=="reload") { var s=SceneManager.GetActiveScene(); if(s.isDirty) throw new Exception("Dirty scene; cannot reload"); EditorSceneManager.OpenScene(s.path); Capture("reload"); Report("reload"); }
+            if(op=="capture") { Capture("after"); Report("after"); }
+            if(op=="tune")
+            {
+                var values=File.ReadAllText(D+"/tune.txt").Split(',').Select(x=>float.Parse(x,System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+                foreach(var l in LocalLights()) { Undo.RecordObject(l,"Tune halo"); l.intensity=values[0]; var so=new SerializedObject(l); so.FindProperty("m_LightVolumeIntensity").floatValue=values[1]; so.ApplyModifiedProperties(); PrefabUtility.RecordPrefabInstancePropertyModifications(l); }
+                EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene()); EditorSceneManager.SaveScene(SceneManager.GetActiveScene()); Capture("after"); Report("after");
+            }
+        }
+        catch(Exception e) { File.WriteAllText(D+"/error.txt",e.ToString()); File.WriteAllText(D+"/applied.txt","FAILED"); }
+    }
+    static SpriteRenderer[] Targets() => SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<SpriteRenderer>(true)).Where(r=>r.CompareTag("Player") || r.CompareTag("CheckPoint")).ToArray();
+    static Light2D[] LocalLights() => SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Light2D>(true)).Where(l=>l.name=="EmissionLight2D").ToArray();
+    static void Apply()
+    {
+        var s=SceneManager.GetActiveScene();
+        if(s.path!="Assets/01.Scenes/YuchanScene.unity") throw new Exception("Open YuchanScene first");
+        Directory.CreateDirectory(D);
+        if(!File.Exists(D+"/editor.before.unity.txt")) { var p=D+"/editor.before.unity"; if(!EditorSceneManager.SaveScene(s,p,true)) throw new Exception("Snapshot failed"); File.Move(p,p+".txt"); }
+        Report("before"); Capture("before");
+        var targets=Targets(); if(targets.Count(r=>r.CompareTag("Player"))!=1 || targets.Count(r=>r.CompareTag("CheckPoint"))!=2) throw new Exception("Unexpected emission targets");
+        var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/03.Prefabs/Map/Light/PlayerLight.prefab");
+        if(!prefab) throw new Exception("Source light prefab missing");
+        foreach(var r in targets)
+        {
+            if(r.transform.Find("EmissionLight2D")) throw new Exception("Duplicate light");
+            var go=(GameObject)PrefabUtility.InstantiatePrefab(prefab,r.transform); Undo.RegisterCreatedObjectUndo(go,"Add local emission light"); go.name="EmissionLight2D";
+            go.transform.position=r.bounds.center; go.transform.localRotation=Quaternion.identity;
+            var l=go.GetComponent<Light2D>();
+            l.intensity=2; l.pointLightInnerRadius=0.6f; l.pointLightOuterRadius=r.CompareTag("Player")?5f:4f;
+            l.color=r.CompareTag("Player")?new Color(1f,0.38f,0.13f,1):new Color(1f,0.65f,0.3f,1);
+            var so=new SerializedObject(l); var a=so.FindProperty("m_ApplyToSortingLayers"); a.arraySize=1; a.GetArrayElementAtIndex(0).intValue=SortingLayer.NameToID("GA1_World");
+            so.FindProperty("m_LightVolumeEnabled").boolValue=true; so.FindProperty("m_LightVolumeIntensity").floatValue=0.18f;
+            so.ApplyModifiedProperties(); PrefabUtility.RecordPrefabInstancePropertyModifications(l); PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform); PrefabUtility.RecordPrefabInstancePropertyModifications(go);
+        }
+        var camera=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Camera>(true)).First(c=>c.enabled);
+        Undo.RecordObject(camera,"Dark emission backdrop"); camera.backgroundColor=new Color(0.018f,0.022f,0.035f,1);
+        EditorSceneManager.MarkSceneDirty(s); if(!EditorSceneManager.SaveScene(s)) throw new Exception("Save failed");
+        File.WriteAllText(D+"/applied.txt","Three local Light2D prefab instances added and scene saved"); Capture("after"); Report("after");
+    }
+    static void Capture(string label)
+    {
+        var source=SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Camera>(true)).First(c=>c.enabled);
+        var go=new GameObject("HaloCaptureCamera"){hideFlags=HideFlags.HideAndDontSave};
+        var c=go.AddComponent<Camera>(); c.CopyFrom(source); c.enabled=false; c.transform.rotation=source.transform.rotation;
+        var rt=new RenderTexture(1280,720,24); var tex=new Texture2D(1280,720,TextureFormat.RGB24,false); var active=RenderTexture.active;
+        try
+        {
+            c.targetTexture=rt;
+            foreach(var r in Targets())
+            {
+                c.transform.position=new Vector3(r.bounds.center.x,r.bounds.center.y,source.transform.position.z);
+                c.Render(); RenderTexture.active=rt; tex.ReadPixels(new Rect(0,0,1280,720),0,0); tex.Apply();
+                File.WriteAllBytes(D+"/"+label+"-"+r.name.Replace(' ','_')+".png",tex.EncodeToPNG());
+            }
+        }
+        finally { RenderTexture.active=active; UnityEngine.Object.DestroyImmediate(go); UnityEngine.Object.DestroyImmediate(rt); UnityEngine.Object.DestroyImmediate(tex); }
+    }
+    static void Report(string label)
+    {
+        var s=SceneManager.GetActiveScene(); var b=new StringBuilder("Scene="+s.path+" dirty="+s.isDirty+" play="+EditorApplication.isPlaying+"\n");
+        foreach(var r in Targets()) b.AppendLine("Target "+r.name+" position="+r.transform.position+" bounds="+r.bounds+" layer="+r.sortingLayerName+" enabled="+r.enabled+" color="+r.color);
+        foreach(var l in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Light2D>(true))) b.AppendLine("Light "+l.name+" parent="+(l.transform.parent?l.transform.parent.name:"")+" type="+l.lightType+" intensity="+l.intensity+" radius="+l.pointLightOuterRadius+" pos="+l.transform.position+" volume="+new SerializedObject(l).FindProperty("m_LightVolumeEnabled").boolValue);
+        File.WriteAllText(D+"/"+label+"-report.txt",b.ToString());
+    }
+}

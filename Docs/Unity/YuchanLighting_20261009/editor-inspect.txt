@@ -1,0 +1,29 @@
+play=False
+SCENE Assets/01.Scenes/YuchanScene.unity dirty=False loaded=True
+RENDER Player type=SpriteRenderer sorting=GA1_Actors order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Borders/RespawnBorderLeft type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Borders/RespawnBorderRight type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Borders/RespawnBorderDown type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Borders/RespawnBorderUp type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 1 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 2 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 5 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 3 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 4 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 6 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 7 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 8 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 8 (1) type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Grounds/Ground 9 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/CheckPoints/CheckPoint 1 type=SpriteRenderer sorting=GA1_Actors order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/CheckPoints/CheckPoint 2 type=SpriteRenderer sorting=GA1_Actors order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Platforms/Platform 1 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Platforms/Platform 2 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Platforms/Platform 3 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Platforms/Platform 4 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Dummys/Dummy 1 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+RENDER Map/Dummys/Dummy 2 type=SpriteRenderer sorting=GA1_World order=0 material=Sprite-Lit-Default:Universal Render Pipeline/2D/Sprite-Lit-Default active=True
+CAMERA Camera pos=(-19.72, -7.46, -10.00) size=8.9
+LIGHT Lights/GlobalLight intensity=0.1 type=Global layers=GA1_BG_Mid,GA1_World,GA1_Foreground
+LIGHT Lights/GlobalPlayerLight intensity=1 type=Global layers=GA1_Actors
+PIPELINE UniversalRP (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)

@@ -231,6 +231,7 @@ public class CinematicManager : MonoBehaviour
 
     private void LockControls()
     {
+        if (_player != null) _player.GetComponent<PlayerChargeJump>()?.CancelChargeJump();
         _lockedControls = (Behaviour[])_playerControls.Clone();
         _originalStates = new bool[_lockedControls.Length];
 

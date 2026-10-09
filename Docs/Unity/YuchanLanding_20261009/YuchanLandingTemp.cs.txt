@@ -1,0 +1,87 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+[InitializeOnLoad]
+public static class YuchanLandingTemp
+{
+    const string D="Docs/Unity/YuchanLanding_20261009";
+    const string Variant="Assets/03.Prefabs/VFX/LandParticle_Yuchan.prefab";
+    static bool running;
+    static bool injected;
+    static double start;
+    static YuchanLandingTemp(){EditorApplication.update+=Tick;if(File.Exists(D+"/applied.txt")&&!File.Exists(D+"/play.txt"))File.WriteAllText(D+"/request.txt","play");}
+    static void Tick()
+    {
+        if(EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+        try
+        {
+            if(running && EditorApplication.isPlaying)
+            {
+                if(!injected && EditorApplication.timeSinceStartup-start>4)
+                {
+                    var player=UnityEngine.Object.FindFirstObjectByType<Player>();
+                    EffectManager.Instance.PlayLand(player.transform.position);
+                    foreach(var effect in UnityEngine.Object.FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None).Where(x=>x.name.StartsWith("LandParticle"))) effect.Simulate(0.15f,true,true,true);
+                    injected=true;
+                }
+                var p=UnityEngine.Object.FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None).FirstOrDefault(x=>x.name.StartsWith("LandParticle")&&x.particleCount>3&&x.time>0.1f);
+                if(p)
+                {
+                    Capture("play-landing");
+                    var r=p.GetComponent<ParticleSystemRenderer>();
+                    File.WriteAllText(D+"/play.txt","Landing effect spawned in Play; triggered="+(injected?"EffectManager.PlayLand diagnostic call":"automatic landing")+" count="+p.particleCount+" time="+p.time+" layer="+r.sortingLayerName+" order="+r.sortingOrder+" material="+r.sharedMaterial.name+" position="+p.transform.position);
+                    running=false;EditorApplication.isPlaying=false;return;
+                }
+                if(EditorApplication.timeSinceStartup-start>15){File.WriteAllText(D+"/play-timeout.txt","No landing particle observed");running=false;EditorApplication.isPlaying=false;}
+                return;
+            }
+            if(EditorApplication.isPlayingOrWillChangePlaymode)return;
+            if(!File.Exists(D+"/applied.txt")){Apply();return;}
+            if(!File.Exists(D+"/request.txt"))return;
+            var op=File.ReadAllText(D+"/request.txt").Trim();File.Delete(D+"/request.txt");
+            if(op=="play"){running=true;injected=false;start=EditorApplication.timeSinceStartup;EditorApplication.isPlaying=true;}
+            if(op=="reload")
+            {
+                var s=SceneManager.GetActiveScene();if(s.isDirty)throw new Exception("Dirty scene");EditorSceneManager.OpenScene(s.path);
+                var manager=UnityEngine.Object.FindFirstObjectByType<EffectManager>();
+                File.WriteAllText(D+"/reload.txt",AssetDatabase.GetAssetPath(new SerializedObject(manager).FindProperty("_landVfx").objectReferenceValue)+" dirty="+SceneManager.GetActiveScene().isDirty);
+            }
+        }
+        catch(Exception e){File.WriteAllText(D+"/error.txt",e.ToString());File.WriteAllText(D+"/applied.txt","FAILED");running=false;}
+    }
+    static void Apply()
+    {
+        var s=SceneManager.GetActiveScene();if(s.path!="Assets/01.Scenes/YuchanScene.unity")throw new Exception("Wrong scene");
+        var snapshot=D+"/editor.before.unity";if(!EditorSceneManager.SaveScene(s,snapshot,true))throw new Exception("Snapshot failed");File.Move(snapshot,snapshot+".txt");
+        var original=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/03.Prefabs/VFX/LandParticle.prefab");
+        if(File.Exists(Variant))throw new Exception("Variant already exists");
+        var preview=(GameObject)PrefabUtility.InstantiatePrefab(original);
+        try
+        {
+            foreach(var r in preview.GetComponentsInChildren<ParticleSystemRenderer>(true)){r.sortingLayerName="GA1_Actors";r.sortingOrder=1;PrefabUtility.RecordPrefabInstancePropertyModifications(r);}
+            PrefabUtility.SaveAsPrefabAsset(preview,Variant);
+        }
+        finally{UnityEngine.Object.DestroyImmediate(preview);}
+        var manager=UnityEngine.Object.FindFirstObjectByType<EffectManager>();if(!manager)throw new Exception("EffectManager missing");
+        var so=new SerializedObject(manager);var field=so.FindProperty("_landVfx");
+        if(field.objectReferenceValue!=original)throw new Exception("Unexpected landing prefab reference");
+        Undo.RecordObject(manager,"Repair Yuchan landing particle visibility");field.objectReferenceValue=AssetDatabase.LoadAssetAtPath<GameObject>(Variant);so.ApplyModifiedProperties();
+        if(PrefabUtility.IsPartOfPrefabInstance(manager))PrefabUtility.RecordPrefabInstancePropertyModifications(manager);
+        EditorSceneManager.MarkSceneDirty(s);if(!EditorSceneManager.SaveScene(s))throw new Exception("Save failed");
+        File.WriteAllText(D+"/applied.txt","Variant created; only renderer sorting layer/order override; scene landing reference replaced");
+    }
+    static void Capture(string label)
+    {
+        var player=UnityEngine.Object.FindFirstObjectByType<Player>();var r=player.GetComponent<SpriteRenderer>();
+        var source=Camera.main;if(!source)source=UnityEngine.Object.FindFirstObjectByType<Camera>();
+        var go=new GameObject("LandingCaptureCamera"){hideFlags=HideFlags.HideAndDontSave};var c=go.AddComponent<Camera>();c.CopyFrom(source);c.enabled=false;c.transform.rotation=source.transform.rotation;c.transform.position=new Vector3(r.bounds.center.x,r.bounds.center.y,source.transform.position.z);
+        var rt=new RenderTexture(1280,720,24);var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);var active=RenderTexture.active;
+        try{c.targetTexture=rt;c.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,1280,720),0,0);tex.Apply();File.WriteAllBytes(D+"/"+label+".png",tex.EncodeToPNG());}
+        finally{RenderTexture.active=active;UnityEngine.Object.DestroyImmediate(go);UnityEngine.Object.DestroyImmediate(tex);UnityEngine.Object.DestroyImmediate(rt);}
+    }
+}

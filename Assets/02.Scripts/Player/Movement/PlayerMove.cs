@@ -36,7 +36,12 @@ public class PlayerMove : MonoBehaviour
         }
         _moveInput = direction;
         if (Mathf.Abs(_moveInput.x) <= 0.01f) return;
-        _facingDirection = _moveInput.x > 0f ? 1 : -1;
+        SetFacingDirection(_moveInput.x);
+    }
+    public void SetFacingDirection(float horizontal)
+    {
+        if (Mathf.Abs(horizontal) <= 0.01f) return;
+        _facingDirection = horizontal > 0f ? 1 : -1;
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * _facingDirection;
         transform.localScale = scale;

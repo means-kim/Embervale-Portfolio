@@ -90,6 +90,20 @@ public class PlayerJump : MonoBehaviour
         _bufferedJumpTime = -100f;
     }
     public bool IsIgnoringPlatform(Collider2D platform) => _ignoredPlatforms.Contains(platform);
+    public void ClearJumpBuffer() => _bufferedJumpTime = -100f;
+
+    // 공중 점프 횟수는 유지하며, 지상 발사는 첫 공중 상태로 표시합니다.
+    public void BeginExternalLaunch()
+    {
+        _groundContacts.Clear();
+        _platformContacts.Clear();
+        _ungroundedTimer = -1f;
+        ClearJumpBuffer();
+        _isGrounded = false;
+        _isJumping = true;
+        _jumpCount = Mathf.Max(1, _jumpCount);
+        OnJumpStarted?.Invoke();
+    }
     public void ResetForRespawn()
     {
         RestoreIgnoredPlatforms();

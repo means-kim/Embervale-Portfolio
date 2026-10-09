@@ -52,17 +52,10 @@ public class PlayerAttack : MonoBehaviour
     }
     private PlayerMove _move;
     private PlayerJump _jump;
-    private Rigidbody2D _rigidbody;
+    private PlayerAttackMotion _motion;
     private PlayerAttackDataSO _current;
     private PlayerAttackInstance _instance;
     private float _elapsed;
-    private float _originalGravityScale;
-    private bool _gravityReduced;
-    private float _horizontalLockTimer;
-    private bool _horizontalLockHeld;
-    private float _verticalLockTimer;
-    private bool _verticalLockHeld;
-    private float _frozenY;
     private int _direction;
     private bool _spawned;
     public event Action OnAttackStarted;
@@ -73,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _move = GetComponent<PlayerMove>();
         _jump = GetComponent<PlayerJump>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _motion = new PlayerAttackMotion(this, _move, GetComponent<Rigidbody2D>());
     }
     private bool IsGrounded => _jump != null && _jump.IsGrounded;
     private void ResetAirAttackCount() => _airAttackCount = 0;
@@ -96,14 +89,10 @@ public class PlayerAttack : MonoBehaviour
             _jump.OnJumpStarted -= CancelVerticalLock;
         }
         CancelAttack();
-        UnlockHorizontalLock();
+        _motion.UnlockHorizontal();
         CancelVerticalLock();
     }
-    private void CancelVerticalLock()
-    {
-        _verticalLockTimer = 0f;
-        _verticalLockHeld = false;
-    }
+    private void CancelVerticalLock() => _motion.CancelVertical();
 
     // 공격 허용 여부는 PlayerController가 결정한다. 입력이나 프리팹 종류를 판별하지 않는다.
     public bool TryStartAttack(PlayerAttackDataSO definition)
@@ -136,33 +125,9 @@ public class PlayerAttack : MonoBehaviour
         _direction = _move.FacingDirection;
         IsAttacking = true;
         bool startedInAir = !IsGrounded;
-        bool rising = _rigidbody != null && _rigidbody.linearVelocity.y > 0.01f;
         if (startedInAir) _airAttackCount++;
-
         float horizontalLockDuration = startedInAir ? _airHorizontalLockDuration : _groundHorizontalLockDuration;
-        if (horizontalLockDuration > 0f && _move != null)
-        {
-            _move.SetMovementLocked(this, true);
-            _horizontalLockTimer = horizontalLockDuration;
-            _horizontalLockHeld = true;
-        }
-
-        if (startedInAir && !rising && _airVerticalLockDuration > 0f && _rigidbody != null)
-        {
-            _frozenY = _rigidbody.position.y;
-            _verticalLockTimer = _airVerticalLockDuration;
-            _verticalLockHeld = true;
-        }
-
-        if (!rising && _rigidbody != null)
-        {
-            if (!_gravityReduced)
-            {
-                _originalGravityScale = _rigidbody.gravityScale;
-                _gravityReduced = true;
-            }
-            _rigidbody.gravityScale = _originalGravityScale * _attackGravityScaleMultiplier;
-        }
+        _motion.Begin(startedInAir, horizontalLockDuration, _airVerticalLockDuration, _attackGravityScaleMultiplier);
         _isComboAttack = false;
         OnAttackStarted?.Invoke();
         if (IsAttacking && definition.WindupDuration <= 0) SpawnAttack();
@@ -170,38 +135,13 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (_horizontalLockHeld)
-        {
-            _horizontalLockTimer -= Time.deltaTime;
-            if (_horizontalLockTimer <= 0f)
-            {
-                _horizontalLockTimer = 0f;
-                _horizontalLockHeld = false;
-                if (_move != null) _move.SetMovementLocked(this, false);
-            }
-        }
+        _motion.Tick(Time.deltaTime);
         if (!IsAttacking) return;
         _elapsed += Time.deltaTime;
         if (!_spawned && _elapsed >= Mathf.Max(0, _current.WindupDuration)) SpawnAttack();
         if (IsAttacking && _elapsed >= Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration)) FinishAttack(true);
     }
-    private void FixedUpdate()
-    {
-        if (!_verticalLockHeld) return;
-        if (_rigidbody == null || IsGrounded)
-        {
-            CancelVerticalLock();
-            return;
-        }
-        Vector2 lockedVelocity = _rigidbody.linearVelocity;
-        lockedVelocity.y = 0f;
-        _rigidbody.linearVelocity = lockedVelocity;
-        Vector2 lockedPosition = _rigidbody.position;
-        lockedPosition.y = _frozenY;
-        _rigidbody.position = lockedPosition;
-        _verticalLockTimer -= Time.fixedDeltaTime;
-        if (_verticalLockTimer <= 0f) CancelVerticalLock();
-    }
+    private void FixedUpdate() => _motion.FixedTick(IsGrounded, Time.fixedDeltaTime);
     private void SpawnAttack()
     {
         _spawned = true;
@@ -219,7 +159,7 @@ public class PlayerAttack : MonoBehaviour
     public void InterruptForDash()
     {
         CancelAttack();
-        UnlockHorizontalLock();
+        _motion.UnlockHorizontal();
         CancelVerticalLock();
     }
     public void ResetForRespawn()
@@ -231,16 +171,8 @@ public class PlayerAttack : MonoBehaviour
         _queuedCombo = false;
         _isComboAttack = false;
         _airAttackCount = 0;
-        _horizontalLockTimer = 0f;
-        _horizontalLockHeld = false;
         CancelVerticalLock();
-        if (_move != null) _move.SetMovementLocked(this, false);
-    }
-    private void UnlockHorizontalLock()
-    {
-        _horizontalLockTimer = 0f;
-        _horizontalLockHeld = false;
-        if (_move != null) _move.SetMovementLocked(this, false);
+        _motion.UnlockHorizontal();
     }
     private void FinishAttack(bool completed = false)
     {
@@ -249,11 +181,7 @@ public class PlayerAttack : MonoBehaviour
         _queuedCombo = false;
         _comboExpires = _isComboAttack ? Time.time + _comboResetDelay : -1f;
         IsAttacking = false;
-        if (_gravityReduced && !continueCombo && _rigidbody != null)
-        {
-            _rigidbody.gravityScale = _originalGravityScale;
-            _gravityReduced = false;
-        }
+        _motion.EndAttack(continueCombo);
         if (_instance != null) _instance.EndPlayerAction();
         _instance = null;
         // 수평락은 타이머 만료 시 해제된다. 콤보가 이어지면 중력 저하를 유지하고 다음 타를 바로 시작한다.
