@@ -33,6 +33,9 @@ public class PlayerChargeJump : MonoBehaviour
     private PlayerHit _hit;
     private Health _health;
     private ChargeJumpArrow _arrow;
+    private PlayerAnimator _animator;
+    private PlayerDashGhost _dashGhost;
+    private GameObject _aimEffect;
     private IceProjectile _target;
     private Phase _phase;
     private Vector2 _aimDirection;
@@ -67,6 +70,8 @@ public class PlayerChargeJump : MonoBehaviour
         _attack = GetComponent<PlayerAttack>();
         _hit = GetComponent<PlayerHit>();
         _health = GetComponent<Health>();
+        _animator = GetComponent<PlayerAnimator>();
+        _dashGhost = GetComponent<PlayerDashGhost>();
     }
 
     private void OnEnable()
@@ -128,10 +133,15 @@ public class PlayerChargeJump : MonoBehaviour
         _body.linearVelocity = Vector2.zero;
         Time.timeScale = _appliedTimeScale;
         Time.fixedDeltaTime = _appliedFixedDeltaTime;
+        // Unity의 시간 setter/getter 사이 양자화로 요청값과 실제 적용값이 다를 수 있습니다.
+        // 실제 적용값을 저장해 복원 비교 실패와 fixedDeltaTime의 누적 축소를 방지합니다.
+        _appliedTimeScale = Time.timeScale;
+        _appliedFixedDeltaTime = Time.fixedDeltaTime;
         _aimDirection = Vector2.right * _move.FacingDirection;
         if (_arrow == null) _arrow = Instantiate(_arrowPrefab);
         UpdateAim();
         _arrow.Show(AimOrigin, _aimDirection);
+        _aimEffect = EffectManager.Instance?.PlayChargeJumpAim(AimOrigin);
     }
 
     private IceProjectile FindNearestProjectile()
@@ -186,6 +196,7 @@ public class PlayerChargeJump : MonoBehaviour
         if (!IsAiming || _arrow == null) return;
         UpdateAim();
         _arrow.Show(AimOrigin, _aimDirection);
+        if (_aimEffect != null) _aimEffect.transform.position = AimOrigin;
     }
 
     private void UpdateAim()
@@ -207,6 +218,7 @@ public class PlayerChargeJump : MonoBehaviour
             return;
         }
         UpdateAim();
+        Vector3 projectileOrigin = _target.transform.position;
         if (!_target.ReleaseCharge(this, -_aimDirection * _projectileLaunchSpeed, true))
         {
             Stop(false);
@@ -215,12 +227,18 @@ public class PlayerChargeJump : MonoBehaviour
         _target = null;
         RestoreTime();
         _arrow.Hide();
+        ClearAimEffect();
         _body.constraints = _previousConstraints;
         _phase = Phase.Launching;
         _launchRemaining = _launchDuration;
         _launchVelocity = _aimDirection * _playerLaunchSpeed;
         _body.linearVelocity = _launchVelocity;
+        _move.SetFacingDirection(_aimDirection.x);
         _jump.BeginExternalLaunch();
+        _animator?.PlayChargeJumpLaunch();
+        _dashGhost?.BeginChargeJumpLaunch();
+        EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aimDirection);
+        EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aimDirection);
     }
 
     private void FixedUpdate()
@@ -257,16 +275,29 @@ public class PlayerChargeJump : MonoBehaviour
     {
         if (!IsActive) return;
         bool wasAiming = IsAiming;
+        bool wasLaunching = IsLaunching;
         if (_target != null) _target.ReleaseCharge(this, _projectileVelocity);
         _target = null;
         RestoreTime();
         _phase = Phase.None;
+        ClearAimEffect();
+        if (wasLaunching)
+        {
+            _animator?.EndChargeJumpLaunch();
+            _dashGhost?.EndChargeJumpLaunch();
+        }
         if (_arrow != null) _arrow.Hide();
         if (wasAiming && _body.constraints == RigidbodyConstraints2D.FreezeAll)
             _body.constraints = _previousConstraints;
         if (Mathf.Approximately(_body.gravityScale, 0f)) _body.gravityScale = _previousGravity;
         _move.SetMovementLocked(this, false);
         if (wasAiming && restoreVelocity) _body.linearVelocity = _previousVelocity;
+    }
+
+    private void ClearAimEffect()
+    {
+        if (_aimEffect != null) Destroy(_aimEffect);
+        _aimEffect = null;
     }
 
     private void RestoreTime()

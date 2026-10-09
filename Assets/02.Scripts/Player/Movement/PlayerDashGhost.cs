@@ -16,6 +16,8 @@ public class PlayerDashGhost : MonoBehaviour
     [SerializeField, Min(1)] private int _poolSize = 10;
     [Tooltip("대시 시작 후 첫 잔상이 나오기까지 대기 시간. 서있는 자세 복제를 피하려면 0.1 정도.")]
     [SerializeField, Min(0f)] private float _spawnDelay = 0.1f;
+    [Tooltip("차지 점프 발사 후 첫 잔상 지연. 대시 자세가 반영된 뒤 복사합니다.")]
+    [SerializeField, Min(0f)] private float _chargeJumpSpawnDelay = 0.02f;
     [SerializeField, Min(0.01f)] private float _spawnInterval = 0.04f;
     [SerializeField, Min(0.05f)] private float _fadeTime = 0.4f;
     [SerializeField, Range(0f, 1f)] private float _initialAlpha = 0.6f;
@@ -27,6 +29,7 @@ public class PlayerDashGhost : MonoBehaviour
     private readonly List<Ghost> _pool = new();
     private float _spawnTimer;
     private bool _spawning;
+    private bool _chargeJumpSpawning;
 
     private sealed class Ghost
     {
@@ -43,7 +46,6 @@ public class PlayerDashGhost : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
 
         _holder = new GameObject($"{gameObject.name}_DashGhosts").transform;
-        _holder.SetParent(transform.parent);
         _holder.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
         _holder.localScale = Vector3.one;
 
@@ -80,7 +82,8 @@ public class PlayerDashGhost : MonoBehaviour
         ClearGhosts();
     }
 
-    private void Update()
+    // Animator가 현재 프레임의 스프라이트를 적용한 뒤 복사합니다.
+    private void LateUpdate()
     {
         if (_spawning)
         {
@@ -129,7 +132,23 @@ public class PlayerDashGhost : MonoBehaviour
     private void HandleDashEnded()
     {
         // 스폰만 중단하고, 이미 나온 잔상은 자연 페이드.
-        _spawning = false;
+        _spawning = _chargeJumpSpawning;
+    }
+
+    public void BeginChargeJumpLaunch()
+    {
+        if (!isActiveAndEnabled) return;
+        if (_targetRenderer == null)
+            _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
+        _chargeJumpSpawning = true;
+        _spawning = true;
+        _spawnTimer = _chargeJumpSpawnDelay;
+    }
+
+    public void EndChargeJumpLaunch()
+    {
+        _chargeJumpSpawning = false;
+        _spawning = _playerDash != null && _playerDash.IsDashing;
     }
 
     private void Spawn()
@@ -152,8 +171,9 @@ public class PlayerDashGhost : MonoBehaviour
             color.a = _initialAlpha;
             ghost.Renderer.color = color;
 
-            ghost.Go.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            ghost.Go.transform.localScale = transform.localScale;
+            ghost.Go.layer = _targetRenderer.gameObject.layer;
+            ghost.Go.transform.SetPositionAndRotation(_targetRenderer.transform.position, _targetRenderer.transform.rotation);
+            ghost.Go.transform.localScale = _targetRenderer.transform.lossyScale;
 
             ghost.LifeRemaining = _fadeTime;
             ghost.Renderer.enabled = true;
@@ -166,6 +186,7 @@ public class PlayerDashGhost : MonoBehaviour
     public void ClearGhosts()
     {
         _spawning = false;
+        _chargeJumpSpawning = false;
         foreach (Ghost ghost in _pool)
         {
             if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
@@ -176,4 +197,8 @@ public class PlayerDashGhost : MonoBehaviour
     }
 
     public void ResetForRespawn() => ClearGhosts();
+    private void OnDestroy()
+    {
+        if (_holder != null) Destroy(_holder.gameObject);
+    }
 }

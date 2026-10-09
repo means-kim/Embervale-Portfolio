@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 7125860679552362356}
   - component: {fileID: 5573973081042068529}
   - component: {fileID: 2559918198518714434}
+  - component: {fileID: 297177313599866805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -553,11 +554,34 @@ MonoBehaviour:
   _targetRenderer: {fileID: 6236980405585183086}
   _poolSize: 10
   _spawnDelay: 0.01
+  _chargeJumpSpawnDelay: 0.02
   _spawnInterval: 0.06
   _fadeTime: 0.1
   _initialAlpha: 0.6
   _tint: {r: 1, g: 1, b: 1, a: 1}
   _sortingOrderOffset: -1
+--- !u!114 &297177313599866805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034470034761653321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3604b607e456234ea190982adb1ab59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerChargeJump
+  _selectionRadius: 1.8
+  _projectileLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _aimCamera: {fileID: 0}
+  _arrowPrefab: {fileID: 4633904836944700095, guid: bf31b7012cf06604399d0b6ed7a6486d, type: 3}
+  _slowMotionScale: 0.1
+  _playerLaunchSpeed: 30
+  _projectileLaunchSpeed: 8
+  _launchDuration: 0.2
 --- !u!1001 &9042387067889785644
 PrefabInstance:
   m_ObjectHideFlags: 0

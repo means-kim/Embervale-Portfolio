@@ -30,6 +30,13 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _landVfx;
     [SerializeField] private GameObject _dashVfx;
     [SerializeField] private GameObject _footstepVfx;
+    [Header("VFX 프리팹 (차지 점프)")]
+    [Tooltip("조준 중 표시. PlayerChargeJump가 조준 종료 시 제거합니다.")]
+    [SerializeField] private GameObject _chargeJumpAimVfx;
+    [Tooltip("플레이어 발사 순간 표시. 프리팹의 오른쪽(+X)이 발사 방향입니다.")]
+    [SerializeField] private GameObject _chargeJumpLaunchVfx;
+    [Tooltip("반대 방향으로 발사되는 투사체에 표시. 오른쪽(+X)이 발사 방향입니다.")]
+    [SerializeField] private GameObject _chargeJumpProjectileLaunchVfx;
     [Header("VFX 프리팹 (적)")]
     [SerializeField] private GameObject _bossHitVfx;
     [SerializeField] private GameObject _bossDeathVfx;
@@ -146,6 +153,37 @@ public class EffectManager : MonoBehaviour
     public void PlayLand(Vector3 position) => Spawn(_landVfx, position);
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
+
+    public GameObject PlayChargeJumpAim(Vector3 position)
+    {
+        if (!isActiveAndEnabled) return null;
+        var effect = Spawn(_chargeJumpAimVfx, position);
+        if (effect == null) return null;
+        foreach (var particle in effect.GetComponentsInChildren<ParticleSystem>(true))
+        {
+            var main = particle.main;
+            main.useUnscaledTime = true;
+        }
+        foreach (var animator in effect.GetComponentsInChildren<Animator>(true))
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        return effect;
+    }
+
+    public GameObject PlayChargeJumpLaunch(Vector3 position, Vector2 direction) =>
+        SpawnChargeJumpBurst(_chargeJumpLaunchVfx, position, direction);
+
+    public GameObject PlayChargeJumpProjectileLaunch(Vector3 position, Vector2 direction) =>
+        SpawnChargeJumpBurst(_chargeJumpProjectileLaunchVfx, position, direction);
+
+    private GameObject SpawnChargeJumpBurst(GameObject prefab, Vector3 position, Vector2 direction)
+    {
+        if (!isActiveAndEnabled || prefab == null) return null;
+        float angle = direction.sqrMagnitude > 0.0001f ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg : 0f;
+        var effect = Instantiate(prefab, position, Quaternion.Euler(0f, 0f, angle));
+        // 기존 VFX와 같은 수명 관리. 단순 프리팹도 기본 한 번 재생 후 정리합니다.
+        if (effect.GetComponent<OneShotVFX>() == null) effect.AddComponent<OneShotVFX>();
+        return effect;
+    }
 
     public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right);
 

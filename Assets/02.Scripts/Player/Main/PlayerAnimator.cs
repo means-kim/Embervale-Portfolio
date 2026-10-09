@@ -10,9 +10,22 @@ public class PlayerAnimator : MonoBehaviour
     private int _jumpPhase = 2;
     private float _jumpStartTime;
     private float _jumpEnterTime = -100f;
+    private bool _chargeJumpLaunchVisual;
     private void Awake() => _animator = GetComponent<Animator>();
     public void PlayState(PlayerState state, bool isDoubleJump)
     {
+        if (_chargeJumpLaunchVisual)
+        {
+            if (state == PlayerState.Death || state == PlayerState.Hit)
+            {
+                _chargeJumpLaunchVisual = false;
+            }
+            else
+            {
+                PlayPhaseClip("Dash");
+                return;
+            }
+        }
         switch (state)
         {
             case PlayerState.Idle:
@@ -46,14 +59,41 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void BeginJump(bool isDoubleJump)
     {
+        if (_chargeJumpLaunchVisual) return;
         _jumpEnterTime = Time.time;
         PlayPhaseClip(isDoubleJump ? "DoubleJump" : "JumpStart");
         _jumpPhase = 0;
     }
     public void ResetJumpPhase() => _jumpPhase = 2;
-    public void PlayLand() => PlayPhaseClip("Land");
+    public void PlayLand()
+    {
+        if (!_chargeJumpLaunchVisual) PlayPhaseClip("Land");
+    }
+    /// <summary>대시의 이동 로직 없이 차지 점프 발사 연출만 재생합니다.</summary>
+    public void PlayChargeJumpLaunch()
+    {
+        _chargeJumpLaunchVisual = true;
+        PlayClip("Dash");
+    }
+    public void EndChargeJumpLaunch()
+    {
+        if (!_chargeJumpLaunchVisual) return;
+        _chargeJumpLaunchVisual = false;
+        _jumpPhase = 2;
+        var controller = GetComponent<PlayerController>();
+        if (controller != null && controller.CurrentState != PlayerState.Jump)
+            PlayState(controller.CurrentState, false);
+        else
+            UpdateJumpPhase(GetComponent<Rigidbody2D>().linearVelocity.y);
+    }
+    private void OnDisable() => _chargeJumpLaunchVisual = false;
     public void Tick(PlayerState state, bool landingLocked, float verticalVelocity)
     {
+        if (_chargeJumpLaunchVisual)
+        {
+            PlayPhaseClip("Dash");
+            return;
+        }
         if (landingLocked) return;
         switch (state)
         {
