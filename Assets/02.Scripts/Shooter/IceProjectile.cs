@@ -16,8 +16,32 @@ public class IceProjectile : MonoBehaviour
     private Vector2 _velocity;
     private float _age;
     private bool _destroying;
+    private Object _chargeOwner;
 
     public Vector2 Velocity => _velocity;
+    public bool CanBeCharged => isActiveAndEnabled && !_destroying && _chargeOwner == null
+        && _collider != null && _collider.enabled && _body.simulated;
+
+    public bool IsHeldBy(Object owner) => owner != null && _chargeOwner == owner;
+
+    public bool TryBeginCharge(Object owner)
+    {
+        if (owner == null || !CanBeCharged) return false;
+        _chargeOwner = owner;
+        _body.linearVelocity = Vector2.zero;
+        return true;
+    }
+
+    public bool ReleaseCharge(Object owner, Vector2 velocity, bool restartLifetime = false)
+    {
+        if (!IsHeldBy(owner)) return false;
+        _chargeOwner = null;
+        SetVelocity(velocity);
+        if (restartLifetime) _age = 0f;
+        return true;
+    }
+
+    private void OnDisable() => _chargeOwner = null;
 
     private void Awake()
     {
@@ -42,7 +66,8 @@ public class IceProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_destroying) return;
+        // 선택된 투사체는 조준 중 이동과 수명 타이머를 모두 멈춥니다.
+        if (_destroying || _chargeOwner != null) return;
 
         _age += Time.fixedDeltaTime;
         if (_age >= _lifeTime)
@@ -73,6 +98,7 @@ public class IceProjectile : MonoBehaviour
 
     private void CheckTerrain(Collider2D other)
     {
+        if (_chargeOwner != null) return;
         if ((_terrainLayers.value & (1 << other.gameObject.layer)) != 0 && IsTerrain(other))
             Despawn();
     }
