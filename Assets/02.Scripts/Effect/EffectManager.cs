@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game.Effects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EffectManager : MonoBehaviour
 {
@@ -23,7 +20,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _playerHitVfx;
     [SerializeField] private GameObject _playerHitHorizontalVfx;
     [SerializeField] private bool _useHorizontalPlayerHit;
-    private readonly List<GameObject> _hitEffects = new();
+    private readonly HitEffectService _hitEffects = new();
     [SerializeField] private GameObject _playerDeathVfx;
     [SerializeField] private GameObject _jumpVfx;
     [SerializeField] private GameObject _doubleJumpVfx;
@@ -63,7 +60,7 @@ public class EffectManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        ClearHitEffects();
+        _hitEffects.Clear();
         if (_instance == this)
         {
             _instance = null;
@@ -73,19 +70,6 @@ public class EffectManager : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-        ClearHitEffects();
-    }
-
-    private void ClearHitEffects()
-    {
-        foreach (GameObject effect in _hitEffects)
-        {
-            if (effect != null)
-            {
-                Destroy(effect);
-            }
-        }
-
         _hitEffects.Clear();
     }
 
@@ -119,32 +103,8 @@ public class EffectManager : MonoBehaviour
 
     public void PlayPlayerHit(Vector3 position, bool horizontal, System.Action onReleased = null)
     {
-        if (!isActiveAndEnabled)
-        {
-            onReleased?.Invoke();
-            return;
-        }
-
         GameObject prefab = horizontal && _playerHitHorizontalVfx != null ? _playerHitHorizontalVfx : _playerHitVfx;
-        GameObject effect = Spawn(prefab, position);
-        if (effect != null && effect.TryGetComponent<PlayerHitEffect>(out var hitEffect))
-        {
-            TrackHitEffect(effect, hitEffect);
-            hitEffect.Play(position, onReleased);
-        }
-        else
-        {
-            if (prefab == null)
-            {
-                Debug.LogWarning("EffectManager에 플레이어 피격 프리팹이 연결되지 않았습니다.", this);
-            }
-            HitImpactFeedback.EnsureInstance().RequestPlayerHitstop();
-            if (effect != null)
-            {
-                TrackHitEffect(effect, null);
-            }
-            onReleased?.Invoke();
-        }
+        _hitEffects.PlayPlayerHit(this, prefab, position, onReleased);
     }
 
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
@@ -194,91 +154,8 @@ public class EffectManager : MonoBehaviour
 
     public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right);
 
-    public void PlayBossHit(Vector3 position, Vector2 direction)
-    {
-        if (!isActiveAndEnabled) return;
-        GameObject effect = Spawn(_bossHitVfx, position);
-        if (effect != null && effect.TryGetComponent<EnemyHitEffect>(out var enemyHit))
-        {
-            enemyHit.Play(position, direction);
-        }
-        else
-        {
-            HitImpactFeedback.EnsureInstance().RequestBossHitstop();
-        }
-        if (effect != null)
-        {
-            TrackHitEffect(effect, null);
-        }
-    }
-
-    private void TrackHitEffect(GameObject effect, PlayerHitEffect hitEffect)
-    {
-        _hitEffects.Add(effect);
-        foreach (ParticleSystem particle in effect.GetComponentsInChildren<ParticleSystem>(true))
-        {
-            var main = particle.main;
-            main.useUnscaledTime = true;
-        }
-
-        foreach (Animator animator in effect.GetComponentsInChildren<Animator>(true))
-        {
-            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-        }
-
-        StartCoroutine(CleanupHitEffect(effect, hitEffect));
-    }
-
-    private IEnumerator CleanupHitEffect(GameObject effect, PlayerHitEffect hitEffect)
-    {
-        yield return null;
-        EnemyHitEffect enemyHit = effect != null ? effect.GetComponent<EnemyHitEffect>() : null;
-        if (hitEffect == null && enemyHit == null)
-        {
-            yield return new WaitForSecondsRealtime(2f);
-        }
-
-        ParticleSystem[] particles;
-        if (effect != null)
-        {
-            particles = effect.GetComponentsInChildren<ParticleSystem>(true);
-        }
-        else
-        {
-            particles = new ParticleSystem[0];
-        }
-
-        while (effect != null)
-        {
-            bool alive = false;
-            if (enemyHit != null) alive = enemyHit.IsPlaying;
-            if (hitEffect != null)
-            {
-                alive = hitEffect.IsPlaying;
-            }
-
-            foreach (ParticleSystem particle in particles)
-            {
-                if (particle != null && particle.IsAlive(true))
-                {
-                    alive = true;
-                }
-            }
-
-            if (!alive)
-            {
-                break;
-            }
-
-            yield return null;
-        }
-
-        _hitEffects.Remove(effect);
-        if (effect != null)
-        {
-            Destroy(effect);
-        }
-    }
+    public void PlayBossHit(Vector3 position, Vector2 direction) =>
+        _hitEffects.PlayBossHit(this, _bossHitVfx, position, direction);
 
     public void PlayBossDeath(Vector3 position) => Spawn(_bossDeathVfx, position);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);

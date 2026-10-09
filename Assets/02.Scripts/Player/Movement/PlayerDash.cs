@@ -7,10 +7,15 @@ public class PlayerDash : MonoBehaviour
     [SerializeField, Min(0f)] private float _dashSpeed = 10f;
     [SerializeField, Min(0.05f)] private float _dashDuration = 0.3f;
     [SerializeField, Min(0f)] private float _dashCooldown = 0.15f;
+    [SerializeField, Min(0), Tooltip("한 번 공중에 뜬 뒤 착지하기 전까지 허용할 일반 대시 횟수. 0이면 공중 대시를 막습니다. 차지 점프는 별도입니다.")]
+    private int _maxAirDashCount = 1;
     public event Action OnDashStarted;
     public event Action OnDashEnded;
     public bool IsDashing { get; private set; }
     public float DashDuration => _dashDuration;
+    public int MaxAirDashCount => Mathf.Max(0, _maxAirDashCount);
+    public int AirDashCount => _airDashCount;
+    public int RemainingAirDashes => Mathf.Max(0, MaxAirDashCount - _airDashCount);
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerWall _playerWall;
@@ -24,6 +29,7 @@ public class PlayerDash : MonoBehaviour
     private float _originalGravityScale;
     private Vector2 _dashDirection = Vector2.right;
     private bool _airDashVisual;
+    private int _airDashCount;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -35,10 +41,19 @@ public class PlayerDash : MonoBehaviour
         _playerJump = GetComponent<PlayerJump>();
         _playerAnimator = GetComponent<PlayerAnimator>();
     }
-    private void OnEnable() => _playerInput.OnDashInput += HandleDash;
+    private void OnEnable()
+    {
+        _playerInput.OnDashInput += HandleDash;
+        if (_playerJump != null)
+        {
+            _playerJump.OnLanded += ResetAirDashCount;
+            if (_playerJump.IsGrounded) ResetAirDashCount();
+        }
+    }
     private void OnDisable()
     {
         _playerInput.OnDashInput -= HandleDash;
+        if (_playerJump != null) _playerJump.OnLanded -= ResetAirDashCount;
         EndDash();
     }
     private void Update()
@@ -59,8 +74,11 @@ public class PlayerDash : MonoBehaviour
         var health = GetComponent<Health>();
         if (health != null && health.IsDead) return;
         if (_playerHit != null && _playerHit.IsHit) return;
+        bool airborne = _playerJump != null && !_playerJump.IsGrounded;
+        if (airborne && _airDashCount >= MaxAirDashCount) return;
         _playerAttack?.InterruptForDash();
-        _airDashVisual = _playerJump != null && !_playerJump.IsGrounded;
+        _airDashVisual = airborne;
+        if (airborne) _airDashCount++;
         _dashDirection = _airDashVisual ? _playerInput.GetDashDirection(_playerMove.FacingDirection)
             : Vector2.right * _playerMove.FacingDirection;
         _playerMove.SetFacingDirection(_dashDirection.x);
@@ -82,7 +100,9 @@ public class PlayerDash : MonoBehaviour
         EndDash();
         _dashTimeRemaining = 0f;
         _cooldownTimeRemaining = 0f;
+        ResetAirDashCount();
     }
+    private void ResetAirDashCount() => _airDashCount = 0;
     private void EndDash()
     {
         if (!IsDashing) return;

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,10 +19,7 @@ public class PlayerChargeJump : MonoBehaviour
     [SerializeField, Min(0.01f)] private float _projectileLaunchSpeed = 8f;
     [SerializeField, Min(0.02f)] private float _launchDuration = 0.2f;
 
-    private static PlayerChargeJump _timeOwner;
-    private readonly List<Collider2D> _nearby = new();
     private Rigidbody2D _body;
-    private Collider2D _playerCollider;
     private PlayerInput _input;
     private PlayerMove _move;
     private PlayerJump _jump;
@@ -32,37 +28,25 @@ public class PlayerChargeJump : MonoBehaviour
     private PlayerAttack _attack;
     private PlayerHit _hit;
     private Health _health;
-    private ChargeJumpArrow _arrow;
-    private PlayerAnimator _animator;
-    private PlayerDashGhost _dashGhost;
-    private GameObject _aimEffect;
+    private ChargeJumpAim _aim;
+    private ChargeJumpSession _session;
     private IceProjectile _target;
     private Phase _phase;
-    private Vector2 _aimDirection;
-    private Vector2 _launchVelocity;
-    private Vector2 _previousVelocity;
     private Vector2 _projectileVelocity;
-    private RigidbodyConstraints2D _previousConstraints;
-    private float _previousGravity;
-    private float _previousTimeScale;
-    private float _previousFixedDeltaTime;
-    private float _appliedTimeScale;
-    private float _appliedFixedDeltaTime;
     private float _launchRemaining;
 
     public bool IsAiming => _phase == Phase.Aiming;
     public bool IsLaunching => _phase == Phase.Launching;
     public bool IsActive => _phase != Phase.None;
-    private Vector3 AimOrigin => _playerCollider != null ? _playerCollider.bounds.center : transform.position;
+    private Vector3 AimOrigin => _aim.Origin;
     private Vector3 ArrowOrigin => _target != null ? _target.Center : AimOrigin;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private static void ResetTimeOwner() => _timeOwner = null;
+    private static void ResetTimeOwner() => ChargeJumpSession.ResetTimeOwner();
 
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
-        _playerCollider = GetComponent<Collider2D>();
         _input = GetComponent<PlayerInput>();
         _move = GetComponent<PlayerMove>();
         _jump = GetComponent<PlayerJump>();
@@ -71,8 +55,8 @@ public class PlayerChargeJump : MonoBehaviour
         _attack = GetComponent<PlayerAttack>();
         _hit = GetComponent<PlayerHit>();
         _health = GetComponent<Health>();
-        _animator = GetComponent<PlayerAnimator>();
-        _dashGhost = GetComponent<PlayerDashGhost>();
+        _aim = new ChargeJumpAim(transform, GetComponent<Collider2D>());
+        _session = new ChargeJumpSession(this, _body, _move, _jump);
     }
 
     private void OnEnable()
@@ -93,8 +77,7 @@ public class PlayerChargeJump : MonoBehaviour
         _input.OnChargeJumpPressed -= TryBegin;
         _input.OnChargeJumpReleased -= Release;
         Stop(true);
-        if (_arrow != null) Destroy(_arrow.gameObject);
-        _arrow = null;
+        _aim.Dispose();
     }
 
     private bool ControlsAvailable => _input.isActiveAndEnabled && _move.isActiveAndEnabled
@@ -103,7 +86,7 @@ public class PlayerChargeJump : MonoBehaviour
 
     private void TryBegin()
     {
-        if (IsActive || !ControlsAvailable || _arrowPrefab == null || _timeOwner != null || Time.timeScale <= 0f
+        if (IsActive || !ControlsAvailable || _arrowPrefab == null || !ChargeJumpSession.CanBegin
             || (_dash != null && _dash.IsDashing) || (_attack != null && _attack.IsAttacking)
             || _move.HasMovementLockOtherThan(_wall)
             || (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()))
@@ -113,57 +96,14 @@ public class PlayerChargeJump : MonoBehaviour
 
         if (_aimCamera == null) _aimCamera = Camera.main;
         if (_aimCamera == null) return;
-        IceProjectile target = FindNearestProjectile();
+        IceProjectile target = _aim.FindNearest(_selectionRadius, _projectileLayers);
         if (target == null || !target.TryBeginCharge(this)) return;
 
         _target = target;
         _projectileVelocity = target.Velocity;
-        _previousVelocity = _body.linearVelocity;
-        _previousGravity = _body.gravityScale;
-        _previousConstraints = _body.constraints;
-        _previousTimeScale = Time.timeScale;
-        _previousFixedDeltaTime = Time.fixedDeltaTime;
-        _appliedTimeScale = _previousTimeScale * _slowMotionScale;
-        _appliedFixedDeltaTime = _previousFixedDeltaTime * _slowMotionScale;
-        _timeOwner = this;
         _phase = Phase.Aiming;
-        _move.SetMovementLocked(this, true);
-        _jump.ClearJumpBuffer();
-        _body.gravityScale = 0f;
-        _body.constraints = RigidbodyConstraints2D.FreezeAll;
-        _body.linearVelocity = Vector2.zero;
-        Time.timeScale = _appliedTimeScale;
-        Time.fixedDeltaTime = _appliedFixedDeltaTime;
-        // Unity의 시간 setter/getter 사이 양자화로 요청값과 실제 적용값이 다를 수 있습니다.
-        // 실제 적용값을 저장해 복원 비교 실패와 fixedDeltaTime의 누적 축소를 방지합니다.
-        _appliedTimeScale = Time.timeScale;
-        _appliedFixedDeltaTime = Time.fixedDeltaTime;
-        _aimDirection = Vector2.right * _move.FacingDirection;
-        if (_arrow == null) _arrow = Instantiate(_arrowPrefab);
-        UpdateAim();
-        _arrow.Show(ArrowOrigin, _aimDirection);
-        _aimEffect = EffectManager.Instance?.PlayChargeJumpAim(AimOrigin);
-    }
-
-    private IceProjectile FindNearestProjectile()
-    {
-        var filter = new ContactFilter2D { useTriggers = true };
-        filter.SetLayerMask(_projectileLayers);
-        _nearby.Clear();
-        Physics2D.OverlapCircle(AimOrigin, _selectionRadius, filter, _nearby);
-        IceProjectile nearest = null;
-        float bestDistance = float.PositiveInfinity;
-        foreach (var collider in _nearby)
-        {
-            if (collider == null) continue;
-            var projectile = collider.GetComponentInParent<IceProjectile>();
-            if (projectile == null || !projectile.CanBeCharged) continue;
-            float distance = ((Vector2)AimOrigin - collider.ClosestPoint(AimOrigin)).sqrMagnitude;
-            if (distance >= bestDistance) continue;
-            bestDistance = distance;
-            nearest = projectile;
-        }
-        return nearest;
+        _session.Begin(_slowMotionScale);
+        _aim.Begin(_arrowPrefab, _aimCamera, ArrowOrigin, _move.FacingDirection);
     }
 
     private void Update()
@@ -177,7 +117,7 @@ public class PlayerChargeJump : MonoBehaviour
         if (IsAiming)
         {
             if (_target == null || !_target.isActiveAndEnabled || !_target.IsHeldBy(this)
-                || _aimCamera == null || !Mathf.Approximately(Time.timeScale, _appliedTimeScale))
+                || _aimCamera == null || !_session.TimeUnchanged)
             {
                 Stop(true);
                 return;
@@ -192,83 +132,41 @@ public class PlayerChargeJump : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        if (!IsAiming || _arrow == null) return;
-        UpdateAim();
-        _arrow.Show(ArrowOrigin, _aimDirection);
-        if (_aimEffect != null) _aimEffect.transform.position = AimOrigin;
-    }
-
-    private void UpdateAim()
-    {
-        Vector3 origin = ArrowOrigin;
-        var plane = new Plane(Vector3.forward, origin);
-        Ray ray = _aimCamera.ScreenPointToRay(Input.mousePosition);
-        if (!plane.Raycast(ray, out float distance)) return;
-        Vector2 direction = ray.GetPoint(distance) - origin;
-        if (direction.sqrMagnitude > 0.0001f) _aimDirection = direction.normalized;
-    }
+    private void LateUpdate() { if (IsAiming) _aim.Tick(_aimCamera, ArrowOrigin); }
 
     private void Release()
     {
         if (!IsAiming) return;
         if (!ControlsAvailable || _target == null || !_target.isActiveAndEnabled || !_target.IsHeldBy(this)
-            || _aimCamera == null || !Mathf.Approximately(Time.timeScale, _appliedTimeScale))
+            || _aimCamera == null || !_session.TimeUnchanged)
         {
             Stop(false);
             return;
         }
-        UpdateAim();
+        _aim.UpdateDirection(_aimCamera, ArrowOrigin);
         Vector3 projectileOrigin = _target.Center;
-        if (!_target.ReleaseCharge(this, -_aimDirection * _projectileLaunchSpeed, true))
+        if (!_target.ReleaseCharge(this, -_aim.Direction * _projectileLaunchSpeed, true))
         {
             Stop(false);
             return;
         }
         _target = null;
-        RestoreTime();
-        _arrow.Hide();
-        ClearAimEffect();
-        _body.constraints = _previousConstraints;
+        _session.RestoreTime();
+        _aim.End();
         _phase = Phase.Launching;
         _launchRemaining = _launchDuration;
-        _launchVelocity = _aimDirection * _playerLaunchSpeed;
-        _body.linearVelocity = _launchVelocity;
-        _move.SetFacingDirection(_aimDirection.x);
-        _jump.BeginExternalLaunch();
-        _animator?.PlayChargeJumpLaunch(_aimDirection);
-        _dashGhost?.BeginChargeJumpLaunch();
-        EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aimDirection);
-        EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aimDirection);
+        _session.Launch(_aim.Direction, _playerLaunchSpeed);
+        EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aim.Direction);
+        EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
     }
 
-    private void FixedUpdate()
-    {
-        if (IsAiming)
-        {
-            _body.linearVelocity = Vector2.zero;
-        }
-        else if (IsLaunching)
-        {
-            _body.linearVelocity = _launchVelocity;
-        }
-    }
+    private void FixedUpdate() => _session.FixedTick(IsAiming, IsLaunching);
 
     private void OnCollisionEnter2D(Collision2D collision) => CheckBlockingCollision(collision);
     private void OnCollisionStay2D(Collision2D collision) => CheckBlockingCollision(collision);
     private void CheckBlockingCollision(Collision2D collision)
     {
-        if (!IsLaunching || collision.collider == null || (!collision.collider.CompareTag("Ground") && !collision.collider.CompareTag("Platform")))
-        {
-            return;
-        }
-        for (int i = 0; i < collision.contactCount; i++)
-        {
-            if (Vector2.Dot(_aimDirection, collision.GetContact(i).normal) >= -0.25f) continue;
-            Stop(false);
-            return;
-        }
+        if (IsLaunching && _session.BlocksLaunch(collision, _aim.Direction)) Stop(false);
     }
 
     public void CancelChargeJump() => Stop(false);
@@ -280,47 +178,15 @@ public class PlayerChargeJump : MonoBehaviour
         bool wasLaunching = IsLaunching;
         if (_target != null) _target.ReleaseCharge(this, _projectileVelocity);
         _target = null;
-        RestoreTime();
+        _session.RestoreTime();
         _phase = Phase.None;
-        ClearAimEffect();
-        if (wasLaunching)
-        {
-            _animator?.EndChargeJumpLaunch();
-            _dashGhost?.EndChargeJumpLaunch();
-        }
-        if (_arrow != null) _arrow.Hide();
-        if (wasAiming && _body.constraints == RigidbodyConstraints2D.FreezeAll)
-            _body.constraints = _previousConstraints;
-        if (Mathf.Approximately(_body.gravityScale, 0f)) _body.gravityScale = _previousGravity;
-        _move.SetMovementLocked(this, false);
-        if (wasAiming && restoreVelocity) _body.linearVelocity = _previousVelocity;
+        _aim.End();
+        _session.End(wasAiming, wasLaunching, restoreVelocity);
     }
 
-    private void ClearAimEffect()
-    {
-        if (_aimEffect != null) Destroy(_aimEffect);
-        _aimEffect = null;
-    }
+    private void OnApplicationFocus(bool hasFocus) { if (!hasFocus) Stop(true); }
 
-    private void RestoreTime()
-    {
-        if (_timeOwner != this) return;
-        HitImpactFeedback.Instance?.ReplaceResumeTimeScale(_appliedTimeScale, _previousTimeScale);
-        // 다른 일시정지 시스템이 덮어쓴 시간은 해제하지 않습니다.
-        if (Mathf.Approximately(Time.timeScale, _appliedTimeScale)) Time.timeScale = _previousTimeScale;
-        if (Mathf.Approximately(Time.fixedDeltaTime, _appliedFixedDeltaTime)) Time.fixedDeltaTime = _previousFixedDeltaTime;
-        _timeOwner = null;
-    }
-
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        if (!hasFocus) Stop(true);
-    }
-
-    private void OnApplicationPause(bool paused)
-    {
-        if (paused) Stop(true);
-    }
+    private void OnApplicationPause(bool paused) { if (paused) Stop(true); }
 
     private void OnDrawGizmosSelected()
     {
