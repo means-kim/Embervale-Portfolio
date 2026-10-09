@@ -209,6 +209,7 @@ public class AirBossController : MonoBehaviour
     {
         if (_currentstate != AirBossState.Action) return;
 
+        _action.CancelCurrentAttack();
         ChangeState(AirBossState.Idle);
     }
 

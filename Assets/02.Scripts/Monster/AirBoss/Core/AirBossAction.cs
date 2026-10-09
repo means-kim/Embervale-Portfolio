@@ -177,12 +177,9 @@ public class AirBossAction : MonoBehaviour
 
     public void ActionFinished()
     {
-        if (_currentAttack == null) return;
+        if (_currentAttack) return;
 
-        AirBossAttackBase finished = _currentAttack;
-        _currentAttack = null;
-
-        finished.Finish();
+        _currentAttack.Finish();
     }
 
     public void CancelCurrentAttack()
