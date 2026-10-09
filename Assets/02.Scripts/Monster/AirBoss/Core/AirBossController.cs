@@ -158,7 +158,20 @@ public class AirBossController : MonoBehaviour
         else if (_currentstate == AirBossState.Action)
         {
             _movement.StopMove();
-            _action.ExecuteRandom();
+
+            if (_phaseController == null || _action == null)
+            {
+                ChangeState(AirBossState.Idle);
+                return;
+            }
+
+            if (_phaseController.IsTransition)
+            {
+                ChangeState(AirBossState.Wait);
+                return;
+            }
+
+            _action.ExecuteRandom(_phaseController.CurrentPhase);
         }
     }
 
