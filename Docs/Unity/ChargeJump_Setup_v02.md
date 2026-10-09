@@ -28,20 +28,21 @@
 2. 루트 아래 빈 자식 `Visual`을 생성한다. Position/Rotation은 0, Scale은 1로 두고 SpriteRenderer를 추가한다.
 3. Sprite에 선택한 화살표를 연결한다. Color는 흰색, Flip X/Y는 끈다.
 4. Material은 `Sprite-Unlit-Default` 또는 Shader가 `Universal Render Pipeline/2D/Sprite-Unlit-Default`인 머티리얼을 사용한다. 이전 LineRenderer의 Particles/Unlit 머티리얼을 SpriteRenderer에 재사용하지 않는다.
-5. Sorting Layer는 `GA1_Actors`, Order in Layer는 우선 100. 카메라 Culling Mask에 포함되는 GameObject Layer를 사용한다.
+5. Sorting Layer는 `GA1_Actors`, Order in Layer는 -20. 투사체 Visual은 같은 레이어의 -10, 플레이어는 0으로 설정한다. 카메라 Culling Mask에 포함되는 GameObject Layer를 사용한다. 기존 LineRenderer의 Order도 -20으로 맞춘다.
 6. 루트 ChargeJumpArrow의 `Sprite Renderer`에 Visual의 SpriteRenderer를 드래그한다. 루트와 Visual은 활성 상태로 유지한다.
 7. 기존 LineRenderer는 제거하지 않아도 된다. 이미지가 연결되면 스크립트가 선 표시를 끈다. 이미지가 없으면 기존 선 화살표로 표시한다.
 
 | ChargeJumpArrow 필드 | 시작값 | 역할 |
 |---|---:|---|
 | Length | 1.6 | 투명 여백을 포함한 이미지 전체 폭의 월드 크기 |
-| Start Offset | 0.25 | 플레이어 중심부터 화살표 시작까지 거리 |
 | Start Scale | 0.25 | 처음 등장 크기 |
 | Peak Scale | 1.3 | 순간 최대 크기 |
 | Grow Duration | 0.1 | 최대 크기에 도달하는 실제 시간 |
 | Settle Duration | 0.12 | 100%로 돌아오는 실제 시간 |
 
 팝 연출은 슬로모션의 영향을 받지 않는다. 매 조준 시작에 한 번만 재생한다. 크기는 Visual의 Scale을 직접 바꾸기보다 Length로 조절한다. 프리팹 루트 Scale은 1로 둔다.
+
+후속 사용자 요청으로 화살표 중앙을 선택한 투사체의 Collider2D 중심에 맞췄다. 마우스 조준과 회전도 이 중심을 기준으로 한다. 크기 팝 중에도 중앙은 고정된다. 이전 Start Offset 필드는 제거했으며 새 에디터 연결은 필요 없다. 중앙은 투명 여백을 포함한 스프라이트 사각형 기준이다.
 
 ## 3. 검은 그라데이션 테두리
 
@@ -59,7 +60,11 @@
 
 ## 4. 대시 애니메이션과 잔상
 
-발사 순간 기존 Animator의 Dash 상태를 재생하고 발사 유지 시간 동안 표시한다. 실제 PlayerDash 이동이나 대시 쿨타임을 호출하지 않는다. 발사 종료 또는 피격·취소 시 일반 상태로 돌아간다. 좌우 발사 방향에 맞춰 플레이어의 Facing Direction을 갱신하며, 수직 발사에서는 기존 방향을 유지한다. 캐릭터 몸 전체를 기울이는 연출은 추가하지 않았다.
+발사 순간 기존 Animator의 Dash 상태를 재생하고 발사 유지 시간 동안 표시한다. 실제 PlayerDash 이동이나 대시 쿨타임을 호출하지 않는다. 발사 종료 또는 피격·취소 시 일반 상태로 돌아간다. 좌우 발사 방향에 맞춰 플레이어의 Facing Direction을 갱신하며, 수직 발사에서는 기존 방향을 유지한다.
+
+후속 사용자 요청으로 차지 점프의 Dash 연출 중에만 표시용 스프라이트를 발사 방향으로 기울인다. 물리 루트·충돌체·카메라 타깃의 Transform은 회전하지 않는다. 기존 루트 SpriteRenderer의 Animator 연결을 유지하기 위해 런타임 자식 ChargeJumpLaunchVisual에 현재 프레임을 복사하여 표시하고 원본 렌더링만 잠시 숨긴다. 종료·피격·사망·컴포넌트 비활성화 시 원본 표시를 복원한다. 일반 대시·조준·일반 점프에서는 기울이지 않는다. 잔상도 기울어진 실제 월드 축과 좌우 반전을 복사한다. 새 Inspector 연결은 필요 없다.
+
+그리기 순서(뒤→앞)는 배경→화살표→투사체→플레이어→UI다. 세 SpriteRenderer를 GA1_Actors로 맞춘 뒤 Order를 화살표 -20, 투사체 -10, 플레이어 0으로 설정한다. 배경은 기존 GA1_BG_Far/GA1_BG_Mid/GA1_World 등 GA1_Actors보다 앞에 나열된 Sorting Layer를 사용하며, UI는 Screen Space - Overlay를 사용한다. 다른 Sorting Layer 사이에서는 Order 값보다 Sorting Layer 순서가 우선한다. SortingGroup이 있으면 해당 그룹의 레이어·Order도 확인한다.
 
 공통 Player 프리팹에는 PlayerDashGhost가 이미 있다. Target Renderer가 실제 캐릭터 SpriteRenderer인지 확인한다. 차지 점프에도 같은 잔상 풀을 사용한다.
 

@@ -25,6 +25,7 @@ public class PlayerDashGhost : MonoBehaviour
     [SerializeField] private int _sortingOrderOffset = -1;
 
     private PlayerDash _playerDash;
+    private PlayerAnimator _playerAnimator;
     private Transform _holder;
     private readonly List<Ghost> _pool = new();
     private float _spawnTimer;
@@ -44,6 +45,7 @@ public class PlayerDashGhost : MonoBehaviour
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
 
         _playerDash = GetComponent<PlayerDash>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
 
         _holder = new GameObject($"{gameObject.name}_DashGhosts").transform;
         _holder.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
@@ -154,26 +156,33 @@ public class PlayerDashGhost : MonoBehaviour
     private void Spawn()
     {
         if (_targetRenderer == null || _targetRenderer.sprite == null) return;
+        SpriteRenderer renderer = _playerAnimator != null
+            ? _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer) : _targetRenderer;
 
         foreach (Ghost ghost in _pool)
         {
             if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
             if (ghost.Go.activeSelf) continue;
 
-            ghost.Renderer.sharedMaterial = _targetRenderer.sharedMaterial;
-            ghost.Renderer.sprite = _targetRenderer.sprite;
-            ghost.Renderer.flipX = _targetRenderer.flipX;
-            ghost.Renderer.flipY = _targetRenderer.flipY;
-            ghost.Renderer.sortingLayerID = _targetRenderer.sortingLayerID;
-            ghost.Renderer.sortingOrder = _targetRenderer.sortingOrder + _sortingOrderOffset;
+            ghost.Renderer.sharedMaterial = renderer.sharedMaterial;
+            ghost.Renderer.sprite = renderer.sprite;
+            ghost.Renderer.flipX = renderer.flipX;
+            ghost.Renderer.flipY = renderer.flipY;
+            ghost.Renderer.sortingLayerID = renderer.sortingLayerID;
+            ghost.Renderer.sortingOrder = renderer.sortingOrder + _sortingOrderOffset;
 
             Color color = _tint;
             color.a = _initialAlpha;
             ghost.Renderer.color = color;
 
-            ghost.Go.layer = _targetRenderer.gameObject.layer;
-            ghost.Go.transform.SetPositionAndRotation(_targetRenderer.transform.position, _targetRenderer.transform.rotation);
-            ghost.Go.transform.localScale = _targetRenderer.transform.lossyScale;
+            ghost.Go.layer = renderer.gameObject.layer;
+            // 회전과 좌우 반전이 함께 있어도 실제 월드 축을 그대로 복사합니다.
+            Vector3 right = renderer.transform.TransformVector(Vector3.right);
+            Vector3 up = renderer.transform.TransformVector(Vector3.up);
+            float angle = Mathf.Atan2(right.y, right.x) * Mathf.Rad2Deg;
+            float handedness = Vector3.Cross(right, up).z < 0f ? -1f : 1f;
+            ghost.Go.transform.SetPositionAndRotation(renderer.transform.position, Quaternion.Euler(0f, 0f, angle));
+            ghost.Go.transform.localScale = new Vector3(right.magnitude, up.magnitude * handedness, 1f);
 
             ghost.LifeRemaining = _fadeTime;
             ghost.Renderer.enabled = true;

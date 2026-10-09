@@ -16,11 +16,14 @@ public class PlayerDash : MonoBehaviour
     private PlayerWall _playerWall;
     private PlayerHit _playerHit;
     private PlayerAttack _playerAttack;
+    private PlayerJump _playerJump;
+    private PlayerAnimator _playerAnimator;
     private Rigidbody2D _rigidbody;
     private float _dashTimeRemaining;
     private float _cooldownTimeRemaining;
     private float _originalGravityScale;
-    private int _dashDirection = 1;
+    private Vector2 _dashDirection = Vector2.right;
+    private bool _airDashVisual;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -29,6 +32,8 @@ public class PlayerDash : MonoBehaviour
         _playerWall = GetComponent<PlayerWall>();
         _playerHit = GetComponent<PlayerHit>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerJump = GetComponent<PlayerJump>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
     }
     private void OnEnable() => _playerInput.OnDashInput += HandleDash;
     private void OnDisable()
@@ -46,7 +51,7 @@ public class PlayerDash : MonoBehaviour
     private void FixedUpdate()
     {
         if (!IsDashing) return;
-        _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
+        _rigidbody.linearVelocity = _dashDirection * _dashSpeed;
     }
     private void HandleDash()
     {
@@ -55,16 +60,21 @@ public class PlayerDash : MonoBehaviour
         if (health != null && health.IsDead) return;
         if (_playerHit != null && _playerHit.IsHit) return;
         _playerAttack?.InterruptForDash();
-        _dashDirection = _playerMove.FacingDirection;
+        _airDashVisual = _playerJump != null && !_playerJump.IsGrounded;
+        _dashDirection = _airDashVisual ? _playerInput.GetDashDirection(_playerMove.FacingDirection)
+            : Vector2.right * _playerMove.FacingDirection;
+        _playerMove.SetFacingDirection(_dashDirection.x);
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
-        _rigidbody.linearVelocity = new Vector2(_dashDirection * _dashSpeed, 0f);
         _playerMove?.SetMovementLocked(this, true);
+        _rigidbody.linearVelocity = _dashDirection * _dashSpeed;
         IsDashing = true;
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
-        EffectManager.Instance?.PlayDash(transform.position, _dashDirection);
+        if (_airDashVisual) EffectManager.Instance?.PlayDash(transform.position, _dashDirection);
+        else EffectManager.Instance?.PlayDash(transform.position, _playerMove.FacingDirection);
         OnDashStarted?.Invoke();
+        if (_airDashVisual) _playerAnimator?.PlayDirectionalDash(_dashDirection);
     }
     public void CancelDash() => EndDash();
     public void ResetForRespawn()
@@ -81,5 +91,7 @@ public class PlayerDash : MonoBehaviour
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         _playerMove?.SetMovementLocked(this, false);
         OnDashEnded?.Invoke();
+        if (_airDashVisual) _playerAnimator?.EndDirectionalDash();
+        _airDashVisual = false;
     }
 }

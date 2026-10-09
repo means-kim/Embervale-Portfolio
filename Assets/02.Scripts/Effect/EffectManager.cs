@@ -152,6 +152,13 @@ public class EffectManager : MonoBehaviour
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
     public void PlayLand(Vector3 position) => Spawn(_landVfx, position);
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
+    public GameObject PlayDash(Vector3 position, Vector2 direction)
+    {
+        var effect = Spawn(_dashVfx, position);
+        if (effect != null && direction.sqrMagnitude > 0f)
+            effect.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        return effect;
+    }
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
 
     public GameObject PlayChargeJumpAim(Vector3 position)

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChargeJumpArrow : MonoBehaviour
 {
     [SerializeField, Min(0.1f)] private float _length = 1.6f;
-    [SerializeField, Min(0f)] private float _startOffset = 0.25f;
     [SerializeField, Min(0.01f)] private float _headLength = 0.4f;
     [SerializeField, Min(0.01f)] private float _headWidth = 0.3f;
     [SerializeField, Min(0.01f)] private float _lineWidth = 0.08f;
@@ -59,13 +58,14 @@ public class ChargeJumpArrow : MonoBehaviour
             float scale = _length * popScale / spriteWidth;
             visual.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
             visual.localScale = Vector3.one * scale;
-            visual.position = origin + forward * (_startOffset + _length * popScale * 0.5f);
+            // Pivot 위치와 관계없이 스프라이트 사각형의 중앙을 투사체 중심에 맞춥니다.
+            visual.position = origin - visual.rotation * (_spriteRenderer.sprite.bounds.center * scale);
             return;
         }
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
-        Vector3 tip = origin + forward * (_startOffset + _length * popScale);
+        Vector3 tip = origin + forward * (_length * popScale * 0.5f);
         Vector3 back = tip - forward * Mathf.Min(_headLength, _length) * popScale;
-        _points[0] = origin + forward * _startOffset;
+        _points[0] = origin - forward * (_length * popScale * 0.5f);
         _points[1] = tip;
         _points[2] = back + side * (_headWidth * 0.5f * popScale);
         _points[3] = tip;

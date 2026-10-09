@@ -19,6 +19,7 @@ public class IceProjectile : MonoBehaviour
     private Object _chargeOwner;
 
     public Vector2 Velocity => _velocity;
+    public Vector3 Center => _collider != null ? _collider.bounds.center : transform.position;
     public bool CanBeCharged => isActiveAndEnabled && !_destroying && _chargeOwner == null
         && _collider != null && _collider.enabled && _body.simulated;
 

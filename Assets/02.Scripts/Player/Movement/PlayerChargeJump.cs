@@ -54,6 +54,7 @@ public class PlayerChargeJump : MonoBehaviour
     public bool IsLaunching => _phase == Phase.Launching;
     public bool IsActive => _phase != Phase.None;
     private Vector3 AimOrigin => _playerCollider != null ? _playerCollider.bounds.center : transform.position;
+    private Vector3 ArrowOrigin => _target != null ? _target.Center : AimOrigin;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetTimeOwner() => _timeOwner = null;
@@ -140,7 +141,7 @@ public class PlayerChargeJump : MonoBehaviour
         _aimDirection = Vector2.right * _move.FacingDirection;
         if (_arrow == null) _arrow = Instantiate(_arrowPrefab);
         UpdateAim();
-        _arrow.Show(AimOrigin, _aimDirection);
+        _arrow.Show(ArrowOrigin, _aimDirection);
         _aimEffect = EffectManager.Instance?.PlayChargeJumpAim(AimOrigin);
     }
 
@@ -195,16 +196,17 @@ public class PlayerChargeJump : MonoBehaviour
     {
         if (!IsAiming || _arrow == null) return;
         UpdateAim();
-        _arrow.Show(AimOrigin, _aimDirection);
+        _arrow.Show(ArrowOrigin, _aimDirection);
         if (_aimEffect != null) _aimEffect.transform.position = AimOrigin;
     }
 
     private void UpdateAim()
     {
-        var plane = new Plane(Vector3.forward, AimOrigin);
+        Vector3 origin = ArrowOrigin;
+        var plane = new Plane(Vector3.forward, origin);
         Ray ray = _aimCamera.ScreenPointToRay(Input.mousePosition);
         if (!plane.Raycast(ray, out float distance)) return;
-        Vector2 direction = ray.GetPoint(distance) - AimOrigin;
+        Vector2 direction = ray.GetPoint(distance) - origin;
         if (direction.sqrMagnitude > 0.0001f) _aimDirection = direction.normalized;
     }
 
@@ -218,7 +220,7 @@ public class PlayerChargeJump : MonoBehaviour
             return;
         }
         UpdateAim();
-        Vector3 projectileOrigin = _target.transform.position;
+        Vector3 projectileOrigin = _target.Center;
         if (!_target.ReleaseCharge(this, -_aimDirection * _projectileLaunchSpeed, true))
         {
             Stop(false);
@@ -235,7 +237,7 @@ public class PlayerChargeJump : MonoBehaviour
         _body.linearVelocity = _launchVelocity;
         _move.SetFacingDirection(_aimDirection.x);
         _jump.BeginExternalLaunch();
-        _animator?.PlayChargeJumpLaunch();
+        _animator?.PlayChargeJumpLaunch(_aimDirection);
         _dashGhost?.BeginChargeJumpLaunch();
         EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aimDirection);
         EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aimDirection);
