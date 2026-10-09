@@ -35,6 +35,12 @@ public class AirBossController : MonoBehaviour
         _movement = GetComponent<AirBossMovement>();
         _animation = GetComponent<AirBossAnimation>();
         _action = GetComponent<AirBossAction>();
+
+        if (_phase2Cinematic == null)
+        {
+            _phase2Cinematic = FindFirstObjectByType<BossPhase2Cinematic>(FindObjectsInactive.Include);
+            Debug.LogWarning($"BossPhase2Cinematic 참조가 누락되었습니다. 임시 연결을 합니다.");
+        }
     }
 
     private void OnEnable()

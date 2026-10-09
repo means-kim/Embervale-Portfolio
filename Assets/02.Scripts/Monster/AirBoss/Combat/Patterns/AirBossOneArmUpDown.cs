@@ -24,6 +24,18 @@ public class AirBossOneArmUpDown : AirBossAttackBase
     private bool _isWarningShown = false;
     private bool _hasCast = false;
 
+    private void Awake()
+    {
+        if (_player != null) return;
+
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            _player = playerObject.transform;
+        }
+    }
+
     public override void BeginAttack()
     {
         Cancel();
