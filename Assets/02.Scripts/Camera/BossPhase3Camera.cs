@@ -15,6 +15,10 @@ public sealed class BossPhase3Camera : MonoBehaviour
     [SerializeField, Min(0.01f)] private float _zoomSmoothTime = 0.35f;
     [SerializeField, Min(0f)] private float _upperLookAheadY = 8f;
     [SerializeField, Min(0f)] private float _boundaryBlendTime = 0.8f;
+    [Header("3페이즈 상단 도착 시 활성화")]
+    [Tooltip("상단 카메라로 전환되면 켜지고, 낙하 중에도 유지됩니다. 페이즈 초기화 시 꺼집니다.")]
+    [SerializeField] private GameObject[] _upperArrivalObjects = new GameObject[0];
+    private bool _upperArrivalActivated;
 
     private CinemachineConfiner2D _confiner;
     private Collider2D _originalArea;
@@ -29,6 +33,7 @@ public sealed class BossPhase3Camera : MonoBehaviour
 
     private void Awake()
     {
+        SetArrivalObjects(false);
         if (_camera == null || _player == null || _phase3 == null || _upperArea == null)
         {
             return;
@@ -117,10 +122,12 @@ public sealed class BossPhase3Camera : MonoBehaviour
         if (!phase3)
         {
             SetArea(_originalArea);
+            if (_upperArrivalActivated) SetArrivalObjects(false);
         }
         else if (_inUpperArea)
         {
             SetArea(_upperArea);
+            if (!_upperArrivalActivated) SetArrivalObjects(true);
         }
         else
         {
@@ -130,6 +137,15 @@ public sealed class BossPhase3Camera : MonoBehaviour
             }
 
             SetArea(_travelArea != null ? _travelArea : _originalArea);
+        }
+    }
+
+    private void SetArrivalObjects(bool active)
+    {
+        _upperArrivalActivated = active;
+        foreach (var target in _upperArrivalObjects)
+        {
+            if (target != null) target.SetActive(active);
         }
     }
 
@@ -207,6 +223,7 @@ public sealed class BossPhase3Camera : MonoBehaviour
 
     private void OnDisable()
     {
+        SetArrivalObjects(false);
         if (_initialized && _camera != null && _confiner != null)
         {
             var lens = _camera.Lens;
