@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5039348117906714883}
   - component: {fileID: 8947883615194580563}
   - component: {fileID: 4059410317661825121}
+  - component: {fileID: 6999009261329113943}
   m_Layer: 0
   m_Name: Attack_Icicle_Fall_White
   m_TagString: Untagged
@@ -108,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 0
-  _damage: 10
+  _damage: 50
 --- !u!60 &8947883615194580563
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -186,6 +187,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6999009261329113943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293481016969042167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
+  _strength: 1
 --- !u!1 &5506047462549978221
 GameObject:
   m_ObjectHideFlags: 0

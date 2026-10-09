@@ -16,6 +16,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossCrossBurst6Point _crossBurst6Point;
     [SerializeField] private AirBossRaiseDropShadow _raiseDropShadow;
     [SerializeField] private AirBossOneArmUpDownIcePhase3 _oneArmUpDownIcePhase3;
+    [SerializeField] private AirBossRaiseBothArmPhase3 _raiseBothArmPhase3;
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
@@ -92,6 +93,10 @@ public class AirBossAction : MonoBehaviour
             case AirBossActionType.OneArmUpDownIcePhase3:
                 StartAttack(_oneArmUpDownIcePhase3);
                 break;
+
+            case AirBossActionType.RaiseBothArmPhase3:
+                StartAttack(_raiseBothArmPhase3);
+                break;
         }
     }
 
@@ -139,11 +144,14 @@ public class AirBossAction : MonoBehaviour
         // 순차적 고드름 5 패턴만 테스트
         // Execute(AirBossActionType.OneArmUpDownIcePhase3);
 
-        int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        // 순차적 번개 5 패턴만 테스트
+        Execute(AirBossActionType.RaiseBothArmPhase3);
 
-        AirBossActionType actionType = (AirBossActionType)randomIndex;
-
-        Execute(actionType);
+        // int randomIndex = Random.Range(0, (int)AirBossActionType.Count);
+        //
+        // AirBossActionType actionType = (AirBossActionType)randomIndex;
+        //
+        // Execute(actionType);
     }
 
     private void StartAttack(AirBossAttackBase attack)

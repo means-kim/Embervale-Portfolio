@@ -1,0 +1,49 @@
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.Animations;
+using System;
+using System.Linq;
+internal class CommandScript : IRunCommand {
+public void Execute(ExecutionResult result) {
+const string sp="Assets/04.Sprites/AirBossAttack/Attack_Lightning_VerticalHD_AirBoss";
+const string clipPath="Assets/05.Animation/AirBossAttack/Attack_SmallLightning_VerticalHD_v01.anim";
+const string controllerPath="Assets/05.Animation/AirBossAttack/Attack_SmallLightning_VerticalHD_v01AC.controller";
+if(AssetDatabase.LoadMainAssetAtPath(clipPath)!=null || AssetDatabase.LoadMainAssetAtPath(controllerPath)!=null) throw new Exception("New asset already exists; refusing overwrite.");
+var ordered=new Sprite[32];
+for(int p=0;p<2;p++) {
+string path=sp+"_Part"+(p+1)+"_16F_v01.png";
+AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceSynchronousImport);
+var ti=(TextureImporter)AssetImporter.GetAtPath(path);
+ti.textureType=TextureImporterType.Sprite; ti.spriteImportMode=SpriteImportMode.Multiple;
+ti.spritePixelsPerUnit=2048f/3f;ti.mipmapEnabled=false;ti.alphaIsTransparency=true;
+ti.sRGBTexture=true;ti.filterMode=FilterMode.Bilinear;ti.wrapMode=TextureWrapMode.Clamp;
+ti.npotScale=TextureImporterNPOTScale.None;ti.maxTextureSize=4096;
+ti.textureCompression=TextureImporterCompression.Uncompressed;ti.isReadable=false;
+var settings=new TextureImporterSettings();ti.ReadTextureSettings(settings);settings.spriteMeshType=SpriteMeshType.FullRect;ti.SetTextureSettings(settings);
+foreach(var platform in new[]{"Standalone","Android","iPhone","WebGL"})ti.ClearPlatformTextureSettings(platform);
+var ps=ti.GetDefaultPlatformTextureSettings();ps.maxTextureSize=4096;ps.format=TextureImporterFormat.RGBA32;ps.textureCompression=TextureImporterCompression.Uncompressed;ti.SetPlatformTextureSettings(ps);
+var slices=new SpriteMetaData[16];
+for(int c=0;c<16;c++)slices[c]=new SpriteMetaData{name="Attack_Lightning_VerticalHD_AirBoss_v01_"+(p*16+c).ToString("00"),rect=new Rect(c*256,0,256,2048),alignment=(int)SpriteAlignment.Center,pivot=new Vector2(.5f,.5f)};
+ti.spritesheet=slices;ti.SaveAndReimport();
+var sprites=AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(s=>s.name).ToArray();
+if(sprites.Length!=16)throw new Exception("Expected16 slices, got "+sprites.Length);
+Array.Copy(sprites,0,ordered,p*16,16);
+var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+result.Log("Imported "+path+" "+texture.width+"x"+texture.height+" format="+texture.format+" sprites="+sprites.Length);
+}
+var original=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBossAttack/Attack_SmallLightning.anim");
+var clip=UnityEngine.Object.Instantiate(original);clip.name="Attack_SmallLightning_VerticalHD_v01";
+foreach(var b in AnimationUtility.GetObjectReferenceCurveBindings(clip))AnimationUtility.SetObjectReferenceCurve(clip,b,null);
+var binding=new EditorCurveBinding{path="",type=typeof(SpriteRenderer),propertyName="m_Sprite"};
+var keys=Enumerable.Range(0,32).Select(i=>new ObjectReferenceKeyframe{time=i/12f,value=ordered[i]}).ToArray();
+AnimationUtility.SetObjectReferenceCurve(clip,binding,keys);
+foreach(var axis in new[]{"x","y","z"})AnimationUtility.SetEditorCurve(clip,EditorCurveBinding.FloatCurve("",typeof(Transform),"m_LocalScale."+axis),AnimationCurve.Constant(0,original.length,axis=="x"?10:1));
+var clipSettings=AnimationUtility.GetAnimationClipSettings(original);clipSettings.loopTime=false;AnimationUtility.SetAnimationClipSettings(clip,clipSettings);
+AssetDatabase.CreateAsset(clip,clipPath);
+var ac=AnimatorController.CreateAnimatorControllerAtPath(controllerPath);
+var sm=ac.layers[0].stateMachine;var state=sm.AddState("SmallLightningVerticalHD");state.motion=clip;state.speed=1.3f;sm.defaultState=state;
+EditorUtility.SetDirty(ac);EditorUtility.SetDirty(clip);AssetDatabase.SaveAssets();
+result.Log("Created "+clipPath+" length="+clip.length+" fps="+clip.frameRate+" spriteKeys="+keys.Length+" events="+clip.events.Length+" scale=(10,1,1)");
+result.Log("Created independent controller "+controllerPath+" stateSpeed="+state.speed);
+}
+}
