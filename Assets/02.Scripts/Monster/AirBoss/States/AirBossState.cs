@@ -8,4 +8,5 @@ public enum AirBossState
     Move,
     Action,
     Death,
+    Stagger,
 }
