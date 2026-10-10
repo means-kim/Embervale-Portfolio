@@ -26,6 +26,35 @@ public class AirBossController : MonoBehaviour
     private AirBossMovement _movement;
     private AirBossAnimation _animation;
     private AirBossAction _action;
+    private AirBossStagger _stagger;
+    private Health _health;
+
+    public bool IsStaggered => _currentstate == AirBossState.Stagger;
+    public bool CanEnterStagger => isActiveAndEnabled && _health != null && !_health.IsDead &&
+        _phaseController != null && !_phaseController.IsTransition &&
+        (_currentstate == AirBossState.Idle || _currentstate == AirBossState.Move ||
+         _currentstate == AirBossState.Action);
+
+    public bool TryEnterStagger()
+    {
+        if (_stagger == null)
+        {
+            _stagger = GetComponent<AirBossStagger>();
+        }
+        if (!CanEnterStagger || _stagger == null || !_stagger.CanBegin)
+        {
+            return false;
+        }
+        ChangeState(AirBossState.Stagger);
+        return IsStaggered;
+    }
+
+    public void OnStaggerFinished()
+    {
+        if (!isActiveAndEnabled || !IsStaggered || _health.IsDead) return;
+        if (_phaseController != null && _phaseController.IsTransition) return;
+        ChangeState(AirBossState.Idle);
+    }
 
     private bool _waitingForPhase2;
     // private bool _waitingForPhase3;
@@ -35,6 +64,8 @@ public class AirBossController : MonoBehaviour
         _movement = GetComponent<AirBossMovement>();
         _animation = GetComponent<AirBossAnimation>();
         _action = GetComponent<AirBossAction>();
+        _stagger = GetComponent<AirBossStagger>();
+        _health = GetComponent<Health>();
 
         if (_phase2Cinematic == null)
         {
@@ -103,6 +134,12 @@ public class AirBossController : MonoBehaviour
         }
 
         CancelOwnedPhase2();
+        _stagger?.Cancel();
+        if (IsStaggered)
+        {
+            _currentstate = AirBossState.Idle;
+            _stateTimer = 0f;
+        }
     }
 
     private void UpdateWait()
@@ -143,6 +180,11 @@ public class AirBossController : MonoBehaviour
     {
         if (_currentstate == AirBossState.Death) return;
 
+        if (IsStaggered && newstate != AirBossState.Stagger)
+        {
+            _stagger?.Cancel();
+        }
+
         _currentstate = newstate;
         _stateTimer = 0f;
 
@@ -151,7 +193,17 @@ public class AirBossController : MonoBehaviour
 
     private void EnterState()
     {
-        if (_currentstate == AirBossState.Move)
+        if (_currentstate == AirBossState.Stagger)
+        {
+            _movement.StopMove();
+            _action.CancelCurrentAttack();
+            AirBossAttackPool.Instance?.ReleaseAll();
+            if (_stagger == null || !_stagger.Begin())
+            {
+                ChangeState(AirBossState.Idle);
+            }
+        }
+        else if (_currentstate == AirBossState.Move)
         {
             _movement.StartMove();
             _animation.PlayMoveAnimation(_movement.Direction);
