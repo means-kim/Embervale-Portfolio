@@ -115,10 +115,19 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance?.StopAllBgm();
         AudioManager.Instance?.PlayBgm(_startBgm);
 
+        bool offerUpgrade = _restoreCheckpointOnLoad;
         if (_restoreCheckpointOnLoad)
         {
             _restoreCheckpointOnLoad = false;
             CheckpointHistory.Restore(gameObject.scene);
+        }
+
+        // Only the death screen's RetryScene request grants an upgrade choice.
+        // Starting from the title keeps saved stats without granting another level.
+        if (!offerUpgrade)
+        {
+            ResumeGame();
+            yield break;
         }
 
         if (_upgrades == null || _abilityUI == null)
@@ -175,7 +184,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Preserve upgrades, intro history, and defeated enemies on retry/continue.
-    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null)
+    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false)
     {
         if (IsLoading || GameIntroCinematic.IsTransitioning || string.IsNullOrWhiteSpace(sceneName))
         {
@@ -203,12 +212,15 @@ public class GameManager : MonoBehaviour
         _requestedScene = sceneName;
         try
         {
-            bool showIntro = introClip != null && !GameIntroCinematic.HasStartedGame;
-            AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            bool showIntro = introClip != null && (replayIntro || !GameIntroCinematic.HasStartedGame);
+            Debug.Log($"GameManager: Loading {sceneName}, intro={(showIntro ? "play" : "skip")}, replayIntro={replayIntro}, newGame={newGame}.");
             if (showIntro)
             {
-                loading.allowSceneActivation = false;
-                GameIntroCinematic.Begin(introClip, loading);
+                GameIntroCinematic.Begin(introClip, sceneName);
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             }
             return true;
         }

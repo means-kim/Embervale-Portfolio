@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using Game.Upgrades;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-// A persistent overlay hides scene activation and retains the video's final frame.
+// A persistent black overlay separates the recorded intro from live gameplay.
 public sealed class GameIntroCinematic : MonoBehaviour
 {
     private const string StartedKey = "Game.Intro.LivingTree.Completed";
@@ -34,6 +35,8 @@ public sealed class GameIntroCinematic : MonoBehaviour
     private bool _finished;
     private bool _failed;
     private float _previousTimeScale;
+    private Image _loadingIndicator;
+    private bool _firstFrameReady;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics() => IsTransitioning = false;
@@ -44,16 +47,16 @@ public sealed class GameIntroCinematic : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public static void Begin(VideoClip clip, AsyncOperation loading)
+    public static void Begin(VideoClip clip, string sceneName)
     {
+        if (IsTransitioning) return;
         var root = new GameObject("LivingTree Intro Transition");
         DontDestroyOnLoad(root);
         var transition = root.AddComponent<GameIntroCinematic>();
-        transition._loading = loading;
-        transition.StartCoroutine(transition.Play(clip));
+        transition.StartCoroutine(transition.Play(clip, sceneName));
     }
 
-    private IEnumerator Play(VideoClip clip)
+    private IEnumerator Play(VideoClip clip, string sceneName)
     {
         IsTransitioning = true;
         _previousTimeScale = Time.timeScale;
@@ -85,6 +88,14 @@ public sealed class GameIntroCinematic : MonoBehaviour
         RenderTexture.active = previous;
         picture.GetComponent<RawImage>().texture = _texture;
 
+        var indicator = new GameObject("Loading Indicator", typeof(RectTransform), typeof(Image));
+        indicator.transform.SetParent(transform, false);
+        var indicatorRect = indicator.GetComponent<RectTransform>();
+        indicatorRect.anchorMin = indicatorRect.anchorMax = new Vector2(0.95f, 0.06f);
+        indicatorRect.sizeDelta = new Vector2(18f, 18f);
+        _loadingIndicator = indicator.GetComponent<Image>();
+        _loadingIndicator.raycastTarget = false;
+
         _video = gameObject.AddComponent<VideoPlayer>();
         _video.playOnAwake = false;
         _video.source = VideoSource.VideoClip;
@@ -97,6 +108,10 @@ public sealed class GameIntroCinematic : MonoBehaviour
         _video.isLooping = false;
         _video.loopPointReached += OnFinished;
         _video.errorReceived += OnError;
+        _video.sendFrameReadyEvents = true;
+        _video.frameReady += OnFrameReady;
+        // Show the overlay before starting the native decoder.
+        yield return null;
         _video.Prepare();
 
         float deadline = Time.realtimeSinceStartup + 20f;
@@ -114,12 +129,30 @@ public sealed class GameIntroCinematic : MonoBehaviour
             _video.Pause();
         }
 
-        // Leave the last frame visible if the scene is not ready yet.
+        // The recording contains an old HUD and camera composition. Fade it out
+        // before loading instead of crossfading those pixels over the live HUD.
+        var videoImage = picture.GetComponent<RawImage>();
+        float fadeOut = 0f;
+        while (fadeOut < 0.35f)
+        {
+            fadeOut += Time.unscaledDeltaTime;
+            videoImage.color = new Color(1f, 1f, 1f, 1f - Mathf.Clamp01(fadeOut / 0.35f));
+            yield return null;
+        }
+        videoImage.enabled = false;
+
+        // Keep scene texture uploads from competing with video decoding/rendering.
+        _loadingIndicator.enabled = true;
+        yield return null;
+        _loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        _loading.allowSceneActivation = false;
+        while (_loading.progress < 0.9f) yield return null;
         _loading.allowSceneActivation = true;
         while (!_loading.isDone) yield return null;
         // Let Awake/Start and the first scene render finish under the overlay.
         yield return null;
         yield return null;
+        _loadingIndicator.enabled = false;
         if (_finished && !_failed)
         {
             PlayerPrefs.SetInt(StartedKey, 1);
@@ -147,11 +180,24 @@ public sealed class GameIntroCinematic : MonoBehaviour
     }
 
     private void OnFinished(VideoPlayer source) => _finished = true;
+    private void OnFrameReady(VideoPlayer source, long frame)
+    {
+        _firstFrameReady = true;
+        _loadingIndicator.enabled = false;
+        source.sendFrameReadyEvents = false;
+    }
+
+    private void Update()
+    {
+        if (_loadingIndicator != null && _loadingIndicator.enabled)
+            _loadingIndicator.rectTransform.Rotate(0f, 0f, -180f * Time.unscaledDeltaTime);
+    }
     private void OnError(VideoPlayer source, string message) => Fail(message);
     private void Fail(string message)
     {
         _failed = true;
-        Debug.LogWarning("LivingTree intro: " + message + " Continuing into the game.", this);
+        Debug.LogWarning($"LivingTree intro: {message} Prepared={_video != null && _video.isPrepared}, " +
+            $"FirstFrame={_firstFrameReady}, Graphics={SystemInfo.graphicsDeviceType}. Continuing into the game.", this);
     }
 
     private void OnDestroy()
@@ -161,6 +207,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
         {
             _video.loopPointReached -= OnFinished;
             _video.errorReceived -= OnError;
+            _video.frameReady -= OnFrameReady;
             _video.Stop();
             _video.targetTexture = null;
         }

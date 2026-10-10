@@ -24335,19 +24335,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c151e367a2856458160b86061d6c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Boss.BossHealthBar
-  mainFill: {fileID: 523416261}
-  delayedFill: {fileID: 623468514}
-  bossNameLabel: {fileID: 0}
-  mainColor: {r: 0.74, g: 0.17, b: 0.14, a: 1}
-  delayedColor: {r: 0.98, g: 0.68, b: 0.28, a: 1}
-  hitFlashColor: {r: 1, g: 0.95, b: 0.92, a: 1}
-  catchUpDelay: 0.45
-  catchUpSpeed: 0.6
-  healSpeed: 1.5
-  hitFlashDuration: 0.08
-  fadeDuration: 0.4
-  useUnscaledTime: 1
-  startHidden: 1
+  _mainFill: {fileID: 523416261}
+  _delayedFill: {fileID: 623468514}
+  _bossNameLabel: {fileID: 0}
+  _mainColor: {r: 0.74, g: 0.17, b: 0.14, a: 1}
+  _delayedColor: {r: 0.98, g: 0.68, b: 0.28, a: 1}
+  _hitFlashColor: {r: 1, g: 0.95, b: 0.92, a: 1}
+  _catchUpDelay: 0.45
+  _catchUpSpeed: 0.6
+  _healSpeed: 1.5
+  _hitFlashDuration: 0.08
+  _fadeDuration: 0.4
+  _useUnscaledTime: 1
+  _startHidden: 1
 --- !u!225 &1054655564
 CanvasGroup:
   m_ObjectHideFlags: 0

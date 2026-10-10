@@ -17,12 +17,10 @@ public class UI_PlayerDeath : MonoBehaviour
     private bool _waitingForRetry;
     private bool _ready;
     private bool _restoreInput;
-    private string _deathAudioPath = "DeathBgm";
 
     private void Awake()
     {
         _group = GetComponent<CanvasGroup>();
-        CacheDeathAudioPath();
         if (_player == null || _retryButton == null)
         {
             enabled = false;
@@ -107,35 +105,17 @@ public class UI_PlayerDeath : MonoBehaviour
         PlayDeathAudio();
     }
 
-    private void CacheDeathAudioPath()
-    {
-        if (_deathAudioSource == null) return;
-        AudioManager owner = _deathAudioSource.GetComponentInParent<AudioManager>();
-        if (owner == null) return;
-        Transform current = _deathAudioSource.transform;
-        string path = current.name;
-        while (current.parent != null && current.parent != owner.transform)
-        {
-            current = current.parent;
-            path = current.name + "/" + path;
-        }
-
-        _deathAudioPath = _deathAudioSource.transform == owner.transform ? "" : path;
-    }
-
     private void PlayDeathAudio()
     {
-        // Scene reload destroys the duplicate AudioManager. Resolve its source
-        // from the surviving manager, using Unity's destroyed-object null check.
-        if (_deathAudioSource == null && AudioManager.Instance != null)
+        // The persistent manager owns the source across title/game/retry scenes.
+        if (AudioManager.Instance != null)
         {
-            Transform source = string.IsNullOrEmpty(_deathAudioPath)
-                ? AudioManager.Instance.transform
-                : AudioManager.Instance.transform.Find(_deathAudioPath);
-            if (source != null) _deathAudioSource = source.GetComponent<AudioSource>();
+            AudioManager.Instance.PlayDeathBgm();
         }
-
-        if (_deathAudioSource != null) _deathAudioSource.Play();
+        else if (_deathAudioSource != null)
+        {
+            _deathAudioSource.Play();
+        }
     }
 
     private IEnumerator FadeIn()
@@ -173,6 +153,8 @@ public class UI_PlayerDeath : MonoBehaviour
 
     private void HandleRestarted()
     {
+        AudioManager.Instance?.StopDeathBgm();
+        if (AudioManager.Instance == null && _deathAudioSource != null) _deathAudioSource.Stop();
         if (_fade != null)
         {
             StopCoroutine(_fade);
