@@ -410,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossMovement
   _maxPosition: {x: 380, y: 150}
   _minPosition: {x: 300, y: 140}
-  _speed: 15
+  _speed: 20
 --- !u!114 &4804818044005549590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab617d6101f494c4fa55cc5662b7784a, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossHeadCollider
   _spriteRenderer: {fileID: 4954074921792302040}
   _headCollider: {fileID: 6406218199782589037}
