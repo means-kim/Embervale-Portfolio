@@ -1,0 +1,18 @@
+AirBoss vertical movement appearance revision — 2026-10-10
+
+User feedback: v01 cloth palette/design diverged from Idle and detail was too soft. Both Up and Down revised.
+Root cause: v01 generated16 poses together on a1254-square sheet, leaving roughly313-square cells; enlarged intermediate poses also reinterpreted ragged cloth as smoother blue ribbons.
+
+Built-in image_gen precise-object-edit used with the actual Idle v02 frame00 reference for every pose. Prompts.json preserves the prompts.
+14 individual generated images, each1254x1254 RGBA: seven outward poses per direction. These are new pose paintings based on Idle, not pixel-identical deformations. No claim of native1536 generation.
+Pack.py resamples each full-size frame to1536 with premultiplied-alpha Lanczos (about1.225x, compared with multi-fold v01 enlargement), registers helmet translation against Idle, and orders by measured hand height. No color grading, sharpening or artificial detail filter applied.
+Animation sequence: exact Idle, seven outward poses, same seven poses in reverse for recovery, exact Idle.16 timeline frames, eight distinct images per direction including Idle; peak occupies two frame slots. Reversible recovery is intentional to maintain consistent color/design.
+
+Both existing PNGs replaced in place at Assets/04.Sprites/AirBoss/AirBoss_Move_{Up,Down}_4x4_1536_v01.png. Filenames retain v01 to preserve existing references; this revision record is v02. Previous PNG/meta files are in Before/.
+Existing sprite metadata, GUID/localIDs, clips, controller, runtime scripts and scene files unchanged, verified with ProtectedHashes.json.
+Specifications unchanged:6144x6144 sheet,4x4 cells of1536x1536, pivot768,768,PPU36,16-frame1-second clips.
+
+Checks: all32 frame silhouettes remain within cell bounds at alpha>=16; first and last frames exactly equal Idle pixels; both imported textures loaded at6144x6144; both clips retain16 valid sprite references and1-second duration; live Animator MoveUp and MoveDown point at those clips. No protected file hash changes.
+Comparison.jpg contains Idle, old Up, new Up, old Down, new Down plus1:1 cloth crops, all composited against the same background. Contacts inspected for palette/detail and alignment. GIFs are low-resolution timing previews, not texture quality evidence.
+Visible cloth texture and palette are substantially closer to Idle. Small frame-specific changes in drawn folds/armor remain possible in generated art. Full Play combat transitions were not tested during this revision.
+Unity import call response was ambiguous after completion; saved UnityValidation.txt and a separate live read confirmed both imports and references. No duplicate imports/assets created.
