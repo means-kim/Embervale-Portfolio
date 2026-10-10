@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 2508001429532137085}
   - component: {fileID: 7122294531737279113}
   - component: {fileID: 6100563138853182197}
+  - component: {fileID: 8797898475299275279}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -226,3 +227,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de27c793272f4aa6b3d356c1474ad97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackAnimationEvent
+--- !u!114 &8797898475299275279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586911830876487903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
+  _cues:
+  - Name: Blizzard
+    Sounds:
+    - {fileID: 11400000, guid: 6447c29ddd0b84b9591fa1d29ed5b588, type: 2}
