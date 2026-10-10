@@ -64,7 +64,10 @@ public class CinematicManager : MonoBehaviour
         _timelineFinished = false;
         IsPlaying = true;
 
-        _player.GetComponent<PlayerAttack>()?.CancelAttack();
+        if (_player.TryGetComponent(out PlayerAttack attack))
+        {
+            attack.CancelAttack();
+        }
 
         LockControls();
         StopHorizontalMovement();
@@ -141,7 +144,10 @@ public class CinematicManager : MonoBehaviour
 
         IsPlaying = true;
 
-        _player.GetComponent<PlayerAttack>()?.CancelAttack();
+        if (_player.TryGetComponent(out PlayerAttack attack))
+        {
+            attack.CancelAttack();
+        }
 
         LockControls();
         StopHorizontalMovement();
@@ -231,7 +237,14 @@ public class CinematicManager : MonoBehaviour
 
     private void LockControls()
     {
-        if (_player != null) _player.GetComponent<PlayerChargeJump>()?.CancelChargeJump();
+        if (_player != null)
+        {
+            if (_player.TryGetComponent(out PlayerChargeJump chargeJump))
+            {
+                chargeJump.CancelChargeJump();
+
+            }
+        }
         _lockedControls = (Behaviour[])_playerControls.Clone();
         _originalStates = new bool[_lockedControls.Length];
 
