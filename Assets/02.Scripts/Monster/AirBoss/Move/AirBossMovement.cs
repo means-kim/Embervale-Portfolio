@@ -61,8 +61,8 @@ public class AirBossMovement : MonoBehaviour
         // 바깥쪽 방향의 가중치만 제외하고 기존 비율(9:9:3:2)은 유지한다.
         int leftWeight = position.x > _minPosition.x ? 9 : 0;
         int rightWeight = position.x < _maxPosition.x ? 9 : 0;
-        int upWeight = position.y < _maxPosition.y ? 3 : 0;
-        int downWeight = position.y > _minPosition.y ? 2 : 0;
+        int upWeight = position.y < _maxPosition.y ? 9 : 0;
+        int downWeight = position.y > _minPosition.y ? 9 : 0;
         int totalWeight = leftWeight + rightWeight + upWeight + downWeight;
 
         if (totalWeight == 0)
