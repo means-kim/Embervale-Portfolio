@@ -1,0 +1,29 @@
+var type=typeof(AirBossHeadCollider);
+var prefab=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/03.Prefabs/AirBoss/AirBoss.prefab");
+var scene=UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+var go=new UnityEngine.GameObject("HeadColliderVerification");
+UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,scene);
+var sb=new System.Text.StringBuilder();int checks=0;
+try{
+var sr=go.AddComponent<UnityEngine.SpriteRenderer>();var col=go.AddComponent<UnityEngine.CircleCollider2D>();col.radius=3;go.AddComponent<UnityEngine.Animator>();
+var comp=go.AddComponent<AirBossHeadCollider>();
+UnityEditor.EditorJsonUtility.FromJsonOverwrite(UnityEditor.EditorJsonUtility.ToJson(prefab.GetComponent<AirBossHeadCollider>()),comp);
+var so=new UnityEditor.SerializedObject(comp);so.FindProperty("_spriteRenderer").objectReferenceValue=sr;so.FindProperty("_headCollider").objectReferenceValue=col;so.ApplyModifiedPropertiesWithoutUndo();
+var update=type.GetMethod("LateUpdate",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+var lookup=new System.Collections.Generic.Dictionary<UnityEngine.Sprite,UnityEngine.Vector2>();
+var entries=so.FindProperty("_headPositions");for(int i=0;i<entries.arraySize;i++){var e=entries.GetArrayElementAtIndex(i);lookup.Add((UnityEngine.Sprite)e.FindPropertyRelative("sprite").objectReferenceValue,e.FindPropertyRelative("offset").vector2Value);}
+foreach(var name in new[]{"AirBoss_Move_Bank","AirBoss_Move_Bank_Left","AirBoss_Idle","AirBoss_Move_Up_v01","AirBoss_Move_Down_v01"}){
+var clip=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/AirBoss/"+name+".anim");
+var keys=UnityEditor.AnimationUtility.GetObjectReferenceCurve(clip,UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(clip)[0]);
+foreach(var k in keys){clip.SampleAnimation(go,k.time+0.0001f);
+if(sr.sprite!=k.value)throw new System.Exception(name+" SampleAnimation sprite mismatch at "+k.time);
+update.Invoke(comp,null);var expected=lookup.ContainsKey(sr.sprite)?lookup[sr.sprite]:new UnityEngine.Vector2(.5f,10f);
+if(UnityEngine.Vector2.Distance(col.offset,expected)>.001f)throw new System.Exception(name+" offset mismatch");
+if(col.radius!=3||go.transform.position!=UnityEngine.Vector3.zero)throw new System.Exception("Radius/root changed");checks++;}
+sb.AppendLine(name+": "+keys.Length+" keys passed");}
+sr.sprite=null;update.Invoke(comp,null);if(col.offset!=new UnityEngine.Vector2(.5f,10f))throw new System.Exception("Null fallback");checks++;
+col.offset=new UnityEngine.Vector2(99,99);type.GetMethod("OnDisable",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).Invoke(comp,null);if(col.offset!=new UnityEngine.Vector2(.5f,10f))throw new System.Exception("Disable fallback");checks++;
+}finally{UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(scene);}
+var live=UnityEngine.Object.FindFirstObjectByType<AirBossController>();var lc=live.GetComponent<AirBossHeadCollider>();sb.AppendLine("Passed "+checks+" checks; live component="+(lc!=null));
+if(lc!=null){var ls=new UnityEditor.SerializedObject(lc);sb.AppendLine("Live entries="+ls.FindProperty("_headPositions").arraySize+" colliderCorrect="+(ls.FindProperty("_headCollider").objectReferenceValue==live.GetComponent<UnityEngine.CircleCollider2D>()));}
+System.IO.File.WriteAllText("Docs/Boss/AirBoss/HeadCollider_v01/UnityValidation.txt",sb.ToString());return sb.ToString();

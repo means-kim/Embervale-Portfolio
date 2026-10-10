@@ -1,0 +1,12 @@
+AirBoss head collider — 2026-10-10
+
+Added Assets/02.Scripts/Monster/AirBoss/Hit/AirBossHeadCollider.cs and connected it to Assets/03.Prefabs/AirBoss/AirBoss.prefab.
+The current MinsuScene AirBoss inherits the component, all32 entries and correct root CircleCollider2D reference. Scene was already dirty before this work; it was not saved or edited directly.
+Default offset remains(.5,10), radius3 and trigger state unchanged. Only collider offset is updated; root transform and sprite art remain unchanged.
+LateUpdate reads the SpriteRenderer's actual sprite, matches left/right movement entries, otherwise restores default offset. OnDisable also restores default. No animation duration/state-name coupling.
+
+Offsets measured from existing1536 cells, PPU36 and center pivot. Existing Idle anchor is pixel(786,408) in top-origin coordinates. Candidate head positions found by rotated helmet-template matching, then all32 frames visually checked with radius108-pixel circles. See Left_Review.jpg and Right_Review.jpg. These are art-based placements, not automatic semantic head detection at runtime. Values remain editable in Inspector.
+Serialized entries are per-sprite reference. Future replacement of head placement requires rechecking these offsets. Other animations currently use default offset, not per-frame head tracking.
+
+Verification: script compiled and class loaded. Preview-scene test sampled17 right keys,16 left keys,17 Idle keys,16 Up keys,16 Down keys and checked null-sprite/disable fallback:84 checks passed. The initial test harness lacked an Animator and was corrected; runtime component unchanged. Radius/root unchanged. Actual full Play-mode attack/hit gameplay was not exercised.
+UnityValidation.txt and Verification.cs.txt preserve successful checks. Scene's pre-existing unsaved work preserved.

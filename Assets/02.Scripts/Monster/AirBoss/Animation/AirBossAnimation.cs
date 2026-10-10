@@ -29,6 +29,14 @@ public class AirBossAnimation : MonoBehaviour
         {
             _animator.CrossFade("MoveBankRight", 0.1f);
         }
+        else if (direction.y < 0)
+        {
+            _animator.CrossFade("MoveDown", 0.1f);
+        }
+        else if (direction.y > 0)
+        {
+            _animator.CrossFade("MoveUp", 0.1f);
+        }
         else
         {
             _animator.CrossFade("Idle", 0.1f);

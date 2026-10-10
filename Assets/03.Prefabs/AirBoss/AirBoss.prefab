@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 5809469499536019829}
   - component: {fileID: 3177162394418046562}
   - component: {fileID: 1566677918546449221}
+  - component: {fileID: 2282874917967199264}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -409,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AirBossMovement
   _maxPosition: {x: 380, y: 150}
   _minPosition: {x: 300, y: 140}
-  _speed: 15
+  _speed: 20
 --- !u!114 &4804818044005549590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,3 +728,83 @@ MonoBehaviour:
   _warningInterval: 0.3
   _waitAfterWarnings: 0.9
   _attackInterval: 0.3
+--- !u!114 &2282874917967199264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab617d6101f494c4fa55cc5662b7784a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossHeadCollider
+  _spriteRenderer: {fileID: 4954074921792302040}
+  _headCollider: {fileID: 6406218199782589037}
+  _defaultOffset: {x: 0.5, y: 10}
+  _headPositions:
+  - sprite: {fileID: 152449426, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: 0.5, y: 10}
+  - sprite: {fileID: -699255837, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -0.4444, y: 9.7778}
+  - sprite: {fileID: 1401595835, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -2, y: 9.7778}
+  - sprite: {fileID: 1487200585, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -4.4444, y: 9.3333}
+  - sprite: {fileID: 1259450068, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: 1355443462, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: -380685099, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: 1223827178, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: 1153242296, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: 1421024830, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: -442748652, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: 1815775231, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -8.2222, y: 10}
+  - sprite: {fileID: -43017367, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -6, y: 10.2222}
+  - sprite: {fileID: 1294696014, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: -4.8889, y: 10.2222}
+  - sprite: {fileID: -481121079, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: 0.2222, y: 10}
+  - sprite: {fileID: -2140117741, guid: 4301e1341970ba74489935094bde801b, type: 3}
+    offset: {x: 0, y: 10}
+  - sprite: {fileID: -753455272, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 0.5, y: 10}
+  - sprite: {fileID: 770485039, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 4.8889, y: 9.7778}
+  - sprite: {fileID: -98102276, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 4, y: 9.7778}
+  - sprite: {fileID: -763689333, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 4.6667, y: 9.3333}
+  - sprite: {fileID: 1971564782, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 9.5556}
+  - sprite: {fileID: 2026932776, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 8.8889}
+  - sprite: {fileID: 416452256, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 9.1111}
+  - sprite: {fileID: 1774565170, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 9.5556}
+  - sprite: {fileID: 87899280, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 8.8889}
+  - sprite: {fileID: 790360434, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.3333, y: 8.6667}
+  - sprite: {fileID: 694258826, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 7.1111, y: 9.1111}
+  - sprite: {fileID: -403969161, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 6, y: 9.1111}
+  - sprite: {fileID: -452430563, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 8.4444, y: 8.8889}
+  - sprite: {fileID: 1606169919, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 5.1111, y: 9.1111}
+  - sprite: {fileID: -2027776086, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 5.3333, y: 9.7778}
+  - sprite: {fileID: -1549552991, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
+    offset: {x: 0.6667, y: 10}
