@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 7444443690279221896}
   - component: {fileID: 298357955577012188}
   - component: {fileID: 8820139603769102593}
+  - component: {fileID: 7188472289522948280}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -328,3 +329,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossIcicleLifeTimer
   _icicleLifeTime: 4
+--- !u!114 &7188472289522948280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506047462549978221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
+  _cues:
+  - Name: Icicle_Fall
+    Sounds:
+    - {fileID: 11400000, guid: 6140710fa9c864cd48cbc41f0c60d80f, type: 2}

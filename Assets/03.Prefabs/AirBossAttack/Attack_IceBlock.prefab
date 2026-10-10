@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 2508001429532137085}
   - component: {fileID: 7122294531737279113}
   - component: {fileID: 6100563138853182197}
+  - component: {fileID: 7617225334638114610}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -225,3 +226,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de27c793272f4aa6b3d356c1474ad97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackAnimationEvent
+--- !u!114 &7617225334638114610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586911830876487903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
+  _cues:
+  - Name: IceBlock_Create
+    Sounds:
+    - {fileID: 11400000, guid: 487efd3bda4474660a895336fa7963f1, type: 2}
+  - Name: Broken
+    Sounds:
+    - {fileID: 11400000, guid: 5a61405ba17f04217ba05f6c9be2aca9, type: 2}

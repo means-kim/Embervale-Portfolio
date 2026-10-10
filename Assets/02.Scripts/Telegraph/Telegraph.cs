@@ -4,6 +4,7 @@ using System.Collections;
 public class Telegraph : MonoBehaviour
 {
     [SerializeField] private TelegraphType _type;
+    [SerializeField] private SFXData _warningSound;
 
     private bool _isReserved;
     private Vector3 _defaultScale;
@@ -50,6 +51,7 @@ public class Telegraph : MonoBehaviour
         );
 
         gameObject.SetActive(true);
+        AttackOneShotAudio.Play(_warningSound);
     }
 
     public void Release()
