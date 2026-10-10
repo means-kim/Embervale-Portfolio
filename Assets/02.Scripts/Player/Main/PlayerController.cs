@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
     private PlayerWall _playerWall;
     private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
+    private PlayerChargeJump _chargeJump;
     private Health _health;
-    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death && (_health == null || !_health.IsDead) && !_playerHit.IsHit && !_playerDash.IsDashing && !_playerAttack.IsAttacking;
+    public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death && (_health == null || !_health.IsDead) && !_playerHit.IsHit && !_playerDash.IsDashing && !_playerAttack.IsAttacking
+        && (_chargeJump == null || !_chargeJump.IsActive);
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         _playerWall = GetComponent<PlayerWall>();
         _playerHit = GetComponent<PlayerHit>();
         _playerAnimator = GetComponent<PlayerAnimator>();
+        _chargeJump = GetComponent<PlayerChargeJump>();
         if (_playerAnimator == null) _playerAnimator = gameObject.AddComponent<PlayerAnimator>();
     }
     private void OnEnable()

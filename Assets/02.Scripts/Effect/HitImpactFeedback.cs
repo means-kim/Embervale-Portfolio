@@ -47,6 +47,13 @@ public class HitImpactFeedback : MonoBehaviour
     public void RequestBossHitstop() => RequestHitstop(_bossHitstopDuration);
     public void RequestPlayerHitstop() => RequestHitstop(_playerHitstopDuration);
 
+    // 차지 조준 중 시작된 히트스톱이 종료된 뒤 이미 끝난 슬로 모션으로 복귀하지 않도록 합니다.
+    public void ReplaceResumeTimeScale(float expected, float replacement)
+    {
+        if (_isStopping && Mathf.Approximately(_previousTimeScale, expected))
+            _previousTimeScale = replacement;
+    }
+
     public void RequestHitstop(float duration, float timeScale = 0f)
     {
         if (!isActiveAndEnabled || Instance != this || duration <= 0f)

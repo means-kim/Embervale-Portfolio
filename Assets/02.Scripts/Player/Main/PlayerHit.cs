@@ -85,6 +85,8 @@ public class PlayerHit : MonoBehaviour
     private void HandleHit()
     {
         if (_health.IsDead || _isInvincible) return;
+        // 히트스톱이 느린 시간을 복귀값으로 저장하기 전에 차지 점프를 정리합니다.
+        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
         if (_attack != null) _attack.CancelAttack();
         _hitUntil = Time.time + _hitDuration;
         _flashTimer = 0f;
@@ -97,6 +99,7 @@ public class PlayerHit : MonoBehaviour
     }
     private void HandleDie()
     {
+        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
         if (_attack != null) _attack.CancelAttack();
         if (_dash != null) _dash.CancelDash();
         if (_move != null) _move.SetMovementLocked(_health, true);

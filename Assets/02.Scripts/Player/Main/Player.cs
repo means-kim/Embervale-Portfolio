@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     public void MoveToCheckpoint(Vector3 position)
     {
+        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
         Vector3 positionDelta = position - transform.position;
         GetComponent<PlayerAttack>()?.CancelAttack();
         GetComponent<PlayerDash>()?.CancelDash();
