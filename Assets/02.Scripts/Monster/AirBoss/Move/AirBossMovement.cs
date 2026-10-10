@@ -10,7 +10,6 @@ public class AirBossMovement : MonoBehaviour
     [SerializeField] private float _speed = 5f;
 
     private Vector2 _direction;
-    private int _number = 0;
 
     public Vector2 Direction => _direction;
 
@@ -23,14 +22,7 @@ public class AirBossMovement : MonoBehaviour
     {
         Vector3 nextPosition = transform.position + (Vector3)(_direction * _speed * Time.deltaTime);
 
-        if ((_direction.x < 0f && nextPosition.x <= _minPosition.x) ||
-            (_direction.x > 0f && nextPosition.x >= _maxPosition.x) ||
-            (_direction.y < 0f && nextPosition.y <= _minPosition.y) ||
-            (_direction.y > 0f && nextPosition.y >= _maxPosition.y))
-        {
-            _direction = -_direction;
-        }
-
+        // 경계에서는 방향과 애니메이션을 유지하고 위치만 제한한다.
         nextPosition.x = Mathf.Clamp(nextPosition.x, _minPosition.x, _maxPosition.x);
         nextPosition.y = Mathf.Clamp(nextPosition.y, _minPosition.y, _maxPosition.y);
 
@@ -64,17 +56,32 @@ public class AirBossMovement : MonoBehaviour
 
     private void RandomSelect()
     {
-        _number = Random.Range(0, 23);
+        Vector2 position = transform.position;
 
-        if (_number < 9)
+        // 바깥쪽 방향의 가중치만 제외하고 기존 비율(9:9:3:2)은 유지한다.
+        int leftWeight = position.x > _minPosition.x ? 9 : 0;
+        int rightWeight = position.x < _maxPosition.x ? 9 : 0;
+        int upWeight = position.y < _maxPosition.y ? 3 : 0;
+        int downWeight = position.y > _minPosition.y ? 2 : 0;
+        int totalWeight = leftWeight + rightWeight + upWeight + downWeight;
+
+        if (totalWeight == 0)
+        {
+            StopMove();
+            return;
+        }
+
+        int number = Random.Range(0, totalWeight);
+
+        if (number < leftWeight)
         {
             LeftMove();
         }
-        else if (_number < 18)
+        else if (number < leftWeight + rightWeight)
         {
             RightMove();
         }
-        else if (_number < 21)
+        else if (number < leftWeight + rightWeight + upWeight)
         {
             UpMove();
         }
