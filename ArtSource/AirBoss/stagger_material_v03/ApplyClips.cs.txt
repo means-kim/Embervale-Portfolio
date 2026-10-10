@@ -1,0 +1,51 @@
+using System;
+using System.Linq;
+using UnityEngine;
+using UnityEditor;
+internal class CommandScript : IRunCommand
+{
+ public void Execute(ExecutionResult result)
+ {
+  string[] phases={"Enter","Hold","Recover"};
+  int[] counts={12,24,16};
+  float[] rates={20,16,20};
+  var clips=new AnimationClip[3];
+  var frames=new Sprite[3][];
+  var curves=new ObjectReferenceKeyframe[3][];
+  var binding=EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite");
+  for(int k=0;k<3;k++)
+  {
+   string phase=phases[k];
+   string root="Assets/04.Sprites/AirBoss/AirBoss_Stagger_";
+   string[] paths=k==1?new[]{root+"Hold_Part1_4x4_1536_v03.png",root+"Hold_Part2_4x2_1536_v03.png"}:new[]{root+phase+"_4x"+(k==0?3:4)+"_1536_v03.png"};
+   frames[k]=paths.SelectMany(p=>AssetDatabase.LoadAllAssetsAtPath(p).OfType<Sprite>()).OrderBy(s=>s.name).ToArray();
+   if(frames[k].Length!=counts[k]) { throw new Exception("Wrong count "+phase); }
+   foreach(string p in paths)
+   {
+    var t=AssetDatabase.LoadAssetAtPath<Texture2D>(p);
+    var imp=(TextureImporter)AssetImporter.GetAtPath(p);
+    if(t.width!=6144 || imp.maxTextureSize!=8192 || imp.textureCompression!=TextureImporterCompression.Uncompressed || imp.filterMode!=FilterMode.Bilinear)
+    { throw new Exception("Import mismatch "+p); }
+   }
+   for(int i=0;i<counts[k];i++)
+   {
+    var s=frames[k][i];
+    if(s.name!="AirBoss_Stagger_"+phase+"_v03_"+i.ToString("00") || s.rect.size!=new Vector2(1536,1536) || s.pivot!=new Vector2(768,768) || s.pixelsPerUnit!=36)
+    { throw new Exception("Sprite mismatch "+s.name); }
+   }
+   clips[k]=AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/05.Animation/AirBoss/AirBoss_Stagger_"+phase+".anim");
+   curves[k]=AnimationUtility.GetObjectReferenceCurve(clips[k],binding);
+   if(curves[k].Length!=counts[k] || clips[k].frameRate!=rates[k] || Mathf.Abs(clips[k].length-counts[k]/rates[k])>0.00001f || clips[k].isLooping!=(k==1))
+   { throw new Exception("Existing timing changed "+phase); }
+  }
+  for(int k=0;k<3;k++)
+  {
+   result.RegisterObjectModification(clips[k]);
+   for(int i=0;i<counts[k];i++) { curves[k][i].value=frames[k][i]; }
+   AnimationUtility.SetObjectReferenceCurve(clips[k],binding,curves[k]);
+   EditorUtility.SetDirty(clips[k]);
+   AssetDatabase.SaveAssetIfDirty(clips[k]);
+   result.Log("Applied v03 "+phases[k]+" "+counts[k]+" frames; original timing and GUID preserved.");
+  }
+ }
+}

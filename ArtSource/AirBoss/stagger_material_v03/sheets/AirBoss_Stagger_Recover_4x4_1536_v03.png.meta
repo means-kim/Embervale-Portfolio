@@ -1,0 +1,511 @@
+fileFormatVersion: 2
+guid: d141ecb55fae5d04b65d6e0790777d9f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 8192
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 36
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83771ad323f5d8a861bbc8a37a0c140
+      internalID: 8337484323245200374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_01
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4608
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f7bba6718955a9ba768bbfdeca00b4
+      internalID: 8631986730568439702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_02
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4608
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17e2dc9a8005dd289c7d87d3f3b2719
+      internalID: 5411451311368621014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_03
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 4608
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fd898a485656bf88e7b2654aec8343
+      internalID: 232580780482597018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_04
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722a25c2214e518e9d92d89d72016549
+      internalID: 1873849223020700351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_05
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3072
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f0930f61fa5748bcafd695d37af2bc
+      internalID: -3564093783291903216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_06
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c2bfd46a325c05b62eb54c196aab0a
+      internalID: -6346060613318412109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_07
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 3072
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821e6ea95bc158738a9d69607c99851f
+      internalID: 3052916840131159864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_08
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3f7c8c2d5a5bc19d63bc37c2a0e339
+      internalID: 1725219631720776340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_09
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78262c578be752f1b60932f144234311
+      internalID: 2267718531821630519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916ba68def935ba4bcaa88fb9faf5a64
+      internalID: -8920857013390544422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_11
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1536
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94f577fcb8c5f15a9ce62da11ab5493
+      internalID: -3947424056781169458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06a7914f9a855998b17d8d55cdc6ce9
+      internalID: -7145874516013589396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33eb09ab554054a0ae00e20d83133075
+      internalID: 8380728035588979758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb054bce887e56f4be28d64dc08454e2
+      internalID: 4320966146868237620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBoss_Stagger_Recover_v03_15
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 1536
+        height: 1536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff44ce805b8e5272b9d3dfb29b1faf86
+      internalID: -8240139773487983409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AirBoss_Stagger_Recover_v03_00: 8337484323245200374
+      AirBoss_Stagger_Recover_v03_01: 8631986730568439702
+      AirBoss_Stagger_Recover_v03_02: 5411451311368621014
+      AirBoss_Stagger_Recover_v03_03: 232580780482597018
+      AirBoss_Stagger_Recover_v03_04: 1873849223020700351
+      AirBoss_Stagger_Recover_v03_05: -3564093783291903216
+      AirBoss_Stagger_Recover_v03_06: -6346060613318412109
+      AirBoss_Stagger_Recover_v03_07: 3052916840131159864
+      AirBoss_Stagger_Recover_v03_08: 1725219631720776340
+      AirBoss_Stagger_Recover_v03_09: 2267718531821630519
+      AirBoss_Stagger_Recover_v03_10: -8920857013390544422
+      AirBoss_Stagger_Recover_v03_11: -3947424056781169458
+      AirBoss_Stagger_Recover_v03_12: -7145874516013589396
+      AirBoss_Stagger_Recover_v03_13: 8380728035588979758
+      AirBoss_Stagger_Recover_v03_14: 4320966146868237620
+      AirBoss_Stagger_Recover_v03_15: -8240139773487983409
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
