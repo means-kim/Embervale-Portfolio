@@ -1,0 +1,23 @@
+AirBoss vertical movement v01 — 2026-10-10
+
+Requested: Up and Down sheets, 16 frames each, exact existing Idle at first/last frame.
+Created with built-in image_gen. Prompt set: Prompts.json. Selected originals: Up_Generated.png and Down_Generated.png.
+Reference: Assets/04.Sprites/AirBoss/AirBoss_Idle_Float_4x4_1024_v02.png frame 00.
+IdleReference.png preserves the original 1536-square cell pixels.
+
+Final sheets: Assets/04.Sprites/AirBoss/AirBoss_Move_Up_4x4_1536_v01.png and AirBoss_Move_Down_4x4_1536_v01.png.
+6144x6144 RGBA, 4x4, 1536-square cells. Center pivot (768,768), PPU36.
+Max texture8192, Uncompressed, Bilinear, no mipmaps, FullRect.
+Clips: Assets/05.Animation/AirBoss/AirBoss_Move_Up_v01.anim and AirBoss_Move_Down_v01.anim.
+16 SpriteRenderer sprite keys at i/16 seconds, 16 FPS, length1 second, non-looping. Final Idle begins at0.9375 seconds.
+No transform curves or animation events. Animator/controller/runtime direction selection not modified in this asset-production request.
+
+Generation output was smaller than requested: Up1254x1254, Down dimensions recorded in source PNG (not native6144 art).
+Pack.py extracts connected figures from the nonuniform source layout, retains alpha around each figure, registers helmet to the Idle landmark, and resamples with premultiplied-alpha Lanczos into1536 cells. This is new generated artwork resampled to the existing import standard, not a claim of native1536 detail per frame or the same historical1.5x source scale.
+Fixed scale per direction prevents per-frame scale normalization. First/last frames bypass processing and copy Idle exactly.
+Generated transparency preview showed saturated low-alpha RGB; initial Up cyan speckles were alpha1-3/255. Composite previews reflect real alpha blending.
+Discarded drafts were not installed. Down was regenerated because early version touched sheet edges.
+
+Verification: first/last pixels equal Idle exactly in both sheets; all32 alpha>=16 silhouettes inside cell boundaries; no null sprite keys;16 keys per clip; Unity loaded both sheets at6144x6144, correct rect/pivot/PPU and length1s. See FinalValidation.json and UnityValidation.txt.
+Contact sheets and GIF previews provided. Visual contact inspection complete; full Play-mode combat transitions not tested. Generated intermediate frames have less fine detail than the original Idle and should be reviewed in-game before final art approval.
+Import call returned an ambiguous failure after saving; subsequent independent read confirmed both clips and all sprite references. No retry creation/duplicate assets.

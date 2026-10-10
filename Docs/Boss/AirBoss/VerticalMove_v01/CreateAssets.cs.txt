@@ -1,0 +1,26 @@
+var report=new System.Text.StringBuilder();
+foreach(var direction in new[]{"Up","Down"}) {
+var path="Assets/04.Sprites/AirBoss/AirBoss_Move_"+direction+"_4x4_1536_v01.png";
+var clipPath="Assets/05.Animation/AirBoss/AirBoss_Move_"+direction+"_v01.anim";
+if(System.IO.File.Exists(clipPath))throw new System.Exception("Clip already exists: "+clipPath);
+UnityEditor.AssetDatabase.ImportAsset(path,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var importer=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(path);
+importer.textureType=UnityEditor.TextureImporterType.Sprite;importer.spriteImportMode=UnityEditor.SpriteImportMode.Multiple;
+importer.spritePixelsPerUnit=36;importer.filterMode=UnityEngine.FilterMode.Bilinear;importer.mipmapEnabled=false;
+importer.alphaIsTransparency=true;importer.wrapMode=UnityEngine.TextureWrapMode.Clamp;
+importer.textureCompression=UnityEditor.TextureImporterCompression.Uncompressed;importer.maxTextureSize=8192;
+var ts=new UnityEditor.TextureImporterSettings();importer.ReadTextureSettings(ts);ts.spriteMeshType=UnityEngine.SpriteMeshType.FullRect;importer.SetTextureSettings(ts);
+var metas=new UnityEditor.SpriteMetaData[16];
+for(int i=0;i<16;i++)metas[i]=new UnityEditor.SpriteMetaData{name="AirBoss_Move_"+direction+"_v01_"+i.ToString("00"),rect=new UnityEngine.Rect(i%4*1536,(3-i/4)*1536,1536,1536),alignment=(int)UnityEngine.SpriteAlignment.Center,pivot=new UnityEngine.Vector2(.5f,.5f)};
+importer.spritesheet=metas;importer.SaveAndReimport();
+var sprites=System.Linq.Enumerable.ToArray(System.Linq.Enumerable.OrderBy(System.Linq.Enumerable.OfType<UnityEngine.Sprite>(UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path)),s=>s.name));
+if(sprites.Length!=16)throw new System.Exception("Sprite count "+sprites.Length);
+var clip=new UnityEngine.AnimationClip{name="AirBoss_Move_"+direction+"_v01",frameRate=16,wrapMode=UnityEngine.WrapMode.Once};
+var keys=new UnityEditor.ObjectReferenceKeyframe[16];
+for(int i=0;i<16;i++) keys[i]=new UnityEditor.ObjectReferenceKeyframe{time=i/16f,value=sprites[i]};
+UnityEditor.AnimationUtility.SetObjectReferenceCurve(clip,new UnityEditor.EditorCurveBinding{path="",type=typeof(UnityEngine.SpriteRenderer),propertyName="m_Sprite"},keys);
+var settings=UnityEditor.AnimationUtility.GetAnimationClipSettings(clip);settings.loopTime=false;settings.startTime=0;settings.stopTime=1;UnityEditor.AnimationUtility.SetAnimationClipSettings(clip,settings);
+UnityEditor.AssetDatabase.CreateAsset(clip,clipPath);UnityEditor.AssetDatabase.SaveAssetIfDirty(clip);
+report.AppendLine(direction+": sprites="+sprites.Length+" rect="+sprites[0].rect+" pivot="+sprites[0].pivot+" PPU="+sprites[0].pixelsPerUnit+" texture="+sprites[0].texture.width+"x"+sprites[0].texture.height+" clipLength="+clip.length+" fps="+clip.frameRate+" loop="+clip.isLooping);
+}
+System.IO.File.WriteAllText("Docs/Boss/AirBoss/VerticalMove_v01/UnityValidation.txt",report.ToString());return report.ToString();
