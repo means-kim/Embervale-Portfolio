@@ -28,6 +28,8 @@ public class Health : MonoBehaviour
     public bool IsDead => _isDead;
     public event Action OnDie;
     public event Action OnHit;
+    // 생존한 피격의 실제 체력 감소량. 체력 소모(SpendHealth)는 제외한다.
+    public event Action<int> OnDamaged;
 
     private void Awake()
     {
@@ -83,7 +85,11 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (triggerHit) OnHit?.Invoke();
+        if (triggerHit)
+        {
+            OnHit?.Invoke();
+            OnDamaged?.Invoke(amount);
+        }
     }
 
     public void Heal(int healAmount)
