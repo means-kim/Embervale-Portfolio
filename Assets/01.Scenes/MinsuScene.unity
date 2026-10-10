@@ -169,8 +169,12 @@ MonoBehaviour:
   _playerDeathVfx: {fileID: 0}
   _jumpVfx: {fileID: 0}
   _doubleJumpVfx: {fileID: 0}
+  _landVfx: {fileID: 0}
   _dashVfx: {fileID: 0}
   _footstepVfx: {fileID: 0}
+  _chargeJumpAimVfx: {fileID: 0}
+  _chargeJumpLaunchVfx: {fileID: 0}
+  _chargeJumpProjectileLaunchVfx: {fileID: 0}
   _bossHitVfx: {fileID: 0}
   _bossDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 0}
@@ -1401,6 +1405,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 198088055}
+    - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _actionWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5070970274504918642, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: m_Name
       value: AirBoss
