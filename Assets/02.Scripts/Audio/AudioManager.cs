@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField, Min(0.01f)] private float _fadeTime = 1f;
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private AudioSource _deathSource;
+    private bool _deathMusicActive;
     [Header("Footsteps (비워 두면 SFX Source로 대체)")]
     [SerializeField] private AudioSource _footstepSource;
     [Header("Scene Names")]
@@ -53,6 +55,8 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            // Destroy is deferred; disable immediately so duplicate sources cannot start.
+            gameObject.SetActive(false);
             Destroy(gameObject);
             return;
         }
@@ -77,6 +81,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        StopDeathBgm();
         StopAllBgm();
         if (GameIntroCinematic.IsTransitioning)
         {
@@ -117,14 +122,19 @@ public class AudioManager : MonoBehaviour
         _bgmRestartOnPlay = new bool[count];
         _bgmTargetVolumes = new float[count];
         _bgmOriginVolumes = new float[count];
-        double startDsp = AudioSettings.dspTime + 0.1;
         foreach (BgmTrack track in _bgmTracks)
         {
             AudioSource source = track.Source;
-            if (source == null || source.clip == null)
+            if (source == null)
             {
                 continue;
             }
+
+            float originalVolume = source.volume;
+            source.playOnAwake = false;
+            source.Stop();
+            source.volume = 0f;
+            if (source.clip == null) continue;
 
             int index = (int)track.Type;
             if (_bgmSources[index] != null)
@@ -133,16 +143,22 @@ public class AudioManager : MonoBehaviour
             }
 
             source.loop = true;
-            source.PlayScheduled(startDsp);
             _bgmSources[index] = source;
-            _bgmOriginVolumes[index] = source.volume;
+            _bgmOriginVolumes[index] = originalVolume;
             _bgmRestartOnPlay[index] = track.RestartOnPlay;
-            source.volume = 0f;
+        }
+
+        // Schedule only after every track is silent. Keep layers on the same DSP clock.
+        double startDsp = AudioSettings.dspTime + 0.1;
+        foreach (AudioSource source in _bgmSources)
+        {
+            if (source != null) source.PlayScheduled(startDsp);
         }
     }
 
     public void PlayBgm(BgmType type)
     {
+        if (_deathMusicActive) return;
         if (type == BgmType.Boss)
         {
             StopBossPhase2Layers();
@@ -153,6 +169,29 @@ public class AudioManager : MonoBehaviour
 
 
     public void StopBgm(BgmType type) => SetBgm(type, false);
+
+    public void PlayDeathBgm()
+    {
+        if (_deathMusicActive) return;
+        _deathMusicActive = true;
+        StopAllBgm();
+        foreach (AudioSource source in _bgmSources)
+            if (source != null) source.volume = 0f;
+
+        if (_deathSource == null || _deathSource.clip == null)
+        {
+            Debug.LogWarning("AudioManager: Death BGM source/clip is missing.", this);
+            return;
+        }
+        _deathSource.Stop();
+        _deathSource.Play();
+    }
+
+    public void StopDeathBgm()
+    {
+        if (_deathSource != null) _deathSource.Stop();
+        _deathMusicActive = false;
+    }
 
     public void StopAllBgm()
     {
@@ -202,6 +241,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBossPhase2Layers()
     {
+        if (_deathMusicActive) return;
         AudioSource boss = _bgmSources[(int)BgmType.Boss];
 
         if (boss == null || !boss.isPlaying || !_bgmOn[(int)BgmType.Boss])

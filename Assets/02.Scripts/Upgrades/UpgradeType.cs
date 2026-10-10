@@ -1,9 +1,6 @@
-namespace Game.Upgrades
+public enum UpgradeType
 {
-    public enum UpgradeType
-    {
-        MaxHealth,
-        AttackDamage,
-        AttackSpeed
-    }
+    MaxHealth,
+    AttackDamage,
+    AttackSpeed
 }

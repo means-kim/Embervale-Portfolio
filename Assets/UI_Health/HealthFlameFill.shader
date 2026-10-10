@@ -2,6 +2,9 @@ Shader "UI/HealthFlameFill"
 {
     Properties
     {
+        [PerRendererData] _MainTex("Design artwork",2D)="white" {}
+        _UseArtwork("Use silver frame artwork",Float)=0
+        _ArtRect("Artwork UV bounds",Vector)=(0,0,1,1)
         _EmptyColor("Empty", Color)=(0.025,0.032,0.05,1)
         _BorderColor("Outline", Color)=(0.13,0.17,0.23,1)
         _FireNoise("Fire asset turbulence",2D)="gray" {}
@@ -33,6 +36,9 @@ Shader "UI/HealthFlameFill"
             struct v2f { float4 vertex:SV_POSITION; float4 color:COLOR; float4 uv:TEXCOORD0; float4 local:TEXCOORD1; };
             float4 _EmptyColor, _BorderColor, _ClipRect;
             sampler2D _FireNoise, _DetailNoise;
+            sampler2D _MainTex;
+            float _UseArtwork;
+            float4 _ArtRect;
             float _FireSpeed;
             v2f vert(appdata v) { v2f o; o.local=v.vertex; o.vertex=UnityObjectToClipPos(v.vertex);o.color=v.color;o.uv=v.uv;return o; }
             fixed4 frag(v2f i):SV_Target
@@ -61,6 +67,23 @@ Shader "UI/HealthFlameFill"
                 {
                     col=float3(1,.26,.025);
                     alpha*=lit*(.7+.3*sin(t*3+y*6));
+                }
+                if(_UseArtwork>.5)
+                {
+                    if(i.color.r<.5)
+                    {
+                        col=lerp(float3(.19,.23,.29),float3(.83,.89,.95),y);
+                    }
+                    else
+                    {
+                        float4 art=tex2D(_MainTex,_ArtRect.xy+uv*_ArtRect.zw);
+                        // The production sprite has a solid black interior, separate
+                        // from its silver frame; animate only this keyed interior.
+                        float brightness=max(art.r,max(art.g,art.b));
+                        float interior=1-smoothstep(.012,.055,brightness);
+                        col=lerp(art.rgb,lerp(_EmptyColor.rgb,fire,lit),interior);
+                        alpha*=art.a;
+                    }
                 }
                 #ifdef UNITY_UI_CLIP_RECT
                 alpha*=UnityGet2DClipping(i.local.xy,_ClipRect);
