@@ -84,12 +84,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureFormat: 25
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -133,11 +133,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
+      tessellationDetail: -1
       bones: []
       spriteID: 230cddc36cf45e2598f81f57a46203e2
       internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HeadRaise_01
       rect:
@@ -149,11 +155,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
+      tessellationDetail: -1
       bones: []
       spriteID: 2fee55ba577a27f6b38b53ce3f3d456c
       internalID: 21300001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HeadRaise_02
       rect:
@@ -165,21 +177,36 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.19921875}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
+      tessellationDetail: -1
       bones: []
       spriteID: f3d6007dba1098a6b0f31564e53ce68e
       internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: d4427f50617d8ad16453db982fa29416
     internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
       HeadRaise_00: 21300000
       HeadRaise_01: 21300001
       HeadRaise_02: 21300002
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
