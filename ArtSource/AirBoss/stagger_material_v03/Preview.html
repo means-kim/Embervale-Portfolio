@@ -1,0 +1,19 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stagger 재질 수정 v03</title>
+<style>body{margin:24px auto;padding:0 20px;max-width:1500px;background:#131b28;color:#e9f2ff;font:16px system-ui}h1{font-size:26px}.views{display:flex;gap:12px;flex-wrap:wrap}figure{margin:0;min-width:260px;flex:1}canvas{width:100%;background:#263447}button,select{font:inherit;padding:8px;margin:8px;background:#32465f;color:white;border:1px solid #7390ac}a{color:#a7d5ff}img{max-width:100%}</style>
+<h1>AirBoss Stagger · 재질 수정 v03</h1><p>Idle의 회청색 천과 가느다란 서리 결을 기준으로 세 클립을 수정했습니다. Hold의 기울어진 자세와 전기 표현은 유지합니다.</p>
+<select id="phase"><option>Hold</option><option>Enter</option><option>Recover</option><option value="Sequence">전체 연결</option></select><button id="play">일시정지</button><button id="step">한 프레임</button><select id="speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select>
+<div class="views"><figure><figcaption>기준 Idle (실사용 첫 프레임)</figcaption><canvas id="idle" width="768" height="768"></canvas></figure><figure><figcaption>수정 v03</figcaption><canvas id="new" width="768" height="768"></canvas></figure></div><p id="status"></p>
+<p>Enter 12장 / 0.6초 · Hold 24장 / 1.5초 반복 · Recover 16장 / 0.8초. 1536px 셀·PPU36·중앙 피벗·비압축.</p>
+<p>실제 생성 원본은 1254px입니다. 기존 1254→1024→1536 변환에서 중간 축소를 제거하고 1254→1536으로 한 번만 변환했습니다. 파일 크기 확대 자체가 새 세부 묘사를 만드는 것은 아니며, 천의 세부 묘사는 이미지 편집으로 다시 제작했습니다.</p>
+<p>최종 아트 미리보기입니다. Unity 실제 전투 화면 검증과 구분합니다. <a href="validation.json">픽셀 검사</a> · <a href="unity_validation.json">Unity 검사</a> · <a href="prompts.json">프롬프트</a></p>
+<details><summary>전체 프레임</summary><img src="Contact_Enter.jpg"><img src="Contact_Hold.jpg"><img src="Contact_Recover.jpg"></details>
+<script>
+const counts={Enter:12,Hold:24,Recover:16},fps={Enter:20,Hold:16,Recover:20},images={};
+const phase=document.getElementById('phase'),speed=document.getElementById('speed'),button=document.getElementById('play'),status=document.getElementById('status'),contexts=['idle','new'].map(id=>document.getElementById(id).getContext('2d'));
+let index=0,elapsed=0,last=0,playing=true,sequence=[];
+function reset(){sequence=[];for(const p of phase.value==='Sequence'?['Enter','Hold','Hold','Recover']:[phase.value])for(let i=0;i<counts[p];i++)sequence.push({p,i});index=0;elapsed=0;draw()}
+function draw(){const f=sequence[index];if(!f||!images.idle)return;contexts[0].clearRect(0,0,768,768);contexts[0].drawImage(images.idle,0,0,768,768);['new'].forEach((k,j)=>{const c=contexts[j+1];c.clearRect(0,0,768,768);c.drawImage(images[k+f.p],f.i%4*384,Math.floor(f.i/4)*384,384,384,0,0,768,768)});status.textContent=f.p+' · '+f.i+' / '+(counts[f.p]-1)}
+phase.onchange=reset;button.onclick=()=>{playing=!playing;button.textContent=playing?'일시정지':'재생'};document.getElementById('step').onclick=()=>{playing=false;button.textContent='재생';index=(index+1)%sequence.length;elapsed=0;draw()};
+const paths={idle:'reference/Idle_Current.png'};for(const p of Object.keys(counts)){paths['new'+p]='preview/'+p+'.png'}
+Promise.all(Object.entries(paths).map(([key,path])=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[key]=im;resolve()};im.onerror=reject;im.src=path}))).then(()=>{reset();requestAnimationFrame(function tick(t){const dt=last?Math.min(.1,(t-last)/1000):0;last=t;if(playing){elapsed+=dt*Number(speed.value);while(elapsed>=1/fps[sequence[index].p]){elapsed-=1/fps[sequence[index].p];index=(index+1)%sequence.length}draw()}requestAnimationFrame(tick)})}).catch(()=>status.textContent='이미지를 불러올 수 없습니다.');
+</script></html>
