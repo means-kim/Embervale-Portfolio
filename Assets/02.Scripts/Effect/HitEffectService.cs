@@ -25,22 +25,38 @@ internal sealed class HitEffectService
         else
         {
             if (prefab == null)
+            {
                 Debug.LogWarning("EffectManager에 플레이어 피격 프리팹이 연결되지 않았습니다.", host);
+            }
             HitImpactFeedback.EnsureInstance().RequestPlayerHitstop();
-            if (effect != null) Track(host, effect, null);
+            if (effect != null)
+            {
+                Track(host, effect, null);
+            }
             onReleased?.Invoke();
         }
     }
 
     public void PlayBossHit(EffectManager host, GameObject prefab, Vector3 position, Vector2 direction)
     {
-        if (!host.isActiveAndEnabled) return;
+        if (!host.isActiveAndEnabled)
+        {
+            return;
+        }
         GameObject effect = Spawn(prefab, position);
         if (effect != null && effect.TryGetComponent<EnemyHitEffect>(out var enemyHit))
+        {
             enemyHit.Play(position, direction);
+        }
         else
+        {
             HitImpactFeedback.EnsureInstance().RequestBossHitstop();
-        if (effect != null) Track(host, effect, null);
+        }
+
+        if (effect != null)
+        {
+            Track(host, effect, null);
+        }
     }
 
     public void Clear()
@@ -64,7 +80,9 @@ internal sealed class HitEffectService
             main.useUnscaledTime = true;
         }
         foreach (Animator animator in effect.GetComponentsInChildren<Animator>(true))
+        {
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        }
         host.StartCoroutine(Cleanup(effect, hitEffect));
     }
 
@@ -73,22 +91,40 @@ internal sealed class HitEffectService
         yield return null;
         EnemyHitEffect enemyHit = effect != null ? effect.GetComponent<EnemyHitEffect>() : null;
         if (hitEffect == null && enemyHit == null)
+        {
             yield return new WaitForSecondsRealtime(2f);
+        }
+
         ParticleSystem[] particles = effect != null
             ? effect.GetComponentsInChildren<ParticleSystem>(true) : Array.Empty<ParticleSystem>();
         while (effect != null)
         {
             bool alive = false;
-            if (enemyHit != null) alive = enemyHit.IsPlaying;
-            if (hitEffect != null) alive = hitEffect.IsPlaying;
+            if (enemyHit != null)
+            {
+                alive = enemyHit.IsPlaying;
+            }
+            if (hitEffect != null)
+            {
+                alive = hitEffect.IsPlaying;
+            }
             foreach (ParticleSystem particle in particles)
             {
-                if (particle != null && particle.IsAlive(true)) alive = true;
+                if (particle != null && particle.IsAlive(true))
+                {
+                    alive = true;
+                }
             }
-            if (!alive) break;
+            if (!alive)
+            {
+                break;
+            }
             yield return null;
         }
         _effects.Remove(effect);
-        if (effect != null) UnityEngine.Object.Destroy(effect);
+        if (effect != null)
+        {
+            UnityEngine.Object.Destroy(effect);
+        }
     }
 }
