@@ -8,6 +8,21 @@ public sealed class AttackOneShotAudio : MonoBehaviour
     private static AttackOneShotAudio _instance;
     private readonly List<AudioSource> _voices = new List<AudioSource>();
 
+    // Runtime-created service: explicit asset names keep the policy here without
+    // changing SFXData or requiring scene references. Update this list on asset rename.
+    private static readonly HashSet<string> RestartingSounds = new HashSet<string>
+    {
+        "SmallLightning_SFX",
+        "Telegraph_HV_DoubleMotor_SFX",
+        "Telegraph_HV_HeavyStoneSwell_SFX",
+        "Telegraph_Circle12_UndergroundPressure_SFX",
+        "Telegraph_Circle34_ReferenceBalance_SFX",
+        "Telegraph_VerticalSquare_SmoothWind_SFX"
+    };
+
+    // Each selected SO has one dedicated channel, separate from ordinary voices.
+    private readonly Dictionary<SFXData, AudioSource> _restartingVoices = new Dictionary<SFXData, AudioSource>();
+
     public static void Play(SFXData sound, float pitchMultiplier = 1f)
     {
         if (!Application.isPlaying || AudioListener.pause || sound == null || sound.Clip == null) return;
