@@ -18,7 +18,7 @@ public class AirBossHeadCollider : MonoBehaviour
     [Header("루트 기준 기본 머리 위치")]
     [SerializeField] private Vector2 _defaultOffset = new Vector2(0.5f, 10f);
 
-    [Header("좌우 이동 스프라이트별 머리 위치")]
+    [Header("이동·그로기 스프라이트별 머리 위치")]
     [SerializeField] private HeadPosition[] _headPositions;
 
     private void Awake()
@@ -47,7 +47,10 @@ public class AirBossHeadCollider : MonoBehaviour
         {
             foreach (HeadPosition position in _headPositions)
             {
-                if (position.sprite != currentSprite) continue;
+                if (position.sprite != currentSprite)
+                {
+                    continue;
+                }
 
                 offset = position.offset;
                 break;
@@ -60,6 +63,8 @@ public class AirBossHeadCollider : MonoBehaviour
     private void OnDisable()
     {
         if (_headCollider != null)
+        {
             _headCollider.offset = _defaultOffset;
+        }
     }
 }

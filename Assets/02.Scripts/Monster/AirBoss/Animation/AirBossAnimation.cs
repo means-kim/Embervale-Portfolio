@@ -132,4 +132,19 @@ public class AirBossAnimation : MonoBehaviour
     {
         _animator.CrossFade("Death", 0.1f);
     }
+
+    public void PlayStaggerEnterAnimation()
+    {
+        _animator.CrossFade("StaggerEnter", 0.1f);
+    }
+
+    public void PlayStaggerHoldAnimation()
+    {
+        _animator.CrossFade("StaggerHold", 0.1f);
+    }
+
+    public void PlayStaggerRecoveryAnimation()
+    {
+        _animator.CrossFade("StaggerRecovery", 0.1f);
+    }
 }

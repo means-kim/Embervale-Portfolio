@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 3177162394418046562}
   - component: {fileID: 1566677918546449221}
   - component: {fileID: 2282874917967199264}
+  - component: {fileID: 8288180633273542910}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -808,3 +809,81 @@ MonoBehaviour:
     offset: {x: 5.3333, y: 9.7778}
   - sprite: {fileID: -1549552991, guid: a253665387b5a2a4d926577070f4d6a4, type: 3}
     offset: {x: 0.6667, y: 10}
+  - sprite: {fileID: 7379809381202117902, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 1206138100597383635, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -3624417445656467230, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -7796334877126893410, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 5927267484025608481, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -8622078229533512659, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -6139073643918635087, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 2401390339441065667, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -5056976079017353339, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 4471340087429252498, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -3071317364736800773, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -6714941022835742516, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 6825225248149910022, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 746694979478382098, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -114474631001614086, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 8055553576305514239, guid: d6db5adb563e58dcb6f49baee67a4fe7, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -2282346409817812012, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 7568936488345557830, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: -2019010848871036404, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 6197482765579621199, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 4232979560876794691, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 5055607838589553824, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 3702252458658982411, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+  - sprite: {fileID: 2386660750417685071, guid: 26ad19461431548fbc61e5aa290d1798, type: 3}
+    offset: {x: 3.1, y: 7.4}
+--- !u!114 &8288180633273542910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f96f4671e544a39bcdd90856735d316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossStagger
+  _health: {fileID: 3290482276672149958}
+  _controller: {fileID: 3684625565806078733}
+  _phaseController: {fileID: 6821793748309605612}
+  _animation: {fileID: 4804818044005549590}
+  _maxGauge: 100
+  _gainPerHit: 10
+  _hitInterval: 0.15
+  _cooldown: 10
+  _decayDelay: 4
+  _decayPerSecond: 5
+  _staggerPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _moveDuration: 0.6
+  _staggerDuration: 2.5
+  _recoverDuration: 0.8
+  _returnDuration: 0.6
