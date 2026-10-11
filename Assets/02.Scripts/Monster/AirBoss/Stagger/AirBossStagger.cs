@@ -21,14 +21,10 @@ public sealed class AirBossStagger : MonoBehaviour
     [SerializeField, Min(0f)] private float _decayDelay = 4f;
     [SerializeField, Min(0f)] private float _decayPerSecond = 5f;
 
-    [Header("페이즈별 도착 지점 (보스 루트가 도착할 월드 위치)")]
-    [Tooltip("1, 2, 3페이즈 순서. 해당 페이즈의 지점이 없으면 발동하지 않습니다.")]
-    [SerializeField] private Transform[] _staggerPoints = new Transform[3];
-
-    [SerializeField, Min(0.01f)] private float _moveDuration = 0.6f;
+    [Header("그로기 애니메이션 시간")]
+    [SerializeField, Min(0f)] private float _enterDuration = 0.6f;
     [SerializeField, Min(0f)] private float _staggerDuration = 2.5f;
     [SerializeField, Min(0f)] private float _recoverDuration = 0.8f;
-    [SerializeField, Min(0.01f)] private float _returnDuration = 0.6f;
 
     private float _gauge;
     private float _lastHitTime = float.NegativeInfinity;
@@ -46,8 +42,7 @@ public sealed class AirBossStagger : MonoBehaviour
     public bool CanBegin => isActiveAndEnabled && !IsRunning &&
                             _health != null && !_health.IsDead && _controller != null && _animation != null &&
                             _phaseController != null && !_phaseController.IsTransition &&
-                            Time.time >= _nextStaggerTime && Time.frameCount != _blockedFrame &&
-                            GetStaggerPoint() != null;
+                            Time.time >= _nextStaggerTime && Time.frameCount != _blockedFrame;
 
     private void Awake()
     {
@@ -100,18 +95,6 @@ public sealed class AirBossStagger : MonoBehaviour
         {
             _controller.OnStaggerFinished();
         }
-    }
-
-    private Transform GetStaggerPoint()
-    {
-        if (_phaseController == null || _staggerPoints == null)
-        {
-            return null;
-        }
-
-        int index = _phaseController.CurrentPhase - 1;
-
-        return index >= 0 && index < _staggerPoints.Length ? _staggerPoints[index] : null;
     }
 
     private void HandleHit()
@@ -168,50 +151,31 @@ public sealed class AirBossStagger : MonoBehaviour
             return false;
         }
 
-        Vector3 destination = GetStaggerPoint().position;
-        Vector3 returnPosition = transform.position;
-
         ResetGauge();
 
-        _routine = StartCoroutine(StaggerRoutine(destination, returnPosition));
+        _routine = StartCoroutine(StaggerRoutine());
 
         return true;
     }
 
-    private IEnumerator StaggerRoutine(Vector3 destination, Vector3 returnPosition)
+    private IEnumerator StaggerRoutine()
     {
         // 코루틴 핸들 대입 전에 종료/취소 콜백이 실행되는 것을 막습니다.
         yield return null;
 
         _animation.PlayStaggerEnterAnimation();
-        yield return MoveTo(destination, _moveDuration);
+        yield return new WaitForSeconds(Mathf.Max(0f, _enterDuration));
 
         _animation.PlayStaggerHoldAnimation();
-        // 도착 이후부터 온전한 공격 기회를 제공합니다.
+        // 진입 애니메이션 이후부터 온전한 공격 기회를 제공합니다.
         yield return new WaitForSeconds(Mathf.Max(0f, _staggerDuration));
 
         _animation.PlayStaggerRecoveryAnimation();
         yield return new WaitForSeconds(Mathf.Max(0f, _recoverDuration));
-        yield return MoveTo(returnPosition, _returnDuration);
 
         _routine = null;
         _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);
         _controller.OnStaggerFinished();
-    }
-
-    private IEnumerator MoveTo(Vector3 destination, float duration)
-    {
-        Vector3 start = transform.position;
-        duration = Mathf.Max(0.01f, duration);
-
-        for (float elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
-        {
-            float t = Mathf.SmoothStep(0f, 1f, elapsed / duration);
-            transform.position = Vector3.Lerp(start, destination, t);
-            yield return null;
-        }
-
-        transform.position = destination;
     }
 
     public void Cancel()
