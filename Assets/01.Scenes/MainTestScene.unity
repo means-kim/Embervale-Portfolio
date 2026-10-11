@@ -20263,7 +20263,7 @@ MonoBehaviour:
   _player: {fileID: 1687473020}
   _walkTarget: {fileID: 669907012}
   _roarEffect: {fileID: 1291746008}
-  _roarDuration: 2
+  _roarDuration: 1.8
   _walkSpeed: 12
   _stopDistance: 0.1
   _walkTimeout: 12
@@ -20308,6 +20308,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: dda2cc7f029a69b478f00a8852b973ff, type: 2}
+          m_TargetAssemblyTypeName: SFXData, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -22122,7 +22134,7 @@ MonoBehaviour:
     - {fileID: 1491812509}
     level: 0
     maxLevel: 5
-    available: 0
+    available: 1
   - type: 2
     button: {fileID: 332755826}
     frame: {fileID: 418315127}
@@ -22139,7 +22151,7 @@ MonoBehaviour:
     - {fileID: 68886052}
     level: 0
     maxLevel: 5
-    available: 0
+    available: 1
   _pipFull: {fileID: -6819156645823488098, guid: d57cf9d35caa8b84ea66ac7da121e53f, type: 3}
   _pipEmpty: {fileID: -1132342802522766363, guid: 58b0c818795d96443baad12dcdb40b13, type: 3}
   _pipNext: {fileID: 683455598529746993, guid: c19b5ef006cb5414cafa5ff08b6f6e9d, type: 3}
@@ -27124,7 +27136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371453051194732970, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5615470222031398966, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
       propertyPath: m_Pivot.x
@@ -27210,6 +27222,10 @@ PrefabInstance:
       propertyPath: _worldCamera
       value: 
       objectReference: {fileID: 1653261766}
+    - target: {fileID: 7849496740244107393, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7849496740244107393, guid: 451992ed11c2ac04680c4bf1a063c959, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -31891,6 +31907,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 297177313599866805, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _aimCamera
+      value: 
+      objectReference: {fileID: 1653261766}
     - target: {fileID: 2864288753525930506, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.94
@@ -31946,18 +31966,6 @@ PrefabInstance:
     - target: {fileID: 6236980405585183086, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_SortingLayerID
       value: 1722300004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
-      propertyPath: _maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
-      propertyPath: _autoRecover
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
-      propertyPath: _secondsPerSlot
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32140,7 +32148,7 @@ MonoBehaviour:
     maxLevel: 5
     level: 0
   _healthPerLevel: 100
-  _damagePerLevel: 5
+  _damagePerLevel: 3
   _attackSpeedPerLevel: 0.1
 --- !u!1 &1689227365
 GameObject:
@@ -43700,7 +43708,7 @@ MonoBehaviour:
   _director: {fileID: 830258037}
   _boss: {fileID: 1967930616}
   _roarEffect: {fileID: 1291746008}
-  _roarDuration: 0.8333333
+  _roarDuration: 1
   _existingPlatforms:
   - {fileID: 1286109398}
   - {fileID: 1635823285}
@@ -43792,6 +43800,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1856191977}
           m_TargetAssemblyTypeName: BossPhase3Cinematic, Assembly-CSharp
           m_MethodName: PlayRoar
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 7ee35f6791502354386aab435f309954, type: 2}
+          m_TargetAssemblyTypeName: SFXData, Assembly-CSharp
+          m_MethodName: Play
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
