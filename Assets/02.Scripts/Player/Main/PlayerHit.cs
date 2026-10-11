@@ -4,6 +4,9 @@ public class PlayerHit : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
     [SerializeField] private float _hitInvincibilityTime = 0.3f;
+    [Header("피해량별 피격 이펙트")]
+    [SerializeField, Min(1), Tooltip("이 피해량 이상이면 기본 피격 효과, 미만이면 Horizontal 피격 효과를 사용합니다.")]
+    private int _heavyHitDamageThreshold = 80;
     [Header("피격 넉백")]
     [SerializeField, Min(0f)] private float _knockbackForce = 4f;
     [SerializeField] private float _knockbackUp = 2f;
@@ -40,12 +43,12 @@ public class PlayerHit : MonoBehaviour
     }
     private void OnEnable()
     {
-        _health.OnHit += HandleHit;
+        _health.OnDamaged += HandleHit;
         _health.OnDie += HandleDie;
     }
     private void OnDisable()
     {
-        _health.OnHit -= HandleHit;
+        _health.OnDamaged -= HandleHit;
         _health.OnDie -= HandleDie;
         RestoreColors();
         ReleaseKnockbackLock();
@@ -82,7 +85,7 @@ public class PlayerHit : MonoBehaviour
         _knockbackLocking = false;
         if (_move != null) _move.SetMovementLocked(this, false);
     }
-    private void HandleHit()
+    private void HandleHit(int damage)
     {
         if (_health.IsDead || _isInvincible) return;
         // 히트스톱이 느린 시간을 복귀값으로 저장하기 전에 차지 점프를 정리합니다.
@@ -95,7 +98,8 @@ public class PlayerHit : MonoBehaviour
         _invincibilityTimer = _hitInvincibilityTime;
         if (_dash != null) _dash.CancelDash();
         ApplyKnockback();
-        EffectManager.Instance?.PlayPlayerHit(transform.position);
+        bool horizontal = damage < Mathf.Max(1, _heavyHitDamageThreshold);
+        EffectManager.Instance?.PlayPlayerHit(transform.position, horizontal);
     }
     private void HandleDie()
     {

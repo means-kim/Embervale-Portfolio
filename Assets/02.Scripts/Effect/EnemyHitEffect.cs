@@ -72,17 +72,6 @@ public sealed class EnemyHitEffect : MonoBehaviour
         _routine = StartCoroutine(PlayRoutine(hitPoint, hitDirection));
     }
 
-    /// <summary>Play 모드에서 Inspector 우클릭 메뉴로 바로 확인하기 위한 테스트용.</summary>
-    [ContextMenu("Play Test (Play Mode, →)")]
-    private void PlayTest()
-    {
-        if (Application.isPlaying)
-        {
-            ApplySettings();
-            Play(transform.position, Vector2.right);
-        }
-    }
-
     /// <summary>Settings 값을 크기/정렬에 반영한다.</summary>
     public void ApplySettings()
     {

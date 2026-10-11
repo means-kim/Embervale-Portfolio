@@ -15,7 +15,7 @@ MonoBehaviour:
   globalScale: 1
   sortingLayerName: GA1_HD_FX
   hitStopDuration: 0.05
-  hitStopTimeScale: 0.19
+  hitStopTimeScale: 0.01
   streakLength: 20
   streakWidth: 1.8
   streakTiltRange: {x: 30, y: 60}
@@ -34,5 +34,5 @@ MonoBehaviour:
   spikeAreaMax: {x: 1, y: -1}
   spikeFadeDuration: 0.22
   spikeColor: {r: 1, g: 1, b: 1, a: 1}
-  shakeAmplitude: 0.08
-  shakeDuration: 0.1
+  shakeAmplitude: 0.7
+  shakeDuration: 0.15

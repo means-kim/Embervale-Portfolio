@@ -55,7 +55,6 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            // Destroy is deferred; disable immediately so duplicate sources cannot start.
             gameObject.SetActive(false);
             Destroy(gameObject);
             return;
@@ -148,7 +147,6 @@ public class AudioManager : MonoBehaviour
             _bgmRestartOnPlay[index] = track.RestartOnPlay;
         }
 
-        // Schedule only after every track is silent. Keep layers on the same DSP clock.
         double startDsp = AudioSettings.dspTime + 0.1;
         foreach (AudioSource source in _bgmSources)
         {
@@ -284,7 +282,9 @@ public class AudioManager : MonoBehaviour
     public void StopBossPhase2Layers()
     {
         foreach (BgmType type in BossPhase2Layers)
+        {
             _bgmOn[(int)type] = false;
+        }
 
         ReCalculateBgmVolumes();
     }
