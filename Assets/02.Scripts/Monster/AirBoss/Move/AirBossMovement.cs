@@ -9,6 +9,17 @@ public class AirBossMovement : MonoBehaviour
 
     [SerializeField] private float _speed = 5f;
 
+    [Header("3페이즈 이동 범위 (연출 도착 위치 기준 오프셋)")]
+    [SerializeField] private Vector2 _phase3MinOffset = new Vector2(-20f, 0f);
+    [SerializeField] private Vector2 _phase3MaxOffset = new Vector2(20f, 10f);
+
+    public void UsePhase3Bounds(Vector2 origin)
+    {
+        _minPosition = origin + Vector2.Min(_phase3MinOffset, _phase3MaxOffset);
+        _maxPosition = origin + Vector2.Max(_phase3MinOffset, _phase3MaxOffset);
+        StopMove();
+    }
+
     private Vector2 _direction;
 
     public Vector2 Direction => _direction;
