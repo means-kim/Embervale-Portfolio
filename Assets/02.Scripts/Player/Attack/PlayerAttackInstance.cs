@@ -16,6 +16,7 @@ public class PlayerAttackInstance : MonoBehaviour
     private Vector3 _spawnOffset;
     private bool _isProjectile;
     private float _age;
+    private float _playbackSpeed = 1f;
     private bool _initialized;
     private bool _ended;
     public int Direction { get; private set; } = 1;
@@ -29,7 +30,7 @@ public class PlayerAttackInstance : MonoBehaviour
         _isProjectile = GetComponent<FireBallPrefab>() != null;
         _hitbox.SetActive(false);
     }
-    public bool Initialize(int damage, int direction, Transform owner)
+    public bool Initialize(int damage, int direction, Transform owner, float attackSpeed = 1f)
     {
         if (!_hitbox.IsConfigured)
         {
@@ -44,6 +45,12 @@ public class PlayerAttackInstance : MonoBehaviour
         _spawnOffset = owner != null ? transform.position - owner.position : Vector3.zero;
         _ownerMove = owner != null ? owner.GetComponent<PlayerMove>() : null;
         _age = 0;
+        // 독립 공격과 투사체는 발사 이후의 수명 및 비행 속도를 유지합니다.
+        _playbackSpeed = _independent || _isProjectile ? 1f : Mathf.Max(0.01f, attackSpeed);
+        foreach (var animator in GetComponentsInChildren<Animator>(true))
+        {
+            animator.speed *= _playbackSpeed;
+        }
         _initialized = true;
         _hitbox.Initialize(damage, owner);
         _hitbox.SetActive(_hitDelay <= 0);
@@ -52,7 +59,7 @@ public class PlayerAttackInstance : MonoBehaviour
     private void Update()
     {
         if (!_initialized || _ended) return;
-        _age += Time.deltaTime;
+        _age += Time.deltaTime * _playbackSpeed;
         if (_age >= Mathf.Max(0, _hitDelay) + Mathf.Max(0.05f, _hitDuration)) StopDamage();
         else if (_age >= _hitDelay && !_hitbox.IsActive) _hitbox.SetActive(true);
     }
