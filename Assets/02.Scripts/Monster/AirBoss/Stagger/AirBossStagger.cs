@@ -13,7 +13,7 @@ public sealed class AirBossStagger : MonoBehaviour
     [SerializeField] private AirBossAnimation _animation;
 
     [Header("그로기 게이지")]
-    [SerializeField, Min(1f)] private float _maxGauge = 100f;
+    [SerializeField, Min(1f)] private float _maxStaggerGauge = 100f;
 
     [SerializeField, Min(0f)] private float _gainPerHit = 10f;
     [SerializeField, Min(0f)] private float _hitInterval = 0.15f;
@@ -26,7 +26,7 @@ public sealed class AirBossStagger : MonoBehaviour
     [SerializeField, Min(0f)] private float _staggerDuration = 2.5f;
     [SerializeField, Min(0f)] private float _recoverDuration = 0.8f;
 
-    private float _gauge;
+    private float _currentStaggerGauge;
     private float _lastHitTime = float.NegativeInfinity;
     private float _nextHitTime;
     private float _nextStaggerTime;
@@ -34,9 +34,9 @@ public sealed class AirBossStagger : MonoBehaviour
     private bool _pending;
     private Coroutine _routine;
 
-    public float Gauge => _gauge;
-    public float MaxGauge => Mathf.Max(1f, _maxGauge);
-    public float NormalizedGauge => _gauge / MaxGauge;
+    public float CurrentStaggerGauge => _currentStaggerGauge;
+    public float MaxStaggerGauge => Mathf.Max(1f, _maxStaggerGauge);
+    public float NormalizedGauge => _currentStaggerGauge / MaxStaggerGauge;
     public bool IsRunning => _routine != null;
 
     public bool CanBegin => isActiveAndEnabled && !IsRunning &&
@@ -103,8 +103,8 @@ public sealed class AirBossStagger : MonoBehaviour
 
         _lastHitTime = Time.time;
         _nextHitTime = Time.time + Mathf.Max(0f, _hitInterval);
-        _gauge = Mathf.Min(MaxGauge, _gauge + Mathf.Max(0f, _gainPerHit));
-        _pending = _gauge >= MaxGauge;
+        _currentStaggerGauge = Mathf.Min(MaxStaggerGauge, _currentStaggerGauge + Mathf.Max(0f, _gainPerHit));
+        _pending = _currentStaggerGauge >= MaxStaggerGauge;
     }
 
     private void LateUpdate()
@@ -125,7 +125,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
         if (!IsRunning && Time.time - _lastHitTime >= _decayDelay)
         {
-            _gauge = Mathf.Max(0f, _gauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
+            _currentStaggerGauge = Mathf.Max(0f, _currentStaggerGauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
         }
     }
 
@@ -139,7 +139,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     public void ResetGauge()
     {
-        _gauge = 0f;
+        _currentStaggerGauge = 0f;
         _pending = false;
     }
 
