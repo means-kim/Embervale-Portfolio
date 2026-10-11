@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1566677918546449221}
   - component: {fileID: 2282874917967199264}
   - component: {fileID: 8288180633273542910}
+  - component: {fileID: 5966944925137057139}
   m_Layer: 10
   m_Name: AirBoss
   m_TagString: Boss
@@ -885,3 +886,20 @@ MonoBehaviour:
   _enterDuration: 0.6
   _staggerDuration: 2.5
   _recoverDuration: 0.8
+--- !u!114 &5966944925137057139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
+  _cues:
+  - Name: Stagger Crackle
+    Sounds:
+    - {fileID: 11400000, guid: 10fbb132fd6f04098a4c579e878000cc, type: 2}
+    Repeat: 1
