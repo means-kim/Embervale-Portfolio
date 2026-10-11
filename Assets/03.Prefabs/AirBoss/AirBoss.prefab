@@ -397,6 +397,7 @@ MonoBehaviour:
   _actionWeight: 60
   _phaseController: {fileID: 6821793748309605612}
   _phase2Cinematic: {fileID: 0}
+  _phase3Cinematic: {fileID: 0}
 --- !u!114 &6954472282831411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +413,8 @@ MonoBehaviour:
   _maxPosition: {x: 380, y: 150}
   _minPosition: {x: 300, y: 140}
   _speed: 20
+  _phase3MinOffset: {x: -10, y: 0}
+  _phase3MaxOffset: {x: 10, y: 10}
 --- !u!114 &4804818044005549590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,17 +876,12 @@ MonoBehaviour:
   _controller: {fileID: 3684625565806078733}
   _phaseController: {fileID: 6821793748309605612}
   _animation: {fileID: 4804818044005549590}
-  _maxGauge: 100
+  _maxStaggerGauge: 100
   _gainPerHit: 10
   _hitInterval: 0.15
   _cooldown: 10
   _decayDelay: 4
   _decayPerSecond: 5
-  _staggerPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _moveDuration: 0.6
+  _enterDuration: 0.6
   _staggerDuration: 2.5
   _recoverDuration: 0.8
-  _returnDuration: 0.6
