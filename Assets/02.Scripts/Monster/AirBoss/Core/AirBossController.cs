@@ -17,8 +17,7 @@ public class AirBossController : MonoBehaviour
     [SerializeField] private AirBossPhaseController _phaseController;
 
     [SerializeField] private BossPhase2Cinematic _phase2Cinematic;
-    // Todo: 3페이즈 연출 완료시 연결
-    // [SerializeField] private BossPhase3Cinematic _phase3Cinematic;
+    [SerializeField] private BossPhase3Cinematic _phase3Cinematic;
 
     private AirBossState _currentstate = AirBossState.Idle;
     private float _stateTimer = 0f;
@@ -57,7 +56,7 @@ public class AirBossController : MonoBehaviour
     }
 
     private bool _waitingForPhase2;
-    // private bool _waitingForPhase3;
+    private bool _waitingForPhase3;
 
     private void Awake()
     {
@@ -72,6 +71,10 @@ public class AirBossController : MonoBehaviour
             _phase2Cinematic = FindFirstObjectByType<BossPhase2Cinematic>(FindObjectsInactive.Include);
             Debug.LogWarning($"BossPhase2Cinematic 참조가 누락되었습니다. 임시 연결을 합니다.");
         }
+        if (_phase3Cinematic == null)
+        {
+            _phase3Cinematic = FindFirstObjectByType<BossPhase3Cinematic>(FindObjectsInactive.Include);
+        }
     }
 
     private void OnEnable()
@@ -85,6 +88,12 @@ public class AirBossController : MonoBehaviour
         {
             _phase2Cinematic.Completed += HandlePhase2Completed;
             _phase2Cinematic.Cancelled += HandlePhase2Cancelled;
+        }
+
+        if (_phase3Cinematic != null)
+        {
+            _phase3Cinematic.Completed += HandlePhase3Completed;
+            _phase3Cinematic.Cancelled += HandlePhase3Cancelled;
         }
     }
 
@@ -133,7 +142,14 @@ public class AirBossController : MonoBehaviour
             _phase2Cinematic.Cancelled -= HandlePhase2Cancelled;
         }
 
+        if (_phase3Cinematic != null)
+        {
+            _phase3Cinematic.Completed -= HandlePhase3Completed;
+            _phase3Cinematic.Cancelled -= HandlePhase3Cancelled;
+        }
+
         CancelOwnedPhase2();
+        CancelOwnedPhase3();
         _stagger?.Cancel();
         if (IsStaggered)
         {
@@ -262,6 +278,7 @@ public class AirBossController : MonoBehaviour
 
         ChangeState(AirBossState.Death);
         CancelOwnedPhase2();
+        CancelOwnedPhase3();
         _movement.StopMove();
         _action.CancelCurrentAttack();
     }
@@ -277,9 +294,11 @@ public class AirBossController : MonoBehaviour
     private void HandleTransitionRequested(int nextphase)
     {
         if (_currentstate == AirBossState.Death) return;
-        if (_waitingForPhase2) return;
+        if (_waitingForPhase2 || _waitingForPhase3) return;
 
-        if (_phase2Cinematic == null || nextphase != 2)
+        CinematicSequence cinematic = nextphase == 2 ? _phase2Cinematic :
+            nextphase == 3 ? _phase3Cinematic : null;
+        if (cinematic == null)
         {
             Debug.LogWarning($"페이즈 {nextphase} 연출이 연결되지 않았습니다.");
             _phaseController.CancelTransition();
@@ -293,12 +312,14 @@ public class AirBossController : MonoBehaviour
 
         AirBossAttackPool.Instance?.ReleaseAll();
 
-        _waitingForPhase2 = true;
+        _waitingForPhase2 = nextphase == 2;
+        _waitingForPhase3 = nextphase == 3;
 
-        if (!_phase2Cinematic.TryPlay())
+        if (!cinematic.TryPlay())
         {
-            HandlePhase2Cancelled();
-            Debug.Log("2페이즈 연출 실패");
+            if (nextphase == 2) HandlePhase2Cancelled();
+            else HandlePhase3Cancelled();
+            Debug.Log($"{nextphase}페이즈 연출 실패");
         }
     }
 
@@ -350,6 +371,58 @@ public class AirBossController : MonoBehaviour
         _waitingForPhase2 = false;
 
         _phase2Cinematic?.Cancel();
+        _phaseController?.CancelTransition();
+    }
+
+    private void HandlePhase3Completed()
+    {
+        if (!_waitingForPhase3) return;
+        _waitingForPhase3 = false;
+
+        if (_currentstate == AirBossState.Death) return;
+        if (_phaseController == null) return;
+
+        if (!_phaseController.IsTransition || _phaseController.PendingPhase != 3) return;
+
+        _movement.UsePhase3Bounds(transform.position);
+        _phaseController.CompletePhase();
+
+        _phaseController.CheckPhase();
+
+        if (!_phaseController.IsTransition)
+        {
+            ChangeState(AirBossState.Idle);
+        }
+
+        Debug.Log("3페이즈 연출 완료");
+    }
+
+    private void HandlePhase3Cancelled()
+    {
+        if (!_waitingForPhase3) return;
+        _waitingForPhase3 = false;
+
+        if (_phaseController != null)
+        {
+            _phaseController.CancelTransition();
+        }
+
+        if (!isActiveAndEnabled) return;
+        if (_currentstate == AirBossState.Death) return;
+
+        ChangeState(AirBossState.Idle);
+
+        Debug.Log("3페이즈 연출 취소");
+    }
+
+    private void CancelOwnedPhase3()
+    {
+        if (!_waitingForPhase3) return;
+
+        // Cancel()이 취소 이벤트를 보내도 전투를 재개하지 않도록 먼저 해제
+        _waitingForPhase3 = false;
+
+        _phase3Cinematic?.Cancel();
         _phaseController?.CancelTransition();
     }
 }
