@@ -16,6 +16,7 @@ public class CinematicManager : MonoBehaviour
 
     private Behaviour[] _lockedControls;
     private bool[] _originalStates;
+    private bool _controlsLocked;
     private Health _health;
 
     private PlayableDirector _director;
@@ -221,8 +222,11 @@ public class CinematicManager : MonoBehaviour
             _cinematicBars.FadeOut();
         }
 
-        StopHorizontalMovement();
-        RestoreControls();
+        if (_controlsLocked)
+        {
+            StopHorizontalMovement();
+            RestoreControls();
+        }
 
         Action callback = completed ? _onCompleted : _onCancelled;
 
@@ -247,6 +251,7 @@ public class CinematicManager : MonoBehaviour
         }
         _lockedControls = (Behaviour[])_playerControls.Clone();
         _originalStates = new bool[_lockedControls.Length];
+        _controlsLocked = true;
 
         // 비활성화하기 전에 원래 상태를 모두 저장
         for (int i = 0; i < _lockedControls.Length; i++)
@@ -266,8 +271,25 @@ public class CinematicManager : MonoBehaviour
         }
     }
 
+    // 연출은 계속 재생하면서 해당 Timeline의 플레이어 조작만 먼저 복원한다.
+    public void ReleasePlayerControls(PlayableDirector director)
+    {
+        if (!IsPlaying || !_usesTimeline || director == null || director != _director)
+        {
+            return;
+        }
+
+        RestoreControls();
+    }
+
     private void RestoreControls()
     {
+        if (!_controlsLocked)
+        {
+            return;
+        }
+
+        _controlsLocked = false;
         for (int i = 0; i < _lockedControls.Length; i++)
         {
             if (_lockedControls[i] != null)
