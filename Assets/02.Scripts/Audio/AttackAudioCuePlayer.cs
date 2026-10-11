@@ -9,6 +9,7 @@ public sealed class AttackAudioCuePlayer : MonoBehaviour
     {
         public string Name;
         public SFXData[] Sounds;
+        public bool Repeat;
     }
 
     [SerializeField] private Cue[] _cues = Array.Empty<Cue>();
@@ -21,11 +22,13 @@ public sealed class AttackAudioCuePlayer : MonoBehaviour
 
     public void PlayAudioCue(int index)
     {
-        if (!Application.isPlaying || !isActiveAndEnabled || index < 0 || index >= _cues.Length || _played[index]) return;
+        if (!Application.isPlaying || !isActiveAndEnabled || index < 0 || index >= _cues.Length) return;
 
-        _played[index] = true;
         Cue cue = _cues[index];
         if (cue == null || cue.Sounds == null) return;
+        if (_played == null || _played.Length != _cues.Length) _played = new bool[_cues.Length];
+        if (!cue.Repeat && _played[index]) return;
+        _played[index] = true;
         foreach (SFXData sound in cue.Sounds)
         {
             AttackOneShotAudio.Play(sound);
