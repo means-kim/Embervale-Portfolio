@@ -140,6 +140,7 @@ public class BossPhase2Cinematic : CinematicSequence
         _moonCover.SetActive(true);
         _coverRenderer.maskInteraction = SpriteMaskInteraction.None;
         _moonLight.enabled = false;
+        _cinematicManager.ReleasePlayerControls(_director);
     }
 
     private void HandleCompleted()

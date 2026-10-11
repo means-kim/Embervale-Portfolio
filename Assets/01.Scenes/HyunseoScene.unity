@@ -24690,6 +24690,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 427877591941885377, guid: a2ad8072d484507409d67c938f83091e, type: 3}
   m_PrefabInstance: {fileID: 780758071}
   m_PrefabAsset: {fileID: 0}
+--- !u!68 &780758074 stripped
+EdgeCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8568247677686643587, guid: a2ad8072d484507409d67c938f83091e, type: 3}
+  m_PrefabInstance: {fileID: 780758071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &785003530
 GameObject:
   m_ObjectHideFlags: 0
@@ -43621,6 +43626,7 @@ MonoBehaviour:
   _zoomSmoothTime: 0.35
   _upperLookAheadY: 8
   _boundaryBlendTime: 0.8
+  _upperLandingPlatform: {fileID: 780758074}
   _upperArrivalObjects: []
 --- !u!1001 &1945755865
 PrefabInstance:
