@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameEndingCinematic : CinematicSequence
 {
@@ -8,6 +8,7 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField] private AirBossAnimation _bossAnimation;
     [SerializeField] private CanvasGroup _screenFade;
     [SerializeField] private bool _playOnBossDeath;
+    [SerializeField] private string _titleSceneName = "OutGameScene";
 
     [SerializeField, Range(0.01f, 1f)] private float _slowTimeScale = 0.05f;
 
@@ -18,6 +19,7 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField, Min(0f)] private float _earthquakeStrength = 1f;
     [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 1f;
     [SerializeField, Min(0f)] private float _fadeDuration = 2f;
+    [SerializeField, Min(0f)] private float _blackScreenHoldDuration = 1.5f;
 
     public bool IsPlaying => _requested;
     private Animator _bossAnimator;
@@ -75,6 +77,12 @@ public class GameEndingCinematic : CinematicSequence
             return false;
         }
 
+        if (string.IsNullOrWhiteSpace(_titleSceneName) || !Application.CanStreamedLevelBeLoaded(_titleSceneName))
+        {
+            Debug.LogError("엔딩의 타이틀 씬을 Build Profiles에 등록하세요: " + _titleSceneName, this);
+            return false;
+        }
+
         _bossAnimator = _bossAnimation.GetComponent<Animator>();
         if (_bossAnimator == null || !_bossAnimator.isActiveAndEnabled ||
             _bossAnimator.runtimeAnimatorController == null)
@@ -122,10 +130,9 @@ public class GameEndingCinematic : CinematicSequence
 
         SetTimeScale(slowScale);
 
-        CameraManager.ShakeCamera(_hitShakeStrength, _slowDuration);
-
         yield return new WaitForSecondsRealtime(_slowDuration);
 
+        CameraManager.ShakeCamera(_hitShakeStrength, Mathf.Max(0.1f, _restoreDuration));
         _bossAnimation.PlayDeathAnimation();
 
         yield return RestoreSpeedRoutine(slowScale);
@@ -137,6 +144,7 @@ public class GameEndingCinematic : CinematicSequence
         yield return new WaitForSecondsRealtime(_earthquakeHoldDuration);
 
         yield return FadeToBlackRoutine();
+        yield return new WaitForSecondsRealtime(_blackScreenHoldDuration);
     }
 
     private void CaptureState()
@@ -226,6 +234,7 @@ public class GameEndingCinematic : CinematicSequence
         _requested = false;
 
         NotifyCompleted();
+        SceneManager.LoadSceneAsync(_titleSceneName, LoadSceneMode.Single);
     }
 
     private void HandleCancelled()
