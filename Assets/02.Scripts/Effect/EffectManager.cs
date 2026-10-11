@@ -1,6 +1,7 @@
 using Game.Effects;
 using UnityEngine;
 
+[DefaultExecutionOrder(200)]
 public class EffectManager : MonoBehaviour
 {
     private static EffectManager _instance = null;
@@ -46,6 +47,14 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _respawnVfx;
     [SerializeField] private GameObject _clickVfx;
 
+    [Header("그로기 발동 연출")]
+    [SerializeField] private AirBossStagger _bossStagger;
+    [SerializeField] private GameObject _staggerHitVfx;
+
+    private bool _wasStaggered;
+    private Vector3 _lastBossHitPosition;
+    private Vector2 _lastBossHitDirection;
+    private int _lastBossHitFrame = -1;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -71,6 +80,12 @@ public class EffectManager : MonoBehaviour
     {
         StopAllCoroutines();
         _hitEffects.Clear();
+    }
+
+    private void OnEnable()
+    {
+        _wasStaggered = _bossStagger != null && _bossStagger.IsRunning;
+        _lastBossHitFrame = -1;
     }
 
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
@@ -152,10 +167,35 @@ public class EffectManager : MonoBehaviour
         return effect;
     }
 
+    private void LateUpdate()
+    {
+        bool running = _bossStagger != null
+        && _bossStagger.isActiveAndEnabled
+        && _bossStagger.IsRunning;
+
+        if (!_wasStaggered && running && _staggerHitVfx != null
+            && _lastBossHitFrame == Time.frameCount)
+        {
+            _hitEffects.PlayBossHit(
+                this,
+                _staggerHitVfx,
+                _lastBossHitPosition,
+                _lastBossHitDirection);
+        }
+
+        _wasStaggered = running;
+    }
+
     public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right);
 
-    public void PlayBossHit(Vector3 position, Vector2 direction) =>
+    public void PlayBossHit(Vector3 position, Vector2 direction)
+    {
+        // AirBossStagger는 타격 처리 후 LateUpdate에서 그로기에 진입합니다.
+        _lastBossHitPosition = position;
+        _lastBossHitDirection = direction;
+        _lastBossHitFrame = Time.frameCount;
         _hitEffects.PlayBossHit(this, _bossHitVfx, position, direction);
+    }
 
     public void PlayBossDeath(Vector3 position) => Spawn(_bossDeathVfx, position);
     public void PlayCheckpoint(Vector3 position) => Spawn(_checkpointVfx, position);

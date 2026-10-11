@@ -20,7 +20,6 @@ public class CameraManager : MonoBehaviour
         }
 
         _instance = this;
-        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
         ChangeCamera(_defaultCamera);
     }
 
@@ -68,6 +67,9 @@ public class CameraManager : MonoBehaviour
         }
 
         Vector2 randomDirection = Random.insideUnitCircle;
+        // Cinemachine은 에디터 Play 초기화 시 Awake 이후 ImpulseManager를 재생성합니다.
+        // 신호 발생 시 설정해야 히트스톱 중에도 실제 시간으로 흔들립니다.
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
         _instance._impulseSource.GenerateImpulseWithVelocity(
             new Vector3(randomDirection.x, randomDirection.y, 0f) * strength
         );
@@ -92,6 +94,7 @@ public class CameraManager : MonoBehaviour
             direction = Vector2.right;
         }
 
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
         definition.CreateEvent(source.transform.position, new Vector3(direction.x, direction.y, 0f) * strength);
     }
 }
