@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Team08.UI;
 using UnityEngine;
 
 public class UI_Health : MonoBehaviour
@@ -53,6 +52,7 @@ public class UI_Health : MonoBehaviour
         float health = Mathf.Clamp(_health.CurrentHealth, 0, Mathf.Max(0, _health.MaxHealth)) / 100f;
         for (int i = 0; i < _flames.Count; i++)
         {
+            _flames[i].SetEnds(i == 0, i == _flames.Count - 1);
             float fill = Mathf.Clamp01(health - i);
             if (_flames[i].Fill != fill)
             {

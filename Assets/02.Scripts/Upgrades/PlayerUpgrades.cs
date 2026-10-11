@@ -39,8 +39,7 @@ namespace Game.Upgrades
 
         public void SaveProgress()
         {
-            UpgradeHistory.SaveLevels(GetLevel(UpgradeType.MaxHealth),
-                GetLevel(UpgradeType.AttackDamage), GetLevel(UpgradeType.AttackSpeed));
+            UpgradeHistory.SaveLevels(GetLevel(UpgradeType.MaxHealth), GetLevel(UpgradeType.AttackDamage), GetLevel(UpgradeType.AttackSpeed));
         }
 
         public int BonusMaxHealth => GetLevel(UpgradeType.MaxHealth) * Mathf.Max(0, _healthPerLevel);
@@ -76,9 +75,18 @@ namespace Game.Upgrades
             return true;
         }
 
-        public int GetMaxHealth(int baseMaxHealth) => Mathf.Max(1, baseMaxHealth + BonusMaxHealth);
-        public int GetAttackDamage(int baseDamage) => Mathf.Max(0, baseDamage + BonusAttackDamage);
-        public float GetAttackDuration(float baseDuration) => Mathf.Max(0f, baseDuration) / AttackSpeedMultiplier;
+        public int GetMaxHealth(int baseMaxHealth)
+        {
+            return Mathf.Max(1, baseMaxHealth + BonusMaxHealth);
+        }
+        public int GetAttackDamage(int baseDamage)
+        {
+            return Mathf.Max(0, baseDamage + BonusAttackDamage);
+        }
+        public float GetAttackDuration(float baseDuration)
+        {
+            return Mathf.Max(0f, baseDuration) / AttackSpeedMultiplier;
+        }
 
         public void ResetUpgrades()
         {

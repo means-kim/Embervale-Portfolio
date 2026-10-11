@@ -9,7 +9,17 @@ public class Health : MonoBehaviour
     private float _recoveryRemainder;
     private int _currentHealth;
     private bool _isDead = false;
-    public int MaxHealth => _maxHealth;
+    private int _maxHealthBonus;
+    public int MaxHealth => _maxHealth + _maxHealthBonus;
+
+    // Keep the serialized base value intact so reloading never compounds bonuses.
+    public void SetMaxHealthBonus(int bonus)
+    {
+        int previousMax = MaxHealth;
+        _maxHealthBonus = Math.Max(0, bonus);
+        if (!_isDead)
+            _currentHealth = Math.Clamp(_currentHealth + MaxHealth - previousMax, 0, Math.Max(0, MaxHealth));
+    }
     public int CurrentHealth
     {
         get => _currentHealth;
@@ -18,10 +28,12 @@ public class Health : MonoBehaviour
     public bool IsDead => _isDead;
     public event Action OnDie;
     public event Action OnHit;
+    // 생존한 피격의 실제 체력 감소량. 체력 소모(SpendHealth)는 제외한다.
+    public event Action<int> OnDamaged;
 
     private void Awake()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = MaxHealth;
     }
 
     private void Update()
@@ -31,7 +43,7 @@ public class Health : MonoBehaviour
 
     public void AdvanceRecovery(float deltaTime)
     {
-        if (!_autoRecover || _isDead || _currentHealth >= _maxHealth)
+        if (!_autoRecover || _isDead || _currentHealth >= MaxHealth)
         {
             _recoveryRemainder = 0f;
             return;
@@ -42,7 +54,7 @@ public class Health : MonoBehaviour
         if (amount <= 0) return;
         _recoveryRemainder -= amount;
         Heal(amount);
-        if (_currentHealth >= _maxHealth) _recoveryRemainder = 0f;
+        if (_currentHealth >= MaxHealth) _recoveryRemainder = 0f;
     }
 
     public void TakeDamage(int damage)
@@ -73,7 +85,11 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (triggerHit) OnHit?.Invoke();
+        if (triggerHit)
+        {
+            OnHit?.Invoke();
+            OnDamaged?.Invoke(amount);
+        }
     }
 
     public void Heal(int healAmount)
@@ -82,16 +98,16 @@ public class Health : MonoBehaviour
 
         _currentHealth += healAmount;
 
-        if (_currentHealth > _maxHealth)
+        if (_currentHealth > MaxHealth)
         {
-            _currentHealth = _maxHealth;
+            _currentHealth = MaxHealth;
         }
     }
 
     public void ReviveFull()
     {
         _isDead = false;
-        _currentHealth = _maxHealth;
+        _currentHealth = MaxHealth;
         _recoveryRemainder = 0f;
     }
 }
