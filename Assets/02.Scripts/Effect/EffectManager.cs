@@ -37,6 +37,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _chargeJumpProjectileLaunchVfx;
     [Header("VFX 프리팹 (적)")]
     [SerializeField] private GameObject _bossHitVfx;
+    [SerializeField] private SFXData _bossHitSound;
     [SerializeField] private GameObject _bossDeathVfx;
     [Header("VFX 프리팹 (맵)")]
     [SerializeField] private GameObject _checkpointVfx;
@@ -50,11 +51,13 @@ public class EffectManager : MonoBehaviour
     [Header("그로기 발동 연출")]
     [SerializeField] private AirBossStagger _bossStagger;
     [SerializeField] private GameObject _staggerHitVfx;
+    [SerializeField] private SFXData _staggerHitSound;
 
     private bool _wasStaggered;
     private Vector3 _lastBossHitPosition;
     private Vector2 _lastBossHitDirection;
     private int _lastBossHitFrame = -1;
+    private int _pendingBossHitSounds;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -78,6 +81,7 @@ public class EffectManager : MonoBehaviour
 
     private void OnDisable()
     {
+        _pendingBossHitSounds = 0;
         StopAllCoroutines();
         _hitEffects.Clear();
     }
@@ -86,6 +90,7 @@ public class EffectManager : MonoBehaviour
     {
         _wasStaggered = _bossStagger != null && _bossStagger.IsRunning;
         _lastBossHitFrame = -1;
+        _pendingBossHitSounds = 0;
     }
 
     public void PlaySnowEffect(SnowEffectType type, Vector3 position, Vector3 scale, bool flipX = false)
@@ -173,8 +178,10 @@ public class EffectManager : MonoBehaviour
         && _bossStagger.isActiveAndEnabled
         && _bossStagger.IsRunning;
 
-        if (!_wasStaggered && running && _staggerHitVfx != null
-            && _lastBossHitFrame == Time.frameCount)
+        bool enteredOnHit = !_wasStaggered && running
+            && _lastBossHitFrame == Time.frameCount;
+
+        if (enteredOnHit && _staggerHitVfx != null)
         {
             _hitEffects.PlayBossHit(
                 this,
@@ -183,6 +190,16 @@ public class EffectManager : MonoBehaviour
                 _lastBossHitDirection);
         }
 
+        // 보스의 LateUpdate 진입 판정 후, 마지막 타격음 하나만 강화음으로 교체합니다.
+        bool useStaggerSound = enteredOnHit && _staggerHitSound != null
+            && _staggerHitSound.Clip != null;
+        for (int i = 0; i < _pendingBossHitSounds; i++)
+        {
+            bool isStaggerHit = useStaggerSound && i == _pendingBossHitSounds - 1;
+            AttackOneShotAudio.Play(isStaggerHit ? _staggerHitSound : _bossHitSound,
+                isStaggerHit ? 1f : Random.Range(0.9f, 1.1f));
+        }
+        _pendingBossHitSounds = 0;
         _wasStaggered = running;
     }
 
@@ -190,6 +207,8 @@ public class EffectManager : MonoBehaviour
 
     public void PlayBossHit(Vector3 position, Vector2 direction)
     {
+        if (!isActiveAndEnabled) return;
+        _pendingBossHitSounds++;
         // AirBossStagger는 타격 처리 후 LateUpdate에서 그로기에 진입합니다.
         _lastBossHitPosition = position;
         _lastBossHitDirection = direction;

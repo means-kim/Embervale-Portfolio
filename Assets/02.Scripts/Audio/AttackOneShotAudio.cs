@@ -8,15 +8,15 @@ public sealed class AttackOneShotAudio : MonoBehaviour
     private static AttackOneShotAudio _instance;
     private readonly List<AudioSource> _voices = new List<AudioSource>();
 
-    public static void Play(SFXData sound)
+    public static void Play(SFXData sound, float pitchMultiplier = 1f)
     {
         if (!Application.isPlaying || AudioListener.pause || sound == null || sound.Clip == null) return;
         if (_instance == null)
             _instance = new GameObject("Attack One Shot Audio").AddComponent<AttackOneShotAudio>();
-        _instance.PlaySound(sound);
+        _instance.PlaySound(sound, pitchMultiplier);
     }
 
-    private void PlaySound(SFXData sound)
+    private void PlaySound(SFXData sound, float pitchMultiplier)
     {
         AudioSource voice = null;
         foreach (AudioSource candidate in _voices)
@@ -43,7 +43,7 @@ public sealed class AttackOneShotAudio : MonoBehaviour
 
         voice.clip = sound.Clip;
         voice.volume = Mathf.Clamp01(sound.Volume);
-        voice.pitch = Mathf.Clamp(sound.Pitch, 0.5f, 1.5f);
+        voice.pitch = Mathf.Clamp(sound.Pitch * pitchMultiplier, 0.5f, 1.5f);
         voice.Play();
     }
 

@@ -52465,6 +52465,7 @@ MonoBehaviour:
   _chargeJumpLaunchVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
   _chargeJumpProjectileLaunchVfx: {fileID: 0}
   _bossHitVfx: {fileID: 612804827823514885, guid: cee9293e7193a7b448c8d1d424d7e19a, type: 3}
+  _bossHitSound: {fileID: 11400000, guid: c5658e470013d6f4086ecf74828d82fe, type: 2}
   _bossDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
   _levelUpVfx: {fileID: 8771972552311404799, guid: 493b07ea159d88440ad0220e8fd0b9b0, type: 3}
@@ -52473,6 +52474,7 @@ MonoBehaviour:
   _clickVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
   _bossStagger: {fileID: 1967930622}
   _staggerHitVfx: {fileID: 612804827823514885, guid: c48ed7ebdd027cc4286db8aa282089ab, type: 3}
+  _staggerHitSound: {fileID: 11400000, guid: 7d8536a4a0844eb45bd5c9f2253276de, type: 2}
 --- !u!4 &2058891490
 Transform:
   m_ObjectHideFlags: 0
