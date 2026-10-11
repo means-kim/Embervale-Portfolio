@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         _combo = combo;
         if (IsAttacking)
         {
-            float remaining = Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration) - _elapsed;
+            float remaining = _windupDuration + _recoveryDuration - _elapsed;
             if (_isComboAttack && remaining <= _comboInputBuffer) _queuedCombo = true;
             return;
         }
@@ -51,6 +51,13 @@ public class PlayerAttack : MonoBehaviour
         _nextCombo = (index + 1) % _combo.Length;
     }
     private PlayerMove _move;
+    private Game.Upgrades.PlayerUpgrades _upgrades;
+    private Animator _animator;
+    private float _previousAnimatorSpeed;
+    private float _attackSpeed = 1f;
+    private float _windupDuration;
+    private float _recoveryDuration;
+    private int _damage;
     private PlayerJump _jump;
     private PlayerAttackMotion _motion;
     private PlayerAttackDataSO _current;
@@ -65,6 +72,8 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
+        _upgrades = GetComponent<Game.Upgrades.PlayerUpgrades>();
+        _animator = GetComponent<Animator>();
         _jump = GetComponent<PlayerJump>();
         _motion = new PlayerAttackMotion(this, _move, GetComponent<Rigidbody2D>());
     }
@@ -120,6 +129,11 @@ public class PlayerAttack : MonoBehaviour
             health.SpendHealth(healthCost);
         }
         _current = definition;
+        // 이번 공격의 수치를 고정하여 도중에 강화되어도 타격과 연출이 어긋나지 않게 합니다.
+        _attackSpeed = _upgrades != null ? Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier) : 1f;
+        _damage = _upgrades != null ? _upgrades.GetAttackDamage(definition.Damage) : definition.Damage;
+        _windupDuration = Mathf.Max(0f, definition.WindupDuration) / _attackSpeed;
+        _recoveryDuration = Mathf.Max(0.05f, definition.RecoveryDuration) / _attackSpeed;
         _elapsed = 0;
         _spawned = false;
         _direction = _move.FacingDirection;
@@ -127,8 +141,13 @@ public class PlayerAttack : MonoBehaviour
         bool startedInAir = !IsGrounded;
         if (startedInAir) _airAttackCount++;
         float horizontalLockDuration = startedInAir ? _airHorizontalLockDuration : _groundHorizontalLockDuration;
-        _motion.Begin(startedInAir, horizontalLockDuration, _airVerticalLockDuration, _attackGravityScaleMultiplier);
+        _motion.Begin(startedInAir, horizontalLockDuration / _attackSpeed, _airVerticalLockDuration / _attackSpeed, _attackGravityScaleMultiplier);
         _isComboAttack = false;
+        if (_animator != null)
+        {
+            _previousAnimatorSpeed = _animator.speed;
+            _animator.speed = _previousAnimatorSpeed * _attackSpeed;
+        }
         OnAttackStarted?.Invoke();
         if (IsAttacking && definition.WindupDuration <= 0) SpawnAttack();
         return true;
@@ -138,8 +157,8 @@ public class PlayerAttack : MonoBehaviour
         _motion.Tick(Time.deltaTime);
         if (!IsAttacking) return;
         _elapsed += Time.deltaTime;
-        if (!_spawned && _elapsed >= Mathf.Max(0, _current.WindupDuration)) SpawnAttack();
-        if (IsAttacking && _elapsed >= Mathf.Max(0, _current.WindupDuration) + Mathf.Max(0.05f, _current.RecoveryDuration)) FinishAttack(true);
+        if (!_spawned && _elapsed >= _windupDuration) SpawnAttack();
+        if (IsAttacking && _elapsed >= _windupDuration + _recoveryDuration) FinishAttack(true);
     }
     private void FixedUpdate() => _motion.FixedTick(IsGrounded, Time.fixedDeltaTime);
     private void SpawnAttack()
@@ -148,7 +167,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x * _attackScale, _current.SpawnOffset.y * _attackScale);
         _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
         _instance.transform.localScale *= _attackScale;
-        if (!_instance.Initialize(_current.Damage, _direction, transform))
+        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed))
         {
             Destroy(_instance.gameObject);
             _instance = null;
@@ -181,6 +200,10 @@ public class PlayerAttack : MonoBehaviour
         _queuedCombo = false;
         _comboExpires = _isComboAttack ? Time.time + _comboResetDelay : -1f;
         IsAttacking = false;
+        if (_animator != null)
+        {
+            _animator.speed = _previousAnimatorSpeed;
+        }
         _motion.EndAttack(continueCombo);
         if (_instance != null) _instance.EndPlayerAction();
         _instance = null;

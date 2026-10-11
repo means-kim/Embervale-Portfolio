@@ -10,7 +10,7 @@ namespace Game.Upgrades
         [Serializable]
         private sealed class Rule
         {
-            [Min(1)] public int maxLevel = 5;
+            [Range(1, UpgradeHistory.MaxUpgradeLevel)] public int maxLevel = UpgradeHistory.MaxUpgradeLevel;
             [Min(0)] public int level;
         }
 
@@ -21,7 +21,7 @@ namespace Game.Upgrades
 
         [Header("단계당 증가량 (임시 기본값, Inspector에서 조정)")]
         [SerializeField, Min(0)] private int _healthPerLevel = 100;
-        [SerializeField, Min(0)] private int _damagePerLevel = 5;
+        [SerializeField, Min(0)] private int _damagePerLevel = 3;
         [SerializeField, Min(0f)] private float _attackSpeedPerLevel = 0.1f;
 
         public event Action Changed;
@@ -50,13 +50,13 @@ namespace Game.Upgrades
         public int GetLevel(UpgradeType type)
         {
             Rule rule = GetRule(type);
-            return rule == null ? 0 : Mathf.Clamp(rule.level, 0, Mathf.Max(1, rule.maxLevel));
+            return rule == null ? 0 : Mathf.Clamp(rule.level, 0, GetMaxLevel(type));
         }
 
         public int GetMaxLevel(UpgradeType type)
         {
             Rule rule = GetRule(type);
-            return rule == null ? 0 : Mathf.Max(1, rule.maxLevel);
+            return rule == null ? 0 : Mathf.Clamp(rule.maxLevel, 1, UpgradeHistory.MaxUpgradeLevel);
         }
 
         public bool CanUpgrade(UpgradeType type) => GetRule(type) != null && GetLevel(type) < GetMaxLevel(type);
@@ -121,7 +121,7 @@ namespace Game.Upgrades
                     continue;
                 }
 
-                rule.maxLevel = Mathf.Max(1, rule.maxLevel);
+                rule.maxLevel = Mathf.Clamp(rule.maxLevel, 1, UpgradeHistory.MaxUpgradeLevel);
                 rule.level = Mathf.Clamp(rule.level, 0, rule.maxLevel);
             }
         }
