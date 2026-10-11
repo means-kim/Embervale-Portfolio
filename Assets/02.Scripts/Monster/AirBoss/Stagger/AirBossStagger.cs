@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Health), typeof(AirBossController))]
+[RequireComponent(typeof(Health), typeof(AirBossController), typeof(AirBossAnimation))]
 public sealed class AirBossStagger : MonoBehaviour
 {
     [Header("같은 보스의 컴포넌트 (비워두면 자동 연결)")]
@@ -10,7 +10,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     [SerializeField] private AirBossController _controller;
     [SerializeField] private AirBossPhaseController _phaseController;
-    [SerializeField] private Animator _animator;
+    [SerializeField] private AirBossAnimation _animation;
 
     [Header("그로기 게이지")]
     [SerializeField, Min(1f)] private float _maxGauge = 100f;
@@ -23,19 +23,12 @@ public sealed class AirBossStagger : MonoBehaviour
 
     [Header("페이즈별 도착 지점 (보스 루트가 도착할 월드 위치)")]
     [Tooltip("1, 2, 3페이즈 순서. 해당 페이즈의 지점이 없으면 발동하지 않습니다.")]
-    [SerializeField]
-    private Transform[] _staggerPoints = new Transform[3];
+    [SerializeField] private Transform[] _staggerPoints = new Transform[3];
 
     [SerializeField, Min(0.01f)] private float _moveDuration = 0.6f;
     [SerializeField, Min(0f)] private float _staggerDuration = 2.5f;
-    [SerializeField, Min(0f)] private float _recoverDuration = 0.4f;
+    [SerializeField, Min(0f)] private float _recoverDuration = 0.8f;
     [SerializeField, Min(0.01f)] private float _returnDuration = 0.6f;
-
-    [Header("Animator 상태 이름 (빈칸이면 해당 단계 재생 생략)")]
-    [SerializeField] private string _enterAnimation = "";
-
-    [SerializeField] private string _holdAnimation = "";
-    [SerializeField] private string _recoverAnimation = "";
 
     private float _gauge;
     private float _lastHitTime = float.NegativeInfinity;
@@ -51,7 +44,7 @@ public sealed class AirBossStagger : MonoBehaviour
     public bool IsRunning => _routine != null;
 
     public bool CanBegin => isActiveAndEnabled && !IsRunning &&
-                            _health != null && !_health.IsDead && _controller != null &&
+                            _health != null && !_health.IsDead && _controller != null && _animation != null &&
                             _phaseController != null && !_phaseController.IsTransition &&
                             Time.time >= _nextStaggerTime && Time.frameCount != _blockedFrame &&
                             GetStaggerPoint() != null;
@@ -73,9 +66,9 @@ public sealed class AirBossStagger : MonoBehaviour
             _phaseController = GetComponent<AirBossPhaseController>();
         }
 
-        if (_animator == null)
+        if (_animation == null)
         {
-            _animator = GetComponent<Animator>();
+            _animation = GetComponent<AirBossAnimation>();
         }
     }
 
@@ -83,6 +76,7 @@ public sealed class AirBossStagger : MonoBehaviour
     {
         _health.OnHit += HandleHit;
         _health.OnDie += Cancel;
+
         if (_phaseController != null)
         {
             _phaseController.TransitionRequested += HandleTransitionRequested;
@@ -93,12 +87,14 @@ public sealed class AirBossStagger : MonoBehaviour
     {
         _health.OnHit -= HandleHit;
         _health.OnDie -= Cancel;
+
         if (_phaseController != null)
         {
             _phaseController.TransitionRequested -= HandleTransitionRequested;
         }
 
         Cancel();
+
         // 이 컴포넌트만 꺼진 경우에도 FSM이 그로기에 남지 않게 합니다.
         if (_controller != null)
         {
@@ -114,12 +110,14 @@ public sealed class AirBossStagger : MonoBehaviour
         }
 
         int index = _phaseController.CurrentPhase - 1;
+
         return index >= 0 && index < _staggerPoints.Length ? _staggerPoints[index] : null;
     }
 
     private void HandleHit()
     {
         if (!CanBegin || !_controller.CanEnterStagger || Time.time < _nextHitTime) return;
+
         _lastHitTime = Time.time;
         _nextHitTime = Time.time + Mathf.Max(0f, _hitInterval);
         _gauge = Mathf.Min(MaxGauge, _gauge + Mathf.Max(0f, _gainPerHit));
@@ -172,8 +170,11 @@ public sealed class AirBossStagger : MonoBehaviour
 
         Vector3 destination = GetStaggerPoint().position;
         Vector3 returnPosition = transform.position;
+
         ResetGauge();
+
         _routine = StartCoroutine(StaggerRoutine(destination, returnPosition));
+
         return true;
     }
 
@@ -181,14 +182,18 @@ public sealed class AirBossStagger : MonoBehaviour
     {
         // 코루틴 핸들 대입 전에 종료/취소 콜백이 실행되는 것을 막습니다.
         yield return null;
-        PlayAnimation(_enterAnimation);
+
+        _animation.PlayStaggerEnterAnimation();
         yield return MoveTo(destination, _moveDuration);
-        PlayAnimation(_holdAnimation);
+
+        _animation.PlayStaggerHoldAnimation();
         // 도착 이후부터 온전한 공격 기회를 제공합니다.
         yield return new WaitForSeconds(Mathf.Max(0f, _staggerDuration));
-        PlayAnimation(_recoverAnimation);
+
+        _animation.PlayStaggerRecoveryAnimation();
         yield return new WaitForSeconds(Mathf.Max(0f, _recoverDuration));
         yield return MoveTo(returnPosition, _returnDuration);
+
         _routine = null;
         _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);
         _controller.OnStaggerFinished();
@@ -198,6 +203,7 @@ public sealed class AirBossStagger : MonoBehaviour
     {
         Vector3 start = transform.position;
         duration = Mathf.Max(0.01f, duration);
+
         for (float elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
         {
             float t = Mathf.SmoothStep(0f, 1f, elapsed / duration);
@@ -206,23 +212,6 @@ public sealed class AirBossStagger : MonoBehaviour
         }
 
         transform.position = destination;
-    }
-
-    private void PlayAnimation(string stateName)
-    {
-        if (string.IsNullOrWhiteSpace(stateName) || _animator == null ||
-            !_animator.isActiveAndEnabled || _animator.runtimeAnimatorController == null)
-        {
-            return;
-        }
-        int hash = Animator.StringToHash(stateName);
-        if (!_animator.HasState(0, hash))
-        {
-            Debug.LogWarning($"그로기 Animator 상태를 찾을 수 없습니다: {stateName}", this);
-            return;
-        }
-
-        _animator.CrossFade(hash, 0.1f, 0);
     }
 
     public void Cancel()
