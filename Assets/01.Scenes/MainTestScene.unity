@@ -27311,12 +27311,13 @@ MonoBehaviour:
   - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
   - {fileID: 5039348117906714883, guid: 96c3416b70c984fb4b6773ce174647a9, type: 3}
   - {fileID: 5039348117906714883, guid: 57ac7208946c54e30a86191614cf8b1b, type: 3}
-  - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
   - {fileID: 5039348117906714883, guid: 90ddc00d6b0bfa04b8be8aaf5ba527cc, type: 3}
   - {fileID: 5039348117906714883, guid: 054b7f28974995241ab3be3422618eb1, type: 3}
   - {fileID: 5039348117906714883, guid: 1e71af5bc88d01242a11793ab6f0c4a8, type: 3}
   - {fileID: 5039348117906714883, guid: 87d5847d30c538d4baf82a69de733005, type: 3}
   - {fileID: 5039348117906714883, guid: 927f7b9266e8a5d408128cd2eeedce81, type: 3}
+  - {fileID: 5039348117906714883, guid: 0423d52375af643b98f4d5350ad82651, type: 3}
+  - {fileID: 5039348117906714883, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
   _poolSize: 12
 --- !u!4 &1277666638
 Transform:
@@ -50880,22 +50881,22 @@ MonoBehaviour:
   _playerHitVfx: {fileID: 3909549382037466487, guid: e1aabf03bcb2b514d8cf7588b317e705, type: 3}
   _playerHitHorizontalVfx: {fileID: 830958173528827939, guid: d65d9f8f74a3bb94eac9f607462cae34, type: 3}
   _useHorizontalPlayerHit: 0
-  _playerDeathVfx: {fileID: 0}
-  _jumpVfx: {fileID: 0}
-  _doubleJumpVfx: {fileID: 0}
-  _landVfx: {fileID: 0}
-  _dashVfx: {fileID: 0}
+  _playerDeathVfx: {fileID: 5985634496115995773, guid: ec3da48247b33f84b8012c97e39a3dee, type: 3}
+  _jumpVfx: {fileID: 283245414573536587, guid: d78643628255a554399747ad5a1d0d9f, type: 3}
+  _doubleJumpVfx: {fileID: 283245414573536587, guid: d78643628255a554399747ad5a1d0d9f, type: 3}
+  _landVfx: {fileID: 5509612781330163756, guid: 2231116992017a64b998a7db680c0fa5, type: 3}
+  _dashVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
   _footstepVfx: {fileID: 0}
   _chargeJumpAimVfx: {fileID: 0}
-  _chargeJumpLaunchVfx: {fileID: 0}
+  _chargeJumpLaunchVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
   _chargeJumpProjectileLaunchVfx: {fileID: 0}
   _bossHitVfx: {fileID: 612804827823514885, guid: cee9293e7193a7b448c8d1d424d7e19a, type: 3}
   _bossDeathVfx: {fileID: 0}
-  _checkpointVfx: {fileID: 0}
-  _levelUpVfx: {fileID: 0}
+  _checkpointVfx: {fileID: 8771972552311404799, guid: 095da41bf00171747a8ba9517623a820, type: 3}
+  _levelUpVfx: {fileID: 8771972552311404799, guid: 493b07ea159d88440ad0220e8fd0b9b0, type: 3}
   _wallSlideVfx: {fileID: 0}
-  _respawnVfx: {fileID: 0}
-  _clickVfx: {fileID: 0}
+  _respawnVfx: {fileID: 8440736990562456301, guid: abb1688e8cd009748a486cf74f20d271, type: 3}
+  _clickVfx: {fileID: 8771972552311404799, guid: 6d7704e77b0913b419ade0d2f09b8e1e, type: 3}
   _bossStagger: {fileID: 1967930622}
   _staggerHitVfx: {fileID: 612804827823514885, guid: c48ed7ebdd027cc4286db8aa282089ab, type: 3}
 --- !u!4 &2058891490

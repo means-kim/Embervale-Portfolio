@@ -92,6 +92,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -104,7 +130,7 @@ TextureImporter:
         width: 627
         height: 627
       alignment: 9
-      pivot: {x: 0.5231259968102073, y: 0.02551834130781494}
+      pivot: {x: 0.523126, y: 0.025518341}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -126,7 +152,7 @@ TextureImporter:
         width: 627
         height: 627
       alignment: 9
-      pivot: {x: 0.5103668261562998, y: 0.027113237639553422}
+      pivot: {x: 0.5103668, y: 0.027113238}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -148,7 +174,7 @@ TextureImporter:
         width: 627
         height: 627
       alignment: 9
-      pivot: {x: 0.5263157894736842, y: 0.11961722488038273}
+      pivot: {x: 0.5263158, y: 0.119617224}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,7 +196,7 @@ TextureImporter:
         width: 627
         height: 627
       alignment: 9
-      pivot: {x: 0.4944178628389155, y: 0.11483253588516751}
+      pivot: {x: 0.49441788, y: 0.114832535}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,13 +210,13 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
-    customData:
+    customData: 
     physicsShape: []
     bones: []
     spriteID: e425086669b94ded95598acc5a19b6d0
     internalID: 0
     vertices: []
-    indices:
+    indices: 
     edges: []
     weights: []
     secondaryTextures: []
@@ -201,9 +227,8 @@ TextureImporter:
       StalactiteBreak_01_Burst: 21300002
       StalactiteBreak_02_Settle: 21300004
       StalactiteBreak_03_Debris: 21300006
-  mipmapLimitGroupName:
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData:
-  assetBundleName:
-  assetBundleVariant:
-
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
