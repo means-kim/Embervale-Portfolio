@@ -1,0 +1,39 @@
+Elite ice thorn gray-white v01 — 2026-10-12
+
+Scope
+Approved gray-white concept converted to a separate production PNG, animation/controller and prefab. Original VFX assets and their GUIDs were preserved. No game scripts or scene files changed. The only tracked existing asset change is EliteMonster_SnowGiant.prefab / EliteMonsterIceThornAttack._effectPrefab, now referencing the new prefab. Its _effectPoint and attack data remain unchanged; MinsuScene inherited the reference with no scene dirty flag.
+
+Assets (paths relative to project root)
+Assets/04.Sprites/VFX/EliteIceThorn_GrayWhite_v01/IceThorn_GrayWhite_v01.png
+Assets/05.Animation/EliteMonster/VFX/GrayWhite_v01/EliteMonsterIceThorn_GrayWhite_v01.anim
+Assets/05.Animation/EliteMonster/VFX/GrayWhite_v01/EliteMonsterIceThorn_GrayWhite_v01.controller
+Assets/03.Prefabs/FX/EliteMonsterIceThorn_GrayWhite_v01.prefab
+
+Source and generation
+Built-in image_gen, transparent background; approved reference EliteIceThorn_GrayWhite_Preview_v01.png. Exact production prompt: Generation_v01.txt. Source artwork was copied unchanged into Assets, not recolored or resampled by a script. Actual PNG 1254x1254. Alpha >=128 bounds x91..1181, y51..1201 (bottom origin); transparent pixels 900856. PPU 256; pivot (0.5,0.055); Bilinear, uncompressed, mipmaps off, max texture size 2048.
+
+Prefab and animation
+Root: EliteMonsterEffect, Kinematic Rigidbody2D, AudioSource, Animator. Ice child: SpriteRenderer, EliteMonsterEffectHitbox, PolygonCollider2D with 23 inset silhouette vertices. Root scale 1; child peak scale (0.86,0.86,1); child ground offset y=-1.9375 to retain the old effect's base under the unchanged spawn point. Original sprite material and sorting layer/order are reused; color white, flipX false, parent facing supplies mirroring.
+Single static sprite animated by transform scale and alpha (not a hand-drawn animation sheet). Rise 0..0.25s, hold through 0.667s, fade complete at 1.083333s. Polygon enabled only 0.25 <= t < 0.6666667, retaining original damage timing. Cleanup StopEffect at 1.25s allows existing 1.2s ice-thorn SFX to finish. Sound clip, volume 0.5 and 2D configuration copied from original. Outer attack animation still invokes AttackAction at 1.5s.
+Damage: original EliteMonsterAttackDataSO, IceThorn enum 3, current damage 80, unchanged cooldown/selection/recovery. Per-Health hit deduplication is shared across all contacts of this effect's collider. The separate monster arm hitbox remains unchanged and has its own deduplication as before.
+
+Size
+At the current monster scale 1.5, old maximum visible sprite height is 43px /24 PPU *1.5 effect scale *1.5 monster scale =4.03125 world units. New solid height is 1151px /256 PPU *.86 child scale *1.5 monster scale =5.79996 world units (1.439x). Collider follows the newly enlarged visible silhouette; combat coverage is consequently different, while damage/timing stay unchanged.
+
+Verification
+Unity 6000.3.22f1 MCP, isolated editor preview scene (closed after checks).
+- Real Unity renders: Unity_GrayWhite_v01.png, Unity_Collider_v01.png; rise/fade samples Unity_GrayWhite_0.12.png and Unity_GrayWhite_0.90.png.
+- Animation samples 0,.24,.25,.4,.666,.667,1.084,1.2 verified collider gating and alpha disappearance.
+- Direct editor callback checks: non-player ignored; first Player contact 450 ->370 HP; duplicate contact and additional collider on same Health do not damage twice.
+- Polygon OverlapPoint passed in normal and mirrored orientation.
+- Audio length <= cleanup time, single cleanup event, no missing prefab components.
+- Current scene inherited new reference without dirtying/saving it.
+These tests explicitly invoked damage callbacks; they do NOT constitute an actual physics-trigger combat Play test. Moving-player contact, encounter balance, all terrain grounding and cancellation during an already spawned VFX remain unverified.
+
+Original SHA256 baseline
+EliteMonsterIceThorn.prefab 7517A5405D1C87038037A910F81CE5F912287C23FE6674863631D4BDE2CF3783
+EliteMonster_IceThorn.anim 20B78173B194F0E4A32E191427DAD657447440204F6EBCE1EBA5F1DDCA297B36
+EliteMonster_IceThornAC.controller 2CD85D61275EA9FE396122F2519D69A1B91097DA7889C66D5FBA7EAE7E1368E4
+
+Restore option
+Set only EliteMonsterIceThornAttack._effectPrefab back to the original EliteMonsterIceThorn.prefab (GUID 16107ab252097734a9489ee4f71b0dea). Do not delete new files if other content starts referencing them.

@@ -93,6 +93,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5446899786276659735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1897233565510027761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5774350200769014828}
+  m_Layer: 0
+  m_Name: ChargeRearSnowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5774350200769014828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897233565510027761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3, y: 1.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5446899786276659735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2250479099931298770
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +311,7 @@ Transform:
   - {fileID: 1874651297204595573}
   - {fileID: 5433514003622980779}
   - {fileID: 2394664394161340326}
+  - {fileID: 5774350200769014828}
   m_Father: {fileID: 1020913575131678032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6594865407688505647
@@ -740,7 +772,7 @@ Animator:
   m_GameObject: {fileID: 7981983542186342843}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d272a471129746c44a76b7579bf6a572, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2d9d94184e383534ca131e1f5a54d1cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -916,8 +948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossChargeAttack
   _movement: {fileID: 1428997075298612375}
   _moveSpeedUp: 15
-  _effectPrefab: {fileID: 6054917822214403956, guid: 06419f2c477017b47a3dd241f501d40c, type: 3}
-  _effectPoint: {fileID: 4296080632268900524}
+  _effectPrefab: {fileID: 8833274825632032686, guid: 106d47b5f4452ac45a048f7e44c81529, type: 3}
+  _effectPoint: {fileID: 5774350200769014828}
   _facing: {fileID: 7873688310279483471}
 --- !u!114 &2567005633489926930
 MonoBehaviour:
@@ -966,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edaec7298879d340b1abbb23af28b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossIceThornAttack
-  _effectPrefab: {fileID: 8425433907468996792, guid: 16107ab252097734a9489ee4f71b0dea, type: 3}
+  _effectPrefab: {fileID: 1651783152805603897, guid: 9653c6f5bfecdc3448a0b77168aedbc6, type: 3}
   _effectPoint: {fileID: 2394664394161340326}
 --- !u!70 &7238580381561034051
 CapsuleCollider2D:
