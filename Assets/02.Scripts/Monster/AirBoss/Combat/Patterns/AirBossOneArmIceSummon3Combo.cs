@@ -17,13 +17,10 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
     [Header("텔레그래프 프리팹의 기본 크기에 곱할 배수")]
     [SerializeField] private Vector3 _telegraphScaleMultiplier = Vector3.one;
 
-    [Header("Y축 오프셋")]
-    [SerializeField] private float _offSetY = 50f;
-
-    [Header("경고 표시 후 낙하까지의 시간")]
+    [Header("경고 표시 후 얼음기둥 생성까지의 시간")]
     [SerializeField, Min(0f)] private float _waitAfterWarnings = 0.5f;
 
-    [Header("낙하 후 다음 경고까지의 시간")]
+    [Header("얼음기둥 생성 후 다음 경고까지의 시간")]
     [SerializeField, Min(0f)] private float _attackInterval = 0.2f;
 
     private Coroutine _sequence;
@@ -111,7 +108,7 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
                 yield break;
             }
 
-            // 매회 경고 시점의 위치를 저장하고, 그 위치에 고드름을 떨어뜨립니다.
+            // 매회 경고 시점의 위치를 저장하고, 그 위치에 작은 얼음기둥을 생성합니다.
             _attackPositions[i] = _player.position;
             ActivateWarning(i);
 
@@ -141,9 +138,7 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
     {
         if (_icicles[index] != null)
         {
-            Vector3 spawnPosition = _attackPositions[index] + Vector3.up * _offSetY;
-
-            _icicles[index].Activate(spawnPosition);
+            _icicles[index].Activate(_attackPositions[index]);
             _icicles[index] = null;
         }
 
