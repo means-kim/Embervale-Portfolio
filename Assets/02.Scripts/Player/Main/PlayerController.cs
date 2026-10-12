@@ -2,6 +2,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerAnimator))]
 [RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerDash))]
 [RequireComponent(typeof(PlayerAttack), typeof(PlayerWall), typeof(PlayerHit))]
+[RequireComponent(typeof(PlayerGlide))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _landDuration = 0.17f;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private PlayerHit _playerHit;
     private PlayerAnimator _playerAnimator;
     private PlayerChargeJump _chargeJump;
+    private PlayerGlide _glide;
     private Health _health;
     public bool CanAttack => isActiveAndEnabled && CurrentState != PlayerState.Death && (_health == null || !_health.IsDead) && !_playerHit.IsHit && !_playerDash.IsDashing && !_playerAttack.IsAttacking
         && (_chargeJump == null || !_chargeJump.IsActive);
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         _playerHit = GetComponent<PlayerHit>();
         _playerAnimator = GetComponent<PlayerAnimator>();
         _chargeJump = GetComponent<PlayerChargeJump>();
+        _glide = GetComponent<PlayerGlide>();
         if (_playerAnimator == null) _playerAnimator = gameObject.AddComponent<PlayerAnimator>();
     }
     private void OnEnable()
@@ -107,7 +110,7 @@ public class PlayerController : MonoBehaviour
         }
         if (_playerJump.IsJumping)
         {
-            ChangeState(PlayerState.Jump);
+            ChangeState(_glide != null && _glide.IsGliding ? PlayerState.Glide : PlayerState.Jump);
             return;
         }
         if (!_playerJump.IsGrounded)

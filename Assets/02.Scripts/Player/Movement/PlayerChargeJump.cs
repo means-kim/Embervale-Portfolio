@@ -100,6 +100,7 @@ public class PlayerChargeJump : MonoBehaviour
         IceProjectile target = _aim.FindNearest(_selectionRadius, _projectileLayers);
         if (target == null ? !_allowWithoutProjectile || !CanPayHealth : !target.TryBeginCharge(this)) return;
         _attack?.InterruptForMovement();
+        GetComponent<PlayerGlide>()?.CancelGlide();
         _target = target;
         _withoutProjectile = target == null;
         _projectileVelocity = target != null ? target.Velocity : Vector2.zero;
