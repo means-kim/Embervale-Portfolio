@@ -777,7 +777,6 @@ GameObject:
   - component: {fileID: 239449262}
   - component: {fileID: 239449261}
   - component: {fileID: 239449260}
-  - component: {fileID: 239449259}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -805,26 +804,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 2048, y: 683}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &239449259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239449257}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5030f6d8dde3f514dbac0f1a82dea0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutGameButtonFrost
-  _piecePrefab: {fileID: 1680213451759536092, guid: bc3640bc92621fb47abc05298f4434b2, type: 3}
-  _container: {fileID: 239449258}
-  _spawnInterval: 0.12
-  _speed: 1
-  _speedRandom: 0.2
-  _lifetime: 2.4
-  _scale: 20
-  _scaleRandom: 1
 --- !u!225 &239449260
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -850,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImageFadeIn
   _fadeDuration: 2
-  _awaitTime: 1
+  _awaitTime: 1.5
   _controlInteraction: 1
 --- !u!114 &239449262
 MonoBehaviour:
@@ -1113,7 +1092,6 @@ GameObject:
   - component: {fileID: 972237329}
   - component: {fileID: 972237328}
   - component: {fileID: 972237327}
-  - component: {fileID: 972237332}
   - component: {fileID: 972237334}
   m_Layer: 5
   m_Name: LeaveButton
@@ -1263,26 +1241,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972237325}
   m_CullTransparentMesh: 1
---- !u!114 &972237332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972237325}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5030f6d8dde3f514dbac0f1a82dea0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutGameButtonFrost
-  _piecePrefab: {fileID: 1680213451759536092, guid: bc3640bc92621fb47abc05298f4434b2, type: 3}
-  _container: {fileID: 972237326}
-  _spawnInterval: 0.12
-  _speed: 1
-  _speedRandom: 0.2
-  _lifetime: 2.4
-  _scale: 20
-  _scaleRandom: 1
 --- !u!223 &972237333
 Canvas:
   m_ObjectHideFlags: 0
@@ -3287,7 +3245,6 @@ GameObject:
   - component: {fileID: 2037058906}
   - component: {fileID: 2037058905}
   - component: {fileID: 2037058909}
-  - component: {fileID: 2037058910}
   m_Layer: 5
   m_Name: GameStartButton
   m_TagString: Untagged
@@ -3436,26 +3393,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2037058910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037058903}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5030f6d8dde3f514dbac0f1a82dea0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutGameButtonFrost
-  _piecePrefab: {fileID: 1680213451759536092, guid: bc3640bc92621fb47abc05298f4434b2, type: 3}
-  _container: {fileID: 2037058904}
-  _spawnInterval: 0.12
-  _speed: 1
-  _speedRandom: 0.2
-  _lifetime: 2.4
-  _scale: 20
-  _scaleRandom: 1
 --- !u!1 &2134970157
 GameObject:
   m_ObjectHideFlags: 0

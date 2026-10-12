@@ -12,6 +12,7 @@ public class OutGameUI : MonoBehaviour
     [SerializeField, Min(0f)] private float _difficultyFadeDuration = 0.3f;
     private bool _choosingDifficulty;
     private bool _fading;
+    private bool _hasEnabled;
 
     private void OnDisable()
     {
@@ -39,8 +40,15 @@ public class OutGameUI : MonoBehaviour
         }
         if (_newGameButton != null)
         {
-            _newGameButton.SetActive(GameIntroCinematic.HasStartedGame);
+            _newGameButton.SetActive(true);
+            // 첫 표시의 ImageFadeIn은 유지하고, 재진입 시 숨김/클릭 차단을 복원한다.
+            if (_hasEnabled && _newGameButton.TryGetComponent<CanvasGroup>(out var group))
+            {
+                group.alpha = 1f;
+                group.interactable = group.blocksRaycasts = true;
+            }
         }
+        _hasEnabled = true;
     }
 
     public void OnClickGameStart()
