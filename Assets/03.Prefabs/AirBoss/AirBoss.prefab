@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 3177162394418046562}
   - component: {fileID: 1566677918546449221}
   - component: {fileID: 7370395266454099963}
+  - component: {fileID: 5289496989879416482}
   - component: {fileID: 2282874917967199264}
   - component: {fileID: 8288180633273542910}
   - component: {fileID: 5966944925137057139}
@@ -675,8 +676,9 @@ MonoBehaviour:
   _oneArmUpDownIcePhase3: {fileID: 3177162394418046562}
   _raiseBothArmPhase3: {fileID: 1566677918546449221}
   _oneArmIceSummon3Combo: {fileID: 7370395266454099963}
+  _oneArmUpDown3Combo: {fileID: 5289496989879416482}
   _phase1Actions: 050000000600000007000000080000000a0000000f000000
-  _phase2Actions: 0a0000000100000002000000090000000b0000000000000003000000
+  _phase2Actions: 0a0000000100000002000000090000000b000000000000000300000010000000
   _phase3Actions: 0a00000006000000070000000200000009000000010000000b00000003000000040000000c0000000d0000000e000000
 --- !u!114 &288646290909099654
 MonoBehaviour:
@@ -972,6 +974,25 @@ MonoBehaviour:
   _telegraphScaleMultiplier: {x: 3, y: 3, z: 1}
   _waitAfterWarnings: 0.7
   _attackInterval: 0.3
+--- !u!114 &5289496989879416482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070970274504918642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd8bd7ff7e745a43b8bc270bfe93a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDown3Combo
+  _animation: {fileID: 4804818044005549590}
+  _controller: {fileID: 3684625565806078733}
+  _player: {fileID: 0}
+  _telegraphType: 5
+  _telegraphScaleMultiplier: {x: 2, y: 2, z: 1}
+  _waitAfterWarnings: 0.5
+  _attackInterval: 0.2
 --- !u!114 &2282874917967199264
 MonoBehaviour:
   m_ObjectHideFlags: 0
