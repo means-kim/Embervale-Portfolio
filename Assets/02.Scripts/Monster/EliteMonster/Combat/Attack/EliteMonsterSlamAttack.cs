@@ -28,7 +28,8 @@ public class EliteMonsterSlamAttack : EliteMonsterAttack
 
         // Todo: 애니메이션 VFX 이벤트 함수 호출
 
-        EffectManager.Instance.PlaySnowEffect(SnowEffectType.Explode, _slamEffectTransform.position, Vector3.one * 3.0f);
+        bool flipX = _slamEffectTransform.lossyScale.x < 0f;
+        EffectManager.Instance.PlaySnowEffect(SnowEffectType.Explode, _slamEffectTransform.position, Vector3.one * 3.0f, flipX);
     }
 
     public override void EndAttack()
