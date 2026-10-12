@@ -163,18 +163,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9481ef3eb39279244a7d6c422d907512, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossPhaseAura
   _soulMaterial: {fileID: 2100000, guid: cd1f133f5d3cd064fb3d8a31738e9b12, type: 2}
   _arcMaterial: {fileID: 2100000, guid: 18842a9aa1cdf6145b7cd0adffc981bf, type: 2}
   _mistMaterial: {fileID: 2100000, guid: 57a75af6d0edeef4d94c665326356751, type: 2}
   _radius: {x: 16, y: 19}
   _center: {x: 0, y: 2}
-  _soulSize: 1.8
+  _soulSize: 3
   _soulSpawnGap: {x: 0.18, y: 0.42}
   _teleportClearDistance: 12
   _frostOpacity: 0.8
-  _arcWidth: 0.12
+  _arcWidth: 0.15
   _flashDuration: {x: 0.09, y: 0.19}
   _flashGap: {x: 0.45, y: 1.15}
   _electricOpacity: 0.85
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dccddaef94796b649af62946884b7042, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossDarkAura
   _boss: {fileID: 4954074921792302040}
   _phase: {fileID: 6821793748309605612}
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 200
   _autoRecover: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b89f277c8810c7d47a96485e11abc033, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _health: {fileID: 3290482276672149958}
 --- !u!114 &828212918542545421
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2081dfefb5eacc84385c49e37bef4cce, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossDeath
   _airBossossHealth: {fileID: 3290482276672149958}
   _airBossController: {fileID: 3684625565806078733}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0f9cdcd950a9eb44943cfad35b6691b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossHit
   _airBossHealth: {fileID: 3290482276672149958}
   _airBossSpriteRenderer: {fileID: 4954074921792302040}
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c83fec26d0bf4732a67a3099051e4ba, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossPhaseController
   _airBossHealth: {fileID: 3290482276672149958}
   _phase2HealthPercent: 70
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossController
   _idleTimer: 0.5
   _moveTimer: 1
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8361091d400c04640846f3e1b2a610cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossMovement
   _maxPosition: {x: 380, y: 150}
   _minPosition: {x: 300, y: 140}
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b06a8d442fcdae6439a986f37384269c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAnimation
 --- !u!114 &3536419785821164132
 MonoBehaviour:
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5292b7c857d188c46b89c900802e19a4, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAction
   _oneArmUpDownIce: {fileID: 6351156603021301246}
   _oneArmUpDownIceBlock: {fileID: 7010184717608891334}
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65259abe062da1a44ba2a495d0cb5544, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsLiftDrop
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66154ff556fc0484bbffed124e75496d, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIceThrow
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53b97bdb775374ad19c392830fa59410, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIce
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af86b1ffb5d94290859074fc3f01f8b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmIceSummon
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66eee6322369c1a45bccf0395033ef04, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsIcePush
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9974143c53e904f47a97b76b79af6138, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIceBlock
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c0631c7c8ad6834b9a627ac38432596, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDown
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e9be0163090cdd4a9b52b6b1c64f258, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsRaise
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46d97e85afebaad42bc1d4a148a316e1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossBothArmsLightningGather
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 013cf2027dd282f40862e77f92d4ad2b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossCrossBurst
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ddc2ba8ef377da45b55c5920c3b0ba0, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossForwardReach
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b137409a184f6ac44b18091f9e0cd3c3, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossCrossBurst6Point
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc7d5b5a09a6fa540ac4adfeb62bf160, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossRaiseDropShadow
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d871ac2ace349142aebe3310d95a386, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossOneArmUpDownIcePhase3
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b88596a080270e41a693700b34aa743, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossRaiseBothArmPhase3
   _animation: {fileID: 4804818044005549590}
   _controller: {fileID: 3684625565806078733}
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab617d6101f494c4fa55cc5662b7784a, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossHeadCollider
   _spriteRenderer: {fileID: 4954074921792302040}
   _headCollider: {fileID: 6406218199782589037}
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f96f4671e544a39bcdd90856735d316, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossStagger
   _health: {fileID: 3290482276672149958}
   _controller: {fileID: 3684625565806078733}
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
   _cues:
   - Name: Stagger Crackle
