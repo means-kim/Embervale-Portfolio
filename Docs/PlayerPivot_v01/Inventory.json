@@ -1,0 +1,3754 @@
+[
+  {
+    "path": "Assets/04.Sprites/Player/Attack_Grid512.png",
+    "guid": "622530eaad99ae247a8c8d423bbd9be9",
+    "ppu": 200.0,
+    "mode": "Multiple",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DownAttack.anim",
+      "Assets/05.Animation/PlayerAttack/DownAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_Grid512_0",
+        "id": "3d7651845156a20f0800000000000000",
+        "x": 110.0,
+        "y": 1122.0,
+        "width": 235.0,
+        "height": 303.0,
+        "px": 0.6213,
+        "py": 0.0132
+      },
+      {
+        "name": "Attack_Grid512_1",
+        "id": "88ac53fec4e854280800000000000000",
+        "x": 603.0,
+        "y": 1123.0,
+        "width": 260.0,
+        "height": 296.0,
+        "px": 0.6346,
+        "py": 0.0101
+      },
+      {
+        "name": "Attack_Grid512_2",
+        "id": "eff969d838f79ce30800000000000000",
+        "x": 1148.0,
+        "y": 1122.0,
+        "width": 243.0,
+        "height": 341.0,
+        "px": 0.5432,
+        "py": 0.0117
+      },
+      {
+        "name": "Attack_Grid512_3",
+        "id": "e0f47c6079d0b1310800000000000000",
+        "x": 1608.0,
+        "y": 1123.0,
+        "width": 285.0,
+        "height": 315.0,
+        "px": 0.6456,
+        "py": 0.0095
+      },
+      {
+        "name": "Attack_Grid512_4",
+        "id": "af3634250e9cbf320800000000000000",
+        "x": 2134.0,
+        "y": 1122.0,
+        "width": 275.0,
+        "height": 325.0,
+        "px": 0.6182,
+        "py": 0.0123
+      },
+      {
+        "name": "Attack_Grid512_5",
+        "id": "971d23d74320162b0800000000000000",
+        "x": 117.0,
+        "y": 611.0,
+        "width": 349.0,
+        "height": 331.0,
+        "px": 0.3983,
+        "py": 0.0091
+      },
+      {
+        "name": "Attack_Grid512_6",
+        "id": "3f0326d4279543550800000000000000",
+        "x": 602.0,
+        "y": 611.0,
+        "width": 352.0,
+        "height": 310.0,
+        "px": 0.4716,
+        "py": 0.0097
+      },
+      {
+        "name": "Attack_Grid512_7",
+        "id": "27eabe64f83ef0da0800000000000000",
+        "x": 1127.0,
+        "y": 610.0,
+        "width": 346.0,
+        "height": 307.0,
+        "px": 0.4422,
+        "py": 0.013
+      },
+      {
+        "name": "Attack_Grid512_8",
+        "id": "bfcf63c1bd3447970800000000000000",
+        "x": 1634.0,
+        "y": 610.0,
+        "width": 363.0,
+        "height": 304.0,
+        "px": 0.4353,
+        "py": 0.0132
+      },
+      {
+        "name": "Attack_Grid512_9",
+        "id": "9e424a195123f6480800000000000000",
+        "x": 2145.0,
+        "y": 611.0,
+        "width": 346.0,
+        "height": 313.0,
+        "px": 0.4595,
+        "py": 0.0096
+      },
+      {
+        "name": "Attack_Grid512_10",
+        "id": "dd082d6d4f8f732c0800000000000000",
+        "x": 111.0,
+        "y": 98.0,
+        "width": 304.0,
+        "height": 301.0,
+        "px": 0.477,
+        "py": 0.0133
+      },
+      {
+        "name": "Attack_Grid512_11",
+        "id": "df5da753c6a3a50e0800000000000000",
+        "x": 629.0,
+        "y": 99.0,
+        "width": 274.0,
+        "height": 327.0,
+        "px": 0.5073,
+        "py": 0.0092
+      },
+      {
+        "name": "Attack_Grid512_12",
+        "id": "efba70e8ffa2b9260800000000000000",
+        "x": 1185.0,
+        "y": 99.0,
+        "width": 189.0,
+        "height": 341.0,
+        "px": 0.5026,
+        "py": 0.0088
+      },
+      {
+        "name": "Attack_Grid512_13",
+        "id": "314973ab93e137650800000000000000",
+        "x": 1701.0,
+        "y": 99.0,
+        "width": 177.0,
+        "height": 337.0,
+        "px": 0.5141,
+        "py": 0.0089
+      },
+      {
+        "name": "Attack_Grid512_14",
+        "id": "4f887de54f94388d0800000000000000",
+        "x": 2213.0,
+        "y": 99.0,
+        "width": 259.0,
+        "height": 359.0,
+        "px": 0.3514,
+        "py": 0.0084
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/Attack2_Grid512.png",
+    "guid": "3f33eeabaace1654286cae07fb425745",
+    "ppu": 200.0,
+    "mode": "Multiple",
+    "clips": [
+      "Assets/05.Animation/PlayerAttack/UpAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack2_Grid512_0",
+        "id": "0cdb905df24d19120800000000000000",
+        "x": 110.0,
+        "y": 1122.0,
+        "width": 235.0,
+        "height": 303.0,
+        "px": 0.6213,
+        "py": 0.0132
+      },
+      {
+        "name": "Attack2_Grid512_1",
+        "id": "e9beb9f0af4a87800800000000000000",
+        "x": 621.0,
+        "y": 1124.0,
+        "width": 316.0,
+        "height": 288.0,
+        "px": 0.4652,
+        "py": 0.0069
+      },
+      {
+        "name": "Attack2_Grid512_2",
+        "id": "8a93643ffb24f7df0800000000000000",
+        "x": 1122.0,
+        "y": 1122.0,
+        "width": 328.0,
+        "height": 300.0,
+        "px": 0.4817,
+        "py": 0.0133
+      },
+      {
+        "name": "Attack2_Grid512_3",
+        "id": "5f7f43a7704086140800000000000000",
+        "x": 1646.0,
+        "y": 1122.0,
+        "width": 346.0,
+        "height": 314.0,
+        "px": 0.422,
+        "py": 0.0127
+      },
+      {
+        "name": "Attack2_Grid512_4",
+        "id": "a2e462fb6e9e7beb0800000000000000",
+        "x": 2154.0,
+        "y": 1124.0,
+        "width": 363.0,
+        "height": 319.0,
+        "px": 0.4132,
+        "py": 0.0063
+      },
+      {
+        "name": "Attack2_Grid512_5",
+        "id": "5a693c3114b15cc20800000000000000",
+        "x": 141.0,
+        "y": 610.0,
+        "width": 332.0,
+        "height": 336.0,
+        "px": 0.3464,
+        "py": 0.0119
+      },
+      {
+        "name": "Attack2_Grid512_6",
+        "id": "9bf3df6d58bb2a3e0800000000000000",
+        "x": 644.0,
+        "y": 611.0,
+        "width": 302.0,
+        "height": 385.0,
+        "px": 0.4106,
+        "py": 0.0078
+      },
+      {
+        "name": "Attack2_Grid512_7",
+        "id": "28ac67704d2bcba90800000000000000",
+        "x": 1197.0,
+        "y": 611.0,
+        "width": 290.0,
+        "height": 405.0,
+        "px": 0.2862,
+        "py": 0.0074
+      },
+      {
+        "name": "Attack2_Grid512_8",
+        "id": "e09c5e68662398e40800000000000000",
+        "x": 1731.0,
+        "y": 612.0,
+        "width": 243.0,
+        "height": 365.0,
+        "px": 0.251,
+        "py": 0.0055
+      },
+      {
+        "name": "Attack2_Grid512_9",
+        "id": "5454956f1fa98f4a0800000000000000",
+        "x": 2231.0,
+        "y": 610.0,
+        "width": 258.0,
+        "height": 372.0,
+        "px": 0.2829,
+        "py": 0.0108
+      },
+      {
+        "name": "Attack2_Grid512_10",
+        "id": "f38cb5a5f3e558f50800000000000000",
+        "x": 190.0,
+        "y": 100.0,
+        "width": 185.0,
+        "height": 314.0,
+        "px": 0.3568,
+        "py": 0.0064
+      },
+      {
+        "name": "Attack2_Grid512_11",
+        "id": "396658e8108cedf10800000000000000",
+        "x": 682.0,
+        "y": 98.0,
+        "width": 188.0,
+        "height": 316.0,
+        "px": 0.4574,
+        "py": 0.0127
+      },
+      {
+        "name": "Attack2_Grid512_12",
+        "id": "d8ffd1f323e589fd0800000000000000",
+        "x": 1185.0,
+        "y": 99.0,
+        "width": 189.0,
+        "height": 341.0,
+        "px": 0.5026,
+        "py": 0.0088
+      },
+      {
+        "name": "Attack2_Grid512_13",
+        "id": "8fa8f582428616990800000000000000",
+        "x": 1701.0,
+        "y": 99.0,
+        "width": 177.0,
+        "height": 337.0,
+        "px": 0.5141,
+        "py": 0.0089
+      },
+      {
+        "name": "Attack2_Grid512_14",
+        "id": "e248a3f2e147d4a40800000000000000",
+        "x": 2213.0,
+        "y": 99.0,
+        "width": 259.0,
+        "height": 359.0,
+        "px": 0.3514,
+        "py": 0.0084
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/Attack3_Grid512.png",
+    "guid": "4dcc9718602ad61409b38eca1770c9ea",
+    "ppu": 200.0,
+    "mode": "Multiple",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/FireballAttack.anim",
+      "Assets/05.Animation/PlayerAttack/FireballAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack3_Grid512_0",
+        "id": "97d9cfd981ee58d20800000000000000",
+        "x": 110.0,
+        "y": 1122.0,
+        "width": 235.0,
+        "height": 303.0,
+        "px": 0.6213,
+        "py": 0.0132
+      },
+      {
+        "name": "Attack3_Grid512_1",
+        "id": "892a372fa913c56e0800000000000000",
+        "x": 642.0,
+        "y": 1123.0,
+        "width": 258.0,
+        "height": 306.0,
+        "px": 0.4884,
+        "py": 0.0098
+      },
+      {
+        "name": "Attack3_Grid512_2",
+        "id": "306c8f4a93fecafc0800000000000000",
+        "x": 1135.0,
+        "y": 1123.0,
+        "width": 252.0,
+        "height": 311.0,
+        "px": 0.5754,
+        "py": 0.0096
+      },
+      {
+        "name": "Attack3_Grid512_3",
+        "id": "e3a866c6ed4b0fdb0800000000000000",
+        "x": 98.0,
+        "y": 611.0,
+        "width": 350.0,
+        "height": 306.0,
+        "px": 0.4514,
+        "py": 0.0098
+      },
+      {
+        "name": "Attack3_Grid512_4",
+        "id": "aa82a6d3f39d7c070800000000000000",
+        "x": 617.0,
+        "y": 612.0,
+        "width": 387.0,
+        "height": 288.0,
+        "px": 0.3902,
+        "py": 0.0069
+      },
+      {
+        "name": "Attack3_Grid512_5",
+        "id": "642bd958d01f626a0800000000000000",
+        "x": 1173.0,
+        "y": 611.0,
+        "width": 246.0,
+        "height": 304.0,
+        "px": 0.435,
+        "py": 0.0099
+      },
+      {
+        "name": "Attack3_Grid512_6",
+        "id": "41a79b59507389e40800000000000000",
+        "x": 175.0,
+        "y": 99.0,
+        "width": 188.0,
+        "height": 316.0,
+        "px": 0.4309,
+        "py": 0.0095
+      },
+      {
+        "name": "Attack3_Grid512_7",
+        "id": "2aa09d0f475a74640800000000000000",
+        "x": 673.0,
+        "y": 99.0,
+        "width": 189.0,
+        "height": 341.0,
+        "px": 0.5026,
+        "py": 0.0088
+      },
+      {
+        "name": "Attack3_Grid512_8",
+        "id": "9c1f6556b37e9eb60800000000000000",
+        "x": 1189.0,
+        "y": 99.0,
+        "width": 259.0,
+        "height": 359.0,
+        "px": 0.3514,
+        "py": 0.0084
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/Attack4_Grid512.png",
+    "guid": "fe06394c4b4a9024781496d9e6fea85a",
+    "ppu": 200.0,
+    "mode": "Multiple",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/RightHorizontalAttack.anim",
+      "Assets/05.Animation/PlayerAttack/RightHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack4_Grid512_0",
+        "id": "812b2c5e9e11153d0800000000000000",
+        "x": 110.0,
+        "y": 1122.0,
+        "width": 235.0,
+        "height": 303.0,
+        "px": 0.6213,
+        "py": 0.0132
+      },
+      {
+        "name": "Attack4_Grid512_1",
+        "id": "f311a3f9e46cad7b0800000000000000",
+        "x": 538.0,
+        "y": 1123.0,
+        "width": 348.0,
+        "height": 283.0,
+        "px": 0.6609,
+        "py": 0.0106
+      },
+      {
+        "name": "Attack4_Grid512_2",
+        "id": "c6fb773d664808920800000000000000",
+        "x": 1051.0,
+        "y": 1123.0,
+        "width": 353.0,
+        "height": 290.0,
+        "px": 0.6487,
+        "py": 0.0103
+      },
+      {
+        "name": "Attack4_Grid512_3",
+        "id": "4e155c6d227ddcbc0800000000000000",
+        "x": 1663.0,
+        "y": 1123.0,
+        "width": 241.0,
+        "height": 311.0,
+        "px": 0.5353,
+        "py": 0.0096
+      },
+      {
+        "name": "Attack4_Grid512_4",
+        "id": "8e671e8b3e41967c0800000000000000",
+        "x": 2160.0,
+        "y": 1124.0,
+        "width": 298.0,
+        "height": 292.0,
+        "px": 0.4832,
+        "py": 0.0068
+      },
+      {
+        "name": "Attack4_Grid512_5",
+        "id": "cc4dddbbe1f971430800000000000000",
+        "x": 119.0,
+        "y": 612.0,
+        "width": 340.0,
+        "height": 281.0,
+        "px": 0.4029,
+        "py": 0.0071
+      },
+      {
+        "name": "Attack4_Grid512_6",
+        "id": "79aba1d314aa7c080800000000000000",
+        "x": 645.0,
+        "y": 611.0,
+        "width": 316.0,
+        "height": 299.0,
+        "px": 0.3892,
+        "py": 0.01
+      },
+      {
+        "name": "Attack4_Grid512_7",
+        "id": "9ad8070f611daeab0800000000000000",
+        "x": 1150.0,
+        "y": 611.0,
+        "width": 348.0,
+        "height": 306.0,
+        "px": 0.3736,
+        "py": 0.0098
+      },
+      {
+        "name": "Attack4_Grid512_8",
+        "id": "56bbeff9a7feb04e0800000000000000",
+        "x": 1638.0,
+        "y": 611.0,
+        "width": 310.0,
+        "height": 290.0,
+        "px": 0.4968,
+        "py": 0.0103
+      },
+      {
+        "name": "Attack4_Grid512_9",
+        "id": "5638f07af7c804c60800000000000000",
+        "x": 2189.0,
+        "y": 612.0,
+        "width": 272.0,
+        "height": 302.0,
+        "px": 0.4228,
+        "py": 0.0066
+      },
+      {
+        "name": "Attack4_Grid512_10",
+        "id": "ee3a7cc97bfe8fab0800000000000000",
+        "x": 143.0,
+        "y": 99.0,
+        "width": 226.0,
+        "height": 307.0,
+        "px": 0.5,
+        "py": 0.0098
+      },
+      {
+        "name": "Attack4_Grid512_11",
+        "id": "936544d9333b0f0d0800000000000000",
+        "x": 685.0,
+        "y": 99.0,
+        "width": 196.0,
+        "height": 316.0,
+        "px": 0.4235,
+        "py": 0.0095
+      },
+      {
+        "name": "Attack4_Grid512_12",
+        "id": "f387127ccfbcba820800000000000000",
+        "x": 1185.0,
+        "y": 99.0,
+        "width": 189.0,
+        "height": 341.0,
+        "px": 0.5026,
+        "py": 0.0088
+      },
+      {
+        "name": "Attack4_Grid512_13",
+        "id": "4f3ff0f2de32e4e40800000000000000",
+        "x": 1701.0,
+        "y": 99.0,
+        "width": 177.0,
+        "height": 337.0,
+        "px": 0.5141,
+        "py": 0.0089
+      },
+      {
+        "name": "Attack4_Grid512_14",
+        "id": "76c4c26a284e2b8a0800000000000000",
+        "x": 2213.0,
+        "y": 99.0,
+        "width": 259.0,
+        "height": 359.0,
+        "px": 0.3514,
+        "py": 0.0084
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_00.png",
+    "guid": "fc673b9f693fe294984d520fc233f0c6",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_01.png",
+    "guid": "b344b5b35582e5f4ea2665710087ab90",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_02.png",
+    "guid": "237522919656dd640a95e13b3aeee2b5",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_03.png",
+    "guid": "32a0c59bda4761949b0023e59e6163d9",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_04.png",
+    "guid": "4d28e9c8793b0314c9b32fcdc65795ed",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_05.png",
+    "guid": "b4b8193dda9843547bc305c1b258d19d",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_06.png",
+    "guid": "06a624f80b9766a44af270628c6bc07f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_07.png",
+    "guid": "e7b3200d9570ce84f8d479990117ef52",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_08.png",
+    "guid": "23bfa649cbba999498348f5c1b0dd71f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_08",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_09.png",
+    "guid": "2fd2ee77a0ea6274997ff5ab6d853e6b",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_09",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_10.png",
+    "guid": "39597e50e91d0994b8152b10fe01455e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_10",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_11.png",
+    "guid": "a7f3a228b77932443b18cdea6bb497c0",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_11",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_12.png",
+    "guid": "e12c30a05710f9748aaa5555e13cb0fd",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_12",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_13.png",
+    "guid": "9e7927f0ea757354f828ddb609a07f35",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_13",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_14.png",
+    "guid": "469881e881c6a824d95fdf6e60687075",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_14",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_15.png",
+    "guid": "2eb06f1e2a8cdee4b957bcd4fa2e1982",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_15",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_16.png",
+    "guid": "3edc2677510b844438c91b76251e7536",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_16",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_17.png",
+    "guid": "82a020fd1d858794b974aae5899c3199",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_17",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_18.png",
+    "guid": "43f7dcd0ec7535149a918f4a007ccf47",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_18",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_19.png",
+    "guid": "dc769753562d26444bcbcb4dda3b25f9",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_19",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_20.png",
+    "guid": "a38657a97f8e80f4c8fadbd1401e8219",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_20",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_21.png",
+    "guid": "d009130a590208b4e9ad8f97ab99dd48",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_21",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_22.png",
+    "guid": "41835c0ad6fb53f4c9dd3adf74bf2b51",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_22",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_23.png",
+    "guid": "5c2f0fe352329a24490cf442a648c54f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_23",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_24.png",
+    "guid": "ad4830f76d2802e4493812694de7cc4a",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_24",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_25.png",
+    "guid": "ccb71a2706bbae9439beeecbd514b704",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_25",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_26.png",
+    "guid": "e1603f8453877ed40b8a734acd83218e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_26",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_27.png",
+    "guid": "441fa3d296b26a34ea9aab3385686948",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_27",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_28.png",
+    "guid": "29fa4158c70ccb94abe952528c66747c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_28",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_29.png",
+    "guid": "0b23e0705fdf51a48850da1a0516aaca",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_29",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_30.png",
+    "guid": "f1793d75a125c654baaf178ea7cb3ea3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_30",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_31.png",
+    "guid": "4b8c84d70971ed04cb5e84983589c0f0",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Idle.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Generated/Player_Idle_v3.anim",
+      "Assets/05.Animation/player/Idle.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Idle_31",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_00.png",
+    "guid": "a10201c6a62727647b59be25565150de",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_01.png",
+    "guid": "7caa79d087257244581e8f2ca6232600",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_02.png",
+    "guid": "b7f24e4df17a90749bdd8896bf9c5522",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_03.png",
+    "guid": "f59b231fea4e2574cb328f5d7f61879a",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_04.png",
+    "guid": "2d221286a923a6b45a7a0ec2a271fdc7",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_05.png",
+    "guid": "8320b550e7f8b1f459a4565ac022dbad",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_06.png",
+    "guid": "42f0d7214b48bb347b594e801c8ff512",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_07.png",
+    "guid": "07647118f1a0b6346b726c014a31fb08",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/LeftHorizontalAttack.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Attack_v4.anim",
+      "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Attack_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_00.png",
+    "guid": "385d04f4daea4894c844892383dae2f6",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashEnd.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashEnd_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashEnd_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_01.png",
+    "guid": "1f341b773abb426439d584e847f69ba5",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashEnd.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashEnd_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashEnd_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_02.png",
+    "guid": "aabcd4ec8fbee0c47b4e44388626ff89",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashEnd.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashEnd_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashEnd_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_00.png",
+    "guid": "a5b2b8708526eaf479c4f203e29a1b61",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_01.png",
+    "guid": "b483fda46df5f2945abf0e7c13f2bd5a",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_02.png",
+    "guid": "f0141a2574d6912459caf9522904865e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_03.png",
+    "guid": "eadb7b4ea4c79194d874a0bb6fbeaa78",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_04.png",
+    "guid": "3e1de9649b1ab4e4bbc27e9d5aa19cca",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_05.png",
+    "guid": "7db0266577d01ac458d6c75cc6551bbd",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_06.png",
+    "guid": "7d5e7eeb493fda04ea201474b388c2f3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_07.png",
+    "guid": "c29165488e076354380b415ea6fbbf15",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashLoop.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashLoop_v4.anim",
+      "Assets/05.Animation/player/Dash.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashLoop_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashStart/DashStart_00.png",
+    "guid": "4f90ca87240a4964ab6f0aea305274e8",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashStart.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashStart_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashStart_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashStart/DashStart_01.png",
+    "guid": "28d2abb337b70e44185980dc7af9eaa3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DashStart.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DashStart_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DashStart_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_00.png",
+    "guid": "f8f491d55514bab45b005dbce8b064a4",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_01.png",
+    "guid": "e1fa27b6c8edd3c40a477fd583f72e29",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_02.png",
+    "guid": "971a55f0b982b724ab7c6affdb69a387",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_03.png",
+    "guid": "26eea6efe9873eb4f84f9e87a35fd4fb",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_04.png",
+    "guid": "ec3bb38bfb15ade4fbcb542a6932c1d1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_05.png",
+    "guid": "3f0d6f85fefba564b81af549eab49c67",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_06.png",
+    "guid": "083d57c30ef17314ea234eea0b574d20",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_07.png",
+    "guid": "9b5a16f870890c5449a980a87d4362f8",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_08.png",
+    "guid": "5460897fac6fc964bbfd64ee1c67adce",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_08",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_09.png",
+    "guid": "16ff71207122d3f469caf0c896e4cb62",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_09",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_10.png",
+    "guid": "9f908da06f72d7849bad0e5c3bf0af5b",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_10",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_11.png",
+    "guid": "6fcb2eed53ac0094881e7e83aad01b20",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_11",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_12.png",
+    "guid": "3d0ed1ec9650f484ea309c39c6890486",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_12",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_13.png",
+    "guid": "491e9bcc617413b4a819073193942154",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_13",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_14.png",
+    "guid": "e0534bc10022a4d43a80bacbc8c23f97",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_14",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_15.png",
+    "guid": "000103c07669a084abdbbf485544df36",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/DoubleJump.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_DoubleJump_v4.anim",
+      "Assets/05.Animation/player/DoubleJump.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "DoubleJump_15",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_00.png",
+    "guid": "301ca62824f241340b92b67813068e44",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_01.png",
+    "guid": "3e71b6210800d204491ce98a9192e88c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_02.png",
+    "guid": "4b87cb2d1dcbf0e4eae9eba97c4467f6",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_03.png",
+    "guid": "70f46a4d8ee393846ad3373526dc1dbb",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_04.png",
+    "guid": "54f2d30bc6bd13d4b8a8c1200e02be73",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_05.png",
+    "guid": "acc1221ea5471c2498b66455ba54b941",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_06.png",
+    "guid": "cac9733104a1f474d98c85c240e57b74",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_07.png",
+    "guid": "8728b9b8c969e264186cd0959fce7658",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Fall.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Fall_v4.anim",
+      "Assets/05.Animation/player/Fall.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Fall_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_00.png",
+    "guid": "93e897463300e77409448fe8c667bea1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Hit.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Hurt_v4.anim",
+      "Assets/05.Animation/player/Hit.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Hurt_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_01.png",
+    "guid": "b81ba6fceedc537479d30b14283753cc",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Hit.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Hurt_v4.anim",
+      "Assets/05.Animation/player/Hit.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Hurt_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_02.png",
+    "guid": "60b5ceb44a45adc42b0ce9b48a6f22f6",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Hit.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Hurt_v4.anim",
+      "Assets/05.Animation/player/Hit.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Hurt_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_03.png",
+    "guid": "d91355b8eb23b0d4f84cdda0a1826690",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Hit.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Hurt_v4.anim",
+      "Assets/05.Animation/player/Hit.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Hurt_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_00.png",
+    "guid": "6682d97ef4196014ab709b91f21473a1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpApex.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpApex_v4.anim",
+      "Assets/05.Animation/player/JumpApex.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpApex_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_01.png",
+    "guid": "154790a4f9fd5e146af79c9bf14e801f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpApex.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpApex_v4.anim",
+      "Assets/05.Animation/player/JumpApex.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpApex_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_02.png",
+    "guid": "7353b153cb2021a419da4a91784abcc3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpApex.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpApex_v4.anim",
+      "Assets/05.Animation/player/JumpApex.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpApex_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_03.png",
+    "guid": "968e9852dcad7854e8ccdbf4da63db9f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpApex.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpApex_v4.anim",
+      "Assets/05.Animation/player/JumpApex.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpApex_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_00.png",
+    "guid": "49628a9f770e71f46a901cc71a53589d",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_01.png",
+    "guid": "7e64aa0e814697d40a4ad1943a1e8d2f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_02.png",
+    "guid": "78b60414300be3b42bd1d689c4efde69",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_03.png",
+    "guid": "efcf80968a425b94c8f17408c26a3c50",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_04.png",
+    "guid": "8d3a8d6fd6bf8284eaa61fe599606d9e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_05.png",
+    "guid": "fc6540e36cbe25844aa3d3a2a009f70b",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_06.png",
+    "guid": "c41bd1e72993a1345af13548233f2b39",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_07.png",
+    "guid": "a09575dc8a000bc48bae996102d53329",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpRise.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpRise_v4.anim",
+      "Assets/05.Animation/player/JumpRise.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpRise_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_00.png",
+    "guid": "5c577e2ef264a114888ba5b9a4fdd338",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpStart.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpStart_v4.anim",
+      "Assets/05.Animation/player/JumpStart.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpStart_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_01.png",
+    "guid": "c84c2bcd247b35344bcc35aba1025a0b",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpStart.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpStart_v4.anim",
+      "Assets/05.Animation/player/JumpStart.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpStart_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_02.png",
+    "guid": "60610271b27f40947b32e50b51a9ff4f",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/JumpStart.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_JumpStart_v4.anim",
+      "Assets/05.Animation/player/JumpStart.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "JumpStart_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_00.png",
+    "guid": "73bbf08c528e92b4c91b35b539bcd1b3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Land.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Land_v4.anim",
+      "Assets/05.Animation/player/Land.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Land_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_01.png",
+    "guid": "e1b22a3da80208948bce6a82e707b4e1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Land.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Land_v4.anim",
+      "Assets/05.Animation/player/Land.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Land_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_02.png",
+    "guid": "797bd6515d5c0154ab26ee65d76b1569",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Land.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Land_v4.anim",
+      "Assets/05.Animation/player/Land.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Land_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_03.png",
+    "guid": "f112b87f7882f4b489bc93cc34973530",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Land.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Land_v4.anim",
+      "Assets/05.Animation/player/Land.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Land_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_00.png",
+    "guid": "f81b9fd9f1e470e4580587198d88827e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_01.png",
+    "guid": "5dc459624d7a75d40aa131c8e6465d52",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_02.png",
+    "guid": "ca75cd4d13219df4e817bdbf432921ad",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_03.png",
+    "guid": "fa05e0026e6b34441a0b9be262a39756",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_04.png",
+    "guid": "6f5d8f0c0b8469f4f80e6378fcfec28c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_05.png",
+    "guid": "73cdde3eec91c684c8a7da3a39ba7947",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_06.png",
+    "guid": "127999fcd4a2283448608cb897eab0d4",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_07.png",
+    "guid": "b438eeb8bfab3ce43919ca229db77ef7",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_08.png",
+    "guid": "ed2b71aa6edba4446a5037e531de848e",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_08",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_09.png",
+    "guid": "9b6950753b18dec45a33cb1bc5bd3f0c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/Run.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_Run_v4.anim",
+      "Assets/05.Animation/player/Run.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "Run_09",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_00.png",
+    "guid": "946f19c26bb08af4f98af316aeae0910",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallClimb.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallClimb_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallClimb_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_01.png",
+    "guid": "a2edcdc7d659e3748aafc476d40ba7e9",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallClimb.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallClimb_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallClimb_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_02.png",
+    "guid": "a32d78b164689a346b255f0f002aaaee",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallClimb.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallClimb_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallClimb_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_03.png",
+    "guid": "b9a1f98b96a0ff14d9e14ba2f29695e9",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallClimb.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallClimb_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallClimb_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_00.png",
+    "guid": "4410178ddb2726a41b55e3dd299902f1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_01.png",
+    "guid": "fbb75c7524ca5fb46bdd0947109289e1",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_02.png",
+    "guid": "db6593e865678484ebacda811aa70291",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_03.png",
+    "guid": "2bb92131b7943e442af06d8366d8daa3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_04.png",
+    "guid": "a1f71412f6042374ba7b10b6eca4fd66",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_05.png",
+    "guid": "4f0015a7cc39cb34192b91b271603b46",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_06.png",
+    "guid": "64bba2b90e221db43a8b150dd4f66ace",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_07.png",
+    "guid": "4dfdf579e746a984c837bd0a9c7ff8b2",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/02.Scripts/Z_HyunseoTest/Animation/Player/WallCling.anim",
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallCling_v4.anim",
+      "Assets/05.Animation/player/WallCling.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallCling_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_00.png",
+    "guid": "626ac4e6f35a58a43ab1f6f4188e0a3a",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallJump_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallJump_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_01.png",
+    "guid": "6c3ea3fdc402e8d46a896d1a9a6e76a4",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallJump_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallJump_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_02.png",
+    "guid": "f926a7df23a687e428562c4f59f87cd0",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallJump_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallJump_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_00.png",
+    "guid": "c3ba056531e2d3d4c897fa625b81d55c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_00",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_01.png",
+    "guid": "224a4a6ba685b8b42a251abe2853fd54",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_01",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_02.png",
+    "guid": "32ac10d0137c54b49a2a33ac5b1ef523",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_02",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_03.png",
+    "guid": "abd579d5a6b7aeb438dde7f51ec0e900",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_03",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_04.png",
+    "guid": "65f6c204ab8f8bb43b2e02fb56eb364b",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_04",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_05.png",
+    "guid": "cfbb89d2440110d468b3ade2f59ebd51",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_05",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_06.png",
+    "guid": "2228d34a1662f6d4eb9e370e7df95e8c",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_06",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  },
+  {
+    "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_07.png",
+    "guid": "5abc180702584c94382d8c4c71fa30a3",
+    "ppu": 200.0,
+    "mode": "Single",
+    "clips": [
+      "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Generated/Clips/Player_WallSlide_v4.anim"
+    ],
+    "canEdit": true,
+    "sprites": [
+      {
+        "name": "WallSlide_07",
+        "id": "5e97eb03825dee720800000000000000",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 512.0,
+        "height": 512.0,
+        "px": 0.5,
+        "py": 0.19921875
+      }
+    ]
+  }
+]

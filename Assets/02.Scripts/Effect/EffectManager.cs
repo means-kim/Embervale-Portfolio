@@ -140,6 +140,12 @@ public class EffectManager : MonoBehaviour
         return effect;
     }
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
+    public void PlayFootstep(Vector3 position, int facingDirection)
+    {
+        var effect = Spawn(_footstepVfx, position);
+        if (effect != null && effect.TryGetComponent<FootstepParticle>(out var particle))
+            particle.Play(facingDirection);
+    }
 
     public GameObject PlayChargeJumpAim(Vector3 position)
     {

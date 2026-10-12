@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
-    [SerializeField, Min(0), Tooltip("공중에서 착지 전까지 허용하는 공격 횟수. 평타·스킬 공통.")]
+    [SerializeField, Min(0), Tooltip("공중 공격권 초기화 사이에 허용하는 공격 횟수. 평타·스킬 공통.")]
     private int _maxAirAttackCount = 3;
+    [Header("공중 공격권 초기화")]
+    [SerializeField, Tooltip("1단 및 2단 이상 점프가 실제 발동하면 공중 공격권을 초기화합니다.")]
+    private bool _resetAirAttackCountOnJump = false;
+    [SerializeField, Tooltip("공중 Shift 대시가 실제 발동하면 공중 공격권을 초기화합니다. 지상 대시는 제외합니다.")]
+    private bool _resetAirAttackCountOnAirDash = false;
+    [SerializeField, Tooltip("투사체를 잡은 뒤 차징 점프로 실제 발사되면 공중 공격권을 초기화합니다. 조준과 취소는 제외합니다.")]
+    private bool _resetAirAttackCountOnChargeJump = false;
     private int _airAttackCount;
     public int MaxAirAttackCount => _maxAirAttackCount;
     public int CurrentAirAttackCount => _airAttackCount;
@@ -79,6 +86,9 @@ public class PlayerAttack : MonoBehaviour
     }
     private bool IsGrounded => _jump != null && _jump.IsGrounded;
     private void ResetAirAttackCount() => _airAttackCount = 0;
+    public void ResetAirAttackCountOnJump() { if (_resetAirAttackCountOnJump) ResetAirAttackCount(); }
+    public void ResetAirAttackCountOnAirDash() { if (_resetAirAttackCountOnAirDash) ResetAirAttackCount(); }
+    public void ResetAirAttackCountOnChargeJump() { if (_resetAirAttackCountOnChargeJump) ResetAirAttackCount(); }
     private void OnEnable()
     {
         if (_jump == null) _jump = GetComponent<PlayerJump>();
@@ -175,7 +185,8 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     public void CancelAttack() => FinishAttack();
-    public void InterruptForDash()
+    public void InterruptForDash() => InterruptForMovement();
+    public void InterruptForMovement()
     {
         CancelAttack();
         _motion.UnlockHorizontal();

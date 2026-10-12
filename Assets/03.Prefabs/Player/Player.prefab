@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1088994242330746512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3027838822928361650}
+  m_Layer: 9
+  m_Name: FootstepPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3027838822928361650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088994242330746512}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.62, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2864288753525930506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3034470034761653321
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +62,7 @@ GameObject:
   - component: {fileID: 5573973081042068529}
   - component: {fileID: 2559918198518714434}
   - component: {fileID: 297177313599866805}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,6 +83,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6309602993654729951}
+  - {fileID: 3027838822928361650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6236980405585183086
@@ -189,10 +221,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   _comboResetDelay: 0.4
   _maxAirAttackCount: 3
+  _resetAirAttackCountOnJump: 0
+  _resetAirAttackCountOnAirDash: 0
+  _resetAirAttackCountOnChargeJump: 1
   _groundHorizontalLockDuration: 0.2
-  _airHorizontalLockDuration: 0.05
+  _airHorizontalLockDuration: 0.01
   _airVerticalLockDuration: 0.1
-  _attackGravityScaleMultiplier: 1
+  _attackGravityScaleMultiplier: 0.95
   _comboInputBuffer: 0.2
   _attackScale: 1
 --- !u!114 &7533624692983177567
@@ -280,7 +315,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: -0.08, y: 0.11}
   m_Size: {x: 1, y: 1.5}
   m_Direction: 0
 --- !u!114 &7684787043264827604
@@ -377,6 +412,8 @@ MonoBehaviour:
   _platformBank: {fileID: 11400000, guid: c2147ee97db64c3e94cb63e96796c9c6, type: 2}
   _audioSource: {fileID: 5296047191700168514}
   _playOnLand: 1
+  _footstepPoint: {fileID: 3027838822928361650}
+  _stepInterval: 0.35
 --- !u!114 &6489230758359516687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHit
   _flashColor: {r: 0, g: 0, b: 0, a: 1}
   _hitInvincibilityTime: 0.3
+  _heavyHitDamageThreshold: 80
   _knockbackForce: 10
   _knockbackUp: 2
   _knockbackLockTime: 0.15
@@ -594,6 +632,10 @@ PrefabInstance:
     - target: {fileID: 2470445056619980829, guid: 28d947013999d5f43ab2fa48842055d6, type: 3}
       propertyPath: m_Name
       value: EmissionLight2D
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470445056619980829, guid: 28d947013999d5f43ab2fa48842055d6, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3093187201641486323, guid: 28d947013999d5f43ab2fa48842055d6, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,0 +1,694 @@
+{
+  "textures": 137,
+  "sprites": 187,
+  "pngOriginalsUnchanged": true,
+  "onlyRequestedPivotsAndUnityGeneratedInternalIDsChanged": true,
+  "unityGeneratedInternalIDAssignments": [
+    {
+      "path": "Assets/04.Sprites/Player/Attack_Grid512.png",
+      "before": "spriteID:",
+      "after": "spriteID: edfd728b15522ff4389a177abae2217b"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/Attack2_Grid512.png",
+      "before": "spriteID:",
+      "after": "spriteID: ffbbd245177a05d46a668c146fee4643"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/Attack3_Grid512.png",
+      "before": "spriteID:",
+      "after": "spriteID: 7c23497b9f289c84f831c15e4949773f"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/Attack4_Grid512.png",
+      "before": "spriteID:",
+      "after": "spriteID: bf3b683be312dfd47bad9ca8ef91e178"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_08.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_09.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_10.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_11.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_12.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_13.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_14.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_15.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_16.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_17.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_18.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_19.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_20.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_21.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_22.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_23.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_24.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_25.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_26.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_27.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_28.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_29.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_30.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_31.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashEnd/DashEnd_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashStart/DashStart_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashStart/DashStart_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_08.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_09.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_10.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_11.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_12.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_13.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_14.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_15.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_08.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Run/Run_09.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallClimb/WallClimb_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallJump/WallJump_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_00.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_01.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_02.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_03.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_04.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_05.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_06.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    },
+    {
+      "path": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallSlide/WallSlide_07.png",
+      "before": "internalID: 0",
+      "after": "internalID: 1537655665"
+    }
+  ],
+  "failures": []
+}
