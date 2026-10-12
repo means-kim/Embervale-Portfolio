@@ -17,6 +17,7 @@ public class PlayerJump : MonoBehaviour
     private PlayerDash _playerDash;
     private PlayerWall _playerWall;
     private PlayerHit _playerHit;
+    private PlayerAttack _playerAttack;
     private readonly HashSet<Collider2D> _groundContacts = new();
     private readonly HashSet<Collider2D> _platformContacts = new();
     private readonly List<Collider2D> _ignoredPlatforms = new();
@@ -48,6 +49,7 @@ public class PlayerJump : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
         _playerWall = GetComponent<PlayerWall>();
         _playerHit = GetComponent<PlayerHit>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
     private void OnEnable()
     {
@@ -140,6 +142,7 @@ public class PlayerJump : MonoBehaviour
         _isJumping = true;
         _jumpCount++;
         _bufferedJumpTime = -100f;
+        _playerAttack?.ResetAirAttackCountOnJump();
         OnJumpStarted?.Invoke();
         return true;
     }

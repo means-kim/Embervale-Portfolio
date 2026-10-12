@@ -8,10 +8,11 @@ public class PlayerMove : MonoBehaviour
     private Vector2 _moveInput;
     private readonly HashSet<Object> _movementLocks = new();
     public bool MovementLocked => _movementLocks.Count > 0;
-    public bool HasMovementLockOtherThan(Object source)
+    public bool HasMovementLockOtherThan(Object source) => HasMovementLockOtherThan(source, null);
+    public bool HasMovementLockOtherThan(Object source, Object additionalSource)
     {
         foreach (var owner in _movementLocks)
-            if (owner != source) return true;
+            if (owner != source && owner != additionalSource) return true;
         return false;
     }
     private int _facingDirection = 1;
