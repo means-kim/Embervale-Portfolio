@@ -1,0 +1,22 @@
+first jump cannot glide PASS
+second jump cannot auto-glide PASS
+third Space starts glide without consuming jump PASS
+Glide state and real sprite clip PASS
+fall limited to 5 PASS
+horizontal speed 20 to 30 PASS
+Space cancels without jump PASS
+normal speed restored PASS
+normal gravity restored PASS
+can toggle on again airborne PASS
+left control and facing PASS
+real wall collision stops glide PASS
+real floor collision stops glide PASS
+toggle did not buffer landing jump PASS
+dash stops glide PASS
+charge jump interrupts glide PASS
+damage stops glide immediately PASS
+death stops glide and clears eligibility PASS
+respawn clears glide eligibility PASS
+disable cleans up PASS
+eight unique animation frames PASS
+Measured vx=30.000, vy=-5.000; prefab gravity=10.000

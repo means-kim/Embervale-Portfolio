@@ -7,5 +7,6 @@ public enum PlayerState
     Attack,
     Death,
     Hit,
-    WallCling
+    WallCling,
+    Glide
 }

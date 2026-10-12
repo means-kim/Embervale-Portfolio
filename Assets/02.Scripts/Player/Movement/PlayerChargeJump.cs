@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 [DefaultExecutionOrder(100)]
 [DisallowMultipleComponent]
 [RequireComponent(typeof(PlayerInput), typeof(PlayerMove), typeof(PlayerJump))]
 public class PlayerChargeJump : MonoBehaviour
 {
     private enum Phase { None, Aiming, Launching }
-
     [Header("투사체 선택")]
     [SerializeField, Min(0.1f)] private float _selectionRadius = 1.8f;
     [SerializeField] private LayerMask _projectileLayers = ~0;
@@ -18,7 +16,13 @@ public class PlayerChargeJump : MonoBehaviour
     [SerializeField, Min(0.01f)] private float _playerLaunchSpeed = 18f;
     [SerializeField, Min(0.01f)] private float _projectileLaunchSpeed = 8f;
     [SerializeField, Min(0.02f)] private float _launchDuration = 0.2f;
-
+    [Header("사용 조건과 비용")]
+    [SerializeField, Tooltip("투사체가 없으면 플레이어 중심에서 조준하고 체력을 소모합니다.")]
+    private bool _allowWithoutProjectile = true;
+    [SerializeField, Min(0), Tooltip("투사체 없이 발사할 때만 소모. 남은 체력이 이 값 이하면 사용할 수 없습니다.")]
+    private int _healthCost = 50;
+    [SerializeField, Min(0f), Tooltip("모든 차지 점프의 발사 시점부터 적용되는 게임 시간 기준 쿨타임(초). 취소에는 적용하지 않습니다.")]
+    private float _cooldown = 1f;
     private Rigidbody2D _body;
     private PlayerInput _input;
     private PlayerMove _move;
@@ -34,16 +38,19 @@ public class PlayerChargeJump : MonoBehaviour
     private Phase _phase;
     private Vector2 _projectileVelocity;
     private float _launchRemaining;
-
+    private float _nextUseTime;
+    private bool _withoutProjectile;
     public bool IsAiming => _phase == Phase.Aiming;
     public bool IsLaunching => _phase == Phase.Launching;
     public bool IsActive => _phase != Phase.None;
     private Vector3 AimOrigin => _aim.Origin;
     private Vector3 ArrowOrigin => _target != null ? _target.Center : AimOrigin;
-
+    private bool CanPayHealth => _healthCost <= 0 || (_health != null && !_health.IsDead && _health.CurrentHealth > _healthCost);
+    private bool AimTargetAvailable => _withoutProjectile
+        ? _allowWithoutProjectile && CanPayHealth
+        : _target != null && _target.isActiveAndEnabled && _target.IsHeldBy(this);
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetTimeOwner() => ChargeJumpSession.ResetTimeOwner();
-
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
@@ -58,20 +65,17 @@ public class PlayerChargeJump : MonoBehaviour
         _aim = new ChargeJumpAim(transform, GetComponent<Collider2D>());
         _session = new ChargeJumpSession(this, _body, _move, _jump);
     }
-
     private void OnEnable()
     {
         _input.OnChargeJumpPressed += TryBegin;
         _input.OnChargeJumpReleased += Release;
     }
-
     private void Start()
     {
         if (_arrowPrefab != null) return;
         Debug.LogError("PlayerChargeJump: Arrow Prefab에 ChargeJumpArrow 프리팹을 연결하세요.", this);
         enabled = false;
     }
-
     private void OnDisable()
     {
         _input.OnChargeJumpPressed -= TryBegin;
@@ -79,34 +83,31 @@ public class PlayerChargeJump : MonoBehaviour
         Stop(true);
         _aim.Dispose();
     }
-
     private bool ControlsAvailable => _input.isActiveAndEnabled && _move.isActiveAndEnabled
         && _jump.isActiveAndEnabled && _body.simulated && _body.bodyType == RigidbodyType2D.Dynamic
         && (_health == null || !_health.IsDead) && (_hit == null || !_hit.IsHit);
-
     private void TryBegin()
     {
-        if (IsActive || !ControlsAvailable || _arrowPrefab == null || !ChargeJumpSession.CanBegin
+        if (IsActive || Time.time < _nextUseTime || !ControlsAvailable || _arrowPrefab == null || !ChargeJumpSession.CanBegin
             || (_dash != null && _dash.IsDashing)
             || _move.HasMovementLockOtherThan(_wall, _attack)
             || (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()))
         {
             return;
         }
-
         if (_aimCamera == null) _aimCamera = Camera.main;
         if (_aimCamera == null) return;
         IceProjectile target = _aim.FindNearest(_selectionRadius, _projectileLayers);
-        if (target == null || !target.TryBeginCharge(this)) return;
-
+        if (target == null ? !_allowWithoutProjectile || !CanPayHealth : !target.TryBeginCharge(this)) return;
         _attack?.InterruptForMovement();
+        GetComponent<PlayerGlide>()?.CancelGlide();
         _target = target;
-        _projectileVelocity = target.Velocity;
+        _withoutProjectile = target == null;
+        _projectileVelocity = target != null ? target.Velocity : Vector2.zero;
         _phase = Phase.Aiming;
         _session.Begin(_slowMotionScale);
         _aim.Begin(_arrowPrefab, _aimCamera, ArrowOrigin, _move.FacingDirection);
     }
-
     private void Update()
     {
         if (!IsActive) return;
@@ -117,7 +118,7 @@ public class PlayerChargeJump : MonoBehaviour
         }
         if (IsAiming)
         {
-            if (_target == null || !_target.isActiveAndEnabled || !_target.IsHeldBy(this)
+            if (!AimTargetAvailable
                 || _aimCamera == null || !_session.TimeUnchanged)
             {
                 Stop(true);
@@ -132,21 +133,20 @@ public class PlayerChargeJump : MonoBehaviour
             if (_launchRemaining <= 0f) Stop(false);
         }
     }
-
     private void LateUpdate() { if (IsAiming) _aim.Tick(_aimCamera, ArrowOrigin); }
 
     private void Release()
     {
         if (!IsAiming) return;
-        if (!ControlsAvailable || _target == null || !_target.isActiveAndEnabled || !_target.IsHeldBy(this)
+        if (!ControlsAvailable || !AimTargetAvailable
             || _aimCamera == null || !_session.TimeUnchanged)
         {
             Stop(false);
             return;
         }
         _aim.UpdateDirection(_aimCamera, ArrowOrigin);
-        Vector3 projectileOrigin = _target.Center;
-        if (!_target.ReleaseCharge(this, -_aim.Direction * _projectileLaunchSpeed, true))
+        Vector3 projectileOrigin = ArrowOrigin;
+        if (!_withoutProjectile && !_target.ReleaseCharge(this, -_aim.Direction * _projectileLaunchSpeed, true))
         {
             Stop(false);
             return;
@@ -156,10 +156,12 @@ public class PlayerChargeJump : MonoBehaviour
         _aim.End();
         _phase = Phase.Launching;
         _launchRemaining = _launchDuration;
+        if (_withoutProjectile && _healthCost > 0) _health.SpendHealth(_healthCost);
+        _nextUseTime = Time.time + Mathf.Max(0f, _cooldown);
         _session.Launch(_aim.Direction, _playerLaunchSpeed);
         _attack?.ResetAirAttackCountOnChargeJump();
         EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aim.Direction);
-        EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
+        if (!_withoutProjectile) EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
     }
 
     private void FixedUpdate() => _session.FixedTick(IsAiming, IsLaunching);
