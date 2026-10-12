@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1088994242330746512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.62, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,10 +221,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   _comboResetDelay: 0.4
   _maxAirAttackCount: 3
+  _resetAirAttackCountOnJump: 0
+  _resetAirAttackCountOnAirDash: 0
+  _resetAirAttackCountOnChargeJump: 1
   _groundHorizontalLockDuration: 0.2
-  _airHorizontalLockDuration: 0.05
+  _airHorizontalLockDuration: 0.01
   _airVerticalLockDuration: 0.1
-  _attackGravityScaleMultiplier: 1
+  _attackGravityScaleMultiplier: 0.95
   _comboInputBuffer: 0.2
   _attackScale: 1
 --- !u!114 &7533624692983177567
@@ -312,7 +315,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: -0.08, y: 0.11}
   m_Size: {x: 1, y: 1.5}
   m_Direction: 0
 --- !u!114 &7684787043264827604

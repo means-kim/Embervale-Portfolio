@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 889910433404840428}
   - component: {fileID: 4896944206079076305}
   - component: {fileID: 3503719189766534396}
-  - component: {fileID: 5358029442148221782}
   - component: {fileID: 8554198060324151534}
   - component: {fileID: -3395914145208119559}
   - component: {fileID: 6100000000000000001}
@@ -134,19 +133,6 @@ MonoBehaviour:
   _lifeTime: 0
   _extraDelay: 0.1
   _playReversed: 0
---- !u!114 &5358029442148221782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53164937478022786}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4d9e002509992429d2bf1a3d6d65f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
-  _strength: 1
 --- !u!82 &8554198060324151534
 AudioSource:
   m_ObjectHideFlags: 0
