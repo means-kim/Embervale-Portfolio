@@ -13,16 +13,64 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 25
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 2147485175
       objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startSpeed.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 192093802967202575, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3903456235235614173, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
       propertyPath: _offset.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5169995560927439734, guid: 23578345abd61b145ae6adaa6cd9f28c, type: 3}
       propertyPath: m_LocalPosition.x

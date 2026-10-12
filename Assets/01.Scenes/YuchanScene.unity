@@ -590,7 +590,7 @@ MonoBehaviour:
   _doubleJumpVfx: {fileID: 0}
   _landVfx: {fileID: 5509612781330163756, guid: 2231116992017a64b998a7db680c0fa5, type: 3}
   _dashVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
-  _footstepVfx: {fileID: 0}
+  _footstepVfx: {fileID: 5509612781330163756, guid: f113816fe31c04946a7234f88f5e9141, type: 3}
   _chargeJumpAimVfx: {fileID: 0}
   _chargeJumpLaunchVfx: {fileID: 53164937478022786, guid: 3694727614dd31b4eab44780ce16c97c, type: 3}
   _chargeJumpProjectileLaunchVfx: {fileID: 0}
@@ -5337,10 +5337,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 297177313599866805, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
-      propertyPath: _aimCamera
-      value: 
-      objectReference: {fileID: 1442271499}
     - target: {fileID: 2864288753525930506, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.72
