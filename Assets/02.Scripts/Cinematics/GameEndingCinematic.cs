@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameEndingCinematic : CinematicSequence
 {
     [SerializeField] private CinematicManager _cinematicManager;
     [SerializeField] private AirBossAnimation _bossAnimation;
     [SerializeField] private CanvasGroup _screenFade;
+    [SerializeField] private bool _playOnBossDeath;
+    [SerializeField] private string _titleSceneName = "OutGameScene";
 
     [SerializeField, Range(0.01f, 1f)] private float _slowTimeScale = 0.05f;
 
@@ -17,6 +19,7 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField, Min(0f)] private float _earthquakeStrength = 1f;
     [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 1f;
     [SerializeField, Min(0f)] private float _fadeDuration = 2f;
+    [SerializeField, Min(0f)] private float _blackScreenHoldDuration = 1.5f;
 
     public bool IsPlaying => _requested;
     private Animator _bossAnimator;
@@ -27,6 +30,40 @@ public class GameEndingCinematic : CinematicSequence
     private float _originalFixedDeltaTime;
     private float _originalFadeAlpha;
     private bool _originalBlocksRaycasts;
+    private Health _bossHealth;
+    private Coroutine _deathRequest;
+
+    private void OnEnable()
+    {
+        if (_playOnBossDeath && _bossAnimation != null)
+        {
+            _bossHealth = _bossAnimation.GetComponent<Health>();
+            if (_bossHealth != null)
+            {
+                _bossHealth.OnDie += HandleBossDeath;
+            }
+        }
+    }
+
+    private void HandleBossDeath()
+    {
+        if (_requested || _deathRequest != null)
+        {
+            return;
+        }
+        _deathRequest = StartCoroutine(PlayAfterDeathCleanup());
+    }
+
+    private IEnumerator PlayAfterDeathCleanup()
+    {
+        // 사망 이벤트의 다른 구독자가 공격과 페이즈 연출을 정리한 뒤 시작한다.
+        yield return null;
+        _deathRequest = null;
+        if (!TryPlay())
+        {
+            Debug.LogWarning("보스 사망 후 엔딩을 시작하지 못했습니다. 시네마틱 참조와 플레이어 상태를 확인하세요.", this);
+        }
+    }
 
     public override bool TryPlay()
     {
@@ -37,6 +74,12 @@ public class GameEndingCinematic : CinematicSequence
 
         if (_cinematicManager == null || _bossAnimation == null || _screenFade == null)
         {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(_titleSceneName) || !Application.CanStreamedLevelBeLoaded(_titleSceneName))
+        {
+            Debug.LogError("엔딩의 타이틀 씬을 Build Profiles에 등록하세요: " + _titleSceneName, this);
             return false;
         }
 
@@ -87,10 +130,9 @@ public class GameEndingCinematic : CinematicSequence
 
         SetTimeScale(slowScale);
 
-        CameraManager.ShakeCamera(_hitShakeStrength, _slowDuration);
-
         yield return new WaitForSecondsRealtime(_slowDuration);
 
+        CameraManager.ShakeCamera(_hitShakeStrength, Mathf.Max(0.1f, _restoreDuration));
         _bossAnimation.PlayDeathAnimation();
 
         yield return RestoreSpeedRoutine(slowScale);
@@ -102,6 +144,7 @@ public class GameEndingCinematic : CinematicSequence
         yield return new WaitForSecondsRealtime(_earthquakeHoldDuration);
 
         yield return FadeToBlackRoutine();
+        yield return new WaitForSecondsRealtime(_blackScreenHoldDuration);
     }
 
     private void CaptureState()
@@ -191,6 +234,7 @@ public class GameEndingCinematic : CinematicSequence
         _requested = false;
 
         NotifyCompleted();
+        SceneManager.LoadSceneAsync(_titleSceneName, LoadSceneMode.Single);
     }
 
     private void HandleCancelled()
@@ -228,6 +272,16 @@ public class GameEndingCinematic : CinematicSequence
 
     private void OnDisable()
     {
+        if (_bossHealth != null)
+        {
+            _bossHealth.OnDie -= HandleBossDeath;
+            _bossHealth = null;
+        }
+        if (_deathRequest != null)
+        {
+            StopCoroutine(_deathRequest);
+            _deathRequest = null;
+        }
         Cancel();
     }
 

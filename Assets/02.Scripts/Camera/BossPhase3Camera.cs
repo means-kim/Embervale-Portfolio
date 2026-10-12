@@ -16,9 +16,12 @@ public sealed class BossPhase3Camera : MonoBehaviour
     [SerializeField, Min(0f)] private float _upperLookAheadY = 8f;
     [SerializeField, Min(0f)] private float _boundaryBlendTime = 0.8f;
     [Header("3페이즈 상단 도착 시 활성화")]
-    [Tooltip("상단 카메라로 전환되면 켜지고, 낙하 중에도 유지됩니다. 페이즈 초기화 시 꺼집니다.")]
+    [Tooltip("플레이어가 실제로 착지해야 하는 상단 메인 발판의 충돌체입니다.")]
+    [SerializeField] private Collider2D _upperLandingPlatform;
+    [Tooltip("상단 메인 발판에 착지하면 켜지고, 낙하 중에도 유지됩니다. 페이즈 초기화 시 꺼집니다.")]
     [SerializeField] private GameObject[] _upperArrivalObjects = new GameObject[0];
     private bool _upperArrivalActivated;
+    private readonly ContactPoint2D[] _landingContacts = new ContactPoint2D[16];
 
     private CinemachineConfiner2D _confiner;
     private Collider2D _originalArea;
@@ -127,7 +130,6 @@ public sealed class BossPhase3Camera : MonoBehaviour
         else if (_inUpperArea)
         {
             SetArea(_upperArea);
-            if (!_upperArrivalActivated) SetArrivalObjects(true);
         }
         else
         {
@@ -137,6 +139,27 @@ public sealed class BossPhase3Camera : MonoBehaviour
             }
 
             SetArea(_travelArea != null ? _travelArea : _originalArea);
+        }
+
+        if (phase3 && !_upperArrivalActivated) ActivateArrivalOnLanding();
+    }
+
+    private void ActivateArrivalOnLanding()
+    {
+        if (_playerCollider == null || _upperLandingPlatform == null) return;
+
+        int count = _playerCollider.GetContacts(_landingContacts);
+        for (int i = 0; i < count; i++)
+        {
+            var contact = _landingContacts[i];
+            if (contact.collider != _upperLandingPlatform || contact.normal.y <= 0.5f) continue;
+
+            // Jumping past the platform or touching its side is not an arrival.
+            var body = _playerCollider.attachedRigidbody;
+            if (body != null && Vector2.Dot(body.linearVelocity, contact.normal) > 0.01f) continue;
+
+            SetArrivalObjects(true);
+            return;
         }
     }
 

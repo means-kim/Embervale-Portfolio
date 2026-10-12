@@ -229,6 +229,7 @@ MonoBehaviour:
   _hitDelay: 0
   _hitDuration: 2
   _independent: 1
+  _followOwner: 0
 --- !u!82 &-5267727765637545091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -240,7 +241,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c229541a5bef7c2448df23f33ea886db, type: 3}
+  m_Resource: {fileID: 8300000, guid: acb49b65e707ecc458fe84b62ce82eb2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
