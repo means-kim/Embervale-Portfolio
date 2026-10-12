@@ -63,6 +63,9 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.WallCling:
                 PlayClip("WallCling");
                 break;
+            case PlayerState.Glide:
+                PlayClip("Glide");
+                break;
             default:
                 throw new System.ArgumentOutOfRangeException(nameof(state));
         }

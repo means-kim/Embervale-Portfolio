@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     }
     private int _facingDirection = 1;
     private PlayerInput _playerInput;
+    private PlayerGlide _glide;
     public int FacingDirection => _facingDirection;
     public bool IsMoving => Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f;
     public bool HasMoveInput => Mathf.Abs(_moveInput.x) > 0.01f;
@@ -24,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
+        _glide = GetComponent<PlayerGlide>();
         _facingDirection = transform.localScale.x < 0f ? -1 : 1;
     }
     private void OnEnable() => _playerInput.OnMoveInput += HandleMove;
@@ -51,7 +53,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (MovementLocked) return;
         Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _moveInput.x * _moveSpeed;
+        velocity.x = _moveInput.x * _moveSpeed * (_glide != null ? _glide.HorizontalSpeedMultiplier : 1f);
         _rigidbody.linearVelocity = velocity;
     }
     public void ResetForRespawn() => _moveInput = Vector2.zero;

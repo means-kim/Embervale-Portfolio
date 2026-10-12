@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Preserve upgrades, intro history, and defeated enemies on retry/continue.
-    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false)
+    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false, Difficulty difficulty = Difficulty.Normal)
     {
         if (IsLoading || GameIntroCinematic.IsTransitioning || string.IsNullOrWhiteSpace(sceneName))
         {
@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
 
         if (newGame)
         {
+            GameDifficulty.Set(difficulty);
             CheckpointHistory.Clear();
             UpgradeHistory.ResetProgress();
             EncounterHistory.ResetSavedProgress();

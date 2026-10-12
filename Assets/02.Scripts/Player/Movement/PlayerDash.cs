@@ -76,6 +76,7 @@ public class PlayerDash : MonoBehaviour
         if (_playerHit != null && _playerHit.IsHit) return;
         bool airborne = _playerJump != null && !_playerJump.IsGrounded;
         if (airborne && _airDashCount >= MaxAirDashCount) return;
+        GetComponent<PlayerGlide>()?.CancelGlide();
         _playerAttack?.InterruptForDash();
         _airDashVisual = airborne;
         if (airborne) _airDashCount++;

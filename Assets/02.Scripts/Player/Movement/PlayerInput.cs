@@ -18,7 +18,12 @@ public class PlayerInput : MonoBehaviour
     public event Action OnChargeJumpPressed;
     public event Action OnChargeJumpReleased;
     private PlayerChargeJump _chargeJump;
-    private void Awake() => _chargeJump = GetComponent<PlayerChargeJump>();
+    private PlayerGlide _glide;
+    private void Awake()
+    {
+        _chargeJump = GetComponent<PlayerChargeJump>();
+        _glide = GetComponent<PlayerGlide>();
+    }
     public Vector2 GetDashDirection(int facingDirection) => ResolveDashDirection(
         Input.GetKey(KeyCode.W), Input.GetKey(KeyCode.A), Input.GetKey(KeyCode.S), Input.GetKey(KeyCode.D), facingDirection);
     public static Vector2 ResolveDashDirection(bool up, bool left, bool down, bool right, int facingDirection)
@@ -36,7 +41,7 @@ public class PlayerInput : MonoBehaviour
             return;
         }
         OnMoveInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        if (Input.GetKeyDown(KeyCode.Space)) OnJumpInput?.Invoke();
+        if (Input.GetKeyDown(KeyCode.Space) && (_glide == null || !_glide.TryHandleJumpInput())) OnJumpInput?.Invoke();
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) OnDashInput?.Invoke();
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) OnDropInput?.Invoke();
         CheckAttackInput();

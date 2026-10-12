@@ -142,6 +142,7 @@ public class PlayerAttack : MonoBehaviour
         // 이번 공격의 수치를 고정하여 도중에 강화되어도 타격과 연출이 어긋나지 않게 합니다.
         _attackSpeed = _upgrades != null ? Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier) : 1f;
         _damage = _upgrades != null ? _upgrades.GetAttackDamage(definition.Damage) : definition.Damage;
+        _damage = Mathf.RoundToInt(_damage * GameDifficulty.AttackMultiplier);
         _windupDuration = Mathf.Max(0f, definition.WindupDuration) / _attackSpeed;
         _recoveryDuration = Mathf.Max(0.05f, definition.RecoveryDuration) / _attackSpeed;
         _elapsed = 0;
