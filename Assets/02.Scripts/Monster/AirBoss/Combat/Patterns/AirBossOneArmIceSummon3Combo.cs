@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class AirBossOneArmUpDownIce3Combo : AirBossAttackBase
+public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
 {
     [Header("보스 컴포넌트")]
     [SerializeField] private AirBossAnimation _animation;
@@ -17,21 +17,18 @@ public class AirBossOneArmUpDownIce3Combo : AirBossAttackBase
     [Header("텔레그래프 프리팹의 기본 크기에 곱할 배수")]
     [SerializeField] private Vector3 _telegraphScaleMultiplier = Vector3.one;
 
-    [Header("공격 X 축 간격")]
-    [SerializeField] private float _offSetX = 20f;
-
     [Header("Y축 오프셋")]
     [SerializeField] private float _offSetY = 50f;
 
-    [Header("코루틴에 사용")]
-    [SerializeField] private float _warningInterval = 0.2f;
+    [Header("경고 표시 후 낙하까지의 시간")]
+    [SerializeField, Min(0f)] private float _waitAfterWarnings = 0.5f;
 
-    [SerializeField] private float _waitAfterWarnings = 0.5f;
-    [SerializeField] private float _attackInterval = 0.2f;
+    [Header("낙하 후 다음 경고까지의 시간")]
+    [SerializeField, Min(0f)] private float _attackInterval = 0.2f;
 
     private Coroutine _sequence;
 
-    private const int AttackCount = 5;
+    private const int AttackCount = 3;
 
     private AirBossAttack[] _icicles = new AirBossAttack[AttackCount];
     private Telegraph[] _telegraphs = new Telegraph[AttackCount];
@@ -69,7 +66,7 @@ public class AirBossOneArmUpDownIce3Combo : AirBossAttackBase
 
         for (int i = 0; i < _icicles.Length; i++)
         {
-            _icicles[i] = attackPool.GetAttack(AirBossAttackType.Icicle);
+            _icicles[i] = attackPool.GetAttack(AirBossAttackType.SmallIcePillar);
             _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
 
             if (_icicles[i] == null || _telegraphs[i] == null)
@@ -81,7 +78,7 @@ public class AirBossOneArmUpDownIce3Combo : AirBossAttackBase
         }
 
         _isRunning = true;
-        _animation.PlayOneArmUpDownIcePhase3Animation();
+        _animation.PlayAirBossOneArmIceSummon3ComboAnimation();
     }
 
     public override void ShowWarning()
@@ -90,54 +87,45 @@ public class AirBossOneArmUpDownIce3Combo : AirBossAttackBase
         if (_isWarningShown) return;
         if (_hasCast) return;
 
-        if (_player == null || _telegraphs == null)
+        if (_player == null)
         {
             Finish();
             return;
         }
 
         _isWarningShown = true;
-        Vector3 centerPosition = _player.position;
-
-        _sequence = StartCoroutine(AttackSequence(centerPosition));
+        _sequence = StartCoroutine(AttackSequence());
     }
 
-    private IEnumerator AttackSequence(Vector3 centerPosition)
+    private IEnumerator AttackSequence()
     {
-        _attackPositions[0] = centerPosition;
-        _attackPositions[1] = centerPosition + Vector3.left * _offSetX;
-        _attackPositions[2] = centerPosition + Vector3.right * _offSetX;
-        _attackPositions[3] = centerPosition + Vector3.left * (_offSetX * 2f);
-        _attackPositions[4] = centerPosition + Vector3.right * (_offSetX * 2f);
+        // StartCoroutine의 반환값이 _sequence에 저장된 후 진행합니다.
+        yield return null;
 
-        ActivateWarning(0);
+        for (int i = 0; i < AttackCount; i++)
+        {
+            if (_player == null)
+            {
+                _sequence = null;
+                Finish();
+                yield break;
+            }
 
-        yield return new WaitForSeconds(_warningInterval);
+            // 매회 경고 시점의 위치를 저장하고, 그 위치에 고드름을 떨어뜨립니다.
+            _attackPositions[i] = _player.position;
+            ActivateWarning(i);
 
-        ActivateWarning(1);
-        ActivateWarning(2);
+            yield return new WaitForSeconds(_waitAfterWarnings);
 
-        yield return new WaitForSeconds(_warningInterval);
+            ActivateIcicle(i);
 
-        ActivateWarning(3);
-        ActivateWarning(4);
-
-        yield return new WaitForSeconds(_waitAfterWarnings);
+            if (i < AttackCount - 1)
+            {
+                yield return new WaitForSeconds(_attackInterval);
+            }
+        }
 
         _hasCast = true;
-
-        ActivateIcicle(0);
-
-        yield return new WaitForSeconds(_attackInterval);
-
-        ActivateIcicle(1);
-        ActivateIcicle(2);
-
-        yield return new WaitForSeconds(_attackInterval);
-
-        ActivateIcicle(3);
-        ActivateIcicle(4);
-
         _sequence = null;
         Finish();
     }
