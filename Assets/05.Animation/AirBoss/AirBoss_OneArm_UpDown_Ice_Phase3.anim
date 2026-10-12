@@ -165,21 +165,28 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: WarningCue
-    data: 
+    data:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.16666667
+    functionName: PlayAudioCue
+    data:
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
   - time: 2
     functionName: CastCue
-    data: 
+    data:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2.6666667
     functionName: ActionFinished
-    data: 
+    data:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

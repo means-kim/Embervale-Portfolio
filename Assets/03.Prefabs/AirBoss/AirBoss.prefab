@@ -896,10 +896,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e2f09f58c60d4de6bc7a28d62cc1545, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackAudioCuePlayer
   _cues:
   - Name: Stagger Crackle
     Sounds:
     - {fileID: 11400000, guid: 10fbb132fd6f04098a4c579e878000cc, type: 2}
+    Repeat: 1
+  - Name: Stagger Recovery
+    Sounds:
+    - {fileID: 11400000, guid: 4be3e88a7f31246318572b19c17887da, type: 2}
+    Repeat: 1
+  - Name: Prep ArmLift_Wind
+    Sounds:
+    - {fileID: 11400000, guid: d8e1ecf4a2edc41be9521e1e20e9a5de, type: 2}
+    Repeat: 1
+  - Name: Prep ForwardSweep
+    Sounds:
+    - {fileID: 11400000, guid: daf8424d452e8490d889c4495b5abdfb, type: 2}
+    Repeat: 1
+  - Name: Prep ArcaneGather
+    Sounds:
+    - {fileID: 11400000, guid: 6fe1624411f2848cc9e6f9fc04317344, type: 2}
     Repeat: 1
