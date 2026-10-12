@@ -7,8 +7,11 @@ public sealed class BossStaggerBar : MonoBehaviour
 {
     [SerializeField] private AirBossStagger _stagger;
     [SerializeField] private Image _fill;
+    [SerializeField] private Image _fillTip;
+    [SerializeField] private Color _tipColor = new Color(1f, 0.94f, 0.4f, 1f);
+    [SerializeField, Min(1f)] private float _tipWidth = 6f;
 
-    [Header("Visibility (existing fill only)")]
+    [Header("Visibility")]
     [SerializeField] private Color _gaugeColor = new Color(1f, 0.72f, 0.18f, 1f);
     [SerializeField] private Color _readyColor = new Color(1f, 0.91f, 0.48f, 1f);
     [SerializeField] private Color _staggerColor = new Color(1f, 0.96f, 0.72f, 1f);
@@ -44,6 +47,7 @@ public sealed class BossStaggerBar : MonoBehaviour
             _fill.fillAmount = ReadGauge();
         }
         _hasOriginalColor = false;
+        if (_fillTip != null) _fillTip.enabled = false;
     }
 
     private void LateUpdate() => Refresh(Time.unscaledDeltaTime);
@@ -60,7 +64,7 @@ public sealed class BossStaggerBar : MonoBehaviour
         SetVisualState(ReadGauge(), IsRunning, deltaTime);
     }
 
-    /// <summary>Updates only the existing fill; does not alter the boss's gameplay gauge.</summary>
+    /// <summary>Updates UI only; does not alter the boss's gameplay gauge.</summary>
     public void SetVisualState(float gauge, bool running, float deltaTime)
     {
         if (_fill == null) return;
@@ -89,7 +93,22 @@ public sealed class BossStaggerBar : MonoBehaviour
         _flashRemaining = Mathf.Max(0f, _flashRemaining - deltaTime);
         color.a = _hasOriginalColor ? _originalColor.a : 1f;
         _fill.color = color;
+        UpdateFillTip(_fill.fillAmount);
         _previousGauge = gauge;
         _wasRunning = running;
+    }
+
+    private void UpdateFillTip(float amount)
+    {
+        if (_fillTip == null) return;
+        float width = Mathf.Min(_tipWidth, _fill.rectTransform.rect.width * amount);
+        _fillTip.enabled = width > 0f;
+        _fillTip.color = _tipColor;
+        var rect = _fillTip.rectTransform;
+        rect.anchorMin = new Vector2(amount, 0f);
+        rect.anchorMax = new Vector2(amount, 1f);
+        rect.pivot = new Vector2(1f, 0.5f);
+        rect.anchoredPosition = Vector2.zero;
+        rect.sizeDelta = new Vector2(width, 0f);
     }
 }
