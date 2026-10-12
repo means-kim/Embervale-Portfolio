@@ -26,6 +26,11 @@ public sealed class AirBossPhaseAura : MonoBehaviour
     [SerializeField] private Vector2 _flashGap = new Vector2(0.45f, 1.15f);
     [SerializeField, Range(0f, 1f)] private float _electricOpacity = 0.85f;
 
+    [Header("Movement trail (world speed / distance)")]
+    [SerializeField] private AirBossMovementTrail.Settings _movementTrail = new AirBossMovementTrail.Settings();
+
+    private AirBossMovementTrail _trail;
+
     private SpriteRenderer _boss;
     private AirBossPhaseController _phase;
     private Health _health;
@@ -92,6 +97,7 @@ public sealed class AirBossPhaseAura : MonoBehaviour
         }
 
         MakeMist();
+        _trail = new AirBossMovementTrail(_visualRoot, transform, _boss, _mistMaterial, _soulMaterial, _arcMaterial);
         Hide();
     }
 
@@ -234,6 +240,7 @@ public sealed class AirBossPhaseAura : MonoBehaviour
             _mist.Play();
             _souls.Play();
             _motes.Play();
+            _trail.Play();
             _previousPosition = transform.position;
             _wasVisible = true;
         }
@@ -243,14 +250,18 @@ public sealed class AirBossPhaseAura : MonoBehaviour
             _mist.Clear();
             _souls.Clear();
             _motes.Clear();
+            _trail.Clear();
+            _previousPosition = transform.position;
         }
 
+        Vector3 previousPosition = _previousPosition;
         _previousPosition = transform.position;
         int phase = _phase == null ? 1 : _phase.CurrentPhase;
         bool frost = phase != 2, electricity = phase >= 2;
         if (phase != _lastPhase)
         {
             _lastPhase = phase;
+            _trail.Clear();
             if (!frost)
             {
                 _mist.Clear();
@@ -267,6 +278,7 @@ public sealed class AirBossPhaseAura : MonoBehaviour
 
         _frost = Mathf.MoveTowards(_frost, frost ? 1f : 0f, Time.deltaTime * 2f);
         _electric = Mathf.MoveTowards(_electric, electricity ? 1f : 0f, Time.deltaTime * 3f);
+        _trail.Tick(previousPosition, phase, _radius, _center, _movementTrail);
         for (int i = 0; i < _nodes.Length; i++)
         {
             float seed = _seeds[i];
@@ -389,6 +401,7 @@ public sealed class AirBossPhaseAura : MonoBehaviour
     private void Hide()
     {
         if (_visualRoot == null) return;
+        _trail.Stop();
         _mist.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         foreach (var arc in _arcs)
         {
