@@ -227,7 +227,7 @@ MonoBehaviour:
   _groundHorizontalLockDuration: 0.2
   _airHorizontalLockDuration: 0.01
   _airVerticalLockDuration: 0.1
-  _attackGravityScaleMultiplier: 0.95
+  _attackGravityScaleMultiplier: 0.6
   _comboInputBuffer: 0.2
   _attackScale: 1
 --- !u!114 &7533624692983177567
@@ -621,6 +621,9 @@ MonoBehaviour:
   _playerLaunchSpeed: 30
   _projectileLaunchSpeed: 8
   _launchDuration: 0.2
+  _allowWithoutProjectile: 1
+  _healthCost: 50
+  _cooldown: 1
 --- !u!1001 &9042387067889785644
 PrefabInstance:
   m_ObjectHideFlags: 0
