@@ -1,0 +1,53 @@
+if (UnityEditor.EditorApplication.isPlaying) throw new System.Exception("Exit Play mode before applying Run.");
+var project = System.IO.Directory.GetParent(UnityEngine.Application.dataPath).FullName;
+var manifest = Newtonsoft.Json.Linq.JObject.Parse(System.IO.File.ReadAllText(project + "/Docs/Art/NewPlayer_Run_v01/Manifest.json"));
+UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var frames = (Newtonsoft.Json.Linq.JArray)manifest["frames"];
+foreach(var frame in frames) {
+    var p=(string)frame["path"];
+    var importer=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(p);
+    if(importer==null)throw new System.Exception("Importer missing: "+p);
+    importer.textureType=UnityEditor.TextureImporterType.Sprite;
+    importer.spriteImportMode=UnityEditor.SpriteImportMode.Single;
+    importer.spritePixelsPerUnit=200;
+    importer.alphaIsTransparency=true;
+    importer.mipmapEnabled=false;
+    importer.filterMode=UnityEngine.FilterMode.Bilinear;
+    importer.wrapMode=UnityEngine.TextureWrapMode.Clamp;
+    importer.textureCompression=UnityEditor.TextureImporterCompression.Uncompressed;
+    importer.maxTextureSize=512;
+    var settings=new UnityEditor.TextureImporterSettings(); importer.ReadTextureSettings(settings);
+    settings.spriteAlignment=(int)UnityEngine.SpriteAlignment.Custom;
+    settings.spritePivot=new UnityEngine.Vector2((float)frame["pivotX"],(float)frame["pivotY"]);
+    settings.spriteMeshType=UnityEngine.SpriteMeshType.FullRect;
+    importer.SetTextureSettings(settings);
+    importer.SaveAndReimport();
+}
+var clip=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/player/Run.anim");
+if(clip==null)throw new System.Exception("Shared Run clip missing");
+var bindings=UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(clip);
+var binding=System.Linq.Enumerable.Single(bindings,b=>b.propertyName=="m_Sprite");
+var originalLength=(float)manifest["cycleSeconds"];
+var originalEvents=UnityEditor.AnimationUtility.GetAnimationEvents(clip);
+UnityEditor.Undo.RecordObject(clip,"Apply NewPlayer Run v01");
+var keys=new UnityEditor.ObjectReferenceKeyframe[frames.Count+1];
+for(int i=0;i<frames.Count;i++) {
+    var sprite=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Sprite>((string)frames[i]["path"]);
+    if(sprite==null)throw new System.Exception("Sprite missing: "+frames[i]["path"]);
+    keys[i]=new UnityEditor.ObjectReferenceKeyframe {time=(float)frames[i]["time"],value=sprite};
+}
+keys[frames.Count]=new UnityEditor.ObjectReferenceKeyframe {time=0.5f,value=keys[0].value};
+UnityEditor.AnimationUtility.SetObjectReferenceCurve(clip,binding,keys);
+var clipSettings=UnityEditor.AnimationUtility.GetAnimationClipSettings(clip);
+clipSettings.loopTime=true; clipSettings.startTime=0; clipSettings.stopTime=(float)manifest["cycleSeconds"];
+UnityEditor.AnimationUtility.SetAnimationClipSettings(clip,clipSettings);
+UnityEditor.EditorUtility.SetDirty(clip);
+UnityEditor.AssetDatabase.SaveAssetIfDirty(clip);
+var check=UnityEditor.AnimationUtility.GetObjectReferenceCurve(clip,binding);
+if(check.Length!=17||System.Linq.Enumerable.Any(check,k=>k.value==null))throw new System.Exception("Run key verification failed");
+if(System.Math.Abs(clip.length-originalLength)>0.0001f)throw new System.Exception("Run duration changed: "+clip.length);
+if(UnityEditor.AnimationUtility.GetAnimationEvents(clip).Length!=originalEvents.Length)throw new System.Exception("Animation events changed");
+var record=new {frameCount=check.Length,uniqueSprites=System.Linq.Enumerable.Count(System.Linq.Enumerable.Distinct(System.Linq.Enumerable.Select(check,k=>k.value))),length=clip.length,frameRate=clip.frameRate,loop=clipSettings.loopTime,scene=UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().path,sceneDirty=UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().isDirty};
+var json=Newtonsoft.Json.JsonConvert.SerializeObject(record,Newtonsoft.Json.Formatting.Indented);
+System.IO.File.WriteAllText(project+"/Docs/Art/NewPlayer_Run_v01/UnityVerification.json",json);
+return json;
