@@ -87,8 +87,8 @@ public class PlayerChargeJump : MonoBehaviour
     private void TryBegin()
     {
         if (IsActive || !ControlsAvailable || _arrowPrefab == null || !ChargeJumpSession.CanBegin
-            || (_dash != null && _dash.IsDashing) || (_attack != null && _attack.IsAttacking)
-            || _move.HasMovementLockOtherThan(_wall)
+            || (_dash != null && _dash.IsDashing)
+            || _move.HasMovementLockOtherThan(_wall, _attack)
             || (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()))
         {
             return;
@@ -99,6 +99,7 @@ public class PlayerChargeJump : MonoBehaviour
         IceProjectile target = _aim.FindNearest(_selectionRadius, _projectileLayers);
         if (target == null || !target.TryBeginCharge(this)) return;
 
+        _attack?.InterruptForMovement();
         _target = target;
         _projectileVelocity = target.Velocity;
         _phase = Phase.Aiming;
@@ -156,6 +157,7 @@ public class PlayerChargeJump : MonoBehaviour
         _phase = Phase.Launching;
         _launchRemaining = _launchDuration;
         _session.Launch(_aim.Direction, _playerLaunchSpeed);
+        _attack?.ResetAirAttackCountOnChargeJump();
         EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aim.Direction);
         EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
     }

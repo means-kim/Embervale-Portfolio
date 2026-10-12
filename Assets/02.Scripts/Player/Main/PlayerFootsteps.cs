@@ -9,11 +9,14 @@ public class PlayerFootsteps : MonoBehaviour
     [Header("Dedicated Source")]
     [FormerlySerializedAs("_groundSource")][FormerlySerializedAs("_platformSource")][SerializeField] private AudioSource _audioSource;
     [SerializeField] private bool _playOnLand;
+    [Header("Walking VFX")]
+    [SerializeField, Tooltip("발 아래 생성 위치. 비워두면 플레이어 중심에서 생성합니다.")]
+    private Transform _footstepPoint;
+    [SerializeField, Min(0.05f)] private float _stepInterval = 0.35f;
     private PlayerMove _move;
     private PlayerJump _jump;
     private PlayerController _controller;
     private float _nextStepTime;
-    private float _stepInterval = 0.35f;
     private bool _wasStepping;
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.deltaTime <= 0f) return;
         bool runStep = _controller.CurrentState == PlayerState.Run && _jump.IsGrounded && _move.IsMoving && _move.HasMoveInput;
         if (!runStep)
         {
@@ -64,7 +68,8 @@ public class PlayerFootsteps : MonoBehaviour
         if (Time.time < _nextStepTime) return;
         _nextStepTime = Time.time + _stepInterval;
         PlayCurrentSurface();
-        EffectManager.Instance?.PlayFootstep(transform.position);
+        Vector3 position = _footstepPoint != null ? _footstepPoint.position : transform.position;
+        EffectManager.Instance?.PlayFootstep(position, _move.FacingDirection);
     }
     private void HandleLanded()
     {
