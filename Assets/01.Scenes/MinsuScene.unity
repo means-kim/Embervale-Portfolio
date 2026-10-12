@@ -176,12 +176,16 @@ MonoBehaviour:
   _chargeJumpLaunchVfx: {fileID: 0}
   _chargeJumpProjectileLaunchVfx: {fileID: 0}
   _bossHitVfx: {fileID: 0}
+  _bossHitSound: {fileID: 0}
   _bossDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 0}
   _levelUpVfx: {fileID: 0}
   _wallSlideVfx: {fileID: 0}
   _respawnVfx: {fileID: 0}
   _clickVfx: {fileID: 0}
+  _bossStagger: {fileID: 0}
+  _staggerHitVfx: {fileID: 0}
+  _staggerHitSound: {fileID: 0}
 --- !u!1 &23365614
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +313,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffee92255d4806443b49559e5c9532ea, type: 3}
+--- !u!1 &62985390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62985392}
+  - component: {fileID: 62985391}
+  m_Layer: 0
+  m_Name: AirBossAttackPool (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &62985391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62985390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c83232b12da849b1697837d1e7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossAttackPool
+  _attackPrefabs:
+  - {fileID: 5039348117906714883, guid: dfa8c43da937243639b7e03c55a227da, type: 3}
+  _poolSize: 12
+--- !u!4 &62985392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62985390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 298.91855, y: 130.94525, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &76952185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1505,6 +1556,7 @@ SceneRoots:
   - {fileID: 1437128788}
   - {fileID: 1098705927}
   - {fileID: 23365616}
+  - {fileID: 62985392}
   - {fileID: 1121847564}
   - {fileID: 1426937789}
   - {fileID: 1634636934}

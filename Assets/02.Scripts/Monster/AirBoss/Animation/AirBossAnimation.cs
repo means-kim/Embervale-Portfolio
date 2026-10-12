@@ -128,6 +128,16 @@ public class AirBossAnimation : MonoBehaviour
         _animator.CrossFade("RaiseBothArmPhase3", 0.1f);
     }
 
+    public void PlayAirBossOneArmIceSummon3ComboAnimation()
+    {
+        _animator.CrossFade("AirBossOneArmIceSummon3Combo", 0.1f);
+    }
+
+    public void PlayAirBossOneArmUpDown3ComboAnimation()
+    {
+        _animator.CrossFade("AirBossOneArmUpDown3Combo", 0.1f);
+    }
+
     public void PlayDeathAnimation()
     {
         _animator.CrossFade("Death", 0.1f);
