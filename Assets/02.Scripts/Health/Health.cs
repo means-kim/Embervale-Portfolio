@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private int _currentHealth;
     private bool _isDead = false;
     private int _maxHealthBonus;
+    private bool _isPlayer;
     public int MaxHealth => _maxHealth + _maxHealthBonus;
 
     // Keep the serialized base value intact so reloading never compounds bonuses.
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        _isPlayer = GetComponent<Player>() != null;
         _currentHealth = MaxHealth;
     }
 
@@ -49,7 +51,8 @@ public class Health : MonoBehaviour
             return;
         }
 
-        _recoveryRemainder += Mathf.Max(0f, deltaTime) * 100f / Mathf.Max(0.05f, _secondsPerSlot);
+        float recoveryMultiplier = _isPlayer ? GameDifficulty.RecoveryMultiplier : 1f;
+        _recoveryRemainder += Mathf.Max(0f, deltaTime) * recoveryMultiplier * 100f / Mathf.Max(0.05f, _secondsPerSlot);
         int amount = Mathf.FloorToInt(_recoveryRemainder);
         if (amount <= 0) return;
         _recoveryRemainder -= amount;
@@ -59,6 +62,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (_isPlayer && damage > 0)
+            damage = Mathf.CeilToInt(damage * GameDifficulty.DamageTakenMultiplier);
         ApplyHealthLoss(damage, true);
     }
 
