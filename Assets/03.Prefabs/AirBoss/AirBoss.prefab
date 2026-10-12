@@ -121,6 +121,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6638137889588832488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2451402434778025442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4307998246526178923}
+  - component: {fileID: 1310791423869519267}
+  m_Layer: 0
+  m_Name: PhaseAura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4307998246526178923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451402434778025442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6638137889588832488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310791423869519267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451402434778025442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9481ef3eb39279244a7d6c422d907512, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::AirBossPhaseAura
+  _soulMaterial: {fileID: 2100000, guid: cd1f133f5d3cd064fb3d8a31738e9b12, type: 2}
+  _arcMaterial: {fileID: 2100000, guid: 18842a9aa1cdf6145b7cd0adffc981bf, type: 2}
+  _mistMaterial: {fileID: 2100000, guid: 57a75af6d0edeef4d94c665326356751, type: 2}
+  _radius: {x: 16, y: 19}
+  _center: {x: 0, y: 2}
+  _soulSize: 1.8
+  _soulSpawnGap: {x: 0.18, y: 0.42}
+  _teleportClearDistance: 12
+  _frostOpacity: 0.8
+  _arcWidth: 0.12
+  _flashDuration: {x: 0.09, y: 0.19}
+  _flashGap: {x: 0.45, y: 1.15}
+  _electricOpacity: 0.85
 --- !u!1 &2605855174889095880
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +365,7 @@ Transform:
   - {fileID: 8650315564872302742}
   - {fileID: 5667198565276668799}
   - {fileID: 3770415878452645454}
+  - {fileID: 4307998246526178923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4954074921792302040
