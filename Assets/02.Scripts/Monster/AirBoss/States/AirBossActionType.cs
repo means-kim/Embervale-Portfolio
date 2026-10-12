@@ -20,6 +20,7 @@ public enum AirBossActionType
     OneArmUpDownIcePhase3,
     RaiseBothArmPhase3,
     OneArmIceSummon3Combo,
+    AirBossOneArmUpDown3Combo,
 
     Count
 }
