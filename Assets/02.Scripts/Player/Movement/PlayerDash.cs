@@ -87,6 +87,7 @@ public class PlayerDash : MonoBehaviour
         _playerMove?.SetMovementLocked(this, true);
         _rigidbody.linearVelocity = _dashDirection * _dashSpeed;
         IsDashing = true;
+        if (airborne) _playerAttack?.ResetAirAttackCountOnAirDash();
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
         if (_airDashVisual) EffectManager.Instance?.PlayDash(transform.position, _dashDirection);

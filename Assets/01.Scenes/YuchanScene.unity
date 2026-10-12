@@ -5377,6 +5377,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3001445042042592222, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _resetAirAttackCountOnAirDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001445042042592222, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _resetAirAttackCountOnChargeJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3034470034761653321, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_Name
       value: Player
