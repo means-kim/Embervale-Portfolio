@@ -18,6 +18,7 @@ public class AirBossAction : MonoBehaviour
     [SerializeField] private AirBossOneArmUpDownIcePhase3 _oneArmUpDownIcePhase3;
     [SerializeField] private AirBossRaiseBothArmPhase3 _raiseBothArmPhase3;
     [SerializeField] private AirBossOneArmIceSummon3Combo _oneArmIceSummon3Combo;
+    [SerializeField] private AirBossOneArmUpDown3Combo _oneArmUpDown3Combo;
 
     [Header("페이즈별 공격 패턴")]
     [SerializeField] private AirBossActionType[] _phase1Actions;
@@ -92,6 +93,9 @@ public class AirBossAction : MonoBehaviour
 
             case AirBossActionType.OneArmIceSummon3Combo:
                 return StartAttack(_oneArmIceSummon3Combo);
+
+            case AirBossActionType.AirBossOneArmUpDown3Combo:
+                return StartAttack(_oneArmUpDown3Combo);
 
             default:
                 Debug.LogWarning($"실행할 수 없는 공격입니다: {actionType}", this);
