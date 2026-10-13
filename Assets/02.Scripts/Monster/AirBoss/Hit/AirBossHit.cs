@@ -42,7 +42,7 @@ public class AirBossHit : MonoBehaviour
         }
 
         _flashTimer -= Time.deltaTime;
-        if (_flashTimer <= 0f) return;
+        if (_flashTimer > 0f) return;
 
         _flashTimer = _flashInterval;
         _isWhiteFlash = !_isWhiteFlash;
