@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f98eb91de2b22cc12073b8bfd1018c8, type: 3}
+  m_Name: Footstep_EarthBank_Test30
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSFXBank
+  Clips:
+  - {fileID: 8300000, guid: b5f7814e513dc474785e95612676001e, type: 3}
+  - {fileID: 8300000, guid: 95117b7e9f9eb254c8c88d8a2a2721f0, type: 3}
+  - {fileID: 8300000, guid: 67e431a8c516b1045930434ed3201861, type: 3}
+  - {fileID: 8300000, guid: 2ac957a872c2d264385bfcded8db485a, type: 3}
+  - {fileID: 8300000, guid: 1a92cf9aa927b3243b76ee1fe1e4a65c, type: 3}
+  - {fileID: 8300000, guid: 918336414b06d7342ad671f4c3294b0f, type: 3}
+  - {fileID: 8300000, guid: b541dc4ab17ebbc45831e5a0fb3511ff, type: 3}
+  - {fileID: 8300000, guid: 400d037aae678054a8216821d9184855, type: 3}
+  - {fileID: 8300000, guid: 549837aaea8e4c44c8d3d0e7d0b80d64, type: 3}
+  - {fileID: 8300000, guid: 30d30a414e61cbe419c188551f09156c, type: 3}
+  - {fileID: 8300000, guid: 5138549c16ca09543a5cbda264b25e66, type: 3}
+  - {fileID: 8300000, guid: 7302f0b11ed87d4479f56ee2cece00cf, type: 3}
+  - {fileID: 8300000, guid: da9549792626bf44c92f53cb65db687f, type: 3}
+  - {fileID: 8300000, guid: 5c0d036d72bb7f4449587f67740e2ded, type: 3}
+  - {fileID: 8300000, guid: 199d6e63f1d8a564fbcca0f1bc1f90ad, type: 3}
+  - {fileID: 8300000, guid: 8078cc98326a86141b99c835f0feadd7, type: 3}
+  - {fileID: 8300000, guid: 0b01405b8d8c07e448d5ddaec357b9b2, type: 3}
+  - {fileID: 8300000, guid: 1e701a9b26f1e084ba65f383e8a84a9b, type: 3}
+  - {fileID: 8300000, guid: 3f87ad57998b49c4e9d3b3c669ebcbcc, type: 3}
+  - {fileID: 8300000, guid: 297ed681b5bc65d47aec1f07ec0b6383, type: 3}
+  - {fileID: 8300000, guid: 989d839d015b2bf4da478f540640fca4, type: 3}
+  - {fileID: 8300000, guid: f6a515bae5f4ef74288cf4ed3d89ca4e, type: 3}
+  - {fileID: 8300000, guid: 851c064717797ed4dbce93f130879e51, type: 3}
+  - {fileID: 8300000, guid: 5c5284f7b6183394084b63de94a0f161, type: 3}
+  - {fileID: 8300000, guid: b05ba75172fceea4c8d6e132dc8a7b26, type: 3}
+  Volume: 0.9
+  MinPitch: 0.95
+  MaxPitch: 1.05
+  AvoidRepeat: 1
