@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 3
-  _damage: 100
+  _damage: 150
 --- !u!58 &2078562738695238834
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
   - Name: IceBlock_Create
     Sounds:
     - {fileID: 11400000, guid: 487efd3bda4474660a895336fa7963f1, type: 2}
+    Repeat: 0
   - Name: Broken
     Sounds:
     - {fileID: 11400000, guid: 5a61405ba17f04217ba05f6c9be2aca9, type: 2}
+    Repeat: 0

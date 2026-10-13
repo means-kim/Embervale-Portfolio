@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 4
-  _damage: 50
+  _damage: 100
 --- !u!61 &7039444596374975166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -252,3 +252,4 @@ MonoBehaviour:
   - Name: SmallLightning
     Sounds:
     - {fileID: 11400000, guid: dd998e718be614bf6bd2c73f7f1dd9d4, type: 2}
+    Repeat: 0

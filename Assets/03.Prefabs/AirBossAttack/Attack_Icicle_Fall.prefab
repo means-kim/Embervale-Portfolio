@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 0
-  _damage: 50
+  _damage: 150
 --- !u!60 &8947883615194580563
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -316,3 +316,4 @@ MonoBehaviour:
   - Name: Icicle_Fall
     Sounds:
     - {fileID: 11400000, guid: 6140710fa9c864cd48cbc41f0c60d80f, type: 2}
+    Repeat: 0
