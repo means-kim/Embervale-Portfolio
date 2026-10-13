@@ -23,6 +23,12 @@ namespace EndingFX
         [SerializeField] private float _finalSlashScale = 1.6f;
         [FormerlySerializedAs("scatterRadius")]
         [SerializeField] private float _scatterRadius = 0.6f;
+        [Header("Hit audio")]
+        [SerializeField] private AudioSource _hitAudioSource;
+        [SerializeField] private AudioClip _hitSound;
+        [SerializeField] private AudioClip _finalHitSound;
+        [SerializeField, Range(0f, 1f)] private float _hitVolume = 0.8f;
+        [SerializeField, Range(0f, 1f)] private float _finalHitVolume = 1f;
         public event Action<float> HitLanded;
         public bool IsAcceptingInput { get; private set; }
         public int HitsLanded { get; private set; }
@@ -118,7 +124,9 @@ namespace EndingFX
 
             if (_running && !_finalPeaked)
             {
+                _finalPeaked = true;
                 _finalBurst.Play(hitTarget.position, -25, 1);
+                PlayHitSound(true);
                 HitLanded?.Invoke(1);
             }
         }
@@ -128,8 +136,10 @@ namespace EndingFX
             if (!_running) return;
             if (slash == _finalSlash)
             {
+                if (_finalPeaked) return;
                 _finalPeaked = true;
                 _finalBurst.Play(slash.transform.position, slash.transform.eulerAngles.z, 1);
+                PlayHitSound(true);
                 HitLanded?.Invoke(1);
             }
             else
@@ -137,18 +147,27 @@ namespace EndingFX
                 HitsLanded++;
                 float progress = Mathf.Clamp01(HitsLanded / (float)_fullIntensityHits);
                 _hitBurst.Play(slash.transform.position, slash.transform.eulerAngles.z, progress);
+                PlayHitSound(false);
                 HitLanded?.Invoke(progress);
             }
         }
 
         public void Stop()
         {
+            if (_hitAudioSource != null) _hitAudioSource.Stop();
             _running = IsAcceptingInput = false;
             _finalSlash = null;
             _target = null;
             _slashPool?.StopAll();
             _hitBurst?.Clear();
             _finalBurst?.Clear();
+        }
+
+        private void PlayHitSound(bool finalHit)
+        {
+            if (_hitAudioSource == null) return;
+            AudioClip clip = finalHit && _finalHitSound != null ? _finalHitSound : _hitSound;
+            if (clip != null) _hitAudioSource.PlayOneShot(clip, finalHit ? _finalHitVolume : _hitVolume);
         }
     }
 }

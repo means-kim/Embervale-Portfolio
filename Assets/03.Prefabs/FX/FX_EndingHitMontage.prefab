@@ -1,5 +1,134 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2109749180608116134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964236457429408364}
+  - component: {fileID: 882327761721622536}
+  m_Layer: 0
+  m_Name: EndingHitSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1964236457429408364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109749180608116134}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7423787389689156417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &882327761721622536
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109749180608116134}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 64
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7612064052897547628
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +162,7 @@ Transform:
   m_Children:
   - {fileID: 1779016777265490260}
   - {fileID: 4126471972600905436}
+  - {fileID: 1964236457429408364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4106225098107756142
@@ -47,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd228223fa05c5643a8d37fd67540572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: EndingFX.Runtime::EndingFX.FireSlashPool
-  prefab: {fileID: 8978172648626771809, guid: eaae5f5c24b21a54788867777dd3b5f5, type: 3}
-  prewarmCount: 6
+  _prefab: {fileID: 8978172648626771809, guid: eaae5f5c24b21a54788867777dd3b5f5, type: 3}
+  _prewarmCount: 6
 --- !u!114 &5183299322998848674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,14 +191,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b4ad2d2ba064048ac4e779514dad16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: EndingFX.Runtime::EndingFX.EndingHitMontage
-  slashPool: {fileID: 4106225098107756142}
-  hitBurst: {fileID: 1614445045660580495}
-  finalBurst: {fileID: 5872611596624362235}
-  clickInterval: 0.08
-  fullIntensityHits: 24
-  slashScale: 4
-  finalSlashScale: 6.4
-  scatterRadius: 2.5
+  _slashPool: {fileID: 4106225098107756142}
+  _hitBurst: {fileID: 1614445045660580495}
+  _finalBurst: {fileID: 5872611596624362235}
+  _clickInterval: 0.08
+  _fullIntensityHits: 24
+  _slashScale: 4
+  _finalSlashScale: 6.4
+  _scatterRadius: 2.5
+  _hitAudioSource: {fileID: 882327761721622536}
+  _hitSound: {fileID: 8300000, guid: dc252bc28461b874280fe44be9ad9cfb, type: 3}
+  _finalHitSound: {fileID: 8300000, guid: d8bde82bfc2a4c739f310a5d4be97f7b, type: 3}
+  _hitVolume: 0.8
+  _finalHitVolume: 1
 --- !u!1001 &2554391393331465709
 PrefabInstance:
   m_ObjectHideFlags: 0

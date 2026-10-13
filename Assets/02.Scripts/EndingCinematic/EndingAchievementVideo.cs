@@ -15,6 +15,7 @@ public sealed class EndingAchievementVideo : MonoBehaviour
     [Header("Popup sound")]
     [SerializeField] private AudioSource _popupAudioSource;
     [SerializeField] private AudioClip _popupSound;
+    [SerializeField, Min(0f)] private float _popupSoundLeadTime = 0.5f;
     private bool _popupSoundPlayed;
     private Font _captionFont;
     private RenderTexture _texture;
@@ -43,9 +44,10 @@ public sealed class EndingAchievementVideo : MonoBehaviour
         var rect = (RectTransform)_popupContent.transform;
         float popupOffset = _popupOffsetY.Evaluate(_player != null ? (float)_player.time : 0);
         rect.anchoredPosition = new Vector2(0, _image.rectTransform.rect.height * popupOffset);
-        // The clip starts with empty green frames. Play once when the panel enters view.
+        // Look ahead on the animation curve to play the sound before the panel enters view.
+        float soundOffset = _popupOffsetY.Evaluate((_player != null ? (float)_player.time : 0) + _popupSoundLeadTime);
         if (!_popupSoundPlayed && _popupContent.alpha > 0 &&
-            (popupOffset > _popupOffsetY.Evaluate(0) + 0.001f || popupOffset >= 0) &&
+            (soundOffset > _popupOffsetY.Evaluate(0) + 0.001f || soundOffset >= 0) &&
             _popupAudioSource != null && _popupSound != null)
         {
             _popupSoundPlayed = true;
