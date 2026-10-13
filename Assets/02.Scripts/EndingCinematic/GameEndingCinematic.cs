@@ -20,9 +20,9 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField, Min(0f)] private float _hitShakeStrength = 2f;
 
     [SerializeField, Min(0f)] private float _earthquakeStrength = 0.6f;
-    [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 0.5f;
+    [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 0.8f;
     [SerializeField, Min(0f)] private float _fadeDuration = 2.2f;
-    [SerializeField, Min(0f)] private float _blackScreenHoldDuration = 0.35f;
+    [SerializeField, Min(0f)] private float _blackScreenHoldDuration = 0.85f;
     [Header("Achievement after blackout")]
     [SerializeField] private EndingAchievementVideo _achievementVideo;
     [SerializeField, Min(0f)] private float _afterVideoHoldDuration = 0.6f;
@@ -32,10 +32,11 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField] private Transform _hitTarget;
     [SerializeField] private CanvasGroup _endingPrompt;
     [SerializeField] private string _roarStateName = "BothArmsRaise";
-    [SerializeField, Min(0f)] private float _glowDuration = 0.8f;
+    [SerializeField, Min(0f)] private float _glowDuration = 1.1f;
     [SerializeField, Min(0f)] private float _montageHitShakeStrength = 1f;
     [FormerlySerializedAs("_deathTimeout")]
-    [SerializeField, Min(0f)] private float _deathVisibleDuration = 1.2f;
+    [SerializeField, Min(0f)] private float _deathVisibleDuration = 2f;
+    private AudioManager _endingAudioManager;
     [Header("Boss lighting during hits")]
     [SerializeField] private Light2D _bossHitLight;
     [SerializeField, Min(0f)] private float _hitLightIntensity = 0.3f;
@@ -201,6 +202,8 @@ public class GameEndingCinematic : CinematicSequence
         }
 
         CameraManager.ShakeCamera(_hitShakeStrength, Mathf.Max(0.1f, _finalHitShakeDuration));
+        _endingAudioManager = AudioManager.Instance;
+        _endingAudioManager?.BeginEndingBgmFade(_deathVisibleDuration + _earthquakeHoldDuration + _fadeDuration);
         _bossDissolve?.Dissolve();
         // Boss death progresses independently while the player stays in slow motion.
         _bossAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
@@ -213,6 +216,7 @@ public class GameEndingCinematic : CinematicSequence
         yield return new WaitForSecondsRealtime(_earthquakeHoldDuration);
 
         yield return FadeToBlackRoutine();
+        _endingAudioManager?.FinishEndingBgmFade();
         yield return new WaitForSecondsRealtime(_blackScreenHoldDuration);
         if (_achievementVideo != null) yield return _achievementVideo.PlayRoutine();
         yield return new WaitForSecondsRealtime(_afterVideoHoldDuration);
@@ -377,6 +381,8 @@ public class GameEndingCinematic : CinematicSequence
 
     private void HandleCancelled()
     {
+        _endingAudioManager?.CancelEndingBgmFade();
+        _endingAudioManager = null;
         _achievementVideo?.StopPlayback();
         RestoreBossLight();
         _shakeEnding = false;

@@ -33,6 +33,13 @@ public class AudioManager : MonoBehaviour
     private float[] _bgmTargetVolumes;
     private float[] _bgmOriginVolumes;
     private string _currentSceneName;
+    private bool _endingBgmActive;
+    private bool _endingBgmStopped;
+    private float _endingBgmDuration;
+    private float _endingBgmElapsed;
+    private float[] _endingBgmStartVolumes;
+    private bool[] _endingBgmWasPlaying;
+    private int[] _endingBgmStopSamples;
 
     [Header("보스 2페이즈")]
     [SerializeField, Range(0f, 1f)] private float _bossPhase2Volume = 0.5f;
@@ -56,16 +63,16 @@ public class AudioManager : MonoBehaviour
 
     private static readonly BgmType[] BossPhase3Layers =
     {
-        BgmType.BossPhase2ChoirPad,
-        BgmType.BossPhase2StringOstinato,
-        BgmType.BossPhase2WarDrums
+        BgmType.BossPhase3LowBrass,
+        BgmType.BossPhase3Cello,
+        BgmType.BossPhase3Violin
     };
 
     private static bool IsBossPhase3Layer(BgmType type)
     {
-        return type == BgmType.BossPhase2ChoirPad ||
-               type == BgmType.BossPhase2StringOstinato ||
-               type == BgmType.BossPhase2WarDrums;
+        return type == BgmType.BossPhase3LowBrass ||
+               type == BgmType.BossPhase3Cello ||
+               type == BgmType.BossPhase3Violin;
     }
 
     private void Awake()
@@ -97,6 +104,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        ResetEndingBgmFadeState();
         StopDeathBgm();
         StopAllBgm();
         if (GameIntroCinematic.IsTransitioning)
@@ -118,6 +126,11 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if (_endingBgmActive)
+        {
+            UpdateEndingBgmFade();
+            return;
+        }
         for (int i = 0; i < _bgmSources.Length; i++)
         {
             AudioSource source = _bgmSources[i];
@@ -176,14 +189,15 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBgm(BgmType type)
     {
-        if (_deathMusicActive)
+        if (_deathMusicActive || _endingBgmActive)
         {
             return;
         }
 
-        if (type == BgmType.Boss)
+        if (type == BgmType.Boss && !_bgmOn[(int)BgmType.Boss])
         {
             StopBossPhase2Layers();
+            StopBossPhase3Layers();
         }
 
         SetBgm(type, true);
@@ -195,6 +209,7 @@ public class AudioManager : MonoBehaviour
     public void PlayDeathBgm()
     {
         if (_deathMusicActive) return;
+        CancelEndingBgmFade();
         _deathMusicActive = true;
         StopAllBgm();
         foreach (AudioSource source in _bgmSources)
@@ -222,12 +237,14 @@ public class AudioManager : MonoBehaviour
 
     public void StopAllBgm()
     {
+        if (_endingBgmActive) return;
         Array.Clear(_bgmOn, 0, _bgmOn.Length);
         ReCalculateBgmVolumes();
     }
 
     private void SetBgm(BgmType type, bool on)
     {
+        if (_endingBgmActive) return;
         int index = (int)type;
         if (_bgmOn[index] == on)
         {
@@ -236,6 +253,7 @@ public class AudioManager : MonoBehaviour
 
         _bgmOn[index] = on;
         AudioSource source = _bgmSources[index];
+        if (on && source != null && !source.isPlaying) source.Play();
         if (on && _bgmRestartOnPlay[index] && source != null)
         {
             source.time = 0f;
@@ -261,6 +279,12 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
+            if (IsBossPhase3Layer((BgmType)i))
+            {
+                _bgmTargetVolumes[i] = _bossPhase3Volume;
+                continue;
+            }
+
             _bgmTargetVolumes[i] = _bgmOriginVolumes[i] * volume;
             volume *= _layerVolume;
         }
@@ -268,7 +292,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBossPhase2Layers()
     {
-        if (_deathMusicActive)
+        if (_deathMusicActive || _endingBgmActive)
         {
             return;
         }
@@ -277,6 +301,7 @@ public class AudioManager : MonoBehaviour
 
         if (boss == null || !boss.isPlaying || !_bgmOn[(int)BgmType.Boss])
         {
+            Debug.LogWarning("보스 메인 BGM이 재생 중이 아니어서 2페이즈 레이어를 시작하지 못했습니다.", this);
             return;
         }
 
@@ -288,10 +313,11 @@ public class AudioManager : MonoBehaviour
 
             if (source == null || source.clip == null)
             {
+                Debug.LogWarning("2페이즈 BGM 레이어 참조가 누락되었습니다: " + type, this);
                 return;
             }
 
-            alreadyOn &= _bgmOn[(int)type];
+            alreadyOn &= _bgmOn[(int)type] && source.isPlaying;
         }
 
         if (alreadyOn)
@@ -299,13 +325,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        int sample = boss.timeSamples;
-
         foreach (BgmType type in BossPhase2Layers)
         {
             int index = (int)type;
 
-            _bgmSources[index].timeSamples = sample;
+            StartSynchronizedBossLayer(_bgmSources[index], boss);
             _bgmOn[index] = true;
         }
 
@@ -320,6 +344,145 @@ public class AudioManager : MonoBehaviour
         }
 
         ReCalculateBgmVolumes();
+    }
+
+    public void PlayBossPhase3Layers()
+    {
+        if (_deathMusicActive || _endingBgmActive)
+        {
+            return;
+        }
+
+        AudioSource boss = _bgmSources[(int)BgmType.Boss];
+
+        if (boss == null || !boss.isPlaying || !_bgmOn[(int)BgmType.Boss])
+        {
+            Debug.LogWarning("보스 메인 BGM이 재생 중이 아니어서 3페이즈 레이어를 시작하지 못했습니다.", this);
+            return;
+        }
+
+        bool alreadyOn = true;
+
+        foreach (BgmType type in BossPhase3Layers)
+        {
+            AudioSource source = _bgmSources[(int)type];
+
+            if (source == null || source.clip == null)
+            {
+                Debug.LogWarning("3페이즈 BGM 레이어 참조가 누락되었습니다: " + type, this);
+                return;
+            }
+
+            alreadyOn &= _bgmOn[(int)type] && source.isPlaying;
+        }
+
+        // Phase 3 adds to the complete Phase 2 arrangement, including direct phase skips.
+        PlayBossPhase2Layers();
+
+        if (alreadyOn)
+        {
+            return;
+        }
+
+        foreach (BgmType type in BossPhase3Layers)
+        {
+            int index = (int)type;
+
+            StartSynchronizedBossLayer(_bgmSources[index], boss);
+            _bgmOn[index] = true;
+        }
+
+        ReCalculateBgmVolumes();
+    }
+
+    private void StartSynchronizedBossLayer(AudioSource source, AudioSource boss)
+    {
+        // Muted tracks may have stopped; raising their volume alone cannot resume them.
+        if (!source.isPlaying) source.Play();
+        double elapsedSeconds = (double)boss.timeSamples / boss.clip.frequency;
+        long sample = (long)(elapsedSeconds * source.clip.frequency);
+        source.timeSamples = (int)(sample % source.clip.samples);
+    }
+
+    public void StopBossPhase3Layers()
+    {
+        foreach (BgmType type in BossPhase3Layers)
+        {
+            _bgmOn[(int)type] = false;
+        }
+
+        ReCalculateBgmVolumes();
+    }
+
+    public void BeginEndingBgmFade(float duration)
+    {
+        if (_endingBgmActive || _bgmSources == null) return;
+        _endingBgmActive = true;
+        _endingBgmStopped = false;
+        _endingBgmDuration = Mathf.Max(0f, duration);
+        _endingBgmElapsed = 0f;
+        _endingBgmStartVolumes = new float[_bgmSources.Length];
+        _endingBgmWasPlaying = new bool[_bgmSources.Length];
+        _endingBgmStopSamples = new int[_bgmSources.Length];
+        for (int i = 0; i < _bgmSources.Length; i++)
+        {
+            var source = _bgmSources[i];
+            if (source == null) continue;
+            _endingBgmStartVolumes[i] = source.volume;
+            _endingBgmWasPlaying[i] = source.isPlaying;
+        }
+        if (_endingBgmDuration <= 0f) FinishEndingBgmFade();
+    }
+
+    private void UpdateEndingBgmFade()
+    {
+        if (_endingBgmStopped) return;
+        _endingBgmElapsed += Time.unscaledDeltaTime;
+        float progress = Mathf.Clamp01(_endingBgmElapsed / Mathf.Max(0.001f, _endingBgmDuration));
+        float gain = 1f - Mathf.SmoothStep(0f, 1f, progress);
+        for (int i = 0; i < _bgmSources.Length; i++)
+            if (_bgmSources[i] != null) _bgmSources[i].volume = _endingBgmStartVolumes[i] * gain;
+        if (progress >= 1f) FinishEndingBgmFade();
+    }
+
+    public void FinishEndingBgmFade()
+    {
+        if (!_endingBgmActive || _endingBgmStopped) return;
+        _endingBgmStopped = true;
+        for (int i = 0; i < _bgmSources.Length; i++)
+        {
+            var source = _bgmSources[i];
+            if (source == null) continue;
+            _endingBgmStopSamples[i] = source.timeSamples;
+            source.volume = 0f;
+            source.Stop();
+        }
+    }
+
+    public void CancelEndingBgmFade()
+    {
+        if (!_endingBgmActive) return;
+        for (int i = 0; i < _bgmSources.Length; i++)
+        {
+            var source = _bgmSources[i];
+            if (source == null) continue;
+            source.volume = _endingBgmStartVolumes[i];
+            if (_endingBgmStopped && _endingBgmWasPlaying[i])
+            {
+                source.Play();
+                if (source.clip != null)
+                    source.timeSamples = Mathf.Clamp(_endingBgmStopSamples[i], 0, source.clip.samples - 1);
+            }
+        }
+        ResetEndingBgmFadeState();
+    }
+
+    private void ResetEndingBgmFadeState()
+    {
+        _endingBgmActive = _endingBgmStopped = false;
+        _endingBgmStartVolumes = null;
+        _endingBgmWasPlaying = null;
+        _endingBgmStopSamples = null;
     }
 
     public void PlaySFX(SFXData sfxData)

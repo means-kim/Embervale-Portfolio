@@ -175,6 +175,7 @@ public sealed class BossPhase3Cinematic : CinematicSequence
             _bossRenderer.enabled = false;
         }
         _boss.transform.position = _bossDestination.position;
+        AudioManager.Instance.PlayBossPhase3Layers();
     }
 
     private void HandleTimelineCompleted()

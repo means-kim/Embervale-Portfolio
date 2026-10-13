@@ -8,5 +8,8 @@
     Boss,
     BossPhase2ChoirPad,
     BossPhase2StringOstinato,
-    BossPhase2WarDrums
+    BossPhase2WarDrums,
+    BossPhase3Violin,
+    BossPhase3Cello,
+    BossPhase3LowBrass
 }
