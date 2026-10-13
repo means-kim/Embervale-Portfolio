@@ -1,0 +1,451 @@
+{
+  "version": 1,
+  "frameCount": 12,
+  "frameSize": [
+    512,
+    512
+  ],
+  "ppu": 200,
+  "sampleRate": 20,
+  "loopClosingTime": 1.6,
+  "cycleSeconds": 1.65,
+  "master": "Assets/04.Sprites/NewPlayer/Design_v01/Player_Idle_Master_v01.png",
+  "run": "Assets/04.Sprites/NewPlayer/Run_v02/Frames",
+  "selection": "Groups 2-4 retained. Group1 and attempted correction rejected for inconsistent leg length. Master remains a design reference, not an extra animation frame.",
+  "frames": [
+    {
+      "index": 0,
+      "sourceIndex": 4,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_00.png",
+      "time": 0,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "9325a5c79964472357d6a667c6a112b0bde521acabb9057e194ffb37ffbd3f3a"
+    },
+    {
+      "index": 1,
+      "sourceIndex": 5,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_01.png",
+      "time": 0.13333333333333333,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "489eef957bc0f0b2009b0fa42b67245621996d65a0a7736edfb582a97d7282fc"
+    },
+    {
+      "index": 2,
+      "sourceIndex": 6,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_02.png",
+      "time": 0.26666666666666666,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "9e67c8bab1457cd0953d70ba169d53c8c0c636e882e1669ec2c33bd475c0b878"
+    },
+    {
+      "index": 3,
+      "sourceIndex": 7,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_03.png",
+      "time": 0.4000000000000001,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "bfc5e4e241b3bfe2aeb8e2abb1576c48584d1c6ff8ac58c95cf70e3fd43b8324"
+    },
+    {
+      "index": 4,
+      "sourceIndex": 8,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_04.png",
+      "time": 0.5333333333333333,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "3bddbda7687b61db36d6c9e6e5cef6420c4d702450df23fc2d7d0b3c4791a9fe"
+    },
+    {
+      "index": 5,
+      "sourceIndex": 9,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_05.png",
+      "time": 0.6666666666666666,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "17c20f3919fef276b34d4bf3f3cee38d2adde2172c1b603fc5284f5d9e4c8a42"
+    },
+    {
+      "index": 6,
+      "sourceIndex": 10,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_06.png",
+      "time": 0.8000000000000002,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "14e6e36779678f560203b85558d30064efcd09998bf10e5134a0511eb41a47bd"
+    },
+    {
+      "index": 7,
+      "sourceIndex": 11,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_07.png",
+      "time": 0.9333333333333335,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "06a41f474b97ab11817018e2a9399e6ed00c4470788d2fd2cca9d74bd815a643"
+    },
+    {
+      "index": 8,
+      "sourceIndex": 12,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_08.png",
+      "time": 1.0666666666666667,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "27cffcbda70092dd91564b6a5ad0e357d441a7f217ec8e2ae75f64d7e83690d0"
+    },
+    {
+      "index": 9,
+      "sourceIndex": 13,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_09.png",
+      "time": 1.2,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "a1d1319e8134eee8f2210a2ff2e0fa752517538178a41067b962804f4aae6ddf"
+    },
+    {
+      "index": 10,
+      "sourceIndex": 14,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_10.png",
+      "time": 1.3333333333333333,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "6179c0de71c2a7324639c2363282c1293dd7f3afd69f397ed65044598bc59516"
+    },
+    {
+      "index": 11,
+      "sourceIndex": 15,
+      "path": "Assets/04.Sprites/NewPlayer/Idle_v01/Frames/Idle_11.png",
+      "time": 1.4666666666666668,
+      "pivotX": 0.52734375,
+      "pivotY": 0.44140625,
+      "sha256": "dc87c1285255b2bebad08f16478099c5857137e2d93779e7a33647c882986bbe"
+    }
+  ],
+  "calibration": [
+    {
+      "index": 0,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7133848574336966,
+      "face": {
+        "area": 9251,
+        "x": 368.47929953518536,
+        "y": 226.4972435412388
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        156,
+        62,
+        338,
+        414
+      ],
+      "nearArmCentroid": [
+        235.7858017135863,
+        293.64137086903304
+      ]
+    },
+    {
+      "index": 1,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.717625097050589,
+      "face": {
+        "area": 9142,
+        "x": 358.3184204769197,
+        "y": 228.90045941807045
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        59,
+        338,
+        414
+      ],
+      "nearArmCentroid": [
+        235.83099450884686,
+        293.6040268456376
+      ]
+    },
+    {
+      "index": 2,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.722021792566067,
+      "face": {
+        "area": 9031,
+        "x": 365.9642343040638,
+        "y": 224.20363193444803
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        158,
+        60,
+        338,
+        415
+      ],
+      "nearArmCentroid": [
+        236.87727539635938,
+        294.6283029947152
+      ]
+    },
+    {
+      "index": 3,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.718687167827713,
+      "face": {
+        "area": 9115,
+        "x": 359.7707076247943,
+        "y": 223.55150850246847
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        58,
+        338,
+        415
+      ],
+      "nearArmCentroid": [
+        236.3116883116883,
+        293.59976387249117
+      ]
+    },
+    {
+      "index": 4,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7060951561835959,
+      "face": {
+        "area": 9443,
+        "x": 383.2321296198242,
+        "y": 244.49200465953618
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        159,
+        57,
+        337,
+        410
+      ],
+      "nearArmCentroid": [
+        235.4848484848485,
+        294.63249516441005
+      ]
+    },
+    {
+      "index": 5,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7017243840574723,
+      "face": {
+        "area": 9561,
+        "x": 383.1266603911725,
+        "y": 243.98629850434054
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        155,
+        59,
+        337,
+        409
+      ],
+      "nearArmCentroid": [
+        235.86321989528795,
+        294.39725130890054
+      ]
+    },
+    {
+      "index": 6,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7013943419992107,
+      "face": {
+        "area": 9570,
+        "x": 387.18098223615465,
+        "y": 240.2700104493208
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        152,
+        59,
+        339,
+        410
+      ],
+      "nearArmCentroid": [
+        233.08155339805825,
+        294.231067961165
+      ]
+    },
+    {
+      "index": 7,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7071067811865476,
+      "face": {
+        "area": 9416,
+        "x": 383.5284621920136,
+        "y": 239.7428844519966
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        58,
+        337,
+        412
+      ],
+      "nearArmCentroid": [
+        235.23707440100884,
+        294.87263556116017
+      ]
+    },
+    {
+      "index": 8,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.6986982029202582,
+      "face": {
+        "area": 9644,
+        "x": 426.14288676897553,
+        "y": 253.61924512650353
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        62,
+        338,
+        411
+      ],
+      "nearArmCentroid": [
+        235.51914626490898,
+        292.13998744507217
+      ]
+    },
+    {
+      "index": 9,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7139252713418384,
+      "face": {
+        "area": 9237,
+        "x": 359.8890332358991,
+        "y": 254.07264263288945
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        152,
+        49,
+        337,
+        416
+      ],
+      "nearArmCentroid": [
+        233.72960372960372,
+        292.6981351981352
+      ]
+    },
+    {
+      "index": 10,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7320194619010253,
+      "face": {
+        "area": 8786,
+        "x": 423.4734805372183,
+        "y": 216.32859094013202
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        50,
+        338,
+        417
+      ],
+      "nearArmCentroid": [
+        235.27293844367014,
+        294.9030197444832
+      ]
+    },
+    {
+      "index": 11,
+      "sourceSize": [
+        627,
+        627
+      ],
+      "scale": 0.7248363894984321,
+      "face": {
+        "area": 8961,
+        "x": 361.5761633746234,
+        "y": 217.0686307331771
+      },
+      "targetFace": [
+        290.50679694137636,
+        182.79651656754461
+      ],
+      "alphaBounds": [
+        157,
+        52,
+        338,
+        414
+      ],
+      "nearArmCentroid": [
+        233.9377593360996,
+        292.93716656787194
+      ]
+    }
+  ]
+}

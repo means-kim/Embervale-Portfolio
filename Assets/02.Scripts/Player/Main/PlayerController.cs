@@ -5,11 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerGlide))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _landDuration = 0.17f;
     public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody;
-    private float _landUntil;
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerJump _playerJump;
@@ -68,14 +66,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         EvaluateState();
-        var landing = Time.time < _landUntil;
         var verticalVelocity = _rigidbody.linearVelocity.y;
-        _playerAnimator.Tick(CurrentState, landing, verticalVelocity);
+        _playerAnimator.Tick(CurrentState, false, verticalVelocity);
     }
     public void ResetForRespawn()
     {
         _moveInput = Vector2.zero;
-        _landUntil = 0f;
         CurrentState = PlayerState.Idle;
         _playerAnimator.ResetJumpPhase();
         _playerAnimator.PlayState(CurrentState, false);
@@ -97,7 +93,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
         if (_playerAttack.IsAttacking) { ChangeState(PlayerState.Attack); return; }
-        if (Time.time < _landUntil) return;
         if (_playerDash.IsDashing)
         {
             ChangeState(PlayerState.Dash);
@@ -130,7 +125,6 @@ public class PlayerController : MonoBehaviour
     private void HandleJumpStarted()
     {
         _playerAttack.CancelAttack();
-        _landUntil = 0f;
         ChangeState(PlayerState.Jump);
         _playerAnimator.BeginJump(IsDoubleJump);
     }
@@ -142,9 +136,8 @@ public class PlayerController : MonoBehaviour
             EvaluateState();
             return;
         }
-        _landUntil = Time.time + _landDuration;
         _playerAttack.CancelAttack();
-        _playerAnimator.PlayLand();
+        _playerAnimator.ResetJumpPhase();
         EvaluateState();
     }
     private void HandleGroundLost()
@@ -153,13 +146,11 @@ public class PlayerController : MonoBehaviour
     }
     private void HandleDashStarted()
     {
-        _landUntil = 0f;
         ChangeState(PlayerState.Dash);
     }
     private void HandleDashEnded() => EvaluateState();
     private void HandleAttackStarted()
     {
-        _landUntil = 0f;
         ChangeState(PlayerState.Attack);
     }
     private void HandleAttackEnded() => EvaluateState();

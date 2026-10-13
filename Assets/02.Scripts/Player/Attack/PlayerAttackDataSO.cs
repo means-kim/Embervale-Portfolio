@@ -6,7 +6,7 @@ public class PlayerAttackDataSO : ScriptableObject
     public PlayerAttackInstance AttackPrefab;
     [Tooltip("플레이어 기준 월드 단위 스폰 위치. x만 바라보는 방향에 맞춰 반전한다.")]
     public Vector2 SpawnOffset;
-    public string AnimClipName = "LeftHorizontalAttack";
+    public string AnimClipName = "FirstAttack";
     [Min(0)] public int Damage = 10;
     [Min(0), Tooltip("공격 발동 시 소모하는 플레이어 체력. 넉백·피격 이펙트 없이 차감된다.")]
     public int HealthCost;

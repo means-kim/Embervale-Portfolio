@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _jumpStartDuration = 0.13f;
+    [FormerlySerializedAs("_jumpStartDuration")]
+    [SerializeField, Min(0f), Tooltip("공중 점프 회전 표시 시간")] private float _doubleJumpDuration = 0.2f;
     [SerializeField, Min(0f)] private float _apexVelocityRange = 1.5f;
     [SerializeField, Min(0f), Tooltip("미세 들뜸 깜빡임 방지")] private float _apexMinAirTime = 0.15f;
     private Animator _animator;
     private string _currentClip;
-    private int _jumpPhase = 2;
-    private float _jumpStartTime;
+    private bool _playingDoubleJump;
+    private float _doubleJumpStartTime;
     private float _jumpEnterTime = -100f;
     private bool _chargeJumpLaunchVisual;
     private SpriteRenderer _sourceRenderer;
@@ -46,7 +48,8 @@ public class PlayerAnimator : MonoBehaviour
                 break;
             case PlayerState.Jump:
                 _jumpEnterTime = Time.time;
-                PlayClip(isDoubleJump ? "DoubleJump" : "JumpStart");
+                _playingDoubleJump = false;
+                PlayClip(GetComponent<Rigidbody2D>().linearVelocity.y < 0f ? "Fall" : "JumpRise");
                 break;
             case PlayerState.Dash:
                 PlayClip("Dash");
@@ -74,13 +77,14 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (_chargeJumpLaunchVisual) return;
         _jumpEnterTime = Time.time;
-        PlayPhaseClip(isDoubleJump ? "DoubleJump" : "JumpStart");
-        _jumpPhase = 0;
+        _playingDoubleJump = isDoubleJump;
+        _doubleJumpStartTime = Time.time;
+        PlayClip(isDoubleJump ? "DoubleJump" : "JumpRise");
     }
-    public void ResetJumpPhase() => _jumpPhase = 2;
+    public void ResetJumpPhase() => _playingDoubleJump = false;
     public void PlayLand()
     {
-        if (!_chargeJumpLaunchVisual) PlayPhaseClip("Land");
+        if (!_chargeJumpLaunchVisual) PlayPhaseClip("Idle");
     }
     /// <summary>대시의 이동 로직 없이 차지 점프 발사 연출만 재생합니다.</summary>
     public void PlayDirectionalDash(Vector2 direction) => PlayChargeJumpLaunch(direction);
@@ -98,7 +102,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (!_chargeJumpLaunchVisual) return;
         StopChargeJumpVisual();
-        _jumpPhase = 2;
+        ResetJumpPhase();
         var controller = GetComponent<PlayerController>();
         if (controller != null && controller.CurrentState != PlayerState.Jump)
             PlayState(controller.CurrentState, false);
@@ -183,16 +187,15 @@ public class PlayerAnimator : MonoBehaviour
     }
     private void UpdateJumpPhase(float verticalVelocity)
     {
-        switch (_jumpPhase)
+        if (_playingDoubleJump)
         {
-            case 0:
-                _jumpStartTime = Time.time;
-                _jumpPhase = 1;
+            float elapsed = Time.time - _doubleJumpStartTime;
+            if (_doubleJumpDuration > 0f && elapsed < _doubleJumpDuration)
+            {
+                _animator.Play("DoubleJump", 0, Mathf.Min(elapsed / _doubleJumpDuration, 0.9999f));
                 return;
-            case 1:
-                if (Time.time - _jumpStartTime < _jumpStartDuration) return;
-                _jumpPhase = 2;
-                break;
+            }
+            _playingDoubleJump = false;
         }
         if (verticalVelocity > _apexVelocityRange)
         {
@@ -205,13 +208,16 @@ public class PlayerAnimator : MonoBehaviour
         else
         {
             if (Time.time - _jumpEnterTime < _apexMinAirTime) return;
-            PlayPhaseClip("JumpApex");
+            // 정점 진입/이탈 속도에 맞춰 Rise와 Fall 사이의 자세를 이어 줍니다.
+            _currentClip = "JumpApex";
+            float progress = Mathf.InverseLerp(_apexVelocityRange, -_apexVelocityRange, verticalVelocity);
+            _animator.Play("JumpApex", 0, Mathf.Min(progress, 0.9999f));
         }
     }
     private void PlayClip(string clipName)
     {
         _currentClip = clipName;
-        _animator.Play(clipName);
+        _animator.Play(clipName, 0, 0f);
     }
     private void PlayPhaseClip(string clipName)
     {
