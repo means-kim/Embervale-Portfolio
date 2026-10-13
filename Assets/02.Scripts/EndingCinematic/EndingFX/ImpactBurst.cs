@@ -22,9 +22,11 @@ namespace EndingFX
             public ParticleSystem system;
 
             [Header("강도 0 일 때 개수")]
+            [FormerlySerializedAs("minCount")]
             [Min(0)] public int MinCount;
 
             [Header("강도 1 일 때 개수")]
+            [FormerlySerializedAs("maxCount")]
             [Min(0)] public int MaxCount;
 
             public Layer(ParticleSystem system, int MinCount, int MaxCount)

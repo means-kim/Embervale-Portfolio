@@ -11737,6 +11737,10 @@ PrefabInstance:
       propertyPath: bossRenderer
       value: 
       objectReference: {fileID: 1967930619}
+    - target: {fileID: 5041085826187434209, guid: 1f6bb7cd7f5598a499994318914a7351, type: 3}
+      propertyPath: _bossRenderer
+      value: 
+      objectReference: {fileID: 1967930619}
     - target: {fileID: 5075306336439046310, guid: 1f6bb7cd7f5598a499994318914a7351, type: 3}
       propertyPath: m_Name
       value: FX_BossDissolve
@@ -36172,8 +36176,8 @@ MonoBehaviour:
   _finalHitShakeDuration: 0.35
   _hitShakeStrength: 4
   _earthquakeStrength: 0.6
-  _earthquakeHoldDuration: 0.15
-  _fadeDuration: 1.2
+  _earthquakeHoldDuration: 0.5
+  _fadeDuration: 2.2
   _blackScreenHoldDuration: 0.35
   _achievementVideo: {fileID: 37945682}
   _afterVideoHoldDuration: 0.6
@@ -36182,9 +36186,9 @@ MonoBehaviour:
   _hitTarget: {fileID: 1615973297}
   _endingPrompt: {fileID: 346532459}
   _roarStateName: BothArmsRaise
-  _glowDuration: 0.45
+  _glowDuration: 0.8
   _montageHitShakeStrength: 1
-  _deathVisibleDuration: 0.65
+  _deathVisibleDuration: 1.2
   _bossHitLight: {fileID: 452392710}
   _hitLightIntensity: 0.3
   _hitLightBlendDuration: 0.25

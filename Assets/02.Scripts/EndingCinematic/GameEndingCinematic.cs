@@ -20,8 +20,8 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField, Min(0f)] private float _hitShakeStrength = 2f;
 
     [SerializeField, Min(0f)] private float _earthquakeStrength = 0.6f;
-    [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 0.15f;
-    [SerializeField, Min(0f)] private float _fadeDuration = 1.2f;
+    [SerializeField, Min(0f)] private float _earthquakeHoldDuration = 0.5f;
+    [SerializeField, Min(0f)] private float _fadeDuration = 2.2f;
     [SerializeField, Min(0f)] private float _blackScreenHoldDuration = 0.35f;
     [Header("Achievement after blackout")]
     [SerializeField] private EndingAchievementVideo _achievementVideo;
@@ -32,10 +32,10 @@ public class GameEndingCinematic : CinematicSequence
     [SerializeField] private Transform _hitTarget;
     [SerializeField] private CanvasGroup _endingPrompt;
     [SerializeField] private string _roarStateName = "BothArmsRaise";
-    [SerializeField, Min(0f)] private float _glowDuration = 0.45f;
+    [SerializeField, Min(0f)] private float _glowDuration = 0.8f;
     [SerializeField, Min(0f)] private float _montageHitShakeStrength = 1f;
     [FormerlySerializedAs("_deathTimeout")]
-    [SerializeField, Min(0f)] private float _deathVisibleDuration = 0.65f;
+    [SerializeField, Min(0f)] private float _deathVisibleDuration = 1.2f;
     [Header("Boss lighting during hits")]
     [SerializeField] private Light2D _bossHitLight;
     [SerializeField, Min(0f)] private float _hitLightIntensity = 0.3f;
