@@ -179,7 +179,7 @@ public class PlayerChargeJump : MonoBehaviour
                 Stop(true);
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Stop(true);
             }

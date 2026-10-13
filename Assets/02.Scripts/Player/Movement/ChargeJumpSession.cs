@@ -18,7 +18,7 @@ internal sealed class ChargeJumpSession
     private float _appliedTimeScale;
     private float _appliedFixedDeltaTime;
 
-    public static bool CanBegin => _timeOwner == null && Time.timeScale > 0f;
+    public static bool CanBegin => _timeOwner == null && Time.timeScale > 0f && (HitImpactFeedback.Instance == null || !HitImpactFeedback.Instance.IsStopping);
     public bool TimeUnchanged => Mathf.Approximately(Time.timeScale, _appliedTimeScale);
     public static void ResetTimeOwner() => _timeOwner = null;
 
