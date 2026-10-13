@@ -1,14 +1,15 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class SlimeBMovement : MonoBehaviour
 {
     [Header("현재 위치에서 X 범위")]
-    [SerializeField] private float _leftOffsetX = 3f;
+    [SerializeField, Min(0f)] private float _leftOffsetX = 3f;
 
-    [SerializeField] private float _rightOffsetX = 3f;
+    [SerializeField, Min(0f)] private float _rightOffsetX = 3f;
 
     [Header("슬라임 이동 속도")]
-    [SerializeField] private float _speed = 1f;
+    [SerializeField, Min(0.01f)] private float _speed = 1f;
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
