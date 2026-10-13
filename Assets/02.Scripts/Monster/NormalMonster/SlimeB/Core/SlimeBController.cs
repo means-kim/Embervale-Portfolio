@@ -5,8 +5,11 @@ public class SlimeBController : MonoBehaviour
     [Header("State 시간")]
     [SerializeField] private float _idleTimer = 1f;
 
+    [SerializeField] private float _hitTimer = 0.2f;
+
     private SlimeBMovement _movement;
     private SlimeBAnimation _animation;
+    private Health _health;
 
     private SlimeBState _currentState;
 
@@ -18,6 +21,7 @@ public class SlimeBController : MonoBehaviour
     {
         _movement = GetComponent<SlimeBMovement>();
         _animation = GetComponent<SlimeBAnimation>();
+        _health = GetComponent<Health>();
     }
 
     private void Start()
@@ -33,9 +37,24 @@ public class SlimeBController : MonoBehaviour
 
         _stateTimer += Time.deltaTime;
 
-        if (_currentState == SlimeBState.Idle && _stateTimer >= _idleTimer)
+
+        switch (_currentState)
         {
-            ChangeState(SlimeBState.Move);
+            case SlimeBState.Idle:
+                if (_stateTimer >= _idleTimer)
+                {
+                    ChangeState(SlimeBState.Move);
+                }
+
+                break;
+
+            case SlimeBState.Hit:
+                if (_stateTimer >= _hitTimer && !_health.IsDead)
+                {
+                    ChangeState(SlimeBState.Move);
+                }
+
+                break;
         }
     }
 
@@ -85,6 +104,17 @@ public class SlimeBController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (_started && !_hasState)
+        {
+            ChangeState(SlimeBState.Idle);
+        }
+
+        _health.OnHit += HandleHit;
+        _health.OnDie += HandleDeath;
+    }
+
     private void OnDisable()
     {
         if (_movement != null)
@@ -96,13 +126,20 @@ public class SlimeBController : MonoBehaviour
         {
             _hasState = false;
         }
+
+        _health.OnHit -= HandleHit;
+        _health.OnDie -= HandleDeath;
     }
 
-    private void OnEnable()
+    private void HandleHit()
     {
-        if (_started && !_hasState)
-        {
-            ChangeState(SlimeBState.Idle);
-        }
+        if (!_started || _health.IsDead) return;
+
+        ChangeState(SlimeBState.Hit);
+    }
+
+    private void HandleDeath()
+    {
+        ChangeState(SlimeBState.Death);
     }
 }
