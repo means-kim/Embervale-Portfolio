@@ -67,7 +67,7 @@ public class PlayerDamageHitbox : MonoBehaviour
             _hitTargets.Remove(target);
             return false;
         }
-        EffectManager.Instance?.PlayBossHit(hitPoint, direction);
+        EffectManager.Instance?.PlayBossHit(hitPoint, direction, _damage, target.transform, _isThirdComboHit);
         OnDamageApplied?.Invoke(other);
         return true;
     }
