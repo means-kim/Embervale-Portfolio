@@ -39,7 +39,6 @@ public class PlayerGlide : MonoBehaviour
     private Health _health;
     private Rigidbody2D _body;
     private PlayerWallSensor _sensor;
-    private bool _doubleJumped;
 
     private void Awake()
     {
@@ -73,10 +72,6 @@ public class PlayerGlide : MonoBehaviour
     private void HandleJump()
     {
         CancelGlide();
-        if (_jump.CurrentJumpCount >= 2)
-        {
-            _doubleJumped = true;
-        }
     }
     private bool AreComponentsDisabled => !_input.isActiveAndEnabled || !_jump.isActiveAndEnabled || !_move.isActiveAndEnabled;
     private bool IsPhysicsNotReady => !_body.simulated || _body.bodyType != RigidbodyType2D.Dynamic;
@@ -89,7 +84,7 @@ public class PlayerGlide : MonoBehaviour
         _sensor.HasWall(-1, 0.02f, 0.5f, _jump.IsIgnoringPlatform)
         || _sensor.HasWall(1, 0.02f, 0.5f, _jump.IsIgnoringPlatform);
 
-    public bool TryHandleJumpInput()
+    public bool TryToggleGlide()
     {
         if (!isActiveAndEnabled)
         {
@@ -101,7 +96,7 @@ public class PlayerGlide : MonoBehaviour
             _jump.ClearJumpBuffer();
             return true;
         }
-        if (!_doubleJumped || _jump.IsGrounded)
+        if (_jump.IsGrounded)
         {
             return false;
         }
@@ -114,9 +109,12 @@ public class PlayerGlide : MonoBehaviour
         {
             IsGliding = true;
             LimitFallSpeed();
+            return true;
         }
-        return true;
+        return false;
     }
+
+    public bool TryHandleJumpInput() => TryToggleGlide();
     private void Update()
     {
         if (IsGliding && (Blocked || TouchingWall))
@@ -171,7 +169,6 @@ public class PlayerGlide : MonoBehaviour
     public void ResetForRespawn()
     {
         CancelGlide();
-        _doubleJumped = false;
     }
 
     private void OnApplicationFocus(bool focused)

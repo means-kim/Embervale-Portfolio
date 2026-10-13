@@ -86,9 +86,13 @@ public class PlayerInput : MonoBehaviour
             return;
         }
         OnMoveInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        if (Input.GetKeyDown(KeyCode.Space) && !_glide.TryHandleJumpInput())
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnJumpInput?.Invoke();
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            _glide.TryToggleGlide();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
