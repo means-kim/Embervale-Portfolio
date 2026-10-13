@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6739562739188343691}
   - component: {fileID: 4475589364935302689}
   - component: {fileID: 7892259205838652757}
+  - component: {fileID: 4766201784314221955}
   m_Layer: 10
   m_Name: NormalMonster_SlimeB
   m_TagString: Boss
@@ -354,3 +355,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlimeBDeath
   _deathAnimationTime: 0.5
   _fadeDuration: 1
+--- !u!114 &4766201784314221955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504535029716680479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef4a91c7759a8443b4104a0cc42b48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlimeBAttack
+  _damage: 50
