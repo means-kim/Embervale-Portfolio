@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-[RequireComponent(typeof(Rigidbody2D), (typeof(PlayerInput)))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerGlide))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _moveSpeed = 5f;
@@ -12,7 +14,12 @@ public class PlayerMove : MonoBehaviour
     public bool HasMovementLockOtherThan(Object source, Object additionalSource)
     {
         foreach (var owner in _movementLocks)
-            if (owner != source && owner != additionalSource) return true;
+        {
+            if (owner != source && owner != additionalSource)
+            {
+                return true;
+            }
+        }
         return false;
     }
     private int _facingDirection = 1;
@@ -26,7 +33,14 @@ public class PlayerMove : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _glide = GetComponent<PlayerGlide>();
-        _facingDirection = transform.localScale.x < 0f ? -1 : 1;
+        if (transform.localScale.x < 0f)
+        {
+            _facingDirection = -1;
+        }
+        else
+        {
+            _facingDirection = 1;
+        }
     }
     private void OnEnable() => _playerInput.OnMoveInput += HandleMove;
     private void OnDisable() => _playerInput.OnMoveInput -= HandleMove;
@@ -38,30 +52,55 @@ public class PlayerMove : MonoBehaviour
             return;
         }
         _moveInput = direction;
-        if (Mathf.Abs(_moveInput.x) <= 0.01f) return;
+        if (Mathf.Abs(_moveInput.x) <= 0.01f)
+        {
+            return;
+        }
         SetFacingDirection(_moveInput.x);
     }
     public void SetFacingDirection(float horizontal)
     {
-        if (Mathf.Abs(horizontal) <= 0.01f) return;
-        _facingDirection = horizontal > 0f ? 1 : -1;
+        if (Mathf.Abs(horizontal) <= 0.01f)
+        {
+            return;
+        }
+        if (horizontal > 0f)
+        {
+            _facingDirection = 1;
+        }
+        else
+        {
+            _facingDirection = -1;
+        }
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * _facingDirection;
         transform.localScale = scale;
     }
     private void FixedUpdate()
     {
-        if (MovementLocked) return;
+        if (MovementLocked)
+        {
+            return;
+        }
         Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _moveInput.x * _moveSpeed * (_glide != null ? _glide.HorizontalSpeedMultiplier : 1f);
+        velocity.x = _moveInput.x * _moveSpeed * _glide.HorizontalSpeedMultiplier;
         _rigidbody.linearVelocity = velocity;
     }
     public void ResetForRespawn() => _moveInput = Vector2.zero;
     public void SetMovementLocked(Object source, bool locked)
     {
-        if (source == null) return;
-        if (locked) _movementLocks.Add(source);
-        else _movementLocks.Remove(source);
+        if (source == null)
+        {
+            return;
+        }
+        if (locked)
+        {
+            _movementLocks.Add(source);
+        }
+        else
+        {
+            _movementLocks.Remove(source);
+        }
         if (locked)
         {
             _moveInput = Vector2.zero;

@@ -11,10 +11,16 @@ public class PlayerLevel : MonoBehaviour
     public void LevelUp() => AddLevel(1);
     public void AddLevel(int amount)
     {
-        if (amount <= 0) return;
+        if (amount <= 0)
+        {
+            return;
+        }
         int next = Mathf.Min(_level + amount, _maxLevel);
         int gained = next - _level;
-        if (gained <= 0) return;
+        if (gained <= 0)
+        {
+            return;
+        }
         _level = next;
         ApplyLevelUpBuffs(gained);
         EffectManager.Instance?.PlayLevelUp(transform.position);
@@ -22,8 +28,17 @@ public class PlayerLevel : MonoBehaviour
     }
     private void ApplyLevelUpBuffs(int gained)
     {
-        if (_buffPool == null) _buffPool = FindFirstObjectByType<BuffPool>();
-        if (_buffPool == null) return;
-        for (int i = 0; i < gained; i++) _buffPool.AddRandomBuff();
+        if (_buffPool == null)
+        {
+            _buffPool = FindFirstObjectByType<BuffPool>();
+        }
+        if (_buffPool == null)
+        {
+            return;
+        }
+        for (int i = 0; i < gained; i++)
+        {
+            _buffPool.AddRandomBuff();
+        }
     }
 }

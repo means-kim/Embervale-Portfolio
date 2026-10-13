@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerDamageHitbox), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerDamageHitbox))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerAttackInstance : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _hitDelay;
@@ -38,15 +39,30 @@ public class PlayerAttackInstance : MonoBehaviour
             return false;
         }
         Owner = owner;
-        Direction = direction < 0 ? -1 : 1;
+        Direction = 1;
+        if (direction < 0)
+        {
+            Direction = -1;
+        }
         var scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * Direction;
         transform.localScale = scale;
-        _spawnOffset = owner != null ? transform.position - owner.position : Vector3.zero;
-        _ownerMove = owner != null ? owner.GetComponent<PlayerMove>() : null;
+        _spawnOffset = Vector3.zero;
+        if (owner != null)
+        {
+            _spawnOffset = transform.position - owner.position;
+        }
+        _ownerMove = null;
+        if (owner != null)
+        {
+            _ownerMove = owner.GetComponent<PlayerMove>();
+        }
         _age = 0;
-        // 독립 공격과 투사체는 발사 이후의 수명 및 비행 속도를 유지합니다.
-        _playbackSpeed = _independent || _isProjectile ? 1f : Mathf.Max(0.01f, attackSpeed);
+        _playbackSpeed = Mathf.Max(0.01f, attackSpeed);
+        if (_independent || _isProjectile)
+        {
+            _playbackSpeed = 1f;
+        }
         foreach (var animator in GetComponentsInChildren<Animator>(true))
         {
             animator.speed *= _playbackSpeed;
@@ -58,20 +74,42 @@ public class PlayerAttackInstance : MonoBehaviour
     }
     private void Update()
     {
-        if (!_initialized || _ended) return;
+        if (!_initialized || _ended)
+        {
+            return;
+        }
         _age += Time.deltaTime * _playbackSpeed;
-        if (_age >= Mathf.Max(0, _hitDelay) + Mathf.Max(0.05f, _hitDuration)) StopDamage();
-        else if (_age >= _hitDelay && !_hitbox.IsActive) _hitbox.SetActive(true);
+        if (_age >= Mathf.Max(0, _hitDelay) + Mathf.Max(0.05f, _hitDuration))
+        {
+            StopDamage();
+        }
+        else if (_age >= _hitDelay && !_hitbox.IsActive)
+        {
+            _hitbox.SetActive(true);
+        }
     }
     public void EndPlayerAction()
     {
-        if (!_independent) StopDamage();
+        if (!_independent)
+        {
+            StopDamage();
+        }
     }
     private void LateUpdate()
     {
-        if (!_followOwner || !_initialized || _ended || Owner == null || _isProjectile) return;
+        if (!_followOwner || !_initialized || _ended || Owner == null || _isProjectile)
+        {
+            return;
+        }
         int facing = Direction;
-        if (_ownerMove != null) facing = _ownerMove.FacingDirection < 0 ? -1 : 1;
+        if (_ownerMove != null && _ownerMove.FacingDirection < 0)
+        {
+            facing = -1;
+        }
+        else if (_ownerMove != null)
+        {
+            facing = 1;
+        }
         if (facing != Direction)
         {
             Direction = facing;

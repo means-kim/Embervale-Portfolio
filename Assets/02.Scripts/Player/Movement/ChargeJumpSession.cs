@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// 시간과 물리 상태의 보관·복원. 소유자는 기존 PlayerChargeJump를 사용한다.
 internal sealed class ChargeJumpSession
 {
     private static PlayerChargeJump _timeOwner;
@@ -50,7 +49,6 @@ internal sealed class ChargeJumpSession
         _body.linearVelocity = Vector2.zero;
         Time.timeScale = _appliedTimeScale;
         Time.fixedDeltaTime = _appliedFixedDeltaTime;
-        // 시간 setter/getter의 양자화에 대비해 실제 적용값을 저장한다.
         _appliedTimeScale = Time.timeScale;
         _appliedFixedDeltaTime = Time.fixedDeltaTime;
     }
@@ -62,23 +60,34 @@ internal sealed class ChargeJumpSession
         _body.linearVelocity = _launchVelocity;
         _move.SetFacingDirection(direction.x);
         _jump.BeginExternalLaunch();
-        _animator?.PlayChargeJumpLaunch(direction);
-        _dashGhost?.BeginChargeJumpLaunch();
+        _animator.PlayChargeJumpLaunch(direction);
+        _dashGhost.BeginChargeJumpLaunch();
     }
 
     public void FixedTick(bool aiming, bool launching)
     {
-        if (aiming) _body.linearVelocity = Vector2.zero;
-        else if (launching) _body.linearVelocity = _launchVelocity;
+        if (aiming)
+        {
+            _body.linearVelocity = Vector2.zero;
+        }
+        else if (launching)
+        {
+            _body.linearVelocity = _launchVelocity;
+        }
     }
 
     public bool BlocksLaunch(Collision2D collision, Vector2 direction)
     {
         if (collision.collider == null || (!collision.collider.CompareTag("Ground") && !collision.collider.CompareTag("Platform")))
+        {
             return false;
+        }
         for (int i = 0; i < collision.contactCount; i++)
         {
-            if (Vector2.Dot(direction, collision.GetContact(i).normal) >= -0.25f) continue;
+            if (Vector2.Dot(direction, collision.GetContact(i).normal) >= -0.25f)
+            {
+                continue;
+            }
             return true;
         }
         return false;
@@ -88,23 +97,39 @@ internal sealed class ChargeJumpSession
     {
         if (wasLaunching)
         {
-            _animator?.EndChargeJumpLaunch();
-            _dashGhost?.EndChargeJumpLaunch();
+            _animator.EndChargeJumpLaunch();
+            _dashGhost.EndChargeJumpLaunch();
         }
         if (wasAiming && _body.constraints == RigidbodyConstraints2D.FreezeAll)
+        {
             _body.constraints = _previousConstraints;
-        if (Mathf.Approximately(_body.gravityScale, 0f)) _body.gravityScale = _previousGravity;
+        }
+        if (Mathf.Approximately(_body.gravityScale, 0f))
+        {
+            _body.gravityScale = _previousGravity;
+        }
         _move.SetMovementLocked(_owner, false);
-        if (wasAiming && restoreVelocity) _body.linearVelocity = _previousVelocity;
+        if (wasAiming && restoreVelocity)
+        {
+            _body.linearVelocity = _previousVelocity;
+        }
     }
 
     public void RestoreTime()
     {
-        if (_timeOwner != _owner) return;
+        if (_timeOwner != _owner)
+        {
+            return;
+        }
         HitImpactFeedback.Instance?.ReplaceResumeTimeScale(_appliedTimeScale, _previousTimeScale);
-        // 다른 일시정지 시스템이 덮어쓴 시간은 해제하지 않는다.
-        if (Mathf.Approximately(Time.timeScale, _appliedTimeScale)) Time.timeScale = _previousTimeScale;
-        if (Mathf.Approximately(Time.fixedDeltaTime, _appliedFixedDeltaTime)) Time.fixedDeltaTime = _previousFixedDeltaTime;
+        if (Mathf.Approximately(Time.timeScale, _appliedTimeScale))
+        {
+            Time.timeScale = _previousTimeScale;
+        }
+        if (Mathf.Approximately(Time.fixedDeltaTime, _appliedFixedDeltaTime))
+        {
+            Time.fixedDeltaTime = _previousFixedDeltaTime;
+        }
         _timeOwner = null;
     }
 }

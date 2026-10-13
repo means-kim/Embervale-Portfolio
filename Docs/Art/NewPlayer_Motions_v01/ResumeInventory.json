@@ -1,0 +1,158 @@
+{
+  "controller": "Assets/05.Animation/Player_Motion/Player.controller",
+  "states": [
+    {
+      "state": "Idle",
+      "path": "Assets/05.Animation/Player_Motion/Player_Idle.anim",
+      "guid": "7e8c8cde8b1f3a542ba2a9c4dc672938",
+      "frames": 32,
+      "length": 1.6,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png"
+    },
+    {
+      "state": "Run",
+      "path": "Assets/05.Animation/Player_Motion/Player_Run.anim",
+      "guid": "fedfa895b7ec9ea4790205feffd902b6",
+      "frames": 17,
+      "length": 0.5208333,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png"
+    },
+    {
+      "state": "JumpApex",
+      "path": "Assets/05.Animation/Player_Motion/Player_JumpApex.anim",
+      "guid": "26e7d70fb3ffbf14badef1f669285830",
+      "frames": 5,
+      "length": 0.208333343,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_00.png"
+    },
+    {
+      "state": "JumpRise",
+      "path": "Assets/05.Animation/Player_Motion/Player_JumpRise.anim",
+      "guid": "b56e1440c8c52d44d8beeb0b73d0e5e7",
+      "frames": 9,
+      "length": 0.375,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_00.png"
+    },
+    {
+      "state": "JumpStart",
+      "path": "Assets/05.Animation/Player_Motion/Player_JumpStart.anim",
+      "guid": "6321f2dd5d2c6d648b7b039b4e1dac9f",
+      "frames": 4,
+      "length": 0.13333334,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_00.png"
+    },
+    {
+      "state": "Dash",
+      "path": "Assets/05.Animation/Player_Motion/Player_Dash.anim",
+      "guid": "da07fc4c4a4e1a54a8e1ae372fabe948",
+      "frames": 9,
+      "length": 0.225000009,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_00.png"
+    },
+    {
+      "state": "Hit",
+      "path": "Assets/05.Animation/Player_Motion/Player_Hit.anim",
+      "guid": "3072b42eacd0c744796b2dd3aea63ff1",
+      "frames": 5,
+      "length": 0.208333343,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_00.png"
+    },
+    {
+      "state": "FirstAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_FirstAttack.anim",
+      "guid": "4a0321bd06c5a4640a00226c13a337f6",
+      "frames": 9,
+      "length": 0.3766667,
+      "speed": 1.7,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_00.png"
+    },
+    {
+      "state": "Fall",
+      "path": "Assets/05.Animation/Player_Motion/Player_Fall.anim",
+      "guid": "832ac5bfef82e7d439b81efde09253db",
+      "frames": 9,
+      "length": 0.375,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_00.png"
+    },
+    {
+      "state": "Land",
+      "path": "Assets/05.Animation/Player_Motion/Player_Land.anim",
+      "guid": "1cf5077cf6ed63747a79146f16c6ce7f",
+      "frames": 5,
+      "length": 0.166666672,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_00.png"
+    },
+    {
+      "state": "DoubleJump",
+      "path": "Assets/05.Animation/Player_Motion/Player_DoubleJump.anim",
+      "guid": "999a036015c72bb4c921a6945972d95e",
+      "frames": 17,
+      "length": 0.472222239,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_00.png"
+    },
+    {
+      "state": "WallCling",
+      "path": "Assets/05.Animation/Player_Motion/Player_WallCling.anim",
+      "guid": "ea6282e89ba186c4d88cd5b64574194e",
+      "frames": 9,
+      "length": 0.450000018,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_00.png"
+    },
+    {
+      "state": "FireBallAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_FireballAttack.anim",
+      "guid": "781c5e4920481d345863a211574c4a0a",
+      "frames": 9,
+      "length": 0.75,
+      "speed": 3.0,
+      "first": "Assets/04.Sprites/Player/Attack3_Grid512.png"
+    },
+    {
+      "state": "HorizontalAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_HorizontalAttack.anim",
+      "guid": "61ebb20afc35f8944a06a4fd8eb993dd",
+      "frames": 15,
+      "length": 1.25,
+      "speed": 5.0,
+      "first": "Assets/04.Sprites/Player/Attack4_Grid512.png"
+    },
+    {
+      "state": "ThirdAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_ThirdAttack.anim",
+      "guid": "a0a439aabe24faa44acd36e6382506f9",
+      "frames": 15,
+      "length": 1.25,
+      "speed": 5.0,
+      "first": "Assets/04.Sprites/Player/Attack_Grid512.png"
+    },
+    {
+      "state": "SecondAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_SecondAttack.anim",
+      "guid": "c0e47817aa0471541973509be30ae21d",
+      "frames": 15,
+      "length": 1.25,
+      "speed": 5.0,
+      "first": "Assets/04.Sprites/Player/Attack2_Grid512.png"
+    },
+    {
+      "state": "Glide",
+      "path": "Assets/05.Animation/Player_Motion/Player_Glide.anim",
+      "guid": "f2b0fcdc1a656014690ceb9ca14c1ae6",
+      "frames": 9,
+      "length": 0.75,
+      "speed": 1.0,
+      "first": "Assets/04.Sprites/Player/Glide_v01/Player_Glide_v01.png"
+    }
+  ]
+}

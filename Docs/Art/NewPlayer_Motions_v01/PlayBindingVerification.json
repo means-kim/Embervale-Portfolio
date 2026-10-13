@@ -1,0 +1,94 @@
+{
+  "success": true,
+  "scope": "Live Play Animator sampling and visual phase controls; no keyboard input",
+  "displayedUniqueFrames": 296,
+  "bindings": [
+    {
+      "state": "Idle",
+      "unique": 32,
+      "keys": 32
+    },
+    {
+      "state": "Run",
+      "unique": 16,
+      "keys": 17
+    },
+    {
+      "state": "JumpApex",
+      "unique": 8,
+      "keys": 8
+    },
+    {
+      "state": "JumpRise",
+      "unique": 32,
+      "keys": 32
+    },
+    {
+      "state": "Dash",
+      "unique": 16,
+      "keys": 16
+    },
+    {
+      "state": "Hit",
+      "unique": 8,
+      "keys": 8
+    },
+    {
+      "state": "FirstAttack",
+      "unique": 12,
+      "keys": 12
+    },
+    {
+      "state": "Fall",
+      "unique": 32,
+      "keys": 32
+    },
+    {
+      "state": "DoubleJump",
+      "unique": 16,
+      "keys": 16
+    },
+    {
+      "state": "WallCling",
+      "unique": 32,
+      "keys": 32
+    },
+    {
+      "state": "FireBallAttack",
+      "unique": 12,
+      "keys": 12
+    },
+    {
+      "state": "HorizontalAttack",
+      "unique": 16,
+      "keys": 16
+    },
+    {
+      "state": "ThirdAttack",
+      "unique": 16,
+      "keys": 16
+    },
+    {
+      "state": "SecondAttack",
+      "unique": 16,
+      "keys": 16
+    },
+    {
+      "state": "Glide",
+      "unique": 32,
+      "keys": 32
+    }
+  ],
+  "phases": [
+    "JumpRise",
+    "JumpApex",
+    "JumpApex",
+    "JumpApex",
+    "JumpApex",
+    "JumpApex",
+    "Fall"
+  ],
+  "doubleSpeed": 1.0,
+  "chargeOk": true,
+  "scene": "Assets/01.Scenes/YuchanScene.unity"
+}
