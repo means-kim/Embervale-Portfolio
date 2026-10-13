@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-[RequireComponent(typeof(Rigidbody2D), (typeof(PlayerInput)))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerGlide))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _moveSpeed = 5f;
@@ -81,12 +83,7 @@ public class PlayerMove : MonoBehaviour
             return;
         }
         Vector2 velocity = _rigidbody.linearVelocity;
-        float speedMultiplier = 1f;
-        if (_glide != null)
-        {
-            speedMultiplier = _glide.HorizontalSpeedMultiplier;
-        }
-        velocity.x = _moveInput.x * _moveSpeed * speedMultiplier;
+        velocity.x = _moveInput.x * _moveSpeed * _glide.HorizontalSpeedMultiplier;
         _rigidbody.linearVelocity = velocity;
     }
     public void ResetForRespawn() => _moveInput = Vector2.zero;

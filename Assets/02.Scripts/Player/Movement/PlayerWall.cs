@@ -1,8 +1,13 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerJump))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerJump))]
 [RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerHit))]
+[RequireComponent(typeof(Health))]
 public class PlayerWall : MonoBehaviour
 {
     private enum WallState { None, Cling, Slide }
@@ -50,9 +55,9 @@ public class PlayerWall : MonoBehaviour
         }
     }
     private bool IsJumpEnabled => _jump.isActiveAndEnabled;
-    private bool IsAlive => _health == null || !_health.IsDead;
-    private bool IsStable => _hit == null || !_hit.IsHit;
-    private bool IsNotDashing => _dash == null || !_dash.IsDashing;
+    private bool IsAlive => !_health.IsDead;
+    private bool IsStable => !_hit.IsHit;
+    private bool IsNotDashing => !_dash.IsDashing;
     private bool HasNoExternalLock => !_move.HasMovementLockOtherThan(this);
     private bool CanUseWall => IsJumpEnabled && IsAlive && IsStable && IsNotDashing && HasNoExternalLock;
 
@@ -69,7 +74,10 @@ public class PlayerWall : MonoBehaviour
         _isIgnoredPlatform = _jump.IsIgnoringPlatform;
         Stamina = _maxStamina;
         _collider = GetComponent<Collider2D>();
-        if (_collider == null) return;
+        if (_collider == null)
+        {
+            return;
+        }
         _originalMaterial = _collider.sharedMaterial;
         if (_originalMaterial != null
             && _originalMaterial.friction <= 0f
@@ -84,7 +92,6 @@ public class PlayerWall : MonoBehaviour
     {
         _input.OnMoveInput += HandleMove;
         _jump.OnLanded += HandleLanded;
-        if (_health == null) return;
         _health.OnHit += ReleaseWall;
         _health.OnDie += ReleaseWall;
     }
@@ -92,24 +99,30 @@ public class PlayerWall : MonoBehaviour
     {
         _input.OnMoveInput -= HandleMove;
         _jump.OnLanded -= HandleLanded;
-        if (_health != null)
-        {
-            _health.OnHit -= ReleaseWall;
-            _health.OnDie -= ReleaseWall;
-        }
+        _health.OnHit -= ReleaseWall;
+        _health.OnDie -= ReleaseWall;
         _moveInput = Vector2.zero;
         _staminaTimer = 0f;
         ReleaseWall();
     }
     private void OnDestroy()
     {
-        if (_runtimeMaterial == null) return;
+        if (_runtimeMaterial == null)
+        {
+            return;
+        }
         if (_collider != null && _collider.sharedMaterial == _runtimeMaterial)
         {
             _collider.sharedMaterial = _originalMaterial;
         }
-        if (Application.isPlaying) Destroy(_runtimeMaterial);
-        else DestroyImmediate(_runtimeMaterial);
+        if (Application.isPlaying)
+        {
+            Destroy(_runtimeMaterial);
+        }
+        else
+        {
+            DestroyImmediate(_runtimeMaterial);
+        }
     }
     private void HandleMove(Vector2 input)
     {
@@ -119,7 +132,11 @@ public class PlayerWall : MonoBehaviour
     private void Update()
     {
         RefreshWallState();
-        if (!IsClinging) { _staminaTimer = 0f; return; }
+        if (!IsClinging)
+        {
+            _staminaTimer = 0f;
+            return;
+        }
         _staminaTimer += Time.deltaTime;
         float interval = Mathf.Max(0.01f, _staminaTick);
         while (_staminaTimer >= interval && Stamina > 0)
@@ -127,7 +144,10 @@ public class PlayerWall : MonoBehaviour
             _staminaTimer -= interval;
             Stamina = Mathf.Max(0, Stamina - _clingDrain);
         }
-        if (Stamina == 0) RefreshWallState();
+        if (Stamina == 0)
+        {
+            RefreshWallState();
+        }
     }
     private void RefreshWallState()
     {
@@ -152,7 +172,10 @@ public class PlayerWall : MonoBehaviour
         if (attached)
         {
             _wallDirection = direction;
-            if (!IsClinging) _jump.RefreshJumpsFromWall();
+            if (!IsClinging)
+            {
+                _jump.RefreshJumpsFromWall();
+            }
         }
         WallState nextState = WallState.None;
         if (attached)
@@ -171,10 +194,19 @@ public class PlayerWall : MonoBehaviour
     }
     public bool TryHandleJumpInput()
     {
-        if (!isActiveAndEnabled) return false;
+        if (!isActiveAndEnabled)
+        {
+            return false;
+        }
         RefreshWallState();
-        if (!IsClinging) return false;
-        if (Stamina < JumpCost || !_jump.TryConsumeJump()) return true;
+        if (!IsClinging)
+        {
+            return false;
+        }
+        if (Stamina < JumpCost || !_jump.TryConsumeJump())
+        {
+            return true;
+        }
         Stamina -= JumpCost;
         _wallJumpUsed = true;
         _staminaTimer = 0f;
@@ -208,23 +240,41 @@ public class PlayerWall : MonoBehaviour
     private void FixedUpdate()
     {
         RefreshWallState();
-        if (!IsClinging) return;
+        if (!IsClinging)
+        {
+            return;
+        }
         Vector2 velocity = _body.linearVelocity;
-        velocity.x = 0f; // Keep the player beside one-way platform sides.
-        if (velocity.y < 0f) velocity.y = -_slideSpeed;
+        velocity.x = 0f;
+        if (velocity.y < 0f)
+        {
+            velocity.y = -_slideSpeed;
+        }
         _body.linearVelocity = velocity;
     }
     private void SetState(WallState state)
     {
-        if (_state == state) return;
+        if (_state == state)
+        {
+            return;
+        }
         _state = state;
         var effects = EffectManager.Instance;
-        if (effects == null) return;
-        if (state == WallState.Slide) effects.PlayWallSlide(transform.position);
+        if (effects == null)
+        {
+            return;
+        }
+        if (state == WallState.Slide)
+        {
+            effects.PlayWallSlide(transform.position);
+        }
     }
     private void SetMovementLock(bool locked)
     {
-        if (_moveLocked == locked) return;
+        if (_moveLocked == locked)
+        {
+            return;
+        }
         _moveLocked = locked;
         _move.SetMovementLocked(this, locked);
     }

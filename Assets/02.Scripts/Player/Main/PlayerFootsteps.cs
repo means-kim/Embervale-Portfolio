@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Serialization;
-[RequireComponent(typeof(PlayerMove), typeof(PlayerJump), typeof(PlayerController))]
+[RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerFootsteps : MonoBehaviour
 {
     [Header("Surface Banks")]
@@ -27,7 +29,10 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void EnsureSource()
     {
-        if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
         if (_audioSource == null)
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
@@ -37,7 +42,6 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_jump == null) return;
         _jump.OnLanded += HandleLanded;
         _jump.OnJumpStarted += HandleSteppingStopped;
         _jump.OnGroundLost += HandleSteppingStopped;
@@ -45,14 +49,16 @@ public class PlayerFootsteps : MonoBehaviour
     private void OnDisable()
     {
         StopFootstepSounds();
-        if (_jump == null) return;
         _jump.OnLanded -= HandleLanded;
         _jump.OnJumpStarted -= HandleSteppingStopped;
         _jump.OnGroundLost -= HandleSteppingStopped;
     }
     private void Update()
     {
-        if (Time.deltaTime <= 0f) return;
+        if (Time.deltaTime <= 0f)
+        {
+            return;
+        }
         bool runStep = _controller.CurrentState == PlayerState.Run && _jump.IsGrounded && _move.IsMoving && _move.HasMoveInput;
         if (!runStep)
         {
@@ -65,7 +71,10 @@ public class PlayerFootsteps : MonoBehaviour
             return;
         }
         _wasStepping = true;
-        if (Time.time < _nextStepTime) return;
+        if (Time.time < _nextStepTime)
+        {
+            return;
+        }
         _nextStepTime = Time.time + _stepInterval;
         PlayCurrentSurface();
         Vector3 position = transform.position;
@@ -77,7 +86,10 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void HandleLanded()
     {
-        if (!_playOnLand) return;
+        if (!_playOnLand)
+        {
+            return;
+        }
         PlayCurrentSurface();
         _nextStepTime = Time.time + _stepInterval;
     }
@@ -89,11 +101,14 @@ public class PlayerFootsteps : MonoBehaviour
     }
     private void StopFootstepSounds()
     {
-        if (_audioSource != null) _audioSource.Stop();
+        if (_audioSource != null)
+        {
+            _audioSource.Stop();
+        }
     }
     private void PlayCurrentSurface()
     {
-        bool onPlatform = _jump != null && _jump.IsOnPlatform;
+        bool onPlatform = _jump.IsOnPlatform;
         FootstepSFXBank bank = _groundBank;
         if (onPlatform)
         {
@@ -107,7 +122,10 @@ public class PlayerFootsteps : MonoBehaviour
                 bank = _platformBank;
             }
         }
-        if (bank == null || _audioSource == null) return;
+        if (bank == null || _audioSource == null)
+        {
+            return;
+        }
         bank.PlayOn(_audioSource);
     }
 }

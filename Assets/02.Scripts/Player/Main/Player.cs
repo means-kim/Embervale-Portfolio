@@ -1,11 +1,24 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(global::Health), typeof(PlayerLevel))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(global::Health))]
+[RequireComponent(typeof(PlayerLevel))]
+[RequireComponent(typeof(PlayerGlide))]
+[RequireComponent(typeof(PlayerChargeJump))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerDashGhost))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerLandEffect))]
+[RequireComponent(typeof(PlayerWall))]
+[RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerHit))]
+[RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
 {
     public event System.Action OnRestarted;
-    [SerializeField] private Transform _checkPointTransform;
+    private Transform _checkPointTransform;
     private Rigidbody2D _rigidbody2D;
     private Vector3 _respawnPosition;
     private RespawnPoint _respawnPoint;
@@ -23,7 +36,10 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Border")) PlayerDeath();
+        if (other.gameObject.CompareTag("Border"))
+        {
+            PlayerDeath();
+        }
     }
     private void PlayerDeath()
     {
@@ -39,24 +55,30 @@ public class Player : MonoBehaviour
 
     public void MoveToCheckpoint(Vector3 position)
     {
-        GetComponent<PlayerGlide>()?.ResetForRespawn();
-        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
+        GetComponent<PlayerGlide>().ResetForRespawn();
+        GetComponent<PlayerChargeJump>().CancelChargeJump();
         Vector3 positionDelta = position - transform.position;
-        GetComponent<PlayerAttack>()?.CancelAttack();
-        GetComponent<PlayerDash>()?.CancelDash();
-        GetComponent<PlayerDashGhost>()?.ResetForRespawn();
-        GetComponent<PlayerJump>()?.ResetForRespawn();
-        GetComponent<PlayerLandEffect>()?.ResetForRespawn();
-        GetComponent<PlayerWall>()?.ResetForRespawn();
-        GetComponent<PlayerMove>()?.ResetForRespawn();
+        GetComponent<PlayerAttack>().CancelAttack();
+        GetComponent<PlayerDash>().CancelDash();
+        GetComponent<PlayerDashGhost>().ResetForRespawn();
+        GetComponent<PlayerJump>().ResetForRespawn();
+        GetComponent<PlayerLandEffect>().ResetForRespawn();
+        GetComponent<PlayerWall>().ResetForRespawn();
+        GetComponent<PlayerMove>().ResetForRespawn();
 
         _rigidbody2D.linearVelocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0f;
         transform.position = position;
 
-        foreach (CinemachineCamera camera in FindObjectsByType<CinemachineCamera>(FindObjectsInactive.Include, FindObjectsSortMode.None)) camera.OnTargetObjectWarped(transform, positionDelta);
+        foreach (CinemachineCamera camera in FindObjectsByType<CinemachineCamera>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            camera.OnTargetObjectWarped(transform, positionDelta);
+        }
 
-        if (_respawnPoint != null && (position - _respawnPoint.transform.position).sqrMagnitude < 0.0001f) _respawnPoint.RestoreView(transform);
+        if (_respawnPoint != null && (position - _respawnPoint.transform.position).sqrMagnitude < 0.0001f)
+        {
+            _respawnPoint.RestoreView(transform);
+        }
     }
 
     public void RestartAt(Vector3 position)
@@ -64,10 +86,10 @@ public class Player : MonoBehaviour
         _respawnPoint?.PrepareForRetry();
         MoveToCheckpoint(position);
         GetComponent<global::Health>().ReviveFull();
-        GetComponent<PlayerHit>()?.ResetForRespawn();
-        GetComponent<PlayerDash>()?.ResetForRespawn();
-        GetComponent<PlayerAttack>()?.ResetForRespawn();
-        GetComponent<PlayerController>()?.ResetForRespawn();
+        GetComponent<PlayerHit>().ResetForRespawn();
+        GetComponent<PlayerDash>().ResetForRespawn();
+        GetComponent<PlayerAttack>().ResetForRespawn();
+        GetComponent<PlayerController>().ResetForRespawn();
         OnRestarted?.Invoke();
     }
     public void SetRespawnPoint(Vector3 position)
@@ -78,7 +100,10 @@ public class Player : MonoBehaviour
 
     public void SetRespawnPoint(RespawnPoint point)
     {
-        if (point == null) return;
+        if (point == null)
+        {
+            return;
+        }
         _respawnPoint = point;
         _respawnPosition = point.transform.position;
     }

@@ -38,11 +38,20 @@ internal sealed class ChargeJumpAim
         float bestDistance = float.PositiveInfinity;
         foreach (var collider in _nearby)
         {
-            if (collider == null) continue;
+            if (collider == null)
+            {
+                continue;
+            }
             var projectile = collider.GetComponentInParent<IceProjectile>();
-            if (projectile == null || !projectile.CanBeCharged) continue;
+            if (projectile == null || !projectile.CanBeCharged)
+            {
+                continue;
+            }
             float distance = ((Vector2)Origin - collider.ClosestPoint(Origin)).sqrMagnitude;
-            if (distance >= bestDistance) continue;
+            if (distance >= bestDistance)
+            {
+                continue;
+            }
             bestDistance = distance;
             nearest = projectile;
         }
@@ -52,7 +61,10 @@ internal sealed class ChargeJumpAim
     public void Begin(ChargeJumpArrow prefab, Camera camera, Vector3 origin, int facing)
     {
         Direction = Vector2.right * facing;
-        if (_arrow == null) _arrow = UnityEngine.Object.Instantiate(prefab);
+        if (_arrow == null)
+        {
+            _arrow = UnityEngine.Object.Instantiate(prefab);
+        }
         UpdateDirection(camera, origin);
         _arrow.Show(origin, Direction);
         _effect = EffectManager.Instance?.PlayChargeJumpAim(Origin);
@@ -62,30 +74,51 @@ internal sealed class ChargeJumpAim
     {
         var plane = new Plane(Vector3.forward, origin);
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (!plane.Raycast(ray, out float distance)) return;
+        if (!plane.Raycast(ray, out float distance))
+        {
+            return;
+        }
         Vector2 direction = ray.GetPoint(distance) - origin;
-        if (direction.sqrMagnitude > 0.0001f) Direction = direction.normalized;
+        if (direction.sqrMagnitude > 0.0001f)
+        {
+            Direction = direction.normalized;
+        }
     }
 
     public void Tick(Camera camera, Vector3 origin)
     {
-        if (_arrow == null) return;
+        if (_arrow == null)
+        {
+            return;
+        }
         UpdateDirection(camera, origin);
         _arrow.Show(origin, Direction);
-        if (_effect != null) _effect.transform.position = Origin;
+        if (_effect != null)
+        {
+            _effect.transform.position = Origin;
+        }
     }
 
     public void End()
     {
-        if (_arrow != null) _arrow.Hide();
-        if (_effect != null) UnityEngine.Object.Destroy(_effect);
+        if (_arrow != null)
+        {
+            _arrow.Hide();
+        }
+        if (_effect != null)
+        {
+            UnityEngine.Object.Destroy(_effect);
+        }
         _effect = null;
     }
 
     public void Dispose()
     {
         End();
-        if (_arrow != null) UnityEngine.Object.Destroy(_arrow.gameObject);
+        if (_arrow != null)
+        {
+            UnityEngine.Object.Destroy(_arrow.gameObject);
+        }
         _arrow = null;
     }
 }

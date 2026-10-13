@@ -2,7 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 [DefaultExecutionOrder(100)]
 [DisallowMultipleComponent]
-[RequireComponent(typeof(PlayerInput), typeof(PlayerMove), typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerWall))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerHit))]
+[RequireComponent(typeof(PlayerGlide))]
+[RequireComponent(typeof(Health))]
 public class PlayerChargeJump : MonoBehaviour
 {
     private enum Phase { None, Aiming, Launching }
@@ -32,6 +40,7 @@ public class PlayerChargeJump : MonoBehaviour
     private PlayerAttack _attack;
     private PlayerHit _hit;
     private Health _health;
+    private PlayerGlide _glide;
     private ChargeJumpAim _aim;
     private ChargeJumpSession _session;
     private IceProjectile _target;
@@ -55,7 +64,7 @@ public class PlayerChargeJump : MonoBehaviour
             return AimOrigin;
         }
     }
-    private bool CanPayHealth => _healthCost <= 0 || (_health != null && !_health.IsDead && _health.CurrentHealth > _healthCost);
+    private bool CanPayHealth => _healthCost <= 0 || (!_health.IsDead && _health.CurrentHealth > _healthCost);
     private bool AimTargetAvailable
     {
         get
@@ -80,6 +89,7 @@ public class PlayerChargeJump : MonoBehaviour
         _attack = GetComponent<PlayerAttack>();
         _hit = GetComponent<PlayerHit>();
         _health = GetComponent<Health>();
+        _glide = GetComponent<PlayerGlide>();
         _aim = new ChargeJumpAim(transform, GetComponent<Collider2D>());
         _session = new ChargeJumpSession(this, _body, _move, _jump);
     }
@@ -106,11 +116,11 @@ public class PlayerChargeJump : MonoBehaviour
     }
     private bool ControlsAvailable => _input.isActiveAndEnabled && _move.isActiveAndEnabled
         && _jump.isActiveAndEnabled && _body.simulated && _body.bodyType == RigidbodyType2D.Dynamic
-        && (_health == null || !_health.IsDead) && (_hit == null || !_hit.IsHit);
+        && !_health.IsDead && !_hit.IsHit;
     private void TryBegin()
     {
         if (IsActive || Time.time < _nextUseTime || !ControlsAvailable || _arrowPrefab == null || !ChargeJumpSession.CanBegin
-            || (_dash != null && _dash.IsDashing)
+            || _dash.IsDashing
             || _move.HasMovementLockOtherThan(_wall, _attack)
             || (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()))
         {
@@ -138,8 +148,8 @@ public class PlayerChargeJump : MonoBehaviour
         {
             return;
         }
-        _attack?.InterruptForMovement();
-        GetComponent<PlayerGlide>()?.CancelGlide();
+        _attack.InterruptForMovement();
+        _glide.CancelGlide();
         _target = target;
         _withoutProjectile = target == null;
         _projectileVelocity = Vector2.zero;
@@ -157,7 +167,7 @@ public class PlayerChargeJump : MonoBehaviour
         {
             return;
         }
-        if (!ControlsAvailable || (_move.HasMovementLockOtherThan(this) && (_wall == null || !_wall.IsClinging)))
+        if (!ControlsAvailable || (_move.HasMovementLockOtherThan(this) && !_wall.IsClinging))
         {
             Stop(false);
             return;
@@ -169,20 +179,32 @@ public class PlayerChargeJump : MonoBehaviour
                 Stop(true);
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.Escape)) Stop(true);
-            else if (!Input.GetMouseButton(1)) Release();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Stop(true);
+            }
+            else if (!Input.GetMouseButton(1))
+            {
+                Release();
+            }
         }
         else
         {
             _launchRemaining -= Time.deltaTime;
-            if (_launchRemaining <= 0f) Stop(false);
+            if (_launchRemaining <= 0f)
+            {
+                Stop(false);
+            }
         }
     }
     private void LateUpdate() { if (IsAiming) _aim.Tick(_aimCamera, ArrowOrigin); }
 
     private void Release()
     {
-        if (!IsAiming) return;
+        if (!IsAiming)
+        {
+            return;
+        }
         if (!ControlsAvailable || !AimTargetAvailable || _aimCamera == null || !_session.TimeUnchanged)
         {
             Stop(false);
@@ -206,9 +228,12 @@ public class PlayerChargeJump : MonoBehaviour
         }
         _nextUseTime = Time.time + Mathf.Max(0f, _cooldown);
         _session.Launch(_aim.Direction, _playerLaunchSpeed);
-        _attack?.ResetAirAttackCountOnChargeJump();
+        _attack.ResetAirAttackCountOnChargeJump();
         EffectManager.Instance?.PlayChargeJumpLaunch(AimOrigin, _aim.Direction);
-        if (!_withoutProjectile) EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
+        if (!_withoutProjectile)
+        {
+            EffectManager.Instance?.PlayChargeJumpProjectileLaunch(projectileOrigin, -_aim.Direction);
+        }
     }
 
     private void FixedUpdate() => _session.FixedTick(IsAiming, IsLaunching);
@@ -217,14 +242,20 @@ public class PlayerChargeJump : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision) => CheckBlockingCollision(collision);
     private void CheckBlockingCollision(Collision2D collision)
     {
-        if (IsLaunching && _session.BlocksLaunch(collision, _aim.Direction)) Stop(false);
+        if (IsLaunching && _session.BlocksLaunch(collision, _aim.Direction))
+        {
+            Stop(false);
+        }
     }
 
     public void CancelChargeJump() => Stop(false);
 
     private void Stop(bool restoreVelocity)
     {
-        if (!IsActive) return;
+        if (!IsActive)
+        {
+            return;
+        }
         bool wasAiming = IsAiming;
         bool wasLaunching = IsLaunching;
         if (_target != null)

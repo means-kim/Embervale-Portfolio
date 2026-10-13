@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerAnimator : MonoBehaviour
 {
     [FormerlySerializedAs("_jumpStartDuration")]
@@ -85,7 +88,10 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void BeginJump(bool isDoubleJump)
     {
-        if (_chargeJumpLaunchVisual) return;
+        if (_chargeJumpLaunchVisual)
+        {
+            return;
+        }
         _jumpEnterTime = Time.time;
         _playingDoubleJump = isDoubleJump;
         _doubleJumpStartTime = Time.time;
@@ -99,19 +105,27 @@ public class PlayerAnimator : MonoBehaviour
         {
             PlayClip("JumpRise");
         }
-        if (isDoubleJump) FitDoubleJumpSpeed();
+        if (isDoubleJump)
+        {
+            FitDoubleJumpSpeed();
+        }
     }
     public void ResetJumpPhase()
     {
         _playingDoubleJump = false;
         ExitApex();
-        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
+        if (_animator.speed != 1f)
+        {
+            _animator.speed = 1f;
+        }
     }
-    /// <summary>DoubleJump 클립 전체를 _doubleJumpDuration 안에 자연 재생하도록 속도를 1회 조정합니다.</summary>
     private void FitDoubleJumpSpeed()
     {
-        if (_animator == null) return;
-        if (_doubleJumpDuration <= 0f) { _animator.speed = 1f; return; }
+        if (_doubleJumpDuration <= 0f)
+        {
+            _animator.speed = 1f;
+            return;
+        }
         var controller = _animator.runtimeAnimatorController;
         if (controller != null)
         {
@@ -128,15 +142,19 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void PlayLand()
     {
-        if (!_chargeJumpLaunchVisual) PlayPhaseClip("Idle");
+        if (!_chargeJumpLaunchVisual)
+        {
+            PlayPhaseClip("Idle");
+        }
     }
-    /// <summary>대시의 이동 로직 없이 차지 점프 발사 연출만 재생합니다.</summary>
     public void PlayDirectionalDash(Vector2 direction) => PlayChargeJumpLaunch(direction);
     public void EndDirectionalDash() => EndChargeJumpLaunch();
     public void PlayChargeJumpLaunch(Vector2 direction)
     {
         if (!_chargeJumpLaunchVisual && _sourceRenderer != null)
+        {
             _previousForceRenderingOff = _sourceRenderer.forceRenderingOff;
+        }
         _chargeJumpLaunchVisual = true;
         _chargeDirection = direction;
         PlayClip("Dash");
@@ -144,29 +162,41 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void EndChargeJumpLaunch()
     {
-        if (!_chargeJumpLaunchVisual) return;
+        if (!_chargeJumpLaunchVisual)
+        {
+            return;
+        }
         StopChargeJumpVisual();
         ResetJumpPhase();
         var controller = GetComponent<PlayerController>();
-        if (controller != null && controller.CurrentState != PlayerState.Jump)
+        if (controller.CurrentState != PlayerState.Jump)
+        {
             PlayState(controller.CurrentState, false);
+        }
         else
+        {
             UpdateJumpPhase(GetComponent<Rigidbody2D>().linearVelocity.y);
+        }
     }
     private void OnDisable()
     {
         StopChargeJumpVisual();
-        if (_animator != null) _animator.speed = 1f;
+        _animator.speed = 1f;
     }
     private void LateUpdate()
     {
-        if (_chargeJumpLaunchVisual) SyncChargeJumpVisual();
+        if (_chargeJumpLaunchVisual)
+        {
+            SyncChargeJumpVisual();
+        }
     }
 
-    // Animator 연결과 물리 루트는 유지하고, 표시용 자식 스프라이트만 기울입니다.
     private void SyncChargeJumpVisual()
     {
-        if (_sourceRenderer == null) return;
+        if (_sourceRenderer == null)
+        {
+            return;
+        }
         if (_chargeRenderer == null)
         {
             var visual = new GameObject("ChargeJumpLaunchVisual");
@@ -187,19 +217,24 @@ public class PlayerAnimator : MonoBehaviour
         _chargeRenderer.drawMode = _sourceRenderer.drawMode;
         _chargeRenderer.size = _sourceRenderer.size;
         _chargeRenderer.spriteSortPoint = _sourceRenderer.spriteSortPoint;
-        // Play 중 스크립트 재로드 시 Awake가 다시 실행되지 않은 경우도 처리합니다.
         _visualProperties ??= new MaterialPropertyBlock();
         _sourceRenderer.GetPropertyBlock(_visualProperties);
         _chargeRenderer.SetPropertyBlock(_visualProperties);
         Vector3 localDirection = _sourceRenderer.transform.InverseTransformVector(_chargeDirection);
-        if (_sourceRenderer.flipX) localDirection = -localDirection;
+        if (_sourceRenderer.flipX)
+        {
+            localDirection = -localDirection;
+        }
         float angle = Mathf.Atan2(localDirection.y, localDirection.x) * Mathf.Rad2Deg;
         _chargeRenderer.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     public SpriteRenderer GetChargeJumpVisualRenderer(SpriteRenderer original)
     {
-        if (!_chargeJumpLaunchVisual || original != _sourceRenderer) return original;
+        if (!_chargeJumpLaunchVisual || original != _sourceRenderer)
+        {
+            return original;
+        }
         SyncChargeJumpVisual();
         if (_chargeRenderer != null)
         {
@@ -211,13 +246,21 @@ public class PlayerAnimator : MonoBehaviour
     private void StopChargeJumpVisual()
     {
         if (_chargeJumpLaunchVisual && _sourceRenderer != null)
+        {
             _sourceRenderer.forceRenderingOff = _previousForceRenderingOff;
+        }
         _chargeJumpLaunchVisual = false;
-        if (_chargeRenderer != null) _chargeRenderer.enabled = false;
+        if (_chargeRenderer != null)
+        {
+            _chargeRenderer.enabled = false;
+        }
     }
     private void OnDestroy()
     {
-        if (_chargeRenderer != null) Destroy(_chargeRenderer.gameObject);
+        if (_chargeRenderer != null)
+        {
+            Destroy(_chargeRenderer.gameObject);
+        }
     }
     public void Tick(PlayerState state, bool landingLocked, float verticalVelocity)
     {
@@ -226,7 +269,10 @@ public class PlayerAnimator : MonoBehaviour
             PlayPhaseClip("Dash");
             return;
         }
-        if (landingLocked) return;
+        if (landingLocked)
+        {
+            return;
+        }
         switch (state)
         {
             case PlayerState.Jump:
@@ -242,10 +288,12 @@ public class PlayerAnimator : MonoBehaviour
         if (_playingDoubleJump)
         {
             float elapsed = Time.time - _doubleJumpStartTime;
-            // 진입 시 1회 재생한 DoubleJump를 자연 재생하고, 표시 시간이 끝나면 다음 구간으로 넘깁니다.
-            if (_doubleJumpDuration > 0f && elapsed < _doubleJumpDuration) return;
+            if (_doubleJumpDuration > 0f && elapsed < _doubleJumpDuration)
+            {
+                return;
+            }
             _playingDoubleJump = false;
-            if (_animator != null) _animator.speed = 1f;
+            _animator.speed = 1f;
             _currentClip = null;
         }
         if (verticalVelocity > _apexVelocityRange)
@@ -260,8 +308,10 @@ public class PlayerAnimator : MonoBehaviour
         }
         else
         {
-            if (Time.time - _jumpEnterTime < _apexMinAirTime) return;
-            // 정점 구간은 속도에 맞춰 자세를 고정하므로 정지(speed=0) 후 변화가 있을 때만 1회씩 Seek합니다.
+            if (Time.time - _jumpEnterTime < _apexMinAirTime)
+            {
+                return;
+            }
             float progress = Mathf.Clamp01(Mathf.InverseLerp(_apexVelocityRange, -_apexVelocityRange, verticalVelocity));
             progress = Mathf.Min(progress, 0.9999f);
             if (!_inApex || _currentClip != "JumpApex")
@@ -269,38 +319,50 @@ public class PlayerAnimator : MonoBehaviour
                 _inApex = true;
                 _currentClip = "JumpApex";
                 _lastApexProgress = progress;
-                if (_animator != null)
-                {
-                    _animator.speed = 0f;
-                    _animator.Play("JumpApex", 0, progress);
-                }
+                _animator.speed = 0f;
+                _animator.Play("JumpApex", 0, progress);
             }
             else if (Mathf.Abs(progress - _lastApexProgress) >= ApexProgressEpsilon)
             {
                 _lastApexProgress = progress;
-                if (_animator != null) _animator.Play("JumpApex", 0, progress);
+                _animator.Play("JumpApex", 0, progress);
             }
         }
     }
     private void ExitApex()
     {
-        if (!_inApex) return;
+        if (!_inApex)
+        {
+            return;
+        }
         _inApex = false;
         _lastApexProgress = -1f;
-        if (_animator != null && _animator.speed == 0f) _animator.speed = 1f;
+        if (_animator.speed == 0f)
+        {
+            _animator.speed = 1f;
+        }
     }
     private void PlayClip(string clipName)
     {
         ExitApex();
-        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
+        if (_animator.speed != 1f)
+        {
+            _animator.speed = 1f;
+        }
         _currentClip = clipName;
         _animator.Play(clipName, 0, 0f);
     }
     private void PlayPhaseClip(string clipName)
     {
-        if (_currentClip == clipName) return;
+        if (_currentClip == clipName)
+        {
+            return;
+        }
         ExitApex();
-        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
+        if (_animator.speed != 1f)
+        {
+            _animator.speed = 1f;
+        }
         _currentClip = clipName;
         _animator.Play(clipName);
     }

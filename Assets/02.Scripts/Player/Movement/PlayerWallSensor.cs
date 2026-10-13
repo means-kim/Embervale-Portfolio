@@ -13,11 +13,17 @@ public sealed class PlayerWallSensor
 
     public bool HasWall(int direction, float probeDistance, float minimumNormal, Func<Collider2D, bool> ignored)
     {
-        if (direction == 0 || _body == null || !_body.simulated) return false;
+        if (direction == 0 || _body == null || !_body.simulated)
+        {
+            return false;
+        }
         _body.GetAttachedColliders(_colliders);
         foreach (var own in _colliders)
         {
-            if (own == null || !own.enabled || own.isTrigger) continue;
+            if (own == null || !own.enabled || own.isTrigger)
+            {
+                continue;
+            }
             var filter = new ContactFilter2D { useTriggers = false };
             filter.SetLayerMask(Physics2D.GetLayerCollisionMask(own.gameObject.layer));
             own.GetContacts(filter, _contacts);
@@ -34,7 +40,10 @@ public sealed class PlayerWallSensor
                 }
             }
 
-            if (probeDistance <= 0f) continue;
+            if (probeDistance <= 0f)
+            {
+                continue;
+            }
             own.Cast(Vector2.right * direction, filter, _hits, probeDistance);
             foreach (var hit in _hits)
             {
@@ -57,8 +66,14 @@ public sealed class PlayerWallSensor
                     {
                         gap = a.min.x - b.max.x;
                     }
-                    if (gap < -0.01f || gap > probeDistance) continue;
-                    if (Mathf.Min(a.max.y, b.max.y) - Mathf.Max(a.min.y, b.min.y) <= 0.01f) continue;
+                    if (gap < -0.01f || gap > probeDistance)
+                    {
+                        continue;
+                    }
+                    if (Mathf.Min(a.max.y, b.max.y) - Mathf.Max(a.min.y, b.min.y) <= 0.01f)
+                    {
+                        continue;
+                    }
                 }
                 return true;
             }

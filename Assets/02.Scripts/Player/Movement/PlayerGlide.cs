@@ -2,7 +2,16 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [DefaultExecutionOrder(50)]
-[RequireComponent(typeof(PlayerJump), typeof(PlayerMove), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerWall))]
+[RequireComponent(typeof(PlayerHit))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerChargeJump))]
+[RequireComponent(typeof(Health))]
 public class PlayerGlide : MonoBehaviour
 {
     [SerializeField, Min(1f)] private float _horizontalSpeedMultiplier = 1.5f;
@@ -50,34 +59,31 @@ public class PlayerGlide : MonoBehaviour
     {
         _jump.OnJumpStarted += HandleJump;
         _jump.OnLanded += ResetForRespawn;
-        if (_health != null)
-        {
-            _health.OnHit += CancelGlide;
-            _health.OnDie += ResetForRespawn;
-        }
+        _health.OnHit += CancelGlide;
+        _health.OnDie += ResetForRespawn;
     }
     private void OnDisable()
     {
         _jump.OnJumpStarted -= HandleJump;
         _jump.OnLanded -= ResetForRespawn;
-        if (_health != null)
-        {
-            _health.OnHit -= CancelGlide;
-            _health.OnDie -= ResetForRespawn;
-        }
+        _health.OnHit -= CancelGlide;
+        _health.OnDie -= ResetForRespawn;
         ResetForRespawn();
     }
     private void HandleJump()
     {
         CancelGlide();
-        if (_jump.CurrentJumpCount >= 2) _doubleJumped = true;
+        if (_jump.CurrentJumpCount >= 2)
+        {
+            _doubleJumped = true;
+        }
     }
     private bool AreComponentsDisabled => !_input.isActiveAndEnabled || !_jump.isActiveAndEnabled || !_move.isActiveAndEnabled;
     private bool IsPhysicsNotReady => !_body.simulated || _body.bodyType != RigidbodyType2D.Dynamic;
     private bool IsGroundedOrLocked => _jump.IsGrounded || _move.MovementLocked;
-    private bool IsDead => _health != null && _health.IsDead;
-    private bool IsInterrupted => (_hit != null && _hit.IsHit) || (_dash != null && _dash.IsDashing);
-    private bool IsOccupied => (_wall != null && _wall.IsClinging) || (_attack != null && _attack.IsAttacking) || (_charge != null && _charge.IsActive);
+    private bool IsDead => _health.IsDead;
+    private bool IsInterrupted => _hit.IsHit || _dash.IsDashing;
+    private bool IsOccupied => _wall.IsClinging || _attack.IsAttacking || _charge.IsActive;
     private bool Blocked => AreComponentsDisabled || IsPhysicsNotReady || IsGroundedOrLocked || IsDead || IsInterrupted || IsOccupied;
     private bool TouchingWall =>
         _sensor.HasWall(-1, 0.02f, 0.5f, _jump.IsIgnoringPlatform)
@@ -99,7 +105,7 @@ public class PlayerGlide : MonoBehaviour
         {
             return false;
         }
-        if (_wall != null && _wall.IsClinging)
+        if (_wall.IsClinging)
         {
             return false;
         }
@@ -120,7 +126,10 @@ public class PlayerGlide : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!IsGliding) return;
+        if (!IsGliding)
+        {
+            return;
+        }
         if (Blocked || TouchingWall)
         {
             CancelGlide();
@@ -167,11 +176,17 @@ public class PlayerGlide : MonoBehaviour
 
     private void OnApplicationFocus(bool focused)
     {
-        if (!focused) CancelGlide();
+        if (!focused)
+        {
+            CancelGlide();
+        }
     }
 
     private void OnApplicationPause(bool paused)
     {
-        if (paused) CancelGlide();
+        if (paused)
+        {
+            CancelGlide();
+        }
     }
 }

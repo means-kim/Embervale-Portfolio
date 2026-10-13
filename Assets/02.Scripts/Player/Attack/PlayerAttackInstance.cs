@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerDamageHitbox), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerDamageHitbox))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerAttackInstance : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _hitDelay;
@@ -57,7 +58,6 @@ public class PlayerAttackInstance : MonoBehaviour
             _ownerMove = owner.GetComponent<PlayerMove>();
         }
         _age = 0;
-        // 독립 공격과 투사체는 발사 이후의 수명 및 비행 속도를 유지합니다.
         _playbackSpeed = Mathf.Max(0.01f, attackSpeed);
         if (_independent || _isProjectile)
         {
@@ -74,18 +74,33 @@ public class PlayerAttackInstance : MonoBehaviour
     }
     private void Update()
     {
-        if (!_initialized || _ended) return;
+        if (!_initialized || _ended)
+        {
+            return;
+        }
         _age += Time.deltaTime * _playbackSpeed;
-        if (_age >= Mathf.Max(0, _hitDelay) + Mathf.Max(0.05f, _hitDuration)) StopDamage();
-        else if (_age >= _hitDelay && !_hitbox.IsActive) _hitbox.SetActive(true);
+        if (_age >= Mathf.Max(0, _hitDelay) + Mathf.Max(0.05f, _hitDuration))
+        {
+            StopDamage();
+        }
+        else if (_age >= _hitDelay && !_hitbox.IsActive)
+        {
+            _hitbox.SetActive(true);
+        }
     }
     public void EndPlayerAction()
     {
-        if (!_independent) StopDamage();
+        if (!_independent)
+        {
+            StopDamage();
+        }
     }
     private void LateUpdate()
     {
-        if (!_followOwner || !_initialized || _ended || Owner == null || _isProjectile) return;
+        if (!_followOwner || !_initialized || _ended || Owner == null || _isProjectile)
+        {
+            return;
+        }
         int facing = Direction;
         if (_ownerMove != null && _ownerMove.FacingDirection < 0)
         {

@@ -1,7 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput), typeof(PlayerDash))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerWall))]
+[RequireComponent(typeof(PlayerHit))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(Health))]
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _maxJumpCount = 2;
@@ -18,6 +24,7 @@ public class PlayerJump : MonoBehaviour
     private PlayerWall _playerWall;
     private PlayerHit _playerHit;
     private PlayerAttack _playerAttack;
+    private Health _health;
     private readonly HashSet<Collider2D> _groundContacts = new();
     private readonly HashSet<Collider2D> _platformContacts = new();
     private readonly List<Collider2D> _ignoredPlatforms = new();
@@ -45,6 +52,7 @@ public class PlayerJump : MonoBehaviour
         _playerWall = GetComponent<PlayerWall>();
         _playerHit = GetComponent<PlayerHit>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _health = GetComponent<Health>();
     }
     private void OnEnable()
     {
@@ -82,7 +90,7 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleJump()
     {
-        if (_playerWall != null && _playerWall.TryHandleJumpInput())
+        if (_playerWall.TryHandleJumpInput())
         {
             return;
         }
@@ -147,8 +155,10 @@ public class PlayerJump : MonoBehaviour
     }
     public bool TryConsumeJump()
     {
-        var health = GetComponent<Health>();
-        if ((health != null && health.IsDead) || _playerDash.IsDashing || (_playerHit != null && _playerHit.IsHit) || _jumpCount >= _maxJumpCount)
+        if (_health.IsDead
+            || _playerDash.IsDashing
+            || _playerHit.IsHit
+            || _jumpCount >= _maxJumpCount)
         {
             return false;
         }
@@ -159,7 +169,7 @@ public class PlayerJump : MonoBehaviour
         _isJumping = true;
         _jumpCount++;
         _bufferedJumpTime = -100f;
-        _playerAttack?.ResetAirAttackCountOnJump();
+        _playerAttack.ResetAirAttackCountOnJump();
         OnJumpStarted?.Invoke();
         return true;
     }
@@ -173,7 +183,10 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleDrop()
     {
-        if (!_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0) return;
+        if (!_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0)
+        {
+            return;
+        }
         foreach (var platform in _platformContacts)
         {
             if (platform == null)

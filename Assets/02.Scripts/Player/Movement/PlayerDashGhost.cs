@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerDashGhost : MonoBehaviour
 {
     [Header("원본")]
@@ -64,20 +65,14 @@ public class PlayerDashGhost : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_playerDash != null)
-        {
-            _playerDash.OnDashStarted += HandleDashStarted;
-            _playerDash.OnDashEnded += HandleDashEnded;
-        }
+        _playerDash.OnDashStarted += HandleDashStarted;
+        _playerDash.OnDashEnded += HandleDashEnded;
     }
 
     private void OnDisable()
     {
-        if (_playerDash != null)
-        {
-            _playerDash.OnDashStarted -= HandleDashStarted;
-            _playerDash.OnDashEnded -= HandleDashEnded;
-        }
+        _playerDash.OnDashStarted -= HandleDashStarted;
+        _playerDash.OnDashEnded -= HandleDashEnded;
 
         ClearGhosts();
     }
@@ -163,7 +158,7 @@ public class PlayerDashGhost : MonoBehaviour
     public void EndChargeJumpLaunch()
     {
         _chargeJumpSpawning = false;
-        _spawning = _playerDash != null && _playerDash.IsDashing;
+        _spawning = _playerDash.IsDashing;
     }
 
     private void Spawn()
@@ -172,11 +167,7 @@ public class PlayerDashGhost : MonoBehaviour
         {
             return;
         }
-        SpriteRenderer renderer = _targetRenderer;
-        if (_playerAnimator != null)
-        {
-            renderer = _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer);
-        }
+        SpriteRenderer renderer = _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer);
 
         foreach (Ghost ghost in _pool)
         {
