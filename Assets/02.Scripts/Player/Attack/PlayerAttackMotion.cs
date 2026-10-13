@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// 공격 중 물리 제어. 잠금 소유자는 기존 PlayerAttack 컴포넌트를 유지한다.
 internal sealed class PlayerAttackMotion
 {
     private readonly PlayerAttack _owner;
@@ -23,20 +22,20 @@ internal sealed class PlayerAttackMotion
 
     public void Begin(bool inAir, float horizontalDuration, float verticalDuration, float gravityMultiplier)
     {
-        bool rising = _body != null && _body.linearVelocity.y > 0.01f;
-        if (horizontalDuration > 0f && _move != null)
+        bool rising = _body.linearVelocity.y > 0.01f;
+        if (horizontalDuration > 0f)
         {
             _move.SetMovementLocked(_owner, true);
             _horizontalTimer = horizontalDuration;
             _horizontalHeld = true;
         }
-        if (inAir && !rising && verticalDuration > 0f && _body != null)
+        if (inAir && !rising && verticalDuration > 0f)
         {
             _frozenY = _body.position.y;
             _verticalTimer = verticalDuration;
             _verticalHeld = true;
         }
-        if (!rising && _body != null)
+        if (!rising)
         {
             if (!_gravityReduced)
             {
@@ -49,15 +48,24 @@ internal sealed class PlayerAttackMotion
 
     public void Tick(float deltaTime)
     {
-        if (!_horizontalHeld) return;
+        if (!_horizontalHeld)
+        {
+            return;
+        }
         _horizontalTimer -= deltaTime;
-        if (_horizontalTimer <= 0f) UnlockHorizontal();
+        if (_horizontalTimer <= 0f)
+        {
+            UnlockHorizontal();
+        }
     }
 
     public void FixedTick(bool grounded, float deltaTime)
     {
-        if (!_verticalHeld) return;
-        if (_body == null || grounded)
+        if (!_verticalHeld)
+        {
+            return;
+        }
+        if (grounded)
         {
             CancelVertical();
             return;
@@ -69,13 +77,18 @@ internal sealed class PlayerAttackMotion
         position.y = _frozenY;
         _body.position = position;
         _verticalTimer -= deltaTime;
-        if (_verticalTimer <= 0f) CancelVertical();
+        if (_verticalTimer <= 0f)
+        {
+            CancelVertical();
+        }
     }
 
     public void EndAttack(bool continueCombo)
     {
-        // 수평·수직 제한은 각 타이머로 종료하고, 연속 콤보는 중력 감소를 유지한다.
-        if (!_gravityReduced || continueCombo || _body == null) return;
+        if (!_gravityReduced || continueCombo)
+        {
+            return;
+        }
         _body.gravityScale = _originalGravity;
         _gravityReduced = false;
     }
@@ -84,7 +97,7 @@ internal sealed class PlayerAttackMotion
     {
         _horizontalTimer = 0f;
         _horizontalHeld = false;
-        if (_move != null) _move.SetMovementLocked(_owner, false);
+        _move.SetMovementLocked(_owner, false);
     }
 
     public void CancelVertical()

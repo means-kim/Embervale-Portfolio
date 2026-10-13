@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 대시 중 플레이어 스프라이트를 일정 간격으로 복사해 남기는 잔상 효과.
-/// 고스트는 월드에 고정되며, 페이드 후 풀로 반환된다.
-/// </summary>
 [RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerDashGhost : MonoBehaviour
 {
     [Header("원본")]
@@ -42,7 +39,9 @@ public class PlayerDashGhost : MonoBehaviour
     private void Awake()
     {
         if (_targetRenderer == null)
+        {
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
+        }
 
         _playerDash = GetComponent<PlayerDash>();
         _playerAnimator = GetComponent<PlayerAnimator>();
@@ -66,25 +65,18 @@ public class PlayerDashGhost : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_playerDash != null)
-        {
-            _playerDash.OnDashStarted += HandleDashStarted;
-            _playerDash.OnDashEnded += HandleDashEnded;
-        }
+        _playerDash.OnDashStarted += HandleDashStarted;
+        _playerDash.OnDashEnded += HandleDashEnded;
     }
 
     private void OnDisable()
     {
-        if (_playerDash != null)
-        {
-            _playerDash.OnDashStarted -= HandleDashStarted;
-            _playerDash.OnDashEnded -= HandleDashEnded;
-        }
+        _playerDash.OnDashStarted -= HandleDashStarted;
+        _playerDash.OnDashEnded -= HandleDashEnded;
 
         ClearGhosts();
     }
 
-    // Animator가 현재 프레임의 스프라이트를 적용한 뒤 복사합니다.
     private void LateUpdate()
     {
         if (_spawning)
@@ -97,11 +89,21 @@ public class PlayerDashGhost : MonoBehaviour
             }
         }
 
-        float fadeSpeed = _fadeTime > 0f ? 1f / _fadeTime : float.MaxValue;
+        float fadeSpeed = float.MaxValue;
+        if (_fadeTime > 0f)
+        {
+            fadeSpeed = 1f / _fadeTime;
+        }
         foreach (Ghost ghost in _pool)
         {
-            if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
-            if (!ghost.Go.activeSelf) continue;
+            if (ghost == null || ghost.Go == null || ghost.Renderer == null)
+            {
+                continue;
+            }
+            if (!ghost.Go.activeSelf)
+            {
+                continue;
+            }
 
             ghost.LifeRemaining -= Time.deltaTime;
             if (ghost.LifeRemaining <= 0f)
@@ -120,7 +122,9 @@ public class PlayerDashGhost : MonoBehaviour
     private void HandleDashStarted()
     {
         if (_targetRenderer == null)
+        {
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
+        }
 
         _spawning = true;
         _spawnTimer = _spawnDelay;
@@ -133,15 +137,19 @@ public class PlayerDashGhost : MonoBehaviour
 
     private void HandleDashEnded()
     {
-        // 스폰만 중단하고, 이미 나온 잔상은 자연 페이드.
         _spawning = _chargeJumpSpawning;
     }
 
     public void BeginChargeJumpLaunch()
     {
-        if (!isActiveAndEnabled) return;
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
         if (_targetRenderer == null)
+        {
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
+        }
         _chargeJumpSpawning = true;
         _spawning = true;
         _spawnTimer = _chargeJumpSpawnDelay;
@@ -150,19 +158,27 @@ public class PlayerDashGhost : MonoBehaviour
     public void EndChargeJumpLaunch()
     {
         _chargeJumpSpawning = false;
-        _spawning = _playerDash != null && _playerDash.IsDashing;
+        _spawning = _playerDash.IsDashing;
     }
 
     private void Spawn()
     {
-        if (_targetRenderer == null || _targetRenderer.sprite == null) return;
-        SpriteRenderer renderer = _playerAnimator != null
-            ? _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer) : _targetRenderer;
+        if (_targetRenderer == null || _targetRenderer.sprite == null)
+        {
+            return;
+        }
+        SpriteRenderer renderer = _playerAnimator.GetChargeJumpVisualRenderer(_targetRenderer);
 
         foreach (Ghost ghost in _pool)
         {
-            if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
-            if (ghost.Go.activeSelf) continue;
+            if (ghost == null || ghost.Go == null || ghost.Renderer == null)
+            {
+                continue;
+            }
+            if (ghost.Go.activeSelf)
+            {
+                continue;
+            }
 
             ghost.Renderer.sharedMaterial = renderer.sharedMaterial;
             ghost.Renderer.sprite = renderer.sprite;
@@ -176,11 +192,14 @@ public class PlayerDashGhost : MonoBehaviour
             ghost.Renderer.color = color;
 
             ghost.Go.layer = renderer.gameObject.layer;
-            // 회전과 좌우 반전이 함께 있어도 실제 월드 축을 그대로 복사합니다.
             Vector3 right = renderer.transform.TransformVector(Vector3.right);
             Vector3 up = renderer.transform.TransformVector(Vector3.up);
             float angle = Mathf.Atan2(right.y, right.x) * Mathf.Rad2Deg;
-            float handedness = Vector3.Cross(right, up).z < 0f ? -1f : 1f;
+            float handedness = 1f;
+            if (Vector3.Cross(right, up).z < 0f)
+            {
+                handedness = -1f;
+            }
             ghost.Go.transform.SetPositionAndRotation(renderer.transform.position, Quaternion.Euler(0f, 0f, angle));
             ghost.Go.transform.localScale = new Vector3(right.magnitude, up.magnitude * handedness, 1f);
 
@@ -191,14 +210,16 @@ public class PlayerDashGhost : MonoBehaviour
         }
     }
 
-    /// <summary>리스폰/텔레포트 시 남은 잔상을 즉시 지운다.</summary>
     public void ClearGhosts()
     {
         _spawning = false;
         _chargeJumpSpawning = false;
         foreach (Ghost ghost in _pool)
         {
-            if (ghost == null || ghost.Go == null || ghost.Renderer == null) continue;
+            if (ghost == null || ghost.Go == null || ghost.Renderer == null)
+            {
+                continue;
+            }
             ghost.LifeRemaining = 0f;
             ghost.Renderer.enabled = false;
             ghost.Go.SetActive(false);
@@ -208,6 +229,9 @@ public class PlayerDashGhost : MonoBehaviour
     public void ResetForRespawn() => ClearGhosts();
     private void OnDestroy()
     {
-        if (_holder != null) Destroy(_holder.gameObject);
+        if (_holder != null)
+        {
+            Destroy(_holder.gameObject);
+        }
     }
 }
