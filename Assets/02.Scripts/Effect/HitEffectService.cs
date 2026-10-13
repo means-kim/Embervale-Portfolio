@@ -90,7 +90,7 @@ internal sealed class HitEffectService
 
             _effects.Add(damageText.gameObject);
 
-            damageText.Play(damage, textPosition);
+            damageText.Play(damage, textPosition, isThirdComboHit);
             host.StartCoroutine(CleanupDamageText(damageText));
         }
 
