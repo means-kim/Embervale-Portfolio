@@ -1,0 +1,8 @@
+const fs=require('fs'),path=require('path'),{normalize,createCanvas,loadImage}=require('./art-utils.cjs');
+const root=path.resolve(__dirname,'../../..'),asset='Assets/04.Sprites/NewPlayer/Motions_v01/Keyposes';
+const specs={JumpRise:{target:[297,186]},Fall:{target:[297,195]},WallCling:{target:[287,186],wall:350},Glide:{hint:[.6,.47],target:[297,199]},Dash:{hint:[.8,.52],target:[390,263]}};
+async function main(){fs.mkdirSync(path.join(root,asset),{recursive:true});const records={};let i=0;const c=createCanvas(1536,1024),ctx=c.getContext('2d');ctx.fillStyle='#15273d';ctx.fillRect(0,0,c.width,c.height);
+ for(const [name,spec]of Object.entries(specs)){const file=path.join(__dirname,name==='Fall'?'Crops/JumpApex_07.png':name+(name==='WallCling'?'_Repaired.png':'_Generated.png'));if(!fs.existsSync(file))continue;const result=await normalize(file,spec),out=asset+'/'+name+'_Master512.png';fs.writeFileSync(path.join(root,out),result.png);records[name]={path:out,source:path.relative(root,file).replaceAll('\\','/'),...result.calibration};ctx.drawImage(await loadImage(result.png),i%3*512,Math.floor(i/3)*512);ctx.fillStyle='#e2eeff';ctx.font='20px sans-serif';ctx.fillText(name,i%3*512+24,Math.floor(i/3)*512+35);i++;}
+ ctx.drawImage(await loadImage(path.join(root,'Assets/04.Sprites/NewPlayer/Design_v01/Player_Idle_Master_v01.png')),1024,512);ctx.fillText('Approved Idle',1048,547);
+ fs.writeFileSync(path.join(__dirname,'MasterCalibration.json'),JSON.stringify(records,null,2));fs.writeFileSync(path.join(__dirname,'Masters_Comparison.png'),c.toBuffer('image/png'));console.log(JSON.stringify(records));
+}main().catch(e=>{console.error(e);process.exit(1)});

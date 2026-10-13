@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path'),{sharp,extractBody,bounds}=require('./art-utils.cjs');
+const specs={FireBallAttack:12,FirstAttack:12,SecondAttack:16,ThirdAttack:16,HorizontalAttack:16,JumpApex:8,Hit:8,DoubleJump:8};
+function components(d,w,h){let seen=new Uint8Array(w*h),q=new Int32Array(w*h),parts=[];
+for(let p=0;p<w*h;p++)if(!seen[p]&&d[p*4+3]>64){let a=0,b=1,x0=w,y0=h,x1=0,y1=0,sx=0,sy=0;seen[p]=1;q[0]=p;while(a<b){let v=q[a++],x=v%w,y=Math.floor(v/w);x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y);sx+=x;sy+=y;for(let yy=Math.max(0,y-1);yy<=Math.min(h-1,y+1);yy++)for(let xx=Math.max(0,x-1);xx<=Math.min(w-1,x+1);xx++){let j=yy*w+xx;if(!seen[j]&&d[j*4+3]>64){seen[j]=1;q[b++]=j;}}}if(b>1000)parts.push({area:b,bounds:[x0,y0,x1,y1],center:[sx/b,sy/b]});}return parts.sort((a,b)=>b.area-a.area);}
+async function main(){let report={};fs.mkdirSync(path.join(__dirname,'Crops'),{recursive:true});
+for(const [name,n]of Object.entries(specs)){const file=path.join(__dirname,name+(name==='JumpApex'?'_Repaired.png':'_Generated.png'));const {data,info}=await sharp(file).ensureAlpha().raw().toBuffer({resolveWithObject:true});let parts=components(data,info.width,info.height).slice(0,n).sort((a,b)=>a.center[1]-b.center[1]);if(parts.length!==n)throw Error(name+' parts '+parts.length);parts=Array.from({length:n/4},(_,r)=>parts.slice(r*4,r*4+4).sort((a,b)=>a.center[0]-b.center[0])).flat();report[name]={size:[info.width,info.height],frames:[]};
+for(let i=0;i<n;i++){const b=parts[i].bounds,pad=4,x=Math.max(0,b[0]-pad),y=Math.max(0,b[1]-pad),w=Math.min(info.width,b[2]+pad+1)-x,h=Math.min(info.height,b[3]+pad+1)-y;
+let crop=await sharp(file).extract({left:x,top:y,width:w,height:h}).ensureAlpha().raw().toBuffer(),clean=extractBody(crop,w,h);
+const out=path.join(__dirname,'Crops',name+'_'+String(i).padStart(2,'0')+'.png');await sharp(clean,{raw:{width:w,height:h,channels:4}}).extend({top:20,bottom:20,left:20,right:20,background:{r:0,g:0,b:0,alpha:0}}).png().toFile(out);
+report[name].frames.push({index:i,sourceBounds:b,sourceEdge:b[0]<=1||b[1]<=1||b[2]>=info.width-2||b[3]>=info.height-2,path:path.relative(__dirname,out).replaceAll('\\','/')});}
+}fs.writeFileSync(path.join(__dirname,'SplitReport.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(Object.fromEntries(Object.entries(report).map(([k,v])=>[k,{size:v.size,edge:v.frames.filter(f=>f.sourceEdge).map(f=>f.index)}]))));}main().catch(e=>{console.error(e);process.exit(1)});
+
