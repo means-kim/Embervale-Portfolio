@@ -16,6 +16,7 @@ internal sealed class HitEffectService
             onReleased?.Invoke();
             return;
         }
+
         GameObject effect = Spawn(prefab, position);
         if (effect != null && effect.TryGetComponent<PlayerHitEffect>(out var hitEffect))
         {
@@ -28,11 +29,13 @@ internal sealed class HitEffectService
             {
                 Debug.LogWarning("EffectManager에 플레이어 피격 프리팹이 연결되지 않았습니다.", host);
             }
+
             HitImpactFeedback.EnsureInstance().RequestPlayerHitstop();
             if (effect != null)
             {
                 Track(host, effect, null);
             }
+
             onReleased?.Invoke();
         }
     }
@@ -43,6 +46,7 @@ internal sealed class HitEffectService
         {
             return;
         }
+
         GameObject effect = Spawn(prefab, position);
         if (effect != null && effect.TryGetComponent<EnemyHitEffect>(out var enemyHit))
         {
@@ -59,12 +63,88 @@ internal sealed class HitEffectService
         }
     }
 
+    public void PlayBossHit(
+        EffectManager host,
+        GameObject prefab,
+        Vector3 position,
+        Vector2 direction,
+        int damage,
+        Transform target,
+        bool isThirdComboHit,
+        BossDamageText damageTextPrefab,
+        GameObject thirdHitPrefab)
+    {
+        if (!host.isActiveAndEnabled)
+        {
+            return;
+        }
+
+        if (damage > 0 && damageTextPrefab != null)
+        {
+            Vector3 textPosition = ResolveDamageTextPosition(target, position);
+
+            BossDamageText damageText = UnityEngine.Object.Instantiate(
+                damageTextPrefab,
+                textPosition,
+                Quaternion.identity);
+
+            _effects.Add(damageText.gameObject);
+
+            damageText.Play(damage, textPosition);
+            host.StartCoroutine(CleanupDamageText(damageText));
+        }
+
+        // 기존 PlayerHitEffect 컴포넌트를 사용하는 보스 전용 프리팹
+        if (isThirdComboHit && thirdHitPrefab != null)
+        {
+            PlayPlayerHit(host, thirdHitPrefab, position, null);
+        }
+        else
+        {
+            // 일반 타격 또는 3타 프리팹 미연결: 기본 효과 출력
+            PlayBossHit(host, prefab, position, direction);
+        }
+    }
+
+    private static Vector3 ResolveDamageTextPosition(Transform target, Vector3 fallbackPosition)
+    {
+        if (target == null)
+        {
+            return fallbackPosition + Vector3.up;
+        }
+
+        // 보스 루트의 직속 자식으로 배치한다.
+        Transform anchor = target.Find("DamageTextAnchor");
+
+        return anchor != null
+            ? anchor.position
+            : target.position + Vector3.up;
+    }
+
+    private IEnumerator CleanupDamageText(BossDamageText damageText)
+    {
+        yield return null;
+
+        while (damageText != null && damageText.IsPlaying)
+        {
+            yield return null;
+        }
+
+        if (damageText != null)
+        {
+            GameObject effect = damageText.gameObject;
+            _effects.Remove(effect);
+            UnityEngine.Object.Destroy(effect);
+        }
+    }
+
     public void Clear()
     {
         foreach (GameObject effect in _effects)
         {
             if (effect != null) UnityEngine.Object.Destroy(effect);
         }
+
         _effects.Clear();
     }
 
@@ -79,10 +159,12 @@ internal sealed class HitEffectService
             var main = particle.main;
             main.useUnscaledTime = true;
         }
+
         foreach (Animator animator in effect.GetComponentsInChildren<Animator>(true))
         {
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         }
+
         host.StartCoroutine(Cleanup(effect, hitEffect));
     }
 
@@ -96,7 +178,8 @@ internal sealed class HitEffectService
         }
 
         ParticleSystem[] particles = effect != null
-            ? effect.GetComponentsInChildren<ParticleSystem>(true) : Array.Empty<ParticleSystem>();
+            ? effect.GetComponentsInChildren<ParticleSystem>(true)
+            : Array.Empty<ParticleSystem>();
         while (effect != null)
         {
             bool alive = false;
@@ -104,10 +187,12 @@ internal sealed class HitEffectService
             {
                 alive = enemyHit.IsPlaying;
             }
+
             if (hitEffect != null)
             {
                 alive = hitEffect.IsPlaying;
             }
+
             foreach (ParticleSystem particle in particles)
             {
                 if (particle != null && particle.IsAlive(true))
@@ -115,12 +200,15 @@ internal sealed class HitEffectService
                     alive = true;
                 }
             }
+
             if (!alive)
             {
                 break;
             }
+
             yield return null;
         }
+
         _effects.Remove(effect);
         if (effect != null)
         {
