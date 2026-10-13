@@ -13,6 +13,7 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private Behaviour[] _playerControls = new Behaviour[0];
 
     public bool IsPlaying { get; private set; }
+    public Rigidbody2D PlayerBody => _player;
 
     private Behaviour[] _lockedControls;
     private bool[] _originalStates;
@@ -272,6 +273,11 @@ public class CinematicManager : MonoBehaviour
     }
 
     // 연출은 계속 재생하면서 해당 Timeline의 플레이어 조작만 먼저 복원한다.
+    public void ReleasePlayerControls()
+    {
+        if (IsPlaying) RestoreControls();
+    }
+
     public void ReleasePlayerControls(PlayableDirector director)
     {
         if (!IsPlaying || !_usesTimeline || director == null || director != _director)
