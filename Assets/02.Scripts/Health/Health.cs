@@ -63,7 +63,9 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (_isPlayer && damage > 0)
+        {
             damage = Mathf.CeilToInt(damage * GameDifficulty.DamageTakenMultiplier);
+        }
         ApplyHealthLoss(damage, true);
     }
 
