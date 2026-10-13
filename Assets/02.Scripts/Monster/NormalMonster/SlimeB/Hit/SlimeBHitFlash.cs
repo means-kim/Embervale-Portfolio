@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HitFlash : MonoBehaviour
+public class SlimeBHitFlash : MonoBehaviour
 {
     [SerializeField] private Material _hitFlashMaterial;
     [SerializeField, Min(0.01f)] private float _duration = 0.05f;
