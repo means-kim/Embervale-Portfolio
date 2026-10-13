@@ -66,7 +66,7 @@ public class SlimeBController : MonoBehaviour
     {
         if (_stateTimer >= _moveTimer)
         {
-            ChangeState(SlimeBState.Move);
+            ChangeState(SlimeBState.Idle);
         }
     }
 }
