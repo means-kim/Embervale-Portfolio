@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 10
-  _damage: 100
+  _damage: 150
 --- !u!70 &5260035613571951725
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -243,3 +243,4 @@ MonoBehaviour:
   - Name: Blizzard
     Sounds:
     - {fileID: 11400000, guid: 6447c29ddd0b84b9591fa1d29ed5b588, type: 2}
+    Repeat: 0

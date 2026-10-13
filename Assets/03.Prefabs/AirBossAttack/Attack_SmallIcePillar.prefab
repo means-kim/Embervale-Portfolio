@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirBossAttack
   _type: 1
-  _damage: 50
+  _damage: 100
 --- !u!61 &7039444596374975166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -252,3 +252,4 @@ MonoBehaviour:
   - Name: SmallIcePillar_Create
     Sounds:
     - {fileID: 11400000, guid: a57f9c3112499468ea673dbb16122700, type: 2}
+    Repeat: 0
