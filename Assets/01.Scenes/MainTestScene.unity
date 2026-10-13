@@ -4935,6 +4935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99102468}
   - component: {fileID: 99102469}
+  - component: {fileID: 99102470}
   m_Layer: 0
   m_Name: GuidePanel
   m_TagString: Untagged
@@ -5023,6 +5024,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!210 &99102470
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99102467}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 5
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &111105325
 GameObject:
   m_ObjectHideFlags: 0
@@ -12760,8 +12774,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1722700006
-  m_SortingOrder: 250
+  m_SortingLayerID: 1722300004
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &231385336
 GameObject:
@@ -29075,6 +29089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786403343}
+  - component: {fileID: 786403344}
   m_Layer: 0
   m_Name: ControlGuide_DASH
   m_TagString: Untagged
@@ -29102,6 +29117,19 @@ RectTransform:
   m_AnchoredPosition: {x: 80, y: 40}
   m_SizeDelta: {x: 340, y: 92}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &786403344
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786403342}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 5
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &789506532
 GameObject:
   m_ObjectHideFlags: 0
@@ -39496,6 +39524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323919514}
+  - component: {fileID: 1323919515}
   m_Layer: 0
   m_Name: ControlGuide_ATTACK
   m_TagString: Untagged
@@ -39523,6 +39552,19 @@ RectTransform:
   m_AnchoredPosition: {x: -6.14, y: 2.17}
   m_SizeDelta: {x: 340, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1323919515
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323919513}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 5
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1324641543
 GameObject:
   m_ObjectHideFlags: 0
@@ -46116,6 +46158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1652040866}
+  - component: {fileID: 1652040867}
   m_Layer: 0
   m_Name: ControlGuide_CLIMB
   m_TagString: Untagged
@@ -46143,6 +46186,19 @@ RectTransform:
   m_AnchoredPosition: {x: 62.7, y: 23.66}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1652040867
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652040865}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 5
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1653261761
 GameObject:
   m_ObjectHideFlags: 0
@@ -52841,6 +52897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732903681}
+  - component: {fileID: 1732903682}
   m_Layer: 0
   m_Name: ControlGuide_DOUBLEJUMP
   m_TagString: Untagged
@@ -52868,6 +52925,19 @@ RectTransform:
   m_AnchoredPosition: {x: 46, y: 4}
   m_SizeDelta: {x: 340, y: 92}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1732903682
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732903680}
+  m_Enabled: 1
+  m_SortingLayerID: 1722300004
+  m_SortingLayer: 5
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1732955809
 GameObject:
   m_ObjectHideFlags: 0
