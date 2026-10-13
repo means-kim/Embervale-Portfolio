@@ -10,17 +10,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
-    [SerializeField, Min(0), Tooltip("공중 공격권 초기화 사이에 허용하는 공격 횟수. 평타·스킬 공통.")]
+    [SerializeField, Min(0), Tooltip("공중 공격권 초기화 사이에 허용하는 공격 횟수")]
     private int _maxAirAttackCount = 3;
     [Header("공중 공격권 초기화")]
     [SerializeField, Tooltip("1단 및 2단 이상 점프가 실제 발동하면 공중 공격권을 초기화합니다.")]
     private bool _resetAirAttackCountOnJump = false;
-    [SerializeField, Tooltip("공중 Shift 대시가 실제 발동하면 공중 공격권을 초기화합니다. 지상 대시는 제외합니다.")]
+    [SerializeField, Tooltip("공중 Shift 대시가 실제 발동하면 공중 공격권을 초기화합니다.")]
     private bool _resetAirAttackCountOnAirDash = false;
-    [SerializeField, Tooltip("투사체를 잡은 뒤 차징 점프로 실제 발사되면 공중 공격권을 초기화합니다. 조준과 취소는 제외합니다.")]
+    [SerializeField, Tooltip("투사체를 잡은 뒤 차징 점프로 실제 발사되면 공중 공격권을 초기화합니다.")]
     private bool _resetAirAttackCountOnChargeJump = false;
     private int _airAttackCount;
-    public int MaxAirAttackCount => _maxAirAttackCount;
+    //public int MaxAirAttackCount => _maxAirAttackCount;
     public int CurrentAirAttackCount => _airAttackCount;
     [SerializeField, Min(0f), Tooltip("지상 공격 시 수평 이동 차단 시간(초). 0이면 차단 없음.")]
     private float _groundHorizontalLockDuration;
@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Range(0f, 1f), Tooltip("공격 중 적용할 중력 배율. 0.5면 기존 중력의 50%.")]
     private float _attackGravityScaleMultiplier = 0.5f;
     [SerializeField, Min(0f)] private float _comboInputBuffer = 0.2f;
-    [SerializeField, Min(0.01f), Tooltip("공격 오프셋과 인스턴스 크기에 일괄 적용되는 배율. 기준 1.")]
+    [SerializeField, Min(0.01f), Tooltip("공격 오프셋과 인스턴스 크기에 일괄 적용되는 배율")]
     private float _attackScale = 1f;
     public float AttackScale
     {
@@ -92,6 +92,7 @@ public class PlayerAttack : MonoBehaviour
     private float _elapsed;
     private int _direction;
     private bool _spawned;
+    private bool _currentIsThirdComboHit;
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
@@ -185,6 +186,7 @@ public class PlayerAttack : MonoBehaviour
         {
             _airAttackCount++;
         }
+        _currentIsThirdComboHit = startedInAir && _maxAirAttackCount > 0 && _airAttackCount >= _maxAirAttackCount;
         float horizontalLockDuration = _groundHorizontalLockDuration;
         if (startedInAir)
         {
@@ -225,7 +227,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x * _attackScale, _current.SpawnOffset.y * _attackScale);
         _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
         _instance.transform.localScale *= _attackScale;
-        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed))
+        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed, _currentIsThirdComboHit))
         {
             Destroy(_instance.gameObject);
             _instance = null;
@@ -249,6 +251,7 @@ public class PlayerAttack : MonoBehaviour
         _queuedCombo = false;
         _isComboAttack = false;
         _airAttackCount = 0;
+        _currentIsThirdComboHit = false;
         CancelVerticalLock();
         _motion.UnlockHorizontal();
     }
