@@ -101,8 +101,8 @@ public class SlimeBController : MonoBehaviour
                 break;
 
             case SlimeBState.Death:
-                _death.BeginDeath();
                 _animation.PlayDeathAnimation();
+                _death.BeginDeath();
                 break;
         }
     }
