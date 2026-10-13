@@ -36,7 +36,9 @@ public class AirBossDeath : MonoBehaviour
         _airBossRB.angularVelocity = 0f;
         _airBossRB.simulated = false;
 
-        // ToDo: 사망 애니메이션 1프레임에 사망 컷신 연출 이벤트 함수 호출
-        _airBossAnimation.PlayDeathAnimation();
+        // The ending owns the final blow. Without an enabled matching ending, keep normal death.
+        var ending = FindFirstObjectByType<GameEndingCinematic>();
+        if (ending == null || !ending.HandlesBossDeath(_airBossAnimation))
+            _airBossAnimation.PlayDeathAnimation();
     }
 }
