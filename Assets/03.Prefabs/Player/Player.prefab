@@ -136,7 +136,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc673b9f693fe294984d520fc233f0c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96e4ff0f950e7e749b4da19069b8a08c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -363,7 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa780a493bbfe6747bef6361062ca1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _landDuration: 0.17
 --- !u!114 &8924902920293707262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c9f5727ddde56478d59baf0d6497d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
-  _jumpStartDuration: 0.2
+  _doubleJumpDuration: 0.2
   _apexVelocityRange: 5
   _apexMinAirTime: 0.15
 --- !u!114 &1037139212557433009

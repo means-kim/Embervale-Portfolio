@@ -1,0 +1,3 @@
+const http=require('http'),fs=require('fs'),path=require('path');
+const files={'/':'Idle_Review.html','/Idle_Review.html':'Idle_Review.html','/MotionMask.png':'MotionMask.png','/Review.md':'Review.md'};
+http.createServer((req,res)=>{const name=files[(req.url||'/').split('?')[0]];if(!name||!fs.existsSync(path.join(__dirname,name))){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',name.endsWith('.html')?'text/html; charset=utf-8':name.endsWith('.png')?'image/png':'text/plain; charset=utf-8');fs.createReadStream(path.join(__dirname,name)).pipe(res);}).listen(8124,'127.0.0.1',()=>console.log('Idle review: http://127.0.0.1:8124/'));

@@ -1,5 +1,11 @@
 using UnityEngine;
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerChargeJump))]
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
@@ -17,6 +23,7 @@ public class PlayerHit : MonoBehaviour
     private PlayerDash _dash;
     private PlayerAttack _attack;
     private PlayerMove _move;
+    private PlayerChargeJump _chargeJump;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer[] _renderers;
     private Color[] _originalColors;
@@ -36,10 +43,14 @@ public class PlayerHit : MonoBehaviour
         _dash = GetComponent<PlayerDash>();
         _attack = GetComponent<PlayerAttack>();
         _move = GetComponent<PlayerMove>();
+        _chargeJump = GetComponent<PlayerChargeJump>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderers = GetComponentsInChildren<SpriteRenderer>(true);
         _originalColors = new Color[_renderers.Length];
-        for (int i = 0; i < _renderers.Length; i++) _originalColors[i] = _renderers[i].color;
+        for (int i = 0; i < _renderers.Length; i++)
+        {
+            _originalColors[i] = _renderers[i].color;
+        }
     }
     private void OnEnable()
     {
@@ -56,10 +67,9 @@ public class PlayerHit : MonoBehaviour
 
     private void ApplyKnockback()
     {
-        if (_rigidbody == null) return;
-        int facing = _move != null ? _move.FacingDirection : 1;
+        int facing = _move.FacingDirection;
         float xPush = -facing * _knockbackForce;
-        if (_move != null && _knockbackLockTime > 0f)
+        if (_knockbackLockTime > 0f)
         {
             _move.SetMovementLocked(this, true);
             _moveUnlockAt = Time.time + _knockbackLockTime;
@@ -77,40 +87,45 @@ public class PlayerHit : MonoBehaviour
         _invincibilityTimer = 0f;
         ReleaseKnockbackLock();
         RestoreColors();
-        if (_move != null) _move.SetMovementLocked(_health, false);
+        _move.SetMovementLocked(_health, false);
     }
     private void ReleaseKnockbackLock()
     {
-        if (!_knockbackLocking) return;
+        if (!_knockbackLocking)
+        {
+            return;
+        }
         _knockbackLocking = false;
-        if (_move != null) _move.SetMovementLocked(this, false);
+        _move.SetMovementLocked(this, false);
     }
     private void HandleHit(int damage)
     {
-        if (_health.IsDead || _isInvincible) return;
-        // 히트스톱이 느린 시간을 복귀값으로 저장하기 전에 차지 점프를 정리합니다.
-        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
-        if (_attack != null) _attack.CancelAttack();
+        if (_health.IsDead || _isInvincible)
+        {
+            return;
+        }
+        _chargeJump.CancelChargeJump();
+        _attack.CancelAttack();
         _hitUntil = Time.time + _hitDuration;
         _flashTimer = 0f;
         _flashOn = false;
         _isInvincible = true;
         _invincibilityTimer = _hitInvincibilityTime;
-        if (_dash != null) _dash.CancelDash();
+        _dash.CancelDash();
         ApplyKnockback();
         bool horizontal = damage < Mathf.Max(1, _heavyHitDamageThreshold);
         EffectManager.Instance?.PlayPlayerHit(transform.position, horizontal);
     }
     private void HandleDie()
     {
-        GetComponent<PlayerChargeJump>()?.CancelChargeJump();
-        if (_attack != null) _attack.CancelAttack();
-        if (_dash != null) _dash.CancelDash();
-        if (_move != null) _move.SetMovementLocked(_health, true);
+        _chargeJump.CancelChargeJump();
+        _attack.CancelAttack();
+        _dash.CancelDash();
+        _move.SetMovementLocked(_health, true);
         _hitUntil = 0f;
         RestoreColors();
         EffectManager.Instance?.PlayPlayerDeath(transform.position);
-        if (_controller != null) _controller.ChangeState(PlayerState.Death);
+        _controller.ChangeState(PlayerState.Death);
     }
     private void Update()
     {
@@ -122,14 +137,23 @@ public class PlayerHit : MonoBehaviour
                 _isInvincible = false;
             }
         }
-        if (_knockbackLocking && Time.time >= _moveUnlockAt) ReleaseKnockbackLock();
+        if (_knockbackLocking && Time.time >= _moveUnlockAt)
+        {
+            ReleaseKnockbackLock();
+        }
         if (!IsHit)
         {
-            if (_flashOn) RestoreColors();
+            if (_flashOn)
+            {
+                RestoreColors();
+            }
             return;
         }
         _flashTimer += Time.deltaTime;
-        if (_flashTimer < _flashInterval) return;
+        if (_flashTimer < _flashInterval)
+        {
+            return;
+        }
         _flashTimer = 0f;
         _flashOn = !_flashOn;
         ApplyFlash(_flashOn);
@@ -138,8 +162,18 @@ public class PlayerHit : MonoBehaviour
     {
         for (int i = 0; i < _renderers.Length; i++)
         {
-            if (_renderers[i] == null) continue;
-            _renderers[i].color = on ? _flashColor : _originalColors[i];
+            if (_renderers[i] == null)
+            {
+                continue;
+            }
+            if (on)
+            {
+                _renderers[i].color = _flashColor;
+            }
+            else
+            {
+                _renderers[i].color = _originalColors[i];
+            }
         }
     }
     private void RestoreColors()

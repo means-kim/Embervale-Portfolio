@@ -1,0 +1,355 @@
+{
+  "source": "Read-only serialized clip/controller inspection; Editor disconnected",
+  "states": [
+    {
+      "state": "DownAttack",
+      "clip": "Assets/05.Animation/PlayerAttack/DownAttack.anim",
+      "uniqueFrames": 15,
+      "keys": 15,
+      "sampleRate": 12,
+      "clipSeconds": 1.25,
+      "stateSpeed": 5,
+      "effectiveSeconds": 0.25,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/Attack_Grid512.png"
+      ]
+    },
+    {
+      "state": "Death",
+      "uniqueFrames": 0,
+      "note": "No motion clip assigned"
+    },
+    {
+      "state": "LeftHorizontalAttack",
+      "clip": "Assets/05.Animation/PlayerAttack/LeftHorizontalAttack.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 60,
+      "clipSeconds": 0.3766667,
+      "stateSpeed": 1.7,
+      "effectiveSeconds": 0.22156864705882354,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Attack/Attack_07.png"
+      ]
+    },
+    {
+      "state": "Run",
+      "clip": "Assets/05.Animation/player/Run.anim",
+      "uniqueFrames": 16,
+      "keys": 17,
+      "sampleRate": 48,
+      "clipSeconds": 0.5208333,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.5208333,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_14.png",
+        "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png"
+      ]
+    },
+    {
+      "state": "WallCling",
+      "clip": "Assets/05.Animation/player/WallCling.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 20,
+      "clipSeconds": 0.45000002,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.45000002,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/WallCling/WallCling_07.png"
+      ]
+    },
+    {
+      "state": "JumpApex",
+      "clip": "Assets/05.Animation/player/JumpApex.anim",
+      "uniqueFrames": 4,
+      "keys": 5,
+      "sampleRate": 24,
+      "clipSeconds": 0.20833334,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.20833334,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpApex/JumpApex_03.png"
+      ]
+    },
+    {
+      "state": "UpAttack",
+      "clip": "Assets/05.Animation/PlayerAttack/UpAttack.anim",
+      "uniqueFrames": 15,
+      "keys": 15,
+      "sampleRate": 12,
+      "clipSeconds": 1.25,
+      "stateSpeed": 5,
+      "effectiveSeconds": 0.25,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/Attack2_Grid512.png"
+      ]
+    },
+    {
+      "state": "JumpStart",
+      "clip": "Assets/05.Animation/player/JumpStart.anim",
+      "uniqueFrames": 3,
+      "keys": 4,
+      "sampleRate": 30,
+      "clipSeconds": 0.13333334,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.13333334,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpStart/JumpStart_02.png"
+      ]
+    },
+    {
+      "state": "Hit",
+      "clip": "Assets/05.Animation/player/Hit.anim",
+      "uniqueFrames": 4,
+      "keys": 5,
+      "sampleRate": 24,
+      "clipSeconds": 0.20833334,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.20833334,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Hurt/Hurt_03.png"
+      ]
+    },
+    {
+      "state": "RightHorizontalAttack",
+      "clip": "Assets/05.Animation/PlayerAttack/RightHorizontalAttack.anim",
+      "uniqueFrames": 15,
+      "keys": 15,
+      "sampleRate": 12,
+      "clipSeconds": 1.25,
+      "stateSpeed": 5,
+      "effectiveSeconds": 0.25,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/Attack4_Grid512.png"
+      ]
+    },
+    {
+      "state": "FireBallAttack",
+      "clip": "Assets/05.Animation/PlayerAttack/FireballAttack.anim",
+      "uniqueFrames": 9,
+      "keys": 9,
+      "sampleRate": 12,
+      "clipSeconds": 0.75,
+      "stateSpeed": 3,
+      "effectiveSeconds": 0.25,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/Attack3_Grid512.png"
+      ]
+    },
+    {
+      "state": "DoubleJump",
+      "clip": "Assets/05.Animation/player/DoubleJump.anim",
+      "uniqueFrames": 16,
+      "keys": 17,
+      "sampleRate": 36,
+      "clipSeconds": 0.47222224,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.47222224,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_07.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_08.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_09.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_10.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_11.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_12.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_13.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_14.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DoubleJump/DoubleJump_15.png"
+      ]
+    },
+    {
+      "state": "Idle",
+      "clip": "Assets/05.Animation/player/Idle.anim",
+      "uniqueFrames": 32,
+      "keys": 33,
+      "sampleRate": 20,
+      "clipSeconds": 1.65,
+      "stateSpeed": 1,
+      "effectiveSeconds": 1.65,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_07.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_08.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_09.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_10.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_11.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_12.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_13.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_14.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_15.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_16.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_17.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_18.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_19.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_20.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_21.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_22.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_23.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_24.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_25.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_26.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_27.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_28.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_29.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_30.png",
+        "Assets/04.Sprites/Player/GA1_Player_Idle_v3/Frames/Idle_31.png"
+      ]
+    },
+    {
+      "state": "Glide",
+      "clip": "Assets/05.Animation/player/Glide.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 12,
+      "clipSeconds": 0.75,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.75,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/Glide_v01/Player_Glide_v01.png"
+      ]
+    },
+    {
+      "state": "Land",
+      "clip": "Assets/05.Animation/player/Land.anim",
+      "uniqueFrames": 4,
+      "keys": 5,
+      "sampleRate": 30,
+      "clipSeconds": 0.16666667,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.16666667,
+      "loop": false,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Land/Land_03.png"
+      ]
+    },
+    {
+      "state": "Dash",
+      "clip": "Assets/05.Animation/player/Dash.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 40,
+      "clipSeconds": 0.22500001,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.22500001,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/DashLoop/DashLoop_07.png"
+      ]
+    },
+    {
+      "state": "Fall",
+      "clip": "Assets/05.Animation/player/Fall.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 24,
+      "clipSeconds": 0.375,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.375,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/Fall/Fall_07.png"
+      ]
+    },
+    {
+      "state": "JumpRise",
+      "clip": "Assets/05.Animation/player/JumpRise.anim",
+      "uniqueFrames": 8,
+      "keys": 9,
+      "sampleRate": 24,
+      "clipSeconds": 0.375,
+      "stateSpeed": 1,
+      "effectiveSeconds": 0.375,
+      "loop": true,
+      "sources": [
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_00.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_01.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_02.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_03.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_04.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_05.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_06.png",
+        "Assets/04.Sprites/Player/GA1_Player_Motions_v4/Frames/JumpRise/JumpRise_07.png"
+      ]
+    }
+  ]
+}

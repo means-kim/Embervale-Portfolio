@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Canvas의 전체 화면 Image에 연결합니다. 외부 이미지 없이 그라데이션을 한 번 생성합니다.
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Image), typeof(CanvasGroup))]
+[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(CanvasGroup))]
 public class ChargeJumpVignette : MonoBehaviour
 {
     [SerializeField] private PlayerChargeJump _player;
@@ -54,19 +54,36 @@ public class ChargeJumpVignette : MonoBehaviour
 
     private void Update()
     {
-        float target = _player != null && _player.IsAiming ? _opacity : 0f;
-        float duration = target > _group.alpha ? _fadeInDuration : _fadeOutDuration;
+        float target = 0f;
+        if (_player != null && _player.IsAiming)
+        {
+            target = _opacity;
+        }
+        float duration = _fadeOutDuration;
+        if (target > _group.alpha)
+        {
+            duration = _fadeInDuration;
+        }
         _group.alpha = Mathf.MoveTowards(_group.alpha, target, _opacity * Time.unscaledDeltaTime / duration);
     }
 
     private void OnDisable()
     {
-        if (_group != null) _group.alpha = 0f;
+        if (_group != null)
+        {
+            _group.alpha = 0f;
+        }
     }
 
     private void OnDestroy()
     {
-        if (_sprite != null) Destroy(_sprite);
-        if (_texture != null) Destroy(_texture);
+        if (_sprite != null)
+        {
+            Destroy(_sprite);
+        }
+        if (_texture != null)
+        {
+            Destroy(_texture);
+        }
     }
 }

@@ -25,7 +25,10 @@ public class ChargeJumpArrow : MonoBehaviour
     private void Awake()
     {
         _line = GetComponent<LineRenderer>();
-        if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        if (_spriteRenderer == null)
+        {
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        }
         _line.useWorldSpace = true;
         _line.loop = false;
         _line.positionCount = _points.Length;
@@ -44,9 +47,15 @@ public class ChargeJumpArrow : MonoBehaviour
             _shownAt = Time.unscaledTime;
         }
         float elapsed = Time.unscaledTime - _shownAt;
-        float popScale = elapsed < _growDuration
-            ? Mathf.Lerp(_startScale, _peakScale, Mathf.SmoothStep(0f, 1f, elapsed / _growDuration))
-            : Mathf.Lerp(_peakScale, 1f, Mathf.SmoothStep(0f, 1f, (elapsed - _growDuration) / _settleDuration));
+        float popScale;
+        if (elapsed < _growDuration)
+        {
+            popScale = Mathf.Lerp(_startScale, _peakScale, Mathf.SmoothStep(0f, 1f, elapsed / _growDuration));
+        }
+        else
+        {
+            popScale = Mathf.Lerp(_peakScale, 1f, Mathf.SmoothStep(0f, 1f, (elapsed - _growDuration) / _settleDuration));
+        }
         Vector3 forward = direction.normalized;
         Vector3 side = new Vector3(-forward.y, forward.x, 0f);
         if (_spriteRenderer != null && _spriteRenderer.sprite != null)
@@ -58,11 +67,13 @@ public class ChargeJumpArrow : MonoBehaviour
             float scale = _length * popScale / spriteWidth;
             visual.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
             visual.localScale = Vector3.one * scale;
-            // Pivot 위치와 관계없이 스프라이트 사각형의 중앙을 투사체 중심에 맞춥니다.
             visual.position = origin - visual.rotation * (_spriteRenderer.sprite.bounds.center * scale);
             return;
         }
-        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.enabled = false;
+        }
         Vector3 tip = origin + forward * (_length * popScale * 0.5f);
         Vector3 back = tip - forward * Mathf.Min(_headLength, _length) * popScale;
         _points[0] = origin - forward * (_length * popScale * 0.5f);
@@ -78,7 +89,13 @@ public class ChargeJumpArrow : MonoBehaviour
     public void Hide()
     {
         _visible = false;
-        if (_line != null) _line.enabled = false;
-        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+        if (_line != null)
+        {
+            _line.enabled = false;
+        }
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.enabled = false;
+        }
     }
 }

@@ -2,6 +2,11 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMove))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
@@ -44,16 +49,29 @@ public class PlayerAttack : MonoBehaviour
         if (IsAttacking)
         {
             float remaining = _windupDuration + _recoveryDuration - _elapsed;
-            if (_isComboAttack && remaining <= _comboInputBuffer) _queuedCombo = true;
+            if (_isComboAttack && remaining <= _comboInputBuffer)
+            {
+                _queuedCombo = true;
+            }
             return;
         }
         StartNextCombo();
     }
     private void StartNextCombo()
     {
-        if (_combo == null || _combo.Length == 0) return;
-        int index = Time.time > _comboExpires ? 0 : _nextCombo;
-        if (!TryStartAttack(_combo[index])) return;
+        if (_combo == null || _combo.Length == 0)
+        {
+            return;
+        }
+        int index = _nextCombo;
+        if (Time.time > _comboExpires)
+        {
+            index = 0;
+        }
+        if (!TryStartAttack(_combo[index]))
+        {
+            return;
+        }
         _isComboAttack = true;
         _nextCombo = (index + 1) % _combo.Length;
     }
@@ -66,6 +84,8 @@ public class PlayerAttack : MonoBehaviour
     private float _recoveryDuration;
     private int _damage;
     private PlayerJump _jump;
+    private PlayerController _controller;
+    private Health _health;
     private PlayerAttackMotion _motion;
     private PlayerAttackDataSO _current;
     private PlayerAttackInstance _instance;
@@ -75,49 +95,52 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip => _current != null ? _current.AnimClipName : "LeftHorizontalAttack";
+    public string CurrentAttackClip
+    {
+        get
+        {
+            if (_current != null)
+            {
+                return _current.AnimClipName;
+            }
+            return "FirstAttack";
+        }
+    }
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
         _upgrades = GetComponent<Game.Upgrades.PlayerUpgrades>();
         _animator = GetComponent<Animator>();
         _jump = GetComponent<PlayerJump>();
+        _controller = GetComponent<PlayerController>();
+        _health = GetComponent<Health>();
         _motion = new PlayerAttackMotion(this, _move, GetComponent<Rigidbody2D>());
     }
-    private bool IsGrounded => _jump != null && _jump.IsGrounded;
+    private bool IsGrounded => _jump.IsGrounded;
     private void ResetAirAttackCount() => _airAttackCount = 0;
     public void ResetAirAttackCountOnJump() { if (_resetAirAttackCountOnJump) ResetAirAttackCount(); }
     public void ResetAirAttackCountOnAirDash() { if (_resetAirAttackCountOnAirDash) ResetAirAttackCount(); }
     public void ResetAirAttackCountOnChargeJump() { if (_resetAirAttackCountOnChargeJump) ResetAirAttackCount(); }
     private void OnEnable()
     {
-        if (_jump == null) _jump = GetComponent<PlayerJump>();
-        if (_jump != null)
-        {
-            _jump.OnLanded += ResetAirAttackCount;
-            _jump.OnLanded += CancelVerticalLock;
-            _jump.OnJumpStarted += CancelVerticalLock;
-        }
+        _jump.OnLanded += ResetAirAttackCount;
+        _jump.OnLanded += CancelVerticalLock;
+        _jump.OnJumpStarted += CancelVerticalLock;
     }
     private void OnDisable()
     {
-        if (_jump != null)
-        {
-            _jump.OnLanded -= ResetAirAttackCount;
-            _jump.OnLanded -= CancelVerticalLock;
-            _jump.OnJumpStarted -= CancelVerticalLock;
-        }
+        _jump.OnLanded -= ResetAirAttackCount;
+        _jump.OnLanded -= CancelVerticalLock;
+        _jump.OnJumpStarted -= CancelVerticalLock;
         CancelAttack();
         _motion.UnlockHorizontal();
         CancelVerticalLock();
     }
     private void CancelVerticalLock() => _motion.CancelVertical();
 
-    // 공격 허용 여부는 PlayerController가 결정한다. 입력이나 프리팹 종류를 판별하지 않는다.
     public bool TryStartAttack(PlayerAttackDataSO definition)
     {
-        var controller = GetComponent<PlayerController>();
-        if (!isActiveAndEnabled || IsAttacking || definition == null || controller == null || !controller.CanAttack)
+        if (!isActiveAndEnabled || IsAttacking || definition == null || !_controller.CanAttack)
         {
             return false;
         }
@@ -133,15 +156,23 @@ public class PlayerAttack : MonoBehaviour
         int healthCost = Mathf.Max(0, definition.HealthCost);
         if (healthCost > 0)
         {
-            var health = GetComponent<Health>();
-            // 자해로 죽지 않도록 체력이 코스트 이하이면 발동 불가.
-            if (health == null || health.CurrentHealth <= healthCost) return false;
-            health.SpendHealth(healthCost);
+            if (_health.CurrentHealth <= healthCost)
+            {
+                return false;
+            }
+            _health.SpendHealth(healthCost);
         }
         _current = definition;
-        // 이번 공격의 수치를 고정하여 도중에 강화되어도 타격과 연출이 어긋나지 않게 합니다.
-        _attackSpeed = _upgrades != null ? Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier) : 1f;
-        _damage = _upgrades != null ? _upgrades.GetAttackDamage(definition.Damage) : definition.Damage;
+        _attackSpeed = 1f;
+        if (_upgrades != null)
+        {
+            _attackSpeed = Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier);
+        }
+        _damage = definition.Damage;
+        if (_upgrades != null)
+        {
+            _damage = _upgrades.GetAttackDamage(definition.Damage);
+        }
         _damage = Mathf.RoundToInt(_damage * GameDifficulty.AttackMultiplier);
         _windupDuration = Mathf.Max(0f, definition.WindupDuration) / _attackSpeed;
         _recoveryDuration = Mathf.Max(0.05f, definition.RecoveryDuration) / _attackSpeed;
@@ -150,26 +181,42 @@ public class PlayerAttack : MonoBehaviour
         _direction = _move.FacingDirection;
         IsAttacking = true;
         bool startedInAir = !IsGrounded;
-        if (startedInAir) _airAttackCount++;
-        float horizontalLockDuration = startedInAir ? _airHorizontalLockDuration : _groundHorizontalLockDuration;
+        if (startedInAir)
+        {
+            _airAttackCount++;
+        }
+        float horizontalLockDuration = _groundHorizontalLockDuration;
+        if (startedInAir)
+        {
+            horizontalLockDuration = _airHorizontalLockDuration;
+        }
         _motion.Begin(startedInAir, horizontalLockDuration / _attackSpeed, _airVerticalLockDuration / _attackSpeed, _attackGravityScaleMultiplier);
         _isComboAttack = false;
-        if (_animator != null)
-        {
-            _previousAnimatorSpeed = _animator.speed;
-            _animator.speed = _previousAnimatorSpeed * _attackSpeed;
-        }
+        _previousAnimatorSpeed = _animator.speed;
+        _animator.speed = _previousAnimatorSpeed * _attackSpeed;
         OnAttackStarted?.Invoke();
-        if (IsAttacking && definition.WindupDuration <= 0) SpawnAttack();
+        if (IsAttacking && definition.WindupDuration <= 0)
+        {
+            SpawnAttack();
+        }
         return true;
     }
     private void Update()
     {
         _motion.Tick(Time.deltaTime);
-        if (!IsAttacking) return;
+        if (!IsAttacking)
+        {
+            return;
+        }
         _elapsed += Time.deltaTime;
-        if (!_spawned && _elapsed >= _windupDuration) SpawnAttack();
-        if (IsAttacking && _elapsed >= _windupDuration + _recoveryDuration) FinishAttack(true);
+        if (!_spawned && _elapsed >= _windupDuration)
+        {
+            SpawnAttack();
+        }
+        if (IsAttacking && _elapsed >= _windupDuration + _recoveryDuration)
+        {
+            FinishAttack(true);
+        }
     }
     private void FixedUpdate() => _motion.FixedTick(IsGrounded, Time.fixedDeltaTime);
     private void SpawnAttack()
@@ -207,20 +254,29 @@ public class PlayerAttack : MonoBehaviour
     }
     private void FinishAttack(bool completed = false)
     {
-        if (!IsAttacking) return;
+        if (!IsAttacking)
+        {
+            return;
+        }
         bool continueCombo = completed && _isComboAttack && _queuedCombo;
         _queuedCombo = false;
-        _comboExpires = _isComboAttack ? Time.time + _comboResetDelay : -1f;
-        IsAttacking = false;
-        if (_animator != null)
+        _comboExpires = -1f;
+        if (_isComboAttack)
         {
-            _animator.speed = _previousAnimatorSpeed;
+            _comboExpires = Time.time + _comboResetDelay;
         }
+        IsAttacking = false;
+        _animator.speed = _previousAnimatorSpeed;
         _motion.EndAttack(continueCombo);
-        if (_instance != null) _instance.EndPlayerAction();
+        if (_instance != null)
+        {
+            _instance.EndPlayerAction();
+        }
         _instance = null;
-        // 수평락은 타이머 만료 시 해제된다. 콤보가 이어지면 중력 저하를 유지하고 다음 타를 바로 시작한다.
         OnAttackEnded?.Invoke();
-        if (continueCombo) StartNextCombo();
+        if (continueCombo)
+        {
+            StartNextCombo();
+        }
     }
 }

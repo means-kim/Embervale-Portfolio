@@ -1,0 +1,3387 @@
+{
+  "FireBallAttack": {
+    "name": "FireBallAttack",
+    "oldState": "FireBallAttack",
+    "clipPath": "Assets/05.Animation/Player_AttackMotion/Player_FireballAttack.anim",
+    "duration": 0.75,
+    "sampleRate": 16,
+    "loop": false,
+    "stateSpeed": 3,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a0d7812c8d189c3a2b09d7067f7916e978b7e87fae6815169085a7b0b5638c27",
+        "bounds": [
+          100,
+          90,
+          416,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_01.png",
+        "time": 0.0625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3fb90d9b403cd97aa7638649dcad024dfbe29dfb0fa88e190e34046a8f1251e0",
+        "bounds": [
+          111,
+          100,
+          420,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_02.png",
+        "time": 0.125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7e054750a5e70cf4371f0a19a1199326143a6016a43ed26e1f9c12be46481fc9",
+        "bounds": [
+          138,
+          105,
+          402,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_03.png",
+        "time": 0.1875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0f7ec2ae0f740dfbb72009327d82cfab516f58e376f7fa8a08c8b3737c446ac1",
+        "bounds": [
+          136,
+          97,
+          377,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_04.png",
+        "time": 0.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ea30ca4748eabf67142566fb63f316a2514a21c1b7cf887e707657a7e9b92352",
+        "bounds": [
+          140,
+          91,
+          365,
+          415
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_05.png",
+        "time": 0.3125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "afaced566cc0fb0c175811ddd7d00c2e04338616c1b3de637afa1ec3b625cd91",
+        "bounds": [
+          143,
+          93,
+          361,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_06.png",
+        "time": 0.375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "31423bd1084bfdc8506ad6f3c7150f224a4a531762a4953026492d42e35575d4",
+        "bounds": [
+          141,
+          83,
+          370,
+          413
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_07.png",
+        "time": 0.4375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3be37e246bc0de9cb14295fea6775f371d705338ad37a4ba106c5f6560a88948",
+        "bounds": [
+          148,
+          90,
+          355,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_08.png",
+        "time": 0.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "07556f5e1634dc4df350ff6d14a3280a8b840542dbc864cada6e8752faae9451",
+        "bounds": [
+          148,
+          81,
+          357,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_09.png",
+        "time": 0.5625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "adce3855c7f12fbdd85ac0ae16faa8eea9c05d13769f8ba84ca7a6b94093016f",
+        "bounds": [
+          146,
+          78,
+          348,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_10.png",
+        "time": 0.625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "b5c15ab8e645917ec768c8ec44cc38d0c67f5925418c7c8c950ea9ceac0afb4f",
+        "bounds": [
+          157,
+          65,
+          347,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FireBallAttack/Frames/FireBallAttack_11.png",
+        "time": 0.6875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "fc082abef6852f9bc603879d13fc4fcbba5c2e5d6f83195b27d3243de5c4eeb1",
+        "bounds": [
+          148,
+          62,
+          347,
+          411
+        ]
+      }
+    ],
+    "clipGuid": "781c5e4920481d345863a211574c4a0a"
+  },
+  "FirstAttack": {
+    "name": "FirstAttack",
+    "oldState": "LeftHorizontalAttack",
+    "clipPath": "Assets/05.Animation/Player_AttackMotion/Player_FirstAttack.anim",
+    "duration": 0.3766667,
+    "sampleRate": 31.858404260318206,
+    "loop": false,
+    "stateSpeed": 1.7,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "744f241671f9b910a6a86d7aaae06182bb6448ef648dcb3476d405b31dfce2e8",
+        "bounds": [
+          133,
+          39,
+          458,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_01.png",
+        "time": 0.03138889166666667,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7fbdc5740818ad1658f34442fb4d2fd5b194f65d2e7497c98cd224f7c083bbba",
+        "bounds": [
+          122,
+          65,
+          493,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_02.png",
+        "time": 0.06277778333333334,
+        "pivotX": 0.47029555831404446,
+        "pivotY": 0.44140625,
+        "sha256": "eb2b2e4d12a96af918d45c22da60e26ca0f31459f189f83c181ae60620de52db",
+        "bounds": [
+          108,
+          66,
+          504,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_03.png",
+        "time": 0.09416667500000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c6a4f4da358359a7f3ab21358ca2e796f50c7279e75604725bb20b1ad3b8ed3b",
+        "bounds": [
+          133,
+          60,
+          493,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_04.png",
+        "time": 0.12555556666666667,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5e4818873acb9e339f26033bbff41f17f42942e724f09fc25727c4f1db30aa2b",
+        "bounds": [
+          137,
+          72,
+          480,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_05.png",
+        "time": 0.15694445833333334,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d1da80fd802d05db12a2e8f1a87a3ed537af834b541b5904527a3add363c9447",
+        "bounds": [
+          133,
+          79,
+          470,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_06.png",
+        "time": 0.18833335000000004,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a31cf92497febfa73e2fbeee99f6c3e807c9aeb62d188cd43ebac70a8274a11e",
+        "bounds": [
+          126,
+          83,
+          382,
+          444
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_07.png",
+        "time": 0.21972224166666668,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "44a5075467c412b9d2e3f064be0691d6c80a72b983459eb686050b8252b512e5",
+        "bounds": [
+          111,
+          75,
+          359,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_08.png",
+        "time": 0.25111113333333335,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ff2ad5dd0dee4ae33a75dede9ddd35a9c6460b0b04845aa2460fa113efee3074",
+        "bounds": [
+          126,
+          68,
+          346,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_09.png",
+        "time": 0.282500025,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e48fe5dc9bc337902098836d04e813e730cc8d6bba700f01f6f23f1610df1df8",
+        "bounds": [
+          136,
+          59,
+          348,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_10.png",
+        "time": 0.3138889166666667,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6d14892b49e6a89e91acf8003d53dc514c021a401c455f6715560371f0b2bd71",
+        "bounds": [
+          144,
+          52,
+          347,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/FirstAttack/Frames/FirstAttack_11.png",
+        "time": 0.3452778083333334,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "84899e3153a9de7395ded85d43b5c8e084a888cb48290661b059a10db22306e0",
+        "bounds": [
+          149,
+          51,
+          347,
+          411
+        ]
+      }
+    ],
+    "clipGuid": "4a0321bd06c5a4640a00226c13a337f6"
+  },
+  "SecondAttack": {
+    "name": "SecondAttack",
+    "oldState": "UpAttack",
+    "clipPath": "Assets/05.Animation/Player_AttackMotion/Player_SecondAttack.anim",
+    "duration": 1.25,
+    "sampleRate": 12.8,
+    "loop": false,
+    "stateSpeed": 5,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2089e72bf5b5239de299c6b6d42154a3db282116461c8ca7e734bbe1484312eb",
+        "bounds": [
+          145,
+          76,
+          394,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_01.png",
+        "time": 0.078125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bcc72a3c7fc2e50d3a34cbbc99e8af642bb3a1069313261dea757adddfe78310",
+        "bounds": [
+          138,
+          79,
+          450,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_02.png",
+        "time": 0.15625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "dbaa64749f3611843353fd144f74b9f75d8c0b509b52c4ea6a2a6b0e5dd7e7d1",
+        "bounds": [
+          134,
+          81,
+          449,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_03.png",
+        "time": 0.234375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2bb7fc4eb03ac57b869aa1021b3bc4247331bda6ecebeb75bc17b9df9c16fecc",
+        "bounds": [
+          127,
+          84,
+          413,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_04.png",
+        "time": 0.3125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7bd0dd3cf34a359f78240841a16439969636bc001bdc098813b5ff87466641a3",
+        "bounds": [
+          125,
+          79,
+          426,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_05.png",
+        "time": 0.390625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "24ff998c0db5dcd069986bbf2dd52a78616d5161e5149ecf0328e5297f21dbb5",
+        "bounds": [
+          130,
+          83,
+          412,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_06.png",
+        "time": 0.46875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d715ceaaa07d4776b9de742ee5e58823610f8ab30484273ffcf09676edcadabd",
+        "bounds": [
+          129,
+          71,
+          374,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_07.png",
+        "time": 0.546875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2304712fead11ec96dc643ed49f6cae1507672e7c0bb108cae9a69b3ad6db2fb",
+        "bounds": [
+          142,
+          46,
+          368,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_08.png",
+        "time": 0.625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "095ee1ca1e9b0b87bef85565fbe43825fcf5ad7b2305c3d4f5e07b747e8222b8",
+        "bounds": [
+          154,
+          48,
+          383,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_09.png",
+        "time": 0.703125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "4a375eba28a7098632475eb62783c58c035427289408fcfd9e902720307d008b",
+        "bounds": [
+          154,
+          59,
+          379,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_10.png",
+        "time": 0.78125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "609d89e2445b788ebf21b3f6ec5f994bd024ce57ce0292673a30828f759cbd9d",
+        "bounds": [
+          151,
+          78,
+          375,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_11.png",
+        "time": 0.859375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "dd5e578b76c9bad90e425632d6458cfc59c81b88e2a0555cb037637af4397c2a",
+        "bounds": [
+          137,
+          105,
+          379,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_12.png",
+        "time": 0.9375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3918b4f9beedbc19bd6a22fb913b012706af9df33810aa9bec56b9563b7bf15c",
+        "bounds": [
+          148,
+          69,
+          365,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_13.png",
+        "time": 1.015625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f703d40e54249b94b6f219f8310aeca7c4022270b1b067469f05b87c6b2755a1",
+        "bounds": [
+          140,
+          81,
+          356,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_14.png",
+        "time": 1.09375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3c72889b151eaef55694069a3f54285d909b645cc3810748accae423e0ab023a",
+        "bounds": [
+          147,
+          76,
+          359,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/SecondAttack/Frames/SecondAttack_15.png",
+        "time": 1.171875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5779fc30cb3356e850875e653a4488af8ff0ba449139eca5226e176d1de86a47",
+        "bounds": [
+          140,
+          85,
+          361,
+          412
+        ]
+      }
+    ],
+    "clipGuid": "c0e47817aa0471541973509be30ae21d"
+  },
+  "ThirdAttack": {
+    "name": "ThirdAttack",
+    "oldState": "DownAttack",
+    "clipPath": "Assets/05.Animation/Player_AttackMotion/Player_ThirdAttack.anim",
+    "duration": 1.25,
+    "sampleRate": 12.8,
+    "loop": false,
+    "stateSpeed": 5,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.4314341785934548,
+        "sha256": "bfeb6d53326e4943feb7eeff9d8d5c75d6b54ffbac7d952f5a5e993b87ea8ced",
+        "bounds": [
+          144,
+          8,
+          349,
+          416
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_01.png",
+        "time": 0.078125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44098526954128114,
+        "sha256": "f2b65f5869ae04e14d96275427406e242c041cede2656997f3a48fef940efcbf",
+        "bounds": [
+          135,
+          7,
+          346,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_02.png",
+        "time": 0.15625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e82360d57c52d3347db61ef68eda89928aec97a912924651a27509768008a1e5",
+        "bounds": [
+          142,
+          37,
+          375,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_03.png",
+        "time": 0.234375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3057c03f5169f25134b869acdd9225fb0bcb437661c3951274846e931dd08613",
+        "bounds": [
+          129,
+          104,
+          437,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_04.png",
+        "time": 0.3125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "b8bc1b3e925b41e98af27a4356558a8ba3b19783b6e52625ffabf3d8fd2e27d1",
+        "bounds": [
+          121,
+          92,
+          500,
+          413
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_05.png",
+        "time": 0.390625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "073291d4895a137ebb907d523724bd1e5a1b1f3b2bb9a8d08d281553972f67c7",
+        "bounds": [
+          116,
+          103,
+          484,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_06.png",
+        "time": 0.46875,
+        "pivotX": 0.47137532094479306,
+        "pivotY": 0.44140625,
+        "sha256": "9a18df37bdb4f464271ef8a4f8a4e54bff134897a65588382ecafa65fbdd1f74",
+        "bounds": [
+          93,
+          107,
+          505,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_07.png",
+        "time": 0.546875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8b2db9459e788291d6d79edad751dfe071efdc0781efe2b296d3676bc379bb5d",
+        "bounds": [
+          130,
+          111,
+          432,
+          416
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_08.png",
+        "time": 0.625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f2679bd28cd44b6ad7548e86d50d2f0b53ba096dad656c9ee9d664f900aec020",
+        "bounds": [
+          119,
+          108,
+          468,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_09.png",
+        "time": 0.703125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0c1cd3958a7218ab0ffd2021d6d0633e34b60ccfbaa6a20a9a987ddb68ac9017",
+        "bounds": [
+          105,
+          116,
+          456,
+          413
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_10.png",
+        "time": 0.78125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "da618f1279fed2bf3791a5f8e427d767d9d2f115e3f1521d41c81e43d0839fa2",
+        "bounds": [
+          118,
+          114,
+          357,
+          414
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_11.png",
+        "time": 0.859375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3f26ecf7160c8d6752aa0fa279dd83231990142dc80c1ed9e5b33057a5cd77df",
+        "bounds": [
+          133,
+          109,
+          348,
+          414
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_12.png",
+        "time": 0.9375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2b1bfd087194ffb801a2bb2c34f02878eb9c7ecbe6e601743641265f89112982",
+        "bounds": [
+          143,
+          102,
+          348,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_13.png",
+        "time": 1.015625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "88fd6c082e1c43374c1de20de05e2dee1b92861a655b967f447a510f23b1d4a0",
+        "bounds": [
+          143,
+          100,
+          350,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_14.png",
+        "time": 1.09375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "91068a8b82d4e34d6380f1e0a4ba40aa53152bfe9cfd6f9026c2da5724c37a67",
+        "bounds": [
+          149,
+          100,
+          348,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/ThirdAttack/Frames/ThirdAttack_15.png",
+        "time": 1.171875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "877e0f653cd54ae609284d641f911a0eef38ac7bc96c749a877624fac709bf53",
+        "bounds": [
+          149,
+          103,
+          349,
+          411
+        ]
+      }
+    ],
+    "clipGuid": "a0a439aabe24faa44acd36e6382506f9"
+  },
+  "HorizontalAttack": {
+    "name": "HorizontalAttack",
+    "oldState": "RightHorizontalAttack",
+    "clipPath": "Assets/05.Animation/Player_AttackMotion/Player_HorizontalAttack.anim",
+    "duration": 1.25,
+    "sampleRate": 12.8,
+    "loop": false,
+    "stateSpeed": 5,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "51cddf715a6e4d48a11597d9224350dfb768f05670a759a930b71daa5fd16dfb",
+        "bounds": [
+          127,
+          56,
+          416,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_01.png",
+        "time": 0.078125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3cdb4ee8a4b0b7b53be851d7aeb6a05a2c86af16a68e52fac6f979f285bef026",
+        "bounds": [
+          123,
+          59,
+          460,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_02.png",
+        "time": 0.15625,
+        "pivotX": 0.4850936333775433,
+        "pivotY": 0.44140625,
+        "sha256": "4b1e76cbddea2afe39df9a926811b746c806869bd6cbc1becdad73d4954e6c46",
+        "bounds": [
+          100,
+          46,
+          505,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_03.png",
+        "time": 0.234375,
+        "pivotX": 0.5197633256780778,
+        "pivotY": 0.44140625,
+        "sha256": "94405131df6937c27a24866c1e8f3147d2fb5bdae42c579261090a6925a21e6d",
+        "bounds": [
+          127,
+          58,
+          505,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_04.png",
+        "time": 0.3125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9df8aceca588d0a51a1960648b7dee69940a26474c1e5ada0fb27416357fc651",
+        "bounds": [
+          97,
+          69,
+          494,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_05.png",
+        "time": 0.390625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e58acbc1ce183e19f7c737ae692b3a4f7f8c739d5d98ae02f4987b9c6355212a",
+        "bounds": [
+          76,
+          69,
+          463,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_06.png",
+        "time": 0.46875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f2d3b4622dbe1060574946044c21107eb229e6619f5e292c4e92111d7f0126ac",
+        "bounds": [
+          62,
+          71,
+          505,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_07.png",
+        "time": 0.546875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "b813679875338e34d99128be8d50e258c3254ea31df3fd1fdcb4327779e0ad99",
+        "bounds": [
+          99,
+          81,
+          449,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_08.png",
+        "time": 0.625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "65b2bc0698776652a460836c25a3685c960809361998d31f00998fbad91cfd24",
+        "bounds": [
+          102,
+          70,
+          483,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_09.png",
+        "time": 0.703125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "fa14b3ce5c1214e027611cb52604bb72a895aeedcf674142a2f676d352330122",
+        "bounds": [
+          96,
+          64,
+          462,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_10.png",
+        "time": 0.78125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f13822c78935911aa2960b94b348ef3d90cb363c7281b362cc7c53c2b11b05db",
+        "bounds": [
+          108,
+          74,
+          478,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_11.png",
+        "time": 0.859375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c721dae7f68c7d3f51c6bd376019c6d24665953059f4f8d85e0e5cbd4d3a2327",
+        "bounds": [
+          102,
+          74,
+          396,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_12.png",
+        "time": 0.9375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "80fbd6497728f3311867f8ff8b080d775db02bd9518102d5f7256780728dd563",
+        "bounds": [
+          108,
+          52,
+          372,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_13.png",
+        "time": 1.015625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c951049e7dfe4881977344310ab0328713e31e7c8c4114a2d9f48881104abae1",
+        "bounds": [
+          111,
+          60,
+          353,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_14.png",
+        "time": 1.09375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "54628455717077a465a92e83da048449fc69c950c8fec8f3f40dd64fc61bdbc6",
+        "bounds": [
+          124,
+          58,
+          361,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/HorizontalAttack/Frames/HorizontalAttack_15.png",
+        "time": 1.171875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6ef90e03706f433c190fd9285ad0c985fe2d0ba8dc88bed8c3d013388a03b63f",
+        "bounds": [
+          114,
+          51,
+          350,
+          411
+        ]
+      }
+    ],
+    "clipGuid": "61ebb20afc35f8944a06a4fd8eb993dd"
+  },
+  "JumpApex": {
+    "name": "JumpApex",
+    "oldState": "JumpApex",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_JumpApex.anim",
+    "duration": 0.208333343,
+    "sampleRate": 38.39999821824008,
+    "loop": false,
+    "stateSpeed": 1,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f5015b1f23410e5f43c2303ddda9bda0aaa2b3294ba926f54dfe66fd2f6a340f",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_01.png",
+        "time": 0.026041667875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7922ea28b7b3e11f5ef4d4a10846684533c84bdb06e2c097981776f2dd9263d2",
+        "bounds": [
+          140,
+          70,
+          400,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_02.png",
+        "time": 0.05208333575,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d51d3f9a1003cbf838709ef49e75bfa011fe023e35a9babbe1503fc1017b319d",
+        "bounds": [
+          142,
+          72,
+          400,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_03.png",
+        "time": 0.078125003625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0155d887a2686f0eeac7e21b021af31c17e7787dcc4b8ba7dc1a88c67a2cb1ff",
+        "bounds": [
+          136,
+          74,
+          399,
+          458
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_04.png",
+        "time": 0.1041666715,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0eddc6f2eafedfe1c3813360080d304b83b35626fdf2e45ec106c321abaef2d2",
+        "bounds": [
+          144,
+          74,
+          409,
+          446
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_05.png",
+        "time": 0.130208339375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d9c6c351c77eeecd58184456d3df11e8f10ad73bb38c0d54eb89f58c4473d799",
+        "bounds": [
+          148,
+          74,
+          402,
+          449
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_06.png",
+        "time": 0.15625000725,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7cf761d666ba18e1c31e0f8d09a4e1661a24c948f95bb9265e0d72675b991465",
+        "bounds": [
+          139,
+          76,
+          406,
+          452
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpApex/Frames/JumpApex_07.png",
+        "time": 0.182291675125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "af3246a6687b7df0595c429c23b12589a3ec69563f1402701533255df9150da5",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      }
+    ],
+    "clipGuid": "26e7d70fb3ffbf14badef1f669285830"
+  },
+  "Hit": {
+    "name": "Hit",
+    "oldState": "Hit",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_Hit.anim",
+    "duration": 0.208333343,
+    "sampleRate": 38.39999821824008,
+    "loop": false,
+    "stateSpeed": 1,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3ec7c29c1eca39998b7c9838f028d8f501849c7a53161654590f2d6af92fa878",
+        "bounds": [
+          162,
+          94,
+          345,
+          410
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_01.png",
+        "time": 0.026041667875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "735cbd386c8adbfcc7f77c341fec893d7b2bbaa92002b8edc117639a8c8d43a5",
+        "bounds": [
+          158,
+          102,
+          392,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_02.png",
+        "time": 0.05208333575,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0f5b2ce2459782edb9245121a3845c458e3875dfc3b3700ea45786c7b0c3ea04",
+        "bounds": [
+          157,
+          94,
+          382,
+          410
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_03.png",
+        "time": 0.078125003625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9557308bce2f242617e3e7a76c3ce5778859ababeabd226fc6b965cdccafb89d",
+        "bounds": [
+          138,
+          105,
+          379,
+          410
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_04.png",
+        "time": 0.1041666715,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "06fe34da8a20d5c0a2045d0c102741c91d044fc452c5b206ea662657de14bec5",
+        "bounds": [
+          134,
+          86,
+          324,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_05.png",
+        "time": 0.130208339375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bde9f21fcec046c8d6e72f95a1f385825efa53102fc3505638415fa5e5fd943e",
+        "bounds": [
+          143,
+          86,
+          339,
+          412
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_06.png",
+        "time": 0.15625000725,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6ba2aa6f02963192fea2d06f8a3763b84f42587ec66b57387fcdd37ce824264d",
+        "bounds": [
+          153,
+          76,
+          342,
+          411
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Hit/Frames/Hit_07.png",
+        "time": 0.182291675125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "cbf6e0d65725d5d7fb15cde9dfa4fa8f792457a2b88a152bf5260fc705588af1",
+        "bounds": [
+          173,
+          79,
+          347,
+          411
+        ]
+      }
+    ],
+    "clipGuid": "3072b42eacd0c744796b2dd3aea63ff1"
+  },
+  "DoubleJump": {
+    "name": "DoubleJump",
+    "oldState": "DoubleJump",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_DoubleJump.anim",
+    "duration": 0.2,
+    "sampleRate": 80,
+    "loop": false,
+    "stateSpeed": 1,
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7e10a17d0aec7b0ed1ada2645c8f693d935857517549ae72d69e5afa990dbf3f",
+        "bounds": [
+          119,
+          63,
+          377,
+          429
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_01.png",
+        "time": 0.0125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2a70c23b94aa51cd6de989cfa90e05f7ac6696d86f53b240018d3db8fe45828b",
+        "bounds": [
+          181,
+          81,
+          367,
+          408
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_02.png",
+        "time": 0.025,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ecbde91994a60a167ced64f4bcb72de81eb319b4eb6d42f6b676079dd1f98fbc",
+        "bounds": [
+          157,
+          117,
+          381,
+          374
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_03.png",
+        "time": 0.037500000000000006,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "554d28907a6d2ab586f06ad8281878ae55322e5dcc32475d598e2b60ec3a7c9a",
+        "bounds": [
+          186,
+          141,
+          421,
+          347
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_04.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "117c6930204b3d29d2fe8a9c9212e56415f003ddd1a7d4726dce9972f3e6c2a1",
+        "bounds": [
+          187,
+          170,
+          446,
+          370
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_05.png",
+        "time": 0.0625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3e0cb1bc704daa6a1b2ecda87c9f108f723547653dadb1319e5a6f7010835a24",
+        "bounds": [
+          206,
+          185,
+          437,
+          385
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_06.png",
+        "time": 0.07500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "52503cef9ea7ad47222d2614e51cd8200c756d3e6521a4f719f145dafbb0e477",
+        "bounds": [
+          208,
+          202,
+          414,
+          437
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_07.png",
+        "time": 0.08750000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "03d80c4dedea098c171f71ef41a501f790544227802d195ebc9fee1cec72d35b",
+        "bounds": [
+          185,
+          203,
+          385,
+          462
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_08.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9357516de1c9d7195fe0748ef73f92ad876ed8daab68b504ec0336088274787d",
+        "bounds": [
+          170,
+          222,
+          370,
+          453
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_09.png",
+        "time": 0.1125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8bf3c97952bd3da3896d50306d8c74e7ca04c29890f47d201e89e04209b82f95",
+        "bounds": [
+          118,
+          224,
+          353,
+          430
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_10.png",
+        "time": 0.125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "4b3693a57ee404c50741a458c58a3d60acf9b4493430aca1a2611eb17e559d35",
+        "bounds": [
+          93,
+          201,
+          352,
+          401
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_11.png",
+        "time": 0.1375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5168b8430203cf3b64bca500f3e1b219cf9b51c8d9ca4f155372adebe655c6d2",
+        "bounds": [
+          102,
+          186,
+          333,
+          386
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_12.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "aabc48015c29de016f9a7eae01462716b34858795ba2ffe913f8dd78fcc102b0",
+        "bounds": [
+          130,
+          122,
+          332,
+          389
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_13.png",
+        "time": 0.1625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bcf122585f04b2587fa537a2ebd313a0a7934404f101ca27d7b101a1cd7b3b09",
+        "bounds": [
+          160,
+          89,
+          361,
+          406
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_14.png",
+        "time": 0.17500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a99b2da2126bcc8fc574973c4c27edf0df6f4e227792748f110430bb75f261b8",
+        "bounds": [
+          120,
+          87,
+          381,
+          449
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/DoubleJump/Frames/DoubleJump_15.png",
+        "time": 0.1875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f5015b1f23410e5f43c2303ddda9bda0aaa2b3294ba926f54dfe66fd2f6a340f",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      }
+    ],
+    "clipGuid": "999a036015c72bb4c921a6945972d95e"
+  },
+  "JumpRise": {
+    "name": "JumpRise",
+    "oldState": "JumpRise",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_JumpRise.anim",
+    "duration": 1.6,
+    "sampleRate": 20,
+    "loop": true,
+    "stateSpeed": 1,
+    "method": "One approved-style pose with local periodic flame deformation; mask and charcoal limbs pixel-locked",
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5c0e7dab8321fc571b3977598ec49f3ed1717a50d07740a644c3758fb86ae99a",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_01.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6aa2f63c5f4f71742633fa8a59c6867be8d57b02876a31fea7d70d9d5b4427d1",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_02.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "88ec2f33ab64718206f250b91ec0988871b497acc20bd9ce6427c465901e659e",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_03.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ccd5700e253c6961225a481cfaced3b4bf27a4dd50c2a785c0ff3ee118bf5fcb",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_04.png",
+        "time": 0.2,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8e695b16d56d4d2629fec52cd4901d11d45cc6858ae3d0aae6284782dfc7cb2b",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_05.png",
+        "time": 0.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "4195607ffec81de1d6e18350670d77a91a01d33eedc921e6a047564253fd75c6",
+        "bounds": [
+          140,
+          65,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_06.png",
+        "time": 0.30000000000000004,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "92400aa75df428cdee7926c8e4a38f2085c087f07a92a2618a100d3975f73157",
+        "bounds": [
+          140,
+          65,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_07.png",
+        "time": 0.35000000000000003,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a7f9d78370519cf7463fdb55b323c58bf5dff7462dd802a7660181aa98f1dbbd",
+        "bounds": [
+          140,
+          65,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_08.png",
+        "time": 0.4,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "893df5f114493cba8a414932256b69c081e5d6e81b88dbd7a607bcd35be46b14",
+        "bounds": [
+          140,
+          65,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_09.png",
+        "time": 0.45,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d857b9dd0ed5c0b026c5e322a53931a57372aac4a89fa590c3207610b9f129e2",
+        "bounds": [
+          140,
+          65,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_10.png",
+        "time": 0.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6b4a023291dd0fa741606200cfecbaeb6f4025ebfc9d15acda0d469efd0c0d1a",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_11.png",
+        "time": 0.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "f65debc4f2e91819b1767832465b489354f82d52a8859e69144105d3689c2b2f",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_12.png",
+        "time": 0.6000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "69ccc300ac64219358a49073498508207a27fdea9a5daa6db1140814aef9c3f8",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_13.png",
+        "time": 0.65,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "86265cae7d5c94dc511c71cb0a5b3b4a1a6604ab6080cb720f1c6cfece816a2d",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_14.png",
+        "time": 0.7000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ceaf3cd16a76ef7892d5efba4660d443757051f15b68ca500ee7629bc08921ca",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_15.png",
+        "time": 0.75,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "85a1ffc9d96e99b358dc82fa58b57f1fc365ea3dcd6d2ebf57579ffa64d55d1c",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_16.png",
+        "time": 0.8,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a5a33c22a5760a99a9b1239edcfd281ae851c5665966bb5e5569670bc2196c39",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_17.png",
+        "time": 0.8500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ca486efd698e4d3f007be56e12a24ad17f6096b2cc05312e72b0f022c744feeb",
+        "bounds": [
+          140,
+          65,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_18.png",
+        "time": 0.9,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "b0b4d276b1039eb95ec7807a612c225dfd2044b982e23a5afd978199a996b312",
+        "bounds": [
+          140,
+          66,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_19.png",
+        "time": 0.9500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "1270fd7390d181cf6bccfe1476b1c75b6a5728a1e203bb2bb47fb7d412eeafe9",
+        "bounds": [
+          140,
+          66,
+          371,
+          447
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_20.png",
+        "time": 1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3edf53dd61925a9ffee2ec4212550858e59e20a09fae5dcbbbef110de014a7cf",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_21.png",
+        "time": 1.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0ed63b1fc90581be2428457a2f8bd8971b14d9b0474ec68413dc6569d6a27f3d",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_22.png",
+        "time": 1.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "b92eee2ef2252a95480fff0fa5f4949845a33cfac13b9b6a3dcd22304a4a08c2",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_23.png",
+        "time": 1.1500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "18ae330395846564b3706d170fe82a771c49315db531215b95fdfdbcfd59d3c8",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_24.png",
+        "time": 1.2000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9932c55323b89109dc32bdcec63c89b7084e3e1fb03d9bfbb9894a1c9281d8c3",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_25.png",
+        "time": 1.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bbc3457f3d6b6e0fccc7d349fb08921df2116befeb5cbb9adbcff7d4b54428cb",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_26.png",
+        "time": 1.3,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "176510672640b974a84bc0c3da0e712edf8f030453dbf6d5ce85ee3b046ac7dc",
+        "bounds": [
+          140,
+          67,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_27.png",
+        "time": 1.35,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5b17ee9fadfdb9413c957eb0e27999c521535cd776b0c4dba9168c09a109484c",
+        "bounds": [
+          140,
+          67,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_28.png",
+        "time": 1.4000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "389f5850a5ce2e242e346f9fa42fabfccab5c13c7479f7c7d9ea84552e727e7a",
+        "bounds": [
+          140,
+          67,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_29.png",
+        "time": 1.4500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "750189d13d2a9750e4bac831afc8f298378455663c103241f1a137d15bea96bc",
+        "bounds": [
+          140,
+          67,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_30.png",
+        "time": 1.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c940d65aac5720b05dbd4599355c27d055e00764a653de1249f4f0c6a48b0260",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/JumpRise/Frames/JumpRise_31.png",
+        "time": 1.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e76e94037a801ef9ad438901a60bdd36c74cd4ab38675f65fc97ee42d55c3e01",
+        "bounds": [
+          140,
+          66,
+          371,
+          448
+        ]
+      }
+    ],
+    "clipGuid": "b56e1440c8c52d44d8beeb0b73d0e5e7"
+  },
+  "Fall": {
+    "name": "Fall",
+    "oldState": "Fall",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_Fall.anim",
+    "duration": 1.6,
+    "sampleRate": 20,
+    "loop": true,
+    "stateSpeed": 1,
+    "method": "One approved-style pose with local periodic flame deformation; mask and charcoal limbs pixel-locked",
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8847bad76594780688f64470ac13cf952373d5ff656806c9b7a9520351e4fcf7",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_01.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bc82266375fafa88e600f22c721a1e84f314661a33373eafcd2517ec3e317f54",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_02.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e49a39d0e01d5212bbeae99d6a994c7ccbc3c1edb4495b69bca0ebbef4c0bb25",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_03.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a791eebc860b600f192fbf5fa3ff039334676228c4864b5a69599e18f0a55362",
+        "bounds": [
+          142,
+          77,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_04.png",
+        "time": 0.2,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "10c878f3f37e95fdcf89a2b50f4945418699b1b136a64b2a7f242e7b31495cc8",
+        "bounds": [
+          142,
+          77,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_05.png",
+        "time": 0.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "cb5a653cbea7d0d6657e6faa43e4f09465c7037c88c26cbe7ed7ffc8c580ccf9",
+        "bounds": [
+          142,
+          77,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_06.png",
+        "time": 0.30000000000000004,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7f8a13652f052eda543afbacaf58bd2b89b59a3ee05c8950bfab2606c8f84e98",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_07.png",
+        "time": 0.35000000000000003,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "89edacca41052dba1493aae1735c8e98ff9e3d8ae0b9459c71c463bc7e375741",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_08.png",
+        "time": 0.4,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ddcb10936755f71be7224d3fcab9b1da1a08602189e05fd021b39d9c72e0ee7c",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_09.png",
+        "time": 0.45,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e2840960462f85fd41bae2d31285308ecf5edbe8e463d2d9b5d748d8977d34a6",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_10.png",
+        "time": 0.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "1f360abe3bb093e3ab1f3817ed32d36b2988ac8e2e1faf29e075e5f54aee51c7",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_11.png",
+        "time": 0.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9b0e64cf7789e3b0b57600b2cfce3ebad2102930b550c8ba0062947e61d2a3ad",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_12.png",
+        "time": 0.6000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c6a85c6a811e05d8699f8445728defa1a704acc80c94d07da444c3260c51f641",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_13.png",
+        "time": 0.65,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9e94f3faa11890db35b6c58da234c74f6edecf678202af958c73b0e802929951",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_14.png",
+        "time": 0.7000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a16b807ab8a78024aa2d51dd3c3c86d8a59a0e931269ae073aa92436b1ddc28c",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_15.png",
+        "time": 0.75,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "85863889bbb4f92012cc11615a80823747341e01fbd30353c36e1abc45fa28b0",
+        "bounds": [
+          142,
+          76,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_16.png",
+        "time": 0.8,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d3f75e2842a4b4c99166547a6a4217e5ce53e169a82c5715133fdf4a60a6700d",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_17.png",
+        "time": 0.8500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6b9d3b1b153ba270675c535997c23003b92c2c931ada513644d4f4f69562c658",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_18.png",
+        "time": 0.9,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "53836cc3fc7e85f841328877a45ec97a271d457f7cc06b84ceacc1ac80fe11ea",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_19.png",
+        "time": 0.9500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6d62fd56132372ddca45beae63e83f0527c3f908023bb02c8529bdb5f9d4c916",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_20.png",
+        "time": 1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d36a32138c80e5dd1f2e5d4496d5e79b84cb80b19110afaf2d647a9a2479d037",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_21.png",
+        "time": 1.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "eb1904335a72c9100071b1cfa0fc06e1870c8251d8c50039d65bd9cd770a641b",
+        "bounds": [
+          142,
+          77,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_22.png",
+        "time": 1.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8e923df98286c8658214a0ee4565708cf1cc8956490604671b16c55eee77a83e",
+        "bounds": [
+          142,
+          78,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_23.png",
+        "time": 1.1500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7b51a847b2a8401137821c6196c3638212334e1f98e383b2e015edc6ae4e06e0",
+        "bounds": [
+          142,
+          78,
+          406,
+          455
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_24.png",
+        "time": 1.2000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "72b8c39d7012364cb5e74bd48d76d17700c524267f81cfa1d1bb843b5f96f4b2",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_25.png",
+        "time": 1.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8f07f7b595b3ab30e95e48f09cbc3d6d46d8405ccfbdcc676741733f9c71faeb",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_26.png",
+        "time": 1.3,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a0f68f93e4b636ad4017d516a35e1ad7a995212994899f1cdb8988819eb58569",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_27.png",
+        "time": 1.35,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c6b5efa6e4bd5c81cc63ac60c19c79b47f3ed8d84c5c3b1a329f3e45ae34cf99",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_28.png",
+        "time": 1.4000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "997792b8f40547f159ceb1d1b81419a9cc4b10db3887da5c727d1ac4d1e1dd0e",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_29.png",
+        "time": 1.4500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "713ff764eea4345317c95bb41626ccc06b65d26bda312321e73db036b025c9ed",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_30.png",
+        "time": 1.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6982cff94cd1c011b109a2e4e4ec7ae80da6b5057aa91c7d26d253cd1865a63f",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Fall/Frames/Fall_31.png",
+        "time": 1.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "1583682710f3a35e62e70675faa886627f48d179539c274c023f3ddf4d11b019",
+        "bounds": [
+          142,
+          78,
+          406,
+          456
+        ]
+      }
+    ],
+    "clipGuid": "832ac5bfef82e7d439b81efde09253db"
+  },
+  "WallCling": {
+    "name": "WallCling",
+    "oldState": "WallCling",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_WallCling.anim",
+    "duration": 1.6,
+    "sampleRate": 20,
+    "loop": true,
+    "stateSpeed": 1,
+    "method": "One approved-style pose with local periodic flame deformation; mask and charcoal limbs pixel-locked",
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "eb75e66ec55e28a400971f34ad9e4aacee6698f3c0e4341289b6a352deb7f3dd",
+        "bounds": [
+          146,
+          58,
+          350,
+          429
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_01.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "9bc5b5c61bc71c9271917ff8a7710b2f575a0c096fee7a419e8c79be3529a842",
+        "bounds": [
+          146,
+          58,
+          350,
+          429
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_02.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5d6ca442f735b90d7b496d998965a6683406a4ae47b1e97179e00a9b4432cab1",
+        "bounds": [
+          145,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_03.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5d39b82972ad6e84c9266304e4685e1775b9258ae73ef67e82bf5cff47a392fa",
+        "bounds": [
+          145,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_04.png",
+        "time": 0.2,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "bc66a616f8ec5292403bab346d387ab16903b97d0392a2edf7ff4d221b3244e9",
+        "bounds": [
+          144,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_05.png",
+        "time": 0.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "896cc353e3f458bc432ca4f0f95d149bbb285b8dc5f7b1d06e3e906e940d3e56",
+        "bounds": [
+          144,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_06.png",
+        "time": 0.30000000000000004,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "39aa243ef8d195bbe15128bd5e5dae3d817ebb3cde12019c22fb67f35fc6befb",
+        "bounds": [
+          143,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_07.png",
+        "time": 0.35000000000000003,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "89fb875a6b07a5aba47d072fc2063900f1e6c336441791b8726ff5642725c89d",
+        "bounds": [
+          143,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_08.png",
+        "time": 0.4,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "728e7d688bdaed590e1ec7c38cd18e4acd2732920e70cec14d58e871b0db4a40",
+        "bounds": [
+          142,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_09.png",
+        "time": 0.45,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "15b94b6fa1fde681a117f5cf989d48b643b24307dc31a97bbb7db7515c5865ae",
+        "bounds": [
+          142,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_10.png",
+        "time": 0.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2819185560e3f9e0f31e0b3b227a6592c93d1fd808eb03dd0525f578aae09ecd",
+        "bounds": [
+          142,
+          57,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_11.png",
+        "time": 0.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "6cda6c983b324d2423e7a26593bc046da59ff55fe095bca06b30ce2a662f3d43",
+        "bounds": [
+          142,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_12.png",
+        "time": 0.6000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "68ac6fcb213a32641375aa02e66ed9f280230ff9d1d07b5d52c7062578e95e08",
+        "bounds": [
+          142,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_13.png",
+        "time": 0.65,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a6beb1e954873769aab3d85650ec4df4f3c4e68ae6598c59337c270926e6ae0e",
+        "bounds": [
+          142,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_14.png",
+        "time": 0.7000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0f5332b9a90300fe14c42ab77b81a8820c9fdb932ad5c800743cf18a88f1319a",
+        "bounds": [
+          142,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_15.png",
+        "time": 0.75,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "5f8cdb15e539773c46b6a8306fc7979a6e21327843bd4f5c2f1257f0b53e668f",
+        "bounds": [
+          143,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_16.png",
+        "time": 0.8,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "24c21255aff7df05f2fd454534fc23d33d9eb905f4cd8dc8e1c4ff6c9c37aad0",
+        "bounds": [
+          143,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_17.png",
+        "time": 0.8500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "cad741cd339eb1a6fef11762f1cfc2eba27d3e971039849cb8de9700446b673f",
+        "bounds": [
+          144,
+          57,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_18.png",
+        "time": 0.9,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "c812ce5bce1e1ec6b7e66a08ebc71f67428b7a86ed70c3681c0e832086087fa0",
+        "bounds": [
+          144,
+          58,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_19.png",
+        "time": 0.9500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "328520f6fb9b1a7cde2792709223856358e22e3b3738881d1503589beae95367",
+        "bounds": [
+          145,
+          58,
+          350,
+          427
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_20.png",
+        "time": 1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "46efcf4035fe68848f0c3e69326505f8db46a78402e2f779ab566ee9d746a5aa",
+        "bounds": [
+          145,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_21.png",
+        "time": 1.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "274ab5ecd8031a5ab64537faa78eec1af596db6d24f51c680057db46f8f79f35",
+        "bounds": [
+          146,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_22.png",
+        "time": 1.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "3d5b941ad90e464939d8105ad0bc76c04bce08b37a92017200c9f565cb7732ce",
+        "bounds": [
+          146,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_23.png",
+        "time": 1.1500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a21bfefcbcfb86356a7c39819de13b1fc1e067d6eb22fc0e9c3fc4bd190d10ee",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_24.png",
+        "time": 1.2000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "d7267a553d31583ff83d067b12d9fdb2d4cfb0980ef2d1c335a02151d0be984e",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_25.png",
+        "time": 1.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "af6bdfc88ba02702cd906b620f91c3b6f2f722f366d9c587d4123912f9f7c74d",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_26.png",
+        "time": 1.3,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e63831a0801a73c82333030387f01bc6c3b5ac2bd3c5215e3e915d7a89a2da0b",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_27.png",
+        "time": 1.35,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "8051411355c749290ae0ee9d5d0e7c940d88dc37b81ec300e7431efe5aff5f0a",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_28.png",
+        "time": 1.4000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "ec593acb3f1f7798d0ff0fead9958f5e079fbe2fc88b16cac8c097d158bcbcae",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_29.png",
+        "time": 1.4500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7ae6aa0bb9c4b3b81aaa7cd02902fcfac7b19da7fb5cac6ce34aea1cf381067f",
+        "bounds": [
+          147,
+          58,
+          350,
+          428
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_30.png",
+        "time": 1.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "7f205c5885f1b2f49a9fd46e1991d6e6aefed7076623597d840ab01988d30271",
+        "bounds": [
+          147,
+          58,
+          350,
+          429
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/WallCling/Frames/WallCling_31.png",
+        "time": 1.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "beb7f8e7f6578434b3bd56cc0e6f5ca4531abf6c64e4706930e501cd7099459d",
+        "bounds": [
+          147,
+          58,
+          350,
+          429
+        ]
+      }
+    ],
+    "clipGuid": "ea6282e89ba186c4d88cd5b64574194e"
+  },
+  "Glide": {
+    "name": "Glide",
+    "oldState": "Glide",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_Glide.anim",
+    "duration": 1.6,
+    "sampleRate": 20,
+    "loop": true,
+    "stateSpeed": 1,
+    "method": "One approved-style pose with local periodic flame deformation; mask and charcoal limbs pixel-locked",
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "eec8c4b962afa78a657359b2809aa2dafed9d55367701e6fa9fd991160b6955c",
+        "bounds": [
+          13,
+          7,
+          466,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_01.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "3b98eb0775d9d3b1b973245663a1fcc1b76c06ed2c09a9f817f68f5de9454342",
+        "bounds": [
+          13,
+          7,
+          465,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_02.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "340bad92db16ea4258aae3f448e1e107a865b1a520dac7823c50ccc408b105c7",
+        "bounds": [
+          13,
+          7,
+          465,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_03.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "98e28eb68b1b5b6bd6bdf0930462860ef20d2f5c6661b58fcc7b6fcf48ce5564",
+        "bounds": [
+          13,
+          7,
+          464,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_04.png",
+        "time": 0.2,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "fd08fea38444c50a1fb4a835962e2565afdf9528f8102033f09cb26cb6b79112",
+        "bounds": [
+          13,
+          7,
+          464,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_05.png",
+        "time": 0.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "5e42904c9d78b12c6c7e82f3eef99767c5d38b715938d30417a69a27f673f4a4",
+        "bounds": [
+          13,
+          7,
+          464,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_06.png",
+        "time": 0.30000000000000004,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "f50f079060a9a2a15a7da72bad1302ef171e3277a868618d0431548dfa90995a",
+        "bounds": [
+          13,
+          7,
+          464,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_07.png",
+        "time": 0.35000000000000003,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "85d057e7b45c36ceedf5e1626485f720e693a65f6b5a5a7e48f60faab5b242b1",
+        "bounds": [
+          14,
+          7,
+          464,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_08.png",
+        "time": 0.4,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "b3a2bc4986f078b87218957b98b9f2137b7d128460eae2a523ee489760d89018",
+        "bounds": [
+          14,
+          7,
+          465,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_09.png",
+        "time": 0.45,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "884bc6706406b533434cdb51800b50ec08e16d6ce1f97e6cd00bf28f9245e1eb",
+        "bounds": [
+          14,
+          7,
+          465,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_10.png",
+        "time": 0.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "1c9f20532f026d445b0f963ba594748dad0db89f05c30cf5ec697b9398cdc1d3",
+        "bounds": [
+          15,
+          7,
+          466,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_11.png",
+        "time": 0.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "1853a7f601409c7d21dfc8e5f7bf1d0da8835c2a4775805e6d2bc91774bdf39d",
+        "bounds": [
+          16,
+          7,
+          466,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_12.png",
+        "time": 0.6000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "5615f5d6c9a07a72ff679a0230a0d5ba3e65cddb12b2602074ee1754ea37bb0e",
+        "bounds": [
+          16,
+          7,
+          467,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_13.png",
+        "time": 0.65,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "03f3d35c92638bc12dc20cee61d65ee647988ac39132cdfaa5641ec445f56de2",
+        "bounds": [
+          17,
+          7,
+          467,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_14.png",
+        "time": 0.7000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "866796a5b5c990b1c2f1aefe5b3599c5ce27811256a86eff01faa55bc7b3ef88",
+        "bounds": [
+          17,
+          8,
+          468,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_15.png",
+        "time": 0.75,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "0ac743cc74a39141d95b0a3ce3423f406ce660b04908df8132d668b9efacdd9a",
+        "bounds": [
+          18,
+          8,
+          468,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_16.png",
+        "time": 0.8,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "c706ef7cdfc0cb90c2502c6b01281e9759f396fe4d8bfa494a45c56d089756b4",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_17.png",
+        "time": 0.8500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "c94864e82c05af5e454078aa64159d79d9d6b0319a669fce5afd6f069275dc39",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_18.png",
+        "time": 0.9,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "08ebfe06869835272b23fc88c71fa9c256cbae9212bbeae2ebfb804bf5d31c59",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_19.png",
+        "time": 0.9500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "d2e6a4667a06c43ece3d746b5553d12428afb47ec15dd7970018697eb5d5be61",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_20.png",
+        "time": 1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "bd81a41a5de8910d08d78a44a4244f4902a8a2cec275e020cded2e19fb8f48c4",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_21.png",
+        "time": 1.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "74ae0f73a2e60b37723fcfccc4987f7f0655c0ce6312feee50f7f6fa4310b8ab",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_22.png",
+        "time": 1.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "c5f7b0a03bcb7264721de72f2dd6ce4a7ef8573fa36d977d6609ceb11bb91006",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_23.png",
+        "time": 1.1500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "c4ff57a909906f1e2c7a00870e98c0c361f26c5efecfa04f7ef16fd15ee36d6d",
+        "bounds": [
+          18,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_24.png",
+        "time": 1.2000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "8b7c6fd76b90bb59411fa7d9e143d1d6c5882292142f55b74eccca9ee2c9ed05",
+        "bounds": [
+          17,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_25.png",
+        "time": 1.25,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "d7338b66089853407dec81cbff3c22ccb881d6edc336c4001e34e3a608b1b69f",
+        "bounds": [
+          17,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_26.png",
+        "time": 1.3,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "27773131945885395e36028306578fb5787e23a3230b73b2221e23af09ca93e4",
+        "bounds": [
+          16,
+          8,
+          469,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_27.png",
+        "time": 1.35,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "6c91a95daab633fb29755c56f460bb6a6d8ee788a94433c31cc96b49b7f8a29b",
+        "bounds": [
+          16,
+          8,
+          468,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_28.png",
+        "time": 1.4000000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "5a1348554733f43e86de6c6071a6d4812f6a0eeac2d11a7b69d8258f848db39e",
+        "bounds": [
+          15,
+          8,
+          468,
+          456
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_29.png",
+        "time": 1.4500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "3c4725260ddf99526a63c302f656314600ac4a15e9cecdde92e0cc54e49206ee",
+        "bounds": [
+          15,
+          8,
+          467,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_30.png",
+        "time": 1.5,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "8f0c6d09b8209ffe799f521e9e31b4303dcc29b862777d1925c5b1d582142e09",
+        "bounds": [
+          14,
+          7,
+          467,
+          457
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Glide/Frames/Glide_31.png",
+        "time": 1.55,
+        "pivotX": 0.52734375,
+        "pivotY": 0.393411445186272,
+        "sha256": "c24ffd0e8f01628463d771603027294b3467ed5029174b5941f1b62aa80f32aa",
+        "bounds": [
+          14,
+          7,
+          466,
+          457
+        ]
+      }
+    ],
+    "clipGuid": "f2b0fcdc1a656014690ceb9ca14c1ae6"
+  },
+  "Dash": {
+    "name": "Dash",
+    "oldState": "Dash",
+    "clipPath": "Assets/05.Animation/Player_Motion/Player_Dash.anim",
+    "duration": 0.2,
+    "sampleRate": 80,
+    "loop": true,
+    "stateSpeed": 1,
+    "method": "One approved-style pose with local periodic flame deformation; mask and charcoal limbs pixel-locked",
+    "frames": [
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_00.png",
+        "time": 0,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "50eda65f9e108177c759382443c231c3fa824cdc7869eed895848885643ce800",
+        "bounds": [
+          29,
+          144,
+          437,
+          376
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_01.png",
+        "time": 0.0125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "e42cc0f33f10dab15b688312961c220835fba10ef4046bb39df30042fa515817",
+        "bounds": [
+          29,
+          144,
+          437,
+          377
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_02.png",
+        "time": 0.025,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "03d4aa806406623de6a42f5dc8a39125f872bcb4523fdf01cfbb0020f8dbd1f8",
+        "bounds": [
+          29,
+          143,
+          437,
+          377
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_03.png",
+        "time": 0.037500000000000006,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "12d24941d3b1c00f3323a8d71a06d371e4bfd7d8e2f65d4c16f1cb0ad85f8b8f",
+        "bounds": [
+          29,
+          143,
+          437,
+          377
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_04.png",
+        "time": 0.05,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "504b283de7c4368cb988097d85de5069670e6f2cb2a6dc54dcc9e9a6c4e26b80",
+        "bounds": [
+          29,
+          142,
+          437,
+          376
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_05.png",
+        "time": 0.0625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "59573a3d04a4e2954709693542ebbb175c12d43919a2d72fbec248ffd67c4b93",
+        "bounds": [
+          28,
+          141,
+          437,
+          376
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_06.png",
+        "time": 0.07500000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "70785ab71d53e10811d8571fe86968f04688402a189def2037ce4c3fb25ef746",
+        "bounds": [
+          28,
+          140,
+          437,
+          375
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_07.png",
+        "time": 0.08750000000000001,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "29aff30bc2113976c1b9f92f0643f463b5fbeb52e5e642da7bd6957164e7cb14",
+        "bounds": [
+          28,
+          140,
+          437,
+          374
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_08.png",
+        "time": 0.1,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "4b2a2ffda358bf7bb18a122b8cde52394b1a2c7cc294d158654e67036beb2f66",
+        "bounds": [
+          27,
+          139,
+          437,
+          373
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_09.png",
+        "time": 0.1125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2148cec35af19b21b5ab1711f98136870d0c207c6fde85b1fe299e2eece74e2d",
+        "bounds": [
+          27,
+          139,
+          437,
+          372
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_10.png",
+        "time": 0.125,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "1407572582a958cd32d27b96babb5e8ed2ec78c84690471578c24c7ec9c2e033",
+        "bounds": [
+          27,
+          140,
+          437,
+          372
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_11.png",
+        "time": 0.1375,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "a20ff8df643d071d324c90a8fdba70b89b57190fcabbb04c24ae4a16c8c696ca",
+        "bounds": [
+          27,
+          141,
+          437,
+          372
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_12.png",
+        "time": 0.15000000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "2443d768c6c4e5bb6c58773d9cbcc65d2d930c37f2a680cd02269e1db548ad99",
+        "bounds": [
+          28,
+          142,
+          437,
+          373
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_13.png",
+        "time": 0.1625,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "813ee62255092eddbff5bb3fa731c22664b612f67fc05b0b28e1d3c528f8e1d6",
+        "bounds": [
+          28,
+          142,
+          437,
+          374
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_14.png",
+        "time": 0.17500000000000002,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "60f7e0c2edeb847cc5fd7292fbf34199ff1fb4a76a128b02427f610ac97bab79",
+        "bounds": [
+          28,
+          143,
+          437,
+          374
+        ]
+      },
+      {
+        "path": "Assets/04.Sprites/NewPlayer/Motions_v01/Dash/Frames/Dash_15.png",
+        "time": 0.1875,
+        "pivotX": 0.52734375,
+        "pivotY": 0.44140625,
+        "sha256": "0febc651ee965b352b19eb23d8477752e9c994cab39310e6a267821a2ede05de",
+        "bounds": [
+          29,
+          144,
+          437,
+          375
+        ]
+      }
+    ],
+    "clipGuid": "da07fc4c4a4e1a54a8e1ae372fabe948"
+  }
+}

@@ -17,6 +17,8 @@ public class TorchLight : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _igniteSound;
 
+    [SerializeField] private Player _player;
+    [SerializeField] private bool _isHeal = false;
     private Coroutine _routine;
     private WaitForSeconds _litWait;
     private float _baseIntensity;
@@ -47,6 +49,14 @@ public class TorchLight : MonoBehaviour
         if (other.gameObject.CompareTag(_fireInteract))
         {
             FireActive();
+            if (_isHeal)
+            {
+                var health = _player.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.CurrentHealth = health.MaxHealth;
+                }
+            }
         }
         else if (other.gameObject.CompareTag(_unFireInteract))
         {
