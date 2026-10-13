@@ -47,8 +47,7 @@ public sealed class PlayerWallSensor
             own.Cast(Vector2.right * direction, filter, _hits, probeDistance);
             foreach (var hit in _hits)
             {
-                if (!Eligible(own, hit.collider, ignored)
-                    || !IsFacingWall(hit.normal.x, direction, minimumNormal))
+                if (!Eligible(own, hit.collider, ignored) || !IsFacingWall(hit.normal.x, direction, minimumNormal))
                 {
                     continue;
                 }
