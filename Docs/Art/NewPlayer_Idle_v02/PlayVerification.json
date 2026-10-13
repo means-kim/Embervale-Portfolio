@@ -1,0 +1,3534 @@
+{
+  "success": true,
+  "error": null,
+  "scope": "Play mode with temporary movement-event injection; production player state/controller/physics run normally. Not keyboard input. Runtime input component restored.",
+  "bindings": [
+    {
+      "state": "Idle",
+      "uniqueDisplayedFrames": 32,
+      "keyCount": 32,
+      "length": 1.6
+    },
+    {
+      "state": "Run",
+      "uniqueDisplayedFrames": 16,
+      "keyCount": 17,
+      "length": 0.5208333
+    }
+  ],
+  "states": [
+    "Idle",
+    "Run"
+  ],
+  "displayed": [
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+    "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_14.png",
+    "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png"
+  ],
+  "samples": [
+    {
+      "t": 0.00829139999999029,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": false
+    },
+    {
+      "t": 0.025458299999996825,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 0.04194629999999222,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 0.0584417999999971,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 0.074607700000001387,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 0.091304399999998509,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 0.12202889999998945,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 0.1348847999999947,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 0.14995689999999229,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 0.1628596999999985,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 0.17570440000000076,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 0.18834109999998816,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 0.20168749999999136,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 0.21793389999999135,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 0.23057019999998829,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": false
+    },
+    {
+      "t": 0.24326549999999258,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": false
+    },
+    {
+      "t": 0.25537459999999612,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": false
+    },
+    {
+      "t": 0.26739139999999395,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": false
+    },
+    {
+      "t": 0.28009139999998922,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": false
+    },
+    {
+      "t": 0.29504099999999767,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": false
+    },
+    {
+      "t": 0.30986379999998803,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": false
+    },
+    {
+      "t": 0.3223054999999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": false
+    },
+    {
+      "t": 0.33751119999999446,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": false
+    },
+    {
+      "t": 0.35258029999999962,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": false
+    },
+    {
+      "t": 0.36762449999999092,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": false
+    },
+    {
+      "t": 0.38151009999999985,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": false
+    },
+    {
+      "t": 0.39640409999999804,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": false
+    },
+    {
+      "t": 0.41093409999999153,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": false
+    },
+    {
+      "t": 0.42403499999998928,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": false
+    },
+    {
+      "t": 0.43646049999999548,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": false
+    },
+    {
+      "t": 0.45127119999999366,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": false
+    },
+    {
+      "t": 0.4672023999999908,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": false
+    },
+    {
+      "t": 0.4824302999999901,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": false
+    },
+    {
+      "t": 0.49849749999999915,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": false
+    },
+    {
+      "t": 0.5110937999999976,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": false
+    },
+    {
+      "t": 0.52419479999998941,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": false
+    },
+    {
+      "t": 0.5373361999999986,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": false
+    },
+    {
+      "t": 0.552870200000001,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": false
+    },
+    {
+      "t": 0.568603699999997,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": false
+    },
+    {
+      "t": 0.58324179999999615,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": false
+    },
+    {
+      "t": 0.59834859999999424,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": false
+    },
+    {
+      "t": 0.61330519999999922,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": false
+    },
+    {
+      "t": 0.62563829999999143,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": false
+    },
+    {
+      "t": 0.63844439999999736,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": false
+    },
+    {
+      "t": 0.65396379999999965,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": false
+    },
+    {
+      "t": 0.668978899999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": false
+    },
+    {
+      "t": 0.68217070000000035,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": false
+    },
+    {
+      "t": 0.69835179999999752,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": false
+    },
+    {
+      "t": 0.71234929999999963,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": false
+    },
+    {
+      "t": 0.72493379999998808,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": false
+    },
+    {
+      "t": 0.74008409999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": false
+    },
+    {
+      "t": 0.75222269999999014,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": false
+    },
+    {
+      "t": 0.76752279999999473,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": false
+    },
+    {
+      "t": 0.78178979999999854,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": false
+    },
+    {
+      "t": 0.79694139999999436,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": false
+    },
+    {
+      "t": 0.81155409999999506,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": false
+    },
+    {
+      "t": 0.8551959999999923,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+      "flip": false
+    },
+    {
+      "t": 0.86799849999999878,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+      "flip": false
+    },
+    {
+      "t": 0.88081449999999961,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": false
+    },
+    {
+      "t": 0.89436169999999038,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": false
+    },
+    {
+      "t": 0.90680659999999591,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": false
+    },
+    {
+      "t": 0.91984009999998761,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": false
+    },
+    {
+      "t": 0.9357646999999929,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": false
+    },
+    {
+      "t": 0.951982000000001,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": false
+    },
+    {
+      "t": 0.9680461999999892,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": false
+    },
+    {
+      "t": 0.98326699999999789,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+      "flip": false
+    },
+    {
+      "t": 0.99687269999999728,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+      "flip": false
+    },
+    {
+      "t": 1.0095484,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+      "flip": false
+    },
+    {
+      "t": 1.022405599999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": false
+    },
+    {
+      "t": 1.0386455999999953,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": false
+    },
+    {
+      "t": 1.0547055999999913,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": false
+    },
+    {
+      "t": 1.0705770999999942,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": false
+    },
+    {
+      "t": 1.0827570999999949,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": false
+    },
+    {
+      "t": 1.0977867999999944,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": false
+    },
+    {
+      "t": 1.1099126000000012,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": false
+    },
+    {
+      "t": 1.1244931999999892,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": false
+    },
+    {
+      "t": 1.1396072000000004,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": false
+    },
+    {
+      "t": 1.1545102999999983,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": false
+    },
+    {
+      "t": 1.1701607999999908,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": false
+    },
+    {
+      "t": 1.1834439000000003,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": false
+    },
+    {
+      "t": 1.1956885999999969,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": false
+    },
+    {
+      "t": 1.2108722999999912,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": false
+    },
+    {
+      "t": 1.2245184999999879,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": false
+    },
+    {
+      "t": 1.2373091999999986,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": false
+    },
+    {
+      "t": 1.2493403999999941,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": false
+    },
+    {
+      "t": 1.2662302999999895,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": false
+    },
+    {
+      "t": 1.2786823999999939,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.2915178999999881,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.3045496999999955,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.3210988999999955,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.3336639999999989,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": false
+    },
+    {
+      "t": 1.3491226000000012,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": false
+    },
+    {
+      "t": 1.3630684999999971,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": false
+    },
+    {
+      "t": 1.3764168000000012,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.3909168999999935,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.4036914999999937,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.4199727999999965,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.4341428999999977,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": false
+    },
+    {
+      "t": 1.449112999999997,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": false
+    },
+    {
+      "t": 1.4652504999999962,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": false
+    },
+    {
+      "t": 1.481206499999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": false
+    },
+    {
+      "t": 1.4965933999999947,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": false
+    },
+    {
+      "t": 1.5113787999999886,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": false
+    },
+    {
+      "t": 1.526241899999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.5384491999999881,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.5539637999999911,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.5700537999999966,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.5859253999999936,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": false
+    },
+    {
+      "t": 1.5996510999999884,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": false
+    },
+    {
+      "t": 1.6151715999999965,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": false
+    },
+    {
+      "t": 1.6313628999999992,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 1.6461767999999921,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 1.658668899999995,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": false
+    },
+    {
+      "t": 1.6712122999999934,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 1.68727659999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 1.6993745999999987,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 1.716094599999991,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": false
+    },
+    {
+      "t": 1.732939899999991,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 1.7460245999999984,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 1.7589204999999879,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": false
+    },
+    {
+      "t": 1.7734364999999883,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 1.7866560999999876,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 1.798700299999993,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": false
+    },
+    {
+      "t": 1.8145715999999936,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -19.72,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.8273051999999979,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -19.32,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": false
+    },
+    {
+      "t": 1.842384899999999,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -18.92,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": false
+    },
+    {
+      "t": 1.857767999999993,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -18.92,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": false
+    },
+    {
+      "t": 1.8724573999999876,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -18.52,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.8880393999999967,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -18.12,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.9011929999999921,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -17.7200012,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": false
+    },
+    {
+      "t": 1.9180612999999909,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -17.7200012,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": false
+    },
+    {
+      "t": 1.9306246999999956,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -17.3200016,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": false
+    },
+    {
+      "t": 1.9432736999999918,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -16.920002,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": false
+    },
+    {
+      "t": 1.9564802000000014,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -16.920002,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": false
+    },
+    {
+      "t": 1.9686979999999892,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -16.5200024,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.9838000999999963,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -16.1200027,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": false
+    },
+    {
+      "t": 1.9998018000000002,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -16.1200027,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+      "flip": false
+    },
+    {
+      "t": 2.0156512999999876,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -15.7200041,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+      "flip": false
+    },
+    {
+      "t": 2.0293903999999969,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -15.3200045,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": false
+    },
+    {
+      "t": 2.0441655999999995,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.9200048,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": false
+    },
+    {
+      "t": 2.0564954999999969,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.9200048,
+      "y": -11.6350069,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+      "flip": false
+    },
+    {
+      "t": 2.0979257999999987,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3683,
+      "y": -11.6352425,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": false
+    },
+    {
+      "t": 2.1130679999999984,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3684225,
+      "y": -11.6352406,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": false
+    },
+    {
+      "t": 2.1256884000000014,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3685246,
+      "y": -11.635232,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": false
+    },
+    {
+      "t": 2.1392110999999971,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.36861,
+      "y": -11.6352186,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": false
+    },
+    {
+      "t": 2.1517472999999967,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.36861,
+      "y": -11.6352186,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": false
+    },
+    {
+      "t": 2.1668020999999982,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3686829,
+      "y": -11.6352034,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+      "flip": false
+    },
+    {
+      "t": 2.1813392999999905,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3687449,
+      "y": -11.6351862,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+      "flip": false
+    },
+    {
+      "t": 2.1964689999999933,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3687449,
+      "y": -11.6351862,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+      "flip": false
+    },
+    {
+      "t": 2.2093732999999958,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3687983,
+      "y": -11.63517,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+      "flip": false
+    },
+    {
+      "t": 2.2239718999999951,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.368844,
+      "y": -11.6351538,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+      "flip": false
+    },
+    {
+      "t": 2.2400578999999965,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3688831,
+      "y": -11.6351385,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+      "flip": false
+    },
+    {
+      "t": 2.2543574999999976,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3688831,
+      "y": -11.6351385,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_14.png",
+      "flip": false
+    },
+    {
+      "t": 2.2682555999999892,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3689175,
+      "y": -11.6351252,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_14.png",
+      "flip": false
+    },
+    {
+      "t": 2.2855213999999933,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.368947,
+      "y": -11.6351128,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png",
+      "flip": false
+    },
+    {
+      "t": 2.3024240999999961,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3689728,
+      "y": -11.6351013,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png",
+      "flip": false
+    },
+    {
+      "t": 2.3183726999999976,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3689728,
+      "y": -11.6351013,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": false
+    },
+    {
+      "t": 2.3304654999999883,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3689947,
+      "y": -11.6350908,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": false
+    },
+    {
+      "t": 2.3444693999999942,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690147,
+      "y": -11.6350813,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": false
+    },
+    {
+      "t": 2.3600621999999873,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690319,
+      "y": -11.6350718,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": false
+    },
+    {
+      "t": 2.3728669999999994,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690319,
+      "y": -11.6350718,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": false
+    },
+    {
+      "t": 2.3884108999999967,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690472,
+      "y": -11.6350641,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": false
+    },
+    {
+      "t": 2.4031601999999879,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690605,
+      "y": -11.6350565,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": false
+    },
+    {
+      "t": 2.4163460999999984,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690605,
+      "y": -11.6350565,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": false
+    },
+    {
+      "t": 2.428979599999991,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.369072,
+      "y": -11.6350508,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": false
+    },
+    {
+      "t": 2.4428532999999959,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690815,
+      "y": -11.6350451,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": false
+    },
+    {
+      "t": 2.4556501999999938,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690815,
+      "y": -11.6350451,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": false
+    },
+    {
+      "t": 2.4714114999999879,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.36909,
+      "y": -11.63504,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": false
+    },
+    {
+      "t": 2.4849154999999996,
+      "inputX": 1.0,
+      "state": "Run",
+      "x": -14.3690977,
+      "y": -11.6350365,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": false
+    },
+    {
+      "t": 2.5008496999999892,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -14.3691044,
+      "y": -11.6350327,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": true
+    },
+    {
+      "t": 2.5170289999999937,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -14.3691044,
+      "y": -11.6350327,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": true
+    },
+    {
+      "t": 2.5337233999999995,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -15.0086079,
+      "y": -11.6356316,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+      "flip": true
+    },
+    {
+      "t": 2.5506350999999938,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -15.4086075,
+      "y": -11.6355066,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": true
+    },
+    {
+      "t": 2.5673689999999993,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -15.8086071,
+      "y": -11.6354065,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": true
+    },
+    {
+      "t": 2.5840144000000009,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -16.2086086,
+      "y": -11.6353264,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+      "flip": true
+    },
+    {
+      "t": 2.5973106,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -16.2086086,
+      "y": -11.6353264,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+      "flip": true
+    },
+    {
+      "t": 2.6099597999999986,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -16.6086082,
+      "y": -11.6352625,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": true
+    },
+    {
+      "t": 2.6235142999999965,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -17.0086079,
+      "y": -11.635211,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": true
+    },
+    {
+      "t": 2.6367854999999878,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -17.0086079,
+      "y": -11.635211,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": true
+    },
+    {
+      "t": 2.6534714000000008,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -17.4086075,
+      "y": -11.63517,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": true
+    },
+    {
+      "t": 2.6659183999999954,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -17.8086071,
+      "y": -11.6351366,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": true
+    },
+    {
+      "t": 2.6822485999999941,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -18.2086067,
+      "y": -11.63511,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+      "flip": true
+    },
+    {
+      "t": 2.6988647999999955,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -18.2086067,
+      "y": -11.63511,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_11.png",
+      "flip": true
+    },
+    {
+      "t": 2.7148117999999926,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -18.6086063,
+      "y": -11.6350889,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+      "flip": true
+    },
+    {
+      "t": 2.7312288999999907,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -19.008606,
+      "y": -11.6350718,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_12.png",
+      "flip": true
+    },
+    {
+      "t": 2.7476348,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -19.4086056,
+      "y": -11.6350584,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+      "flip": true
+    },
+    {
+      "t": 2.7604819999999961,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -19.8086052,
+      "y": -11.6350479,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_13.png",
+      "flip": true
+    },
+    {
+      "t": 2.7910541999999907,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -20.2086048,
+      "y": -11.6350393,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_14.png",
+      "flip": true
+    },
+    {
+      "t": 2.8037945999999891,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -20.6086044,
+      "y": -11.6350327,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png",
+      "flip": true
+    },
+    {
+      "t": 2.8202174999999983,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -21.008604,
+      "y": -11.6350269,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_15.png",
+      "flip": true
+    },
+    {
+      "t": 2.8362219999999922,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -21.008604,
+      "y": -11.6350269,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": true
+    },
+    {
+      "t": 2.8526165999999904,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -21.4086037,
+      "y": -11.6350222,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": true
+    },
+    {
+      "t": 2.8690572999999944,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -21.8086033,
+      "y": -11.6350183,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_00.png",
+      "flip": true
+    },
+    {
+      "t": 2.8849876999999964,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -22.2086029,
+      "y": -11.6350155,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": true
+    },
+    {
+      "t": 2.9034606999999966,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -22.6086025,
+      "y": -11.6350136,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_01.png",
+      "flip": true
+    },
+    {
+      "t": 2.9164543999999921,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -22.6086025,
+      "y": -11.6350136,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": true
+    },
+    {
+      "t": 2.9322634999999906,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.0086021,
+      "y": -11.6350117,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_02.png",
+      "flip": true
+    },
+    {
+      "t": 2.945594,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.11504,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": true
+    },
+    {
+      "t": 2.9594567999999981,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150265,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": true
+    },
+    {
+      "t": 2.9728999999999957,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150265,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_03.png",
+      "flip": true
+    },
+    {
+      "t": 2.985406399999988,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150169,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": true
+    },
+    {
+      "t": 3.0019379999999956,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150112,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_04.png",
+      "flip": true
+    },
+    {
+      "t": 3.0172157999999882,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150112,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.0327807999999976,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150074,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.0493108999999947,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+      "flip": true
+    },
+    {
+      "t": 3.0618281999999937,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_06.png",
+      "flip": true
+    },
+    {
+      "t": 3.0741773999999964,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": true
+    },
+    {
+      "t": 3.0875427999999943,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_07.png",
+      "flip": true
+    },
+    {
+      "t": 3.1035898999999887,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.1195077999999938,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.1340095999999988,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": true
+    },
+    {
+      "t": 3.1499666999999931,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_09.png",
+      "flip": true
+    },
+    {
+      "t": 3.1645356999999876,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.1793954999999983,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.1918185999999906,
+      "inputX": -1.0,
+      "state": "Run",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Run_v02/Frames/Run_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.2051890999999983,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 3.2176808999999906,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 3.2325358999999878,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 3.2488406999999881,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 3.2663300999999905,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 3.2835697999999951,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 3.2990513999999962,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 3.3160464999999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 3.3280717999999894,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 3.34094309999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 3.3545182999999952,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 3.3687726,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 3.384381999999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 3.4012366999999983,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 3.4155730999999889,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 3.4303395999999964,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 3.445248399999997,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 3.4584787000000006,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.471577400000001,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.4844358,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.5004983999999979,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 3.5177189999999996,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": true
+    },
+    {
+      "t": 3.5331434999999942,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": true
+    },
+    {
+      "t": 3.5486564999999928,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_06.png",
+      "flip": true
+    },
+    {
+      "t": 3.5640305000000012,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": true
+    },
+    {
+      "t": 3.5781085999999931,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": true
+    },
+    {
+      "t": 3.5902174999999943,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_07.png",
+      "flip": true
+    },
+    {
+      "t": 3.6055827999999934,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.6185776999999888,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.6353970999999916,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.6507776999999919,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_08.png",
+      "flip": true
+    },
+    {
+      "t": 3.6655343999999985,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": true
+    },
+    {
+      "t": 3.6804859999999877,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": true
+    },
+    {
+      "t": 3.6948881,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_09.png",
+      "flip": true
+    },
+    {
+      "t": 3.7077027999999927,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.7202939000000015,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.7362964999999946,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.7519807999999983,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_10.png",
+      "flip": true
+    },
+    {
+      "t": 3.7666247999999882,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": true
+    },
+    {
+      "t": 3.7816984999999903,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": true
+    },
+    {
+      "t": 3.7968979999999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_11.png",
+      "flip": true
+    },
+    {
+      "t": 3.809622399999995,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": true
+    },
+    {
+      "t": 3.8226749999999896,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": true
+    },
+    {
+      "t": 3.8353094999999939,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": true
+    },
+    {
+      "t": 3.8517961000000014,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_12.png",
+      "flip": true
+    },
+    {
+      "t": 3.863896799999992,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": true
+    },
+    {
+      "t": 3.8799391000000014,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": true
+    },
+    {
+      "t": 3.8923401999999925,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_13.png",
+      "flip": true
+    },
+    {
+      "t": 3.9051040999999884,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": true
+    },
+    {
+      "t": 3.9204711000000003,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": true
+    },
+    {
+      "t": 3.9363790999999964,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": true
+    },
+    {
+      "t": 3.9530276999999927,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_14.png",
+      "flip": true
+    },
+    {
+      "t": 3.9694159000000013,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": true
+    },
+    {
+      "t": 3.984898699999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": true
+    },
+    {
+      "t": 3.999508899999995,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_15.png",
+      "flip": true
+    },
+    {
+      "t": 4.0148003999999986,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": true
+    },
+    {
+      "t": 4.0296392999999995,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": true
+    },
+    {
+      "t": 4.042124599999994,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_16.png",
+      "flip": true
+    },
+    {
+      "t": 4.0552331999999893,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": true
+    },
+    {
+      "t": 4.0691458000000011,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": true
+    },
+    {
+      "t": 4.0842612999999943,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": true
+    },
+    {
+      "t": 4.0978196999999881,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_17.png",
+      "flip": true
+    },
+    {
+      "t": 4.1138763999999952,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": true
+    },
+    {
+      "t": 4.1294326000000012,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": true
+    },
+    {
+      "t": 4.1417787999999973,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": true
+    },
+    {
+      "t": 4.1537867999999918,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_18.png",
+      "flip": true
+    },
+    {
+      "t": 4.1693336999999957,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": true
+    },
+    {
+      "t": 4.1839968999999968,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": true
+    },
+    {
+      "t": 4.1995806999999985,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_19.png",
+      "flip": true
+    },
+    {
+      "t": 4.2162037999999882,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": true
+    },
+    {
+      "t": 4.2322294999999883,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": true
+    },
+    {
+      "t": 4.2488386999999932,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_20.png",
+      "flip": true
+    },
+    {
+      "t": 4.2646958999999924,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": true
+    },
+    {
+      "t": 4.2791118999999895,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": true
+    },
+    {
+      "t": 4.2933390999999972,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_21.png",
+      "flip": true
+    },
+    {
+      "t": 4.3060387999999961,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": true
+    },
+    {
+      "t": 4.3219640999999882,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": true
+    },
+    {
+      "t": 4.3373923999999988,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": true
+    },
+    {
+      "t": 4.3531875999999983,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_22.png",
+      "flip": true
+    },
+    {
+      "t": 4.365208999999993,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+      "flip": true
+    },
+    {
+      "t": 4.3799770999999907,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+      "flip": true
+    },
+    {
+      "t": 4.3943836999999917,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_23.png",
+      "flip": true
+    },
+    {
+      "t": 4.4064387999999894,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": true
+    },
+    {
+      "t": 4.4218635000000006,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": true
+    },
+    {
+      "t": 4.4369139999999874,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": true
+    },
+    {
+      "t": 4.4521409999999975,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_24.png",
+      "flip": true
+    },
+    {
+      "t": 4.4677015999999981,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": true
+    },
+    {
+      "t": 4.4833025999999876,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": true
+    },
+    {
+      "t": 4.4990914999999916,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_25.png",
+      "flip": true
+    },
+    {
+      "t": 4.5149565999999908,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+      "flip": true
+    },
+    {
+      "t": 4.5455299999999994,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_26.png",
+      "flip": true
+    },
+    {
+      "t": 4.5582742999999937,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": true
+    },
+    {
+      "t": 4.57064059999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": true
+    },
+    {
+      "t": 4.5862309999999979,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": true
+    },
+    {
+      "t": 4.6020147999999921,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_27.png",
+      "flip": true
+    },
+    {
+      "t": 4.6185902,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": true
+    },
+    {
+      "t": 4.63345799999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": true
+    },
+    {
+      "t": 4.6509078999999929,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_28.png",
+      "flip": true
+    },
+    {
+      "t": 4.6667099000000007,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": true
+    },
+    {
+      "t": 4.6810682999999926,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": true
+    },
+    {
+      "t": 4.6942071,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_29.png",
+      "flip": true
+    },
+    {
+      "t": 4.7066599999999994,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": true
+    },
+    {
+      "t": 4.7194032999999962,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": true
+    },
+    {
+      "t": 4.7316625999999928,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": true
+    },
+    {
+      "t": 4.7437374000000005,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_30.png",
+      "flip": true
+    },
+    {
+      "t": 4.7566525999999953,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": true
+    },
+    {
+      "t": 4.7693559999999877,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": true
+    },
+    {
+      "t": 4.7843943999999965,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": true
+    },
+    {
+      "t": 4.7995901999999973,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_31.png",
+      "flip": true
+    },
+    {
+      "t": 4.8142646999999954,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 4.8304521999999963,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 4.8453502999999927,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_00.png",
+      "flip": true
+    },
+    {
+      "t": 4.8584235000000007,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 4.8734944999999925,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 4.8886155,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 4.9051279999999906,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_01.png",
+      "flip": true
+    },
+    {
+      "t": 4.91735349999999,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 4.932265000000001,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 4.9486139999999921,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_02.png",
+      "flip": true
+    },
+    {
+      "t": 4.9642918999999921,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 4.9766587999999956,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 4.9897330000000011,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 5.0029133999999971,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_03.png",
+      "flip": true
+    },
+    {
+      "t": 5.0163151,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 5.0302889999999962,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 5.0433046999999931,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_04.png",
+      "flip": true
+    },
+    {
+      "t": 5.0561632999999944,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 5.0702473999999995,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 5.0826671999999888,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    },
+    {
+      "t": 5.0971416999999946,
+      "inputX": 0.0,
+      "state": "Idle",
+      "x": -23.1150055,
+      "y": -11.635006,
+      "grounded": true,
+      "sprite": "Assets/04.Sprites/NewPlayer/Idle_v02/Frames/Idle_05.png",
+      "flip": true
+    }
+  ],
+  "captured": 4,
+  "initialPosition": [
+    -19.72,
+    -11.6350069
+  ],
+  "finalPosition": [
+    -23.1150055,
+    -11.635006
+  ]
+}

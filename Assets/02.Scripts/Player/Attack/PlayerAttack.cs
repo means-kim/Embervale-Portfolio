@@ -75,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip => _current != null ? _current.AnimClipName : "LeftHorizontalAttack";
+    public string CurrentAttackClip => _current != null ? _current.AnimClipName : "FirstAttack";
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
