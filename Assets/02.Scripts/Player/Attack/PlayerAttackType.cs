@@ -1,8 +1,8 @@
 public enum PlayerAttackType
 {
-    LeftHorizontalAttack,
-    FireBall,
-    RightHorizontalAttack,
-    Down,
-    Up,
+    FirstAttack,
+    FireBallAttack,
+    HorizontalAttack,
+    ThirdAttack,
+    SecondAttack,
 }
