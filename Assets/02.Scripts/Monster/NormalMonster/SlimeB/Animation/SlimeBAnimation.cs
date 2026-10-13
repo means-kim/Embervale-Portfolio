@@ -11,7 +11,7 @@ public class SlimeBAnimation : MonoBehaviour
 
     public void PlayIdleAnimation()
     {
-        _animator.CrossFade("SlimeIBdle", 0.1f);
+        _animator.CrossFade("SlimeBIdle", 0.1f);
     }
 
     public void PlayMoveAnimation()
