@@ -8,14 +8,17 @@ public class PlayerDamageHitbox : MonoBehaviour
     private readonly HashSet<Health> _hitTargets = new();
     private Health _owner;
     private int _damage;
+    private bool _isThirdComboHit;
+    public bool IsThirdComboHit => _isThirdComboHit;
     public bool IsActive { get; private set; }
     public event Action<Collider2D> OnDamageApplied;
     public bool IsConfigured => _colliders.Length > 0 && Array.TrueForAll(_colliders, c => c != null);
     private void Awake() => SetActive(false);
     private void OnDisable() => SetActive(false);
-    public void Initialize(int damage, Transform owner)
+    public void Initialize(int damage, Transform owner, bool isThirdComboHit = false)
     {
         _damage = damage;
+        _isThirdComboHit = isThirdComboHit;
         _owner = null;
         if (owner != null)
         {
@@ -64,7 +67,7 @@ public class PlayerDamageHitbox : MonoBehaviour
             _hitTargets.Remove(target);
             return false;
         }
-        EffectManager.Instance?.PlayBossHit(hitPoint, direction);
+        EffectManager.Instance?.PlayBossHit(hitPoint, direction, _damage, target.transform, _isThirdComboHit);
         OnDamageApplied?.Invoke(other);
         return true;
     }
