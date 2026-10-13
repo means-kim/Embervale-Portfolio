@@ -81,7 +81,7 @@ internal sealed class HitEffectService
 
         if (damage > 0 && damageTextPrefab != null)
         {
-            Vector3 textPosition = ResolveDamageTextPosition(target, position);
+            Vector3 textPosition = position + Vector3.up * 5f;
 
             BossDamageText damageText = UnityEngine.Object.Instantiate(
                 damageTextPrefab,
@@ -104,21 +104,6 @@ internal sealed class HitEffectService
             // 일반 타격 또는 3타 프리팹 미연결: 기본 효과 출력
             PlayBossHit(host, prefab, position, direction);
         }
-    }
-
-    private static Vector3 ResolveDamageTextPosition(Transform target, Vector3 fallbackPosition)
-    {
-        if (target == null)
-        {
-            return fallbackPosition + Vector3.up;
-        }
-
-        // 보스 루트의 직속 자식으로 배치한다.
-        Transform anchor = target.Find("DamageTextAnchor");
-
-        return anchor != null
-            ? anchor.position
-            : target.position + Vector3.up;
     }
 
     private IEnumerator CleanupDamageText(BossDamageText damageText)
