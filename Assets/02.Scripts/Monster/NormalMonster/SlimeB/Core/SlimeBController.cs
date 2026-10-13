@@ -9,6 +9,7 @@ public class SlimeBController : MonoBehaviour
 
     private SlimeBMovement _movement;
     private SlimeBAnimation _animation;
+    private SlimeBDeath _death;
     private Health _health;
 
     private SlimeBState _currentState;
@@ -21,6 +22,7 @@ public class SlimeBController : MonoBehaviour
     {
         _movement = GetComponent<SlimeBMovement>();
         _animation = GetComponent<SlimeBAnimation>();
+        _death = GetComponent<SlimeBDeath>();
         _health = GetComponent<Health>();
     }
 
@@ -99,6 +101,7 @@ public class SlimeBController : MonoBehaviour
                 break;
 
             case SlimeBState.Death:
+                _death.BeginDeath();
                 _animation.PlayDeathAnimation();
                 break;
         }
