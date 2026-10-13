@@ -1,0 +1,185 @@
+{
+  "success": true,
+  "imported": 248,
+  "clips": [
+    {
+      "name": "FireBallAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_FireballAttack.anim",
+      "guid": "781c5e4920481d345863a211574c4a0a",
+      "keys": 12,
+      "length": 0.75,
+      "stateSpeed": 3.0,
+      "effectiveSeconds": 0.25,
+      "loop": false
+    },
+    {
+      "name": "FirstAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_FirstAttack.anim",
+      "guid": "4a0321bd06c5a4640a00226c13a337f6",
+      "keys": 12,
+      "length": 0.3766667,
+      "stateSpeed": 1.7,
+      "effectiveSeconds": 0.221568644,
+      "loop": false
+    },
+    {
+      "name": "SecondAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_SecondAttack.anim",
+      "guid": "c0e47817aa0471541973509be30ae21d",
+      "keys": 16,
+      "length": 1.25,
+      "stateSpeed": 5.0,
+      "effectiveSeconds": 0.25,
+      "loop": false
+    },
+    {
+      "name": "ThirdAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_ThirdAttack.anim",
+      "guid": "a0a439aabe24faa44acd36e6382506f9",
+      "keys": 16,
+      "length": 1.25,
+      "stateSpeed": 5.0,
+      "effectiveSeconds": 0.25,
+      "loop": false
+    },
+    {
+      "name": "HorizontalAttack",
+      "path": "Assets/05.Animation/Player_AttackMotion/Player_HorizontalAttack.anim",
+      "guid": "61ebb20afc35f8944a06a4fd8eb993dd",
+      "keys": 16,
+      "length": 1.25,
+      "stateSpeed": 5.0,
+      "effectiveSeconds": 0.25,
+      "loop": false
+    },
+    {
+      "name": "JumpApex",
+      "path": "Assets/05.Animation/Player_Motion/Player_JumpApex.anim",
+      "guid": "26e7d70fb3ffbf14badef1f669285830",
+      "keys": 8,
+      "length": 0.208333343,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 0.208333343,
+      "loop": false
+    },
+    {
+      "name": "Hit",
+      "path": "Assets/05.Animation/Player_Motion/Player_Hit.anim",
+      "guid": "3072b42eacd0c744796b2dd3aea63ff1",
+      "keys": 8,
+      "length": 0.208333343,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 0.208333343,
+      "loop": false
+    },
+    {
+      "name": "DoubleJump",
+      "path": "Assets/05.Animation/Player_Motion/Player_DoubleJump.anim",
+      "guid": "999a036015c72bb4c921a6945972d95e",
+      "keys": 16,
+      "length": 0.2,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 0.2,
+      "loop": false
+    },
+    {
+      "name": "JumpRise",
+      "path": "Assets/05.Animation/Player_Motion/Player_JumpRise.anim",
+      "guid": "b56e1440c8c52d44d8beeb0b73d0e5e7",
+      "keys": 32,
+      "length": 1.5999999,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 1.5999999,
+      "loop": true
+    },
+    {
+      "name": "Fall",
+      "path": "Assets/05.Animation/Player_Motion/Player_Fall.anim",
+      "guid": "832ac5bfef82e7d439b81efde09253db",
+      "keys": 32,
+      "length": 1.5999999,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 1.5999999,
+      "loop": true
+    },
+    {
+      "name": "WallCling",
+      "path": "Assets/05.Animation/Player_Motion/Player_WallCling.anim",
+      "guid": "ea6282e89ba186c4d88cd5b64574194e",
+      "keys": 32,
+      "length": 1.5999999,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 1.5999999,
+      "loop": true
+    },
+    {
+      "name": "Glide",
+      "path": "Assets/05.Animation/Player_Motion/Player_Glide.anim",
+      "guid": "f2b0fcdc1a656014690ceb9ca14c1ae6",
+      "keys": 32,
+      "length": 1.5999999,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 1.5999999,
+      "loop": true
+    },
+    {
+      "name": "Dash",
+      "path": "Assets/05.Animation/Player_Motion/Player_Dash.anim",
+      "guid": "da07fc4c4a4e1a54a8e1ae372fabe948",
+      "keys": 16,
+      "length": 0.2,
+      "stateSpeed": 1.0,
+      "effectiveSeconds": 0.2,
+      "loop": true
+    }
+  ],
+  "attackData": [
+    {
+      "path": "Assets/07.Datas/Player/FireBallAttack.asset",
+      "animation": "FireBallAttack",
+      "Damage": 10,
+      "HealthCost": 10,
+      "WindupDuration": 0.0,
+      "RecoveryDuration": 0.22,
+      "prefab": "Assets/03.Prefabs/PlayerAttack/FireBallAttack.prefab"
+    },
+    {
+      "path": "Assets/07.Datas/Player/FirstAttack.asset",
+      "animation": "FirstAttack",
+      "Damage": 10,
+      "HealthCost": 0,
+      "WindupDuration": 0.0,
+      "RecoveryDuration": 0.3,
+      "prefab": "Assets/03.Prefabs/PlayerAttack/FirstAttack.prefab"
+    },
+    {
+      "path": "Assets/07.Datas/Player/HorizontalAttack.asset",
+      "animation": "HorizontalAttack",
+      "Damage": 10,
+      "HealthCost": 10,
+      "WindupDuration": 0.0,
+      "RecoveryDuration": 0.3,
+      "prefab": "Assets/03.Prefabs/PlayerAttack/HorizontalAttack.prefab"
+    },
+    {
+      "path": "Assets/07.Datas/Player/SecondAttack.asset",
+      "animation": "SecondAttack",
+      "Damage": 10,
+      "HealthCost": 0,
+      "WindupDuration": 0.0,
+      "RecoveryDuration": 0.3,
+      "prefab": "Assets/03.Prefabs/PlayerAttack/SecondAttack.prefab"
+    },
+    {
+      "path": "Assets/07.Datas/Player/ThirdAttack.asset",
+      "animation": "ThirdAttack",
+      "Damage": 20,
+      "HealthCost": 0,
+      "WindupDuration": 0.0,
+      "RecoveryDuration": 0.3,
+      "prefab": "Assets/03.Prefabs/PlayerAttack/ThirdAttack.prefab"
+    }
+  ],
+  "scene": "Assets/01.Scenes/YuchanScene.unity",
+  "sceneDirty": false
+}

@@ -1,0 +1,6 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');const root=path.resolve(__dirname,'../../..'),walk=d=>fs.existsSync(d)?fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]):[];
+const file=path.join(__dirname,'ResumePreservation.json');if(fs.existsSync(file))throw Error('Resume baseline already exists');
+const dirs=['Assets/02.Scripts/Player','Assets/03.Prefabs/Player','Assets/04.Sprites/Player','Assets/04.Sprites/Boss','Assets/04.Sprites/NewPlayer/Idle_v02','Assets/04.Sprites/NewPlayer/Run_v02','Assets/04.Sprites/NewPlayer/Design_v01','Assets/05.Animation/Player_Motion','Assets/05.Animation/Player_AttackMotion','Assets/05.Animation/Player_AttackVFX','Assets/05.Animation/Player_VFX','Assets/07.Datas/Player','Assets/01.Scenes'];
+const rows=dirs.flatMap(d=>walk(path.join(root,d))).map(p=>({path:path.relative(root,p).replaceAll('\\','/'),sha256:crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')}));
+fs.writeFileSync(file,JSON.stringify(rows,null,2));for(const r of rows.filter(x=>/\.anim$|\.controller$|\.asset$/.test(x.path))){const target=path.join(__dirname,'ResumeBefore',r.path+'.txt');fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(root,r.path),target);}console.log('Resume baseline '+rows.length+' files');
+
