@@ -2,12 +2,6 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(Health))]
 public class PlayerWall : MonoBehaviour
 {
     private enum WallState { None, Cling, Slide }
@@ -63,17 +57,18 @@ public class PlayerWall : MonoBehaviour
 
     private void Awake()
     {
-        _body = GetComponent<Rigidbody2D>();
-        _input = GetComponent<PlayerInput>();
-        _jump = GetComponent<PlayerJump>();
-        _move = GetComponent<PlayerMove>();
-        _dash = GetComponent<PlayerDash>();
-        _hit = GetComponent<PlayerHit>();
-        _health = GetComponent<Health>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _body = rig.Body;
+        _input = rig.Input;
+        _jump = rig.Jump;
+        _move = rig.Move;
+        _dash = rig.Dash;
+        _hit = rig.Hit;
+        _health = rig.Health;
         _sensor = new PlayerWallSensor(_body);
         _isIgnoredPlatform = _jump.IsIgnoringPlatform;
         Stamina = _maxStamina;
-        _collider = GetComponent<Collider2D>();
+        _collider = rig.PlayerCollider;
         if (_collider == null)
         {
             return;

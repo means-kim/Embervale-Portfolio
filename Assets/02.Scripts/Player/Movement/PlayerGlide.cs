@@ -2,16 +2,7 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [DefaultExecutionOrder(50)]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerMove))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerChargeJump))]
-[RequireComponent(typeof(Health))]
 public class PlayerGlide : MonoBehaviour
 {
     [SerializeField, Min(1f)] private float _horizontalSpeedMultiplier = 1.5f;
@@ -42,16 +33,17 @@ public class PlayerGlide : MonoBehaviour
 
     private void Awake()
     {
-        _jump = GetComponent<PlayerJump>();
-        _move = GetComponent<PlayerMove>();
-        _dash = GetComponent<PlayerDash>();
-        _wall = GetComponent<PlayerWall>();
-        _hit = GetComponent<PlayerHit>();
-        _attack = GetComponent<PlayerAttack>();
-        _charge = GetComponent<PlayerChargeJump>();
-        _input = GetComponent<PlayerInput>();
-        _health = GetComponent<Health>();
-        _body = GetComponent<Rigidbody2D>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _jump = rig.Jump;
+        _move = rig.Move;
+        _dash = rig.Dash;
+        _wall = rig.Wall;
+        _hit = rig.Hit;
+        _attack = rig.Attack;
+        _charge = rig.ChargeJump;
+        _input = rig.Input;
+        _health = rig.Health;
+        _body = rig.Body;
         _sensor = new PlayerWallSensor(_body);
     }
     private void OnEnable()

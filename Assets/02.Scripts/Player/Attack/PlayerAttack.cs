@@ -1,10 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerAttack : MonoBehaviour
@@ -109,13 +105,14 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Awake()
     {
-        _move = GetComponent<PlayerMove>();
-        _upgrades = GetComponent<Game.Upgrades.PlayerUpgrades>();
-        _animator = GetComponent<Animator>();
-        _jump = GetComponent<PlayerJump>();
-        _controller = GetComponent<PlayerController>();
-        _health = GetComponent<Health>();
-        _motion = new PlayerAttackMotion(this, _move, GetComponent<Rigidbody2D>());
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _move = rig.Move;
+        _upgrades = rig.Upgrades;
+        _animator = rig.Animator;
+        _jump = rig.Jump;
+        _controller = rig.Controller;
+        _health = rig.Health;
+        _motion = new PlayerAttackMotion(this, _move, rig.Body);
     }
     private bool IsGrounded => _jump.IsGrounded;
     private void ResetAirAttackCount() => _airAttackCount = 0;

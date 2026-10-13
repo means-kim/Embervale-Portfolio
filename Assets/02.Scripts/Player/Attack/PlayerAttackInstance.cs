@@ -55,7 +55,7 @@ public class PlayerAttackInstance : MonoBehaviour
         _ownerMove = null;
         if (owner != null)
         {
-            _ownerMove = owner.GetComponent<PlayerMove>();
+            _ownerMove = owner.GetComponent<PlayerRig>()?.Move;
         }
         _age = 0;
         _playbackSpeed = Mathf.Max(0.01f, attackSpeed);

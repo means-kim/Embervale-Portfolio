@@ -1,11 +1,5 @@
 using UnityEngine;
-[RequireComponent(typeof(Health))]
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerMove))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerChargeJump))]
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
@@ -38,13 +32,14 @@ public class PlayerHit : MonoBehaviour
     private bool _knockbackLocking;
     private void Awake()
     {
-        _health = GetComponent<Health>();
-        _controller = GetComponent<PlayerController>();
-        _dash = GetComponent<PlayerDash>();
-        _attack = GetComponent<PlayerAttack>();
-        _move = GetComponent<PlayerMove>();
-        _chargeJump = GetComponent<PlayerChargeJump>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _health = rig.Health;
+        _controller = rig.Controller;
+        _dash = rig.Dash;
+        _attack = rig.Attack;
+        _move = rig.Move;
+        _chargeJump = rig.ChargeJump;
+        _rigidbody = rig.Body;
         _renderers = GetComponentsInChildren<SpriteRenderer>(true);
         _originalColors = new Color[_renderers.Length];
         for (int i = 0; i < _renderers.Length; i++)

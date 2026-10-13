@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerDashGhost : MonoBehaviour
 {
     [Header("원본")]
@@ -43,8 +41,9 @@ public class PlayerDashGhost : MonoBehaviour
             _targetRenderer = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
         }
 
-        _playerDash = GetComponent<PlayerDash>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _playerDash = rig.Dash;
+        _playerAnimator = rig.PlayerAnimator;
 
         _holder = new GameObject($"{gameObject.name}_DashGhosts").transform;
         _holder.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
