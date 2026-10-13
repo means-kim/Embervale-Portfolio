@@ -51,6 +51,23 @@ public class AudioManager : MonoBehaviour
                type == BgmType.BossPhase2WarDrums;
     }
 
+    [Header("보스 3페이즈")]
+    [SerializeField, Range(0f, 1f)] private float _bossPhase3Volume = 0.5f;
+
+    private static readonly BgmType[] BossPhase3Layers =
+    {
+        BgmType.BossPhase2ChoirPad,
+        BgmType.BossPhase2StringOstinato,
+        BgmType.BossPhase2WarDrums
+    };
+
+    private static bool IsBossPhase3Layer(BgmType type)
+    {
+        return type == BgmType.BossPhase2ChoirPad ||
+               type == BgmType.BossPhase2StringOstinato ||
+               type == BgmType.BossPhase2WarDrums;
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -133,7 +150,10 @@ public class AudioManager : MonoBehaviour
             source.playOnAwake = false;
             source.Stop();
             source.volume = 0f;
-            if (source.clip == null) continue;
+            if (source.clip == null)
+            {
+                continue;
+            }
 
             int index = (int)track.Type;
             if (_bgmSources[index] != null)
@@ -156,7 +176,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBgm(BgmType type)
     {
-        if (_deathMusicActive) return;
+        if (_deathMusicActive)
+        {
+            return;
+        }
+
         if (type == BgmType.Boss)
         {
             StopBossPhase2Layers();
@@ -174,13 +198,18 @@ public class AudioManager : MonoBehaviour
         _deathMusicActive = true;
         StopAllBgm();
         foreach (AudioSource source in _bgmSources)
-            if (source != null) source.volume = 0f;
+        {
+            if (source != null)
+            {
+                source.volume = 0f;
+            }
+        }
 
         if (_deathSource == null || _deathSource.clip == null)
         {
-            Debug.LogWarning("AudioManager: Death BGM source/clip is missing.", this);
             return;
         }
+
         _deathSource.Stop();
         _deathSource.Play();
     }
@@ -239,7 +268,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBossPhase2Layers()
     {
-        if (_deathMusicActive) return;
+        if (_deathMusicActive)
+        {
+            return;
+        }
+
         AudioSource boss = _bgmSources[(int)BgmType.Boss];
 
         if (boss == null || !boss.isPlaying || !_bgmOn[(int)BgmType.Boss])
