@@ -105,7 +105,14 @@ public class PlayerController : MonoBehaviour
         }
         if (_playerJump.IsJumping)
         {
-            ChangeState(_glide != null && _glide.IsGliding ? PlayerState.Glide : PlayerState.Jump);
+            if (_glide != null && _glide.IsGliding)
+            {
+                ChangeState(PlayerState.Glide);
+            }
+            else
+            {
+                ChangeState(PlayerState.Jump);
+            }
             return;
         }
         if (!_playerJump.IsGrounded)
@@ -114,8 +121,19 @@ public class PlayerController : MonoBehaviour
             if (stateCheck) ChangeState(PlayerState.Jump);
             return;
         }
-        var moving = _playerMove != null ? _playerMove.HasMoveInput : Mathf.Abs(_moveInput.x) > 0.01f;
-        ChangeState(moving ? PlayerState.Run : PlayerState.Idle);
+        bool moving = Mathf.Abs(_moveInput.x) > 0.01f;
+        if (_playerMove != null)
+        {
+            moving = _playerMove.HasMoveInput;
+        }
+        if (moving)
+        {
+            ChangeState(PlayerState.Run);
+        }
+        else
+        {
+            ChangeState(PlayerState.Idle);
+        }
     }
     private void HandleMoveInput(Vector2 direction) => _moveInput = direction;
     private void HandleAttackInput(PlayerAttackDataSO definition)

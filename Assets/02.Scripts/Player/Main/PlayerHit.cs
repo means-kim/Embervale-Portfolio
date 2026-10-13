@@ -57,7 +57,11 @@ public class PlayerHit : MonoBehaviour
     private void ApplyKnockback()
     {
         if (_rigidbody == null) return;
-        int facing = _move != null ? _move.FacingDirection : 1;
+        int facing = 1;
+        if (_move != null)
+        {
+            facing = _move.FacingDirection;
+        }
         float xPush = -facing * _knockbackForce;
         if (_move != null && _knockbackLockTime > 0f)
         {
@@ -139,7 +143,14 @@ public class PlayerHit : MonoBehaviour
         for (int i = 0; i < _renderers.Length; i++)
         {
             if (_renderers[i] == null) continue;
-            _renderers[i].color = on ? _flashColor : _originalColors[i];
+            if (on)
+            {
+                _renderers[i].color = _flashColor;
+            }
+            else
+            {
+                _renderers[i].color = _originalColors[i];
+            }
         }
     }
     private void RestoreColors()

@@ -9,7 +9,17 @@ internal sealed class ChargeJumpAim
     private ChargeJumpArrow _arrow;
     private GameObject _effect;
 
-    public Vector3 Origin => _collider != null ? _collider.bounds.center : _player.position;
+    public Vector3 Origin
+    {
+        get
+        {
+            if (_collider != null)
+            {
+                return _collider.bounds.center;
+            }
+            return _player.position;
+        }
+    }
     public Vector2 Direction { get; private set; }
 
     public ChargeJumpAim(Transform player, Collider2D collider)

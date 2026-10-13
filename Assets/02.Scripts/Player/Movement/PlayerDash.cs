@@ -12,10 +12,6 @@ public class PlayerDash : MonoBehaviour
     public event Action OnDashStarted;
     public event Action OnDashEnded;
     public bool IsDashing { get; private set; }
-    public float DashDuration => _dashDuration;
-    public int MaxAirDashCount => Mathf.Max(0, _maxAirDashCount);
-    public int AirDashCount => _airDashCount;
-    public int RemainingAirDashes => Mathf.Max(0, MaxAirDashCount - _airDashCount);
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerWall _playerWall;
@@ -47,54 +43,102 @@ public class PlayerDash : MonoBehaviour
         if (_playerJump != null)
         {
             _playerJump.OnLanded += ResetAirDashCount;
-            if (_playerJump.IsGrounded) ResetAirDashCount();
+            if (_playerJump.IsGrounded)
+            {
+                ResetAirDashCount();
+            }
         }
     }
     private void OnDisable()
     {
         _playerInput.OnDashInput -= HandleDash;
-        if (_playerJump != null) _playerJump.OnLanded -= ResetAirDashCount;
+        if (_playerJump != null)
+        {
+            _playerJump.OnLanded -= ResetAirDashCount;
+        }
         EndDash();
     }
     private void Update()
     {
-        if (_cooldownTimeRemaining > 0f) _cooldownTimeRemaining = Mathf.Max(0f, _cooldownTimeRemaining - Time.deltaTime);
-        if (!IsDashing) return;
+        if (_cooldownTimeRemaining > 0f)
+        {
+            _cooldownTimeRemaining = Mathf.Max(0f, _cooldownTimeRemaining - Time.deltaTime);
+        }
+        if (!IsDashing)
+        {
+            return;
+        }
         _dashTimeRemaining -= Time.deltaTime;
         if (_dashTimeRemaining <= 0f) EndDash();
     }
     private void FixedUpdate()
     {
-        if (!IsDashing) return;
+        if (!IsDashing)
+        {
+            return;
+        }
         _rigidbody.linearVelocity = _dashDirection * _dashSpeed;
     }
     private void HandleDash()
     {
-        if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging) return;
+        if (IsDashing || _cooldownTimeRemaining > 0f || _playerWall.IsClinging)
+        {
+            return;
+        }
         var health = GetComponent<Health>();
-        if (health != null && health.IsDead) return;
-        if (_playerHit != null && _playerHit.IsHit) return;
+        if (health != null && health.IsDead)
+        {
+            return;
+        }
+        if (_playerHit != null && _playerHit.IsHit)
+        {
+            return;
+        }
         bool airborne = _playerJump != null && !_playerJump.IsGrounded;
-        if (airborne && _airDashCount >= MaxAirDashCount) return;
+        if (airborne && _airDashCount >= Mathf.Max(0, _maxAirDashCount))
+        {
+            return;
+        }
         GetComponent<PlayerGlide>()?.CancelGlide();
         _playerAttack?.InterruptForDash();
         _airDashVisual = airborne;
-        if (airborne) _airDashCount++;
-        _dashDirection = _airDashVisual ? _playerInput.GetDashDirection(_playerMove.FacingDirection)
-            : Vector2.right * _playerMove.FacingDirection;
+        if (airborne)
+        {
+            _airDashCount++;
+        }
+        if (_airDashVisual)
+        {
+            _dashDirection = _playerInput.GetDashDirection(_playerMove.FacingDirection);
+        }
+        else
+        {
+            _dashDirection = Vector2.right * _playerMove.FacingDirection;
+        }
         _playerMove.SetFacingDirection(_dashDirection.x);
         _originalGravityScale = _rigidbody.gravityScale;
         _rigidbody.gravityScale = 0f;
         _playerMove?.SetMovementLocked(this, true);
         _rigidbody.linearVelocity = _dashDirection * _dashSpeed;
         IsDashing = true;
-        if (airborne) _playerAttack?.ResetAirAttackCountOnAirDash();
+        if (airborne)
+        {
+            _playerAttack?.ResetAirAttackCountOnAirDash();
+        }
         _dashTimeRemaining = _dashDuration;
         _cooldownTimeRemaining = _dashDuration + _dashCooldown;
-        if (_airDashVisual) EffectManager.Instance?.PlayDash(transform.position, _dashDirection);
-        else EffectManager.Instance?.PlayDash(transform.position, _playerMove.FacingDirection);
+        if (_airDashVisual)
+        {
+            EffectManager.Instance?.PlayDash(transform.position, _dashDirection);
+        }
+        else
+        {
+            EffectManager.Instance?.PlayDash(transform.position, _playerMove.FacingDirection);
+        }
         OnDashStarted?.Invoke();
-        if (_airDashVisual) _playerAnimator?.PlayDirectionalDash(_dashDirection);
+        if (_airDashVisual)
+        {
+            _playerAnimator?.PlayDirectionalDash(_dashDirection);
+        }
     }
     public void CancelDash() => EndDash();
     public void ResetForRespawn()
@@ -107,13 +151,19 @@ public class PlayerDash : MonoBehaviour
     private void ResetAirDashCount() => _airDashCount = 0;
     private void EndDash()
     {
-        if (!IsDashing) return;
+        if (!IsDashing)
+        {
+            return;
+        }
         IsDashing = false;
         _rigidbody.gravityScale = _originalGravityScale;
         _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
         _playerMove?.SetMovementLocked(this, false);
         OnDashEnded?.Invoke();
-        if (_airDashVisual) _playerAnimator?.EndDirectionalDash();
+        if (_airDashVisual)
+        {
+            _playerAnimator?.EndDirectionalDash();
+        }
         _airDashVisual = false;
     }
 }

@@ -44,11 +44,29 @@ public class PlayerChargeJump : MonoBehaviour
     public bool IsLaunching => _phase == Phase.Launching;
     public bool IsActive => _phase != Phase.None;
     private Vector3 AimOrigin => _aim.Origin;
-    private Vector3 ArrowOrigin => _target != null ? _target.Center : AimOrigin;
+    private Vector3 ArrowOrigin
+    {
+        get
+        {
+            if (_target != null)
+            {
+                return _target.Center;
+            }
+            return AimOrigin;
+        }
+    }
     private bool CanPayHealth => _healthCost <= 0 || (_health != null && !_health.IsDead && _health.CurrentHealth > _healthCost);
-    private bool AimTargetAvailable => _withoutProjectile
-        ? _allowWithoutProjectile && CanPayHealth
-        : _target != null && _target.isActiveAndEnabled && _target.IsHeldBy(this);
+    private bool AimTargetAvailable
+    {
+        get
+        {
+            if (_withoutProjectile)
+            {
+                return _allowWithoutProjectile && CanPayHealth;
+            }
+            return _target != null && _target.isActiveAndEnabled && _target.IsHeldBy(this);
+        }
+    }
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetTimeOwner() => ChargeJumpSession.ResetTimeOwner();
     private void Awake()
@@ -72,7 +90,10 @@ public class PlayerChargeJump : MonoBehaviour
     }
     private void Start()
     {
-        if (_arrowPrefab != null) return;
+        if (_arrowPrefab != null)
+        {
+            return;
+        }
         Debug.LogError("PlayerChargeJump: Arrow Prefab에 ChargeJumpArrow 프리팹을 연결하세요.", this);
         enabled = false;
     }
@@ -95,22 +116,47 @@ public class PlayerChargeJump : MonoBehaviour
         {
             return;
         }
-        if (_aimCamera == null) _aimCamera = Camera.main;
-        if (_aimCamera == null) return;
+        if (_aimCamera == null)
+        {
+            _aimCamera = Camera.main;
+        }
+        if (_aimCamera == null)
+        {
+            return;
+        }
         IceProjectile target = _aim.FindNearest(_selectionRadius, _projectileLayers);
-        if (target == null ? !_allowWithoutProjectile || !CanPayHealth : !target.TryBeginCharge(this)) return;
+        bool shouldRejectTarget;
+        if (target == null)
+        {
+            shouldRejectTarget = !_allowWithoutProjectile || !CanPayHealth;
+        }
+        else
+        {
+            shouldRejectTarget = !target.TryBeginCharge(this);
+        }
+        if (shouldRejectTarget)
+        {
+            return;
+        }
         _attack?.InterruptForMovement();
         GetComponent<PlayerGlide>()?.CancelGlide();
         _target = target;
         _withoutProjectile = target == null;
-        _projectileVelocity = target != null ? target.Velocity : Vector2.zero;
+        _projectileVelocity = Vector2.zero;
+        if (target != null)
+        {
+            _projectileVelocity = target.Velocity;
+        }
         _phase = Phase.Aiming;
         _session.Begin(_slowMotionScale);
         _aim.Begin(_arrowPrefab, _aimCamera, ArrowOrigin, _move.FacingDirection);
     }
     private void Update()
     {
-        if (!IsActive) return;
+        if (!IsActive)
+        {
+            return;
+        }
         if (!ControlsAvailable || (_move.HasMovementLockOtherThan(this) && (_wall == null || !_wall.IsClinging)))
         {
             Stop(false);
@@ -118,8 +164,7 @@ public class PlayerChargeJump : MonoBehaviour
         }
         if (IsAiming)
         {
-            if (!AimTargetAvailable
-                || _aimCamera == null || !_session.TimeUnchanged)
+            if (!AimTargetAvailable || _aimCamera == null || !_session.TimeUnchanged)
             {
                 Stop(true);
                 return;
@@ -138,8 +183,7 @@ public class PlayerChargeJump : MonoBehaviour
     private void Release()
     {
         if (!IsAiming) return;
-        if (!ControlsAvailable || !AimTargetAvailable
-            || _aimCamera == null || !_session.TimeUnchanged)
+        if (!ControlsAvailable || !AimTargetAvailable || _aimCamera == null || !_session.TimeUnchanged)
         {
             Stop(false);
             return;
@@ -156,7 +200,10 @@ public class PlayerChargeJump : MonoBehaviour
         _aim.End();
         _phase = Phase.Launching;
         _launchRemaining = _launchDuration;
-        if (_withoutProjectile && _healthCost > 0) _health.SpendHealth(_healthCost);
+        if (_withoutProjectile && _healthCost > 0)
+        {
+            _health.SpendHealth(_healthCost);
+        }
         _nextUseTime = Time.time + Mathf.Max(0f, _cooldown);
         _session.Launch(_aim.Direction, _playerLaunchSpeed);
         _attack?.ResetAirAttackCountOnChargeJump();
@@ -180,7 +227,10 @@ public class PlayerChargeJump : MonoBehaviour
         if (!IsActive) return;
         bool wasAiming = IsAiming;
         bool wasLaunching = IsLaunching;
-        if (_target != null) _target.ReleaseCharge(this, _projectileVelocity);
+        if (_target != null)
+        {
+            _target.ReleaseCharge(this, _projectileVelocity);
+        }
         _target = null;
         _session.RestoreTime();
         _phase = Phase.None;
@@ -188,14 +238,31 @@ public class PlayerChargeJump : MonoBehaviour
         _session.End(wasAiming, wasLaunching, restoreVelocity);
     }
 
-    private void OnApplicationFocus(bool hasFocus) { if (!hasFocus) Stop(true); }
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            Stop(true);
+        }
+    }
 
-    private void OnApplicationPause(bool paused) { if (paused) Stop(true); }
+    private void OnApplicationPause(bool paused)
+    {
+        if (paused)
+        {
+            Stop(true);
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         var collider = GetComponent<Collider2D>();
-        Gizmos.DrawWireSphere(collider != null ? collider.bounds.center : transform.position, _selectionRadius);
+        Vector3 gizmoCenter = transform.position;
+        if (collider != null)
+        {
+            gizmoCenter = collider.bounds.center;
+        }
+        Gizmos.DrawWireSphere(gizmoCenter, _selectionRadius);
     }
 }

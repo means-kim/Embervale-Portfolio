@@ -38,10 +38,23 @@ public class PlayerWall : MonoBehaviour
     private Collider2D _collider;
     private PhysicsMaterial2D _originalMaterial;
     private PhysicsMaterial2D _runtimeMaterial;
-    private int JumpCost => _chargeOnlyFirstWallJump && _wallJumpUsed ? 0 : _wallJumpCost;
-    private bool CanUseWall => _jump.isActiveAndEnabled && (_health == null || !_health.IsDead)
-        && (_hit == null || !_hit.IsHit) && (_dash == null || !_dash.IsDashing)
-        && !_move.HasMovementLockOtherThan(this);
+    private int JumpCost
+    {
+        get
+        {
+            if (_chargeOnlyFirstWallJump && _wallJumpUsed)
+            {
+                return 0;
+            }
+            return _wallJumpCost;
+        }
+    }
+    private bool IsJumpEnabled => _jump.isActiveAndEnabled;
+    private bool IsAlive => _health == null || !_health.IsDead;
+    private bool IsStable => _hit == null || !_hit.IsHit;
+    private bool IsNotDashing => _dash == null || !_dash.IsDashing;
+    private bool HasNoExternalLock => !_move.HasMovementLockOtherThan(this);
+    private bool CanUseWall => IsJumpEnabled && IsAlive && IsStable && IsNotDashing && HasNoExternalLock;
 
     private void Awake()
     {
@@ -58,7 +71,12 @@ public class PlayerWall : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         if (_collider == null) return;
         _originalMaterial = _collider.sharedMaterial;
-        if (_originalMaterial != null && _originalMaterial.friction <= 0f && _originalMaterial.bounciness <= 0f) return;
+        if (_originalMaterial != null
+            && _originalMaterial.friction <= 0f
+            && _originalMaterial.bounciness <= 0f)
+        {
+            return;
+        }
         _runtimeMaterial = new PhysicsMaterial2D("PlayerWallFrictionless") { friction = 0f, bounciness = 0f };
         _collider.sharedMaterial = _runtimeMaterial;
     }
@@ -86,7 +104,10 @@ public class PlayerWall : MonoBehaviour
     private void OnDestroy()
     {
         if (_runtimeMaterial == null) return;
-        if (_collider != null && _collider.sharedMaterial == _runtimeMaterial) _collider.sharedMaterial = _originalMaterial;
+        if (_collider != null && _collider.sharedMaterial == _runtimeMaterial)
+        {
+            _collider.sharedMaterial = _originalMaterial;
+        }
         if (Application.isPlaying) Destroy(_runtimeMaterial);
         else DestroyImmediate(_runtimeMaterial);
     }
@@ -110,16 +131,42 @@ public class PlayerWall : MonoBehaviour
     }
     private void RefreshWallState()
     {
-        int direction = Mathf.Abs(_moveInput.x) > 0.01f ? (_moveInput.x > 0f ? 1 : -1) : 0;
-        bool attached = CanUseWall && !_jump.IsGrounded && Stamina > 0 && Time.time >= _wallJumpUntil
+        int direction = 0;
+        if (Mathf.Abs(_moveInput.x) > 0.01f)
+        {
+            if (_moveInput.x > 0f)
+            {
+                direction = 1;
+            }
+            else
+            {
+                direction = -1;
+            }
+        }
+        bool attached =
+            CanUseWall
+            && !_jump.IsGrounded
+            && Stamina > 0
+            && Time.time >= _wallJumpUntil
             && _sensor.HasWall(direction, _wallProbeDistance, _minimumWallNormal, _isIgnoredPlatform);
         if (attached)
         {
             _wallDirection = direction;
             if (!IsClinging) _jump.RefreshJumpsFromWall();
         }
-        SetState(!attached ? WallState.None
-            : _body.linearVelocity.y < 0f ? WallState.Slide : WallState.Cling);
+        WallState nextState = WallState.None;
+        if (attached)
+        {
+            if (_body.linearVelocity.y < 0f)
+            {
+                nextState = WallState.Slide;
+            }
+            else
+            {
+                nextState = WallState.Cling;
+            }
+        }
+        SetState(nextState);
         SetMovementLock(IsClinging || Time.time < _wallJumpUntil);
     }
     public bool TryHandleJumpInput()

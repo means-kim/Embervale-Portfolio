@@ -44,9 +44,15 @@ public class ChargeJumpArrow : MonoBehaviour
             _shownAt = Time.unscaledTime;
         }
         float elapsed = Time.unscaledTime - _shownAt;
-        float popScale = elapsed < _growDuration
-            ? Mathf.Lerp(_startScale, _peakScale, Mathf.SmoothStep(0f, 1f, elapsed / _growDuration))
-            : Mathf.Lerp(_peakScale, 1f, Mathf.SmoothStep(0f, 1f, (elapsed - _growDuration) / _settleDuration));
+        float popScale;
+        if (elapsed < _growDuration)
+        {
+            popScale = Mathf.Lerp(_startScale, _peakScale, Mathf.SmoothStep(0f, 1f, elapsed / _growDuration));
+        }
+        else
+        {
+            popScale = Mathf.Lerp(_peakScale, 1f, Mathf.SmoothStep(0f, 1f, (elapsed - _growDuration) / _settleDuration));
+        }
         Vector3 forward = direction.normalized;
         Vector3 side = new Vector3(-forward.y, forward.x, 0f);
         if (_spriteRenderer != null && _spriteRenderer.sprite != null)

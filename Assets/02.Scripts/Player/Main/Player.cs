@@ -12,7 +12,14 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _respawnPosition = _checkPointTransform != null ? _checkPointTransform.position : transform.position;
+        if (_checkPointTransform != null)
+        {
+            _respawnPosition = _checkPointTransform.position;
+        }
+        else
+        {
+            _respawnPosition = transform.position;
+        }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -37,6 +44,7 @@ public class Player : MonoBehaviour
         Vector3 positionDelta = position - transform.position;
         GetComponent<PlayerAttack>()?.CancelAttack();
         GetComponent<PlayerDash>()?.CancelDash();
+        GetComponent<PlayerDashGhost>()?.ResetForRespawn();
         GetComponent<PlayerJump>()?.ResetForRespawn();
         GetComponent<PlayerLandEffect>()?.ResetForRespawn();
         GetComponent<PlayerWall>()?.ResetForRespawn();

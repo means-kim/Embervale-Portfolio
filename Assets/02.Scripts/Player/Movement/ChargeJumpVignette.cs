@@ -54,8 +54,16 @@ public class ChargeJumpVignette : MonoBehaviour
 
     private void Update()
     {
-        float target = _player != null && _player.IsAiming ? _opacity : 0f;
-        float duration = target > _group.alpha ? _fadeInDuration : _fadeOutDuration;
+        float target = 0f;
+        if (_player != null && _player.IsAiming)
+        {
+            target = _opacity;
+        }
+        float duration = _fadeOutDuration;
+        if (target > _group.alpha)
+        {
+            duration = _fadeInDuration;
+        }
         _group.alpha = Mathf.MoveTowards(_group.alpha, target, _opacity * Time.unscaledDeltaTime / duration);
     }
 

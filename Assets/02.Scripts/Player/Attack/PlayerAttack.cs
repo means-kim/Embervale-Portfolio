@@ -52,7 +52,11 @@ public class PlayerAttack : MonoBehaviour
     private void StartNextCombo()
     {
         if (_combo == null || _combo.Length == 0) return;
-        int index = Time.time > _comboExpires ? 0 : _nextCombo;
+        int index = _nextCombo;
+        if (Time.time > _comboExpires)
+        {
+            index = 0;
+        }
         if (!TryStartAttack(_combo[index])) return;
         _isComboAttack = true;
         _nextCombo = (index + 1) % _combo.Length;
@@ -75,7 +79,17 @@ public class PlayerAttack : MonoBehaviour
     public event Action OnAttackStarted;
     public event Action OnAttackEnded;
     public bool IsAttacking { get; private set; }
-    public string CurrentAttackClip => _current != null ? _current.AnimClipName : "FirstAttack";
+    public string CurrentAttackClip
+    {
+        get
+        {
+            if (_current != null)
+            {
+                return _current.AnimClipName;
+            }
+            return "FirstAttack";
+        }
+    }
     private void Awake()
     {
         _move = GetComponent<PlayerMove>();
@@ -140,8 +154,16 @@ public class PlayerAttack : MonoBehaviour
         }
         _current = definition;
         // 이번 공격의 수치를 고정하여 도중에 강화되어도 타격과 연출이 어긋나지 않게 합니다.
-        _attackSpeed = _upgrades != null ? Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier) : 1f;
-        _damage = _upgrades != null ? _upgrades.GetAttackDamage(definition.Damage) : definition.Damage;
+        _attackSpeed = 1f;
+        if (_upgrades != null)
+        {
+            _attackSpeed = Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier);
+        }
+        _damage = definition.Damage;
+        if (_upgrades != null)
+        {
+            _damage = _upgrades.GetAttackDamage(definition.Damage);
+        }
         _damage = Mathf.RoundToInt(_damage * GameDifficulty.AttackMultiplier);
         _windupDuration = Mathf.Max(0f, definition.WindupDuration) / _attackSpeed;
         _recoveryDuration = Mathf.Max(0.05f, definition.RecoveryDuration) / _attackSpeed;
@@ -151,7 +173,11 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = true;
         bool startedInAir = !IsGrounded;
         if (startedInAir) _airAttackCount++;
-        float horizontalLockDuration = startedInAir ? _airHorizontalLockDuration : _groundHorizontalLockDuration;
+        float horizontalLockDuration = _groundHorizontalLockDuration;
+        if (startedInAir)
+        {
+            horizontalLockDuration = _airHorizontalLockDuration;
+        }
         _motion.Begin(startedInAir, horizontalLockDuration / _attackSpeed, _airVerticalLockDuration / _attackSpeed, _attackGravityScaleMultiplier);
         _isComboAttack = false;
         if (_animator != null)
@@ -210,7 +236,11 @@ public class PlayerAttack : MonoBehaviour
         if (!IsAttacking) return;
         bool continueCombo = completed && _isComboAttack && _queuedCombo;
         _queuedCombo = false;
-        _comboExpires = _isComboAttack ? Time.time + _comboResetDelay : -1f;
+        _comboExpires = -1f;
+        if (_isComboAttack)
+        {
+            _comboExpires = Time.time + _comboResetDelay;
+        }
         IsAttacking = false;
         if (_animator != null)
         {

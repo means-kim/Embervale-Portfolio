@@ -52,7 +52,14 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerState.Jump:
                 _jumpEnterTime = Time.time;
                 _playingDoubleJump = false;
-                PlayClip(GetComponent<Rigidbody2D>().linearVelocity.y < 0f ? "Fall" : "JumpRise");
+                if (GetComponent<Rigidbody2D>().linearVelocity.y < 0f)
+                {
+                    PlayClip("Fall");
+                }
+                else
+                {
+                    PlayClip("JumpRise");
+                }
                 break;
             case PlayerState.Dash:
                 PlayClip("Dash");
@@ -84,7 +91,14 @@ public class PlayerAnimator : MonoBehaviour
         _doubleJumpStartTime = Time.time;
         _inApex = false;
         _lastApexProgress = -1f;
-        PlayClip(isDoubleJump ? "DoubleJump" : "JumpRise");
+        if (isDoubleJump)
+        {
+            PlayClip("DoubleJump");
+        }
+        else
+        {
+            PlayClip("JumpRise");
+        }
         if (isDoubleJump) FitDoubleJumpSpeed();
     }
     public void ResetJumpPhase()
@@ -187,7 +201,11 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (!_chargeJumpLaunchVisual || original != _sourceRenderer) return original;
         SyncChargeJumpVisual();
-        return _chargeRenderer != null ? _chargeRenderer : original;
+        if (_chargeRenderer != null)
+        {
+            return _chargeRenderer;
+        }
+        return original;
     }
 
     private void StopChargeJumpVisual()

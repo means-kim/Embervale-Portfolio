@@ -16,7 +16,11 @@ public class PlayerDamageHitbox : MonoBehaviour
     public void Initialize(int damage, Transform owner)
     {
         _damage = damage;
-        _owner = owner != null ? owner.GetComponentInParent<Health>() : null;
+        _owner = null;
+        if (owner != null)
+        {
+            _owner = owner.GetComponentInParent<Health>();
+        }
         _hitTargets.Clear();
     }
     public void SetActive(bool active)
@@ -35,11 +39,21 @@ public class PlayerDamageHitbox : MonoBehaviour
         // ClosestPoint에 쓰면 Dummy 밑단 가장자리가 나온다. 실제 판정 콜라이더
         // bounds 중심을 기준으로 구하고, 그 점이 대상 안에 있으면 중심을 쓴다.
         Vector3 targetCenter = other.bounds.center;
-        Vector3 queryPoint = TryGetBounds(out Bounds attackerBounds)
-            ? (Vector3)attackerBounds.center
-            : transform.position;
-        Vector3 hitPoint = other.OverlapPoint(queryPoint) ? targetCenter : (Vector3)other.ClosestPoint(queryPoint);
-        Vector3 ownerPos = _owner != null ? _owner.transform.position : transform.position;
+        Vector3 queryPoint = transform.position;
+        if (TryGetBounds(out Bounds attackerBounds))
+        {
+            queryPoint = attackerBounds.center;
+        }
+        Vector3 hitPoint = other.ClosestPoint(queryPoint);
+        if (other.OverlapPoint(queryPoint))
+        {
+            hitPoint = targetCenter;
+        }
+        Vector3 ownerPos = transform.position;
+        if (_owner != null)
+        {
+            ownerPos = _owner.transform.position;
+        }
         Vector2 direction = (Vector2)targetCenter - (Vector2)ownerPos;
         if (!receiver.TryTakeDamage(_damage, _owner)) { _hitTargets.Remove(target); return false; }
         EffectManager.Instance?.PlayBossHit(hitPoint, direction);

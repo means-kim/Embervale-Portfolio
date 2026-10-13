@@ -68,7 +68,11 @@ public class PlayerFootsteps : MonoBehaviour
         if (Time.time < _nextStepTime) return;
         _nextStepTime = Time.time + _stepInterval;
         PlayCurrentSurface();
-        Vector3 position = _footstepPoint != null ? _footstepPoint.position : transform.position;
+        Vector3 position = transform.position;
+        if (_footstepPoint != null)
+        {
+            position = _footstepPoint.position;
+        }
         EffectManager.Instance?.PlayFootstep(position, _move.FacingDirection);
     }
     private void HandleLanded()
@@ -90,10 +94,18 @@ public class PlayerFootsteps : MonoBehaviour
     private void PlayCurrentSurface()
     {
         bool onPlatform = _jump != null && _jump.IsOnPlatform;
-        FootstepSFXBank bank = onPlatform ? _platformBank : _groundBank;
+        FootstepSFXBank bank = _groundBank;
+        if (onPlatform)
+        {
+            bank = _platformBank;
+        }
         if (bank == null)
         {
-            bank = _groundBank != null ? _groundBank : _platformBank;
+            bank = _groundBank;
+            if (bank == null)
+            {
+                bank = _platformBank;
+            }
         }
         if (bank == null || _audioSource == null) return;
         bank.PlayOn(_audioSource);
