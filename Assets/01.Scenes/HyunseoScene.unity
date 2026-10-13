@@ -31145,13 +31145,32 @@ MonoBehaviour:
   _cinematicManager: {fileID: 357357373}
   _bossAnimation: {fileID: 145622932}
   _screenFade: {fileID: 0}
+  _playOnBossDeath: 0
+  _titleSceneName: OutGameScene
   _slowTimeScale: 0.05
   _slowDuration: 3
-  _restoreDuration: 1.5
+  _finalHitShakeDuration: 1.5
   _hitShakeStrength: 2
   _earthquakeStrength: 1
   _earthquakeHoldDuration: 1
   _fadeDuration: 2
+  _blackScreenHoldDuration: 0.85
+  _achievementVideo: {fileID: 0}
+  _afterVideoHoldDuration: 0.6
+  _hitMontage: {fileID: 0}
+  _bossDissolve: {fileID: 0}
+  _hitTarget: {fileID: 0}
+  _endingPrompt: {fileID: 0}
+  _roarStateName: BothArmsRaise
+  _glowDuration: 1.1
+  _montageHitShakeStrength: 1
+  _deathVisibleDuration: 2
+  _bossHitLight: {fileID: 0}
+  _hitLightIntensity: 0.3
+  _hitLightBlendDuration: 0.25
+  _endingShakeStrength: 0.15
+  _endingShakeInterval: 0.045
+  _endingShakeDuration: 0.07
 --- !u!1 &1256893410
 GameObject:
   m_ObjectHideFlags: 0
@@ -42812,6 +42831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5f5f4d0c72407abdcd15767ef69a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossPhase3Cinematic
+  _cinematicManager: {fileID: 0}
+  _director: {fileID: 0}
+  _boss: {fileID: 0}
+  _roarEffect: {fileID: 0}
+  _roarDuration: 0.8333333
   _existingPlatforms:
   - {fileID: 1286109398}
   - {fileID: 1635823285}
@@ -49860,14 +49884,17 @@ MonoBehaviour:
   _chargeJumpProjectileLaunchVfx: {fileID: 0}
   _bossHitVfx: {fileID: 612804827823514885, guid: cee9293e7193a7b448c8d1d424d7e19a, type: 3}
   _bossHitSound: {fileID: 11400000, guid: c5658e470013d6f4086ecf74828d82fe, type: 2}
-  _bossStagger: {fileID: 145622936}
-  _staggerHitSound: {fileID: 11400000, guid: 7d8536a4a0844eb45bd5c9f2253276de, type: 2}
   _bossDeathVfx: {fileID: 0}
   _checkpointVfx: {fileID: 0}
   _levelUpVfx: {fileID: 0}
   _wallSlideVfx: {fileID: 0}
   _respawnVfx: {fileID: 0}
   _clickVfx: {fileID: 0}
+  _bossStagger: {fileID: 145622936}
+  _staggerHitVfx: {fileID: 0}
+  _staggerHitSound: {fileID: 11400000, guid: 7d8536a4a0844eb45bd5c9f2253276de, type: 2}
+  _bossDamageTextPrefab: {fileID: 7715991123970862290, guid: 278fe501b97043147953922461f64e0e, type: 3}
+  _bossThirdHitVfx: {fileID: 3909549382037466487, guid: ed7027ef00d84dd4f90a9198d65993d4, type: 3}
 --- !u!4 &2058891490
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class PlayerAttackInstance : MonoBehaviour
     [SerializeField] private bool _independent;
     [Tooltip("켜져 있으면 사라질 때까지 오너(플레이어)의 위치와 방향을 따라다닌다. 투사체(FireBall)에는 사용하지 않는다.")]
     [SerializeField] private bool _followOwner;
-    public bool FollowOwner { get => _followOwner; set => _followOwner = value; }
+    //public bool FollowOwner { get => _followOwner; set => _followOwner = value; }
     private PlayerDamageHitbox _hitbox;
     private Rigidbody2D _body;
     private PlayerMove _ownerMove;
@@ -31,7 +31,7 @@ public class PlayerAttackInstance : MonoBehaviour
         _isProjectile = GetComponent<FireBallPrefab>() != null;
         _hitbox.SetActive(false);
     }
-    public bool Initialize(int damage, int direction, Transform owner, float attackSpeed = 1f)
+    public bool Initialize(int damage, int direction, Transform owner, float attackSpeed = 1f, bool isThirdComboHit = false)
     {
         if (!_hitbox.IsConfigured)
         {
@@ -68,7 +68,7 @@ public class PlayerAttackInstance : MonoBehaviour
             animator.speed *= _playbackSpeed;
         }
         _initialized = true;
-        _hitbox.Initialize(damage, owner);
+        _hitbox.Initialize(damage, owner, isThirdComboHit);
         _hitbox.SetActive(_hitDelay <= 0);
         return true;
     }
@@ -125,5 +125,5 @@ public class PlayerAttackInstance : MonoBehaviour
         _ended = true;
         _hitbox.SetActive(false);
     }
-    public bool TryGetHitBounds(out Bounds bounds) => _hitbox.TryGetBounds(out bounds);
+    //public bool TryGetHitBounds(out Bounds bounds) => _hitbox.TryGetBounds(out bounds);
 }
