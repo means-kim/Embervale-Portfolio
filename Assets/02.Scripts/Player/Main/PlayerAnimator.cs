@@ -11,6 +11,9 @@ public class PlayerAnimator : MonoBehaviour
     private string _currentClip;
     private bool _playingDoubleJump;
     private float _doubleJumpStartTime;
+    private bool _inApex;
+    private float _lastApexProgress = -1f;
+    private const float ApexProgressEpsilon = 0.02f;
     private float _jumpEnterTime = -100f;
     private bool _chargeJumpLaunchVisual;
     private SpriteRenderer _sourceRenderer;
@@ -79,9 +82,36 @@ public class PlayerAnimator : MonoBehaviour
         _jumpEnterTime = Time.time;
         _playingDoubleJump = isDoubleJump;
         _doubleJumpStartTime = Time.time;
+        _inApex = false;
+        _lastApexProgress = -1f;
         PlayClip(isDoubleJump ? "DoubleJump" : "JumpRise");
+        if (isDoubleJump) FitDoubleJumpSpeed();
     }
-    public void ResetJumpPhase() => _playingDoubleJump = false;
+    public void ResetJumpPhase()
+    {
+        _playingDoubleJump = false;
+        ExitApex();
+        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
+    }
+    /// <summary>DoubleJump 클립 전체를 _doubleJumpDuration 안에 자연 재생하도록 속도를 1회 조정합니다.</summary>
+    private void FitDoubleJumpSpeed()
+    {
+        if (_animator == null) return;
+        if (_doubleJumpDuration <= 0f) { _animator.speed = 1f; return; }
+        var controller = _animator.runtimeAnimatorController;
+        if (controller != null)
+        {
+            foreach (var clip in controller.animationClips)
+            {
+                if (clip != null && clip.length > 0f && clip.name.Contains("DoubleJump"))
+                {
+                    _animator.speed = clip.length / _doubleJumpDuration;
+                    return;
+                }
+            }
+        }
+        _animator.speed = 1f;
+    }
     public void PlayLand()
     {
         if (!_chargeJumpLaunchVisual) PlayPhaseClip("Idle");
@@ -109,7 +139,11 @@ public class PlayerAnimator : MonoBehaviour
         else
             UpdateJumpPhase(GetComponent<Rigidbody2D>().linearVelocity.y);
     }
-    private void OnDisable() => StopChargeJumpVisual();
+    private void OnDisable()
+    {
+        StopChargeJumpVisual();
+        if (_animator != null) _animator.speed = 1f;
+    }
     private void LateUpdate()
     {
         if (_chargeJumpLaunchVisual) SyncChargeJumpVisual();
@@ -190,38 +224,65 @@ public class PlayerAnimator : MonoBehaviour
         if (_playingDoubleJump)
         {
             float elapsed = Time.time - _doubleJumpStartTime;
-            if (_doubleJumpDuration > 0f && elapsed < _doubleJumpDuration)
-            {
-                _animator.Play("DoubleJump", 0, Mathf.Min(elapsed / _doubleJumpDuration, 0.9999f));
-                return;
-            }
+            // 진입 시 1회 재생한 DoubleJump를 자연 재생하고, 표시 시간이 끝나면 다음 구간으로 넘깁니다.
+            if (_doubleJumpDuration > 0f && elapsed < _doubleJumpDuration) return;
             _playingDoubleJump = false;
+            if (_animator != null) _animator.speed = 1f;
+            _currentClip = null;
         }
         if (verticalVelocity > _apexVelocityRange)
         {
+            ExitApex();
             PlayPhaseClip("JumpRise");
         }
         else if (verticalVelocity < -_apexVelocityRange)
         {
+            ExitApex();
             PlayPhaseClip("Fall");
         }
         else
         {
             if (Time.time - _jumpEnterTime < _apexMinAirTime) return;
-            // 정점 진입/이탈 속도에 맞춰 Rise와 Fall 사이의 자세를 이어 줍니다.
-            _currentClip = "JumpApex";
-            float progress = Mathf.InverseLerp(_apexVelocityRange, -_apexVelocityRange, verticalVelocity);
-            _animator.Play("JumpApex", 0, Mathf.Min(progress, 0.9999f));
+            // 정점 구간은 속도에 맞춰 자세를 고정하므로 정지(speed=0) 후 변화가 있을 때만 1회씩 Seek합니다.
+            float progress = Mathf.Clamp01(Mathf.InverseLerp(_apexVelocityRange, -_apexVelocityRange, verticalVelocity));
+            progress = Mathf.Min(progress, 0.9999f);
+            if (!_inApex || _currentClip != "JumpApex")
+            {
+                _inApex = true;
+                _currentClip = "JumpApex";
+                _lastApexProgress = progress;
+                if (_animator != null)
+                {
+                    _animator.speed = 0f;
+                    _animator.Play("JumpApex", 0, progress);
+                }
+            }
+            else if (Mathf.Abs(progress - _lastApexProgress) >= ApexProgressEpsilon)
+            {
+                _lastApexProgress = progress;
+                if (_animator != null) _animator.Play("JumpApex", 0, progress);
+            }
         }
+    }
+    private void ExitApex()
+    {
+        if (!_inApex) return;
+        _inApex = false;
+        _lastApexProgress = -1f;
+        if (_animator != null && _animator.speed == 0f) _animator.speed = 1f;
     }
     private void PlayClip(string clipName)
     {
+        ExitApex();
+        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
         _currentClip = clipName;
         _animator.Play(clipName, 0, 0f);
     }
     private void PlayPhaseClip(string clipName)
     {
         if (_currentClip == clipName) return;
+        ExitApex();
+        if (_animator != null && _animator.speed != 1f) _animator.speed = 1f;
         _currentClip = clipName;
         _animator.Play(clipName);
     }
