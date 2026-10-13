@@ -29,11 +29,8 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _dashVfx;
     [SerializeField] private GameObject _footstepVfx;
     [Header("VFX 프리팹 (차지 점프)")]
-    [Tooltip("조준 중 표시. PlayerChargeJump가 조준 종료 시 제거합니다.")]
     [SerializeField] private GameObject _chargeJumpAimVfx;
-    [Tooltip("플레이어 발사 순간 표시. 프리팹의 오른쪽(+X)이 발사 방향입니다.")]
     [SerializeField] private GameObject _chargeJumpLaunchVfx;
-    [Tooltip("반대 방향으로 발사되는 투사체에 표시. 오른쪽(+X)이 발사 방향입니다.")]
     [SerializeField] private GameObject _chargeJumpProjectileLaunchVfx;
     [Header("VFX 프리팹 (적)")]
     [SerializeField] private GameObject _bossHitVfx;
@@ -53,11 +50,16 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject _staggerHitVfx;
     [SerializeField] private SFXData _staggerHitSound;
 
+    [Header("보스 타격 이펙트")]
+    [SerializeField] private BossDamageText _bossDamageTextPrefab;
+    [SerializeField] private GameObject _bossThirdHitVfx;
+
     private bool _wasStaggered;
     private Vector3 _lastBossHitPosition;
     private Vector2 _lastBossHitDirection;
     private int _lastBossHitFrame = -1;
     private int _pendingBossHitSounds;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -132,6 +134,7 @@ public class EffectManager : MonoBehaviour
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
     public void PlayLand(Vector3 position) => Spawn(_landVfx, position);
     public GameObject PlayDash(Vector3 position, int direction = 1) => Spawn(_dashVfx, position, direction);
+
     public GameObject PlayDash(Vector3 position, Vector2 direction)
     {
         var effect = Spawn(_dashVfx, position);
@@ -139,7 +142,9 @@ public class EffectManager : MonoBehaviour
             effect.transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         return effect;
     }
+
     public void PlayFootstep(Vector3 position) => Spawn(_footstepVfx, position);
+
     public void PlayFootstep(Vector3 position, int facingDirection)
     {
         var effect = Spawn(_footstepVfx, position);
@@ -157,6 +162,7 @@ public class EffectManager : MonoBehaviour
             var main = particle.main;
             main.useUnscaledTime = true;
         }
+
         foreach (var animator in effect.GetComponentsInChildren<Animator>(true))
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         return effect;
@@ -181,11 +187,11 @@ public class EffectManager : MonoBehaviour
     private void LateUpdate()
     {
         bool running = _bossStagger != null
-        && _bossStagger.isActiveAndEnabled
-        && _bossStagger.IsRunning;
+                       && _bossStagger.isActiveAndEnabled
+                       && _bossStagger.IsRunning;
 
         bool enteredOnHit = !_wasStaggered && running
-            && _lastBossHitFrame == Time.frameCount;
+                                           && _lastBossHitFrame == Time.frameCount;
 
         if (enteredOnHit && _staggerHitVfx != null)
         {
@@ -198,28 +204,49 @@ public class EffectManager : MonoBehaviour
 
         // 보스의 LateUpdate 진입 판정 후, 마지막 타격음 하나만 강화음으로 교체합니다.
         bool useStaggerSound = enteredOnHit && _staggerHitSound != null
-            && _staggerHitSound.Clip != null;
+                                            && _staggerHitSound.Clip != null;
         for (int i = 0; i < _pendingBossHitSounds; i++)
         {
             bool isStaggerHit = useStaggerSound && i == _pendingBossHitSounds - 1;
             AttackOneShotAudio.Play(isStaggerHit ? _staggerHitSound : _bossHitSound,
                 isStaggerHit ? 1f : Random.Range(0.9f, 1.1f));
         }
+
         _pendingBossHitSounds = 0;
         _wasStaggered = running;
     }
 
-    public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right);
+    public void PlayBossHit(Vector3 position) => PlayBossHit(position, Vector2.right, 0, null, false);
 
-    public void PlayBossHit(Vector3 position, Vector2 direction)
+    public void PlayBossHit(Vector3 position, Vector2 direction) => PlayBossHit(position, direction, 0, null, false);
+
+    public void PlayBossHit(
+        Vector3 hitPoint,
+        Vector2 direction,
+        int damage,
+        Transform target,
+        bool isThirdComboHit)
     {
-        if (!isActiveAndEnabled) return;
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
         _pendingBossHitSounds++;
         // AirBossStagger는 타격 처리 후 LateUpdate에서 그로기에 진입합니다.
-        _lastBossHitPosition = position;
+        _lastBossHitPosition = hitPoint;
         _lastBossHitDirection = direction;
         _lastBossHitFrame = Time.frameCount;
-        _hitEffects.PlayBossHit(this, _bossHitVfx, position, direction);
+        _hitEffects.PlayBossHit(
+            this,
+            _bossHitVfx,
+            hitPoint,
+            direction,
+            damage,
+            target,
+            isThirdComboHit,
+            _bossDamageTextPrefab,
+            _bossThirdHitVfx);
     }
 
     public void PlayBossDeath(Vector3 position) => Spawn(_bossDeathVfx, position);

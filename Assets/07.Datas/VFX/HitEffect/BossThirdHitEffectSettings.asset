@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dd6d339b38988449cb998be1d133f5, type: 3}
+  m_Name: BossThirdHitEffectSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.PlayerHitEffectSettings
+  globalScale: 1
+  splatColor: {r: 0.7264151, g: 0.17303576, b: 0.123353496, a: 1}
+  crackColor: {r: 1, g: 0.99, b: 0.94, a: 1}
+  dimColor: {r: 0.4716981, g: 0.087369666, b: 0.077874675, a: 1}
+  freezeDuration: 0.27
+  freezeTimeScale: 0
+  splatSprite: {fileID: 0}
+  splatSize: {x: 13, y: 9.2}
+  splatOffset: {x: 0, y: 0.5}
+  splatPopDuration: 0.066
+  splatPopStartScale: 0.85
+  splatReleaseDuration: 0.1
+  splatReleaseScale: {x: 1.7, y: 1.7}
+  crackSize: {x: 40, y: 8.3}
+  crackOffset: {x: 0, y: 0.5}
+  crackFadeDuration: 0.14
+  crackFlickerInterval: 0.033333335
+  crackFlickerMinAlpha: 0.85
+  crackShrinkOnFade: 0.3
+  dimDuringFreeze: 0.55
+  dimAfterRelease: 0.35
+  dimBlendDuration: 0.15
+  dimRecoverDuration: 1.2
+  shadeBurst:
+    color: {r: 0.8915094, g: 0.25270787, b: 0.058873244, a: 1}
+    count: 50
+    speedRange: {x: 4, y: 28}
+    sizeRange: {x: 0.22, y: 0.78}
+    lifetimeRange: {x: 0.5, y: 1.5}
+    direction: 0
+    spreadAngle: 20
+    verticalSquash: 0.75
+    drag: 10
+    spawnJitter: 0.33
+    angularSpeed: 90
+    fadeStart: 0.6
+  shardBurst:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    count: 10
+    speedRange: {x: 4, y: 30}
+    sizeRange: {x: 0.18, y: 0.62}
+    lifetimeRange: {x: 0.5, y: 1.5}
+    direction: 0
+    spreadAngle: 20
+    verticalSquash: 0.75
+    drag: 10
+    spawnJitter: 0.33
+    angularSpeed: 90
+    fadeStart: 0.6
+  shakeAmplitude: 0.28
+  shakeDuration: 0.25
+  shakeFrequency: 30
+  sortingLayerName: GA1_HD_FX
+  dimSortingOrder: 100
+  splatSortingOrder: 110
+  crackSortingOrder: 120
+  particleSortingOrder: 130
