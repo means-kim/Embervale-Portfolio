@@ -1,0 +1,176 @@
+{
+  "success": true,
+  "cases": [
+    {
+      "kind": "dash",
+      "x": 1.0,
+      "y": 8.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpRise_00",
+      "expected": "JumpRise",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "dash",
+      "x": 1.0,
+      "y": -8.0,
+      "before": "Fall_00",
+      "start": "Dash_00",
+      "end": "Fall_00",
+      "expected": "Fall",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "dash",
+      "x": 1.0,
+      "y": 0.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpApex_04",
+      "expected": "JumpApex",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "dash",
+      "x": -1.0,
+      "y": 8.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpRise_00",
+      "expected": "JumpRise",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "dash",
+      "x": -1.0,
+      "y": -8.0,
+      "before": "Fall_00",
+      "start": "Dash_00",
+      "end": "Fall_00",
+      "expected": "Fall",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "dash",
+      "x": -1.0,
+      "y": 0.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpApex_04",
+      "expected": "JumpApex",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": 1.0,
+      "y": 8.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpRise_00",
+      "expected": "JumpRise",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": 1.0,
+      "y": -8.0,
+      "before": "Fall_00",
+      "start": "Dash_00",
+      "end": "Fall_00",
+      "expected": "Fall",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": 1.0,
+      "y": 0.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpApex_04",
+      "expected": "JumpApex",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": -1.0,
+      "y": 8.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpRise_00",
+      "expected": "JumpRise",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": -1.0,
+      "y": -8.0,
+      "before": "Fall_00",
+      "start": "Dash_00",
+      "end": "Fall_00",
+      "expected": "Fall",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "charge",
+      "x": -1.0,
+      "y": 0.0,
+      "before": "JumpRise_00",
+      "start": "Dash_00",
+      "end": "JumpApex_04",
+      "expected": "JumpApex",
+      "startPass": true,
+      "endPass": true,
+      "rootPreserved": true
+    },
+    {
+      "kind": "ordinary jump apex grace",
+      "pass": true
+    },
+    {
+      "kind": "double jump interruption",
+      "pass": true
+    },
+    {
+      "kind": "exit to Idle",
+      "pass": true
+    },
+    {
+      "kind": "exit to Hit",
+      "pass": true
+    },
+    {
+      "kind": "exit to Death",
+      "pass": true
+    },
+    {
+      "kind": "component disable",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "scene": "Assets/01.Scenes/YuchanScene.unity",
+  "scope": "Immediate displayed sprite at directional motion boundaries; no hardware input or full-scene traversal claim"
+}
