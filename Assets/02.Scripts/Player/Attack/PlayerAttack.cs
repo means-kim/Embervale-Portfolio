@@ -21,7 +21,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Tooltip("투사체를 잡은 뒤 차징 점프로 실제 발사되면 공중 공격권을 초기화합니다.")]
     private bool _resetAirAttackCountOnChargeJump = false;
     private int _airAttackCount;
-    //public int MaxAirAttackCount => _maxAirAttackCount;
     public int CurrentAirAttackCount => _airAttackCount;
     [SerializeField, Min(0f), Tooltip("지상 공격 시 수평 이동 차단 시간(초). 0이면 차단 없음.")]
     private float _groundHorizontalLockDuration;

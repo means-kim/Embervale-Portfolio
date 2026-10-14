@@ -107,7 +107,6 @@ public class UI_PlayerDeath : MonoBehaviour
 
     private void PlayDeathAudio()
     {
-        // The persistent manager owns the source across title/game/retry scenes.
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.PlayDeathBgm();

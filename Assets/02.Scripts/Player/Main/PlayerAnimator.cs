@@ -189,7 +189,6 @@ public class PlayerAnimator : MonoBehaviour
 
     private void ApplyPose()
     {
-        // 렌더러의 회전 전환과 새 스프라이트 적용을 같은 호출에서 끝낸다.
         if (_animator.isActiveAndEnabled && _animator.isInitialized)
         {
             _animator.Update(0f);

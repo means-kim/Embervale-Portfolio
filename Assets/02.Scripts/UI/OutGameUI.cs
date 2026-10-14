@@ -122,7 +122,6 @@ public class OutGameUI : MonoBehaviour
             return;
         }
         bool hasSave = GameIntroCinematic.HasStartedGame;
-        Debug.Log($"[OutGameUI] 세이브 판정: hasSave={hasSave} [{SaveBreakdown()}] (hideWhenNoSave={_hideContinueWhenNoSave})", this);
         if (_hideContinueWhenNoSave)
         {
             _continueButton.SetActive(hasSave);
@@ -131,14 +130,12 @@ public class OutGameUI : MonoBehaviour
         {
             _continueButton.SetActive(true);
         }
-        // 숨김 여부와 별개로 세이브 없으면 항상 비활성화한다.
         if (_continueButton.TryGetComponent<UnityEngine.UI.Button>(out var button))
         {
             button.interactable = hasSave;
         }
     }
 
-    // GameIntroCinematic.HasStartedGame의 내역을 그대로 비춰주는 진단용. 키 문자열은 원본과 동일.
     private static string SaveBreakdown()
     {
         var hits = new System.Collections.Generic.List<string>();
@@ -189,7 +186,6 @@ public class OutGameUI : MonoBehaviour
         {
             return;
         }
-        // 세이브 있음: 이어하기 우선, 없음: 새로운 게임 우선.
         if (_continueButton != null && _continueButton.activeInHierarchy &&
             _continueButton.TryGetComponent<UnityEngine.UI.Button>(out var continueBtn))
         {
@@ -216,7 +212,6 @@ public class OutGameUI : MonoBehaviour
         GameManager.LoadGameScene(_gameSceneName, introClip: _introClip, introSkipHoldDuration: _introSkipHoldDuration);
     }
 
-    // 구버튼(GameStartButton) 호환용. 에디터에서 Continue에 재연결하면 이 경로는 사용하지 않는다.
     public void OnClickGameStart()
     {
         if (_continueButton != null)
@@ -300,12 +295,10 @@ public class OutGameUI : MonoBehaviour
 
     private IEnumerator FadeMain(float target, bool hideAfter)
     {
-        // 페이드 인이면 먼저 켜야 버튼들의 CanvasGroup을 모을 수 있다.
         if (target >= 1f)
         {
             SetMainVisible(true);
         }
-        // 루트 CanvasGroup이 있으면 하나로, 없으면 각 메인 버튼의 CanvasGroup을 함께 페이드한다.
         var groups = new System.Collections.Generic.List<CanvasGroup>();
         CanvasGroup mainGroup = MainGroup;
         if (mainGroup != null)
@@ -339,7 +332,6 @@ public class OutGameUI : MonoBehaviour
             }
             yield break;
         }
-        // CanvasGroup이 하나도 없으면 즉시 켜고 끈다.
         SetMainVisible(!hideAfter);
     }
 
@@ -413,7 +405,6 @@ public class OutGameUI : MonoBehaviour
         {
             return;
         }
-        // 설정 패널이 아직 없으면 외부 이벤트만 발생시키고 메인은 그대로 둔다.
         if (_settingsPanel == null)
         {
             _onSettingsRequested.Invoke();
