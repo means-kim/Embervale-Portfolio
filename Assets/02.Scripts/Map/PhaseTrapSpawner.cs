@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Traps
 {
@@ -15,7 +16,11 @@ namespace Game.Traps
         [SerializeField] private Transform[] _lowerSpawns = new Transform[0];
         [SerializeField] private Transform[] _upperSpawns = new Transform[0];
         [SerializeField, Min(0f)] private float _startDelay = 1.2f;
-        [SerializeField] private Vector2 _interval = new Vector2(2.5f, 4f);
+        [Header("난이도별 공격 시작 간격 (초, X: 최소 / Y: 최대)")]
+        [SerializeField] private Vector2 _easyInterval = new Vector2(2.6f, 4.4f);
+        [FormerlySerializedAs("_interval")]
+        [SerializeField] private Vector2 _normalInterval = new Vector2(1.8f, 2.6f);
+        [SerializeField] private Vector2 _hardInterval = new Vector2(0.8f, 1.8f);
         [SerializeField, Min(0.05f)] private float _warningTime = 0.8f;
         [SerializeField, Min(0.02f)] private float _flashTime = 0.1f;
         [SerializeField, Min(0.02f)] private float _fadeTime = 0.18f;
@@ -84,6 +89,11 @@ namespace Game.Traps
 
         private bool CanRun()
         {
+            if (_boss != null && _boss.IsStaggered)
+            {
+                return false;
+            }
+
             if (_player == null)
             {
                 var player = GameObject.FindGameObjectWithTag("Player");
@@ -141,7 +151,21 @@ namespace Game.Traps
             }
 
             FireOnce();
-            _nextFire = Time.time + Random.Range(Mathf.Max(0.1f, _interval.x), Mathf.Max(_interval.x, _interval.y));
+            Vector2 interval = GetInterval(GameDifficulty.Current);
+            _nextFire = Time.time + Random.Range(interval.x, interval.y);
+        }
+
+        private Vector2 GetInterval(Difficulty difficulty)
+        {
+            Vector2 interval = difficulty switch
+            {
+                Difficulty.Easy => _easyInterval,
+                Difficulty.Hard => _hardInterval,
+                _ => _normalInterval
+            };
+            float minimum = Mathf.Max(0.1f, Mathf.Min(interval.x, interval.y));
+            float maximum = Mathf.Max(minimum, Mathf.Max(interval.x, interval.y));
+            return new Vector2(minimum, maximum);
         }
 
         public bool FireOnce()
@@ -193,7 +217,7 @@ namespace Game.Traps
             }
 
             Vector3 end = start + direction.normalized * Mathf.Min(_maxLength, distance + _pastPlayer);
-            item.Fire(start, end, _player, _warningTime, _flashTime, _fadeTime, _damage);
+            item.Fire(start, end, _player, _warningTime, _flashTime, _fadeTime, _damage, _boss);
             _lastSpawn = spawn;
             return true;
         }
