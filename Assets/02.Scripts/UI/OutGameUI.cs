@@ -5,6 +5,7 @@ public class OutGameUI : MonoBehaviour
 {
     [SerializeField] private string _gameSceneName = "MainTestScene";
     [SerializeField] private VideoClip _introClip;
+    [SerializeField, Min(0.1f)] private float _introSkipHoldDuration = 1.5f;
     [SerializeField] private GameObject _newGameButton;
     [SerializeField] private CanvasGroup _difficultyButtons;
     [SerializeField] private UnityEngine.UI.Button _easyButton;
@@ -63,7 +64,7 @@ public class OutGameUI : MonoBehaviour
         }
         else
         {
-            GameManager.LoadGameScene(_gameSceneName, introClip: _introClip);
+            GameManager.LoadGameScene(_gameSceneName, introClip: _introClip, introSkipHoldDuration: _introSkipHoldDuration);
         }
     }
 
@@ -121,7 +122,7 @@ public class OutGameUI : MonoBehaviour
         {
             return;
         }
-        if (GameManager.LoadGameScene(_gameSceneName, true, _introClip, difficulty: difficulty))
+        if (GameManager.LoadGameScene(_gameSceneName, true, _introClip, difficulty: difficulty, introSkipHoldDuration: _introSkipHoldDuration))
         {
             _difficultyButtons.interactable = _difficultyButtons.blocksRaycasts = false;
         }
