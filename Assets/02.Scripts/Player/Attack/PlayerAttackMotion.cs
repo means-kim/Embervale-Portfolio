@@ -83,12 +83,13 @@ internal sealed class PlayerAttackMotion
         }
     }
 
-    public void EndAttack(bool continueCombo)
+    public void EndAttack()
     {
-        if (!_gravityReduced || continueCombo)
+        if (!_gravityReduced)
         {
             return;
         }
+        // 예약된 다음 공격이 거절될 수 있으므로 매 공격 종료 시 복원한다.
         _body.gravityScale = _originalGravity;
         _gravityReduced = false;
     }

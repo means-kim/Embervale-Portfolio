@@ -13,6 +13,7 @@ public sealed class GameSettingsPanel : MonoBehaviour
     [SerializeField] private TMP_Text _musicValue;
     [SerializeField] private TMP_Dropdown _languageDropdown;
     [SerializeField] private TMP_Dropdown _glideDropdown;
+    [SerializeField] private TMP_Dropdown _glideModeDropdown;
 
     private void OnEnable()
     {
@@ -20,6 +21,7 @@ public sealed class GameSettingsPanel : MonoBehaviour
         _musicSlider.onValueChanged.AddListener(ChangeMusic);
         _languageDropdown.onValueChanged.AddListener(ChangeLanguage);
         _glideDropdown.onValueChanged.AddListener(ChangeGlide);
+        if (_glideModeDropdown != null) _glideModeDropdown.onValueChanged.AddListener(ChangeGlideMode);
         GameSettings.AudioChanged += RefreshVolumes;
         LocalizationSettings.SelectedLocaleChanged += RefreshLanguage;
         RefreshVolumes();
@@ -39,10 +41,12 @@ public sealed class GameSettingsPanel : MonoBehaviour
         _musicSlider.onValueChanged.RemoveListener(ChangeMusic);
         _languageDropdown.onValueChanged.RemoveListener(ChangeLanguage);
         _glideDropdown.onValueChanged.RemoveListener(ChangeGlide);
+        if (_glideModeDropdown != null) _glideModeDropdown.onValueChanged.RemoveListener(ChangeGlideMode);
         GameSettings.AudioChanged -= RefreshVolumes;
         LocalizationSettings.SelectedLocaleChanged -= RefreshLanguage;
         _languageDropdown.Hide();
         _glideDropdown.Hide();
+        if (_glideModeDropdown != null) _glideModeDropdown.Hide();
         GameSettings.Save();
     }
 
@@ -66,10 +70,21 @@ public sealed class GameSettingsPanel : MonoBehaviour
             LocalizationSettings.StringDatabase.GetLocalizedString("Menus", "glide.space")
         });
         _glideDropdown.SetValueWithoutNotify((int)GameSettings.GlideBinding);
+        if (_glideModeDropdown != null)
+        {
+            _glideModeDropdown.ClearOptions();
+            _glideModeDropdown.AddOptions(new List<string>
+            {
+                LocalizationSettings.StringDatabase.GetLocalizedString("Menus", "glide.mode.toggle"),
+                LocalizationSettings.StringDatabase.GetLocalizedString("Menus", "glide.mode.hold")
+            });
+            _glideModeDropdown.SetValueWithoutNotify((int)GameSettings.GlideMode);
+        }
     }
 
     private void ChangeSfx(float value) => GameSettings.SetSfxVolume(value);
     private void ChangeMusic(float value) => GameSettings.SetMusicVolume(value);
     private void ChangeLanguage(int value) => GameSettings.SetLanguage(value == 1 ? "en" : "ko");
     private void ChangeGlide(int value) => GameSettings.SetGlideBinding(value);
+    private void ChangeGlideMode(int value) => GameSettings.SetGlideMode(value);
 }

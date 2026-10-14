@@ -268,6 +268,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!IsAttacking)
         {
+            _motion.EndAttack();
             return;
         }
         bool continueCombo = completed && _isComboAttack && _queuedCombo;
@@ -279,7 +280,7 @@ public class PlayerAttack : MonoBehaviour
         }
         IsAttacking = false;
         _animator.speed = _previousAnimatorSpeed;
-        _motion.EndAttack(continueCombo);
+        _motion.EndAttack();
         if (_instance != null)
         {
             _instance.EndPlayerAction();

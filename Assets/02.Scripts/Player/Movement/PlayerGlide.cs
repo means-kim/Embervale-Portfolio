@@ -52,6 +52,7 @@ public class PlayerGlide : MonoBehaviour
         _jump.OnLanded += ResetForRespawn;
         _health.OnHit += CancelGlide;
         _health.OnDie += ResetForRespawn;
+        GameSettings.GlideChanged += CancelGlide;
     }
     private void OnDisable()
     {
@@ -59,6 +60,7 @@ public class PlayerGlide : MonoBehaviour
         _jump.OnLanded -= ResetForRespawn;
         _health.OnHit -= CancelGlide;
         _health.OnDie -= ResetForRespawn;
+        GameSettings.GlideChanged -= CancelGlide;
         ResetForRespawn();
     }
     private void HandleJump()
@@ -88,6 +90,26 @@ public class PlayerGlide : MonoBehaviour
             _jump.ClearJumpBuffer();
             return true;
         }
+        return TryStartGlide();
+    }
+
+    public void HandleGlideInput(bool pressed, bool held)
+    {
+        if (GameSettings.GlideMode == GlideInputMode.Hold)
+        {
+            if (!held) CancelGlide();
+            else if (pressed) TryStartGlide();
+        }
+        else if (pressed)
+        {
+            TryToggleGlide();
+        }
+    }
+
+    private bool TryStartGlide()
+    {
+        if (!isActiveAndEnabled) return false;
+        if (IsGliding) return true;
         if (_jump.IsGrounded)
         {
             return false;
