@@ -760,7 +760,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &2081650440081494536
 Animator:
@@ -812,9 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 450
+  _maxHealth: 500
   _autoRecover: 0
   _secondsPerSlot: 1.2
+  _regenFlushInterval: 5
 --- !u!114 &7419796586167053868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,7 +974,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1405717601429288287}
   _hitMaterial: {fileID: 2100000, guid: 12f6ab3fef6b140a9b10e9d0b1df7533, type: 2}
   _flashInterval: 0.1
-  _flashDuration: 0.24
+  _flashDuration: 0.15
 --- !u!114 &6456768735056663740
 MonoBehaviour:
   m_ObjectHideFlags: 0
