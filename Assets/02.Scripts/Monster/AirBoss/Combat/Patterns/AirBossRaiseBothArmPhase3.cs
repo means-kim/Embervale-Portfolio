@@ -41,10 +41,8 @@ public class AirBossRaiseBothArmPhase3 : AirBossAttackBase
     private bool _isWarningShown = false;
     private bool _hasCast = false;
 
-    public override void BeginAttack()
+    protected override void BeginAttackCore()
     {
-        Cancel();
-
         if (_controller == null)
         {
             Debug.LogError("보스 컨트롤러를 연결하세요.", this);
@@ -69,8 +67,8 @@ public class AirBossRaiseBothArmPhase3 : AirBossAttackBase
 
         for (int i = 0; i < _lightnings.Length; i++)
         {
-            _lightnings[i] = attackPool.GetAttack(AirBossAttackType.SmallLightning);
-            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
+            _lightnings[i] = attackPool.GetAttack(AirBossAttackType.SmallLightning, this);
+            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType, this);
 
             if (_lightnings[i] == null || _telegraphs[i] == null)
             {
@@ -180,7 +178,7 @@ public class AirBossRaiseBothArmPhase3 : AirBossAttackBase
         _controller.OnActionFinished();
     }
 
-    public override void Cancel()
+    protected override void CancelCore()
     {
         if (_sequence != null)
         {

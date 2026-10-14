@@ -29,10 +29,11 @@ public class AirBossController : MonoBehaviour
     private Health _health;
 
     public bool IsStaggered => _currentstate == AirBossState.Stagger;
+
     public bool CanEnterStagger => isActiveAndEnabled && _health != null && !_health.IsDead &&
-        _phaseController != null && !_phaseController.IsTransition &&
-        (_currentstate == AirBossState.Idle || _currentstate == AirBossState.Move ||
-         _currentstate == AirBossState.Action);
+                                   _phaseController != null && !_phaseController.IsTransition &&
+                                   (_currentstate == AirBossState.Idle || _currentstate == AirBossState.Move ||
+                                    _currentstate == AirBossState.Action);
 
     public bool TryEnterStagger()
     {
@@ -40,10 +41,12 @@ public class AirBossController : MonoBehaviour
         {
             _stagger = GetComponent<AirBossStagger>();
         }
+
         if (!CanEnterStagger || _stagger == null || !_stagger.CanBegin)
         {
             return false;
         }
+
         ChangeState(AirBossState.Stagger);
         return IsStaggered;
     }
@@ -71,6 +74,7 @@ public class AirBossController : MonoBehaviour
             _phase2Cinematic = FindFirstObjectByType<BossPhase2Cinematic>(FindObjectsInactive.Include);
             Debug.LogWarning($"BossPhase2Cinematic 참조가 누락되었습니다. 임시 연결을 합니다.");
         }
+
         if (_phase3Cinematic == null)
         {
             _phase3Cinematic = FindFirstObjectByType<BossPhase3Cinematic>(FindObjectsInactive.Include);
@@ -150,6 +154,7 @@ public class AirBossController : MonoBehaviour
 
         CancelOwnedPhase2();
         CancelOwnedPhase3();
+        _action?.CancelCurrentAttack();
         _stagger?.Cancel();
         if (IsStaggered)
         {
