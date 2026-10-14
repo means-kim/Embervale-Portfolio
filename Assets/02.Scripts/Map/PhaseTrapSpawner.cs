@@ -20,7 +20,7 @@ namespace Game.Traps
         [SerializeField] private Vector2 _easyInterval = new Vector2(2.8f, 4.4f);
         [FormerlySerializedAs("_interval")]
         [SerializeField] private Vector2 _normalInterval = new Vector2(2.2f, 2.8f);
-        [SerializeField] private Vector2 _hardInterval = new Vector2(1.1f, 2.1f);
+        [SerializeField] private Vector2 _hardInterval = new Vector2(0.9f, 2.1f);
         [SerializeField, Min(0.05f)] private float _warningTime = 0.8f;
         [SerializeField, Min(0.02f)] private float _flashTime = 0.1f;
         [SerializeField, Min(0.02f)] private float _fadeTime = 0.18f;

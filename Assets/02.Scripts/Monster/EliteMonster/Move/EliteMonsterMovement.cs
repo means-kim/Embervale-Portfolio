@@ -7,6 +7,10 @@ public class EliteMonsterMovement : MonoBehaviour
 
     [SerializeField] private float _stopDistance = 1f;
 
+    [Header("이동 가능한 월드 X 범위")]
+    [SerializeField] private float _minX = 190f;
+    [SerializeField] private float _maxX = 251.5f;
+
     [Header("플레이어 감지")]
     [SerializeField] private float _detectDistance = 40f;
 
@@ -84,8 +88,10 @@ public class EliteMonsterMovement : MonoBehaviour
 
         float directionX = Mathf.Sign(direction.x);
 
-        transform.position +=
-            Vector3.right * directionX * _moveSpeed * Time.deltaTime;
+        Vector3 nextPosition = transform.position;
+        nextPosition.x += directionX * _moveSpeed * Time.deltaTime;
+        nextPosition.x = Mathf.Clamp(nextPosition.x, Mathf.Min(_minX, _maxX), Mathf.Max(_minX, _maxX));
+        transform.position = nextPosition;
     }
 
     public void ChargeMovement(float speed)

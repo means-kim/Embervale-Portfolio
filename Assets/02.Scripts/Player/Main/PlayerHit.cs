@@ -37,6 +37,8 @@ public class PlayerHit : MonoBehaviour
     private float _flashInterval = 0.08f;
     private bool _knockbackLocking;
     private bool _deathHandled;
+    private bool _deathPhysicsStopped;
+    private bool _simulationBeforeDeath;
     private void Awake()
     {
         PlayerRig rig = PlayerRig.Resolve(gameObject);
@@ -101,6 +103,13 @@ public class PlayerHit : MonoBehaviour
 
     public void ResetForRespawn()
     {
+        if (_deathPhysicsStopped)
+        {
+            _rigidbody.linearVelocity = Vector2.zero;
+            _rigidbody.angularVelocity = 0f;
+            _rigidbody.simulated = _simulationBeforeDeath;
+            _deathPhysicsStopped = false;
+        }
         _deathHandled = false;
         _hitUntil = 0f;
         _flashTimer = 0f;
@@ -189,6 +198,11 @@ public class PlayerHit : MonoBehaviour
         _dash.CancelDash();
         _glide.CancelGlide();
         _move.SetMovementLocked(_health, true);
+        _rigidbody.linearVelocity = Vector2.zero;
+        _rigidbody.angularVelocity = 0f;
+        _simulationBeforeDeath = _rigidbody.simulated;
+        _deathPhysicsStopped = true;
+        _rigidbody.simulated = false;
         _hitUntil = 0f;
         RestoreColors();
         EffectManager.Instance?.PlayPlayerDeath(transform.position);

@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BgmType _startBgm = BgmType.Snow;
     [SerializeField] private UnityEvent _onGameReady = new UnityEvent();
     public bool WaitingForAbility { get; private set; }
+    private bool _initializing = true;
+    public static bool BlocksPlayerInput => IsLoading ||
+        (Instance != null && (Instance._initializing || Instance.WaitingForAbility));
     private float _resumeTimeScale = 1f;
     private bool _restoreCancel;
     private bool _previousAllowCancel;
@@ -27,6 +30,8 @@ public class GameManager : MonoBehaviour
     private Rigidbody2D _retryBody;
     private Vector3 _retryPosition;
     private bool _retryWasSimulated;
+    private float _recentRetryUntil;
+    public bool IsRecentRetry => Time.unscaledTime < _recentRetryUntil;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
@@ -210,6 +215,7 @@ public class GameManager : MonoBehaviour
 
     private void ResumeGame()
     {
+        _initializing = false;
         WaitingForAbility = false;
         if (_abilityUI != null)
         {
@@ -337,14 +343,29 @@ public class GameManager : MonoBehaviour
     private void RestoreRetryPhysics()
     {
         if (_retryBody == null) return;
+        // 씬 재로드 전의 축 보간값과 선택 클릭을 다음 조작에 넘기지 않는다.
+        Input.ResetInputAxes();
         _retryBody.transform.position = _retryPosition;
         _retryBody.position = _retryPosition;
         _retryBody.linearVelocity = Vector2.zero;
         _retryBody.angularVelocity = 0f;
         _retryBody.simulated = _retryWasSimulated;
         Physics2D.SyncTransforms();
+        _recentRetryUntil = Time.unscaledTime + 2f;
+        Player player = _retryBody.GetComponent<Player>();
+        if (isActiveAndEnabled && player != null) StartCoroutine(ReportRetryAfterPhysics(player));
         Debug.Log("GameManager: Retry resumed at " + _retryPosition + ".", this);
         _retryBody = null;
+    }
+
+    private IEnumerator ReportRetryAfterPhysics(Player player)
+    {
+        yield return new WaitForFixedUpdate();
+        if (player == null) yield break;
+        Rigidbody2D body = player.GetComponent<Rigidbody2D>();
+        Debug.Log("GameManager: Retry first physics frame position=" + player.transform.position +
+                  ", body=" + body.position + ", velocity=" + body.linearVelocity +
+                  ", checkpoint=" + player.RespawnPosition + ", dead=" + player.GetComponent<Health>().IsDead, this);
     }
 
     private void RestoreCancel()

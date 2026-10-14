@@ -143,7 +143,7 @@ public class PlayerAttack : MonoBehaviour
 
     public bool TryStartAttack(PlayerAttackDataSO definition)
     {
-        if (!isActiveAndEnabled || IsAttacking || definition == null || !_controller.CanAttack)
+        if (!isActiveAndEnabled || GameManager.BlocksPlayerInput || IsAttacking || definition == null || !_controller.CanAttack)
         {
             return false;
         }
@@ -242,7 +242,14 @@ public class PlayerAttack : MonoBehaviour
             FinishAttack();
         }
     }
-    public void CancelAttack() => FinishAttack();
+    public void CancelAttack()
+    {
+        FinishAttack();
+        // 공격이 이미 끝났더라도 이전 위치 고정·중력·이동 잠금은 남을 수 있다.
+        _motion.EndAttack();
+        _motion.CancelVertical();
+        _motion.UnlockHorizontal();
+    }
     public void InterruptForDash() => InterruptForMovement();
     public void InterruptForMovement()
     {

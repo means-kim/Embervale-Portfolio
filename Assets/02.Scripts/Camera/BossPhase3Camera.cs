@@ -18,7 +18,9 @@ public sealed class BossPhase3Camera : MonoBehaviour
     [Header("3페이즈 상단 도착 시 활성화")]
     [Tooltip("플레이어가 실제로 착지해야 하는 상단 메인 발판의 충돌체입니다.")]
     [SerializeField] private Collider2D _upperLandingPlatform;
-    [Tooltip("상단 메인 발판에 착지하면 켜지고, 낙하 중에도 유지됩니다. 페이즈 초기화 시 꺼집니다.")]
+    [Tooltip("플레이어 Transform의 월드 Y가 이 값 이상이면 착지하지 않아도 활성화합니다.")]
+    [SerializeField] private float _upperArrivalY = 258f;
+    [Tooltip("상단 메인 발판 착지 또는 도착 Y 달성 시 켜지고, 낙하 중에도 유지됩니다. 페이즈 초기화 시 꺼집니다.")]
     [SerializeField] private GameObject[] _upperArrivalObjects = new GameObject[0];
     private bool _upperArrivalActivated;
     private readonly ContactPoint2D[] _landingContacts = new ContactPoint2D[16];
@@ -141,7 +143,17 @@ public sealed class BossPhase3Camera : MonoBehaviour
             SetArea(_travelArea != null ? _travelArea : _originalArea);
         }
 
-        if (phase3 && !_upperArrivalActivated) ActivateArrivalOnLanding();
+        if (phase3 && !_upperArrivalActivated)
+        {
+            if (_player.position.y >= _upperArrivalY)
+            {
+                SetArrivalObjects(true);
+            }
+            else
+            {
+                ActivateArrivalOnLanding();
+            }
+        }
     }
 
     private void ActivateArrivalOnLanding()
