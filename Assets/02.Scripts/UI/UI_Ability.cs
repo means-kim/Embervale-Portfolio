@@ -47,6 +47,8 @@ public class UI_Ability : MonoBehaviour
     [SerializeField] private AbilityEvent _onAbilityConfirmed = new AbilityEvent();
     [SerializeField] private UnityEvent _onClosed = new UnityEvent();
     public event Action<AbilityType> AbilityConfirmed;
+    // 능력치 적용과 UI·입력 정리가 모두 끝난 뒤 발송한다.
+    public event Action<AbilityType> AbilitySelectionCompleted;
     public bool IsOpen => _isOpen;
     public bool AllowCancel => _allowCancel;
     public int SelectedIndex => _selectedIndex;
@@ -73,6 +75,7 @@ public class UI_Ability : MonoBehaviour
     }
 
     private bool _isOpen;
+    private bool _confirming;
     private bool _inputWasEnabled;
     private bool _testInputWasEnabled;
     private bool _locksHeld;
@@ -263,14 +266,23 @@ public class UI_Ability : MonoBehaviour
 
     public void Confirm()
     {
-        if (!_isOpen || !CanSelect(_selectedIndex))
+        if (_confirming || !_isOpen || !CanSelect(_selectedIndex))
         {
             return;
         }
         AbilityType type = _options[_selectedIndex].type;
-        AbilityConfirmed?.Invoke(type);
-        _onAbilityConfirmed.Invoke((int)type);
-        Close();
+        _confirming = true;
+        try
+        {
+            AbilityConfirmed?.Invoke(type);
+            _onAbilityConfirmed.Invoke((int)type);
+            Close();
+            AbilitySelectionCompleted?.Invoke(type);
+        }
+        finally
+        {
+            _confirming = false;
+        }
     }
 
     public void Close()
