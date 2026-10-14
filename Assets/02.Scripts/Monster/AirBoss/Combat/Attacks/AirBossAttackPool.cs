@@ -38,7 +38,7 @@ public class AirBossAttackPool : MonoBehaviour
         }
     }
 
-    public AirBossAttack GetAttack(AirBossAttackType attackType)
+    public AirBossAttack GetAttack(AirBossAttackType attackType, AirBossAttackBase audioScope = null)
     {
         for (int i = 0; i < _attackPrefabs.Length; i++)
         {
@@ -50,6 +50,7 @@ public class AirBossAttackPool : MonoBehaviour
 
                 if (attack.TryReserve())
                 {
+                    attack.SetAudioScope(audioScope);
                     return attack;
                 }
             }

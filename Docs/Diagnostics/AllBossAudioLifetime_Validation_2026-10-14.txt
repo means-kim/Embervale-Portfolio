@@ -1,0 +1,218 @@
+MainTestScene / Unity MCP / 2026-10-14
+General owner + attack-generation audio lifetime validation. Tests are runtime instrumentation, not manual combat or listening tests. Natural/Release sweep: 11 pooled types, one without assigned audio. Forced cancellation recorded on next observer tick (~3-6ms), while Stop() is synchronous. 17 action trials cancel while a scoped sound is actually playing. Warnings, independent object destruction, cast cancellation, old generation blocking, and stagger regression verified separately. No scene saves.
+
+AllBossAudioFixSweep
+START Icicle natural
+0.000 active=True 
+0.134 active=True AirBoss_Icicle_Sound=True;
+1.183 active=True AirBoss_Icicle_Sound=False;
+4.082 active=False AirBoss_Icicle_Sound=False;
+RESULT Icicle natural sound=True ended=4.082 tailEnd=4.082 remaining=0.000
+START Icicle cancel
+0.000 active=True AirBoss_Icicle_Sound=False;
+0.004 active=True AirBoss_Icicle_Sound=True;
+0.157 forced Release
+0.157 active=False AirBoss_Icicle_Sound=True;
+0.161 active=False AirBoss_Icicle_Sound=False;
+RESULT Icicle cancel sound=True ended=0.157 tailEnd=0.161 remaining=0.004
+START SmallIcePillar natural
+0.000 active=True 
+0.006 active=True AirBoss_SmallIcePillar_Create_Sound=True;
+0.951 active=False AirBoss_SmallIcePillar_Create_Sound=False;
+RESULT SmallIcePillar natural sound=True ended=0.951 tailEnd=0.951 remaining=0.000
+START SmallIcePillar cancel
+0.000 active=True AirBoss_SmallIcePillar_Create_Sound=False;
+0.004 active=True AirBoss_SmallIcePillar_Create_Sound=True;
+0.156 forced Release
+0.156 active=False AirBoss_SmallIcePillar_Create_Sound=True;
+0.160 active=False AirBoss_SmallIcePillar_Create_Sound=False;
+RESULT SmallIcePillar cancel sound=True ended=0.156 tailEnd=0.160 remaining=0.004
+START LargeIcePillar natural
+0.000 active=True 
+0.006 active=True AirBoss_LargeIcePillar_Create_Sound=True;
+1.231 active=True AirBoss_LargeIcePillar_Create_Sound=False;
+2.004 active=True AirBoss_LargeIcePillar_Broken_Sound=True;
+2.501 active=False AirBoss_LargeIcePillar_Broken_Sound=False;
+RESULT LargeIcePillar natural sound=True ended=2.501 tailEnd=2.501 remaining=0.000
+START LargeIcePillar cancel
+0.000 active=True AirBoss_LargeIcePillar_Broken_Sound=False;
+0.004 active=True AirBoss_LargeIcePillar_Create_Sound=True;
+0.156 forced Release
+0.156 active=False AirBoss_LargeIcePillar_Create_Sound=True;
+0.160 active=False AirBoss_LargeIcePillar_Create_Sound=False;
+RESULT LargeIcePillar cancel sound=True ended=0.156 tailEnd=0.160 remaining=0.004
+START IceBlock natural
+0.000 active=True 
+0.007 active=True AirBoss_IceCreate_Sound=True;
+2.666 active=False AirBoss_IceCreate_Sound=False;
+RESULT IceBlock natural sound=True ended=2.666 tailEnd=2.666 remaining=0.000
+START IceBlock cancel
+0.000 active=True AirBoss_IceCreate_Sound=False;
+0.005 active=True AirBoss_IceCreate_Sound=True;
+0.157 forced Release
+0.157 active=False AirBoss_IceCreate_Sound=True;
+0.160 active=False AirBoss_IceCreate_Sound=False;
+RESULT IceBlock cancel sound=True ended=0.157 tailEnd=0.160 remaining=0.003
+START SmallLightning natural
+0.000 active=True 
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+2.049 active=True AirBoss_SmallLightning_Natural_v03=False;
+2.052 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightning natural sound=True ended=2.052 tailEnd=2.052 remaining=0.000
+START SmallLightning cancel
+0.000 active=True AirBoss_SmallLightning_Natural_v03=False;
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+0.155 forced Release
+0.155 active=False AirBoss_SmallLightning_Natural_v03=True;
+0.158 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightning cancel sound=True ended=0.155 tailEnd=0.158 remaining=0.003
+START LargeLightning natural
+0.000 active=True 
+0.004 active=True AirBoss_LargeLightning_Natural_v03=True;
+2.052 active=False AirBoss_LargeLightning_Natural_v03=False;
+RESULT LargeLightning natural sound=True ended=2.052 tailEnd=2.052 remaining=0.000
+START LargeLightning cancel
+0.000 active=True AirBoss_LargeLightning_Natural_v03=False;
+0.005 active=True AirBoss_LargeLightning_Natural_v03=True;
+0.155 forced Release
+0.155 active=False AirBoss_LargeLightning_Natural_v03=True;
+0.160 active=False AirBoss_LargeLightning_Natural_v03=False;
+RESULT LargeLightning cancel sound=True ended=0.155 tailEnd=0.160 remaining=0.005
+START SmallLightningHorizontal natural
+0.000 active=True 
+0.006 active=True AirBoss_SmallLightning_Natural_v03=True;
+2.051 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightningHorizontal natural sound=True ended=2.051 tailEnd=2.051 remaining=0.000
+START SmallLightningHorizontal cancel
+0.000 active=True AirBoss_SmallLightning_Natural_v03=False;
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+0.157 forced Release
+0.157 active=False AirBoss_SmallLightning_Natural_v03=True;
+0.162 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightningHorizontal cancel sound=True ended=0.157 tailEnd=0.162 remaining=0.006
+START IceBlockBezier natural
+0.000 active=True 
+1.002 active=True AirBoss_Icicle_Sound=True;
+1.586 active=True AirBoss_LargeIcePillar_Broken_Sound=True;AirBoss_Icicle_Sound=True;
+2.075 active=True AirBoss_LargeIcePillar_Broken_Sound=True;AirBoss_Icicle_Sound=False;
+2.630 active=True AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=False;
+2.670 active=False AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=False;
+RESULT IceBlockBezier natural sound=True ended=2.670 tailEnd=2.670 remaining=0.000
+START IceBlockBezier cancel
+0.000 active=True AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=False;
+1.003 active=True AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=True;
+1.154 forced Release
+1.154 active=False AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=True;
+1.158 active=False AirBoss_LargeIcePillar_Broken_Sound=False;AirBoss_Icicle_Sound=False;
+RESULT IceBlockBezier cancel sound=True ended=1.154 tailEnd=1.158 remaining=0.003
+START ShortLightning natural
+0.000 active=True 
+0.004 active=True AirBoss_ShortLightning_Natural_v03=True;
+1.908 active=True AirBoss_ShortLightning_Natural_v03=False;
+1.918 active=False AirBoss_ShortLightning_Natural_v03=False;
+RESULT ShortLightning natural sound=True ended=1.918 tailEnd=1.918 remaining=0.000
+START ShortLightning cancel
+0.000 active=True AirBoss_ShortLightning_Natural_v03=False;
+0.004 active=True AirBoss_ShortLightning_Natural_v03=True;
+0.156 forced Release
+0.156 active=False AirBoss_ShortLightning_Natural_v03=True;
+0.160 active=False AirBoss_ShortLightning_Natural_v03=False;
+RESULT ShortLightning cancel sound=True ended=0.156 tailEnd=0.160 remaining=0.004
+START LightningFlight natural
+0.000 active=True 
+1.212 active=False 
+RESULT LightningFlight natural sound=False ended=1.212 tailEnd=1.212 remaining=0.000
+START LightningFlight cancel
+0.000 active=True 
+1.213 active=False 
+RESULT LightningFlight cancel sound=False ended=1.213 tailEnd=1.213 remaining=0.000
+START Blizzard natural
+0.000 active=True 
+0.004 active=True AirBoss_Blizzard_RisingGust_1s_v01=True;
+0.989 active=True AirBoss_Blizzard_RisingGust_1s_v01=False;
+1.376 active=False AirBoss_Blizzard_RisingGust_1s_v01=False;
+RESULT Blizzard natural sound=True ended=1.376 tailEnd=1.376 remaining=0.000
+START Blizzard cancel
+0.000 active=True AirBoss_Blizzard_RisingGust_1s_v01=False;
+0.004 active=True AirBoss_Blizzard_RisingGust_1s_v01=True;
+0.158 forced Release
+0.158 active=False AirBoss_Blizzard_RisingGust_1s_v01=True;
+0.162 active=False AirBoss_Blizzard_RisingGust_1s_v01=False;
+RESULT Blizzard cancel sound=True ended=0.158 tailEnd=0.162 remaining=0.004
+COMPLETE
+
+AllBossScopeValidation
+START BothArmsLiftDrop accepted=True
+CANCEL BothArmsLiftDrop voicesBefore=1
+voicesAfter=0
+START ForwardReach accepted=True
+CANCEL ForwardReach voicesBefore=1
+voicesAfter=0
+START OneArmUpDown accepted=True
+CANCEL OneArmUpDown voicesBefore=1
+voicesAfter=0
+START BothArmsRaise accepted=True
+CANCEL BothArmsRaise voicesBefore=1
+voicesAfter=0
+START RaiseDropShadow accepted=True
+CANCEL RaiseDropShadow voicesBefore=1
+voicesAfter=0
+START BothArmsIceThrow accepted=True
+CANCEL BothArmsIceThrow voicesBefore=1
+voicesAfter=0
+START BothArmsIcePush accepted=True
+CANCEL BothArmsIcePush voicesBefore=1
+voicesAfter=0
+START OneArmIceSummon accepted=True
+CANCEL OneArmIceSummon voicesBefore=1
+voicesAfter=0
+START OneArmUpDownIce accepted=True
+CANCEL OneArmUpDownIce voicesBefore=1
+voicesAfter=0
+START BothArmsLightningGather accepted=True
+CANCEL BothArmsLightningGather voicesBefore=1
+voicesAfter=0
+START OneArmUpDownIceBlock accepted=True
+CANCEL OneArmUpDownIceBlock voicesBefore=1
+voicesAfter=0
+START CrossBurst accepted=True
+CANCEL CrossBurst voicesBefore=1
+voicesAfter=0
+START CrossBurst6Point accepted=True
+CANCEL CrossBurst6Point voicesBefore=1
+voicesAfter=0
+START OneArmUpDownIcePhase3 accepted=True
+CANCEL OneArmUpDownIcePhase3 voicesBefore=1
+voicesAfter=0
+START RaiseBothArmPhase3 accepted=True
+CANCEL RaiseBothArmPhase3 voicesBefore=1
+voicesAfter=0
+START OneArmIceSummon3Combo accepted=True
+CANCEL OneArmIceSummon3Combo voicesBefore=1
+voicesAfter=0
+START AirBossOneArmUpDown3Combo accepted=True
+CANCEL AirBossOneArmUpDown3Combo voicesBefore=1
+voicesAfter=0
+COMPLETE failures=0
+
+AllBossDeletionValidation
+Warning Circle fade stops immediately=True
+Warning Circle3 fade stops immediately=True
+Warning Vertical fade stops immediately=True
+Warning VerticalSquare fade stops immediately=True
+Two independent voices playing=True
+Destroy first stops only its voice=True
+Destroy second stops its voice=True
+COMPLETE
+
+AllBossCastValidation
+Cancel after Cast stops active child voices=True voicesBefore=2
+Late child events blocked=True
+Reusing pattern does not revive old cast audio=True
+COMPLETE
+
+AllBossStaggerRegression
+Stagger entered=True
+Stagger cancellation stops active sound=True
+Late boss cues blocked=True
+

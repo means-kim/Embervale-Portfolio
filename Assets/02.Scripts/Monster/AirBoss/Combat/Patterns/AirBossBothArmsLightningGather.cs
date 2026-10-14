@@ -27,10 +27,8 @@ public class AirBossBothArmsLightningGather : AirBossAttackBase
     private bool _isWarningShown = false;
     private bool _hasCast = false;
 
-    public override void BeginAttack()
+    protected override void BeginAttackCore()
     {
-        Cancel();
-
         if (_controller == null)
         {
             Debug.LogError("보스 컨트롤러를 연결하세요.", this);
@@ -55,8 +53,8 @@ public class AirBossBothArmsLightningGather : AirBossAttackBase
 
         for (int i = 0; i < _horizontalSmallLightnings.Length; i++)
         {
-            _horizontalSmallLightnings[i] = attackPool.GetAttack(AirBossAttackType.SmallLightningHorizontal);
-            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
+            _horizontalSmallLightnings[i] = attackPool.GetAttack(AirBossAttackType.SmallLightningHorizontal, this);
+            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType, this);
 
             if (_horizontalSmallLightnings[i] == null || _telegraphs[i] == null)
             {
@@ -128,7 +126,7 @@ public class AirBossBothArmsLightningGather : AirBossAttackBase
         _controller.OnActionFinished();
     }
 
-    public override void Cancel()
+    protected override void CancelCore()
     {
         _isRunning = false;
         _isWarningShown = false;

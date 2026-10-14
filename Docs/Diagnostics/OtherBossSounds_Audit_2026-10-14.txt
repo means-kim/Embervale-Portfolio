@@ -1,0 +1,178 @@
+MainTestScene Unity MCP Play-mode investigation. No production code changes.
+Attack tests: actual pooled objects activated away from player; natural release vs forced Release 0.15s after first detected audio. Isolated trials 4.1s; previous sources stopped between trials. Bezier test uses animation without prepared flight trajectory; cancellation covers first sound. LightningFlight has no assigned attack audio, so no sound-triggered cancellation occurred.
+Warnings: four unique configurations released 0.1s after audio start. Preparation: actual AirBossAction.Execute then CancelCurrentAttack + Idle 0.1s after sound start.
+Measurements track AudioSource.isPlaying, not acoustic listening. Durations depend on cancellation time. Sub-frame/one-buffer tails of 0.004-0.024s must be distinguished from long residual playback.
+
+START Icicle natural
+0.000 active=True 
+0.046 active=True AirBoss_Icicle_Sound=True;
+1.051 active=True AirBoss_Icicle_Sound=False;
+3.986 active=False AirBoss_Icicle_Sound=False;
+RESULT Icicle natural sound=True ended=3.986 tailEnd=3.986 remaining=0.000
+START Icicle cancel
+0.000 active=True AirBoss_Icicle_Sound=False;
+0.004 active=True AirBoss_Icicle_Sound=True;
+0.156 forced Release
+0.156 active=False AirBoss_Icicle_Sound=True;
+1.087 active=False AirBoss_Icicle_Sound=False;
+RESULT Icicle cancel sound=True ended=0.156 tailEnd=1.087 remaining=0.932
+START SmallIcePillar natural
+0.000 active=True 
+0.023 active=True AirBoss_SmallIcePillar_Create_Sound=True;
+0.951 active=False AirBoss_SmallIcePillar_Create_Sound=True;
+1.087 active=False AirBoss_SmallIcePillar_Create_Sound=False;
+RESULT SmallIcePillar natural sound=True ended=0.951 tailEnd=1.087 remaining=0.136
+START SmallIcePillar cancel
+0.000 active=True AirBoss_SmallIcePillar_Create_Sound=False;
+0.004 active=True AirBoss_SmallIcePillar_Create_Sound=True;
+0.156 forced Release
+0.156 active=False AirBoss_SmallIcePillar_Create_Sound=True;
+1.048 active=False AirBoss_SmallIcePillar_Create_Sound=False;
+RESULT SmallIcePillar cancel sound=True ended=0.156 tailEnd=1.048 remaining=0.891
+START IceBlock natural
+0.000 active=True 
+0.031 active=True AirBoss_IceCreate_Sound=True;
+2.668 active=False AirBoss_IceCreate_Sound=True;
+3.069 active=False AirBoss_IceCreate_Sound=False;
+RESULT IceBlock natural sound=True ended=2.668 tailEnd=3.069 remaining=0.401
+START IceBlock cancel
+0.000 active=True AirBoss_IceCreate_Sound=False;
+0.004 active=True AirBoss_IceCreate_Sound=True;
+0.155 forced Release
+0.155 active=False AirBoss_IceCreate_Sound=True;
+3.048 active=False AirBoss_IceCreate_Sound=False;
+RESULT IceBlock cancel sound=True ended=0.155 tailEnd=3.048 remaining=2.892
+START SmallLightning natural
+0.000 active=True 
+0.032 active=True AirBoss_SmallLightning_Natural_v03=True;
+2.050 active=False AirBoss_SmallLightning_Natural_v03=True;
+2.075 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightning natural sound=True ended=2.050 tailEnd=2.075 remaining=0.024
+START SmallLightning cancel
+0.000 active=True AirBoss_SmallLightning_Natural_v03=False;
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+0.155 forced Release
+0.155 active=False AirBoss_SmallLightning_Natural_v03=True;
+2.065 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightning cancel sound=True ended=0.155 tailEnd=2.065 remaining=1.910
+START LargeLightning natural
+0.000 active=True 
+0.016 active=True AirBoss_LargeLightning_Natural_v03=True;
+2.055 active=False AirBoss_LargeLightning_Natural_v03=True;
+2.059 active=False AirBoss_LargeLightning_Natural_v03=False;
+RESULT LargeLightning natural sound=True ended=2.055 tailEnd=2.059 remaining=0.004
+START LargeLightning cancel
+0.000 active=True AirBoss_LargeLightning_Natural_v03=False;
+0.004 active=True AirBoss_LargeLightning_Natural_v03=True;
+0.155 forced Release
+0.155 active=False AirBoss_LargeLightning_Natural_v03=True;
+2.049 active=False AirBoss_LargeLightning_Natural_v03=False;
+RESULT LargeLightning cancel sound=True ended=0.155 tailEnd=2.049 remaining=1.894
+START SmallLightningHorizontal natural
+0.000 active=True AirBoss_SmallLightning_Natural_v03=False;
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+2.052 active=False AirBoss_SmallLightning_Natural_v03=True;
+2.061 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightningHorizontal natural sound=True ended=2.052 tailEnd=2.061 remaining=0.009
+START SmallLightningHorizontal cancel
+0.000 active=True AirBoss_SmallLightning_Natural_v03=False;
+0.004 active=True AirBoss_SmallLightning_Natural_v03=True;
+0.157 forced Release
+0.157 active=False AirBoss_SmallLightning_Natural_v03=True;
+2.071 active=False AirBoss_SmallLightning_Natural_v03=False;
+RESULT SmallLightningHorizontal cancel sound=True ended=0.157 tailEnd=2.071 remaining=1.915
+START IceBlockBezier natural
+0.000 active=True 
+1.003 active=True AirBoss_Icicle_Sound=True;
+1.587 active=True AirBoss_Icicle_Sound=True;AirBoss_LargeIcePillar_Broken_Sound=True;
+2.049 active=True AirBoss_Icicle_Sound=False;AirBoss_LargeIcePillar_Broken_Sound=True;
+2.645 active=True AirBoss_Icicle_Sound=False;AirBoss_LargeIcePillar_Broken_Sound=False;
+2.670 active=False AirBoss_Icicle_Sound=False;AirBoss_LargeIcePillar_Broken_Sound=False;
+RESULT IceBlockBezier natural sound=True ended=2.670 tailEnd=2.670 remaining=0.000
+START IceBlockBezier cancel
+0.000 active=True AirBoss_Icicle_Sound=False;AirBoss_LargeIcePillar_Broken_Sound=False;
+1.002 active=True AirBoss_Icicle_Sound=True;AirBoss_LargeIcePillar_Broken_Sound=False;
+1.156 forced Release
+1.156 active=False AirBoss_Icicle_Sound=True;AirBoss_LargeIcePillar_Broken_Sound=False;
+2.084 active=False AirBoss_Icicle_Sound=False;AirBoss_LargeIcePillar_Broken_Sound=False;
+RESULT IceBlockBezier cancel sound=True ended=1.156 tailEnd=2.084 remaining=0.928
+START ShortLightning natural
+0.000 active=True 
+0.030 active=True AirBoss_ShortLightning_Natural_v03=True;
+1.920 active=False AirBoss_ShortLightning_Natural_v03=True;
+1.936 active=False AirBoss_ShortLightning_Natural_v03=False;
+RESULT ShortLightning natural sound=True ended=1.920 tailEnd=1.936 remaining=0.015
+START ShortLightning cancel
+0.000 active=True AirBoss_ShortLightning_Natural_v03=False;
+0.005 active=True AirBoss_ShortLightning_Natural_v03=True;
+0.155 forced Release
+0.155 active=False AirBoss_ShortLightning_Natural_v03=True;
+1.932 active=False AirBoss_ShortLightning_Natural_v03=False;
+RESULT ShortLightning cancel sound=True ended=0.155 tailEnd=1.932 remaining=1.777
+START LightningFlight natural
+0.000 active=True 
+1.214 active=False 
+RESULT LightningFlight natural sound=False ended=1.214 tailEnd=1.214 remaining=0.000
+START LightningFlight cancel
+0.000 active=True 
+1.215 active=False 
+RESULT LightningFlight cancel sound=False ended=1.215 tailEnd=1.215 remaining=0.000
+START Blizzard natural
+0.000 active=True 
+0.033 active=True AirBoss_Blizzard_RisingGust_1s_v01=True;
+1.034 active=True AirBoss_Blizzard_RisingGust_1s_v01=False;
+1.377 active=False AirBoss_Blizzard_RisingGust_1s_v01=False;
+RESULT Blizzard natural sound=True ended=1.377 tailEnd=1.377 remaining=0.000
+START Blizzard cancel
+0.000 active=True AirBoss_Blizzard_RisingGust_1s_v01=False;
+0.005 active=True AirBoss_Blizzard_RisingGust_1s_v01=True;
+0.157 forced Release
+0.157 active=False AirBoss_Blizzard_RisingGust_1s_v01=True;
+1.009 active=False AirBoss_Blizzard_RisingGust_1s_v01=False;
+RESULT Blizzard cancel sound=True ended=0.157 tailEnd=1.009 remaining=0.852
+COMPLETE
+
+START Circle
+0.000 playing=True
+0.101 CANCEL
+0.520 playing=False
+RESULT Circle heard=True cancelled=True tail=0.419
+START Circle3
+0.000 playing=True
+0.103 CANCEL
+0.722 playing=False
+RESULT Circle3 heard=True cancelled=True tail=0.619
+START Vertical
+0.000 playing=True
+0.102 CANCEL
+0.492 playing=False
+RESULT Vertical heard=True cancelled=True tail=0.390
+START VerticalSquare
+0.000 playing=True
+0.101 CANCEL
+0.515 playing=False
+RESULT VerticalSquare heard=True cancelled=True tail=0.414
+Execute=True
+START ArmLift_Wind
+0.000 playing=False
+0.126 playing=True
+0.227 CANCEL
+0.698 playing=False
+RESULT ArmLift_Wind heard=True cancelled=True tail=0.471
+Execute=True
+START ForwardSweep
+0.000 playing=False
+0.122 playing=True
+0.226 CANCEL
+0.521 playing=False
+RESULT ForwardSweep heard=True cancelled=True tail=0.295
+Execute=True
+START ArcaneGather
+0.000 playing=False
+0.126 playing=True
+0.230 CANCEL
+0.959 playing=False
+RESULT ArcaneGather heard=True cancelled=True tail=0.730
+COMPLETE
+
+Additional static finding: CrossBurst and CrossBurst_6Point animation events reference cue 0 (Stagger Crackle). Current stagger-only guard suppresses that sound outside stagger; cue assignment needs separate review.
