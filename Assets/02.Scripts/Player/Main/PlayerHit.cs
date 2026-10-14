@@ -36,6 +36,7 @@ public class PlayerHit : MonoBehaviour
     private float _hitDuration = 0.35f;
     private float _flashInterval = 0.08f;
     private bool _knockbackLocking;
+    private bool _deathHandled;
     private void Awake()
     {
         PlayerRig rig = PlayerRig.Resolve(gameObject);
@@ -54,6 +55,8 @@ public class PlayerHit : MonoBehaviour
         {
             _originalColors[i] = _renderers[i].color;
         }
+        // 연출이 이 컴포넌트를 꺼도 사망 처리는 유지한다.
+        _health.OnDie += HandleDie;
     }
     private void OnEnable()
     {
@@ -61,7 +64,10 @@ public class PlayerHit : MonoBehaviour
         _health.OnSpent += HandleSpent;
         _health.OnHealed += HandleHealed;
         _health.OnRegenFlushed += HandleRegenFlushed;
-        _health.OnDie += HandleDie;
+        if (_health.IsDead)
+        {
+            HandleDie();
+        }
     }
     private void OnDisable()
     {
@@ -69,9 +75,15 @@ public class PlayerHit : MonoBehaviour
         _health.OnSpent -= HandleSpent;
         _health.OnHealed -= HandleHealed;
         _health.OnRegenFlushed -= HandleRegenFlushed;
-        _health.OnDie -= HandleDie;
         RestoreColors();
         ReleaseKnockbackLock();
+    }
+    private void OnDestroy()
+    {
+        if (_health != null)
+        {
+            _health.OnDie -= HandleDie;
+        }
     }
 
     private void ApplyKnockback()
@@ -89,6 +101,7 @@ public class PlayerHit : MonoBehaviour
 
     public void ResetForRespawn()
     {
+        _deathHandled = false;
         _hitUntil = 0f;
         _flashTimer = 0f;
         _moveUnlockAt = 0f;
@@ -166,6 +179,11 @@ public class PlayerHit : MonoBehaviour
     }
     private void HandleDie()
     {
+        if (_deathHandled)
+        {
+            return;
+        }
+        _deathHandled = true;
         _chargeJump.CancelChargeJump();
         _attack.CancelAttack();
         _dash.CancelDash();
