@@ -83,9 +83,9 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1722300005
+  m_SortingLayer: 6
+  m_SortingOrder: 100
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3645694794654876685
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baab4b6aae705f54f8de4711573fa98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossDamageText
-  _text: {fileID: 0}
+  _text: {fileID: 3645694794654876685}
   _fadeInDuration: 0.08
   _holdDuration: 0.25
   _fadeOutDuration: 0.35

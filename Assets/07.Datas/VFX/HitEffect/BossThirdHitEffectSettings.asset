@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: BossThirdHitEffectSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.PlayerHitEffectSettings
   globalScale: 1
-  splatColor: {r: 0.7264151, g: 0.17303576, b: 0.123353496, a: 1}
-  crackColor: {r: 1, g: 0.99, b: 0.94, a: 1}
-  dimColor: {r: 0.4716981, g: 0.087369666, b: 0.077874675, a: 1}
-  freezeDuration: 0.27
+  splatColor: {r: 1, g: 0.75357646, b: 0, a: 0}
+  crackColor: {r: 1, g: 0.10283661, b: 0, a: 1}
+  dimColor: {r: 1, g: 1, b: 1, a: 0}
+  freezeDuration: 0.15
   freezeTimeScale: 0
   splatSprite: {fileID: 0}
-  splatSize: {x: 13, y: 9.2}
+  splatSize: {x: 40, y: 40}
   splatOffset: {x: 0, y: 0.5}
   splatPopDuration: 0.066
   splatPopStartScale: 0.85
   splatReleaseDuration: 0.1
-  splatReleaseScale: {x: 1.7, y: 1.7}
-  crackSize: {x: 40, y: 8.3}
+  splatReleaseScale: {x: 3, y: 3}
+  crackSize: {x: 60, y: 20}
   crackOffset: {x: 0, y: 0.5}
   crackFadeDuration: 0.14
   crackFlickerInterval: 0.033333335
@@ -36,7 +36,7 @@ MonoBehaviour:
   dimBlendDuration: 0.15
   dimRecoverDuration: 1.2
   shadeBurst:
-    color: {r: 0.8915094, g: 0.25270787, b: 0.058873244, a: 1}
+    color: {r: 1, g: 0.9222648, b: 0.0990566, a: 1}
     count: 50
     speedRange: {x: 4, y: 28}
     sizeRange: {x: 0.22, y: 0.78}
