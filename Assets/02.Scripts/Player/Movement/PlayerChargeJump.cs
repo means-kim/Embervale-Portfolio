@@ -2,15 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 [DefaultExecutionOrder(100)]
 [DisallowMultipleComponent]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerGlide))]
-[RequireComponent(typeof(Health))]
 public class PlayerChargeJump : MonoBehaviour
 {
     private enum Phase { None, Aiming, Launching }
@@ -80,18 +71,19 @@ public class PlayerChargeJump : MonoBehaviour
     private static void ResetTimeOwner() => ChargeJumpSession.ResetTimeOwner();
     private void Awake()
     {
-        _body = GetComponent<Rigidbody2D>();
-        _input = GetComponent<PlayerInput>();
-        _move = GetComponent<PlayerMove>();
-        _jump = GetComponent<PlayerJump>();
-        _wall = GetComponent<PlayerWall>();
-        _dash = GetComponent<PlayerDash>();
-        _attack = GetComponent<PlayerAttack>();
-        _hit = GetComponent<PlayerHit>();
-        _health = GetComponent<Health>();
-        _glide = GetComponent<PlayerGlide>();
-        _aim = new ChargeJumpAim(transform, GetComponent<Collider2D>());
-        _session = new ChargeJumpSession(this, _body, _move, _jump);
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _body = rig.Body;
+        _input = rig.Input;
+        _move = rig.Move;
+        _jump = rig.Jump;
+        _wall = rig.Wall;
+        _dash = rig.Dash;
+        _attack = rig.Attack;
+        _hit = rig.Hit;
+        _health = rig.Health;
+        _glide = rig.Glide;
+        _aim = new ChargeJumpAim(transform, rig.PlayerCollider);
+        _session = new ChargeJumpSession(this, _body, _move, _jump, rig);
     }
     private void OnEnable()
     {

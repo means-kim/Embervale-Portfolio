@@ -45,6 +45,7 @@ try{
   if(System.Math.Abs(clip.length-plan.Item4)>.001f||eventsBefore!=Newtonsoft.Json.JsonConvert.SerializeObject(UnityEditor.AnimationUtility.GetAnimationEvents(clip))||settingsBefore!=Newtonsoft.Json.JsonConvert.SerializeObject(UnityEditor.AnimationUtility.GetAnimationClipSettings(clip)))throw new System.Exception("Timing/events/settings changed "+clip.name);
   if(UnityEditor.AssetDatabase.AssetPathToGUID(UnityEditor.AssetDatabase.GetAssetPath(clip))!=plan.Item6)throw new System.Exception("GUID changed");
   var go=new UnityEngine.GameObject("SpriteBindingCheck");UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go,preview);
+  go.AddComponent<UnityEngine.Animator>();
   var renderer=go.AddComponent<UnityEngine.SpriteRenderer>();
   foreach(var key in plan.Item3){clip.SampleAnimation(go,key.time+.000001f);if(renderer.sprite!=key.value)throw new System.Exception("Sample mismatch "+clip.name+" at "+key.time);}
   UnityEngine.Object.DestroyImmediate(go);
@@ -56,7 +57,9 @@ try{
  var idle=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.AnimationClip>("Assets/05.Animation/Player_Motion/Player_Idle.anim");
  var ib=System.Linq.Enumerable.Single(UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(idle),b=>b.propertyName=="m_Sprite");
  var sprite=(UnityEngine.Sprite)UnityEditor.AnimationUtility.GetObjectReferenceCurve(idle,ib)[0].value;
- foreach(var r in root.GetComponentsInChildren<UnityEngine.SpriteRenderer>(true))if(UnityEditor.AssetDatabase.GetAssetPath(r.sprite).StartsWith("Assets/04.Sprites/Player/")){r.sprite=sprite;replaced++;}
+ var body=root.GetComponent<UnityEngine.SpriteRenderer>();
+ if(body==null)throw new System.Exception("Missing root SpriteRenderer");
+ body.sprite=sprite;replaced++;
  if(replaced!=1)throw new System.Exception("Unexpected default renderer count "+replaced);
  UnityEditor.PrefabUtility.SaveAsPrefabAsset(root,prefabPath);
 }finally{UnityEditor.PrefabUtility.UnloadPrefabContents(root);}

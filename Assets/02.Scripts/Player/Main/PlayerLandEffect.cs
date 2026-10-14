@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerJump))]
 public class PlayerLandEffect : MonoBehaviour
 {
     [Header("Trigger")]
@@ -14,7 +13,7 @@ public class PlayerLandEffect : MonoBehaviour
 
     private void Awake()
     {
-        _jump = GetComponent<PlayerJump>();
+        _jump = PlayerRig.Resolve(gameObject).Jump;
     }
 
     private void OnEnable()

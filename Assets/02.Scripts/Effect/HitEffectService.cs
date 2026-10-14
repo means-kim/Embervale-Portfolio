@@ -123,6 +123,46 @@ internal sealed class HitEffectService
         }
     }
 
+    public void PlayPlayerFloatingText(
+        EffectManager host,
+        PlayerFloatingText prefab,
+        Vector3 position,
+        int amount,
+        bool plusPrefix)
+    {
+        if (!host.isActiveAndEnabled || prefab == null || amount <= 0)
+        {
+            return;
+        }
+
+        PlayerFloatingText floatingText = UnityEngine.Object.Instantiate(
+            prefab,
+            position,
+            Quaternion.identity);
+
+        _effects.Add(floatingText.gameObject);
+
+        floatingText.Play(amount, position, plusPrefix);
+        host.StartCoroutine(CleanupPlayerText(floatingText));
+    }
+
+    private IEnumerator CleanupPlayerText(PlayerFloatingText floatingText)
+    {
+        yield return null;
+
+        while (floatingText != null && floatingText.IsPlaying)
+        {
+            yield return null;
+        }
+
+        if (floatingText != null)
+        {
+            GameObject effect = floatingText.gameObject;
+            _effects.Remove(effect);
+            UnityEngine.Object.Destroy(effect);
+        }
+    }
+
     public void Clear()
     {
         foreach (GameObject effect in _effects)

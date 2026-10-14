@@ -1,0 +1,46 @@
+{
+  "success": true,
+  "error": null,
+  "rows": [
+    {
+      "motion": "dash",
+      "point": "start",
+      "t": 0.2042410000003656,
+      "frame": 26395,
+      "active": true,
+      "visualActive": true,
+      "sprite": "Dash_00"
+    },
+    {
+      "motion": "dash",
+      "point": "first observed end",
+      "t": 0.4072400000000016,
+      "frame": 26440,
+      "visualActive": false,
+      "sourceHidden": false,
+      "sprite": "JumpApex_04",
+      "state": "Jump"
+    },
+    {
+      "motion": "charge",
+      "point": "start",
+      "t": 1.0015644000000066,
+      "frame": 26585,
+      "active": true,
+      "visualActive": true,
+      "sprite": "Dash_00"
+    },
+    {
+      "motion": "charge",
+      "point": "first observed end",
+      "t": 1.2045277000001988,
+      "frame": 26633,
+      "visualActive": false,
+      "sourceHidden": false,
+      "sprite": "JumpApex_01",
+      "state": "Jump"
+    }
+  ],
+  "errors": [],
+  "scope": "Production input events and real Update timers on the scene player. Runtime position lifted for clearance; physical keys/mouse not injected."
+}

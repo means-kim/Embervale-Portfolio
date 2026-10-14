@@ -12,8 +12,12 @@ public class CinematicManager : MonoBehaviour
     [Header("연출 중 끌 컴포넌트")]
     [SerializeField] private Behaviour[] _playerControls = new Behaviour[0];
 
+    [Header("시네마틱 스킵")]
+    [SerializeField, Min(0.1f)] private float _skipHoldDuration = 1.5f;
+
     public bool IsPlaying { get; private set; }
     public Rigidbody2D PlayerBody => _player;
+    public float SkipHoldDuration => _skipHoldDuration;
 
     private Behaviour[] _lockedControls;
     private bool[] _originalStates;
@@ -189,6 +193,19 @@ public class CinematicManager : MonoBehaviour
         }
     }
 
+    // Skip is successful completion. Cancellation retains its rollback semantics.
+    public void Complete()
+    {
+        if (!IsPlaying) return;
+        StopRoutine();
+        if (_director != null)
+        {
+            _director.stopped -= HandleStopped;
+            _director.Stop();
+        }
+        EndPlayback(true);
+    }
+
     public void Cancel()
     {
         if (!IsPlaying)
@@ -196,13 +213,17 @@ public class CinematicManager : MonoBehaviour
             return;
         }
 
+        StopRoutine();
+        EndPlayback(false);
+    }
+
+    private void StopRoutine()
+    {
         if (_routine != null)
         {
             StopCoroutine(_routine);
             _routine = null;
         }
-
-        EndPlayback(false);
     }
 
     private void EndPlayback(bool completed)

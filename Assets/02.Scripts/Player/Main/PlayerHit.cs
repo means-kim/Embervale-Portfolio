@@ -1,11 +1,5 @@
 using UnityEngine;
-[RequireComponent(typeof(Health))]
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerMove))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerChargeJump))]
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = new Color(1f, 0.25f, 0.25f, 1f);
@@ -17,6 +11,10 @@ public class PlayerHit : MonoBehaviour
     [SerializeField, Min(0f)] private float _knockbackForce = 4f;
     [SerializeField] private float _knockbackUp = 2f;
     [SerializeField, Min(0f)] private float _knockbackLockTime = 0.15f;
+    [Header("피격·회복 숫자")]
+    [Tooltip("몸통 콜라이더 중심 기준 숫자 스폰 랜덤 반경.")]
+    [SerializeField] private Vector2 _textSpawnRadius = new Vector2(0.5f, 0.6f);
+    [SerializeField] private Vector3 _textSpawnOffset = Vector3.zero;
     public bool IsHit => Time.time < _hitUntil;
     private Health _health;
     private PlayerController _controller;
@@ -25,6 +23,7 @@ public class PlayerHit : MonoBehaviour
     private PlayerMove _move;
     private PlayerChargeJump _chargeJump;
     private Rigidbody2D _rigidbody;
+    private Collider2D _bodyCollider;
     private SpriteRenderer[] _renderers;
     private Color[] _originalColors;
     private float _hitUntil;
@@ -38,13 +37,15 @@ public class PlayerHit : MonoBehaviour
     private bool _knockbackLocking;
     private void Awake()
     {
-        _health = GetComponent<Health>();
-        _controller = GetComponent<PlayerController>();
-        _dash = GetComponent<PlayerDash>();
-        _attack = GetComponent<PlayerAttack>();
-        _move = GetComponent<PlayerMove>();
-        _chargeJump = GetComponent<PlayerChargeJump>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _health = rig.Health;
+        _controller = rig.Controller;
+        _dash = rig.Dash;
+        _attack = rig.Attack;
+        _move = rig.Move;
+        _chargeJump = rig.ChargeJump;
+        _rigidbody = rig.Body;
+        _bodyCollider = GetComponent<Collider2D>();
         _renderers = GetComponentsInChildren<SpriteRenderer>(true);
         _originalColors = new Color[_renderers.Length];
         for (int i = 0; i < _renderers.Length; i++)
@@ -55,11 +56,17 @@ public class PlayerHit : MonoBehaviour
     private void OnEnable()
     {
         _health.OnDamaged += HandleHit;
+        _health.OnSpent += HandleSpent;
+        _health.OnHealed += HandleHealed;
+        _health.OnRegenFlushed += HandleRegenFlushed;
         _health.OnDie += HandleDie;
     }
     private void OnDisable()
     {
         _health.OnDamaged -= HandleHit;
+        _health.OnSpent -= HandleSpent;
+        _health.OnHealed -= HandleHealed;
+        _health.OnRegenFlushed -= HandleRegenFlushed;
         _health.OnDie -= HandleDie;
         RestoreColors();
         ReleaseKnockbackLock();
@@ -100,6 +107,8 @@ public class PlayerHit : MonoBehaviour
     }
     private void HandleHit(int damage)
     {
+        // 숫자는 무적·사망 여부와 관계없이 무조건 표시한다.
+        EffectManager.Instance?.PlayPlayerDamageNumber(RandomTorsoPosition(), damage);
         if (_health.IsDead || _isInvincible)
         {
             return;
@@ -115,6 +124,43 @@ public class PlayerHit : MonoBehaviour
         ApplyKnockback();
         bool horizontal = damage < Mathf.Max(1, _heavyHitDamageThreshold);
         EffectManager.Instance?.PlayPlayerHit(transform.position, horizontal);
+    }
+    // 차지 점프·스킬 등 체력 소모. 넉백·피격 이펙트 없이 숫자만 표시한다.
+    private void HandleSpent(int amount)
+    {
+        if (_health.IsDead)
+        {
+            return;
+        }
+        EffectManager.Instance?.PlayPlayerDamageNumber(RandomTorsoPosition(), amount);
+    }
+    private void HandleHealed(int amount)
+    {
+        if (_health.IsDead)
+        {
+            return;
+        }
+        EffectManager.Instance?.PlayPlayerHealNumber(RandomTorsoPosition(), amount);
+    }
+    private void HandleRegenFlushed(int sum)
+    {
+        if (_health.IsDead)
+        {
+            return;
+        }
+        EffectManager.Instance?.PlayPlayerHealNumber(RandomTorsoPosition(), sum);
+    }
+    private Vector3 RandomTorsoPosition()
+    {
+        Vector3 center = _bodyCollider != null
+            ? (Vector3)_bodyCollider.bounds.center
+            : transform.position;
+        center += _textSpawnOffset;
+        center += new Vector3(
+            Random.Range(-Mathf.Max(0f, _textSpawnRadius.x), Mathf.Max(0f, _textSpawnRadius.x)),
+            Random.Range(-Mathf.Max(0f, _textSpawnRadius.y), Mathf.Max(0f, _textSpawnRadius.y)),
+            0f);
+        return center;
     }
     private void HandleDie()
     {

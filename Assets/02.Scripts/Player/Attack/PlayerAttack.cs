@@ -1,10 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerAttack : MonoBehaviour
@@ -40,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private PlayerAttackDataSO[] _combo;
     private int _nextCombo;
+    private int _healOnHit;
     private float _comboExpires = -1f;
     private bool _queuedCombo;
     private bool _isComboAttack;
@@ -109,13 +106,14 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Awake()
     {
-        _move = GetComponent<PlayerMove>();
-        _upgrades = GetComponent<Game.Upgrades.PlayerUpgrades>();
-        _animator = GetComponent<Animator>();
-        _jump = GetComponent<PlayerJump>();
-        _controller = GetComponent<PlayerController>();
-        _health = GetComponent<Health>();
-        _motion = new PlayerAttackMotion(this, _move, GetComponent<Rigidbody2D>());
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _move = rig.Move;
+        _upgrades = rig.Upgrades;
+        _animator = rig.Animator;
+        _jump = rig.Jump;
+        _controller = rig.Controller;
+        _health = rig.Health;
+        _motion = new PlayerAttackMotion(this, _move, rig.Body);
     }
     private bool IsGrounded => _jump.IsGrounded;
     private void ResetAirAttackCount() => _airAttackCount = 0;
@@ -170,6 +168,7 @@ public class PlayerAttack : MonoBehaviour
             _attackSpeed = Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier);
         }
         _damage = definition.Damage;
+        _healOnHit = Mathf.Max(0, definition.HealOnHit);
         if (_upgrades != null)
         {
             _damage = _upgrades.GetAttackDamage(definition.Damage);
@@ -227,7 +226,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x * _attackScale, _current.SpawnOffset.y * _attackScale);
         _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
         _instance.transform.localScale *= _attackScale;
-        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed, _currentIsThirdComboHit))
+        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed, _currentIsThirdComboHit, _healOnHit))
         {
             Destroy(_instance.gameObject);
             _instance = null;

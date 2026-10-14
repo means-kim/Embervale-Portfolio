@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Preserve upgrades, intro history, and defeated enemies on retry/continue.
-    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false, Difficulty difficulty = Difficulty.Normal)
+    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false, Difficulty difficulty = Difficulty.Normal, float introSkipHoldDuration = 1.5f)
     {
         if (IsLoading || GameIntroCinematic.IsTransitioning || string.IsNullOrWhiteSpace(sceneName))
         {
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
             Debug.Log($"GameManager: Loading {sceneName}, intro={(showIntro ? "play" : "skip")}, replayIntro={replayIntro}, newGame={newGame}.");
             if (showIntro)
             {
-                GameIntroCinematic.Begin(introClip, sceneName);
+                GameIntroCinematic.Begin(introClip, sceneName, introSkipHoldDuration);
             }
             else
             {
