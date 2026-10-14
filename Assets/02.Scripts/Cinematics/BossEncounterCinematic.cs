@@ -66,6 +66,10 @@ public class BossEncounterCinematic : CinematicSequence
             _boss.enabled = wasBossEnabled;
             _bossRenderer.enabled = wasRendererEnabled;
         }
+        else
+        {
+            EnableSkipping(_cinematicManager);
+        }
 
         return accepted;
     }
@@ -83,6 +87,7 @@ public class BossEncounterCinematic : CinematicSequence
         _director.stopped += HandleRepeatStopped;
         _director.time = 0;
         _director.Play();
+        EnableSkipping(_cinematicManager);
         return true;
     }
 
@@ -167,7 +172,7 @@ public class BossEncounterCinematic : CinematicSequence
 
     public void PlayRoar()
     {
-        if (_boss == null || _roarEffect == null)
+        if (_boss == null || _roarEffect == null || !_roarEffect.isActiveAndEnabled)
         {
             return;
         }
@@ -224,6 +229,27 @@ public class BossEncounterCinematic : CinematicSequence
         }
 
         NotifyCancelled();
+    }
+
+    public override void Skip()
+    {
+        if (!_requested) return;
+        _roarEffect?.StopImmediately();
+        PlayBossBgm();
+        if (_repeatPlayback)
+        {
+            _director.stopped -= HandleRepeatStopped;
+            _repeatPlayback = false;
+            _director.Stop();
+            HandleCompleted();
+            return;
+        }
+        if (_player != null && _walkTarget != null)
+        {
+            _player.position = new Vector2(_walkTarget.position.x, _player.position.y);
+            _playerAnimator?.PlayState(PlayerState.Idle, false);
+        }
+        _cinematicManager.Complete();
     }
 
     public override void Cancel()

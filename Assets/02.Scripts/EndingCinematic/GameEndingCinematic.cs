@@ -138,7 +138,11 @@ public class GameEndingCinematic : CinematicSequence
         bool accepted = _cinematicManager.Play(EndingRoutine(), HandleCompleted, HandleCancelled);
 
         // Ending input remains available; slow game time alone controls the descent.
-        if (accepted) _cinematicManager.ReleasePlayerControls();
+        if (accepted)
+        {
+            _cinematicManager.ReleasePlayerControls();
+            EnableSkipping(_cinematicManager);
+        }
 
         if (!accepted)
         {
@@ -412,6 +416,16 @@ public class GameEndingCinematic : CinematicSequence
         _requested = false;
 
         NotifyCancelled();
+    }
+
+    public override void Skip()
+    {
+        if (!_requested) return;
+        _endingAudioManager?.FinishEndingBgmFade();
+        AudioManager.Instance?.StopAllBgm();
+        _screenFade.alpha = 1f;
+        _screenFade.blocksRaycasts = true;
+        _cinematicManager.Complete();
     }
 
     public override void Cancel()

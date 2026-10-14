@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "error": null,
+  "liveAnimatorKeys": 64,
+  "scene": "Assets/01.Scenes/YuchanScene.unity",
+  "seen": [
+    "FirstAttack",
+    "SecondAttack",
+    "ThirdAttack",
+    "HorizontalAttack"
+  ],
+  "spawned": [
+    "FirstAttack",
+    "SecondAttack",
+    "ThirdAttack",
+    "HorizontalAttack"
+  ],
+  "actions": [
+    {
+      "t": 0.80300800000003392,
+      "name": "FirstAttack",
+      "started": true,
+      "current": "FirstAttack"
+    },
+    {
+      "t": 1.654045300000007,
+      "name": "SecondAttack",
+      "started": true,
+      "current": "SecondAttack"
+    },
+    {
+      "t": 2.5033707000000049,
+      "name": "ThirdAttack",
+      "started": true,
+      "current": "ThirdAttack"
+    },
+    {
+      "t": 3.3519394000000489,
+      "name": "HorizontalAttack",
+      "started": true,
+      "current": "HorizontalAttack"
+    }
+  ],
+  "errors": [],
+  "samples": 1303,
+  "finalState": "Idle",
+  "scope": "Production input-event dispatch and live Animator sampling; hardware keys and enemy hit timing not tested"
+}

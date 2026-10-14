@@ -144,6 +144,7 @@ public sealed class BossPhase3Cinematic : CinematicSequence
             _timelineRequested = false;
             return false;
         }
+        EnableSkipping(_cinematicManager);
         return true;
     }
 
@@ -158,7 +159,7 @@ public sealed class BossPhase3Cinematic : CinematicSequence
 
     public void PlayRoar()
     {
-        if (_timelineRequested && _boss != null)
+        if (_timelineRequested && _boss != null && _roarEffect != null && _roarEffect.isActiveAndEnabled)
         {
             _roarEffect?.Play(_boss.transform, _roarDuration, BossRoarScreenEffect.BossPhase.Phase2);
         }
@@ -246,6 +247,11 @@ public sealed class BossPhase3Cinematic : CinematicSequence
             }
         }
 
+        FinishTransition();
+    }
+
+    private void FinishTransition()
+    {
         if (_bossRenderer != null && _stateCaptured)
         {
             _bossRenderer.enabled = _bossWasVisible;
@@ -364,6 +370,25 @@ public sealed class BossPhase3Cinematic : CinematicSequence
         }
 
         IsPhase3Active = false;
+    }
+
+    public override void Skip()
+    {
+        if (!IsPlaying) return;
+        _roarEffect?.StopImmediately();
+        if (_timelineRequested) _cinematicManager.Complete();
+        if (_routine != null)
+        {
+            StopCoroutine(_routine);
+            _routine = null;
+        }
+        foreach (var state in _old)
+        {
+            SetFlash(state, 0f);
+            if (state.root != null) state.root.SetActive(false);
+        }
+        foreach (var state in _next) Restore(state);
+        FinishTransition();
     }
 
     public override void Cancel()

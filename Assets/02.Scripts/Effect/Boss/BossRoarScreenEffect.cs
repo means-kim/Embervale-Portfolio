@@ -144,6 +144,22 @@ namespace Game.Boss.Roar
 
         public void Stop() => _simulator.Stop();
 
+        public void StopImmediately()
+        {
+            _simulator.Clear();
+            _wasActive = false;
+            if (_image != null) _image.enabled = false;
+            if (_material != null)
+            {
+                _material.SetFloat(RingCountId, 0f);
+                _material.SetFloat(TintAmountId, 0f);
+                _material.SetFloat(FlashId, 0f);
+            }
+            ApplyShake(0f);
+            _onEnvelope.Invoke(0f);
+            _onShake.Invoke(0f);
+        }
+
         public void AddFlash(float amount) => _simulator.AddFlash(amount);
 
         private void ApplyStaticSettings()

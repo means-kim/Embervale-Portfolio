@@ -605,6 +605,10 @@ MonoBehaviour:
   _bossStagger: {fileID: 0}
   _staggerHitVfx: {fileID: 0}
   _staggerHitSound: {fileID: 0}
+  _bossDamageTextPrefab: {fileID: 0}
+  _bossThirdHitVfx: {fileID: 0}
+  _playerDamageTextPrefab: {fileID: -913409924115309491, guid: 6d18aa8fc5c07504e8aa39a099efdfb2, type: 3}
+  _playerHealTextPrefab: {fileID: -5867726315673441209, guid: a5c3b36d85dcbef44b3a7f42b6ec4b48, type: 3}
 --- !u!4 &225376280
 Transform:
   m_ObjectHideFlags: 0
@@ -5443,6 +5447,10 @@ PrefabInstance:
     - target: {fileID: 3034470034761653321, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _secondsPerSlot
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

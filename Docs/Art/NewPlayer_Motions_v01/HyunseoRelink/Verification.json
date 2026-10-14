@@ -1,0 +1,141 @@
+{
+  "success": true,
+  "clips": [
+    {
+      "clip": "Idle",
+      "length": 1.65,
+      "keys": 32,
+      "source": "Idle",
+      "sampled": true
+    },
+    {
+      "clip": "Run",
+      "length": 0.5208333,
+      "keys": 17,
+      "source": "Run",
+      "sampled": true
+    },
+    {
+      "clip": "DashStart",
+      "length": 0.075,
+      "keys": 16,
+      "source": "Dash",
+      "sampled": true
+    },
+    {
+      "clip": "DashLoop",
+      "length": 0.225000009,
+      "keys": 16,
+      "source": "Dash",
+      "sampled": true
+    },
+    {
+      "clip": "DashEnd",
+      "length": 0.13333334,
+      "keys": 16,
+      "source": "Dash",
+      "sampled": true
+    },
+    {
+      "clip": "JumpStart",
+      "length": 0.13333334,
+      "keys": 32,
+      "source": "JumpRise",
+      "sampled": true
+    },
+    {
+      "clip": "JumpRise",
+      "length": 0.375,
+      "keys": 32,
+      "source": "JumpRise",
+      "sampled": true
+    },
+    {
+      "clip": "JumpApex",
+      "length": 0.208333343,
+      "keys": 8,
+      "source": "JumpApex",
+      "sampled": true
+    },
+    {
+      "clip": "Fall",
+      "length": 0.375,
+      "keys": 32,
+      "source": "Fall",
+      "sampled": true
+    },
+    {
+      "clip": "Land",
+      "length": 0.166666672,
+      "keys": 32,
+      "source": "Idle",
+      "sampled": true
+    },
+    {
+      "clip": "DoubleJump",
+      "length": 0.472222239,
+      "keys": 16,
+      "source": "DoubleJump",
+      "sampled": true
+    },
+    {
+      "clip": "Hit",
+      "length": 0.208333343,
+      "keys": 8,
+      "source": "Hit",
+      "sampled": true
+    },
+    {
+      "clip": "WallClimb",
+      "length": 0.625,
+      "keys": 32,
+      "source": "WallCling",
+      "sampled": true
+    },
+    {
+      "clip": "WallCling",
+      "length": 0.450000018,
+      "keys": 32,
+      "source": "WallCling",
+      "sampled": true
+    },
+    {
+      "clip": "LeftHorizontalAttack",
+      "length": 0.3766667,
+      "keys": 12,
+      "source": "FirstAttack",
+      "sampled": true
+    },
+    {
+      "clip": "LeftLookUp",
+      "length": 0.3766667,
+      "keys": 16,
+      "source": "SecondAttack",
+      "sampled": true
+    },
+    {
+      "clip": "DownAttack",
+      "length": 1.25,
+      "keys": 16,
+      "source": "ThirdAttack",
+      "sampled": true
+    },
+    {
+      "clip": "RightHorizontalAttack",
+      "length": 1.25,
+      "keys": 16,
+      "source": "HorizontalAttack",
+      "sampled": true
+    },
+    {
+      "clip": "FireballAttack",
+      "length": 0.75,
+      "keys": 12,
+      "source": "FireballAttack",
+      "sampled": true
+    }
+  ],
+  "prefabSpriteReplacements": 1,
+  "scene": "Assets/01.Scenes/YuchanScene.unity",
+  "sceneDirty": false
+}

@@ -5,10 +5,12 @@ public class OutGameUI : MonoBehaviour
 {
     [SerializeField] private string _gameSceneName = "MainTestScene";
     [SerializeField] private VideoClip _introClip;
+    [SerializeField, Min(0.1f)] private float _introSkipHoldDuration = 1.5f;
     [SerializeField] private GameObject _newGameButton;
     [SerializeField] private CanvasGroup _difficultyButtons;
     [SerializeField] private UnityEngine.UI.Button _easyButton;
     [SerializeField] private UnityEngine.UI.Button _normalButton;
+    [SerializeField] private UnityEngine.UI.Button _hardButton;
     [SerializeField, Min(0f)] private float _difficultyFadeDuration = 0.3f;
     private bool _choosingDifficulty;
     private bool _fading;
@@ -41,7 +43,6 @@ public class OutGameUI : MonoBehaviour
         if (_newGameButton != null)
         {
             _newGameButton.SetActive(true);
-            // 첫 표시의 ImageFadeIn은 유지하고, 재진입 시 숨김/클릭 차단을 복원한다.
             if (_hasEnabled && _newGameButton.TryGetComponent<CanvasGroup>(out var group))
             {
                 group.alpha = 1f;
@@ -53,17 +54,29 @@ public class OutGameUI : MonoBehaviour
 
     public void OnClickGameStart()
     {
-        if (_choosingDifficulty) return;
-        if (!GameIntroCinematic.HasStartedGame) OnClickNewGame();
-        else GameManager.LoadGameScene(_gameSceneName, introClip: _introClip);
+        if (_choosingDifficulty)
+        {
+            return;
+        }
+        if (!GameIntroCinematic.HasStartedGame)
+        {
+            OnClickNewGame();
+        }
+        else
+        {
+            GameManager.LoadGameScene(_gameSceneName, introClip: _introClip, introSkipHoldDuration: _introSkipHoldDuration);
+        }
     }
 
     public void OnClickNewGame()
     {
-        if (_choosingDifficulty || GameManager.IsLoading || GameIntroCinematic.IsTransitioning) return;
-        if (_difficultyButtons == null || _easyButton == null || _normalButton == null)
+        if (_choosingDifficulty || GameManager.IsLoading || GameIntroCinematic.IsTransitioning)
         {
-            Debug.LogError("OutGameUI: 난이도 그룹과 Easy/Normal 버튼을 연결해주세요.", this);
+            return;
+        }
+        if (_difficultyButtons == null || _easyButton == null || _normalButton == null || _hardButton == null)
+        {
+            Debug.LogError("OutGameUI: 난이도 그룹과 Easy/Normal/hard 버튼을 연결해주세요.", this);
             return;
         }
         _choosingDifficulty = _fading = true;
@@ -105,9 +118,14 @@ public class OutGameUI : MonoBehaviour
 
     private void StartNewGame(Difficulty difficulty)
     {
-        if (!_choosingDifficulty || _fading) return;
-        if (GameManager.LoadGameScene(_gameSceneName, true, _introClip, difficulty: difficulty))
+        if (!_choosingDifficulty || _fading)
+        {
+            return;
+        }
+        if (GameManager.LoadGameScene(_gameSceneName, true, _introClip, difficulty: difficulty, introSkipHoldDuration: _introSkipHoldDuration))
+        {
             _difficultyButtons.interactable = _difficultyButtons.blocksRaycasts = false;
+        }
     }
     public void OnClickLeave()
     {

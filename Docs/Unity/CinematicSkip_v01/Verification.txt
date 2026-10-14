@@ -1,0 +1,106 @@
+Unity 6000.3.22f1 final cinematic skip verification
+
+Main scene flows and interruption checks
+PASS game scene load accepted
+PASS MainTestScene loaded
+PASS GameManager resumed gameplay
+PASS default hold duration is 1.5 seconds
+PASS partial hold shows nonblocking progress
+PASS release resets and hides progress
+PASS short hold cannot skip
+PASS threshold skips exactly once
+PASS focus interruption requires a release
+PASS fresh hold works after focus recovery
+PASS ESC held before sequence cannot skip it
+PASS release then fresh hold works on next sequence
+PASS disabled owner clears its prompt
+PASS elite starts with skip target
+PASS elite skip completes and restores camera
+PASS player control states restored after skip
+PASS elite can replay
+PASS cancel retains cancellation semantics
+PASS boss introduction starts
+PASS boss skip finishes walk and enables battle actor
+PASS boss BGM applied without its Timeline Signal
+PASS boss repeat route is skippable without manager
+PASS repeat route blocks ESC pause
+PASS boss repeat skip completes exactly once
+PASS real phase 2 request starts Timeline
+PASS phase 2 skip advances boss phase
+PASS phase 2 skip leaves moon fully covered
+PASS real phase 3 request starts Timeline
+PASS phase 3 Timeline starts roar before skip
+PASS phase 3 skip immediately clears roar
+PASS phase 3 Timeline skip completes transition
+PASS old platforms removed after skip
+PASS new platforms visible and solid after skip
+PASS phase 3 skip places boss at destination
+PASS post-Timeline platform stage remains skippable
+PASS old platforms removed after skip
+PASS new platforms visible and solid after skip
+PASS platform-stage skip advances phase exactly once
+PASS normal pause remains usable after skip
+PASS pause resume restores gameplay
+PASS phase 2 replay accepted for cancellation test
+PASS cancel clears manager and skip target
+PASS ending starts
+PASS ending enters slow motion
+PASS ending skip restores time and clears input
+PASS ending skip returns to title
+
+Video intro and real Input System ESC hold
+PASS intro load accepted
+PASS intro video produces a frame
+PASS intro uses paused game time
+PASS short real ESC hold preserves intro
+PASS real input advances visible progress with timeScale zero (focused=True, key=True)
+PASS long real ESC hold skips intro
+PASS intro skip resumes game
+PASS intro skip saves completion history
+PASS intro skip frees video overlay and player input
+
+Ending achievement video skip
+PASS game scene load accepted
+PASS MainTestScene loaded
+PASS GameManager resumed gameplay
+PASS full ending starts
+PASS achievement video stage reached
+PASS ESC skips ending achievement video to title
+PASS achievement skip restores time and removes prompt
+
+Battle entry, retry and early-loading intro skip
+PASS game scene load accepted
+PASS MainTestScene loaded
+PASS GameManager resumed gameplay
+PASS elite skip starts its actual AreaController battle
+PASS boss skip starts its actual AreaController battle
+PASS skipped battle retains configured closed arena barriers
+PASS actual retry uses skippable repeat route
+PASS retry skip resumes its battle
+PASS natural Timeline completion clears skip target
+PASS natural completion still starts battle
+PASS title reloaded for early intro test
+PASS early intro load accepted
+PASS early skip keeps overlay during scene loading
+PASS early skip reveals ready destination
+PASS early skip resumes gameplay after loading
+PASS early skip retains completion history
+
+
+
+Natural playback and inactive/active roar effects
+PASS game scene load accepted
+PASS MainTestScene loaded
+PASS GameManager resumed gameplay
+PASS scene roar effect starts intentionally inactive
+PASS inactive roar call safely returns
+PASS normal boss introduction starts
+PASS natural introduction finishes without skip
+PASS natural introduction restores controls and prompt
+PASS active roar repeat starts
+PASS Timeline starts active roar
+PASS skip during active roar completes repeat
+PASS roar skip clears visual effect and skip target
+PASS roar skip leaves boss enabled
+
+Final: 91 checks passed, 0 failed. Unity compile passed; no new runtime errors after the fixes. PlayerPrefs 9 states restored and verified; OutGameScene restored in Edit mode without scene changes. Input System ESC tests used the actual update route for intro and ending; active roar cleanup used the Skip method directly.

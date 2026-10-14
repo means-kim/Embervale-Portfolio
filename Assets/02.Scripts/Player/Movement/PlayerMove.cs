@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerGlide))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _moveSpeed = 5f;
@@ -30,9 +28,10 @@ public class PlayerMove : MonoBehaviour
     public bool HasMoveInput => Mathf.Abs(_moveInput.x) > 0.01f;
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerInput = GetComponent<PlayerInput>();
-        _glide = GetComponent<PlayerGlide>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _rigidbody = rig.Body;
+        _playerInput = rig.Input;
+        _glide = rig.Glide;
         if (transform.localScale.x < 0f)
         {
             _facingDirection = -1;

@@ -1,15 +1,6 @@
 using System;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerAnimator))]
-[RequireComponent(typeof(PlayerGlide))]
-[RequireComponent(typeof(Health))]
 public class PlayerDash : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _dashSpeed = 10f;
@@ -38,16 +29,17 @@ public class PlayerDash : MonoBehaviour
     private int _airDashCount;
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerInput = GetComponent<PlayerInput>();
-        _playerMove = GetComponent<PlayerMove>();
-        _playerWall = GetComponent<PlayerWall>();
-        _playerHit = GetComponent<PlayerHit>();
-        _playerAttack = GetComponent<PlayerAttack>();
-        _playerJump = GetComponent<PlayerJump>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
-        _glide = GetComponent<PlayerGlide>();
-        _health = GetComponent<Health>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _rigidbody = rig.Body;
+        _playerInput = rig.Input;
+        _playerMove = rig.Move;
+        _playerWall = rig.Wall;
+        _playerHit = rig.Hit;
+        _playerAttack = rig.Attack;
+        _playerJump = rig.Jump;
+        _playerAnimator = rig.PlayerAnimator;
+        _glide = rig.Glide;
+        _health = rig.Health;
     }
     private void OnEnable()
     {

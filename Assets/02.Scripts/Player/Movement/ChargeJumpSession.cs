@@ -22,14 +22,14 @@ internal sealed class ChargeJumpSession
     public bool TimeUnchanged => Mathf.Approximately(Time.timeScale, _appliedTimeScale);
     public static void ResetTimeOwner() => _timeOwner = null;
 
-    public ChargeJumpSession(PlayerChargeJump owner, Rigidbody2D body, PlayerMove move, PlayerJump jump)
+    public ChargeJumpSession(PlayerChargeJump owner, Rigidbody2D body, PlayerMove move, PlayerJump jump, PlayerRig rig)
     {
         _owner = owner;
         _body = body;
         _move = move;
         _jump = jump;
-        _animator = owner.GetComponent<PlayerAnimator>();
-        _dashGhost = owner.GetComponent<PlayerDashGhost>();
+        _animator = rig.PlayerAnimator;
+        _dashGhost = rig.DashGhost;
     }
 
     public void Begin(float slowMotionScale)

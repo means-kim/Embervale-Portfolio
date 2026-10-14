@@ -1,8 +1,5 @@
 using System;
 using UnityEngine;
-[RequireComponent(typeof(PlayerChargeJump))]
-[RequireComponent(typeof(PlayerGlide))]
-[RequireComponent(typeof(PlayerAttack))]
 public class PlayerInput : MonoBehaviour
 {
     [Serializable]
@@ -25,9 +22,10 @@ public class PlayerInput : MonoBehaviour
     private PlayerAttack _attack;
     private void Awake()
     {
-        _chargeJump = GetComponent<PlayerChargeJump>();
-        _glide = GetComponent<PlayerGlide>();
-        _attack = GetComponent<PlayerAttack>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _chargeJump = rig.ChargeJump;
+        _glide = rig.Glide;
+        _attack = rig.Attack;
     }
     public Vector2 GetDashDirection(int facingDirection) => ResolveDashDirection(
         Input.GetKey(KeyCode.W),

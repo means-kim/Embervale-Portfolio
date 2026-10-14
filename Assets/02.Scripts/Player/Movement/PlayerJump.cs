@@ -2,12 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(Health))]
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _maxJumpCount = 2;
@@ -45,14 +39,15 @@ public class PlayerJump : MonoBehaviour
     public float JumpSpeed => GetJumpPower(0);
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerCollider = GetComponent<Collider2D>();
-        _playerInput = GetComponent<PlayerInput>();
-        _playerDash = GetComponent<PlayerDash>();
-        _playerWall = GetComponent<PlayerWall>();
-        _playerHit = GetComponent<PlayerHit>();
-        _playerAttack = GetComponent<PlayerAttack>();
-        _health = GetComponent<Health>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _rigidbody = rig.Body;
+        _playerCollider = rig.PlayerCollider;
+        _playerInput = rig.Input;
+        _playerDash = rig.Dash;
+        _playerWall = rig.Wall;
+        _playerHit = rig.Hit;
+        _playerAttack = rig.Attack;
+        _health = rig.Health;
     }
     private void OnEnable()
     {

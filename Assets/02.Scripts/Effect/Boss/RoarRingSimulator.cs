@@ -58,6 +58,14 @@ namespace Game.Boss.Roar
             }
         }
 
+        // Skipping removes the remaining rings and envelope without a fade tail.
+        public void Clear()
+        {
+            _count = 0;
+            _playing = _releasing = false;
+            Envelope = Flash = ShakeAmplitude = 0f;
+        }
+
         // 타이틀 등장 등 임의 시점 플래시
         public void AddFlash(float amount) => Flash = Mathf.Max(Flash, amount);
 

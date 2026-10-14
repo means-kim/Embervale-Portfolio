@@ -8,6 +8,7 @@ public class PlayerDamageHitbox : MonoBehaviour
     private readonly HashSet<Health> _hitTargets = new();
     private Health _owner;
     private int _damage;
+    private int _healOnHit;
     private bool _isThirdComboHit;
     public bool IsThirdComboHit => _isThirdComboHit;
     public bool IsActive { get; private set; }
@@ -15,9 +16,10 @@ public class PlayerDamageHitbox : MonoBehaviour
     public bool IsConfigured => _colliders.Length > 0 && Array.TrueForAll(_colliders, c => c != null);
     private void Awake() => SetActive(false);
     private void OnDisable() => SetActive(false);
-    public void Initialize(int damage, Transform owner, bool isThirdComboHit = false)
+    public void Initialize(int damage, Transform owner, bool isThirdComboHit = false, int healOnHit = 0)
     {
         _damage = damage;
+        _healOnHit = Mathf.Max(0, healOnHit);
         _isThirdComboHit = isThirdComboHit;
         _owner = null;
         if (owner != null)
@@ -66,6 +68,10 @@ public class PlayerDamageHitbox : MonoBehaviour
         {
             _hitTargets.Remove(target);
             return false;
+        }
+        if (_healOnHit > 0)
+        {
+            _owner?.Heal(_healOnHit);
         }
         EffectManager.Instance?.PlayBossHit(hitPoint, direction, _damage, target.transform, _isThirdComboHit);
         OnDamageApplied?.Invoke(other);

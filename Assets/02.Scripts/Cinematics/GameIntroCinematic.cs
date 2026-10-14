@@ -39,6 +39,8 @@ public sealed class GameIntroCinematic : MonoBehaviour
     private float _previousTimeScale;
     private Image _loadingIndicator;
     private bool _firstFrameReady;
+    private bool _skipRequested;
+    private float _skipHoldDuration = 1.5f;
     private readonly List<PlayerInput> _lockedInputs = new List<PlayerInput>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -50,12 +52,13 @@ public sealed class GameIntroCinematic : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public static void Begin(VideoClip clip, string sceneName)
+    public static void Begin(VideoClip clip, string sceneName, float skipHoldDuration = 1.5f)
     {
         if (IsTransitioning) return;
         var root = new GameObject("LivingTree Intro Transition");
         DontDestroyOnLoad(root);
         var transition = root.AddComponent<GameIntroCinematic>();
+        transition._skipHoldDuration = skipHoldDuration;
         transition.StartCoroutine(transition.Play(clip, sceneName));
     }
 
@@ -68,7 +71,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
 
         var canvas = gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = short.MaxValue;
+        canvas.sortingOrder = short.MaxValue - 1;
         gameObject.AddComponent<GraphicRaycaster>();
         _group = gameObject.AddComponent<CanvasGroup>();
 
@@ -113,6 +116,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
         _video.errorReceived += OnError;
         _video.sendFrameReadyEvents = true;
         _video.frameReady += OnFrameReady;
+        CinematicSkipController.Begin(this, RequestSkip, _skipHoldDuration);
         // Load and activate gameplay under the opaque overlay before decoding video.
         // GameManager waits for IsTransitioning, so gameplay resumes after the intro.
         yield return null;
@@ -123,19 +127,19 @@ public sealed class GameIntroCinematic : MonoBehaviour
         // Allow the destination scene's Start methods and first render to settle.
         yield return null;
         yield return null;
-        _video.Prepare();
+        if (!_skipRequested) _video.Prepare();
 
         float deadline = Time.realtimeSinceStartup + 20f;
-        while (!_video.isPrepared && !_failed && Time.realtimeSinceStartup < deadline)
+        while (!_video.isPrepared && !_failed && !_skipRequested && Time.realtimeSinceStartup < deadline)
             yield return null;
 
-        if (!_video.isPrepared && !_failed) Fail("Video preparation timed out.");
-        if (!_failed)
+        if (!_video.isPrepared && !_failed && !_skipRequested) Fail("Video preparation timed out.");
+        if (!_failed && !_skipRequested)
         {
             double playbackEndTime = Math.Max(0.0, clip.length - TrimEndSeconds);
             _video.Play();
             deadline = Time.realtimeSinceStartup + (float)clip.length + 20f;
-            while (!_finished && !_failed && Time.realtimeSinceStartup < deadline)
+            while (!_finished && !_failed && !_skipRequested && Time.realtimeSinceStartup < deadline)
             {
                 if (_firstFrameReady && _video.time >= playbackEndTime)
                 {
@@ -145,12 +149,13 @@ public sealed class GameIntroCinematic : MonoBehaviour
                 }
                 yield return null;
             }
-            if (!_finished && !_failed) Fail("Video playback timed out.");
+            if (!_finished && !_failed && !_skipRequested) Fail("Video playback timed out.");
             _video.Pause();
         }
+        if (_skipRequested) _finished = true;
 
         // The destination is already loaded: reveal it without another loading wait.
-        if (_finished && !_failed)
+        if (_finished && (!_failed || _skipRequested))
         {
             PlayerPrefs.SetInt(StartedKey, 1);
             PlayerPrefs.Save();
@@ -158,6 +163,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
 
         // Cut directly to the already-loaded game without a fade or black interval.
         canvas.enabled = false;
+        CinematicSkipController.End(this);
         IsTransitioning = false;
         RestoreSceneInput();
         // The scene's GameManager owns the ability-selection pause when present.
@@ -190,6 +196,14 @@ public sealed class GameIntroCinematic : MonoBehaviour
         _lockedInputs.Clear();
     }
 
+    public void RequestSkip()
+    {
+        if (!IsTransitioning || _skipRequested) return;
+        _skipRequested = true;
+        _video?.Stop();
+        // The loading coroutine still waits for a ready scene before revealing gameplay.
+    }
+
     private void OnFinished(VideoPlayer source) => _finished = true;
     private void OnFrameReady(VideoPlayer source, long frame)
     {
@@ -213,6 +227,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
 
     private void OnDestroy()
     {
+        CinematicSkipController.End(this);
         SceneManager.sceneLoaded -= LockSceneInput;
         RestoreSceneInput();
         if (_loading != null && !_loading.isDone) _loading.allowSceneActivation = true;
