@@ -47,6 +47,7 @@ public sealed class InGamePauseMenu : MonoBehaviour
         if (IsOpen || _panel == null || _playerHealth == null || _playerHealth.IsDead ||
             !Mathf.Approximately(Time.timeScale, 1f) || GameManager.IsLoading ||
             GameIntroCinematic.IsTransitioning ||
+            CinematicSkipController.IsActive ||
             (UI_Ability.Instance != null && UI_Ability.Instance.IsOpen) ||
             (_cinematics != null && _cinematics.IsPlaying) ||
             (_phase3 != null && _phase3.IsPlaying) ||

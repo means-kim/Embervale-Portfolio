@@ -54,6 +54,10 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private BossDamageText _bossDamageTextPrefab;
     [SerializeField] private GameObject _bossThirdHitVfx;
 
+    [Header("플레이어 피격·회복 숫자")]
+    [SerializeField] private PlayerFloatingText _playerDamageTextPrefab;
+    [SerializeField] private PlayerFloatingText _playerHealTextPrefab;
+
     private bool _wasStaggered;
     private Vector3 _lastBossHitPosition;
     private Vector2 _lastBossHitDirection;
@@ -130,6 +134,10 @@ public class EffectManager : MonoBehaviour
     }
 
     public void PlayPlayerDeath(Vector3 position) => Spawn(_playerDeathVfx, position);
+    public void PlayPlayerDamageNumber(Vector3 position, int damage) =>
+        _hitEffects.PlayPlayerFloatingText(this, _playerDamageTextPrefab, position, damage, false);
+    public void PlayPlayerHealNumber(Vector3 position, int amount) =>
+        _hitEffects.PlayPlayerFloatingText(this, _playerHealTextPrefab, position, amount, true);
     public void PlayJump(Vector3 position) => Spawn(_jumpVfx, position);
     public void PlayDoubleJump(Vector3 position) => Spawn(_doubleJumpVfx, position);
     public void PlayLand(Vector3 position) => Spawn(_landVfx, position);

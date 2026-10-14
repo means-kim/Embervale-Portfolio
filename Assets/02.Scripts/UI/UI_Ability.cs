@@ -159,7 +159,7 @@ public class UI_Ability : MonoBehaviour
         }
         UpdateFlash();
         UpdateMouseSelection();
-        if (_allowCancel && Input.GetKeyDown(KeyCode.Escape))
+        if (_allowCancel && !CinematicSkipController.IsActive && Input.GetKeyDown(KeyCode.Escape))
         {
             Close();
         }

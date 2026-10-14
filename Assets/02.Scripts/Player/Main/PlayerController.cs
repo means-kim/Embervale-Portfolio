@@ -1,16 +1,5 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerAnimator))]
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerGlide))]
-[RequireComponent(typeof(PlayerChargeJump))]
-[RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {
     public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
@@ -35,22 +24,19 @@ public class PlayerController : MonoBehaviour
         && !_chargeJump.IsActive;
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _health = GetComponent<Health>();
-        _playerInput = GetComponent<PlayerInput>();
-        _playerMove = GetComponent<PlayerMove>();
-        _playerJump = GetComponent<PlayerJump>();
-        _playerDash = GetComponent<PlayerDash>();
-        _playerAttack = GetComponent<PlayerAttack>();
-        _playerWall = GetComponent<PlayerWall>();
-        _playerHit = GetComponent<PlayerHit>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
-        _chargeJump = GetComponent<PlayerChargeJump>();
-        _glide = GetComponent<PlayerGlide>();
-        if (_playerAnimator == null)
-        {
-            _playerAnimator = gameObject.AddComponent<PlayerAnimator>();
-        }
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _rigidbody = rig.Body;
+        _health = rig.Health;
+        _playerInput = rig.Input;
+        _playerMove = rig.Move;
+        _playerJump = rig.Jump;
+        _playerDash = rig.Dash;
+        _playerAttack = rig.Attack;
+        _playerWall = rig.Wall;
+        _playerHit = rig.Hit;
+        _playerAnimator = rig.PlayerAnimator;
+        _chargeJump = rig.ChargeJump;
+        _glide = rig.Glide;
     }
     private void OnEnable()
     {

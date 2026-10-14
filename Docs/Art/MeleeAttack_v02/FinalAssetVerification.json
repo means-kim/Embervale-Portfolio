@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-14T00:42:10.138Z",
+  "sourceFrames": [
+    {
+      "name": "FirstAttack",
+      "frames": 16,
+      "hashesMatch": true,
+      "width": 512,
+      "height": 512,
+      "alpha": true
+    },
+    {
+      "name": "SecondAttack",
+      "frames": 16,
+      "hashesMatch": true,
+      "width": 512,
+      "height": 512,
+      "alpha": true
+    },
+    {
+      "name": "ThirdAttack",
+      "frames": 16,
+      "hashesMatch": true,
+      "width": 512,
+      "height": 512,
+      "alpha": true
+    }
+  ],
+  "protectedCount": 631,
+  "unchangedCount": 627,
+  "changedSinceOctober13Baseline": [
+    "Assets/01.Scenes/HyunseoScene.unity",
+    "Assets/01.Scenes/MainTestScene.unity",
+    "Assets/03.Prefabs/Sound/AudioManager.prefab",
+    "Assets/03.Prefabs/VFX/BossDamgeText.prefab"
+  ],
+  "missing": [],
+  "changedFilesMatchCurrentGitHEAD": true,
+  "note": "Four baseline differences were already committed before this continuation. No changes or reversions were made to them."
+}

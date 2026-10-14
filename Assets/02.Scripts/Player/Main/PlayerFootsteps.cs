@@ -1,8 +1,5 @@
 using UnityEngine;
 using UnityEngine.Serialization;
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerController))]
 public class PlayerFootsteps : MonoBehaviour
 {
     [Header("Surface Banks")]
@@ -22,9 +19,10 @@ public class PlayerFootsteps : MonoBehaviour
     private bool _wasStepping;
     private void Awake()
     {
-        _move = GetComponent<PlayerMove>();
-        _jump = GetComponent<PlayerJump>();
-        _controller = GetComponent<PlayerController>();
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _move = rig.Move;
+        _jump = rig.Jump;
+        _controller = rig.Controller;
         EnsureSource();
     }
     private void EnsureSource()

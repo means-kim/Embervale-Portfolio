@@ -65,6 +65,10 @@ public class BossPhase2Cinematic : CinematicSequence
         {
             _requested = false;
         }
+        else
+        {
+            EnableSkipping(_cinematicManager);
+        }
 
         return accepted;
     }
@@ -184,6 +188,14 @@ public class BossPhase2Cinematic : CinematicSequence
         _stateCaptured = false;
         _requested = false;
         NotifyCancelled();
+    }
+
+    public override void Skip()
+    {
+        if (!_requested) return;
+        // The music normally starts via a Timeline Signal, which a skip bypasses.
+        AudioManager.Instance?.PlayBossPhase2Layers();
+        _cinematicManager.Complete();
     }
 
     public override void Cancel()

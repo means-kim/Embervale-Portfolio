@@ -81,7 +81,7 @@ internal sealed class HitEffectService
 
         if (damage > 0 && damageTextPrefab != null)
         {
-            Vector3 textPosition = ResolveDamageTextPosition(target, position);
+            Vector3 textPosition = position + Vector3.up * 5f;
 
             BossDamageText damageText = UnityEngine.Object.Instantiate(
                 damageTextPrefab,
@@ -90,7 +90,7 @@ internal sealed class HitEffectService
 
             _effects.Add(damageText.gameObject);
 
-            damageText.Play(damage, textPosition);
+            damageText.Play(damage, textPosition, isThirdComboHit);
             host.StartCoroutine(CleanupDamageText(damageText));
         }
 
@@ -106,21 +106,6 @@ internal sealed class HitEffectService
         }
     }
 
-    private static Vector3 ResolveDamageTextPosition(Transform target, Vector3 fallbackPosition)
-    {
-        if (target == null)
-        {
-            return fallbackPosition + Vector3.up;
-        }
-
-        // 보스 루트의 직속 자식으로 배치한다.
-        Transform anchor = target.Find("DamageTextAnchor");
-
-        return anchor != null
-            ? anchor.position
-            : target.position + Vector3.up;
-    }
-
     private IEnumerator CleanupDamageText(BossDamageText damageText)
     {
         yield return null;
@@ -133,6 +118,46 @@ internal sealed class HitEffectService
         if (damageText != null)
         {
             GameObject effect = damageText.gameObject;
+            _effects.Remove(effect);
+            UnityEngine.Object.Destroy(effect);
+        }
+    }
+
+    public void PlayPlayerFloatingText(
+        EffectManager host,
+        PlayerFloatingText prefab,
+        Vector3 position,
+        int amount,
+        bool plusPrefix)
+    {
+        if (!host.isActiveAndEnabled || prefab == null || amount <= 0)
+        {
+            return;
+        }
+
+        PlayerFloatingText floatingText = UnityEngine.Object.Instantiate(
+            prefab,
+            position,
+            Quaternion.identity);
+
+        _effects.Add(floatingText.gameObject);
+
+        floatingText.Play(amount, position, plusPrefix);
+        host.StartCoroutine(CleanupPlayerText(floatingText));
+    }
+
+    private IEnumerator CleanupPlayerText(PlayerFloatingText floatingText)
+    {
+        yield return null;
+
+        while (floatingText != null && floatingText.IsPlaying)
+        {
+            yield return null;
+        }
+
+        if (floatingText != null)
+        {
+            GameObject effect = floatingText.gameObject;
             _effects.Remove(effect);
             UnityEngine.Object.Destroy(effect);
         }

@@ -31,7 +31,7 @@ public class BossDamageText : MonoBehaviour
         _text.alpha = 0f;
     }
 
-    public void Play(int damage, Vector3 position)
+    public void Play(int damage, Vector3 position, bool isThirdComboHit)
     {
         if (_routine != null)
         {
@@ -45,7 +45,20 @@ public class BossDamageText : MonoBehaviour
             0f);
 
         transform.position = position;
-        _text.SetText("{0}", damage);
+
+        float randomMultiplier;
+        if (isThirdComboHit)
+        {
+            randomMultiplier = Random.Range(3000, 6001) / 1000f;
+        }
+        else
+        {
+            randomMultiplier = Random.Range(1000, 3001) / 1000f;
+        }
+
+        int displayDamage = Mathf.RoundToInt(damage * 1000f * randomMultiplier);
+
+        _text.SetText("{0}", displayDamage);
         _text.alpha = 0f;
 
         _routine = StartCoroutine(PlayRoutine(position));

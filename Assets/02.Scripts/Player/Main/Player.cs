@@ -2,37 +2,42 @@ using UnityEngine;
 using Unity.Cinemachine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(global::Health))]
-[RequireComponent(typeof(PlayerLevel))]
-[RequireComponent(typeof(PlayerGlide))]
-[RequireComponent(typeof(PlayerChargeJump))]
-[RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(PlayerDashGhost))]
-[RequireComponent(typeof(PlayerJump))]
-[RequireComponent(typeof(PlayerLandEffect))]
-[RequireComponent(typeof(PlayerWall))]
-[RequireComponent(typeof(PlayerMove))]
-[RequireComponent(typeof(PlayerHit))]
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerRig))]
 public class Player : MonoBehaviour
 {
     public event System.Action OnRestarted;
-    private Transform _checkPointTransform;
     private Rigidbody2D _rigidbody2D;
     private Vector3 _respawnPosition;
     private RespawnPoint _respawnPoint;
+    private PlayerGlide _glide;
+    private PlayerChargeJump _chargeJump;
+    private PlayerAttack _attack;
+    private PlayerDash _dash;
+    private PlayerDashGhost _dashGhost;
+    private PlayerJump _jump;
+    private PlayerLandEffect _landEffect;
+    private PlayerWall _wall;
+    private PlayerMove _move;
+    private Health _health;
+    private PlayerHit _hit;
+    private PlayerController _controller;
     private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        if (_checkPointTransform != null)
-        {
-            _respawnPosition = _checkPointTransform.position;
-        }
-        else
-        {
-            _respawnPosition = transform.position;
-        }
+        PlayerRig rig = PlayerRig.Resolve(gameObject);
+        _rigidbody2D = rig.Body;
+        _glide = rig.Glide;
+        _chargeJump = rig.ChargeJump;
+        _attack = rig.Attack;
+        _dash = rig.Dash;
+        _dashGhost = rig.DashGhost;
+        _jump = rig.Jump;
+        _landEffect = rig.LandEffect;
+        _wall = rig.Wall;
+        _move = rig.Move;
+        _health = rig.Health;
+        _hit = rig.Hit;
+        _controller = rig.Controller;
+        _respawnPosition = transform.position;
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -55,16 +60,16 @@ public class Player : MonoBehaviour
 
     public void MoveToCheckpoint(Vector3 position)
     {
-        GetComponent<PlayerGlide>().ResetForRespawn();
-        GetComponent<PlayerChargeJump>().CancelChargeJump();
+        _glide.ResetForRespawn();
+        _chargeJump.CancelChargeJump();
         Vector3 positionDelta = position - transform.position;
-        GetComponent<PlayerAttack>().CancelAttack();
-        GetComponent<PlayerDash>().CancelDash();
-        GetComponent<PlayerDashGhost>().ResetForRespawn();
-        GetComponent<PlayerJump>().ResetForRespawn();
-        GetComponent<PlayerLandEffect>().ResetForRespawn();
-        GetComponent<PlayerWall>().ResetForRespawn();
-        GetComponent<PlayerMove>().ResetForRespawn();
+        _attack.CancelAttack();
+        _dash.CancelDash();
+        _dashGhost.ResetForRespawn();
+        _jump.ResetForRespawn();
+        _landEffect.ResetForRespawn();
+        _wall.ResetForRespawn();
+        _move.ResetForRespawn();
 
         _rigidbody2D.linearVelocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0f;
@@ -85,11 +90,11 @@ public class Player : MonoBehaviour
     {
         _respawnPoint?.PrepareForRetry();
         MoveToCheckpoint(position);
-        GetComponent<global::Health>().ReviveFull();
-        GetComponent<PlayerHit>().ResetForRespawn();
-        GetComponent<PlayerDash>().ResetForRespawn();
-        GetComponent<PlayerAttack>().ResetForRespawn();
-        GetComponent<PlayerController>().ResetForRespawn();
+        _health.ReviveFull();
+        _hit.ResetForRespawn();
+        _dash.ResetForRespawn();
+        _attack.ResetForRespawn();
+        _controller.ResetForRespawn();
         OnRestarted?.Invoke();
     }
     public void SetRespawnPoint(Vector3 position)

@@ -14,14 +14,22 @@ public abstract class CinematicSequence : MonoBehaviour
     }
 
     public abstract void Cancel();
+    public abstract void Skip();
+
+    protected void EnableSkipping(CinematicManager manager)
+    {
+        CinematicSkipController.Begin(this, Skip, manager != null ? manager.SkipHoldDuration : 1.5f);
+    }
 
     protected void NotifyCompleted()
     {
+        CinematicSkipController.End(this);
         Completed?.Invoke();
     }
 
     protected void NotifyCancelled()
     {
+        CinematicSkipController.End(this);
         Cancelled?.Invoke();
     }
 }

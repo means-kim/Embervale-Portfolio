@@ -44,6 +44,10 @@ public class EliteEncounterCinematic : CinematicSequence
         {
             _playing = false;
         }
+        else
+        {
+            EnableSkipping(_cinematicManager);
+        }
 
         return accepted;
     }
@@ -138,6 +142,11 @@ public class EliteEncounterCinematic : CinematicSequence
     {
         RestoreCamera();
         NotifyCancelled();
+    }
+
+    public override void Skip()
+    {
+        if (_playing) _cinematicManager.Complete();
     }
 
     public override void Cancel()
