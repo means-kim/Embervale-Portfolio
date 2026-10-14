@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7035779636542530620}
   - component: {fileID: 166872695895585453}
   - component: {fileID: 8076720663886689820}
+  - component: {fileID: 4950364247667478378}
   m_Layer: 0
   m_Name: HorizontalAttack
   m_TagString: FireObject
@@ -334,6 +335,19 @@ MonoBehaviour:
   _hitDuration: 0.22
   _independent: 0
   _followOwner: 1
+--- !u!114 &4950364247667478378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295151123095771115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &444115046748160275
 GameObject:
   m_ObjectHideFlags: 0

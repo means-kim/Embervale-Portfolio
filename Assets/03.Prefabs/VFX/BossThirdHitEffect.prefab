@@ -5133,6 +5133,7 @@ GameObject:
   - component: {fileID: 2846345610543904993}
   - component: {fileID: 3071000326418360823}
   - component: {fileID: 7338183190410678392}
+  - component: {fileID: 4229657661971458463}
   m_Layer: 0
   m_Name: BossThirdHitEffect
   m_TagString: Untagged
@@ -5276,6 +5277,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4229657661971458463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909549382037466487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &5519702360221801224
 GameObject:
   m_ObjectHideFlags: 0

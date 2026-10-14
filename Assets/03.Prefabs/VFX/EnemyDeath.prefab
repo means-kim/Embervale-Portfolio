@@ -9938,6 +9938,7 @@ GameObject:
   - component: {fileID: 1695489613900840305}
   - component: {fileID: 3328363946193804233}
   - component: {fileID: 9146204473211369655}
+  - component: {fileID: 3952132095351566613}
   m_Layer: 0
   m_Name: EnemyDeath
   m_TagString: Untagged
@@ -14967,6 +14968,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeOnce
   _strength: 1
+--- !u!114 &9146204473211369655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112403345868107898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
+  _lifeTime: 0
+  _extraDelay: 0.1
+  _playReversed: 0
+--- !u!114 &3952132095351566613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112403345868107898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &5112403347238810573
 GameObject:
   m_ObjectHideFlags: 0
@@ -24671,18 +24700,3 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
---- !u!114 &9146204473211369655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5112403345868107898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
-  _lifeTime: 0
-  _extraDelay: 0.1
-  _playReversed: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8554198060324151534}
   - component: {fileID: -3395914145208119559}
   - component: {fileID: 6100000000000000001}
+  - component: {fileID: 7976293551719866626}
   m_Layer: 0
   m_Name: PlayerDash
   m_TagString: Untagged
@@ -257,3 +258,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VFXFlip
   _flipSprites: 1
   _mirrorOffset: 1
+--- !u!114 &7976293551719866626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53164937478022786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

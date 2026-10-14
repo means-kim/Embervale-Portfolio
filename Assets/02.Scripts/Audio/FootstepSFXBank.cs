@@ -76,6 +76,7 @@ public class FootstepSFXBank : ScriptableObject
         AudioClip clip = PickRandom();
         if (clip == null) return;
         source.pitch = RollPitch();
+        SettingsAudioSource.Bind(source);
         source.PlayOneShot(clip, Volume);
     }
 }

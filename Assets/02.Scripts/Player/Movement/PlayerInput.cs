@@ -19,6 +19,8 @@ public class PlayerInput : MonoBehaviour
     public event Action OnChargeJumpReleased;
     private PlayerChargeJump _chargeJump;
     private PlayerGlide _glide;
+    private PlayerJump _jump;
+    private PlayerWall _wall;
     private PlayerAttack _attack;
     private Health _health;
     private void Awake()
@@ -26,6 +28,8 @@ public class PlayerInput : MonoBehaviour
         PlayerRig rig = PlayerRig.Resolve(gameObject);
         _chargeJump = rig.ChargeJump;
         _glide = rig.Glide;
+        _jump = rig.Jump;
+        _wall = rig.Wall;
         _attack = rig.Attack;
         _health = rig.Health;
     }
@@ -93,9 +97,9 @@ public class PlayerInput : MonoBehaviour
         OnMoveInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnJumpInput?.Invoke();
+            HandleSpaceInput();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (GameSettings.GlideBinding == GlideKeyBinding.F && Input.GetKeyDown(KeyCode.F))
         {
             _glide.TryToggleGlide();
         }
@@ -109,6 +113,16 @@ public class PlayerInput : MonoBehaviour
         }
         CheckAttackInput();
         CheckClickVfx();
+    }
+    private void HandleSpaceInput()
+    {
+        if (GameSettings.GlideBinding == GlideKeyBinding.Space && !_wall.IsClinging &&
+            (_glide.IsGliding || (!_jump.IsGrounded && !_jump.HasRemainingJumps)))
+        {
+            _glide.TryToggleGlide();
+            return;
+        }
+        OnJumpInput?.Invoke();
     }
     private void CheckAttackInput()
     {

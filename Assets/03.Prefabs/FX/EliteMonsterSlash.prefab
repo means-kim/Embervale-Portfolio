@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3375441257086180018}
   - component: {fileID: 239666303389376253}
   - component: {fileID: 4588863112805131197}
+  - component: {fileID: 3434987181945903022}
   m_Layer: 0
   m_Name: EliteMonsterSlash
   m_TagString: Untagged
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 90
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5343808898067980143, guid: 1683ea4feacd9224290d6b3591329559, type: 3}
@@ -311,7 +312,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dc4579cd64afbf4db8be54896677ba1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterEffectHitbox
   _attacks: {fileID: 11400000, guid: 0041758887e1e4829a95ca3ef51735e2, type: 2}
   _attackType: 1
+--- !u!114 &3434987181945903022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953297581516558832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

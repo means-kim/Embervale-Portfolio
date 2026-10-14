@@ -5108,6 +5108,7 @@ GameObject:
   - component: {fileID: -1941727081841364516}
   - component: {fileID: 6474932182157257072}
   - component: {fileID: 2386459390864744225}
+  - component: {fileID: 5290198611585373057}
   m_Layer: 31
   m_Name: Fire_Object_Heavy
   m_TagString: FireObject
@@ -5358,3 +5359,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5290198611585373057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426507195566773914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

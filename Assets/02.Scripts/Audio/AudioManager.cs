@@ -86,6 +86,9 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        SettingsAudioSource.Bind(_sfxSource);
+        SettingsAudioSource.Bind(_footstepSource);
+        SettingsAudioSource.Bind(_deathSource, SettingsAudioSource.Category.Music);
         InitBgmSources();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -139,7 +142,8 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
-            source.volume = Mathf.MoveTowards(source.volume, _bgmTargetVolumes[i], Time.unscaledDeltaTime / _fadeTime);
+            SettingsAudioSource.SetBaseVolume(source, Mathf.MoveTowards(SettingsAudioSource.GetBaseVolume(source),
+                _bgmTargetVolumes[i], Time.unscaledDeltaTime / _fadeTime));
         }
     }
 
@@ -159,10 +163,11 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
-            float originalVolume = source.volume;
+            float originalVolume = SettingsAudioSource.GetBaseVolume(source);
+            SettingsAudioSource.Bind(source, SettingsAudioSource.Category.Music);
             source.playOnAwake = false;
             source.Stop();
-            source.volume = 0f;
+            SettingsAudioSource.SetBaseVolume(source, 0f);
             if (source.clip == null)
             {
                 continue;
@@ -216,7 +221,7 @@ public class AudioManager : MonoBehaviour
         {
             if (source != null)
             {
-                source.volume = 0f;
+                SettingsAudioSource.SetBaseVolume(source, 0f);
             }
         }
 
@@ -428,7 +433,7 @@ public class AudioManager : MonoBehaviour
         {
             var source = _bgmSources[i];
             if (source == null) continue;
-            _endingBgmStartVolumes[i] = source.volume;
+            _endingBgmStartVolumes[i] = SettingsAudioSource.GetBaseVolume(source);
             _endingBgmWasPlaying[i] = source.isPlaying;
         }
         if (_endingBgmDuration <= 0f) FinishEndingBgmFade();
@@ -441,7 +446,7 @@ public class AudioManager : MonoBehaviour
         float progress = Mathf.Clamp01(_endingBgmElapsed / Mathf.Max(0.001f, _endingBgmDuration));
         float gain = 1f - Mathf.SmoothStep(0f, 1f, progress);
         for (int i = 0; i < _bgmSources.Length; i++)
-            if (_bgmSources[i] != null) _bgmSources[i].volume = _endingBgmStartVolumes[i] * gain;
+            if (_bgmSources[i] != null) SettingsAudioSource.SetBaseVolume(_bgmSources[i], _endingBgmStartVolumes[i] * gain);
         if (progress >= 1f) FinishEndingBgmFade();
     }
 
@@ -454,7 +459,7 @@ public class AudioManager : MonoBehaviour
             var source = _bgmSources[i];
             if (source == null) continue;
             _endingBgmStopSamples[i] = source.timeSamples;
-            source.volume = 0f;
+            SettingsAudioSource.SetBaseVolume(source, 0f);
             source.Stop();
         }
     }
@@ -466,7 +471,7 @@ public class AudioManager : MonoBehaviour
         {
             var source = _bgmSources[i];
             if (source == null) continue;
-            source.volume = _endingBgmStartVolumes[i];
+            SettingsAudioSource.SetBaseVolume(source, _endingBgmStartVolumes[i]);
             if (_endingBgmStopped && _endingBgmWasPlaying[i])
             {
                 source.Play();

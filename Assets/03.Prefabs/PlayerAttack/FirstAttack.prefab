@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 6504751839968567790}
   - component: {fileID: 7610300340094818154}
   - component: {fileID: 7204501283301863550}
+  - component: {fileID: 950930609390863493}
   m_Layer: 0
   m_Name: FirstAttack
   m_TagString: FireObject
@@ -609,6 +610,19 @@ MonoBehaviour:
   _hitDuration: 0.22
   _independent: 0
   _followOwner: 1
+--- !u!114 &950930609390863493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862992273260027518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &8586078033141992938
 GameObject:
   m_ObjectHideFlags: 0
