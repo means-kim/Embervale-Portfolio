@@ -8,6 +8,8 @@ public class PlayerAttackDataSO : ScriptableObject
     public Vector2 SpawnOffset;
     public string AnimClipName = "FirstAttack";
     [Min(0)] public int Damage = 10;
+    [Min(0), Tooltip("적중 시 회복하는 플레이어 체력")]
+    public int HealOnHit;
     [Min(0), Tooltip("공격 발동 시 소모하는 플레이어 체력")]
     public int HealthCost;
     [Tooltip("공격 애니메이션 시작 후 공격 객체를 생성할 때까지의 시간")]

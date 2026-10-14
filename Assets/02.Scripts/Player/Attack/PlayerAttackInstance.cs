@@ -31,7 +31,7 @@ public class PlayerAttackInstance : MonoBehaviour
         _isProjectile = GetComponent<FireBallPrefab>() != null;
         _hitbox.SetActive(false);
     }
-    public bool Initialize(int damage, int direction, Transform owner, float attackSpeed = 1f, bool isThirdComboHit = false)
+    public bool Initialize(int damage, int direction, Transform owner, float attackSpeed = 1f, bool isThirdComboHit = false, int healOnHit = 0)
     {
         if (!_hitbox.IsConfigured)
         {
@@ -68,7 +68,7 @@ public class PlayerAttackInstance : MonoBehaviour
             animator.speed *= _playbackSpeed;
         }
         _initialized = true;
-        _hitbox.Initialize(damage, owner, isThirdComboHit);
+        _hitbox.Initialize(damage, owner, isThirdComboHit, healOnHit);
         _hitbox.SetActive(_hitDelay <= 0);
         return true;
     }

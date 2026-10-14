@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private PlayerAttackDataSO[] _combo;
     private int _nextCombo;
+    private int _healOnHit;
     private float _comboExpires = -1f;
     private bool _queuedCombo;
     private bool _isComboAttack;
@@ -167,6 +168,7 @@ public class PlayerAttack : MonoBehaviour
             _attackSpeed = Mathf.Max(0.01f, _upgrades.AttackSpeedMultiplier);
         }
         _damage = definition.Damage;
+        _healOnHit = Mathf.Max(0, definition.HealOnHit);
         if (_upgrades != null)
         {
             _damage = _upgrades.GetAttackDamage(definition.Damage);
@@ -224,7 +226,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 position = transform.position + new Vector3(_direction * _current.SpawnOffset.x * _attackScale, _current.SpawnOffset.y * _attackScale);
         _instance = Instantiate(_current.AttackPrefab, position, Quaternion.identity);
         _instance.transform.localScale *= _attackScale;
-        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed, _currentIsThirdComboHit))
+        if (!_instance.Initialize(_damage, _direction, transform, _attackSpeed, _currentIsThirdComboHit, _healOnHit))
         {
             Destroy(_instance.gameObject);
             _instance = null;
