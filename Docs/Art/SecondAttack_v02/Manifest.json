@@ -1,6 +1,6 @@
 {
   "name": "SecondAttack",
-  "status": "preview-only",
+  "status": "applied",
   "frames": [
     {
       "path": "Assets/04.Sprites/NewPlayer/SecondAttack_v02/Frames/SecondAttack_00.png",
@@ -432,5 +432,6 @@
   "stateSpeed": 5,
   "effectiveSeconds": 0.25,
   "uniqueFrames": 16,
-  "scaleMethod": "fixed median unobscured mask area, foot midpoint registration"
+  "scaleMethod": "fixed median unobscured mask area, foot midpoint registration",
+  "integrationReport": "../MeleeAttack_v02/ApplyVerification.json"
 }
