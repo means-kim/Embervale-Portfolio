@@ -23,6 +23,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     [Header("그로기 애니메이션 시간")]
     [SerializeField, Min(0f)] private float _enterDuration = 0.6f;
+
     [SerializeField, Min(0f)] private float _staggerDuration = 2.5f;
     [SerializeField, Min(0f)] private float _recoverDuration = 0.8f;
 
@@ -33,6 +34,7 @@ public sealed class AirBossStagger : MonoBehaviour
     private int _blockedFrame = -1;
     private bool _pending;
     private Coroutine _routine;
+    private AttackAudioCuePlayer _audioCues;
 
     public float CurrentStaggerGauge => _currentStaggerGauge;
     public float MaxStaggerGauge => Mathf.Max(1f, _maxStaggerGauge);
@@ -46,6 +48,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     private void Awake()
     {
+        _audioCues = GetComponent<AttackAudioCuePlayer>();
         if (_health == null)
         {
             _health = GetComponent<Health>();
@@ -125,7 +128,8 @@ public sealed class AirBossStagger : MonoBehaviour
 
         if (!IsRunning && Time.time - _lastHitTime >= _decayDelay)
         {
-            _currentStaggerGauge = Mathf.Max(0f, _currentStaggerGauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
+            _currentStaggerGauge =
+                Mathf.Max(0f, _currentStaggerGauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
         }
     }
 
@@ -174,6 +178,7 @@ public sealed class AirBossStagger : MonoBehaviour
         yield return new WaitForSeconds(Mathf.Max(0f, _recoverDuration));
 
         _routine = null;
+        _audioCues?.StopOwnedSounds();
         _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);
         _controller.OnStaggerFinished();
     }
@@ -182,6 +187,7 @@ public sealed class AirBossStagger : MonoBehaviour
     {
         if (_routine != null)
         {
+            _audioCues?.StopOwnedSounds();
             StopCoroutine(_routine);
             _routine = null;
             _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);

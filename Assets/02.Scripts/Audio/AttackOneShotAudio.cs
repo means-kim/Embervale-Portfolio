@@ -7,6 +7,8 @@ public sealed class AttackOneShotAudio : MonoBehaviour
     private const int MaxVoices = 16;
     private static AttackOneShotAudio _instance;
     private readonly List<AudioSource> _voices = new List<AudioSource>();
+    private readonly Dictionary<AudioSource, Object> _voiceOwners = new Dictionary<AudioSource, Object>();
+    private readonly Dictionary<AudioSource, Object> _voiceScopes = new Dictionary<AudioSource, Object>();
 
     // Runtime-created service: explicit asset names keep the policy here without
     // changing SFXData or requiring scene references. Update this list on asset rename.
@@ -23,29 +25,102 @@ public sealed class AttackOneShotAudio : MonoBehaviour
     // Each selected SO has one dedicated channel, separate from ordinary voices.
     private readonly Dictionary<SFXData, AudioSource> _restartingVoices = new Dictionary<SFXData, AudioSource>();
 
-    public static void Play(SFXData sound, float pitchMultiplier = 1f)
+    public static void Play(SFXData sound, float pitchMultiplier = 1f, Object owner = null, Object scope = null)
     {
         if (!Application.isPlaying || AudioListener.pause || sound == null || sound.Clip == null) return;
         if (_instance == null)
+        {
             _instance = new GameObject("Attack One Shot Audio").AddComponent<AttackOneShotAudio>();
-        _instance.PlaySound(sound, pitchMultiplier);
+        }
+
+        _instance.PlaySound(sound, pitchMultiplier, owner, scope);
     }
 
-    private void PlaySound(SFXData sound, float pitchMultiplier)
+    public static void StopOwned(Object owner)
     {
-        if (RestartingSounds.Contains(sound.name))
+        if (_instance == null || owner == null) return;
+        foreach (AudioSource voice in _instance._voices)
+        {
+            if (voice != null && _instance._voiceOwners.TryGetValue(voice, out Object currentOwner) &&
+                currentOwner == owner)
+            {
+                voice.Stop();
+                _instance._voiceOwners.Remove(voice);
+                _instance._voiceScopes.Remove(voice);
+            }
+        }
+    }
+
+    public static void StopScope(Object scope)
+    {
+        if (_instance == null || scope == null) return;
+        foreach (AudioSource voice in _instance._voices)
+        {
+            if (voice != null && _instance._voiceScopes.TryGetValue(voice, out Object current) && current == scope)
+            {
+                voice.Stop();
+                _instance._voiceOwners.Remove(voice);
+                _instance._voiceScopes.Remove(voice);
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        foreach (AudioSource voice in _voices)
+        {
+            if (voice == null) continue;
+            bool ownerGone = _voiceOwners.TryGetValue(voice, out Object owner) && owner == null;
+            bool scopeGone = _voiceScopes.TryGetValue(voice, out Object scope) && scope == null;
+            if (ownerGone || scopeGone)
+            {
+                voice.Stop();
+            }
+
+            if (!voice.isPlaying && !AudioListener.pause)
+            {
+                _voiceOwners.Remove(voice);
+                _voiceScopes.Remove(voice);
+            }
+        }
+    }
+
+    private void PlaySound(SFXData sound, float pitchMultiplier, Object owner, Object scope)
+    {
+        if (owner == null && RestartingSounds.Contains(sound.name))
         {
             PlayRestarting(sound);
             return;
         }
 
         AudioSource voice = null;
-        foreach (AudioSource candidate in _voices)
+        // Preserve restart-on-repeat mixing within one attack, never across owners.
+        if (owner != null && RestartingSounds.Contains(sound.name))
         {
-            if (candidate != null && !candidate.isPlaying)
+            foreach (AudioSource candidate in _voices)
             {
-                voice = candidate;
-                break;
+                if (candidate == null || candidate.clip != sound.Clip) continue;
+                bool sameScope = scope != null && _voiceScopes.TryGetValue(candidate, out Object currentScope) &&
+                                 currentScope == scope;
+                bool sameOwner = scope == null && _voiceOwners.TryGetValue(candidate, out Object currentOwner) &&
+                                 currentOwner == owner;
+                if (sameScope || sameOwner)
+                {
+                    voice = candidate;
+                    break;
+                }
+            }
+        }
+
+        if (voice == null)
+        {
+            foreach (AudioSource candidate in _voices)
+            {
+                if (candidate != null && !candidate.isPlaying)
+                {
+                    voice = candidate;
+                    break;
+                }
             }
         }
 
@@ -54,6 +129,20 @@ public sealed class AttackOneShotAudio : MonoBehaviour
             if (_voices.Count >= MaxVoices) return;
             voice = CreateVoice("Voice " + _voices.Count);
             _voices.Add(voice);
+        }
+
+        // Reused channels must never retain ownership from an earlier sound.
+        voice.Stop();
+        _voiceOwners.Remove(voice);
+        _voiceScopes.Remove(voice);
+        if (owner != null)
+        {
+            _voiceOwners[voice] = owner;
+        }
+
+        if (scope != null)
+        {
+            _voiceScopes[voice] = scope;
         }
 
         voice.clip = sound.Clip;
@@ -91,6 +180,9 @@ public sealed class AttackOneShotAudio : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_instance == this) _instance = null;
+        if (_instance == this)
+        {
+            _instance = null;
+        }
     }
 }

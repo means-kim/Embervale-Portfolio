@@ -24,10 +24,8 @@ public class AirBossForwardReach : AirBossAttackBase
     private bool _isWarningShown = false;
     private bool _hasCast = false;
 
-    public override void BeginAttack()
+    protected override void BeginAttackCore()
     {
-        Cancel();
-
         if (_controller == null)
         {
             Debug.LogError("보스 컨트롤러를 연결하세요.", this);
@@ -50,7 +48,7 @@ public class AirBossForwardReach : AirBossAttackBase
             return;
         }
 
-        _lightningFlight = attackPool.GetAttack(AirBossAttackType.LightningFlight);
+        _lightningFlight = attackPool.GetAttack(AirBossAttackType.LightningFlight, this);
 
         if (_lightningFlight == null)
         {
@@ -58,7 +56,7 @@ public class AirBossForwardReach : AirBossAttackBase
             return;
         }
 
-        _telegraph = telegraphPool.GetTelegraph(_telegraphType);
+        _telegraph = telegraphPool.GetTelegraph(_telegraphType, this);
 
         if (_telegraph == null)
         {
@@ -117,7 +115,7 @@ public class AirBossForwardReach : AirBossAttackBase
         _controller.OnActionFinished();
     }
 
-    public override void Cancel()
+    protected override void CancelCore()
     {
         _isRunning = false;
         _isWarningShown = false;

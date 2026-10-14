@@ -16,6 +16,19 @@ public class Telegraph : MonoBehaviour
 
     private TelegraphVisual _visual;
     private Coroutine _releaseSequence;
+    private AirBossAttackBase _audioScope;
+    private uint _audioGeneration;
+    private bool _hasAudioScope;
+
+    public void SetAudioScope(AirBossAttackBase scope)
+    {
+        _audioScope = scope;
+        _hasAudioScope = scope != null;
+        _audioGeneration = scope != null ? scope.AudioGeneration : 0;
+    }
+
+    private void OnDisable() => AttackOneShotAudio.StopOwned(this);
+    private void OnDestroy() => AttackOneShotAudio.StopOwned(this);
 
     private void Awake()
     {
@@ -51,7 +64,8 @@ public class Telegraph : MonoBehaviour
         );
 
         gameObject.SetActive(true);
-        AttackOneShotAudio.Play(_warningSound);
+        if (!_hasAudioScope || (_audioScope != null && _audioScope.AudioActive && _audioScope.AudioGeneration == _audioGeneration))
+            AttackOneShotAudio.Play(_warningSound, owner: this, scope: _audioScope);
     }
 
     public void Release()
@@ -71,6 +85,7 @@ public class Telegraph : MonoBehaviour
 
     public void FadeOutAndRelease()
     {
+        AttackOneShotAudio.StopOwned(this);
         if (_releaseSequence != null) return;
 
         if (!gameObject.activeInHierarchy ||
