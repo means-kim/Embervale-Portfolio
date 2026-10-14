@@ -14,6 +14,7 @@ namespace Game.Traps
         [SerializeField] private Color _flashColor = Color.white;
         private Collider2D _playerCollider;
         private Health _playerHealth;
+        private AirBossController _boss;
         private float _warningTime, _flashTime, _fadeTime, _elapsed;
         private int _damage;
         private bool _hit;
@@ -24,8 +25,10 @@ namespace Game.Traps
         public Vector3 EndPoint { get; private set; }
 
         public void Fire(Vector3 start, Vector3 end,
-            Collider2D player, float warning, float flash, float fade, int damage)
+            Collider2D player, float warning, float flash, float fade, int damage,
+            AirBossController boss = null)
         {
+            _boss = boss;
             _playerCollider = player;
             if (player != null)
             {
@@ -76,6 +79,13 @@ namespace Game.Traps
 
         private void Update()
         {
+            // 스포너보다 먼저 갱신돼도 그로기 중 섬광과 피해를 발생시키지 않는다.
+            if (_boss != null && _boss.IsStaggered)
+            {
+                Release();
+                return;
+            }
+
             _elapsed += Time.deltaTime;
             if (_stage == 0)
             {
@@ -133,6 +143,7 @@ namespace Game.Traps
             _glow.enabled = false;
             _playerCollider = null;
             _playerHealth = null;
+            _boss = null;
             gameObject.SetActive(false);
         }
 

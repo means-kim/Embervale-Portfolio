@@ -101,6 +101,7 @@ public class OutGameUI : MonoBehaviour
 
     public void OnClickEasy() => StartNewGame(Difficulty.Easy);
     public void OnClickNormal() => StartNewGame(Difficulty.Normal);
+    public void OnClickHard() => StartNewGame(Difficulty.Hard);
 
     private void StartNewGame(Difficulty difficulty)
     {
