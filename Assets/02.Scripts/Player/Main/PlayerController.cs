@@ -131,7 +131,12 @@ public class PlayerController : MonoBehaviour
         }
         if (!_playerJump.IsGrounded)
         {
-            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling;
+            if (_glide.IsGliding)
+            {
+                ChangeState(PlayerState.Glide);
+                return;
+            }
+            var stateCheck = CurrentState == PlayerState.Run || CurrentState == PlayerState.Jump || CurrentState == PlayerState.Dash || CurrentState == PlayerState.Attack || CurrentState == PlayerState.WallCling || CurrentState == PlayerState.Glide;
             if (stateCheck)
             {
                 ChangeState(PlayerState.Jump);
