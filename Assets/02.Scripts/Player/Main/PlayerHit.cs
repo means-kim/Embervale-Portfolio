@@ -22,6 +22,7 @@ public class PlayerHit : MonoBehaviour
     private PlayerAttack _attack;
     private PlayerMove _move;
     private PlayerChargeJump _chargeJump;
+    private PlayerGlide _glide;
     private Rigidbody2D _rigidbody;
     private Collider2D _bodyCollider;
     private SpriteRenderer[] _renderers;
@@ -44,6 +45,7 @@ public class PlayerHit : MonoBehaviour
         _attack = rig.Attack;
         _move = rig.Move;
         _chargeJump = rig.ChargeJump;
+        _glide = rig.Glide;
         _rigidbody = rig.Body;
         _bodyCollider = GetComponent<Collider2D>();
         _renderers = GetComponentsInChildren<SpriteRenderer>(true);
@@ -167,6 +169,7 @@ public class PlayerHit : MonoBehaviour
         _chargeJump.CancelChargeJump();
         _attack.CancelAttack();
         _dash.CancelDash();
+        _glide.CancelGlide();
         _move.SetMovementLocked(_health, true);
         _hitUntil = 0f;
         RestoreColors();
