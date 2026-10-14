@@ -17,10 +17,10 @@ namespace Game.Traps
         [SerializeField] private Transform[] _upperSpawns = new Transform[0];
         [SerializeField, Min(0f)] private float _startDelay = 1.2f;
         [Header("난이도별 공격 시작 간격 (초, X: 최소 / Y: 최대)")]
-        [SerializeField] private Vector2 _easyInterval = new Vector2(3.5f, 5f);
+        [SerializeField] private Vector2 _easyInterval = new Vector2(2.6f, 4.4f);
         [FormerlySerializedAs("_interval")]
-        [SerializeField] private Vector2 _normalInterval = new Vector2(2.5f, 4f);
-        [SerializeField] private Vector2 _hardInterval = new Vector2(1f, 1.6f);
+        [SerializeField] private Vector2 _normalInterval = new Vector2(1.8f, 2.6f);
+        [SerializeField] private Vector2 _hardInterval = new Vector2(0.8f, 1.8f);
         [SerializeField, Min(0.05f)] private float _warningTime = 0.8f;
         [SerializeField, Min(0.02f)] private float _flashTime = 0.1f;
         [SerializeField, Min(0.02f)] private float _fadeTime = 0.18f;
