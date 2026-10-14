@@ -146,7 +146,7 @@ public sealed class AttackOneShotAudio : MonoBehaviour
         }
 
         voice.clip = sound.Clip;
-        voice.volume = Mathf.Clamp01(sound.Volume);
+        SettingsAudioSource.SetBaseVolume(voice, sound.Volume);
         voice.pitch = Mathf.Clamp(sound.Pitch * pitchMultiplier, 0.5f, 1.5f);
         voice.Play();
     }
@@ -159,6 +159,7 @@ public sealed class AttackOneShotAudio : MonoBehaviour
         source.playOnAwake = false;
         source.spatialBlend = 0f;
         source.loop = false;
+        SettingsAudioSource.Bind(source);
         return source;
     }
 
@@ -173,7 +174,7 @@ public sealed class AttackOneShotAudio : MonoBehaviour
         // Discard the previous tail and restart at the asset's original volume.
         voice.Stop();
         voice.clip = sound.Clip;
-        voice.volume = Mathf.Clamp01(sound.Volume);
+        SettingsAudioSource.SetBaseVolume(voice, sound.Volume);
         voice.pitch = Mathf.Clamp(sound.Pitch, 0.5f, 1.5f);
         voice.Play();
     }

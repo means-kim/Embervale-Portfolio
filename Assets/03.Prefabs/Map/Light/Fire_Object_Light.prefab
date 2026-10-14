@@ -5108,6 +5108,7 @@ GameObject:
   - component: {fileID: 4383784568781810608}
   - component: {fileID: 9001441813242897352}
   - component: {fileID: 1939217801178358033}
+  - component: {fileID: 8349106574568132572}
   m_Layer: 31
   m_Name: Fire_Object_Light
   m_TagString: FireObject
@@ -5213,6 +5214,8 @@ MonoBehaviour:
   _unFireInteract: UnFireInteract
   _audioSource: {fileID: 1939217801178358033}
   _igniteSound: {fileID: 8300000, guid: c206499ae2672b349bb4f3f862c6d58f, type: 3}
+  _player: {fileID: 0}
+  _isHeal: 0
 --- !u!61 &9001441813242897352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5356,3 +5359,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8349106574568132572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426507195566773914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

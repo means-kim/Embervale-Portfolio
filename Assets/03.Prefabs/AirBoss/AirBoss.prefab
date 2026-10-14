@@ -534,9 +534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6f6393d11c4232914d079554ce327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 200
+  _maxHealth: 2000
   _autoRecover: 0
   _secondsPerSlot: 1.2
+  _regenFlushInterval: 5
 --- !u!114 &8679760138037404816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +607,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5070970274504918642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502e621e4c2851549a6aa18b647a9d18, type: 3}
   m_Name: 

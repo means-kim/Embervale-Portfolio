@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Vector3 _respawnPosition;
     private RespawnPoint _respawnPoint;
+    public RespawnPoint RespawnAnchor => _respawnPoint;
+    public Vector3 RespawnPosition => _respawnPoint != null ? _respawnPoint.transform.position : _respawnPosition;
     private PlayerGlide _glide;
     private PlayerChargeJump _chargeJump;
     private PlayerAttack _attack;
@@ -74,6 +76,8 @@ public class Player : MonoBehaviour
         _rigidbody2D.linearVelocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0f;
         transform.position = position;
+        _rigidbody2D.position = position;
+        Physics2D.SyncTransforms();
 
         foreach (CinemachineCamera camera in FindObjectsByType<CinemachineCamera>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {

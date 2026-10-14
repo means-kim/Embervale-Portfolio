@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3206045001149963100}
   - component: {fileID: -5587971781576540285}
   - component: {fileID: 9186349862752534080}
+  - component: {fileID: 7033436708802980989}
   m_Layer: 0
   m_Name: PlayerDeath
   m_TagString: Untagged
@@ -4733,7 +4734,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -4935,8 +4936,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a860d42459c8d0e469fe55efed388bdd, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OneShotVFX
   _lifeTime: 0
   _extraDelay: 0.1
   _playReversed: 0
+--- !u!114 &7033436708802980989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985634496115995773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

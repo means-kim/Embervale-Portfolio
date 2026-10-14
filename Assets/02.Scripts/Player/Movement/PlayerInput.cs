@@ -19,13 +19,19 @@ public class PlayerInput : MonoBehaviour
     public event Action OnChargeJumpReleased;
     private PlayerChargeJump _chargeJump;
     private PlayerGlide _glide;
+    private PlayerJump _jump;
+    private PlayerWall _wall;
     private PlayerAttack _attack;
+    private Health _health;
     private void Awake()
     {
         PlayerRig rig = PlayerRig.Resolve(gameObject);
         _chargeJump = rig.ChargeJump;
         _glide = rig.Glide;
+        _jump = rig.Jump;
+        _wall = rig.Wall;
         _attack = rig.Attack;
+        _health = rig.Health;
     }
     public Vector2 GetDashDirection(int facingDirection) => ResolveDashDirection(
         Input.GetKey(KeyCode.W),
@@ -70,6 +76,13 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
+        var glideKey = GameSettings.GlideBinding == GlideKeyBinding.F ? KeyCode.F : KeyCode.Space;
+        if (!Input.GetKey(glideKey)) _glide.HandleGlideInput(false, false);
+        if (_health != null && _health.IsDead)
+        {
+            OnMoveInput?.Invoke(Vector2.zero);
+            return;
+        }
         if (Input.GetMouseButtonDown(1))
         {
             OnChargeJumpPressed?.Invoke();
@@ -86,11 +99,11 @@ public class PlayerInput : MonoBehaviour
         OnMoveInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnJumpInput?.Invoke();
+            HandleSpaceInput();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (GameSettings.GlideBinding == GlideKeyBinding.F && Input.GetKeyDown(KeyCode.F))
         {
-            _glide.TryToggleGlide();
+            _glide.HandleGlideInput(true, true);
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -103,6 +116,17 @@ public class PlayerInput : MonoBehaviour
         CheckAttackInput();
         CheckClickVfx();
     }
+    private void HandleSpaceInput()
+    {
+        if (GameSettings.GlideBinding == GlideKeyBinding.Space && !_wall.IsClinging &&
+            (_glide.IsGliding || (!_jump.IsGrounded && !_jump.HasRemainingJumps)))
+        {
+            _glide.HandleGlideInput(true, true);
+            return;
+        }
+        OnJumpInput?.Invoke();
+    }
+    private void OnDisable() => _glide.CancelGlide();
     private void CheckAttackInput()
     {
         if (Input.GetMouseButtonDown(0))

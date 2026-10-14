@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8728339650691683754}
   - component: {fileID: 5842731693695711922}
   - component: {fileID: -5505051116565693975}
+  - component: {fileID: 594368720018114372}
   m_Layer: 0
   m_Name: PlayerSpawn
   m_TagString: Untagged
@@ -105,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 0e5d2f64024af2b42948044acd25465b, type: 2}
@@ -256,3 +257,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFXOffset
   _offset: {x: 0, y: -2.5, z: 0}
+--- !u!114 &594368720018114372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440736990562456301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

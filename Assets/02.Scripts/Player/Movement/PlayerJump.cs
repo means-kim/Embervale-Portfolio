@@ -36,6 +36,7 @@ public class PlayerJump : MonoBehaviour
     public bool IsOnPlatform => _isGrounded && _platformContacts.Count > 0;
     public bool IsJumping => _isJumping;
     public int CurrentJumpCount => _jumpCount;
+    public bool HasRemainingJumps => _jumpCount < _maxJumpCount;
     public float JumpSpeed => GetJumpPower(0);
     private void Awake()
     {
@@ -178,7 +179,7 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleDrop()
     {
-        if (!_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0)
+        if (_health.IsDead || !_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0)
         {
             return;
         }

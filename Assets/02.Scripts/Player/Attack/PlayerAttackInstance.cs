@@ -10,7 +10,6 @@ public class PlayerAttackInstance : MonoBehaviour
     [SerializeField] private bool _independent;
     [Tooltip("켜져 있으면 사라질 때까지 오너(플레이어)의 위치와 방향을 따라다닌다. 투사체(FireBall)에는 사용하지 않는다.")]
     [SerializeField] private bool _followOwner;
-    //public bool FollowOwner { get => _followOwner; set => _followOwner = value; }
     private PlayerDamageHitbox _hitbox;
     private Rigidbody2D _body;
     private PlayerMove _ownerMove;
@@ -125,5 +124,4 @@ public class PlayerAttackInstance : MonoBehaviour
         _ended = true;
         _hitbox.SetActive(false);
     }
-    //public bool TryGetHitBounds(out Bounds bounds) => _hitbox.TryGetBounds(out bounds);
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964236457429408364}
   - component: {fileID: 882327761721622536}
+  - component: {fileID: 6131753035705581017}
   m_Layer: 0
   m_Name: EndingHitSound
   m_TagString: Untagged
@@ -129,6 +130,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6131753035705581017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109749180608116134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &7612064052897547628
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4362805357523177146}
   - component: {fileID: 802468350584377373}
   - component: {fileID: -5267727765637545091}
+  - component: {fileID: 7881484630316482901}
   m_Layer: 0
   m_Name: FireBallAttack
   m_TagString: FireBallObject
@@ -328,6 +329,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7881484630316482901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827350273694473572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &7605130823752736608
 GameObject:
   m_ObjectHideFlags: 0

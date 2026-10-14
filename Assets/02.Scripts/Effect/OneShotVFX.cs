@@ -51,6 +51,7 @@ public class OneShotVFX : MonoBehaviour
         var audios = GetComponentsInChildren<AudioSource>();
         foreach (var audio in audios)
         {
+            SettingsAudioSource.Bind(audio);
             if (audio == null || audio.clip == null || audio.loop) continue;
             float t = audio.clip.length;
             if (Mathf.Abs(audio.pitch) > 0.001f) t /= Mathf.Abs(audio.pitch);

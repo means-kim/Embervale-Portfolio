@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7046350278451958722}
   - component: {fileID: 2633939715033518453}
   - component: {fileID: 2191306174086185430}
+  - component: {fileID: 5195729602287003175}
   m_Layer: 0
   m_Name: ThirdAttack
   m_TagString: FireObject
@@ -452,6 +453,19 @@ MonoBehaviour:
   _hitDuration: 0.22
   _independent: 0
   _followOwner: 1
+--- !u!114 &5195729602287003175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465590687819272544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1 &5183255069089407188
 GameObject:
   m_ObjectHideFlags: 0

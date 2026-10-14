@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// 플레이어 릭의 배선표. 같은 오브젝트에 붙은 전 컴포넌트를 Awake에서 1회만 찾아낸다.
-/// 각 능력은 GetComponent를 여러 번 호출하는 대신
-/// <c>PlayerRig.Resolve(gameObject)</c> 1회로 필요한 참조를 모두 가져간다.
-/// 릭 전체 구성 선언(RequireComponent)도 이 파일이 유일하게 들고 있다.
-/// 프리팹에 미리 붙어 있지 않아도 Resolve가 실행 중에 자동 부착한다.
-/// </summary>
 [DefaultExecutionOrder(-100)]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
