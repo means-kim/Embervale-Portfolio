@@ -8,6 +8,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Min(0f)] private float _comboResetDelay = 0.6f;
     [SerializeField, Min(0), Tooltip("공중 공격권 초기화 사이에 허용하는 공격 횟수")]
     private int _maxAirAttackCount = 3;
+    [Header("공중 마지막 타격 보너스")]
+    [SerializeField, Min(0), Tooltip("공중 마지막 타격 이펙트가 발생하는 공격에 추가할 피해량. 업그레이드·난이도 계산 후 더합니다.")]
+    private int _airFinisherBonusDamage = 10;
+    [SerializeField, Min(0), Tooltip("공중 마지막 타격이 적중하면 기존 Heal On Hit에 추가할 체력 회복량. 빗나가면 회복하지 않습니다.")]
+    private int _airFinisherBonusHeal = 10;
     [Header("공중 공격권 초기화")]
     [SerializeField, Tooltip("1단 및 2단 이상 점프가 실제 발동하면 공중 공격권을 초기화합니다.")]
     private bool _resetAirAttackCountOnJump = false;
@@ -186,6 +191,11 @@ public class PlayerAttack : MonoBehaviour
             _airAttackCount++;
         }
         _currentIsThirdComboHit = startedInAir && _maxAirAttackCount > 0 && _airAttackCount >= _maxAirAttackCount;
+        if (_currentIsThirdComboHit)
+        {
+            _damage += Mathf.Max(0, _airFinisherBonusDamage);
+            _healOnHit += Mathf.Max(0, _airFinisherBonusHeal);
+        }
         float horizontalLockDuration = _groundHorizontalLockDuration;
         if (startedInAir)
         {
