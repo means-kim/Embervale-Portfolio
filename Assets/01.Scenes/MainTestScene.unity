@@ -10653,6 +10653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
+      propertyPath: _maxHealth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
       value: EliteMonster_SnowGiant
@@ -15518,6 +15522,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1687473021}
+    - target: {fileID: 3290482276672149958, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
+      propertyPath: _maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _phase2Cinematic
       value: 
@@ -33492,7 +33500,7 @@ Transform:
   m_GameObject: {fileID: 967295556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 1.1, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
