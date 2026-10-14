@@ -11,6 +11,7 @@ public sealed class InGamePauseMenu : MonoBehaviour
     [SerializeField] private Behaviour[] _playerControls = new Behaviour[0];
     [SerializeField] private CinematicManager _cinematics;
     [SerializeField] private BossPhase3Cinematic _phase3;
+    [SerializeField] private string _mainMenuSceneName = "OutGameScene";
 
     public bool IsOpen { get; private set; }
     private bool[] _controlStates;
@@ -28,6 +29,11 @@ public sealed class InGamePauseMenu : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.IsLoading)
+        {
+            return;
+        }
+
         if (!Input.GetKeyDown(KeyCode.Escape))
         {
             return;
@@ -105,6 +111,27 @@ public sealed class InGamePauseMenu : MonoBehaviour
         if (EventSystem.current != null)
         {
             EventSystem.current.SetSelectedGameObject(_previousSelection);
+        }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        if (!IsOpen || GameManager.IsLoading)
+        {
+            return;
+        }
+
+        if (!Application.CanStreamedLevelBeLoaded(_mainMenuSceneName))
+        {
+            Debug.LogError("일시정지 메뉴: 타이틀 씬이 Build Profiles에 없습니다: " + _mainMenuSceneName, this);
+            return;
+        }
+
+        // 다음 씬에 일시정지 시간과 오디오 상태가 남지 않게 먼저 복구한다.
+        Resume();
+        if (!GameManager.LoadGameScene(_mainMenuSceneName))
+        {
+            TryOpen();
         }
     }
 

@@ -36,11 +36,11 @@ MonoBehaviour:
   dimBlendDuration: 0.15
   dimRecoverDuration: 1.2
   shadeBurst:
-    color: {r: 1, g: 0.9222648, b: 0.0990566, a: 1}
+    color: {r: 1, g: 0.8489028, b: 0, a: 1}
     count: 50
-    speedRange: {x: 4, y: 28}
+    speedRange: {x: 10, y: 40}
     sizeRange: {x: 0.22, y: 0.78}
-    lifetimeRange: {x: 0.5, y: 1.5}
+    lifetimeRange: {x: 0.4, y: 0.9}
     direction: 0
     spreadAngle: 20
     verticalSquash: 0.75
