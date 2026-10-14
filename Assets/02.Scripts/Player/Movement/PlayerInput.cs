@@ -76,6 +76,12 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.BlocksPlayerInput)
+        {
+            OnMoveInput?.Invoke(Vector2.zero);
+            return;
+        }
+
         var glideKey = GameSettings.GlideBinding == GlideKeyBinding.F ? KeyCode.F : KeyCode.Space;
         if (!Input.GetKey(glideKey)) _glide.HandleGlideInput(false, false);
         if (_health != null && _health.IsDead)

@@ -5125,6 +5125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   _comboResetDelay: 0.4
   _maxAirAttackCount: 3
+  _airFinisherBonusDamage: 10
+  _airFinisherBonusHeal: 10
   _resetAirAttackCountOnJump: 0
   _resetAirAttackCountOnAirDash: 0
   _resetAirAttackCountOnChargeJump: 1
@@ -5529,7 +5531,7 @@ MonoBehaviour:
   _launchDuration: 0.2
   _allowWithoutProjectile: 1
   _healthCost: 50
-  _cooldown: 1
+  _cooldown: 0.7
 --- !u!114 &5435474247670108114
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,13 @@ public class ResponeZone : MonoBehaviour
             return;
         }
 
+        if (GameManager.Instance != null && GameManager.Instance.IsRecentRetry)
+        {
+            Debug.LogWarning("ResponeZone: 재시작 직후 위험 구역 진입. zone=" + name +
+                             ", position=" + player.transform.position + ", destination=" +
+                             _checkPoint.transform.position + ", dead=" + player.GetComponent<Health>().IsDead, this);
+        }
+
         Respone.Instance.ResponePlayer(player, _checkPoint.transform);
     }
 }
