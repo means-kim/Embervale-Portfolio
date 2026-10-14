@@ -79,12 +79,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (MovementLocked)
         {
-            Vector2 lockedVelocity = _rigidbody.linearVelocity;
-            if (Mathf.Abs(lockedVelocity.x) > 0.001f)
-            {
-                lockedVelocity.x = 0f;
-                _rigidbody.linearVelocity = lockedVelocity;
-            }
             return;
         }
         Vector2 velocity = _rigidbody.linearVelocity;
