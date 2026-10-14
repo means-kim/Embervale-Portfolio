@@ -33,6 +33,7 @@ public sealed class AirBossStagger : MonoBehaviour
     private int _blockedFrame = -1;
     private bool _pending;
     private Coroutine _routine;
+    private AttackAudioCuePlayer _audioCues;
 
     public float CurrentStaggerGauge => _currentStaggerGauge;
     public float MaxStaggerGauge => Mathf.Max(1f, _maxStaggerGauge);
@@ -46,6 +47,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     private void Awake()
     {
+        _audioCues = GetComponent<AttackAudioCuePlayer>();
         if (_health == null)
         {
             _health = GetComponent<Health>();
@@ -174,12 +176,14 @@ public sealed class AirBossStagger : MonoBehaviour
         yield return new WaitForSeconds(Mathf.Max(0f, _recoverDuration));
 
         _routine = null;
+        _audioCues?.StopOwnedSounds();
         _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);
         _controller.OnStaggerFinished();
     }
 
     public void Cancel()
     {
+        _audioCues?.StopOwnedSounds();
         if (_routine != null)
         {
             StopCoroutine(_routine);
