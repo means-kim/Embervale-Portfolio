@@ -28,6 +28,9 @@ public class AirBossAction : MonoBehaviour
 
     private AirBossAnimation _animation;
     private AirBossAttackBase _currentAttack;
+    public AirBossAttackBase CurrentAttack => _currentAttack;
+
+    private void OnDisable() => CancelCurrentAttack();
 
     private void Awake()
     {

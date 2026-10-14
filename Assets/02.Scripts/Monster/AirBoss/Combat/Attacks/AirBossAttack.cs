@@ -12,6 +12,20 @@ public class AirBossAttack : MonoBehaviour
     public bool HasHit => _hasHit;
 
     public AirBossAttackType Type => _type;
+    public AirBossAttackBase AudioScope { get; private set; }
+    private uint _audioGeneration;
+    private bool _hasAudioScope;
+
+    public bool CanPlayAudio => !_hasAudioScope ||
+                                (AudioScope != null && AudioScope.AudioActive &&
+                                 AudioScope.AudioGeneration == _audioGeneration);
+
+    public void SetAudioScope(AirBossAttackBase scope)
+    {
+        AudioScope = scope;
+        _hasAudioScope = scope != null;
+        _audioGeneration = scope != null ? scope.AudioGeneration : 0;
+    }
 
     private Quaternion _defaultLocalRotation;
 

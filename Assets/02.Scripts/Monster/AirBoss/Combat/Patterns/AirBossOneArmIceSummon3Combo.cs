@@ -47,10 +47,8 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
         }
     }
 
-    public override void BeginAttack()
+    protected override void BeginAttackCore()
     {
-        Cancel();
-
         if (_controller == null)
         {
             Debug.LogError("보스 컨트롤러를 연결하세요.", this);
@@ -75,8 +73,8 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
 
         for (int i = 0; i < _icicles.Length; i++)
         {
-            _icicles[i] = attackPool.GetAttack(AirBossAttackType.SmallIcePillar);
-            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType);
+            _icicles[i] = attackPool.GetAttack(AirBossAttackType.SmallIcePillar, this);
+            _telegraphs[i] = telegraphPool.GetTelegraph(_telegraphType, this);
 
             if (_icicles[i] == null || _telegraphs[i] == null)
             {
@@ -175,7 +173,7 @@ public class AirBossOneArmIceSummon3Combo : AirBossAttackBase
         _controller.OnActionFinished();
     }
 
-    public override void Cancel()
+    protected override void CancelCore()
     {
         if (_sequence != null)
         {

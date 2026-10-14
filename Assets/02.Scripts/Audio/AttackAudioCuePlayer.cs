@@ -18,6 +18,7 @@ public sealed class AttackAudioCuePlayer : MonoBehaviour
     public void StopOwnedSounds() => AttackOneShotAudio.StopOwned(this);
 
     private void OnDisable() => StopOwnedSounds();
+    private void OnDestroy() => StopOwnedSounds();
 
     private void OnEnable()
     {
@@ -28,6 +29,25 @@ public sealed class AttackAudioCuePlayer : MonoBehaviour
     {
         if (!Application.isPlaying || !isActiveAndEnabled || index < 0 || index >= _cues.Length) return;
 
+        var attack = GetComponentInParent<AirBossAttack>();
+        var action = GetComponent<AirBossAction>();
+        var stagger = GetComponent<AirBossStagger>();
+        AirBossAttackBase scope = null;
+        if (attack != null)
+        {
+            if (!attack.CanPlayAudio) return;
+            scope = attack.AudioScope;
+        }
+        else if (action != null || stagger != null)
+        {
+            scope = action != null ? action.CurrentAttack : null;
+            if (scope == null || !scope.AudioActive)
+            {
+                scope = null;
+                if (stagger == null || !stagger.IsRunning) return;
+            }
+        }
+
         Cue cue = _cues[index];
         if (cue == null || cue.Sounds == null) return;
         if (_played == null || _played.Length != _cues.Length) _played = new bool[_cues.Length];
@@ -36,18 +56,7 @@ public sealed class AttackAudioCuePlayer : MonoBehaviour
         foreach (SFXData sound in cue.Sounds)
         {
             if (sound == null) continue;
-            bool staggerSound = sound.name == "Stagger_Crackle_SFX" || sound.name == "Stagger_Recovery_SFX";
-            if (staggerSound)
-            {
-                // Ignore outgoing animation events after cancellation/cross-fade.
-                var stagger = GetComponent<AirBossStagger>();
-                if (stagger == null || !stagger.IsRunning) continue;
-            }
-            var attack = GetComponentInParent<AirBossAttack>();
-            bool pillarSound = attack != null && attack.Type == AirBossAttackType.LargeIcePillar &&
-                (sound.name == "LargeIcePillar_Create_SFX" || sound.name == "LargeIcePillar_Broken_SFX");
-            bool owned = staggerSound || pillarSound;
-            AttackOneShotAudio.Play(sound, owner: owned ? this : null);
+            AttackOneShotAudio.Play(sound, owner: this, scope: scope);
         }
     }
 }

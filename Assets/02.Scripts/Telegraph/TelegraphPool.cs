@@ -39,7 +39,7 @@ public class TelegraphPool : MonoBehaviour
         }
     }
 
-    public Telegraph GetTelegraph(TelegraphType telegraphType)
+    public Telegraph GetTelegraph(TelegraphType telegraphType, AirBossAttackBase audioScope = null)
     {
         for (int i = 0; i < _telegraphPrefabs.Length; i++)
         {
@@ -51,6 +51,7 @@ public class TelegraphPool : MonoBehaviour
 
                 if (telegraph.TryReserve())
                 {
+                    telegraph.SetAudioScope(audioScope);
                     return telegraph;
                 }
             }

@@ -23,6 +23,7 @@ public sealed class AirBossStagger : MonoBehaviour
 
     [Header("그로기 애니메이션 시간")]
     [SerializeField, Min(0f)] private float _enterDuration = 0.6f;
+
     [SerializeField, Min(0f)] private float _staggerDuration = 2.5f;
     [SerializeField, Min(0f)] private float _recoverDuration = 0.8f;
 
@@ -127,7 +128,8 @@ public sealed class AirBossStagger : MonoBehaviour
 
         if (!IsRunning && Time.time - _lastHitTime >= _decayDelay)
         {
-            _currentStaggerGauge = Mathf.Max(0f, _currentStaggerGauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
+            _currentStaggerGauge =
+                Mathf.Max(0f, _currentStaggerGauge - Mathf.Max(0f, _decayPerSecond) * Time.deltaTime);
         }
     }
 
@@ -183,9 +185,9 @@ public sealed class AirBossStagger : MonoBehaviour
 
     public void Cancel()
     {
-        _audioCues?.StopOwnedSounds();
         if (_routine != null)
         {
+            _audioCues?.StopOwnedSounds();
             StopCoroutine(_routine);
             _routine = null;
             _nextStaggerTime = Time.time + Mathf.Max(0f, _cooldown);
