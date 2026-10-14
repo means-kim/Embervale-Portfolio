@@ -61,6 +61,9 @@ public class PlayerAnimator : MonoBehaviour
             if (state == PlayerState.Death || state == PlayerState.Hit)
             {
                 _chargeVisual.End();
+                Play(SimpleClips[state]);
+                ApplyPose();
+                return;
             }
             else
             {
@@ -112,8 +115,9 @@ public class PlayerAnimator : MonoBehaviour
 
     public void PlayChargeJumpLaunch(Vector2 direction)
     {
-        _chargeVisual.Begin(direction);
         Play("Dash");
+        ApplyPose();
+        _chargeVisual.Begin(direction);
     }
 
     public void EndChargeJumpLaunch()
@@ -133,6 +137,7 @@ public class PlayerAnimator : MonoBehaviour
             _jumpPhase.UpdatePhase(_body.linearVelocity.y);
             _currentClip = null;
         }
+        ApplyPose();
     }
 
     public SpriteRenderer GetChargeJumpVisualRenderer(SpriteRenderer original) => _chargeVisual.Resolve(original);
@@ -180,6 +185,15 @@ public class PlayerAnimator : MonoBehaviour
         }
         _currentClip = clipName;
         _animator.Play(clipName, 0, 0f);
+    }
+
+    private void ApplyPose()
+    {
+        // 렌더러의 회전 전환과 새 스프라이트 적용을 같은 호출에서 끝낸다.
+        if (_animator.isActiveAndEnabled && _animator.isInitialized)
+        {
+            _animator.Update(0f);
+        }
     }
 
     private void PlayPhase(string clipName)

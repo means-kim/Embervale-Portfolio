@@ -72,6 +72,7 @@ public sealed class PlayerJumpPhaseAnimator : MonoBehaviour
 
     public void Reset()
     {
+        _currentClip = null;
         _playingDoubleJump = false;
         ExitApex();
         if (_animator.speed != 1f)
@@ -119,7 +120,7 @@ public sealed class PlayerJumpPhaseAnimator : MonoBehaviour
         }
         else
         {
-            if (Time.time - _jumpEnterTime < _apexMinAirTime)
+            if (_currentClip != null && Time.time - _jumpEnterTime < _apexMinAirTime)
             {
                 return;
             }
