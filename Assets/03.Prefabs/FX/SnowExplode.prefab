@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7635830069980007790}
   - component: {fileID: 8620185923635835218}
   - component: {fileID: 5968478086052884731}
+  - component: {fileID: 4658853626051848082}
   m_Layer: 0
   m_Name: SnowExplode
   m_TagString: Untagged
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 90
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5343808898067980143, guid: 1683ea4feacd9224290d6b3591329559, type: 3}
@@ -314,7 +315,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dc4579cd64afbf4db8be54896677ba1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EliteMonsterEffectHitbox
   _attacks: {fileID: 11400000, guid: 0041758887e1e4829a95ca3ef51735e2, type: 2}
   _attackType: 0
+--- !u!114 &4658853626051848082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953297581516558832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

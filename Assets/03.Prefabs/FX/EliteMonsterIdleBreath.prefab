@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9073608272406028980}
   - component: {fileID: 4056417050623881412}
   - component: {fileID: 1567894227093168405}
+  - component: {fileID: 1252169173955568250}
   m_Layer: 0
   m_Name: EliteMonsterIdleBreath
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300003
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 90
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5343808898067980143, guid: 1683ea4feacd9224290d6b3591329559, type: 3}
@@ -225,3 +226,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1252169173955568250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953297581516558832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0

@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// 차지 점프 발사 동안 원본 SpriteRenderer를 숨기고 회전된 복제 렌더러를 대신 보여준다.
-/// PlayerAnimator에서 분리된 전담 컴포넌트. 동작은 분리 전과 동일하다.
-/// </summary>
 public sealed class PlayerChargeJumpVisual : MonoBehaviour
 {
     private SpriteRenderer _sourceRenderer;

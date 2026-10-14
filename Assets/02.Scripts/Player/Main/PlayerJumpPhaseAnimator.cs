@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// 점프 상승/정점/낙하와 공중 점프 연출을 전담한다.
-/// 임계값은 PlayerAnimator가 프리팹 기존 값을 그대로 전달해 준다.
-/// </summary>
 [RequireComponent(typeof(Animator))]
 public sealed class PlayerJumpPhaseAnimator : MonoBehaviour
 {

@@ -83,9 +83,9 @@ internal sealed class PlayerAttackMotion
         }
     }
 
-    public void EndAttack(bool continueCombo)
+    public void EndAttack()
     {
-        if (!_gravityReduced || continueCombo)
+        if (!_gravityReduced)
         {
             return;
         }

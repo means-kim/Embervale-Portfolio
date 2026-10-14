@@ -4964,6 +4964,7 @@ GameObject:
   - component: {fileID: 1681366328427763027}
   - component: {fileID: 2439466432641957540}
   - component: {fileID: 8755308839193182022}
+  - component: {fileID: 4337065059250312496}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5615,6 +5616,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc3ec170a8d0e8499e5d1d72a165859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUpgradeBinding
+--- !u!114 &4337065059250312496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034470034761653321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
 --- !u!1001 &7670024224916576648
 PrefabInstance:
   m_ObjectHideFlags: 0

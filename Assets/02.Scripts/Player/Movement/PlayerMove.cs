@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _moveInput;
     private readonly HashSet<Object> _movementLocks = new();
-    public bool MovementLocked => _movementLocks.Count > 0;
+    public bool MovementLocked => (_health != null && _health.IsDead) || _movementLocks.Count > 0;
     public bool HasMovementLockOtherThan(Object source) => HasMovementLockOtherThan(source, null);
     public bool HasMovementLockOtherThan(Object source, Object additionalSource)
     {
@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     private int _facingDirection = 1;
     private PlayerInput _playerInput;
     private PlayerGlide _glide;
+    private Health _health;
     public int FacingDirection => _facingDirection;
     public bool IsMoving => Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f;
     public bool HasMoveInput => Mathf.Abs(_moveInput.x) > 0.01f;
@@ -32,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         _rigidbody = rig.Body;
         _playerInput = rig.Input;
         _glide = rig.Glide;
+        _health = rig.Health;
         if (transform.localScale.x < 0f)
         {
             _facingDirection = -1;
@@ -77,6 +79,12 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (_health.IsDead)
+        {
+            _moveInput = Vector2.zero;
+            _rigidbody.linearVelocity = new Vector2(0f, _rigidbody.linearVelocity.y);
+            return;
+        }
         if (MovementLocked)
         {
             return;

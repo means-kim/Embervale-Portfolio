@@ -4873,7 +4873,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -9838,7 +9838,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -14759,7 +14759,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -14905,6 +14905,7 @@ GameObject:
   - component: {fileID: 2411548843753722338}
   - component: {fileID: 6907160394130401787}
   - component: {fileID: 2372173312088653864}
+  - component: {fileID: 2764105355057175085}
   m_Layer: 0
   m_Name: LevelUp
   m_TagString: Untagged
@@ -14978,7 +14979,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1722300004
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_MaskInteraction: 0
   m_RenderMode: 4
@@ -20124,3 +20125,16 @@ MonoBehaviour:
   _lifeTime: 3
   _extraDelay: 0.1
   _playReversed: 0
+--- !u!114 &2764105355057175085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771972552311404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d33879ea7259914ab2dc90666230209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsAudioSource
+  _category: 0
