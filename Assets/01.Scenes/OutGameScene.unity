@@ -185,8 +185,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291618559
-  m_fontColor: {r: 1, g: 0.9, b: 0.8, a: 1}
+    rgba: 4289436037
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 163167152}
   - component: {fileID: 163167156}
   - component: {fileID: 163167151}
+  - component: {fileID: 163167157}
   m_Layer: 5
   m_Name: EasyButton
   m_TagString: Untagged
@@ -583,13 +584,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -618,6 +619,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &163167157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163167148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 2027512609}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &169734484
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +776,7 @@ GameObject:
   - component: {fileID: 239449262}
   - component: {fileID: 239449261}
   - component: {fileID: 239449260}
+  - component: {fileID: 239449267}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -833,13 +852,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -946,6 +965,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
+--- !u!114 &239449267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239449257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 126490171}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!4 &321497098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2366947515187342971, guid: 39b269506d3a57d46b8dadee96dd04fe, type: 3}
@@ -1124,8 +1160,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291618559
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+    rgba: 4289436037
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1211,6 +1247,7 @@ GameObject:
   - component: {fileID: 972237328}
   - component: {fileID: 972237327}
   - component: {fileID: 972237334}
+  - component: {fileID: 972237335}
   m_Layer: 5
   m_Name: LeaveButton
   m_TagString: Untagged
@@ -1286,13 +1323,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1399,6 +1436,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &972237335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972237325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 1848953855}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &1019447125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1635,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1697,6 +1751,7 @@ GameObject:
   - component: {fileID: 1258382392}
   - component: {fileID: 1258382396}
   - component: {fileID: 1258382391}
+  - component: {fileID: 1258382397}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1835,13 +1890,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1870,6 +1925,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1258382397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258382389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 1151679511}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &1295915489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,6 +1957,7 @@ GameObject:
   - component: {fileID: 1295915491}
   - component: {fileID: 1295915490}
   - component: {fileID: 1295915492}
+  - component: {fileID: 1295915497}
   m_Layer: 5
   m_Name: HardButton
   m_TagString: Untagged
@@ -1913,13 +1986,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -2058,6 +2131,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 2048, y: 683}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1295915497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295915489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 1420359553}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &1310167838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2301,7 @@ GameObject:
   - component: {fileID: 1391508361}
   - component: {fileID: 1391508360}
   - component: {fileID: 1391508359}
+  - component: {fileID: 1391508366}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -2286,13 +2377,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -2399,6 +2490,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
+--- !u!114 &1391508366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391508357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 1596232166}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &1420359551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,7 +2574,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2856,8 +2964,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291618559
-  m_fontColor: {r: 1, g: 0.9, b: 0.8, a: 1}
+    rgba: 4289436037
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3291,6 +3399,7 @@ GameObject:
   - component: {fileID: 1729473275}
   - component: {fileID: 1729473274}
   - component: {fileID: 1729473273}
+  - component: {fileID: 1729473279}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -3351,13 +3460,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -3464,6 +3573,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
+--- !u!114 &1729473279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729473271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 888104275}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1001 &1746134815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3944,8 +4070,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291618559
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+    rgba: 4289436037
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4109,6 +4235,7 @@ GameObject:
   - component: {fileID: 2001746463}
   - component: {fileID: 2001746462}
   - component: {fileID: 2001746465}
+  - component: {fileID: 2001746470}
   m_Layer: 5
   m_Name: NormalButton
   m_TagString: Untagged
@@ -4137,13 +4264,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -4282,6 +4409,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 2048, y: 683}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2001746470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001746461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 2134970159}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &2011494527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,8 +4492,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291618559
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+    rgba: 4289436037
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4486,7 +4630,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  m_fontColor: {r: 1, g: 0.7, b: 0.5, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4572,6 +4716,7 @@ GameObject:
   - component: {fileID: 2037058906}
   - component: {fileID: 2037058905}
   - component: {fileID: 2037058909}
+  - component: {fileID: 2037058910}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -4635,13 +4780,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.15
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -4720,6 +4865,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2037058910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037058903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f720e17c9faf69d459ca87de1ceeeb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseButtonTextHighlight
+  _label: {fileID: 2011494529}
+  _theme: {fileID: 11400000, guid: 43edd0413bcf52843a010c8155df7871, type: 2}
+  _normalColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
+  _highlightColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  _blendDuration: 0.12
 --- !u!1 &2063569016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,7 +5045,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.9019608, b: 0.8, a: 1}
+  m_fontColor: {r: 0.52156866, g: 0.6, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
