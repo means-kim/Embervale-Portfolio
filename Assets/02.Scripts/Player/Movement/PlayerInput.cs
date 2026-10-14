@@ -20,12 +20,14 @@ public class PlayerInput : MonoBehaviour
     private PlayerChargeJump _chargeJump;
     private PlayerGlide _glide;
     private PlayerAttack _attack;
+    private Health _health;
     private void Awake()
     {
         PlayerRig rig = PlayerRig.Resolve(gameObject);
         _chargeJump = rig.ChargeJump;
         _glide = rig.Glide;
         _attack = rig.Attack;
+        _health = rig.Health;
     }
     public Vector2 GetDashDirection(int facingDirection) => ResolveDashDirection(
         Input.GetKey(KeyCode.W),
@@ -70,6 +72,11 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
+        if (_health != null && _health.IsDead)
+        {
+            OnMoveInput?.Invoke(Vector2.zero);
+            return;
+        }
         if (Input.GetMouseButtonDown(1))
         {
             OnChargeJumpPressed?.Invoke();

@@ -178,7 +178,7 @@ public class PlayerJump : MonoBehaviour
     }
     private void HandleDrop()
     {
-        if (!_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0)
+        if (_health.IsDead || !_isGrounded || _playerDash.IsDashing || _playerCollider == null || _platformContacts.Count == 0)
         {
             return;
         }
