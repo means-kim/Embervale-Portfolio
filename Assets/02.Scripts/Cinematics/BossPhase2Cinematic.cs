@@ -17,6 +17,7 @@ public class BossPhase2Cinematic : CinematicSequence
     [SerializeField] private GameObject _moonCover;
     [SerializeField] private Light2D _moonLight;
     [SerializeField] private SpriteMask _moonMask;
+    [SerializeField] private Renderer _moonRenderer;
 
     public bool IsPlaying => _requested;
 
@@ -29,6 +30,7 @@ public class BossPhase2Cinematic : CinematicSequence
     private bool _coverRendererWasEnabled;
     private bool _lightWasEnabled;
     private bool _maskWasEnabled;
+    private bool _moonWasEnabled;
     private Vector3 _bossOriginalPosition;
     private Vector3 _maskOriginalScale;
     private SpriteMaskInteraction _originalMaskInteraction;
@@ -93,6 +95,7 @@ public class BossPhase2Cinematic : CinematicSequence
         _coverRendererWasEnabled = _coverRenderer.enabled;
         _lightWasEnabled = _moonLight.enabled;
         _maskWasEnabled = _moonMask.enabled;
+        _moonWasEnabled = _moonRenderer != null && _moonRenderer.enabled;
         _maskOriginalScale = _moonMask.transform.localScale;
         _originalMaskInteraction = _coverRenderer.maskInteraction;
         _stateCaptured = true;
@@ -151,6 +154,11 @@ public class BossPhase2Cinematic : CinematicSequence
     {
         FinishMoonCover();
         ReturnBossToOriginalPosition();
+        // 가림 애니메이션이 끝나면 달과 검은 덮개를 모두 숨긴다.
+        if (_moonRenderer != null) _moonRenderer.enabled = false;
+        if (_coverRenderer != null) _coverRenderer.enabled = false;
+        if (_moonMask != null) _moonMask.enabled = false;
+        if (_moonCover != null) _moonCover.SetActive(false);
         _stateCaptured = false;
         _requested = false;
         NotifyCompleted();
@@ -160,6 +168,11 @@ public class BossPhase2Cinematic : CinematicSequence
     {
         if (_stateCaptured)
         {
+            if (_moonRenderer != null)
+            {
+                _moonRenderer.enabled = _moonWasEnabled;
+            }
+
             if (_coverRenderer != null)
             {
                 _coverRenderer.enabled = _coverRendererWasEnabled;

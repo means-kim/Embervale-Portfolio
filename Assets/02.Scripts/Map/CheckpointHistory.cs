@@ -6,12 +6,16 @@ public static class CheckpointHistory
 {
     private static string _scenePath;
     private static string _checkpointPath;
+    private static Vector3 _checkpointPosition;
+    private static bool _hasCheckpoint;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void Clear()
     {
         _scenePath = null;
         _checkpointPath = null;
+        _checkpointPosition = Vector3.zero;
+        _hasCheckpoint = false;
     }
 
     public static void Record(Player player, Transform checkpoint)
@@ -21,11 +25,23 @@ public static class CheckpointHistory
 
         _scenePath = checkpoint.gameObject.scene.path;
         _checkpointPath = GetPath(checkpoint);
+        _checkpointPosition = checkpoint.position;
+        _hasCheckpoint = true;
+    }
+
+    // 씬을 지우기 전에 실제 플레이어가 가진 복귀 위치를 보존한다.
+    public static void RecordCurrent(Player player)
+    {
+        if (player == null) return;
+        _scenePath = player.gameObject.scene.path;
+        _checkpointPosition = player.RespawnPosition;
+        _checkpointPath = player.RespawnAnchor != null ? GetPath(player.RespawnAnchor.transform) : null;
+        _hasCheckpoint = true;
     }
 
     public static bool Restore(Scene scene)
     {
-        if (_checkpointPath == null || scene.path != _scenePath) return false;
+        if (!_hasCheckpoint || scene.path != _scenePath) return false;
 
         Player player = null;
         Transform checkpoint = null;
@@ -41,10 +57,19 @@ public static class CheckpointHistory
             }
         }
 
-        if (player == null || checkpoint == null)
+        if (player == null)
         {
             Debug.LogWarning("CheckpointHistory: 재시작할 플레이어 또는 체크포인트를 찾을 수 없습니다.");
             return false;
+        }
+
+        if (checkpoint == null)
+        {
+            if (_checkpointPath != null)
+                Debug.LogWarning("CheckpointHistory: 체크포인트 오브젝트를 찾지 못해 저장된 월드 위치로 복원합니다.");
+            player.SetRespawnPoint(_checkpointPosition);
+            player.MoveToCheckpoint(_checkpointPosition);
+            return true;
         }
 
         RespawnPoint point = checkpoint.GetComponent<RespawnPoint>();
