@@ -1,0 +1,13 @@
+const fs=require('fs'),path=require('path'),{createCanvas}=require('../NewPlayer_Motions_v01/art-utils.cjs');
+const specs={
+ FirstAttack:{hands:[[239,327],[221,304],[193,284],[179,260],[245,234],[337,240],[398,255],[396,279],[344,300],[282,289],[232,267],[213,275],[220,297],[230,313],[239,325],[239,327]],elbows:[[230,288],[201,278],[185,250],[202,223],[248,218],[302,222],[349,233],[353,254],[317,271],[264,260],[223,242],[208,250],[213,271],[224,286],[230,289],[230,288]],headY:[194,197,198,198,196,194,193,194,199,201,200,198,197,195,194,194],lean:[0,-3,-7,-9,0,8,13,16,14,8,1,-3,-2,0,0,0]},
+ ThirdAttack:{hands:[[239,327],[250,269],[252,182],[288,100],[335,77],[386,105],[418,177],[416,260],[382,333],[329,371],[266,377],[218,349],[214,316],[231,313],[239,325],[239,327]],elbows:[[230,288],[231,237],[231,207],[265,162],[298,158],[324,179],[345,222],[338,268],[308,302],[270,328],[233,319],[218,298],[212,284],[222,287],[230,289],[230,288]],headY:[194,192,189,186,184,187,193,201,211,216,213,207,202,198,195,194],lean:[0,0,-2,-4,-3,0,9,16,19,17,11,6,1,0,0,0]}
+};
+for(const [name,s]of Object.entries(specs)){const dir=path.join(__dirname,name);fs.mkdirSync(dir,{recursive:true});const c=createCanvas(2048,2048),x=c.getContext('2d');x.fillStyle='#edf2f7';x.fillRect(0,0,2048,2048);let poses=[];
+for(let i=0;i<16;i++){x.save();x.translate(i%4*512,Math.floor(i/4)*512);const lean=s.lean[i],head=[297+lean,s.headY[i]],hip=[265,325],shoulder=[247+lean,247+(s.headY[i]-194)*.5],hand=s.hands[i],elbow=s.elbows[i];
+function line(points,col,w){x.strokeStyle=col;x.lineWidth=w;x.lineCap='round';x.lineJoin='round';x.beginPath();points.forEach((p,j)=>j?x.lineTo(...p):x.moveTo(...p));x.stroke();}
+line([hip,[239,366],[206,410]],'#4c819e',18);line([[283+lean,250],[304,286],[290,305]],'#4c819e',13);
+x.fillStyle='#99a9ba';x.beginPath();x.ellipse(267+lean,280,30,55,lean*.012,0,Math.PI*2);x.fill();x.fillStyle='#fff6df';x.beginPath();x.ellipse(...head,43,50,-.22,0,Math.PI*2);x.fill();x.fillStyle='#243241';x.fillRect(head[0]+19,head[1],7,18);
+line([hip,[285,366],[320,410]],'#9b4478',20);line([shoulder,elbow,hand],'#9b4478',15);x.fillStyle='#4c2040';x.beginPath();x.arc(...hand,12,0,Math.PI*2);x.fill();if(i>=2&&i<=11){x.strokeStyle='#ef821b';x.lineWidth=6;x.beginPath();x.ellipse(...hand,18,19,0,0,Math.PI*2);x.stroke();}
+x.fillStyle='#344357';x.font='bold 20px sans-serif';x.fillText(name+' '+String(i).padStart(2,'0'),20,30);x.strokeStyle='#d1dbe7';x.lineWidth=1;x.strokeRect(1,1,510,510);x.restore();poses.push({hand,elbow,head,shoulder});}
+fs.writeFileSync(path.join(dir,'PoseGuide.png'),c.toBuffer('image/png'));fs.writeFileSync(path.join(dir,'Poses.json'),JSON.stringify(poses,null,2));}
