@@ -19,8 +19,8 @@ namespace Game.Traps
         [Header("난이도별 공격 시작 간격 (초, X: 최소 / Y: 최대)")]
         [SerializeField] private Vector2 _easyInterval = new Vector2(2.8f, 4.4f);
         [FormerlySerializedAs("_interval")]
-        [SerializeField] private Vector2 _normalInterval = new Vector2(2.2f, 2.8f);
-        [SerializeField] private Vector2 _hardInterval = new Vector2(0.9f, 2.1f);
+        [SerializeField] private Vector2 _normalInterval = new Vector2(2f, 2.8f);
+        [SerializeField] private Vector2 _hardInterval = new Vector2(0.8f, 2f);
         [SerializeField, Min(0.05f)] private float _warningTime = 0.8f;
         [SerializeField, Min(0.02f)] private float _flashTime = 0.1f;
         [SerializeField, Min(0.02f)] private float _fadeTime = 0.18f;

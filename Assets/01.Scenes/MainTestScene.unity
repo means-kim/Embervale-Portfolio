@@ -10655,7 +10655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: _maxHealth
-      value: 10
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
@@ -15525,7 +15525,7 @@ PrefabInstance:
       objectReference: {fileID: 1687473021}
     - target: {fileID: 3290482276672149958, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _maxHealth
-      value: 500
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _phase2Cinematic
@@ -48360,6 +48360,10 @@ PrefabInstance:
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 297177313599866805, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
+      propertyPath: _cooldown
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 297177313599866805, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: _aimCamera
       value: 
       objectReference: {fileID: 1653261766}
@@ -48429,7 +48433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7533624692983177567, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: _secondsPerSlot
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7684787043264827604, guid: e42930d8d8822304eb244360edda6a6d, type: 3}
       propertyPath: '_jumpPowers.Array.data[0]'
@@ -55722,14 +55726,14 @@ MonoBehaviour:
   - {fileID: 0}
   _startDelay: 1.2
   _easyInterval: {x: 3.5, y: 5}
-  _normalInterval: {x: 1.8, y: 2.5}
-  _hardInterval: {x: 1, y: 1.6}
+  _normalInterval: {x: 2, y: 2.5}
+  _hardInterval: {x: 0.8, y: 1.8}
   _warningTime: 0.8
   _flashTime: 0.1
   _fadeTime: 0.18
   _maxLength: 240
   _pastPlayer: 120
-  _damage: 30
+  _damage: 35
 --- !u!1001 &1810157697
 PrefabInstance:
   m_ObjectHideFlags: 0
