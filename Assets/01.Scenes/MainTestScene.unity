@@ -10655,7 +10655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930615092485249234, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: _maxHealth
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7981983542186342843, guid: fdb55c4874378c54b88e3486a5393530, type: 3}
       propertyPath: m_Name
@@ -14023,8 +14023,8 @@ GameObject:
   m_Component:
   - component: {fileID: 283690457}
   - component: {fileID: 283690458}
-  - component: {fileID: 283690459}
   - component: {fileID: 283690460}
+  - component: {fileID: 283690459}
   m_Layer: 0
   m_Name: Camera_BossPhase3
   m_TagString: Untagged
@@ -15164,6 +15164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponeZone
   _checkPoint: {fileID: 1308089175}
+  _ignoreDuringBossCinematics: 1
 --- !u!114 &332755826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3003589814785336344, guid: 46e7181ef7508b34f91b03b76ffa8a6d, type: 3}
@@ -15524,7 +15525,7 @@ PrefabInstance:
       objectReference: {fileID: 1687473021}
     - target: {fileID: 3290482276672149958, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _maxHealth
-      value: 2000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3684625565806078733, guid: c33cf2fa6b1cdc842b4b432e417bee61, type: 3}
       propertyPath: _phase2Cinematic
@@ -30062,6 +30063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponeZone
   _checkPoint: {fileID: 616592119}
+  _ignoreDuringBossCinematics: 1
 --- !u!61 &794960204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37255,6 +37257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponeZone
   _checkPoint: {fileID: 72514214}
+  _ignoreDuringBossCinematics: 1
 --- !u!1001 &1114196722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38034,6 +38037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponeZone
   _checkPoint: {fileID: 1516703223}
+  _ignoreDuringBossCinematics: 1
 --- !u!1 &1161534717
 GameObject:
   m_ObjectHideFlags: 0

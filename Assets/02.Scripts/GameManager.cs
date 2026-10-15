@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static bool IsLoading { get; private set; }
     private static string _requestedScene;
     private static bool _restoreCheckpointOnLoad;
+    private static bool _offerUpgradeOnLoad;
     private static float _normalFixedDeltaTime;
 
     [SerializeField] private PlayerUpgrades _upgrades;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         IsLoading = false;
         _requestedScene = null;
         _restoreCheckpointOnLoad = false;
+        _offerUpgradeOnLoad = false;
         _normalFixedDeltaTime = Time.fixedDeltaTime;
     }
 
@@ -128,11 +130,12 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance?.StopAllBgm();
         AudioManager.Instance?.PlayBgm(_startBgm);
 
-        bool offerUpgrade = _restoreCheckpointOnLoad;
+        bool offerUpgrade = _offerUpgradeOnLoad;
+        _offerUpgradeOnLoad = false;
         if (_restoreCheckpointOnLoad)
         {
             _restoreCheckpointOnLoad = false;
-            if (!CheckpointHistory.Restore(gameObject.scene))
+            if (!CheckpointHistory.Restore(gameObject.scene, restoreContinuePosition: !offerUpgrade))
             {
                 Debug.LogWarning("GameManager: 체크포인트 복원 실패 또는 미등록. 씬 시작 위치에서 재시작합니다.", this);
                 foreach (Player player in FindObjectsByType<Player>(FindObjectsSortMode.None))
@@ -229,7 +232,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Preserve upgrades, intro history, and defeated enemies on retry/continue.
-    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false, Difficulty difficulty = Difficulty.Normal, float introSkipHoldDuration = 1.5f, bool restoreCheckpoint = false)
+    public static bool LoadGameScene(string sceneName, bool newGame = false, VideoClip introClip = null, bool replayIntro = false, Difficulty difficulty = Difficulty.Normal, float introSkipHoldDuration = 1.5f, bool restoreCheckpoint = false, bool offerUpgrade = false)
     {
         if (IsLoading || GameIntroCinematic.IsTransitioning || string.IsNullOrWhiteSpace(sceneName))
         {
@@ -245,6 +248,7 @@ public class GameManager : MonoBehaviour
         {
             GameDifficulty.Set(difficulty);
             CheckpointHistory.Clear();
+            SecretRewardHistory.Clear();
             UpgradeHistory.ResetProgress();
             EncounterHistory.ResetSavedProgress();
             GameIntroCinematic.ResetProgress();
@@ -255,6 +259,7 @@ public class GameManager : MonoBehaviour
         }
         IsLoading = true;
         _restoreCheckpointOnLoad = restoreCheckpoint;
+        _offerUpgradeOnLoad = offerUpgrade;
         _requestedScene = sceneName;
         try
         {
@@ -275,6 +280,7 @@ public class GameManager : MonoBehaviour
             IsLoading = false;
             _requestedScene = null;
             _restoreCheckpointOnLoad = false;
+            _offerUpgradeOnLoad = false;
             Debug.LogException(exception);
             return false;
         }
@@ -290,7 +296,39 @@ public class GameManager : MonoBehaviour
             break;
         }
         // 재시도 플래그는 씬 로드를 시작하기 전에 확정한다.
-        return LoadGameScene(scene.path, restoreCheckpoint: true);
+        return LoadGameScene(scene.path, restoreCheckpoint: true, offerUpgrade: true);
+    }
+
+    public static void SaveContinueProgress(Scene scene)
+    {
+        foreach (Player player in FindObjectsByType<Player>(FindObjectsSortMode.None))
+        {
+            if (player.gameObject.scene != scene) continue;
+            player.GetComponent<PlayerUpgrades>()?.SaveProgress();
+            if (!RecordEncounterEntry(player)) CheckpointHistory.RecordContinue(player);
+            break;
+        }
+    }
+
+    private static bool RecordEncounterEntry(Player player)
+    {
+        foreach (AreaController area in FindObjectsByType<AreaController>(FindObjectsSortMode.None))
+        {
+            if (area.gameObject.scene != player.gameObject.scene || !area.IsEncounterInProgress) continue;
+            foreach (RespawnPoint point in FindObjectsByType<RespawnPoint>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (point.gameObject.scene != player.gameObject.scene || point.BattleArea != area) continue;
+                // The reloaded enemy starts a new fight; resume before its entry gate.
+                // Record clears the exact-position snapshot and restores this point's camera/mask.
+                CheckpointHistory.Record(player, point.transform);
+                return true;
+            }
+            // Preserve the existing retry location if an encounter has no entry point assigned.
+            CheckpointHistory.RecordCurrent(player);
+            Debug.LogWarning("GameManager: 전투 입구 RespawnPoint의 Area 연결을 확인하세요: " + area.name, area);
+            return true;
+        }
+        return false;
     }
 
     private void PrepareRetryPhysics()

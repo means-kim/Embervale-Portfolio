@@ -39,6 +39,7 @@ public class GateSwitch : MonoBehaviour
 
     private bool _findSecret = false;
     private Coroutine _secretRoutine;
+    private UI_Ability _secretUI;
     private void Awake()
     {
         if (_boxCollider == null) _boxCollider = GetComponent<BoxCollider2D>();
@@ -82,7 +83,7 @@ public class GateSwitch : MonoBehaviour
             {
                 CancelSecretOpen();
             }
-            else if (!_findSecret && _secretRoutine == null)
+            else if (!_findSecret && !SecretRewardHistory.HasClaimed(SecretRewardHistory.GetId(transform)) && _secretRoutine == null)
             {
                 _secretRoutine = StartCoroutine(OpenSecretAfterDelay());
             }
@@ -150,11 +151,22 @@ public class GateSwitch : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
+        if (SecretRewardHistory.HasClaimed(SecretRewardHistory.GetId(transform)))
+        {
+            _secretRoutine = null;
+            yield break;
+        }
         UI_Ability ui = UI_Ability.Instance;
         if (ui != null && ui.isActiveAndEnabled && !ui.IsOpen)
         {
             ui.Open();
             _findSecret = ui.IsOpen;
+            if (_findSecret)
+            {
+                _secretUI = ui;
+                ui.AbilityConfirmed += HandleSecretConfirmed;
+                ui.Closed += ReleaseSecretUI;
+            }
         }
         _secretRoutine = null;
     }
@@ -169,6 +181,23 @@ public class GateSwitch : MonoBehaviour
     private void OnDisable()
     {
         CancelSecretOpen();
+        ReleaseSecretUI();
+    }
+
+    private void HandleSecretConfirmed(UI_Ability.AbilityType type)
+    {
+        SecretRewardHistory.MarkClaimed(SecretRewardHistory.GetId(transform));
+    }
+
+    private void ReleaseSecretUI()
+    {
+        if (_secretUI != null)
+        {
+            _secretUI.AbilityConfirmed -= HandleSecretConfirmed;
+            _secretUI.Closed -= ReleaseSecretUI;
+            _secretUI = null;
+        }
+        _findSecret = false;
     }
 
     private void InArea(GateType type)
@@ -216,5 +245,23 @@ public class GateSwitch : MonoBehaviour
                     Outside = destination.Outside
                 });
         }
+    }
+
+    // Old continue saves have a position but no portal state. Use authored gate states.
+    public static void RestoreVisibilityForPosition(MapVisibility map, Vector3 position)
+    {
+        GateSwitch nearest = null;
+        float distance = float.PositiveInfinity;
+        foreach (GateSwitch gate in FindObjectsByType<GateSwitch>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (gate._mapVisibility != map || gate.gameObject.scene != map.gameObject.scene) continue;
+            float candidate = Mathf.Abs(position.x - gate.transform.position.x);
+            if (candidate >= distance) continue;
+            distance = candidate;
+            nearest = gate;
+        }
+        if (nearest == null) return;
+        Destination destination = nearest.IsRight(position) ? nearest._right : nearest._left;
+        map.SetState(new MapVisibility.PortalState { Inside = destination.Inside, Outside = destination.Outside });
     }
 }

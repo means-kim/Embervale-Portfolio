@@ -10,6 +10,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CinemachineCamera _defaultCamera;
     [SerializeField] private CinemachineImpulseSource _impulseSource;
     private CinemachineCamera _currentCamera;
+    public CinemachineCamera CurrentCamera => _currentCamera;
 
     private void Awake()
     {

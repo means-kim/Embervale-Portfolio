@@ -49,6 +49,7 @@ public class UI_Ability : MonoBehaviour
     public event Action<AbilityType> AbilityConfirmed;
     // 능력치 적용과 UI·입력 정리가 모두 끝난 뒤 발송한다.
     public event Action<AbilityType> AbilitySelectionCompleted;
+    public event Action Closed;
     public bool IsOpen => _isOpen;
     public bool AllowCancel => _allowCancel;
     public int SelectedIndex => _selectedIndex;
@@ -304,6 +305,7 @@ public class UI_Ability : MonoBehaviour
         if (wasOpen)
         {
             _onClosed.Invoke();
+            Closed?.Invoke();
         }
     }
 

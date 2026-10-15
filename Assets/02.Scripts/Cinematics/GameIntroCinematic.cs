@@ -18,6 +18,7 @@ public sealed class GameIntroCinematic : MonoBehaviour
     {
         get
         {
+            if (CheckpointHistory.HasSavedProgress) return true;
             if (PlayerPrefs.GetInt(StartedKey, 0) == 1) return true;
             // Existing saves predate this intro. Preserve their continue behavior.
             foreach (UpgradeType type in Enum.GetValues(typeof(UpgradeType)))

@@ -8,6 +8,7 @@ public class RespawnPoint : MonoBehaviour
     [SerializeField] private bool _inside;
     [SerializeField] private bool _outside;
     [SerializeField] private AreaController _area;
+    public AreaController BattleArea => _area;
 
     public void PrepareForRetry() => _area?.ResetForRetry();
 

@@ -173,6 +173,8 @@ public class OutGameUI : MonoBehaviour
     [ContextMenu("테스트: 세이브 기록 삭제 (첫 실행 상태)")]
     private void ClearSaveRecordsForTest()
     {
+        CheckpointHistory.Clear();
+        SecretRewardHistory.Clear();
         GameIntroCinematic.ResetProgress();
         UpgradeHistory.ResetProgress();
         EncounterHistory.ResetSavedProgress();
@@ -209,7 +211,7 @@ public class OutGameUI : MonoBehaviour
         {
             return;
         }
-        GameManager.LoadGameScene(_gameSceneName, introClip: _introClip, introSkipHoldDuration: _introSkipHoldDuration);
+        GameManager.LoadGameScene(_gameSceneName, introClip: _introClip, introSkipHoldDuration: _introSkipHoldDuration, restoreCheckpoint: true);
     }
 
     public void OnClickGameStart()

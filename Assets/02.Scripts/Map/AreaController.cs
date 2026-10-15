@@ -29,6 +29,8 @@ public class AreaController : MonoBehaviour
     [Header("처치 대상")]
     [SerializeField] private Health _enemyHealth;
     private AreaState _state = AreaState.Waiting;
+    public bool IsEncounterInProgress => (_state == AreaState.Intro || _state == AreaState.Fighting)
+        && _enemyHealth != null && !_enemyHealth.IsDead;
 
     [Header("다시시작 초기화")]
     [SerializeField] public UnityEvent OnRetryReset;

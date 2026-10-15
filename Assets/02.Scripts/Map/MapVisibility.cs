@@ -40,7 +40,6 @@ public sealed class MapVisibility : MonoBehaviour
 
     public void SetState(PortalState state)
     {
-        if (_inside == state.Inside && _outside == state.Outside) return;
         _inside = state.Inside;
         _outside = state.Outside;
         Apply(true);

@@ -128,6 +128,7 @@ public sealed class InGamePauseMenu : MonoBehaviour
         }
 
         // 다음 씬에 일시정지 시간과 오디오 상태가 남지 않게 먼저 복구한다.
+        GameManager.SaveContinueProgress(gameObject.scene);
         Resume();
         if (!GameManager.LoadGameScene(_mainMenuSceneName))
         {
